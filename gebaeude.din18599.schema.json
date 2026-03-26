@@ -1,137 +1,167 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "DIN 18599 Sidecar",
-  "description": "JSON Sidecar für IFC-Dateien zur Abbildung von Energieberatungsdaten nach DIN 18599",
+  "title": "IFC + DIN 18599 Sidecar",
+  "description": "JSON Sidecar für IFC-Dateien zur Abbildung von Energieberatungsdaten nach DIN 18599. Unterteilt in Input (Definition) und Output (Ergebnisse).",
   "type": "object",
   "properties": {
-    "schema": {
-      "type": "string",
-      "const": "https://din18599-ifc.de/schema/v1"
+    "schema_info": {
+      "type": "object",
+      "properties": {
+        "url": { "type": "string", "const": "https://din18599-ifc.de/schema/v1" },
+        "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" }
+      },
+      "required": ["url", "version"]
     },
-    "schema_version": {
-      "type": "string"
-    },
-    "din18599_norm_version": {
-      "type": "string"
-    },
-    "metadata": {
+    "meta": {
+      "description": "Metadaten zum Projekt und zur Berechnung",
       "type": "object",
       "properties": {
         "project_id": { "type": "string" },
-        "ifc_file": { "type": "string" },
-        "ifc_guid_building": { "type": "string" },
-        "created_at": { "type": "string", "format": "date-time" },
-        "created_by": {
+        "project_name": { "type": "string" },
+        "ifc_file_ref": { "type": "string", "description": "Dateiname der zugehörigen IFC-Datei" },
+        "ifc_guid_building": { "type": "string", "description": "IfcBuilding GUID" },
+        "software_name": { "type": "string" },
+        "software_version": { "type": "string" },
+        "calculation_date": { "type": "string", "format": "date-time" },
+        "norm_version": { "type": "string", "description": "Angewandte Norm, z.B. DIN V 18599:2018-09" }
+      },
+      "required": ["ifc_file_ref", "ifc_guid_building"]
+    },
+    "input": {
+      "description": "Eingabedaten für die Berechnung (Source of Truth)",
+      "type": "object",
+      "properties": {
+        "climate_location": {
           "type": "object",
           "properties": {
-            "name": { "type": "string" },
-            "software": { "type": "string" },
-            "software_version": { "type": "string" }
+            "postcode": { "type": "string" },
+            "city": { "type": "string" },
+            "try_region_code": { "type": "integer", "description": "Testreferenzjahr-Region (1-15)" }
+          }
+        },
+        "zones": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string" },
+              "name": { "type": "string" },
+              "usage_profile": { "type": "string", "description": "Code nach DIN 18599-10, z.B. '17'" },
+              "area_an": { "type": "number", "description": "Energiebezugsfläche AN in m²" },
+              "height_h": { "type": "number", "description": "Lichte Raumhöhe in m" },
+              "air_change_n50": { "type": "number", "description": "Luftwechselrate 1/h bei 50 Pa" },
+              "space_guids": {
+                "type": "array",
+                "items": { "type": "string", "description": "GUIDs der zugeordneten IfcSpace Objekte" }
+              }
+            },
+            "required": ["id", "usage_profile"]
+          }
+        },
+        "elements": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "ifc_guid": { "type": "string", "description": "Referenz zu IfcWall, IfcSlab, etc." },
+              "boundary_condition": {
+                "type": "string",
+                "enum": ["EXTERIOR", "GROUND", "UNHEATED", "HEATED", "ADIABATIC"]
+              },
+              "u_value": { "type": "number", "description": "Wärmedurchgangskoeffizient W/m²K" },
+              "thermal_bridge_delta_u": { "type": "number", "description": "Wärmebrückenzuschlag W/m²K" },
+              "orientation": { "type": "number", "description": "0=N, 90=O, 180=S, 270=W" },
+              "inclination": { "type": "number", "description": "0=Horizontal, 90=Vertikal" },
+              "layer_structure_id": { "type": "string", "description": "Referenz auf eine Schichtaufbau-ID" }
+            },
+            "required": ["ifc_guid", "boundary_condition", "u_value"]
+          }
+        },
+        "windows": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "ifc_guid": { "type": "string", "description": "Referenz zu IfcWindow/IfcDoor" },
+              "u_value_w": { "type": "number", "description": "Uw-Wert (Gesamt)" },
+              "g_value_tot": { "type": "number", "description": "Gesamtenergiedurchlassgrad" },
+              "frame_fraction": { "type": "number", "description": "Rahmenanteil 0.0-1.0" },
+              "shading_factor_fs": { "type": "number", "description": "Verschattungsfaktor Fs 0.0-1.0" }
+            },
+            "required": ["ifc_guid", "u_value_w", "g_value_tot"]
+          }
+        },
+        "materials": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string" },
+              "name": { "type": "string" },
+              "lambda": { "type": "number" },
+              "density": { "type": "number" },
+              "oekobau_uuid": { "type": "string", "description": "UUID aus Ökobaudat für LCA" }
+            },
+            "required": ["id", "name"]
+          }
+        },
+        "systems": {
+          "description": "Anlagentechnik (Erzeuger)",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string" },
+              "type": {
+                "type": "string",
+                "enum": ["BOILER_GAS", "BOILER_OIL", "BOILER_BIOMASS", "HEAT_PUMP_AIR", "HEAT_PUMP_BRINE", "HEAT_PUMP_WATER", "DISTRICT_HEATING", "DIRECT_ELECTRIC", "SOLAR_THERMAL", "PV"]
+              },
+              "name": { "type": "string" },
+              "year_built": { "type": "integer" },
+              "condensing": { "type": "boolean", "description": "Brennwerttechnik?" },
+              "cop_a2_w35": { "type": "number", "description": "COP A2/W35 für WP" },
+              "refrigerant_gwp": { "type": "number", "description": "GWP des Kältemittels" }
+            },
+            "required": ["id", "type"]
           }
         }
       },
-      "required": ["ifc_file", "ifc_guid_building"]
+      "required": ["zones", "elements"]
     },
-    "gebaeude": {
+    "output": {
+      "description": "Ergebnisse der Berechnung (Read-Only Snapshot)",
       "type": "object",
       "properties": {
-        "ifc_guid": { "type": "string" },
-        "try_region": { "type": "integer" },
-        "gebaeudetyp": { "type": "string" },
-        "baujahr": { "type": "integer" }
-      }
-    },
-    "zonen": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "id": { "type": "string" },
-          "ifc_guid_space": { "type": "string" },
-          "bezeichnung": { "type": "string" },
-          "nutzungsprofil": { "type": "string" },
-          "zone_typ": { "type": "string", "enum": ["BEHEIZT", "UNBEHEIZT"] },
-          "nrf": { "type": "number" },
-          "raumhoehe": { "type": "number" },
-          "temp_soll_heiz": { "type": "number" }
-        },
-        "required": ["id", "ifc_guid_space", "bezeichnung"]
-      }
-    },
-    "bauteile": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "id": { "type": "string" },
-          "ifc_guid_element": { "type": "string" },
-          "zone_id": { "type": "string" },
-          "typ": { "type": "string", "enum": ["AW", "IW", "DA", "DE", "BO", "FE", "TU"] },
-          "bezeichnung": { "type": "string" },
-          "flaeche": { "type": "number" },
-          "u_wert": { "type": "number" }
-        },
-        "required": ["id", "ifc_guid_element", "typ"]
-      }
-    },
-    "anlagentechnik": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "id": { "type": "string" },
-          "typ": { "type": "string", "enum": ["HEIZUNG", "LUEFTUNG", "WW", "KUEHLUNG", "PV"] },
-          "bezeichnung": { "type": "string" }
-        },
-        "required": ["id", "typ"]
-      }
-    },
-    "varianten": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "id": { "type": "string" },
-          "bezeichnung": { "type": "string" },
-          "typ": { "type": "string" },
-          "massnahmen": { "type": "array", "items": { "type": "string" } },
-          "bilanz": {
-            "type": "object",
-            "properties": {
-              "qp_kwh_m2a": { "type": "number" },
-              "effizienzklasse": { "type": "string" },
-              "co2_kg_m2a": { "type": "number" }
-            }
+        "energy_balance": {
+          "type": "object",
+          "properties": {
+            "final_energy_kwh_a": { "type": "number", "description": "Endenergiebedarf" },
+            "primary_energy_kwh_a": { "type": "number", "description": "Primärenergiebedarf" },
+            "useful_energy_kwh_a": { "type": "number", "description": "Nutzenergiebedarf" }
           }
         },
-        "required": ["id", "bezeichnung"]
-      }
-    },
-    "massnahmen": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "id": { "type": "string" },
-          "typ": { "type": "string" },
-          "bezeichnung": { "type": "string" },
-          "bauteil_ids": { "type": "array", "items": { "type": "string" } }
+        "sectors": {
+          "type": "object",
+          "properties": {
+            "heating_kwh_a": { "type": "number" },
+            "cooling_kwh_a": { "type": "number" },
+            "dhw_kwh_a": { "type": "number" },
+            "lighting_kwh_a": { "type": "number" }
+          }
         },
-        "required": ["id", "typ", "bezeichnung"]
-      }
-    },
-    "timeline": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "id": { "type": "string" },
-          "jahr": { "type": "integer" },
-          "massnahme_ids": { "type": "array", "items": { "type": "string" } },
-          "variante_id": { "type": "string" }
+        "indicators": {
+          "type": "object",
+          "properties": {
+            "qp_ref_kwh_m2a": { "type": "number", "description": "Primärenergie Referenzgebäude" },
+            "ht_prime_w_m2k": { "type": "number", "description": "Transmissionswärmeverlust H'T" },
+            "ht_prime_ref_w_m2k": { "type": "number", "description": "Grenzwert H'T" },
+            "efficiency_class": { "type": "string" },
+            "co2_emissions_kg_a": { "type": "number" },
+            "share_renewable_percent": { "type": "number" }
+          }
         }
       }
     }
   },
-  "required": ["schema", "metadata", "gebaeude", "zonen", "bauteile"]
+  "required": ["schema_info", "meta", "input"]
 }
