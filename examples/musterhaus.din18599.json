@@ -1,0 +1,122 @@
+{
+  "$schema": "../gebaeude.din18599.schema.json",
+  "schema_info": {
+    "url": "https://din18599-ifc.de/schema/v1",
+    "version": "1.0.0"
+  },
+  "meta": {
+    "project_id": "PRJ-2026-001",
+    "project_name": "Musterhaus Energiestadt",
+    "ifc_file_ref": "musterhaus.ifc",
+    "ifc_guid_building": "28f92j92-3821-4921-9832-192839182391",
+    "software_name": "EnergyCalc Pro",
+    "software_version": "5.2.1",
+    "calculation_date": "2026-03-15T14:30:00Z",
+    "norm_version": "DIN V 18599:2018-09"
+  },
+  "input": {
+    "climate_location": {
+      "postcode": "52062",
+      "city": "Aachen",
+      "try_region_code": 5
+    },
+    "zones": [
+      {
+        "id": "ZONE-01",
+        "name": "Wohnbereich",
+        "usage_profile": "1",
+        "area_an": 156.5,
+        "height_h": 2.65,
+        "air_change_n50": 1.5,
+        "space_guids": [
+          "1xS3BCk291NvV5o6281",
+          "1xS3BCk291NvV5o6282",
+          "1xS3BCk291NvV5o6283"
+        ]
+      }
+    ],
+    "elements": [
+      {
+        "ifc_guid": "3xS3BCk291NvV5o6281",
+        "boundary_condition": "EXTERIOR",
+        "u_value": 0.24,
+        "thermal_bridge_delta_u": 0.05,
+        "orientation": 180,
+        "inclination": 90,
+        "layer_structure_id": "LAYER-AW-01"
+      },
+      {
+        "ifc_guid": "3xS3BCk291NvV5o6282",
+        "boundary_condition": "GROUND",
+        "u_value": 0.35,
+        "thermal_bridge_delta_u": 0.05,
+        "orientation": 0,
+        "inclination": 0,
+        "layer_structure_id": "LAYER-BP-01"
+      }
+    ],
+    "windows": [
+      {
+        "ifc_guid": "2xS3BCk291NvV5o6281",
+        "u_value_w": 0.9,
+        "g_value_tot": 0.5,
+        "frame_fraction": 0.25,
+        "shading_factor_fs": 0.9
+      }
+    ],
+    "materials": [
+      {
+        "id": "MAT-01",
+        "name": "Ziegelmauerwerk",
+        "lambda": 0.42,
+        "density": 1600,
+        "oekobau_uuid": "7291-8291-1928-1928"
+      },
+      {
+        "id": "MAT-02",
+        "name": "EPS Dämmung",
+        "lambda": 0.035,
+        "density": 20,
+        "oekobau_uuid": "1928-1928-7291-8291"
+      }
+    ],
+    "systems": [
+      {
+        "id": "SYS-HP-01",
+        "type": "HEAT_PUMP_AIR",
+        "name": "Luft-Wasser-Wärmepumpe 12kW",
+        "year_built": 2024,
+        "condensing": false,
+        "cop_a2_w35": 3.8,
+        "refrigerant_gwp": 3
+      },
+      {
+        "id": "SYS-PV-01",
+        "type": "PV",
+        "name": "PV-Anlage Süd",
+        "year_built": 2024
+      }
+    ]
+  },
+  "output": {
+    "energy_balance": {
+      "final_energy_kwh_a": 4500.5,
+      "primary_energy_kwh_a": 8100.9,
+      "useful_energy_kwh_a": 12500.0
+    },
+    "sectors": {
+      "heating_kwh_a": 3200.0,
+      "cooling_kwh_a": 0.0,
+      "dhw_kwh_a": 1100.5,
+      "lighting_kwh_a": 200.0
+    },
+    "indicators": {
+      "qp_ref_kwh_m2a": 75.0,
+      "ht_prime_w_m2k": 0.35,
+      "ht_prime_ref_w_m2k": 0.40,
+      "efficiency_class": "A+",
+      "co2_emissions_kg_a": 1850.0,
+      "share_renewable_percent": 65.0
+    }
+  }
+}
