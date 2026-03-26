@@ -83,4 +83,4 @@ projekt_musterstrasse1/
 
 ## Lizenz
 
-MIT License - Open Standard
+Apache License, Version 2.0 - Open Standard
