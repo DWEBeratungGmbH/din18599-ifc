@@ -49,7 +49,14 @@
               "usage_profile": { "type": "string", "description": "Code nach DIN 18599-10, z.B. '17'" },
               "area_an": { "type": "number", "description": "Energiebezugsfläche AN in m²" },
               "height_h": { "type": "number", "description": "Lichte Raumhöhe in m" },
+              "volume_v": { "type": "number", "description": "Nettoraumvolumen Vi in m³" },
               "air_change_n50": { "type": "number", "description": "Luftwechselrate 1/h bei 50 Pa" },
+              "design_temp_heating": { "type": "number", "description": "Soll-Temperatur Heizen in °C" },
+              "design_temp_cooling": { "type": "number", "description": "Soll-Temperatur Kühlen in °C" },
+              "lighting_control": {
+                "type": "string",
+                "enum": ["MANUAL", "PRESENCE", "DAYLIGHT", "FULL_AUTO"]
+              },
               "space_guids": {
                 "type": "array",
                 "items": { "type": "string", "description": "GUIDs der zugeordneten IfcSpace Objekte" }
@@ -59,6 +66,7 @@
           }
         },
         "elements": {
+          "description": "Opake Bauteile (Wände, Decken, Dächer)",
           "type": "array",
           "items": {
             "type": "object",
@@ -68,27 +76,37 @@
                 "type": "string",
                 "enum": ["EXTERIOR", "GROUND", "UNHEATED", "HEATED", "ADIABATIC"]
               },
-              "u_value": { "type": "number", "description": "Wärmedurchgangskoeffizient W/m²K" },
+              "u_value_undisturbed": { "type": "number", "description": "U-Wert im Gefach (ohne Wärmebrücken) W/m²K" },
               "thermal_bridge_delta_u": { "type": "number", "description": "Wärmebrückenzuschlag W/m²K" },
+              "thermal_bridge_type": {
+                "type": "string",
+                "enum": ["DEFAULT", "REDUCED", "DETAILED"]
+              },
+              "solar_absorption": { "type": "number", "description": "Absorptionsgrad der Oberfläche (0-1)" },
               "orientation": { "type": "number", "description": "0=N, 90=O, 180=S, 270=W" },
               "inclination": { "type": "number", "description": "0=Horizontal, 90=Vertikal" },
-              "layer_structure_id": { "type": "string", "description": "Referenz auf eine Schichtaufbau-ID" }
+              "layer_structure_ref": { "type": "string", "description": "Referenz auf eine Schichtaufbau-ID" }
             },
-            "required": ["ifc_guid", "boundary_condition", "u_value"]
+            "required": ["ifc_guid", "boundary_condition", "u_value_undisturbed"]
           }
         },
         "windows": {
+          "description": "Transparente Bauteile (Fenster, Türen)",
           "type": "array",
           "items": {
             "type": "object",
             "properties": {
               "ifc_guid": { "type": "string", "description": "Referenz zu IfcWindow/IfcDoor" },
-              "u_value_w": { "type": "number", "description": "Uw-Wert (Gesamt)" },
-              "g_value_tot": { "type": "number", "description": "Gesamtenergiedurchlassgrad" },
+              "u_value_glass": { "type": "number", "description": "Ug-Wert Verglasung" },
+              "u_value_frame": { "type": "number", "description": "Uf-Wert Rahmen" },
+              "psi_spacer": { "type": "number", "description": "Psi-Wert Randverbund W/mK" },
+              "g_value": { "type": "number", "description": "Gesamtenergiedurchlassgrad (0-1)" },
               "frame_fraction": { "type": "number", "description": "Rahmenanteil 0.0-1.0" },
-              "shading_factor_fs": { "type": "number", "description": "Verschattungsfaktor Fs 0.0-1.0" }
+              "shading_factor_fs": { "type": "number", "description": "Verschattungsfaktor Fs 0.0-1.0 (pauschal)" },
+              "horizon_angle": { "type": "number", "description": "Horizontüberhöhungswinkel in Grad" },
+              "overhang_angle": { "type": "number", "description": "Überhangwinkel in Grad" }
             },
-            "required": ["ifc_guid", "u_value_w", "g_value_tot"]
+            "required": ["ifc_guid", "u_value_glass", "u_value_frame", "g_value"]
           }
         },
         "materials": {
@@ -106,7 +124,7 @@
           }
         },
         "systems": {
-          "description": "Anlagentechnik (Erzeuger)",
+          "description": "Wärmeerzeuger (Heizung)",
           "type": "array",
           "items": {
             "type": "object",
@@ -116,13 +134,137 @@
                 "type": "string",
                 "enum": ["BOILER_GAS", "BOILER_OIL", "BOILER_BIOMASS", "HEAT_PUMP_AIR", "HEAT_PUMP_BRINE", "HEAT_PUMP_WATER", "DISTRICT_HEATING", "DIRECT_ELECTRIC", "SOLAR_THERMAL", "PV"]
               },
+              "energy_source": {
+                "type": "string",
+                "enum": ["GAS", "OIL", "ELECTRICITY", "WOOD", "DISTRICT"]
+              },
               "name": { "type": "string" },
               "year_built": { "type": "integer" },
               "condensing": { "type": "boolean", "description": "Brennwerttechnik?" },
-              "cop_a2_w35": { "type": "number", "description": "COP A2/W35 für WP" },
-              "refrigerant_gwp": { "type": "number", "description": "GWP des Kältemittels" }
+              "operation_mode": {
+                "type": "string",
+                "enum": ["MONOVALENT", "MONOENERGETIC", "BIVALENT_PARALLEL", "BIVALENT_ALTERNATIVE"]
+              },
+              "bivalence_temp": { "type": "number", "description": "Bivalenztemperatur in °C" },
+              "heat_pump": {
+                "type": "object",
+                "properties": {
+                  "cop_a2_w35": { "type": "number", "description": "COP A2/W35" },
+                  "cop_a7_w35": { "type": "number", "description": "COP A7/W35" },
+                  "refrigerant": { "type": "string", "description": "Kältemittel" }
+                }
+              }
             },
             "required": ["id", "type"]
+          }
+        },
+        "distribution": {
+          "description": "Wärmeverteilung",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": ["TWO_PIPE", "ONE_PIPE", "TICHELMANN"]
+              },
+              "temp_flow_design": { "type": "number", "description": "Auslegungsvorlauftemperatur °C" },
+              "temp_return_design": { "type": "number", "description": "Auslegungsrücklauftemperatur °C" },
+              "pipe_insulation": {
+                "type": "string",
+                "enum": ["NONE", "100_PERCENT", "50_PERCENT", "ENEV"]
+              },
+              "hydraulic_balance": { "type": "boolean" },
+              "pump_control": {
+                "type": "string",
+                "enum": ["UNCONTROLLED", "PRESSURE_CONTROLLED", "ADAPTIVE"]
+              }
+            }
+          }
+        },
+        "dhw": {
+          "description": "Trinkwarmwasser",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": ["CENTRAL", "DECENTRAL_ELECTRIC", "DECENTRAL_GAS"]
+              },
+              "storage_volume": { "type": "number", "description": "Speichervolumen in Liter" },
+              "storage_loss_factor": { "type": "number", "description": "Bereitschaftsverlust W/K" },
+              "circulation": { "type": "boolean", "description": "Zirkulation vorhanden?" },
+              "circulation_length": { "type": "number", "description": "Länge Zirkulationsleitung m" },
+              "pipe_insulation": {
+                "type": "string",
+                "enum": ["NONE", "100_PERCENT", "ENEV"]
+              }
+            },
+            "required": ["type"]
+          }
+        },
+        "ventilation": {
+          "description": "Lüftung",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": ["WINDOW", "EXHAUST_ONLY", "SUPPLY_EXHAUST"]
+              },
+              "heat_recovery": { "type": "boolean" },
+              "heat_recovery_efficiency": { "type": "number", "description": "Rückwärmezahl (0-1)" },
+              "volume_flow": { "type": "number", "description": "Auslegungsvolumenstrom m³/h" },
+              "spf_fan": { "type": "number", "description": "Spezifische Ventilatorleistung Wh/m³" }
+            },
+            "required": ["type"]
+          }
+        },
+        "lighting": {
+          "description": "Beleuchtung (DIN 18599-4)",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "zone_id": { "type": "string" },
+              "technology": {
+                "type": "string",
+                "enum": ["LED", "FLUORESCENT", "HALOGEN", "INCANDESCENT"]
+              },
+              "control": {
+                "type": "string",
+                "enum": ["MANUAL", "PRESENCE", "DAYLIGHT", "CONSTANT_LIGHT"]
+              },
+              "installed_power": { "type": "number", "description": "Installierte Leistung W/m²" }
+            }
+          }
+        },
+        "automation": {
+          "description": "Gebäudeautomation (DIN 18599-11)",
+          "type": "object",
+          "properties": {
+            "class": {
+              "type": "string",
+              "enum": ["A", "B", "C", "D"],
+              "description": "Automationsklasse (A=High Performance, D=None)"
+            }
+          }
+        },
+        "pv": {
+          "description": "Photovoltaik",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "peak_power": { "type": "number", "description": "Nennleistung kWp" },
+              "orientation": { "type": "number", "description": "Ausrichtung Grad" },
+              "inclination": { "type": "number", "description": "Neigung Grad" },
+              "system_loss": { "type": "number", "description": "Systemverluste (0-1)" },
+              "battery_capacity": { "type": "number", "description": "Batteriespeicher kWh" }
+            },
+            "required": ["peak_power"]
           }
         }
       },
@@ -137,7 +279,8 @@
           "properties": {
             "final_energy_kwh_a": { "type": "number", "description": "Endenergiebedarf" },
             "primary_energy_kwh_a": { "type": "number", "description": "Primärenergiebedarf" },
-            "useful_energy_kwh_a": { "type": "number", "description": "Nutzenergiebedarf" }
+            "useful_energy_kwh_a": { "type": "number", "description": "Nutzenergiebedarf" },
+            "energy_reference_area": { "type": "number", "description": "Energiebezugsfläche AN in m²" }
           }
         },
         "sectors": {
@@ -146,18 +289,20 @@
             "heating_kwh_a": { "type": "number" },
             "cooling_kwh_a": { "type": "number" },
             "dhw_kwh_a": { "type": "number" },
+            "ventilation_kwh_a": { "type": "number" },
             "lighting_kwh_a": { "type": "number" }
           }
         },
         "indicators": {
           "type": "object",
           "properties": {
-            "qp_ref_kwh_m2a": { "type": "number", "description": "Primärenergie Referenzgebäude" },
-            "ht_prime_w_m2k": { "type": "number", "description": "Transmissionswärmeverlust H'T" },
-            "ht_prime_ref_w_m2k": { "type": "number", "description": "Grenzwert H'T" },
+            "qp_val_kwh_m2a": { "type": "number", "description": "Primärenergie Ist-Wert" },
+            "qp_ref_kwh_m2a": { "type": "number", "description": "Primärenergie Anforderung" },
+            "ht_prime_val_w_m2k": { "type": "number", "description": "Transmissionswärmeverlust Ist-Wert" },
+            "ht_prime_ref_w_m2k": { "type": "number", "description": "Transmissionswärmeverlust Anforderung" },
             "efficiency_class": { "type": "string" },
             "co2_emissions_kg_a": { "type": "number" },
-            "share_renewable_percent": { "type": "number" }
+            "renewable_share_percent": { "type": "number" }
           }
         }
       }
