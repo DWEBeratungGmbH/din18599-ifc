@@ -108,7 +108,7 @@
           "type": "ROOF",
           "boundary_condition": "EXTERIOR",
           "u_value": 0.18,
-          "vertices": ["V4", "V5", "V6", "V7"]
+          "vertices": ["V4", "V7", "V6", "V5"]
         },
         {
           "id": "BODEN",
