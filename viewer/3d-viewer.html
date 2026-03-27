@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIN 18599 IFC - 3D Viewer (Hierarchical Geometry)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #1a1a1a;
+            color: #fff;
+            overflow: hidden;
+        }
+        
+        #container {
+            display: flex;
+            height: 100vh;
+        }
+        
+        #sidebar {
+            width: 300px;
+            background: #2a2a2a;
+            padding: 20px;
+            overflow-y: auto;
+            border-right: 1px solid #444;
+        }
+        
+        #viewer {
+            flex: 1;
+            position: relative;
+        }
+        
+        #controls {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(42, 42, 42, 0.9);
+            padding: 15px;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .control-group {
+            margin-bottom: 15px;
+        }
+        
+        .control-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 12px;
+            color: #aaa;
+        }
+        
+        .control-group input[type="range"] {
+            width: 100%;
+        }
+        
+        .control-group button {
+            width: 100%;
+            padding: 8px;
+            background: #4CAF50;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .control-group button:hover {
+            background: #45a049;
+        }
+        
+        #drop-zone {
+            border: 2px dashed #666;
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            cursor: pointer;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+        }
+        
+        #drop-zone:hover {
+            border-color: #4CAF50;
+            background: rgba(76, 175, 80, 0.1);
+        }
+        
+        #drop-zone.dragover {
+            border-color: #4CAF50;
+            background: rgba(76, 175, 80, 0.2);
+        }
+        
+        .info-section {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+        }
+        
+        .info-section h3 {
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #4CAF50;
+        }
+        
+        .info-section p {
+            font-size: 12px;
+            line-height: 1.6;
+            color: #ccc;
+        }
+        
+        .legend {
+            margin-top: 20px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            font-size: 12px;
+        }
+        
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+        
+        #stats {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(42, 42, 42, 0.9);
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 12px;
+            backdrop-filter: blur(10px);
+        }
+        
+        #stats div {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="sidebar">
+            <h2 style="margin-bottom: 20px;">3D Viewer</h2>
+            
+            <div id="drop-zone">
+                <p>📁 Datei hier ablegen</p>
+                <p style="font-size: 12px; color: #888; margin-top: 10px;">oder klicken zum Auswählen</p>
+                <input type="file" id="file-input" accept=".json" style="display: none;">
+            </div>
+            
+            <div id="project-info" style="display: none;">
+                <div class="info-section">
+                    <h3>Projekt</h3>
+                    <p id="project-name">-</p>
+                    <p id="project-lod" style="margin-top: 5px;">-</p>
+                </div>
+                
+                <div class="info-section">
+                    <h3>Gebäude</h3>
+                    <p id="building-info">-</p>
+                </div>
+                
+                <div class="info-section">
+                    <h3>Zonen</h3>
+                    <div id="zones-list"></div>
+                </div>
+                
+                <div class="legend">
+                    <h3 style="margin-bottom: 10px; font-size: 14px; color: #4CAF50;">Legende</h3>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #4CAF50;"></div>
+                        <span>Außenwände (gedämmt)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #FF5722;"></div>
+                        <span>Außenwände (ungedämmt)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #2196F3;"></div>
+                        <span>Innenwände</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #FFC107;"></div>
+                        <span>Fenster</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #9C27B0;"></div>
+                        <span>Dach</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #795548;"></div>
+                        <span>Boden</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="viewer">
+            <div id="controls">
+                <div class="control-group">
+                    <label>Nord-Ausrichtung: <span id="north-value">45°</span></label>
+                    <input type="range" id="north-angle" min="0" max="360" value="45" step="1">
+                </div>
+                <div class="control-group">
+                    <button id="reset-camera">Kamera zurücksetzen</button>
+                </div>
+                <div class="control-group">
+                    <button id="toggle-wireframe">Wireframe an/aus</button>
+                </div>
+            </div>
+            
+            <div id="stats">
+                <div><strong>Steuerung:</strong></div>
+                <div>🖱️ Linke Maustaste: Rotieren</div>
+                <div>🖱️ Rechte Maustaste: Verschieben</div>
+                <div>🖱️ Mausrad: Zoom</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/js/controls/OrbitControls.js"></script>
+    
+    <script>
+        let scene, camera, renderer, controls;
+        let buildingGroup, wallsGroup, floorsGroup, roofsGroup, windowsGroup;
+        let currentData = null;
+        let wireframeMode = false;
+        
+        // Farben
+        const COLORS = {
+            WALL_INSULATED: 0x4CAF50,
+            WALL_UNINSULATED: 0xFF5722,
+            WALL_INTERIOR: 0x2196F3,
+            WINDOW: 0xFFC107,
+            ROOF: 0x9C27B0,
+            FLOOR: 0x795548,
+            GROUND: 0x8D6E63
+        };
+        
+        // Init Three.js
+        function initThreeJS() {
+            const container = document.getElementById('viewer');
+            
+            // Scene
+            scene = new THREE.Scene();
+            scene.background = new THREE.Color(0x1a1a1a);
+            scene.fog = new THREE.Fog(0x1a1a1a, 50, 200);
+            
+            // Camera
+            camera = new THREE.PerspectiveCamera(
+                60,
+                container.clientWidth / container.clientHeight,
+                0.1,
+                1000
+            );
+            camera.position.set(20, 15, 20);
+            camera.lookAt(0, 0, 0);
+            
+            // Renderer
+            renderer = new THREE.WebGLRenderer({ antialias: true });
+            renderer.setSize(container.clientWidth, container.clientHeight);
+            renderer.shadowMap.enabled = true;
+            renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+            container.appendChild(renderer.domElement);
+            
+            // Controls
+            controls = new THREE.OrbitControls(camera, renderer.domElement);
+            controls.enableDamping = true;
+            controls.dampingFactor = 0.05;
+            controls.minDistance = 5;
+            controls.maxDistance = 100;
+            
+            // Lights
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+            scene.add(ambientLight);
+            
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+            directionalLight.position.set(10, 20, 10);
+            directionalLight.castShadow = true;
+            directionalLight.shadow.camera.left = -50;
+            directionalLight.shadow.camera.right = 50;
+            directionalLight.shadow.camera.top = 50;
+            directionalLight.shadow.camera.bottom = -50;
+            scene.add(directionalLight);
+            
+            // Grid
+            const gridHelper = new THREE.GridHelper(50, 50, 0x444444, 0x222222);
+            scene.add(gridHelper);
+            
+            // Axes Helper
+            const axesHelper = new THREE.AxesHelper(5);
+            scene.add(axesHelper);
+            
+            // Groups
+            buildingGroup = new THREE.Group();
+            wallsGroup = new THREE.Group();
+            floorsGroup = new THREE.Group();
+            roofsGroup = new THREE.Group();
+            windowsGroup = new THREE.Group();
+            
+            buildingGroup.add(wallsGroup);
+            buildingGroup.add(floorsGroup);
+            buildingGroup.add(roofsGroup);
+            buildingGroup.add(windowsGroup);
+            scene.add(buildingGroup);
+            
+            // Resize handler
+            window.addEventListener('resize', onWindowResize);
+            
+            // Animation loop
+            animate();
+        }
+        
+        function onWindowResize() {
+            const container = document.getElementById('viewer');
+            camera.aspect = container.clientWidth / container.clientHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(container.clientWidth, container.clientHeight);
+        }
+        
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+            renderer.render(scene, camera);
+        }
+        
+        // Build 3D Model
+        function buildModel(data) {
+            currentData = data;
+            
+            // Clear existing
+            wallsGroup.clear();
+            floorsGroup.clear();
+            roofsGroup.clear();
+            windowsGroup.clear();
+            
+            const building = data.input.building || {};
+            const northAngle = building.geometry?.north_angle || 0;
+            
+            // Update UI
+            document.getElementById('north-angle').value = northAngle;
+            document.getElementById('north-value').textContent = northAngle + '°';
+            
+            // Rotate building
+            buildingGroup.rotation.y = THREE.MathUtils.degToRad(northAngle);
+            
+            // Build elements
+            data.input.elements?.forEach(element => {
+                buildElement(element, data);
+            });
+            
+            // Build windows
+            data.input.windows?.forEach(window => {
+                buildWindow(window, data);
+            });
+            
+            // Update project info
+            updateProjectInfo(data);
+        }
+        
+        function buildElement(element, data) {
+            const geometry = element.geometry;
+            if (!geometry) return;
+            
+            const position = calculateAbsolutePosition(element, data);
+            
+            // Determine color
+            let color = COLORS.WALL_INTERIOR;
+            if (element.boundary_condition === 'EXTERIOR') {
+                color = element.u_value_undisturbed < 0.5 ? COLORS.WALL_INSULATED : COLORS.WALL_UNINSULATED;
+            } else if (element.type === 'ROOF') {
+                color = COLORS.ROOF;
+            } else if (element.type === 'FLOOR' || element.boundary_condition === 'GROUND') {
+                color = COLORS.FLOOR;
+            }
+            
+            if (geometry.type === 'Line2D') {
+                // Wall from line
+                const start = geometry.start || [0, 0];
+                const end = geometry.end || [0, 0];
+                const height = geometry.height || 2.5;
+                
+                const length = Math.sqrt(
+                    Math.pow(end[0] - start[0], 2) + 
+                    Math.pow(end[1] - start[1], 2)
+                );
+                
+                const wallGeometry = new THREE.BoxGeometry(length, height, 0.2);
+                const wallMaterial = new THREE.MeshStandardMaterial({ 
+                    color: color,
+                    roughness: 0.8,
+                    metalness: 0.2
+                });
+                const wall = new THREE.Mesh(wallGeometry, wallMaterial);
+                
+                // Position
+                wall.position.set(
+                    position[0] + (start[0] + end[0]) / 2,
+                    position[2] + height / 2,
+                    position[1] + (start[1] + end[1]) / 2
+                );
+                
+                // Rotation
+                const angle = Math.atan2(end[1] - start[1], end[0] - start[0]);
+                wall.rotation.y = angle;
+                
+                wall.castShadow = true;
+                wall.receiveShadow = true;
+                
+                wallsGroup.add(wall);
+            }
+        }
+        
+        function buildWindow(window, data) {
+            // Simplified window rendering (placeholder)
+            const windowGeometry = new THREE.BoxGeometry(1, 1.5, 0.1);
+            const windowMaterial = new THREE.MeshStandardMaterial({ 
+                color: COLORS.WINDOW,
+                transparent: true,
+                opacity: 0.6,
+                roughness: 0.1,
+                metalness: 0.9
+            });
+            const windowMesh = new THREE.Mesh(windowGeometry, windowMaterial);
+            
+            // Position based on parent element (simplified)
+            windowMesh.position.set(
+                Math.random() * 10 - 5,
+                1.5,
+                Math.random() * 10 - 5
+            );
+            
+            windowsGroup.add(windowMesh);
+        }
+        
+        function calculateAbsolutePosition(element, data) {
+            let position = [0, 0, 0];
+            
+            if (element.geometry && element.geometry.local_origin) {
+                position = [...element.geometry.local_origin];
+            }
+            
+            // Add parent positions (simplified - would need full hierarchy traversal)
+            if (element.space_id) {
+                const space = findSpace(element.space_id, data);
+                if (space && space.geometry && space.geometry.local_origin) {
+                    position[0] += space.geometry.local_origin[0];
+                    position[1] += space.geometry.local_origin[1];
+                    position[2] += space.geometry.local_origin[2];
+                }
+            }
+            
+            return position;
+        }
+        
+        function findSpace(spaceId, data) {
+            for (const zone of data.input.zones || []) {
+                if (zone.spaces) {
+                    const space = zone.spaces.find(s => s.id === spaceId);
+                    if (space) return space;
+                }
+            }
+            return null;
+        }
+        
+        function updateProjectInfo(data) {
+            document.getElementById('project-info').style.display = 'block';
+            document.getElementById('project-name').textContent = data.meta.project_name || '-';
+            document.getElementById('project-lod').textContent = `LOD ${data.meta.lod || '-'} | ${data.meta.geometry_mode || '-'}`;
+            
+            const northAngle = data.input.building?.geometry?.north_angle || 0;
+            document.getElementById('building-info').textContent = `Nord-Ausrichtung: ${northAngle}°`;
+            
+            // Zones
+            const zonesList = document.getElementById('zones-list');
+            zonesList.innerHTML = '';
+            data.input.zones?.forEach(zone => {
+                const zoneDiv = document.createElement('div');
+                zoneDiv.style.marginBottom = '10px';
+                zoneDiv.innerHTML = `
+                    <strong>${zone.name}</strong><br>
+                    <span style="font-size: 11px; color: #888;">
+                        ${zone.area_an} m² | ${zone.spaces?.length || 0} Räume
+                    </span>
+                `;
+                zonesList.appendChild(zoneDiv);
+            });
+        }
+        
+        // File handling
+        const dropZone = document.getElementById('drop-zone');
+        const fileInput = document.getElementById('file-input');
+        
+        dropZone.addEventListener('click', () => fileInput.click());
+        
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.classList.add('dragover');
+        });
+        
+        dropZone.addEventListener('dragleave', () => {
+            dropZone.classList.remove('dragover');
+        });
+        
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('dragover');
+            const file = e.dataTransfer.files[0];
+            if (file) handleFile(file);
+        });
+        
+        fileInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) handleFile(file);
+        });
+        
+        function handleFile(file) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                try {
+                    const data = JSON.parse(e.target.result);
+                    buildModel(data);
+                } catch (error) {
+                    alert('Fehler beim Laden der Datei: ' + error.message);
+                }
+            };
+            reader.readAsText(file);
+        }
+        
+        // Controls
+        document.getElementById('north-angle').addEventListener('input', (e) => {
+            const angle = parseFloat(e.target.value);
+            document.getElementById('north-value').textContent = angle + '°';
+            buildingGroup.rotation.y = THREE.MathUtils.degToRad(angle);
+            
+            if (currentData) {
+                currentData.input.building.geometry.north_angle = angle;
+            }
+        });
+        
+        document.getElementById('reset-camera').addEventListener('click', () => {
+            camera.position.set(20, 15, 20);
+            camera.lookAt(0, 0, 0);
+            controls.reset();
+        });
+        
+        document.getElementById('toggle-wireframe').addEventListener('click', () => {
+            wireframeMode = !wireframeMode;
+            
+            [wallsGroup, floorsGroup, roofsGroup].forEach(group => {
+                group.children.forEach(mesh => {
+                    if (mesh.material) {
+                        mesh.material.wireframe = wireframeMode;
+                    }
+                });
+            });
+        });
+        
+        // Init
+        initThreeJS();
+        
+        // Auto-load example
+        fetch('examples/lod300_hierarchical_geometry.din18599.json')
+            .then(res => res.json())
+            .then(data => buildModel(data))
+            .catch(err => console.log('Kein Beispiel gefunden:', err));
+    </script>
+</body>
+</html>
