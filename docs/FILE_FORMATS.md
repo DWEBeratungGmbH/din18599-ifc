@@ -701,7 +701,152 @@ def link_to_ifc(sidecar_data, ifc_file):
 
 ---
 
-## 9. Best Practices
+## 9. Hierarchisches Modell - Best Practices
+
+### Parent-Referenzen
+
+**Regel 1: Immer parent_ref angeben**
+
+```json
+{
+  "geometry": {
+    "type": "Polygon2D",
+    "parent_ref": "ZONE-01",  // Pflicht!
+    "local_origin": [0, 0, 0],
+    "coordinates": [...]
+  }
+}
+```
+
+**Regel 2: Zirkuläre Referenzen vermeiden**
+
+```json
+// ❌ FALSCH
+{
+  "zones": [
+    {"id": "ZONE-01", "geometry": {"parent_ref": "ZONE-02"}},
+    {"id": "ZONE-02", "geometry": {"parent_ref": "ZONE-01"}}
+  ]
+}
+
+// ✅ RICHTIG
+{
+  "zones": [
+    {"id": "ZONE-01", "geometry": {"parent_ref": "BUILDING"}},
+    {"id": "ZONE-02", "geometry": {"parent_ref": "BUILDING"}}
+  ]
+}
+```
+
+**Regel 3: Hierarchie-Ebenen**
+
+```
+BUILDING (Level 0)
+  └─ ZONE (Level 1)
+      └─ SPACE (Level 2)
+          └─ ELEMENT (Level 3)
+```
+
+**Max. 4 Ebenen empfohlen!**
+
+### Koordinaten-System
+
+**Regel 1: Rechts-Hand-System (Relativ)**
+
+```
+X-Achse: Relativ nach rechts (positiv)
+Y-Achse: Relativ nach vorne (positiv)
+Z-Achse: Höhe (positiv nach oben)
+```
+
+**Regel 2: Einheiten**
+
+```
+Längen: Meter (m)
+Winkel: Grad (°) - relativ zum Gebäude
+Flächen: Quadratmeter (m²)
+```
+
+**Regel 3: Ursprung & Orientierung**
+
+```json
+{
+  "building": {
+    "geometry": {
+      "origin": [0, 0, 0],        // Gebäude-Ursprung
+      "north_angle": 0            // Nord-Ausrichtung (0° = Y-Achse zeigt nach Norden)
+    }
+  }
+}
+```
+
+**Vorteil:** Gebäude kann gedreht werden, ohne alle Elemente anzupassen!
+
+```javascript
+// Beispiel: Gebäude um 45° drehen
+building.geometry.north_angle = 45;
+
+// Alle Orientierungen bleiben relativ:
+// - Wand mit relative_orientation: 0° bleibt "vorne"
+// - Absolute Orientierung = north_angle + relative_orientation
+// - 45° + 0° = 45° (Nordost)
+```
+
+### Performance-Optimierung
+
+**Regel 1: Templates nutzen**
+
+Für wiederkehrende Geometrien (z.B. gleiche Wohnungen):
+
+```json
+{
+  "templates": {
+    "WOHNUNG_60QM": {
+      "spaces": [...],
+      "elements": [...]
+    }
+  },
+  "zones": [
+    {"id": "ZONE-01", "template_ref": "WOHNUNG_60QM", "local_origin": [0, 0, 0]},
+    {"id": "ZONE-02", "template_ref": "WOHNUNG_60QM", "local_origin": [0, 0, 3]}
+  ]
+}
+```
+
+**Regel 2: Lazy Loading**
+
+Nur benötigte Ebenen laden:
+
+```javascript
+// Nur Zonen laden (ohne Spaces/Elements)
+const zones = data.input.zones.map(z => ({
+  id: z.id,
+  name: z.name,
+  geometry: z.geometry
+}));
+```
+
+**Regel 3: Caching**
+
+Absolute Positionen cachen:
+
+```javascript
+const positionCache = new Map();
+
+function getAbsolutePosition(element) {
+  if (positionCache.has(element.id)) {
+    return positionCache.get(element.id);
+  }
+  
+  const position = calculateAbsolutePosition(element);
+  positionCache.set(element.id, position);
+  return position;
+}
+```
+
+---
+
+## 10. Best Practices (Modi)
 
 ### Wann welcher Modus?
 
