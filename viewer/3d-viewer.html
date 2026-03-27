@@ -402,10 +402,12 @@
                 faces: brep.faces.length
             });
             
-            // Create vertex map
+            // Create vertex map (Koordinaten-Mapping: [x, y, z] → Three.js [x, z, y])
             const vertexMap = {};
             brep.vertices.forEach(v => {
-                vertexMap[v.id] = new THREE.Vector3(...v.coords);
+                // In unseren Daten: x=rechts, y=tiefe, z=höhe
+                // In Three.js: x=rechts, y=höhe, z=tiefe
+                vertexMap[v.id] = new THREE.Vector3(v.coords[0], v.coords[2], v.coords[1]);
             });
             
             console.log('📍 Vertex Map:', vertexMap);
@@ -449,6 +451,125 @@
             controls.update();
             
             console.log('📷 Kamera positioniert:', camera.position);
+        }
+        
+        function buildFaceBRep(face, vertexMap) {
+            // Get vertex coordinates
+            const coords = face.vertices.map(vId => {
+                const v = vertexMap[vId];
+                if (!v) {
+                    console.error(`❌ Vertex ${vId} not found!`);
+                    return new THREE.Vector3(0, 0, 0);
+                }
+                return v;
+            });
+            
+            console.log(`  Vertices:`, coords.map(v => `[${v.x}, ${v.y}, ${v.z}]`));
+            
+            // Determine color
+            let color = COLORS.WALL_INTERIOR;
+            if (face.boundary_condition === 'EXTERIOR') {
+                color = face.u_value < 0.5 ? COLORS.WALL_INSULATED : COLORS.WALL_UNINSULATED;
+            } else if (face.type === 'ROOF') {
+                color = COLORS.ROOF;
+            } else if (face.type === 'FLOOR' || face.boundary_condition === 'GROUND') {
+                color = COLORS.FLOOR;
+            }
+            
+            // Create BufferGeometry from vertices (Quad → 2 Triangles)
+            const geometry = new THREE.BufferGeometry();
+            
+            if (coords.length === 4) {
+                // Quad: 2 triangles
+                const positions = new Float32Array([
+                    coords[0].x, coords[0].y, coords[0].z,
+                    coords[1].x, coords[1].y, coords[1].z,
+                    coords[2].x, coords[2].y, coords[2].z,
+                    
+                    coords[0].x, coords[0].y, coords[0].z,
+                    coords[2].x, coords[2].y, coords[2].z,
+                    coords[3].x, coords[3].y, coords[3].z
+                ]);
+                
+                geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+                geometry.computeVertexNormals();
+            } else {
+                console.warn(`⚠️ Face ${face.id} has ${coords.length} vertices (expected 4)`);
+                return;
+            }
+            
+            const material = new THREE.MeshStandardMaterial({
+                color: color,
+                roughness: 0.7,
+                metalness: 0.2,
+                transparent: face.type === 'ROOF' || face.type === 'FLOOR',
+                opacity: face.type === 'ROOF' || face.type === 'FLOOR' ? 0.7 : 1.0,
+                side: THREE.DoubleSide
+            });
+            
+            const mesh = new THREE.Mesh(geometry, material);
+            mesh.castShadow = true;
+            mesh.receiveShadow = true;
+            
+            // Add to appropriate group
+            if (face.type === 'ROOF') {
+                roofsGroup.add(mesh);
+                console.log(`  ✅ Added to roofsGroup`);
+            } else if (face.type === 'FLOOR') {
+                floorsGroup.add(mesh);
+                console.log(`  ✅ Added to floorsGroup`);
+            } else {
+                wallsGroup.add(mesh);
+                console.log(`  ✅ Added to wallsGroup`);
+            }
+            
+            // Build openings (windows/doors)
+            if (face.openings) {
+                face.openings.forEach(opening => {
+                    buildOpeningBRep(opening);
+                });
+            }
+        }
+        
+        function buildOpeningBRep(opening) {
+            // Koordinaten-Mapping: [x, y, z] → Three.js [x, z, y]
+            const coords = opening.vertices.map(v => new THREE.Vector3(v[0], v[2], v[1]));
+            
+            console.log(`    🪟 Window ${opening.id}:`, coords.map(v => `[${v.x}, ${v.y}, ${v.z}]`));
+            
+            // Create BufferGeometry (Quad → 2 Triangles)
+            const geometry = new THREE.BufferGeometry();
+            
+            if (coords.length === 4) {
+                const positions = new Float32Array([
+                    coords[0].x, coords[0].y, coords[0].z,
+                    coords[1].x, coords[1].y, coords[1].z,
+                    coords[2].x, coords[2].y, coords[2].z,
+                    
+                    coords[0].x, coords[0].y, coords[0].z,
+                    coords[2].x, coords[2].y, coords[2].z,
+                    coords[3].x, coords[3].y, coords[3].z
+                ]);
+                
+                geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+                geometry.computeVertexNormals();
+            }
+            
+            const material = new THREE.MeshStandardMaterial({
+                color: COLORS.WINDOW,
+                transparent: true,
+                opacity: 0.5,
+                roughness: 0.1,
+                metalness: 0.9,
+                side: THREE.DoubleSide,
+                emissive: COLORS.WINDOW,
+                emissiveIntensity: 0.2
+            });
+            
+            const mesh = new THREE.Mesh(geometry, material);
+            windowsGroup.add(mesh);
+            
+            console.log(`    ✅ Window added to windowsGroup`);
         }
         
         function buildElement(element, data) {
