@@ -573,10 +573,17 @@
         initThreeJS();
         
         // Auto-load demo
-        fetch('demo.din18599.json')
+        fetch('viewer/demo.din18599.json')
             .then(res => res.json())
             .then(data => buildModel(data))
-            .catch(err => console.log('Kein Demo gefunden:', err));
+            .catch(err => {
+                console.log('Kein Demo gefunden, versuche alternativen Pfad:', err);
+                // Fallback: Versuche relativen Pfad
+                fetch('./demo.din18599.json')
+                    .then(res => res.json())
+                    .then(data => buildModel(data))
+                    .catch(err2 => console.error('Demo konnte nicht geladen werden:', err2));
+            });
     </script>
 </body>
 </html>
