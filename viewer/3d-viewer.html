@@ -407,6 +407,38 @@
             });
             
             console.log('✅ B-Rep Model complete!');
+            
+            // Debug: Scene-Hierarchie
+            console.log('📊 Scene Hierarchie:', {
+                wallsGroup: wallsGroup.children.length,
+                floorsGroup: floorsGroup.children.length,
+                roofsGroup: roofsGroup.children.length,
+                windowsGroup: windowsGroup.children.length,
+                buildingGroup: buildingGroup.children.length
+            });
+            
+            // Kamera auf Modell ausrichten
+            const box = new THREE.Box3().setFromObject(buildingGroup);
+            const center = box.getCenter(new THREE.Vector3());
+            const size = box.getSize(new THREE.Vector3());
+            
+            console.log('📦 Bounding Box:', {
+                center: [center.x, center.y, center.z],
+                size: [size.x, size.y, size.z]
+            });
+            
+            // Kamera positionieren
+            const maxDim = Math.max(size.x, size.y, size.z);
+            const fov = camera.fov * (Math.PI / 180);
+            let cameraZ = Math.abs(maxDim / 2 / Math.tan(fov / 2));
+            cameraZ *= 2; // Zoom out a bit
+            
+            camera.position.set(center.x + cameraZ, center.y + cameraZ, center.z + cameraZ);
+            camera.lookAt(center);
+            controls.target.copy(center);
+            controls.update();
+            
+            console.log('📷 Kamera positioniert:', camera.position);
         }
         
         function buildElement(element, data) {
