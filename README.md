@@ -1,9 +1,30 @@
 # IFC + DIN 18599 Sidecar
+
 **Ein offenes Austauschformat für die energetische Gebäudeakte in Deutschland**
 
-> **Status:** Draft / Request for Comments (RFC)  
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
+[![Version](https://img.shields.io/badge/Version-2.0.0-green.svg)](CHANGELOG.md)
+[![Schema](https://img.shields.io/badge/Schema-JSON%20Draft--07-orange.svg)](gebaeude.din18599.schema.json)
+
+> **Status:** v2.0.0 - Production Ready  
 > **Lizenz:** Apache License 2.0  
 > **Repository:** [github.com/DWEBeratungGmbH/din18599-ifc](https://github.com/DWEBeratungGmbH/din18599-ifc)
+
+---
+
+## 📑 Inhaltsverzeichnis
+
+- [Zielbild](#-zielbild)
+- [Features v2.0](#-features-v20)
+- [Quick Start](#-quick-start)
+- [Scope & Datenmodell](#-scope--datenmodell)
+- [Workflow-Integration](#-workflow-integration)
+- [Tools & Ecosystem](#-tools--ecosystem)
+- [Dokumentation](#-dokumentation)
+- [Beitragen](#-beitragen)
+- [Lizenz](#-lizenz)
+
+---
 
 ## 🎯 Zielbild
 
@@ -26,7 +47,89 @@ Ein Energieberatungsprojekt besteht künftig aus mindestens zwei Dateien:
 
 ---
 
-## 📦 Scope & Datenmodell
+## ✨ Features v2.0
+
+### 🎯 Kern-Features
+
+- ✅ **JSON Schema v2.0** - Vollständig validierbar (Draft-07)
+- ✅ **IFC-Verknüpfung** - GUID-basiertes Mapping (IfcBuilding, IfcSpace, IfcWall, IfcWindow)
+- ✅ **LOD-Konzept** - Level of Detail 100-500 (BIM-inspiriert)
+- ✅ **Varianten-Management** - Delta-Modell (Base + Scenarios)
+- ✅ **Schichtaufbauten** - Layer Structures mit U-Wert-Berechnung
+- ✅ **Materialien** - Standard + Air Layers (EN ISO 6946)
+- ✅ **Wärmebrücken** - ΔU_WB mit Typen (DEFAULT, REDUCED, DETAILED)
+- ✅ **Kataloge** - Bundesanzeiger 2020 (97 U-Werte, BEG-konform)
+
+### � Tools
+
+- ✅ **Python Validator** - CLI-Tool für Schema-Validierung
+- ✅ **Web Viewer** - Drag & Drop Visualisierung (HTML/JS)
+- ✅ **FastAPI Service** - REST-API für Validierung
+- ✅ **4 LOD-Beispiele** - Von Schnellschätzung bis GEG-Nachweis
+
+### 📚 Dokumentation
+
+- ✅ **ARCHITECTURE.md** - 5-Layer-Architektur, DB-Schema, Deployment
+- ✅ **IFC_SIDECAR_LINK.md** - GUID-Mapping, Datenfluss, Best Practices
+- ✅ **PARAMETER_MATRIX.md** - Alle DIN 18599 Parameter (Teil 1-10)
+- ✅ **LOD_GUIDE.md** - LOD-Definitionen, Use Cases, Genauigkeit
+- ✅ **KATALOG_VERWENDUNG.md** - Bundesanzeiger, Custom Catalogs
+
+---
+
+## 🚀 Quick Start
+
+### 1. Repository klonen
+
+```bash
+git clone https://github.com/DWEBeratungGmbH/din18599-ifc.git
+cd din18599-ifc
+```
+
+### 2. Beispiel validieren
+
+```bash
+python3 tools/validate.py examples/lod400_geg_nachweis.din18599.json
+# ✅ Validierung erfolgreich
+```
+
+### 3. Viewer öffnen
+
+```bash
+# Lokalen Server starten
+python3 -m http.server 8000
+
+# Browser öffnen
+open http://localhost:8000/viewer/index.html
+```
+
+### 4. Eigenes Projekt erstellen
+
+```json
+{
+  "schema_info": {
+    "url": "https://din18599-ifc.de/schema/v1",
+    "version": "2.0.0"
+  },
+  "meta": {
+    "project_name": "Mein Projekt",
+    "ifc_file_ref": "gebaeude.ifc",
+    "ifc_guid_building": "2Uj8Lq3Vr9QxPkXr4bN8FD",
+    "lod": "200"
+  },
+  "input": {
+    "zones": [...],
+    "elements": [...],
+    "systems": [...]
+  }
+}
+```
+
+Siehe [LOD_GUIDE.md](docs/LOD_GUIDE.md) für Details zu den LOD-Levels.
+
+---
+
+## �📦 Scope & Datenmodell
 
 Das Datenmodell ist strikt in **Eingabedaten (Input)** und **Ergebnisdaten (Output)** unterteilt. Dies gewährleistet Interoperabilität, ohne die Berechnungshoheit der Fachsoftware anzutasten.
 
@@ -70,12 +173,50 @@ Das Format unterstützt den gesamten Lebenszyklus:
 3.  **Sanierungsfahrplan (iSFP):** Zeitliche Einordnung der Maßnahmen in eine Roadmap.
 4.  **Monitoring:** Vergleich von berechnetem Bedarf (Output) mit gemessenen Verbräuchen.
 
-## Dateistruktur
+## 📁 Repository-Struktur
+
+```
+din18599-ifc/
+├── gebaeude.din18599.schema.json    # JSON Schema (v2.0)
+├── README.md                        # Dieses Dokument
+├── LICENSE                          # Apache 2.0
+├── CHANGELOG.md                     # Versionshistorie
+│
+├── docs/                            # Dokumentation
+│   ├── ARCHITECTURE.md              # 5-Layer-Architektur, DB-Schema
+│   ├── IFC_SIDECAR_LINK.md          # GUID-Mapping, Datenfluss
+│   ├── PARAMETER_MATRIX.md          # Alle DIN 18599 Parameter
+│   ├── LOD_GUIDE.md                 # LOD 100-500 Definitionen
+│   └── KATALOG_VERWENDUNG.md        # Katalog-Integration
+│
+├── examples/                        # Beispiel-Dateien
+│   ├── lod100_schnellschaetzung.din18599.json
+│   ├── lod200_bestandsaufnahme.din18599.json
+│   ├── lod300_sanierung_varianten.din18599.json
+│   └── lod400_geg_nachweis.din18599.json
+│
+├── catalogs/                        # Kataloge
+│   └── constructions/
+│       └── de-bmwi2020-bauteile-v1.0.json  # Bundesanzeiger 2020
+│
+├── tools/                           # CLI-Tools
+│   └── validate.py                  # Python Validator
+│
+├── viewer/                          # Web Viewer
+│   └── index.html                   # Drag & Drop Viewer
+│
+└── api/                             # REST API
+    ├── main.py                      # FastAPI Service
+    ├── requirements.txt
+    └── Dockerfile
+```
+
+### Projekt-Dateistruktur (Anwendung)
 
 ```
 projekt_musterstrasse1/
-├── gebaeude.ifc                  ← Geometrie (IFC4, Standard)
-├── gebaeude.din18599.json        ← DIN 18599 Sidecar (Input & Output)
+├── gebaeude.ifc                  # Geometrie (IFC4, Standard)
+├── gebaeude.din18599.json        # DIN 18599 Sidecar (Input & Output)
 └── assets/
     ├── fotos/
     └── dokumente/
@@ -94,10 +235,21 @@ python3 tools/validate.py examples/musterhaus.din18599.json
 ```
 
 ### 2. Web Viewer (`viewer/index.html`)
-Ein einfacher HTML5/JS Viewer zur Visualisierung der Sidecar-Dateien.
+Ein HTML5/JS Viewer zur Visualisierung der Sidecar-Dateien.
+
+**Features:**
 *   **Drag & Drop** Interface
+*   **Beispiel-Auswahl** (LOD 100-400)
 *   **Dashboard** mit Energiebilanz, Zonen und Anlagentechnik
-*   Läuft komplett lokal im Browser (kein Upload).
+*   **Bauteilliste** mit U-Werten und Flächen
+*   **Wärmebrücken-Analyse** (Ø ΔU_WB, Typen)
+*   Läuft komplett lokal im Browser (kein Upload)
+
+**Starten:**
+```bash
+python3 -m http.server 8000
+open http://localhost:8000/viewer/index.html
+```
 
 ### 3. Validation API (`api/`)
 Ein Docker-ready Microservice (FastAPI), der Validierung als Service anbietet.
@@ -111,9 +263,44 @@ docker run -p 8000:8000 din18599-api
 curl -X POST -F "file=@examples/musterhaus.din18599.json" http://localhost:8000/validate
 ```
 
+---
+
+## 📚 Dokumentation
+
+### Kern-Dokumentation
+
+| Dokument | Beschreibung |
+|----------|-------------|
+| [ARCHITECTURE.md](docs/ARCHITECTURE.md) | 5-Layer-Architektur, DB-Schema, Deployment-Optionen |
+| [IFC_SIDECAR_LINK.md](docs/IFC_SIDECAR_LINK.md) | GUID-Mapping, Datenfluss, Best Practices |
+| [PARAMETER_MATRIX.md](docs/PARAMETER_MATRIX.md) | Alle DIN 18599 Parameter (Teil 1-10) |
+| [LOD_GUIDE.md](docs/LOD_GUIDE.md) | LOD 100-500 Definitionen, Use Cases |
+| [KATALOG_VERWENDUNG.md](docs/KATALOG_VERWENDUNG.md) | Bundesanzeiger, Custom Catalogs |
+
+### Technische Dokumentation
+
+| Dokument | Beschreibung |
+|----------|-------------|
+| [gebaeude.din18599.schema.json](gebaeude.din18599.schema.json) | JSON Schema (Draft-07) |
+| [CHANGELOG.md](CHANGELOG.md) | Versionshistorie |
+| [CONTRIBUTING.md](CONTRIBUTING.md) | Contribution Guidelines |
+
+### Pläne & Konzepte
+
+| Dokument | Beschreibung |
+|----------|-------------|
+| [.plans/master-implementierung.md](.plans/master-implementierung.md) | Master-Plan (LOD + Layer Structures) |
+| [.plans/ifc-viewer-integration-konzept.md](.plans/ifc-viewer-integration-konzept.md) | IFC-Viewer Integration (Option C - Hybrid) |
+| [.plans/schichtaufbau-architektur.md](.plans/schichtaufbau-architektur.md) | Schichtaufbau-Konzept |
+| [.plans/lod-defaults-kataloge.md](.plans/lod-defaults-kataloge.md) | LOD-Konzept + Bundesanzeiger |
+
+---
+
 ## 🤝 Beitragen
 
-Dieses Projekt lebt von der Community! Wir freuen uns über jeden Beitrag:
+Dieses Projekt lebt von der Community! Wir freuen uns über jeden Beitrag.
+
+Siehe [CONTRIBUTING.md](CONTRIBUTING.md) für Details.
 
 ### Wie kann ich beitragen?
 
