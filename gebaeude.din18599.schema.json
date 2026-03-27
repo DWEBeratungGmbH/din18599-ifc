@@ -133,6 +133,84 @@
       "description": "Eingabedaten für die Berechnung (Source of Truth)",
       "type": "object",
       "properties": {
+        "geometry_brep": {
+          "type": "object",
+          "description": "Boundary Representation Geometrie (Vertices + Faces)",
+          "properties": {
+            "vertices": {
+              "type": "array",
+              "description": "Alle Ecken/Punkte der Geometrie",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": { "type": "string", "description": "Eindeutige Vertex-ID (z.B. V0, V1, ...)" },
+                  "coords": {
+                    "type": "array",
+                    "items": { "type": "number" },
+                    "minItems": 3,
+                    "maxItems": 3,
+                    "description": "3D-Koordinaten [x, y, z] in Metern"
+                  }
+                },
+                "required": ["id", "coords"]
+              }
+            },
+            "faces": {
+              "type": "array",
+              "description": "Alle Flächen (Wände, Dächer, Böden)",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": { "type": "string", "description": "Eindeutige Face-ID" },
+                  "name": { "type": "string", "description": "Bauteilname" },
+                  "type": {
+                    "type": "string",
+                    "enum": ["WALL", "ROOF", "FLOOR", "CEILING", "SLAB"],
+                    "description": "Bauteiltyp"
+                  },
+                  "boundary_condition": {
+                    "type": "string",
+                    "enum": ["EXTERIOR", "GROUND", "UNHEATED", "HEATED", "ADIABATIC", "INTERIOR"]
+                  },
+                  "u_value": { "type": "number", "description": "U-Wert W/m²K" },
+                  "vertices": {
+                    "type": "array",
+                    "items": { "type": "string" },
+                    "minItems": 3,
+                    "description": "Vertex-IDs in Reihenfolge (bilden geschlossenen Loop)"
+                  },
+                  "openings": {
+                    "type": "array",
+                    "description": "Fenster/Türen in dieser Fläche",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": { "type": "string" },
+                        "type": { "type": "string", "enum": ["WINDOW", "DOOR"] },
+                        "vertices": {
+                          "type": "array",
+                          "items": {
+                            "type": "array",
+                            "items": { "type": "number" },
+                            "minItems": 3,
+                            "maxItems": 3
+                          },
+                          "minItems": 3,
+                          "description": "3D-Koordinaten der Opening-Ecken"
+                        },
+                        "u_value": { "type": "number" },
+                        "g_value": { "type": "number" }
+                      },
+                      "required": ["id", "type", "vertices"]
+                    }
+                  }
+                },
+                "required": ["id", "type", "boundary_condition", "vertices"]
+              }
+            }
+          },
+          "required": ["vertices", "faces"]
+        },
         "building": {
           "type": "object",
           "description": "Gebäude-Geometrie und Orientierung",

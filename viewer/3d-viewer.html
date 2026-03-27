@@ -654,7 +654,7 @@
         
         // Demo laden Button
         document.getElementById('load-demo').addEventListener('click', () => {
-            fetch('./demo.din18599.json')
+            fetch('./demo-brep.din18599.json')
                 .then(res => {
                     if (!res.ok) {
                         throw new Error(`HTTP ${res.status}: ${res.statusText}`);
