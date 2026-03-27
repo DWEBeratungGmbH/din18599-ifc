@@ -160,6 +160,10 @@
                 <input type="file" id="file-input" accept=".json" style="display: none;">
             </div>
             
+            <button id="load-demo" style="width: 100%; padding: 12px; background: #2196F3; border: none; border-radius: 8px; color: white; cursor: pointer; font-size: 14px; margin-bottom: 20px; font-weight: 500;">
+                🏠 Demo laden (Einfamilienhaus)
+            </button>
+            
             <div id="project-info" style="display: none;">
                 <div class="info-section">
                     <h3>Projekt</h3>
@@ -572,18 +576,11 @@
         // Init
         initThreeJS();
         
-        // Auto-load demo
-        fetch('viewer/demo.din18599.json')
+        // Auto-load demo (relativ zum viewer/ Ordner)
+        fetch('./demo.din18599.json')
             .then(res => res.json())
             .then(data => buildModel(data))
-            .catch(err => {
-                console.log('Kein Demo gefunden, versuche alternativen Pfad:', err);
-                // Fallback: Versuche relativen Pfad
-                fetch('./demo.din18599.json')
-                    .then(res => res.json())
-                    .then(data => buildModel(data))
-                    .catch(err2 => console.error('Demo konnte nicht geladen werden:', err2));
-            });
+            .catch(err => console.error('Demo konnte nicht geladen werden:', err));
     </script>
 </body>
 </html>
