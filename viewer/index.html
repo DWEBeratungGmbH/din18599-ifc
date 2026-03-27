@@ -306,6 +306,84 @@
             });
         }
 
+        // Bauteile (Opaque Elements)
+        const elementsCard = document.getElementById('elements-card');
+        const elementsTbody = document.getElementById('elements-tbody');
+        const thermalBridgesSummary = document.getElementById('thermal-bridges-summary');
+        
+        if (data.input.elements && data.input.elements.length > 0) {
+            elementsCard.style.display = 'block';
+            elementsTbody.innerHTML = '';
+            
+            let totalDeltaU = 0;
+            let elementCount = 0;
+            const bridgeTypes = {};
+            
+            data.input.elements.forEach(el => {
+                const tr = document.createElement('tr');
+                const uValue = el.u_value_undisturbed || el.u_value_override || '-';
+                const deltaU = el.thermal_bridge_delta_u || 0;
+                const uEff = (typeof uValue === 'number' && typeof deltaU === 'number') 
+                    ? (uValue + deltaU).toFixed(3) 
+                    : '-';
+                
+                const layerRef = el.layer_structure_ref || el.construction_catalog_ref || '-';
+                
+                tr.innerHTML = `
+                    <td><small>${el.ifc_guid.substring(0, 8)}...</small></td>
+                    <td>${el.boundary_condition}</td>
+                    <td><strong>${typeof uValue === 'number' ? uValue.toFixed(3) : uValue}</strong></td>
+                    <td>${deltaU.toFixed(3)}</td>
+                    <td><strong>${uEff}</strong></td>
+                    <td><small>${layerRef}</small></td>
+                `;
+                elementsTbody.appendChild(tr);
+                
+                if (typeof deltaU === 'number') {
+                    totalDeltaU += deltaU;
+                    elementCount++;
+                }
+                
+                const bridgeType = el.thermal_bridge_type || 'DEFAULT';
+                bridgeTypes[bridgeType] = (bridgeTypes[bridgeType] || 0) + 1;
+            });
+            
+            // Wärmebrücken-Zusammenfassung
+            const avgDeltaU = elementCount > 0 ? (totalDeltaU / elementCount).toFixed(3) : 0;
+            const bridgeTypesStr = Object.entries(bridgeTypes)
+                .map(([type, count]) => `${type}: ${count}`)
+                .join(', ');
+            
+            thermalBridgesSummary.innerHTML = `
+                <strong>📊 Wärmebrücken-Analyse:</strong><br>
+                Anzahl Bauteile: ${elementCount} | 
+                Ø ΔU<sub>WB</sub>: ${avgDeltaU} W/(m²K) | 
+                Typen: ${bridgeTypesStr}
+            `;
+        }
+
+        // Fenster (Transparent Elements)
+        const windowsCard = document.getElementById('windows-card');
+        const windowsTbody = document.getElementById('windows-tbody');
+        
+        if (data.input.windows && data.input.windows.length > 0) {
+            windowsCard.style.display = 'block';
+            windowsTbody.innerHTML = '';
+            
+            data.input.windows.forEach(w => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td><small>${w.ifc_guid.substring(0, 8)}...</small></td>
+                    <td>${w.u_value_glass.toFixed(2)}</td>
+                    <td>${w.u_value_frame.toFixed(2)}</td>
+                    <td>${w.g_value.toFixed(2)}</td>
+                    <td>${(w.frame_fraction * 100).toFixed(0)}%</td>
+                    <td>${w.psi_spacer.toFixed(3)}</td>
+                `;
+                windowsTbody.appendChild(tr);
+            });
+        }
+
         // Systems (Heat Generators)
         const sysContainer = document.getElementById('systems-container');
         sysContainer.innerHTML = '';
