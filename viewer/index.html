@@ -84,6 +84,18 @@
         <p>Datei hier ablegen oder klicken zum Auswählen</p>
         <input type="file" id="file-input" accept=".json" style="display: none;">
     </div>
+
+    <div style="margin: 20px auto; max-width: 800px; text-align: center;">
+        <label for="example-select" style="margin-right: 10px; font-weight: bold;">Oder Beispiel laden:</label>
+        <select id="example-select" style="padding: 8px 12px; font-size: 14px; border-radius: 4px; border: 1px solid #ccc;">
+            <option value="">-- Beispiel auswählen --</option>
+            <option value="../examples/lod100_schnellschaetzung.din18599.json">LOD 100 - Schnellschätzung (Minimal-Input)</option>
+            <option value="../examples/lod200_bestandsaufnahme.din18599.json">LOD 200 - iSFP Bestandsaufnahme</option>
+            <option value="../examples/lod300_sanierung_varianten.din18599.json">LOD 300 - Sanierungsvarianten (Delta-Modell)</option>
+            <option value="../examples/lod400_geg_nachweis.din18599.json">LOD 400 - GEG-Nachweis (Vollständig)</option>
+        </select>
+        <button id="load-example-btn" style="padding: 8px 16px; margin-left: 10px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 14px;">Laden</button>
+    </div>
     
     <div id="error-msg" class="error"></div>
 
