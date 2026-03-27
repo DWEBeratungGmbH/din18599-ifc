@@ -434,6 +434,43 @@
                 wall.receiveShadow = true;
                 
                 wallsGroup.add(wall);
+            } else if (geometry.type === 'Polygon2D') {
+                // Floor/Roof from polygon (halbtransparent)
+                const coords = geometry.coordinates || [];
+                if (coords.length < 3) return;
+                
+                // Create shape
+                const shape = new THREE.Shape();
+                shape.moveTo(coords[0][0], coords[0][1]);
+                for (let i = 1; i < coords.length; i++) {
+                    shape.lineTo(coords[i][0], coords[i][1]);
+                }
+                shape.lineTo(coords[0][0], coords[0][1]);
+                
+                const planeGeometry = new THREE.ShapeGeometry(shape);
+                const planeMaterial = new THREE.MeshStandardMaterial({ 
+                    color: color,
+                    roughness: 0.6,
+                    metalness: 0.1,
+                    transparent: true,
+                    opacity: 0.7,
+                    side: THREE.DoubleSide
+                });
+                const plane = new THREE.Mesh(planeGeometry, planeMaterial);
+                
+                // Position
+                plane.position.set(position[0], position[2], position[1]);
+                
+                // Rotate to horizontal (floor/roof)
+                plane.rotation.x = -Math.PI / 2;
+                
+                plane.receiveShadow = true;
+                
+                if (element.type === 'ROOF') {
+                    roofsGroup.add(plane);
+                } else {
+                    floorsGroup.add(plane);
+                }
             }
         }
         

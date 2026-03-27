@@ -191,7 +191,18 @@
         "boundary_condition": "EXTERIOR",
         "u_value_undisturbed": 0.18,
         "relative_orientation": 0,
-        "inclination": 0
+        "inclination": 0,
+        "geometry": {
+          "type": "Polygon2D",
+          "parent_ref": "ZONE-EG",
+          "local_origin": [0, 0, 2.5],
+          "coordinates": [
+            [0, 0],
+            [10, 0],
+            [10, 8],
+            [0, 8]
+          ]
+        }
       },
       {
         "id": "BODEN",
@@ -201,7 +212,18 @@
         "area": 80.0,
         "boundary_condition": "GROUND",
         "u_value_undisturbed": 0.25,
-        "inclination": 0
+        "inclination": 0,
+        "geometry": {
+          "type": "Polygon2D",
+          "parent_ref": "ZONE-EG",
+          "local_origin": [0, 0, 0],
+          "coordinates": [
+            [0, 0],
+            [10, 0],
+            [10, 8],
+            [0, 8]
+          ]
+        }
       }
     ],
     "windows": [
@@ -215,7 +237,14 @@
         "g_value": 0.6,
         "frame_fraction": 0.3,
         "relative_orientation": 0,
-        "inclination": 90
+        "inclination": 90,
+        "geometry": {
+          "type": "Rectangle2D",
+          "parent_ref": "SPACE-WOHNEN",
+          "local_origin": [3, 0, 0.5],
+          "width": 3.0,
+          "height": 2.0
+        }
       },
       {
         "id": "FENSTER-OST-01",
@@ -227,7 +256,14 @@
         "g_value": 0.6,
         "frame_fraction": 0.3,
         "relative_orientation": 90,
-        "inclination": 90
+        "inclination": 90,
+        "geometry": {
+          "type": "Rectangle2D",
+          "parent_ref": "SPACE-WOHNEN",
+          "local_origin": [10, 2, 0.5],
+          "width": 1.5,
+          "height": 2.0
+        }
       },
       {
         "id": "FENSTER-NORD-01",
@@ -239,7 +275,14 @@
         "g_value": 0.6,
         "frame_fraction": 0.3,
         "relative_orientation": 180,
-        "inclination": 90
+        "inclination": 90,
+        "geometry": {
+          "type": "Rectangle2D",
+          "parent_ref": "SPACE-KUECHE",
+          "local_origin": [4, 3, 0.5],
+          "width": 2.0,
+          "height": 1.0
+        }
       }
     ]
   }
