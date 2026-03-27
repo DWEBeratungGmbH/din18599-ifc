@@ -13,6 +13,7 @@ Das **IFC + DIN 18599 Sidecar** Format unterstützt **3 Modi** für unterschiedl
 |-------|---------|-----------|----------|-----|
 | **Standalone** | 1 (JSON) | Keine | Schnellschätzung, iSFP | 100-200 |
 | **Simplified** | 1 (JSON) | 2D/3D vereinfacht | Variantenvergleich | 200-300 |
+| **B-Rep** | 1 (JSON) | 3D Vertices+Faces | Visualisierung, Editor | 300 |
 | **IFC-Linked** | 2 (IFC + JSON) | IFC (vollständig) | GEG-Nachweis | 400-500 |
 
 ---
