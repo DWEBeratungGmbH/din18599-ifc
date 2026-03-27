@@ -413,6 +413,42 @@
             sectorsContainer.innerHTML = '<em>Keine Daten</em>';
         }
     }
+
+    // Beispiel-Auswahl Dropdown
+    document.addEventListener('DOMContentLoaded', () => {
+        const exampleSelect = document.getElementById('example-select');
+        const loadExampleBtn = document.getElementById('load-example-btn');
+        
+        loadExampleBtn.addEventListener('click', async () => {
+            const examplePath = exampleSelect.value;
+            if (!examplePath) {
+                alert('Bitte wähle ein Beispiel aus.');
+                return;
+            }
+            
+            try {
+                loadExampleBtn.disabled = true;
+                loadExampleBtn.textContent = 'Lädt...';
+                
+                const response = await fetch(examplePath);
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                
+                const data = await response.json();
+                renderDashboard(data);
+                
+                loadExampleBtn.textContent = 'Geladen ✓';
+                setTimeout(() => {
+                    loadExampleBtn.disabled = false;
+                    loadExampleBtn.textContent = 'Laden';
+                }, 2000);
+            } catch (error) {
+                console.error('Fehler beim Laden:', error);
+                showError(`Fehler beim Laden des Beispiels: ${error.message}`);
+                loadExampleBtn.disabled = false;
+                loadExampleBtn.textContent = 'Laden';
+            }
+        });
+    });
 </script>
 
 </body>
