@@ -79,21 +79,63 @@ Ein Energieberatungsprojekt besteht künftig aus mindestens zwei Dateien:
 
 ## 🚀 Quick Start
 
-### 1. Repository klonen
+### Option A: Docker Compose (Empfohlen)
+
+**Alles mit einem Befehl starten:**
+
+```bash
+git clone https://github.com/DWEBeratungGmbH/din18599-ifc.git
+cd din18599-ifc
+
+# Starte PostgreSQL + API + Viewer
+docker-compose up -d
+
+# Warte 10 Sekunden (DB-Initialisierung)
+sleep 10
+
+# Öffne Viewer
+open http://localhost:8080/viewer/index.html
+```
+
+**Services:**
+- 🗄️ **PostgreSQL:** localhost:5432 (Datenbank)
+- 🚀 **API:** http://localhost:8000 (FastAPI)
+- 🌐 **Viewer:** http://localhost:8080 (Nginx)
+
+**Stoppen:**
+```bash
+docker-compose down
+```
+
+---
+
+### Option B: Manuell (ohne Docker)
+
+#### 1. Repository klonen
 
 ```bash
 git clone https://github.com/DWEBeratungGmbH/din18599-ifc.git
 cd din18599-ifc
 ```
 
-### 2. Beispiel validieren
+#### 2. Datenbank initialisieren (optional)
+
+```bash
+# PostgreSQL muss laufen
+./database/setup.sh
+
+# Oder mit Drop (Vorsicht!)
+./database/setup.sh --drop
+```
+
+#### 3. Beispiel validieren
 
 ```bash
 python3 tools/validate.py examples/lod400_geg_nachweis.din18599.json
 # ✅ Validierung erfolgreich
 ```
 
-### 3. Viewer öffnen
+#### 4. Viewer öffnen
 
 ```bash
 # Lokalen Server starten
@@ -103,7 +145,9 @@ python3 -m http.server 8000
 open http://localhost:8000/viewer/index.html
 ```
 
-### 4. Eigenes Projekt erstellen
+---
+
+### Eigenes Projekt erstellen
 
 ```json
 {
