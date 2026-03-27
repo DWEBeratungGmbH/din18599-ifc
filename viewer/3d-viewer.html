@@ -572,11 +572,11 @@
         // Init
         initThreeJS();
         
-        // Auto-load example
-        fetch('examples/lod300_hierarchical_geometry.din18599.json')
+        // Auto-load demo
+        fetch('demo.din18599.json')
             .then(res => res.json())
             .then(data => buildModel(data))
-            .catch(err => console.log('Kein Beispiel gefunden:', err));
+            .catch(err => console.log('Kein Demo gefunden:', err));
     </script>
 </body>
 </html>
