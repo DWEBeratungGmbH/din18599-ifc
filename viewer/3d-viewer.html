@@ -360,6 +360,16 @@
             roofsGroup.clear();
             windowsGroup.clear();
             
+            // Check if B-Rep format
+            if (data.input.geometry_brep) {
+                console.log('🎯 B-Rep Format erkannt!');
+                buildModelBRep(data);
+                updateProjectInfo(data);
+                return;
+            }
+            
+            // Legacy format
+            console.log('🎯 Legacy Format erkannt!');
             const building = data.input.building || {};
             const northAngle = building.geometry?.north_angle || 0;
             
