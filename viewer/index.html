@@ -117,19 +117,57 @@
         </div>
 
         <!-- Zones -->
-        <div class="card" style="grid-column: span 2;">
-            <h3>📐 Zonen</h3>
-            <table id="zones-table">
+        <div class="card">
+            <h3>🏠 Zonen</h3>
+            <table>
                 <thead>
                     <tr>
+                        <th>ID</th>
                         <th>Name</th>
-                        <th>Profil</th>
-                        <th>Fläche (AN)</th>
-                        <th>Temp (H/C)</th>
+                        <th>Nutzung</th>
+                        <th>Fläche</th>
+                        <th>Temp.</th>
                         <th>Beleuchtung</th>
                     </tr>
                 </thead>
-                <tbody></tbody>
+                <tbody id="zones-tbody"></tbody>
+            </table>
+        </div>
+
+        <!-- Bauteile (Opaque Elements) -->
+        <div class="card" id="elements-card" style="display: none;">
+            <h3>🧱 Bauteile (Opake Hülle)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>IFC GUID</th>
+                        <th>Randbedingung</th>
+                        <th>U-Wert</th>
+                        <th>ΔU<sub>WB</sub></th>
+                        <th>U<sub>eff</sub></th>
+                        <th>Schichtaufbau</th>
+                    </tr>
+                </thead>
+                <tbody id="elements-tbody"></tbody>
+            </table>
+            <div id="thermal-bridges-summary" style="margin-top: 15px; padding: 10px; background: #f9f9f9; border-radius: 4px;"></div>
+        </div>
+
+        <!-- Fenster (Transparent Elements) -->
+        <div class="card" id="windows-card" style="display: none;">
+            <h3>🪟 Fenster & Türen</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>IFC GUID</th>
+                        <th>U<sub>g</sub></th>
+                        <th>U<sub>f</sub></th>
+                        <th>g-Wert</th>
+                        <th>Rahmenanteil</th>
+                        <th>Ψ Spacer</th>
+                    </tr>
+                </thead>
+                <tbody id="windows-tbody"></tbody>
             </table>
         </div>
 
