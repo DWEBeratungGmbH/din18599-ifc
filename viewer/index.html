@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIN 18599 Sidecar Viewer</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3 { color: #2c3e50; }
+        .drop-zone {
+            border: 2px dashed #3498db;
+            border-radius: 8px;
+            padding: 40px;
+            text-align: center;
+            color: #3498db;
+            background: #ecf0f1;
+            cursor: pointer;
+            margin-bottom: 20px;
+            transition: background 0.3s;
+        }
+        .drop-zone:hover { background: #e0e6e8; }
+        .drop-zone.dragover { background: #d6eaf8; border-color: #2980b9; }
+        
+        .dashboard { display: none; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 15px;
+        }
+        .card h3 { margin-top: 0; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        
+        .metric { font-size: 24px; font-weight: bold; color: #27ae60; }
+        .metric-label { font-size: 14px; color: #7f8c8d; }
+        
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { text-align: left; padding: 8px; border-bottom: 1px solid #eee; }
+        th { background-color: #f8f9fa; }
+        
+        .error { color: #e74c3c; background: #fadbd8; padding: 10px; border-radius: 4px; margin-bottom: 20px; display: none; }
+        
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+            color: white;
+        }
+        .badge-A_PLUS { background-color: #00a651; }
+        .badge-A { background-color: #00a651; }
+        .badge-B { background-color: #50b848; }
+        .badge-C { background-color: #bfd730; }
+        .badge-D { background-color: #fff200; color: #333; }
+        .badge-E { background-color: #fdb913; }
+        .badge-F { background-color: #f37021; }
+        .badge-G { background-color: #ed1c24; }
+        .badge-H { background-color: #cb0d1d; }
+
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>DIN 18599 Sidecar Viewer</h1>
+    <p>Ziehen Sie eine <code>.din18599.json</code> Datei hierher, um sie zu visualisieren.</p>
+    
+    <div id="drop-zone" class="drop-zone">
+        <p>Datei hier ablegen oder klicken zum Auswählen</p>
+        <input type="file" id="file-input" accept=".json" style="display: none;">
+    </div>
+    
+    <div id="error-msg" class="error"></div>
+
+    <div id="dashboard" class="dashboard">
+        <!-- Project Info -->
+        <div class="card">
+            <h3>🏢 Projekt</h3>
+            <div id="project-info"></div>
+        </div>
+        
+        <!-- Energy Balance -->
+        <div class="card">
+            <h3>⚡ Energiebilanz (Jahr)</h3>
+            <div>Endenergie: <span id="final-energy" class="metric"></span> <span class="metric-label">kWh/a</span></div>
+            <div>Primärenergie: <span id="primary-energy" class="metric"></span> <span class="metric-label">kWh/a</span></div>
+            <div style="margin-top: 10px;">
+                <strong>Effizienzklasse:</strong> <span id="efficiency-class"></span>
+            </div>
+        </div>
+
+        <!-- Zones -->
+        <div class="card" style="grid-column: span 2;">
+            <h3>📐 Zonen</h3>
+            <table id="zones-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Profil</th>
+                        <th>Fläche (AN)</th>
+                        <th>Temp (H/C)</th>
+                        <th>Beleuchtung</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+
+        <!-- Systems -->
+        <div class="card" style="grid-column: span 2;">
+            <h3>🔥 Anlagentechnik</h3>
+            <div id="systems-container"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const dropZone = document.getElementById('drop-zone');
+    const fileInput = document.getElementById('file-input');
+    const errorMsg = document.getElementById('error-msg');
+    const dashboard = document.getElementById('dashboard');
+
+    // Drag & Drop Handlers
+    dropZone.addEventListener('click', () => fileInput.click());
+    dropZone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        dropZone.classList.add('dragover');
+    });
+    dropZone.addEventListener('dragleave', () => dropZone.classList.remove('dragover'));
+    dropZone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        dropZone.classList.remove('dragover');
+        handleFile(e.dataTransfer.files[0]);
+    });
+    fileInput.addEventListener('change', (e) => handleFile(e.target.files[0]));
+
+    function handleFile(file) {
+        if (!file) return;
+        
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            try {
+                const json = JSON.parse(e.target.result);
+                renderDashboard(json);
+                errorMsg.style.display = 'none';
+            } catch (err) {
+                showError("Ungültige JSON-Datei: " + err.message);
+            }
+        };
+        reader.readAsText(file);
+    }
+
+    function showError(msg) {
+        errorMsg.textContent = msg;
+        errorMsg.style.display = 'block';
+        dashboard.style.display = 'none';
+    }
+
+    function renderDashboard(data) {
+        if (!data.input || !data.meta) {
+            showError("Fehlendes 'input' oder 'meta' Objekt. Ist das eine gültige DIN 18599 Sidecar Datei?");
+            return;
+        }
+
+        dashboard.style.display = 'grid';
+
+        // Project Info
+        const meta = data.meta;
+        document.getElementById('project-info').innerHTML = `
+            <p><strong>Name:</strong> ${meta.project_name || '-'}</p>
+            <p><strong>ID:</strong> ${meta.project_id || '-'}</p>
+            <p><strong>Software:</strong> ${meta.software_name} ${meta.software_version}</p>
+            <p><strong>Norm:</strong> ${meta.norm_version}</p>
+            <p><strong>Datum:</strong> ${new Date(meta.calculation_date).toLocaleDateString()}</p>
+        `;
+
+        // Energy Balance (Output)
+        if (data.output && data.output.energy_balance) {
+            const eb = data.output.energy_balance;
+            const ind = data.output.indicators || {};
+            
+            document.getElementById('final-energy').textContent = Math.round(eb.final_energy_kwh_a).toLocaleString();
+            document.getElementById('primary-energy').textContent = Math.round(eb.primary_energy_kwh_a).toLocaleString();
+            
+            const cls = ind.efficiency_class || '?';
+            const badge = document.getElementById('efficiency-class');
+            badge.textContent = cls;
+            badge.className = 'badge badge-' + cls.replace('+', '_PLUS');
+        }
+
+        // Zones
+        const tbody = document.querySelector('#zones-table tbody');
+        tbody.innerHTML = '';
+        if (data.input.zones) {
+            data.input.zones.forEach(z => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>${z.name}</td>
+                    <td>${z.usage_profile}</td>
+                    <td>${z.area_an} m²</td>
+                    <td>${z.design_temp_heating}°C / ${z.design_temp_cooling}°C</td>
+                    <td>${z.lighting_control || '-'}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        // Systems
+        const sysContainer = document.getElementById('systems-container');
+        sysContainer.innerHTML = '';
+        
+        if (data.input.systems) {
+            data.input.systems.forEach(s => {
+                const div = document.createElement('div');
+                div.style.marginBottom = '10px';
+                div.style.padding = '10px';
+                div.style.background = '#f9f9f9';
+                div.innerHTML = `<strong>${s.type}</strong>: ${s.name} (${s.year_built})`;
+                if (s.heat_pump) {
+                    div.innerHTML += `<br><small>COP A2/W35: ${s.heat_pump.cop_a2_w35}</small>`;
+                }
+                sysContainer.appendChild(div);
+            });
+        }
+        if (data.input.pv) {
+             data.input.pv.forEach(p => {
+                const div = document.createElement('div');
+                div.style.marginBottom = '10px';
+                div.style.padding = '10px';
+                div.style.background = '#f9f9f9';
+                div.innerHTML = `<strong>PV Anlage</strong>: ${p.peak_power} kWp, ${p.orientation}° Ausrichtung`;
+                sysContainer.appendChild(div);
+             });
+        }
+    }
+</script>
+
+</body>
+</html>

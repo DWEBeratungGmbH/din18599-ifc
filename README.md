@@ -81,6 +81,36 @@ projekt_musterstrasse1/
     └── dokumente/
 ```
 
+## 🧰 Tools & Ecosystem
+
+Wir stellen offene Referenz-Implementierungen bereit, um die Integration zu erleichtern:
+
+### 1. Python Validator (`tools/validate.py`)
+Ein Command-Line Tool zur Validierung von JSON-Dateien gegen das Schema.
+
+```bash
+python3 tools/validate.py examples/musterhaus.din18599.json
+# ✅ Validation successful
+```
+
+### 2. Web Viewer (`viewer/index.html`)
+Ein einfacher HTML5/JS Viewer zur Visualisierung der Sidecar-Dateien.
+*   **Drag & Drop** Interface
+*   **Dashboard** mit Energiebilanz, Zonen und Anlagentechnik
+*   Läuft komplett lokal im Browser (kein Upload).
+
+### 3. Validation API (`api/`)
+Ein Docker-ready Microservice (FastAPI), der Validierung als Service anbietet.
+
+```bash
+# Starten
+docker build -t din18599-api .
+docker run -p 8000:8000 din18599-api
+
+# Nutzen
+curl -X POST -F "file=@examples/musterhaus.din18599.json" http://localhost:8000/validate
+```
+
 ## Lizenz
 
 Apache License, Version 2.0 - Open Standard
