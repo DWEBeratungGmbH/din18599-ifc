@@ -1,0 +1,137 @@
+{
+  "schema_info": {
+    "url": "https://din18599-ifc.de/schema/v1",
+    "version": "2.0.0"
+  },
+  "meta": {
+    "project_id": "DEMO-BREP-001",
+    "project_name": "3D Viewer Demo - B-Rep Format",
+    "ifc_file_ref": "demo.ifc",
+    "ifc_guid_building": "1A2B3C4D5E6F7G8H9I0J1K2L",
+    "simplified_geometry": true,
+    "geometry_mode": "BREP",
+    "software_name": "DIN18599-IFC 3D Viewer",
+    "software_version": "2.0.0",
+    "calculation_date": "2026-03-27T11:40:00Z",
+    "lod": "300"
+  },
+  "input": {
+    "geometry_brep": {
+      "vertices": [
+        {"id": "V0", "coords": [0, 0, 0]},
+        {"id": "V1", "coords": [10, 0, 0]},
+        {"id": "V2", "coords": [10, 8, 0]},
+        {"id": "V3", "coords": [0, 8, 0]},
+        {"id": "V4", "coords": [0, 0, 2.5]},
+        {"id": "V5", "coords": [10, 0, 2.5]},
+        {"id": "V6", "coords": [10, 8, 2.5]},
+        {"id": "V7", "coords": [0, 8, 2.5]}
+      ],
+      "faces": [
+        {
+          "id": "AW-SUED",
+          "name": "Außenwand Süd",
+          "type": "WALL",
+          "boundary_condition": "EXTERIOR",
+          "u_value": 0.24,
+          "vertices": ["V0", "V1", "V5", "V4"],
+          "openings": [
+            {
+              "id": "FENSTER-SUED-01",
+              "type": "WINDOW",
+              "vertices": [
+                [3, 0, 0.5],
+                [6, 0, 0.5],
+                [6, 0, 2.0],
+                [3, 0, 2.0]
+              ],
+              "u_value": 1.1,
+              "g_value": 0.6
+            }
+          ]
+        },
+        {
+          "id": "AW-OST",
+          "name": "Außenwand Ost",
+          "type": "WALL",
+          "boundary_condition": "EXTERIOR",
+          "u_value": 0.24,
+          "vertices": ["V1", "V2", "V6", "V5"],
+          "openings": [
+            {
+              "id": "FENSTER-OST-01",
+              "type": "WINDOW",
+              "vertices": [
+                [10, 2, 0.5],
+                [10, 4, 0.5],
+                [10, 4, 2.0],
+                [10, 2, 2.0]
+              ],
+              "u_value": 1.1,
+              "g_value": 0.6
+            }
+          ]
+        },
+        {
+          "id": "AW-NORD",
+          "name": "Außenwand Nord",
+          "type": "WALL",
+          "boundary_condition": "EXTERIOR",
+          "u_value": 1.4,
+          "vertices": ["V2", "V3", "V7", "V6"],
+          "openings": [
+            {
+              "id": "FENSTER-NORD-01",
+              "type": "WINDOW",
+              "vertices": [
+                [4, 8, 0.5],
+                [6, 8, 0.5],
+                [6, 8, 1.5],
+                [4, 8, 1.5]
+              ],
+              "u_value": 1.1,
+              "g_value": 0.6
+            }
+          ]
+        },
+        {
+          "id": "AW-WEST",
+          "name": "Außenwand West",
+          "type": "WALL",
+          "boundary_condition": "EXTERIOR",
+          "u_value": 1.4,
+          "vertices": ["V3", "V0", "V4", "V7"]
+        },
+        {
+          "id": "IW-TRENNWAND",
+          "name": "Trennwand Wohnen/Küche",
+          "type": "WALL",
+          "boundary_condition": "INTERIOR",
+          "u_value": 0.8,
+          "vertices": ["V0", "V1", "V5", "V4"]
+        },
+        {
+          "id": "DACH",
+          "name": "Dach",
+          "type": "ROOF",
+          "boundary_condition": "EXTERIOR",
+          "u_value": 0.18,
+          "vertices": ["V4", "V5", "V6", "V7"]
+        },
+        {
+          "id": "BODEN",
+          "name": "Bodenplatte",
+          "type": "FLOOR",
+          "boundary_condition": "GROUND",
+          "u_value": 0.25,
+          "vertices": ["V0", "V3", "V2", "V1"]
+        }
+      ]
+    },
+    "climate_location": {
+      "postcode": "10115",
+      "city": "Berlin",
+      "try_region_code": 4
+    }
+  }
+}
