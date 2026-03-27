@@ -652,6 +652,56 @@
             });
         });
         
+        // Validierungs-Funktionen
+        function validateBRep(brep) {
+            const errors = [];
+            const warnings = [];
+            
+            // Check 1: Alle Vertices haben coords
+            brep.vertices.forEach(v => {
+                if (!v.coords || v.coords.length !== 3) {
+                    errors.push(`Vertex ${v.id}: Fehlende oder ungültige coords`);
+                }
+            });
+            
+            // Check 2: Alle Face-Vertices existieren
+            const vertexIds = new Set(brep.vertices.map(v => v.id));
+            brep.faces.forEach(face => {
+                face.vertices.forEach(vId => {
+                    if (!vertexIds.has(vId)) {
+                        errors.push(`Face ${face.id}: Vertex ${vId} existiert nicht`);
+                    }
+                });
+                
+                // Check 3: Mindestens 3 Vertices pro Face
+                if (face.vertices.length < 3) {
+                    errors.push(`Face ${face.id}: Zu wenige Vertices (${face.vertices.length})`);
+                }
+            });
+            
+            // Check 4: Topologie - Welche Edges werden geteilt?
+            const edgeUsage = {};
+            brep.faces.forEach(face => {
+                for (let i = 0; i < face.vertices.length; i++) {
+                    const v1 = face.vertices[i];
+                    const v2 = face.vertices[(i + 1) % face.vertices.length];
+                    const edgeKey = [v1, v2].sort().join('-');
+                    edgeUsage[edgeKey] = (edgeUsage[edgeKey] || 0) + 1;
+                }
+            });
+            
+            // Check 5: Geschlossene Shell? (jede Edge sollte 2x verwendet werden)
+            Object.entries(edgeUsage).forEach(([edge, count]) => {
+                if (count === 1) {
+                    warnings.push(`Edge ${edge} wird nur 1x verwendet (offene Kante)`);
+                } else if (count > 2) {
+                    warnings.push(`Edge ${edge} wird ${count}x verwendet (nicht-manifold)`);
+                }
+            });
+            
+            return {errors, warnings};
+        }
+        
         // Demo laden Button
         document.getElementById('load-demo').addEventListener('click', () => {
             fetch('./demo-brep.din18599.json')
@@ -662,6 +712,24 @@
                     return res.json();
                 })
                 .then(data => {
+                    // Validierung
+                    if (data.input.geometry_brep) {
+                        const validation = validateBRep(data.input.geometry_brep);
+                        
+                        if (validation.errors.length > 0) {
+                            console.error('❌ Geometrie-Fehler:', validation.errors);
+                            alert('Geometrie-Fehler gefunden! Siehe Konsole (F12).');
+                        }
+                        
+                        if (validation.warnings.length > 0) {
+                            console.warn('⚠️ Geometrie-Warnungen:', validation.warnings);
+                        }
+                        
+                        if (validation.errors.length === 0 && validation.warnings.length === 0) {
+                            console.log('✅ Geometrie-Validierung erfolgreich!');
+                        }
+                    }
+                    
                     buildModel(data);
                     console.log('Demo erfolgreich geladen!');
                 })
