@@ -80,8 +80,8 @@
         "simplified_geometry": { "type": "boolean", "description": "Enthält vereinfachte 3D-Geometrie im Sidecar" },
         "geometry_mode": { 
           "type": "string", 
-          "enum": ["STANDALONE", "SIMPLIFIED", "IFC_LINKED", "HIERARCHICAL"],
-          "description": "Geometrie-Modus: STANDALONE (keine Geo), SIMPLIFIED (2D/3D im Sidecar), IFC_LINKED (nur IFC), HIERARCHICAL (Parent-Child mit relativen Coords)"
+          "enum": ["STANDALONE", "SIMPLIFIED", "IFC_LINKED", "HIERARCHICAL", "BREP"],
+          "description": "Geometrie-Modus: STANDALONE (keine Geo), SIMPLIFIED (2D/3D im Sidecar), IFC_LINKED (nur IFC), HIERARCHICAL (Parent-Child), BREP (Boundary Representation mit Vertices+Faces)"
         },
         "software_name": { "type": "string" },
         "software_version": { "type": "string" },
