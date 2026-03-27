@@ -434,66 +434,45 @@
                 wall.receiveShadow = true;
                 
                 wallsGroup.add(wall);
-            } else if (geometry.type === 'Polygon2D') {
-                // Floor/Roof from polygon (halbtransparent)
-                const coords = geometry.coordinates || [];
-                if (coords.length < 3) return;
-                
-                // Create shape
-                const shape = new THREE.Shape();
-                shape.moveTo(coords[0][0], coords[0][1]);
-                for (let i = 1; i < coords.length; i++) {
-                    shape.lineTo(coords[i][0], coords[i][1]);
-                }
-                shape.lineTo(coords[0][0], coords[0][1]);
-                
-                const planeGeometry = new THREE.ShapeGeometry(shape);
-                const planeMaterial = new THREE.MeshStandardMaterial({ 
-                    color: color,
-                    roughness: 0.6,
-                    metalness: 0.1,
-                    transparent: true,
-                    opacity: 0.7,
-                    side: THREE.DoubleSide
-                });
-                const plane = new THREE.Mesh(planeGeometry, planeMaterial);
-                
-                // Position
-                plane.position.set(position[0], position[2], position[1]);
-                
-                // Rotate to horizontal (floor/roof)
-                plane.rotation.x = -Math.PI / 2;
-                
-                plane.receiveShadow = true;
-                
-                if (element.type === 'ROOF') {
-                    roofsGroup.add(plane);
-                } else {
-                    floorsGroup.add(plane);
-                }
             }
         }
         
         function buildWindow(window, data) {
-            // Simplified window rendering (placeholder)
-            const windowGeometry = new THREE.BoxGeometry(1, 1.5, 0.1);
-            const windowMaterial = new THREE.MeshStandardMaterial({ 
-                color: COLORS.WINDOW,
-                transparent: true,
-                opacity: 0.6,
-                roughness: 0.1,
-                metalness: 0.9
-            });
-            const windowMesh = new THREE.Mesh(windowGeometry, windowMaterial);
+            const geometry = window.geometry;
+            if (!geometry) return;
             
-            // Position based on parent element (simplified)
-            windowMesh.position.set(
-                Math.random() * 10 - 5,
-                1.5,
-                Math.random() * 10 - 5
-            );
+            const position = calculateAbsolutePosition(window, data);
             
-            windowsGroup.add(windowMesh);
+            if (geometry.type === 'Rectangle2D') {
+                const width = geometry.width || 1;
+                const height = geometry.height || 1.5;
+                
+                // Plane statt Box (halbtransparent)
+                const windowGeometry = new THREE.PlaneGeometry(width, height);
+                const windowMaterial = new THREE.MeshStandardMaterial({ 
+                    color: COLORS.WINDOW,
+                    transparent: true,
+                    opacity: 0.4,
+                    roughness: 0.1,
+                    metalness: 0.9,
+                    side: THREE.DoubleSide
+                });
+                const windowMesh = new THREE.Mesh(windowGeometry, windowMaterial);
+                
+                // Position
+                windowMesh.position.set(
+                    position[0],
+                    position[2] + height / 2,
+                    position[1]
+                );
+                
+                // Rotation based on orientation
+                const relativeOrientation = window.relative_orientation || 0;
+                const angle = THREE.MathUtils.degToRad(relativeOrientation);
+                windowMesh.rotation.y = angle;
+                
+                windowsGroup.add(windowMesh);
+            }
         }
         
         function calculateAbsolutePosition(element, data) {
