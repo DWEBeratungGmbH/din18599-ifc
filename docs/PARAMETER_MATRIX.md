@@ -150,11 +150,11 @@ Ergebnisse eines Berechnungslaufs. Read-Only.
 
 | Parameter | Typ | Einheit | Beschreibung |
 | :--- | :--- | :--- | :--- |
-| **`results.sectors.heating`** | Float | kWh/a | Heizung ({h,E}$) |
-| **`results.sectors.cooling`** | Float | kWh/a | Kühlung ({c,E}$) |
-| **`results.sectors.dhw`** | Float | kWh/a | Warmwasser ({w,E}$) |
-| **`results.sectors.ventilation`** | Float | kWh/a | Lüftung/Hilfsenergie ({v,E}$) |
-| **`results.sectors.lighting`** | Float | kWh/a | Beleuchtung ({l,E}$) |
+| **`results.sectors.heating_kwh_a`** | Float | kWh/a | Heizung ({h,E}$) |
+| **`results.sectors.cooling_kwh_a`** | Float | kWh/a | Kühlung ({c,E}$) |
+| **`results.sectors.dhw_kwh_a`** | Float | kWh/a | Warmwasser ({w,E}$) |
+| **`results.sectors.ventilation_kwh_a`** | Float | kWh/a | Lüftung/Hilfsenergie ({v,E}$) |
+| **`results.sectors.lighting_kwh_a`** | Float | kWh/a | Beleuchtung ({l,E}$) |
 
 ### 2.3 Bewertung & GEG-Nachweis
 

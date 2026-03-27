@@ -123,8 +123,44 @@
 
         <!-- Systems -->
         <div class="card" style="grid-column: span 2;">
-            <h3>🔥 Anlagentechnik</h3>
+            <h3>🔥 Wärmeerzeuger</h3>
             <div id="systems-container"></div>
+        </div>
+
+        <!-- Distribution -->
+        <div class="card">
+            <h3>🔄 Wärmeverteilung</h3>
+            <div id="distribution-container"></div>
+        </div>
+
+        <!-- DHW -->
+        <div class="card">
+            <h3>💧 Trinkwarmwasser</h3>
+            <div id="dhw-container"></div>
+        </div>
+
+        <!-- Ventilation -->
+        <div class="card">
+            <h3>💨 Lüftung</h3>
+            <div id="ventilation-container"></div>
+        </div>
+
+        <!-- Lighting -->
+        <div class="card">
+            <h3>💡 Beleuchtung</h3>
+            <div id="lighting-container"></div>
+        </div>
+
+        <!-- Automation -->
+        <div class="card">
+            <h3>🤖 Gebäudeautomation</h3>
+            <div id="automation-container"></div>
+        </div>
+
+        <!-- Output: Sectors -->
+        <div class="card" style="grid-column: span 2;">
+            <h3>📊 Energiebedarf nach Sektoren</h3>
+            <div id="sectors-container"></div>
         </div>
     </div>
 </div>
@@ -220,23 +256,26 @@
             });
         }
 
-        // Systems
+        // Systems (Heat Generators)
         const sysContainer = document.getElementById('systems-container');
         sysContainer.innerHTML = '';
         
-        if (data.input.systems) {
+        if (data.input.systems && data.input.systems.length > 0) {
             data.input.systems.forEach(s => {
                 const div = document.createElement('div');
                 div.style.marginBottom = '10px';
                 div.style.padding = '10px';
                 div.style.background = '#f9f9f9';
-                div.innerHTML = `<strong>${s.type}</strong>: ${s.name} (${s.year_built})`;
+                div.innerHTML = `<strong>${s.type}</strong>: ${s.name || '-'} (${s.year_built || '-'})`;
                 if (s.heat_pump) {
-                    div.innerHTML += `<br><small>COP A2/W35: ${s.heat_pump.cop_a2_w35}</small>`;
+                    div.innerHTML += `<br><small>COP A2/W35: ${s.heat_pump.cop_a2_w35 || '-'}</small>`;
                 }
                 sysContainer.appendChild(div);
             });
+        } else {
+            sysContainer.innerHTML = '<em>Keine Daten</em>';
         }
+        
         if (data.input.pv) {
              data.input.pv.forEach(p => {
                 const div = document.createElement('div');
@@ -246,6 +285,120 @@
                 div.innerHTML = `<strong>PV Anlage</strong>: ${p.peak_power} kWp, ${p.orientation}° Ausrichtung`;
                 sysContainer.appendChild(div);
              });
+        }
+
+        // Distribution
+        const distContainer = document.getElementById('distribution-container');
+        distContainer.innerHTML = '';
+        if (data.input.distribution && data.input.distribution.length > 0) {
+            data.input.distribution.forEach(d => {
+                const div = document.createElement('div');
+                div.style.marginBottom = '8px';
+                div.innerHTML = `
+                    <strong>Typ:</strong> ${d.type || '-'}<br>
+                    <strong>VL/RL:</strong> ${d.temp_flow_design || '-'}°C / ${d.temp_return_design || '-'}°C<br>
+                    <strong>Isolierung:</strong> ${d.pipe_insulation || '-'}<br>
+                    <strong>Hydraulischer Abgleich:</strong> ${d.hydraulic_balance ? 'Ja' : 'Nein'}<br>
+                    <strong>Pumpenregelung:</strong> ${d.pump_control || '-'}
+                `;
+                distContainer.appendChild(div);
+            });
+        } else {
+            distContainer.innerHTML = '<em>Keine Daten</em>';
+        }
+
+        // DHW
+        const dhwContainer = document.getElementById('dhw-container');
+        dhwContainer.innerHTML = '';
+        if (data.input.dhw && data.input.dhw.length > 0) {
+            data.input.dhw.forEach(dhw => {
+                const div = document.createElement('div');
+                div.style.marginBottom = '8px';
+                div.innerHTML = `
+                    <strong>Typ:</strong> ${dhw.type || '-'}<br>
+                    <strong>Speicher:</strong> ${dhw.storage_volume || '-'} L<br>
+                    <strong>Zirkulation:</strong> ${dhw.circulation ? 'Ja (' + (dhw.circulation_length || '-') + ' m)' : 'Nein'}<br>
+                    <strong>Isolierung:</strong> ${dhw.pipe_insulation || '-'}
+                `;
+                dhwContainer.appendChild(div);
+            });
+        } else {
+            dhwContainer.innerHTML = '<em>Keine Daten</em>';
+        }
+
+        // Ventilation
+        const ventContainer = document.getElementById('ventilation-container');
+        ventContainer.innerHTML = '';
+        if (data.input.ventilation && data.input.ventilation.length > 0) {
+            data.input.ventilation.forEach(v => {
+                const div = document.createElement('div');
+                div.style.marginBottom = '8px';
+                div.innerHTML = `
+                    <strong>Typ:</strong> ${v.type || '-'}<br>
+                    <strong>WRG:</strong> ${v.heat_recovery ? 'Ja (η=' + (v.heat_recovery_efficiency || '-') + ')' : 'Nein'}<br>
+                    <strong>Volumenstrom:</strong> ${v.volume_flow || '-'} m³/h<br>
+                    <strong>SFP:</strong> ${v.spf_fan || '-'} Wh/m³
+                `;
+                ventContainer.appendChild(div);
+            });
+        } else {
+            ventContainer.innerHTML = '<em>Keine Daten</em>';
+        }
+
+        // Lighting
+        const lightContainer = document.getElementById('lighting-container');
+        lightContainer.innerHTML = '';
+        if (data.input.lighting && data.input.lighting.length > 0) {
+            data.input.lighting.forEach(l => {
+                const div = document.createElement('div');
+                div.style.marginBottom = '8px';
+                div.innerHTML = `
+                    <strong>Zone:</strong> ${l.zone_id || '-'}<br>
+                    <strong>Technologie:</strong> ${l.technology || '-'}<br>
+                    <strong>Steuerung:</strong> ${l.control || '-'}<br>
+                    <strong>Leistung:</strong> ${l.installed_power || '-'} W/m²
+                `;
+                lightContainer.appendChild(div);
+            });
+        } else {
+            lightContainer.innerHTML = '<em>Keine Daten</em>';
+        }
+
+        // Automation
+        const autoContainer = document.getElementById('automation-container');
+        autoContainer.innerHTML = '';
+        if (data.input.automation && data.input.automation.class) {
+            autoContainer.innerHTML = `<strong>Klasse:</strong> ${data.input.automation.class}<br><small>`;
+            const classMap = {
+                'A': 'High Performance',
+                'B': 'Advanced',
+                'C': 'Standard',
+                'D': 'Keine Automation'
+            };
+            autoContainer.innerHTML += classMap[data.input.automation.class] || '-';
+            autoContainer.innerHTML += '</small>';
+        } else {
+            autoContainer.innerHTML = '<em>Keine Daten</em>';
+        }
+
+        // Output: Sectors
+        const sectorsContainer = document.getElementById('sectors-container');
+        sectorsContainer.innerHTML = '';
+        if (data.output && data.output.sectors) {
+            const s = data.output.sectors;
+            const total = (s.heating_kwh_a || 0) + (s.cooling_kwh_a || 0) + (s.dhw_kwh_a || 0) + (s.ventilation_kwh_a || 0) + (s.lighting_kwh_a || 0);
+            sectorsContainer.innerHTML = `
+                <table style="width: 100%; margin-top: 10px;">
+                    <tr><td><strong>Heizung:</strong></td><td>${Math.round(s.heating_kwh_a || 0).toLocaleString()} kWh/a</td></tr>
+                    <tr><td><strong>Kühlung:</strong></td><td>${Math.round(s.cooling_kwh_a || 0).toLocaleString()} kWh/a</td></tr>
+                    <tr><td><strong>Warmwasser:</strong></td><td>${Math.round(s.dhw_kwh_a || 0).toLocaleString()} kWh/a</td></tr>
+                    <tr><td><strong>Lüftung:</strong></td><td>${Math.round(s.ventilation_kwh_a || 0).toLocaleString()} kWh/a</td></tr>
+                    <tr><td><strong>Beleuchtung:</strong></td><td>${Math.round(s.lighting_kwh_a || 0).toLocaleString()} kWh/a</td></tr>
+                    <tr style="border-top: 2px solid #333; font-weight: bold;"><td>Gesamt:</td><td>${Math.round(total).toLocaleString()} kWh/a</td></tr>
+                </table>
+            `;
+        } else {
+            sectorsContainer.innerHTML = '<em>Keine Daten</em>';
         }
     }
 </script>

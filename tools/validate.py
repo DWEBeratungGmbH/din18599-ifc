@@ -9,10 +9,10 @@ def load_schema(schema_path):
         with open(schema_path, 'r') as f:
             return json.load(f)
     except FileNotFoundError:
-        print(f"Error: Schema file not found at {schema_path}")
+        print(f"Fehler: Schema-Datei nicht gefunden unter {schema_path}")
         sys.exit(1)
     except json.JSONDecodeError:
-        print(f"Error: Schema file is not valid JSON at {schema_path}")
+        print(f"Fehler: Schema-Datei ist kein gültiges JSON: {schema_path}")
         sys.exit(1)
 
 def validate_file(json_path, schema):
@@ -20,26 +20,26 @@ def validate_file(json_path, schema):
         with open(json_path, 'r') as f:
             data = json.load(f)
     except FileNotFoundError:
-        print(f"Error: Input file not found at {json_path}")
+        print(f"Fehler: Eingabedatei nicht gefunden unter {json_path}")
         return False
     except json.JSONDecodeError:
-        print(f"Error: Input file is not valid JSON at {json_path}")
+        print(f"Fehler: Eingabedatei ist kein gültiges JSON: {json_path}")
         return False
 
     try:
         validate(instance=data, schema=schema)
-        print(f"✅ Validation successful: {json_path}")
+        print(f"✅ Validierung erfolgreich: {json_path}")
         return True
     except ValidationError as e:
-        print(f"❌ Validation failed: {json_path}")
-        print(f"   Error: {e.message}")
-        print(f"   Path: {' -> '.join(str(p) for p in e.path)}")
+        print(f"❌ Validierung fehlgeschlagen: {json_path}")
+        print(f"   Fehler: {e.message}")
+        print(f"   Pfad: {' -> '.join(str(p) for p in e.path)}")
         return False
 
 def main():
-    parser = argparse.ArgumentParser(description="Validate a JSON file against the DIN 18599 Sidecar Schema.")
-    parser.add_argument("file", help="Path to the .din18599.json file to validate")
-    parser.add_argument("--schema", default="../gebaeude.din18599.schema.json", help="Path to the schema file (default: ../gebaeude.din18599.schema.json)")
+    parser = argparse.ArgumentParser(description="Validiert eine JSON-Datei gegen das DIN 18599 Sidecar Schema.")
+    parser.add_argument("file", help="Pfad zur .din18599.json Datei")
+    parser.add_argument("--schema", default="../gebaeude.din18599.schema.json", help="Pfad zur Schema-Datei (Standard: ../gebaeude.din18599.schema.json)")
     
     args = parser.parse_args()
 

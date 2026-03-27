@@ -2,7 +2,7 @@
 **Ein offenes Austauschformat für die energetische Gebäudeakte in Deutschland**
 
 > **Status:** Draft / Request for Comments (RFC)  
-> **Lizenz:** MIT  
+> **Lizenz:** Apache License 2.0  
 > **Repository:** [github.com/DWEBeratungGmbH/din18599-ifc](https://github.com/DWEBeratungGmbH/din18599-ifc)
 
 ## 🎯 Zielbild
@@ -111,6 +111,61 @@ docker run -p 8000:8000 din18599-api
 curl -X POST -F "file=@examples/musterhaus.din18599.json" http://localhost:8000/validate
 ```
 
-## Lizenz
+## 🤝 Beitragen
 
-Apache License, Version 2.0 - Open Standard
+Dieses Projekt lebt von der Community! Wir freuen uns über jeden Beitrag:
+
+### Wie kann ich beitragen?
+
+**1. Feedback & Diskussion**
+- Öffne ein [Issue](https://github.com/DWEBeratungGmbH/din18599-ifc/issues) für Verbesserungsvorschläge
+- Diskutiere im [Discussions-Bereich](https://github.com/DWEBeratungGmbH/din18599-ifc/discussions) über Konzepte
+- Teile Praxiserfahrungen und Anwendungsfälle
+
+**2. Dokumentation verbessern**
+- Verbesserungen an README, Parameter-Matrix oder Schema
+- Beispiele aus der Praxis ergänzen
+- Übersetzungen in andere Sprachen
+
+**3. Code & Tools**
+- Validator, Viewer oder API verbessern
+- Neue Tools entwickeln (z.B. IFC→Sidecar Converter)
+- Test-Cases und Beispieldateien erstellen
+
+### Qualitätsstandards
+
+**Schema-Änderungen:**
+- Abwärtskompatibilität beachten (keine Breaking Changes ohne Major Version)
+- Änderungen in `PARAMETER_MATRIX.md` dokumentieren
+- Beispiel-JSON (`examples/`) aktualisieren
+- Tests anpassen und ausführen
+
+**Code-Beiträge:**
+- Python: PEP 8 Style Guide
+- JavaScript: ESLint + Prettier
+- Kommentare auf Deutsch (Code auf Englisch)
+- Tests für neue Features
+
+**Pull Request Workflow:**
+1. Fork des Repositories erstellen
+2. Feature-Branch erstellen (`feature/mein-feature`)
+3. Änderungen committen mit aussagekräftigen Messages
+4. Tests lokal ausführen
+5. Pull Request gegen `main` öffnen
+6. Review abwarten und ggf. Anpassungen vornehmen
+
+### Kontakt & Support
+
+- **Issues:** [GitHub Issues](https://github.com/DWEBeratungGmbH/din18599-ifc/issues)
+- **Diskussionen:** [GitHub Discussions](https://github.com/DWEBeratungGmbH/din18599-ifc/discussions)
+- **E-Mail:** opensource@dwe-beratung.de
+
+---
+
+## 📄 Lizenz
+
+**Apache License, Version 2.0** - Offener Standard für maximale Interoperabilität.
+
+Diese Lizenz erlaubt kommerzielle und nicht-kommerzielle Nutzung, Modifikation und Weiterverbreitung, unter der Bedingung, dass Copyright-Hinweise und Lizenztext beibehalten werden. Die Apache 2.0 Lizenz beinhaltet zudem eine ausdrückliche Patent-Klausel, die Rechtssicherheit für Implementierer schafft.
+
+Siehe [LICENSE](LICENSE) für Details.
