@@ -86,24 +86,50 @@ projekt/
 └── gebaeude.din18599.json  (mit geometry-Feldern)
 ```
 
-### Beispiel
+### Hierarchisches Modell (Parent-Child)
+
+**Konzept:** Geometrie ist **relativ zum Parent** gespeichert
+
+```
+Building (Ursprung 0,0,0)
+  └─ Zone (relativ zu Building)
+      ├─ Space (relativ zu Zone)
+      │   └─ Element (relativ zu Space)
+      └─ Element (relativ zu Zone)
+```
+
+**Vorteile:**
+- ✅ **Änderungen propagieren** automatisch
+- ✅ **Koordinaten einfacher** (relativ statt absolut)
+- ✅ **Wiederverwendbar** (gleiche Geometrie, verschiedene Positionen)
+
+### Beispiel: Hierarchische Geometrie
 
 ```json
 {
   "meta": {
     "project_name": "Musterhaus",
     "lod": "300",
-    "simplified_geometry": true
+    "simplified_geometry": true,
+    "geometry_mode": "HIERARCHICAL"
   },
   "input": {
+    "building": {
+      "geometry": {
+        "origin": [0, 0, 0],
+        "rotation": 0
+      }
+    },
     "zones": [
       {
         "id": "ZONE-01",
-        "name": "Wohnbereich",
+        "name": "Wohnbereich EG",
         "area_an": 85.5,
         "volume_v": 213.75,
         "geometry": {
           "type": "Polygon2D",
+          "parent_ref": "BUILDING",
+          "local_origin": [0, 0, 0],
           "coordinates": [
             [0, 0],
             [10, 0],
@@ -112,27 +138,255 @@ projekt/
           ],
           "floor_level": 0.0,
           "ceiling_height": 2.5
-        }
+        },
+        "spaces": [
+          {
+            "id": "SPACE-01",
+            "name": "Wohnzimmer",
+            "area_an": 45.0,
+            "geometry": {
+              "type": "Polygon2D",
+              "parent_ref": "ZONE-01",
+              "local_origin": [0, 0, 0],
+              "coordinates": [
+                [0, 0],
+                [6, 0],
+                [6, 7.5],
+                [0, 7.5]
+              ]
+            }
+          },
+          {
+            "id": "SPACE-02",
+            "name": "Küche",
+            "area_an": 40.5,
+            "geometry": {
+              "type": "Polygon2D",
+              "parent_ref": "ZONE-01",
+              "local_origin": [6, 0, 0],
+              "coordinates": [
+                [0, 0],
+                [4, 0],
+                [4, 8.5],
+                [0, 8.5]
+              ]
+            }
+          }
+        ]
       }
     ],
     "elements": [
       {
         "name": "Außenwand Süd",
         "type": "WALL",
-        "zone_id": "ZONE-01",
+        "space_id": "SPACE-01",
         "geometry": {
           "type": "Line2D",
+          "parent_ref": "SPACE-01",
+          "local_origin": [0, 0, 0],
           "start": [0, 0],
-          "end": [10, 0],
-          "height": 2.5,
-          "base_level": 0.0
+          "end": [6, 0],
+          "height": 2.5
         },
-        "area": 25.0,
+        "area": 15.0,
         "orientation": 180,
         "u_value_undisturbed": 0.24
+      },
+      {
+        "name": "Trennwand Wohnzimmer/Küche",
+        "type": "WALL",
+        "boundary_condition": "INTERIOR",
+        "geometry": {
+          "type": "Line2D",
+          "parent_ref": "ZONE-01",
+          "local_origin": [6, 0, 0],
+          "start": [0, 0],
+          "end": [0, 7.5],
+          "height": 2.5
+        },
+        "area": 18.75
       }
     ]
   }
+}
+```
+
+**Koordinaten-Berechnung:**
+
+```javascript
+// Absolute Position eines Elements berechnen
+function getAbsolutePosition(element) {
+  let position = element.geometry.local_origin;
+  let parent = element.geometry.parent_ref;
+  
+  while (parent) {
+    const parentGeom = findGeometry(parent);
+    position = add(position, parentGeom.local_origin);
+    parent = parentGeom.parent_ref;
+  }
+  
+  return position;
+}
+
+// Beispiel: Außenwand Süd
+// local_origin: [0, 0, 0] (relativ zu SPACE-01)
+// SPACE-01.local_origin: [0, 0, 0] (relativ zu ZONE-01)
+// ZONE-01.local_origin: [0, 0, 0] (relativ zu BUILDING)
+// BUILDING.origin: [0, 0, 0]
+// → Absolute Position: [0, 0, 0]
+
+// Beispiel: Trennwand
+// local_origin: [6, 0, 0] (relativ zu ZONE-01)
+// ZONE-01.local_origin: [0, 0, 0] (relativ zu BUILDING)
+// → Absolute Position: [6, 0, 0]
+```
+
+### Transformations (Änderungen propagieren)
+
+**Szenario 1: Zone verschieben**
+
+```javascript
+// Zone um 5m nach Osten verschieben
+zone.geometry.local_origin = [5, 0, 0];
+
+// Automatisch betroffen:
+// - Alle Spaces in der Zone
+// - Alle Elements in der Zone
+// - Alle Elements in den Spaces
+```
+
+**Szenario 2: Space verschieben (innerhalb Zone)**
+
+```javascript
+// Küche um 1m nach Norden verschieben
+space_02.geometry.local_origin = [6, 1, 0];
+
+// Automatisch betroffen:
+// - Alle Elements in SPACE-02
+// - ZONE-01 bleibt unverändert
+```
+
+**Szenario 3: Gebäude rotieren**
+
+```javascript
+// Gebäude um 45° drehen
+building.geometry.rotation = 45;
+
+// Automatisch betroffen:
+// - Alle Zones
+// - Alle Spaces
+// - Alle Elements
+// → Orientierung aller Wände ändert sich!
+```
+
+### Use Cases
+
+**Use Case 1: Mehrfamilienhaus (gleiche Wohnungen)**
+
+```json
+{
+  "zones": [
+    {
+      "id": "ZONE-EG-01",
+      "name": "Wohnung EG",
+      "geometry": {
+        "parent_ref": "BUILDING",
+        "local_origin": [0, 0, 0],
+        "template_ref": "WOHNUNG_TYP_A"
+      }
+    },
+    {
+      "id": "ZONE-OG-01",
+      "name": "Wohnung OG",
+      "geometry": {
+        "parent_ref": "BUILDING",
+        "local_origin": [0, 0, 3.0],
+        "template_ref": "WOHNUNG_TYP_A"
+      }
+    }
+  ],
+  "templates": {
+    "WOHNUNG_TYP_A": {
+      "spaces": [...],
+      "elements": [...]
+    }
+  }
+}
+```
+
+**Use Case 2: Sanierung (vorher/nachher)**
+
+```json
+{
+  "scenarios": [
+    {
+      "id": "BASE",
+      "name": "Bestand",
+      "elements": [
+        {
+          "id": "AW-01",
+          "geometry": {
+            "parent_ref": "ZONE-01",
+            "local_origin": [0, 0, 0],
+            "start": [0, 0],
+            "end": [10, 0]
+          },
+          "u_value_undisturbed": 1.4
+        }
+      ]
+    },
+    {
+      "id": "SANIERT",
+      "name": "Saniert",
+      "changes": {
+        "elements": [
+          {
+            "id": "AW-01",
+            "u_value_undisturbed": 0.24,
+            "layer_structure_ref": "LS-AW-GEDAEMMT"
+          }
+        ]
+      }
+    }
+  ]
+}
+```
+
+**Vorteil:** Geometrie bleibt gleich, nur U-Wert ändert sich!
+
+**Use Case 3: Anbau (Geometrie ändert sich)**
+
+```json
+{
+  "scenarios": [
+    {
+      "id": "BASE",
+      "zones": [
+        {
+          "id": "ZONE-01",
+          "geometry": {
+            "coordinates": [[0,0], [10,0], [10,8.5], [0,8.5]]
+          }
+        }
+      ]
+    },
+    {
+      "id": "ANBAU",
+      "changes": {
+        "zones": [
+          {
+            "id": "ZONE-02",
+            "name": "Anbau",
+            "geometry": {
+              "parent_ref": "BUILDING",
+              "local_origin": [10, 0, 0],
+              "coordinates": [[0,0], [5,0], [5,6], [0,6]]
+            }
+          }
+        ]
+      }
+    }
+  ]
 }
 ```
 
