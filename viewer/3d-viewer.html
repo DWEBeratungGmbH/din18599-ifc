@@ -384,6 +384,31 @@
             updateProjectInfo(data);
         }
         
+        function buildModelBRep(data) {
+            const brep = data.input.geometry_brep;
+            
+            console.log('🏗️ Building B-Rep Model:', {
+                vertices: brep.vertices.length,
+                faces: brep.faces.length
+            });
+            
+            // Create vertex map
+            const vertexMap = {};
+            brep.vertices.forEach(v => {
+                vertexMap[v.id] = new THREE.Vector3(...v.coords);
+            });
+            
+            console.log('📍 Vertex Map:', vertexMap);
+            
+            // Build each face
+            brep.faces.forEach(face => {
+                console.log(`🔨 Building face: ${face.id} (${face.type})`);
+                buildFaceBRep(face, vertexMap);
+            });
+            
+            console.log('✅ B-Rep Model complete!');
+        }
+        
         function buildElement(element, data) {
             const geometry = element.geometry;
             if (!geometry) return;
