@@ -466,14 +466,14 @@
             
             console.log(`  Vertices:`, coords.map(v => `[${v.x}, ${v.y}, ${v.z}]`));
             
-            // Determine color
+            // Determine color (Type-Check zuerst!)
             let color = COLORS.WALL_INTERIOR;
-            if (face.boundary_condition === 'EXTERIOR') {
-                color = face.u_value < 0.5 ? COLORS.WALL_INSULATED : COLORS.WALL_UNINSULATED;
-            } else if (face.type === 'ROOF') {
+            if (face.type === 'ROOF') {
                 color = COLORS.ROOF;
             } else if (face.type === 'FLOOR' || face.boundary_condition === 'GROUND') {
                 color = COLORS.FLOOR;
+            } else if (face.boundary_condition === 'EXTERIOR') {
+                color = face.u_value < 0.5 ? COLORS.WALL_INSULATED : COLORS.WALL_UNINSULATED;
             }
             
             // Create BufferGeometry from vertices (Quad → 2 Triangles)
