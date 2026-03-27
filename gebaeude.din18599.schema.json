@@ -1,9 +1,66 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "IFC + DIN 18599 Sidecar",
-  "description": "JSON Sidecar für IFC-Dateien zur Abbildung von Energieberatungsdaten nach DIN 18599. Unterteilt in Input (Definition) und Output (Ergebnisse).",
+  "description": "JSON Sidecar für IFC-Dateien zur Abbildung von Energieberatungsdaten nach DIN 18599. Unterteilt in Input (Definition) und Output (Ergebnisse). Unterstützt Varianten-Management (Delta-Modell).",
   "type": "object",
-  "properties": {
+  "oneOf": [
+    {
+      "description": "Legacy Format: Einzelne Datei ohne Varianten",
+      "properties": {
+        "schema_info": { "$ref": "#/definitions/schema_info" },
+        "meta": { "$ref": "#/definitions/meta" },
+        "input": { "$ref": "#/definitions/input" },
+        "output": { "$ref": "#/definitions/output" }
+      },
+      "required": ["schema_info", "meta", "input"],
+      "not": { "anyOf": [{ "required": ["base"] }, { "required": ["scenarios"] }] }
+    },
+    {
+      "description": "Varianten-Format: Base + Scenarios (Delta-Modell)",
+      "properties": {
+        "schema_info": { "$ref": "#/definitions/schema_info" },
+        "meta": { "$ref": "#/definitions/meta_variants" },
+        "base": {
+          "description": "IST-Zustand / Ausgangsvariante",
+          "type": "object",
+          "properties": {
+            "meta": { "$ref": "#/definitions/meta" },
+            "input": { "$ref": "#/definitions/input" },
+            "output": { "$ref": "#/definitions/output" }
+          },
+          "required": ["meta", "input"]
+        },
+        "scenarios": {
+          "description": "Sanierungs-/Planungsvarianten als Delta zum Base",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string", "description": "Eindeutige Varianten-ID" },
+              "name": { "type": "string", "description": "Variantenname (z.B. 'Sanierung WDVS + Fenster')" },
+              "description": { "type": "string", "description": "Beschreibung der Maßnahmen" },
+              "delta": {
+                "description": "Nur geänderte Werte (werden mit Base gemerged)",
+                "type": "object",
+                "properties": {
+                  "meta": { "$ref": "#/definitions/meta_partial" },
+                  "elements": { "type": "array", "description": "Geänderte/neue Bauteile" },
+                  "windows": { "type": "array", "description": "Geänderte/neue Fenster" },
+                  "layer_structures": { "type": "array", "description": "Geänderte/neue Schichtaufbauten" },
+                  "materials": { "type": "array", "description": "Geänderte/neue Materialien" },
+                  "systems": { "type": "array", "description": "Geänderte/neue Systeme" }
+                }
+              },
+              "output": { "$ref": "#/definitions/output" }
+            },
+            "required": ["id", "name", "delta"]
+          }
+        }
+      },
+      "required": ["schema_info", "meta", "base", "scenarios"]
+    }
+  ],
+  "definitions": {
     "schema_info": {
       "type": "object",
       "properties": {
@@ -23,9 +80,48 @@
         "software_name": { "type": "string" },
         "software_version": { "type": "string" },
         "calculation_date": { "type": "string", "format": "date-time" },
-        "norm_version": { "type": "string", "description": "Angewandte Norm, z.B. DIN V 18599:2018-09" }
+        "norm_version": { "type": "string", "description": "Angewandte Norm, z.B. DIN V 18599:2018-09" },
+        "lod": {
+          "type": "string",
+          "enum": ["100", "200", "300", "400", "500"],
+          "description": "Level of Detail (BIM-inspiriert): 100=Konzept, 200=Vorentwurf, 300=Entwurf, 400=Ausführung, 500=As-Built"
+        },
+        "data_quality": {
+          "type": "object",
+          "description": "LOD-Level für verschiedene Bereiche (falls abweichend vom Gesamt-LOD)",
+          "properties": {
+            "geometry": { "type": "string", "enum": ["100", "200", "300", "400", "500"] },
+            "envelope": { "type": "string", "enum": ["100", "200", "300", "400", "500"] },
+            "systems": { "type": "string", "enum": ["100", "200", "300", "400", "500"] }
+          }
+        },
+        "catalog_references": {
+          "type": "array",
+          "description": "Verwendete Kataloge (z.B. DE_BMWI2020_BAUTEILE v1.0)",
+          "items": { "type": "string" }
+        }
       },
       "required": ["ifc_file_ref", "ifc_guid_building"]
+    },
+    "meta_variants": {
+      "description": "Metadaten für Varianten-Datei",
+      "type": "object",
+      "properties": {
+        "project_id": { "type": "string" },
+        "project_name": { "type": "string" },
+        "variant_set_name": { "type": "string", "description": "Name des Variantensets (z.B. 'iSFP Sanierungsfahrplan')" },
+        "created_date": { "type": "string", "format": "date-time" }
+      },
+      "required": ["project_name", "variant_set_name"]
+    },
+    "meta_partial": {
+      "description": "Partielle Metadaten für Scenario-Delta (nur änderbare Felder)",
+      "type": "object",
+      "properties": {
+        "calculation_date": { "type": "string", "format": "date-time" },
+        "lod": { "type": "string", "enum": ["100", "200", "300", "400", "500"] },
+        "software_version": { "type": "string" }
+      }
     },
     "input": {
       "description": "Eingabedaten für die Berechnung (Source of Truth)",
@@ -85,9 +181,11 @@
               "solar_absorption": { "type": "number", "description": "Absorptionsgrad der Oberfläche (0-1)" },
               "orientation": { "type": "number", "description": "0=N, 90=O, 180=S, 270=W" },
               "inclination": { "type": "number", "description": "0=Horizontal, 90=Vertikal" },
-              "layer_structure_ref": { "type": "string", "description": "Referenz auf eine Schichtaufbau-ID" }
+              "layer_structure_ref": { "type": "string", "description": "Referenz auf eine Schichtaufbau-ID" },
+              "u_value_override": { "type": "number", "description": "Manueller U-Wert überschreibt automatische Berechnung aus layer_structure_ref" },
+              "construction_catalog_ref": { "type": "string", "description": "Referenz auf Katalog-Eintrag (z.B. AW_VOLLZIEGEL_BIS20_BMWI)" }
             },
-            "required": ["ifc_guid", "boundary_condition", "u_value_undisturbed"]
+            "required": ["ifc_guid", "boundary_condition"]
           }
         },
         "windows": {
@@ -111,16 +209,96 @@
         },
         "materials": {
           "type": "array",
+          "description": "Materialien für Schichtaufbauten",
           "items": {
             "type": "object",
             "properties": {
               "id": { "type": "string" },
               "name": { "type": "string" },
-              "lambda": { "type": "number" },
-              "density": { "type": "number" },
+              "type": {
+                "type": "string",
+                "enum": ["STANDARD", "AIR_LAYER"],
+                "default": "STANDARD",
+                "description": "STANDARD=normales Material, AIR_LAYER=ruhende/belüftete Luftschicht"
+              },
+              "lambda": { "type": "number", "description": "Wärmeleitfähigkeit W/(m·K) (nur bei STANDARD)" },
+              "density": { "type": "number", "description": "Rohdichte kg/m³ (nur bei STANDARD)" },
+              "specific_heat": { "type": "number", "description": "Spezifische Wärmekapazität J/(kg·K) (optional)" },
+              "vapor_resistance_factor": { "type": "number", "description": "Wasserdampf-Diffusionswiderstandszahl μ (optional)" },
+              "air_layer_type": {
+                "type": "string",
+                "enum": ["STILL", "SLIGHTLY_VENTILATED", "HIGHLY_VENTILATED"],
+                "description": "Luftschichttyp nach EN ISO 6946 (nur bei AIR_LAYER)"
+              },
+              "orientation": {
+                "type": "string",
+                "enum": ["HORIZONTAL_UP", "HORIZONTAL_DOWN", "VERTICAL"],
+                "description": "Wärmeflussrichtung (nur bei AIR_LAYER)"
+              },
+              "r_value": { "type": "number", "description": "Wärmedurchlasswiderstand m²K/W (nur bei AIR_LAYER)" },
               "oekobau_uuid": { "type": "string", "description": "UUID aus Ökobaudat für LCA" }
             },
-            "required": ["id", "name"]
+            "required": ["id", "name", "type"],
+            "allOf": [
+              {
+                "if": { "properties": { "type": { "const": "STANDARD" } } },
+                "then": { "required": ["lambda"] }
+              },
+              {
+                "if": { "properties": { "type": { "const": "AIR_LAYER" } } },
+                "then": { "required": ["air_layer_type", "orientation", "r_value"] }
+              }
+            ]
+          }
+        },
+        "layer_structures": {
+          "type": "array",
+          "description": "Schichtaufbauten für opake Bauteile",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string", "description": "Eindeutige ID des Schichtaufbaus" },
+              "name": { "type": "string", "description": "Bezeichnung (z.B. 'Außenwand WDVS 16cm')" },
+              "type": {
+                "type": "string",
+                "enum": ["WALL", "ROOF", "FLOOR", "CEILING"],
+                "description": "Bauteiltyp"
+              },
+              "layers": {
+                "type": "array",
+                "description": "Schichten von außen (Position 1) nach innen",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "position": { "type": "integer", "minimum": 1, "description": "Schichtposition (1=außen)" },
+                    "material_id": { "type": "string", "description": "Referenz auf materials[].id" },
+                    "thickness_mm": { "type": "number", "description": "Schichtdicke in mm" }
+                  },
+                  "required": ["position", "material_id", "thickness_mm"]
+                },
+                "minItems": 1
+              },
+              "calculated_values": {
+                "type": "object",
+                "description": "Automatisch berechnete Kennwerte (optional)",
+                "properties": {
+                  "r_total_m2k_w": { "type": "number", "description": "Gesamtwärmewiderstand m²K/W" },
+                  "u_value_w_m2k": { "type": "number", "description": "Berechneter U-Wert W/(m²K)" },
+                  "sd_total_m": { "type": "number", "description": "Diffusionsäquivalente Luftschichtdicke m" },
+                  "thermal_mass_j_m2k": { "type": "number", "description": "Wärmespeicherfähigkeit J/(m²K)" }
+                }
+              },
+              "surface_properties": {
+                "type": "object",
+                "description": "Oberflächeneigenschaften",
+                "properties": {
+                  "exterior_finish": { "type": "string", "description": "Außenoberfläche (z.B. 'Putz weiß')" },
+                  "solar_absorption": { "type": "number", "description": "Absorptionsgrad (0-1)" },
+                  "emissivity": { "type": "number", "description": "Emissionsgrad (0-1)" }
+                }
+              }
+            },
+            "required": ["id", "name", "type", "layers"]
           }
         },
         "systems": {
@@ -268,7 +446,7 @@
           }
         }
       },
-      "required": ["zones", "elements"]
+      "required": ["zones"]
     },
     "output": {
       "description": "Ergebnisse der Berechnung (Read-Only Snapshot)",
@@ -307,6 +485,5 @@
         }
       }
     }
-  },
-  "required": ["schema_info", "meta", "input"]
+  }
 }

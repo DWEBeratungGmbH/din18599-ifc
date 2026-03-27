@@ -1,0 +1,417 @@
+{
+  "$schema": "https://din18599-ifc.de/schema/catalog/v1",
+  "catalog_id": "DE_BMWI2020_BAUTEILE",
+  "catalog_type": "CONSTRUCTION_UVALUES",
+  "name": "U-Werte nach Baujahr (Bundesanzeiger 2020)",
+  "version": "1.0.0",
+  "source": "Bundesanzeiger AT 04.12.2020 B1 (BMWi/BMI)",
+  "source_title": "Bekanntmachung der Regeln zur Datenaufnahme und Datenverwendung im Wohngebäudebestand vom 8. Oktober 2020",
+  "source_url": "https://bundesanzeiger.de/pub/publication/qzQUGd8A3unSCCbVMcf/content/qzQUGd8A3unSCCbVMcf/BAnz%20AT%2004.12.2020%20B1.pdf",
+  "publication_date": "2020-10-08",
+  "valid_from": "2020-12-04",
+  "replaces": "BAnz AT 07.04.2015",
+  "legal_basis": "BEG-Förderung (Bundesförderung für effiziente Gebäude)",
+  "description": "Pauschalwerte für den Wärmedurchgangskoeffizienten nicht nachträglich gedämmter opaker und transparenter Bauteile nach Baujahr. Offizielle Quelle für iSFP-Beratung und Fördergutachten.",
+  "usage_notes": [
+    "Gilt für nicht nachträglich gedämmt Bauteile im Wohngebäudebestand",
+    "Bei nachträglicher Dämmung sind die U-Werte anzupassen",
+    "Für LOD 100-200: Direkte Verwendung als Default-Werte",
+    "Für LOD 300+: Als Plausibilitätsprüfung bei gemessenen Werten"
+  ],
+  
+  "age_classes": {
+    "description": "Baualtersklassen nach Wärmeschutzverordnungen",
+    "classes": [
+      {"id": "bis_1918", "name": "Bis 1918", "year_min": null, "year_max": 1918, "note": "Vor erster WSchV"},
+      {"id": "1919_bis_1948", "name": "1919-1948", "year_min": 1919, "year_max": 1948, "note": "Zwischen den Kriegen"},
+      {"id": "1949_bis_1957", "name": "1949-1957", "year_min": 1949, "year_max": 1957, "note": "Nachkriegszeit"},
+      {"id": "1958_bis_1968", "name": "1958-1968", "year_min": 1958, "year_max": 1968, "note": "Vor DIN 4108 (1969)"},
+      {"id": "1969_bis_1978", "name": "1969-1978", "year_min": 1969, "year_max": 1978, "note": "DIN 4108 (1969)"},
+      {"id": "1979_bis_1983", "name": "1979-1983", "year_min": 1979, "year_max": 1983, "note": "WSchV 1977"},
+      {"id": "1984_bis_1994", "name": "1984-1994", "year_min": 1984, "year_max": 1994, "note": "WSchV 1984"},
+      {"id": "1995_bis_2001", "name": "1995-2001", "year_min": 1995, "year_max": 2001, "note": "WSchV 1995"},
+      {"id": "ab_2002", "name": "Ab 2002", "year_min": 2002, "year_max": null, "note": "EnEV 2002 ff."}
+    ]
+  },
+
+  "opaque_constructions": {
+    "description": "Tabelle 2: U-Werte opaker Bauteile in W/(m²·K)",
+    "reference": "Bundesanzeiger Tabelle 2, Seiten 2-9",
+    
+    "roofs": [
+      {
+        "id": "DACH_MASSIV_BMWI",
+        "name": "Dach - Massive Konstruktion",
+        "component_type": "ROOF",
+        "construction_type": "MASSIVE",
+        "u_values": {
+          "bis_1918": 2.1, "1919_bis_1948": 2.1, "1949_bis_1957": 2.1,
+          "1958_bis_1968": 1.3, "1969_bis_1978": 1.3, "1979_bis_1983": 0.6,
+          "1984_bis_1994": 0.4, "1995_bis_2001": 0.3, "ab_2002": 0.2
+        }
+      },
+      {
+        "id": "DACH_HOLZ_BMWI",
+        "name": "Dach - Holzkonstruktion",
+        "component_type": "ROOF",
+        "construction_type": "TIMBER",
+        "u_values": {
+          "bis_1918": 2.6, "1919_bis_1948": 1.4, "1949_bis_1957": 1.4,
+          "1958_bis_1968": 1.4, "1969_bis_1978": 0.8, "1979_bis_1983": 0.7,
+          "1984_bis_1994": 0.5, "1995_bis_2001": 0.3, "ab_2002": 0.2
+        }
+      }
+    ],
+
+    "ceilings": [
+      {
+        "id": "OGD_MASSIV_BMWI",
+        "name": "Oberste Geschossdecke - Massive Decke",
+        "component_type": "CEILING_TOP",
+        "construction_type": "MASSIVE_SLAB",
+        "u_values": {
+          "bis_1918": 2.1, "1919_bis_1948": 2.1, "1949_bis_1957": 2.1,
+          "1958_bis_1968": 2.1, "1969_bis_1978": 0.6, "1979_bis_1983": 0.6,
+          "1984_bis_1994": 0.3, "1995_bis_2001": 0.3, "ab_2002": 0.2
+        }
+      },
+      {
+        "id": "OGD_HOLZ_BMWI",
+        "name": "Oberste Geschossdecke - Holzbalkendecke",
+        "component_type": "CEILING_TOP",
+        "construction_type": "TIMBER_BEAM",
+        "u_values": {
+          "bis_1918": 1.0, "1919_bis_1948": 1.0, "1949_bis_1957": 0.8,
+          "1958_bis_1968": 0.7, "1969_bis_1978": 0.6, "1979_bis_1983": 0.4,
+          "1984_bis_1994": 0.3, "1995_bis_2001": 0.3, "ab_2002": 0.2
+        }
+      }
+    ],
+
+    "walls_massive": [
+      {
+        "id": "AW_ZWEISCHALIG_OHNE_DAEMM_BMWI",
+        "name": "Außenwand massiv - Zweischalig ohne Dämmschicht",
+        "component_type": "WALL_EXTERIOR",
+        "construction_type": "DOUBLE_LEAF_UNINSULATED",
+        "u_values": {
+          "bis_1918": 1.3, "1919_bis_1948": 1.3, "1949_bis_1957": 1.3,
+          "1958_bis_1968": 1.4, "1969_bis_1978": 1.0, "1979_bis_1983": 0.8,
+          "1984_bis_1994": 0.6, "1995_bis_2001": 0.5, "ab_2002": 0.4
+        }
+      },
+      {
+        "id": "AW_ZWEISCHALIG_MIT_DAEMM_BMWI",
+        "name": "Außenwand massiv - Zweischalig mit Dämmschicht",
+        "component_type": "WALL_EXTERIOR",
+        "construction_type": "DOUBLE_LEAF_INSULATED",
+        "u_values": {
+          "bis_1918": null, "1919_bis_1948": null, "1949_bis_1957": 1.0,
+          "1958_bis_1968": 0.9, "1969_bis_1978": 0.9, "1979_bis_1983": 0.7,
+          "1984_bis_1994": 0.5, "1995_bis_2001": 0.5, "ab_2002": 0.4
+        }
+      },
+      {
+        "id": "AW_VOLLZIEGEL_BIS20_BMWI",
+        "name": "Außenwand massiv - Vollziegel/Naturstein/KS/Bims bis 20 cm",
+        "component_type": "WALL_EXTERIOR",
+        "construction_type": "SOLID_BRICK_THIN",
+        "u_values": {
+          "bis_1918": 2.8, "1919_bis_1948": 2.8, "1949_bis_1957": 2.8,
+          "1958_bis_1968": null, "1969_bis_1978": null, "1979_bis_1983": null,
+          "1984_bis_1994": null, "1995_bis_2001": null, "ab_2002": null
+        },
+        "note": "Nur für Altbauten bis 1957"
+      },
+      {
+        "id": "AW_VOLLZIEGEL_20_30_BMWI",
+        "name": "Außenwand massiv - Vollziegel/Naturstein/KS/Bims 20-30 cm",
+        "component_type": "WALL_EXTERIOR",
+        "construction_type": "SOLID_BRICK_MEDIUM",
+        "u_values": {
+          "bis_1918": 1.8, "1919_bis_1948": 1.8, "1949_bis_1957": 1.8,
+          "1958_bis_1968": null, "1969_bis_1978": null, "1979_bis_1983": null,
+          "1984_bis_1994": null, "1995_bis_2001": null, "ab_2002": null
+        },
+        "note": "Nur für Altbauten bis 1957"
+      },
+      {
+        "id": "AW_VOLLZIEGEL_UEBER30_BMWI",
+        "name": "Außenwand massiv - Vollziegel/Naturstein/KS/Bims über 30 cm",
+        "component_type": "WALL_EXTERIOR",
+        "construction_type": "SOLID_BRICK_THICK",
+        "u_values": {
+          "bis_1918": 1.5, "1919_bis_1948": 1.5, "1949_bis_1957": 1.5,
+          "1958_bis_1968": null, "1969_bis_1978": null, "1979_bis_1983": null,
+          "1984_bis_1994": null, "1995_bis_2001": null, "ab_2002": null
+        },
+        "note": "Nur für Altbauten bis 1957"
+      },
+      {
+        "id": "AW_HOCHLOCHZIEGEL_BMWI",
+        "name": "Außenwand massiv - Hochlochziegel/Bimsbeton-Hohlsteine",
+        "component_type": "WALL_EXTERIOR",
+        "construction_type": "PERFORATED_BRICK",
+        "u_values": {
+          "bis_1918": 1.4, "1919_bis_1948": 1.4, "1949_bis_1957": 1.4,
+          "1958_bis_1968": 1.4, "1969_bis_1978": 1.0, "1979_bis_1983": 0.8,
+          "1984_bis_1994": 0.6, "1995_bis_2001": 0.5, "ab_2002": 0.4
+        }
+      },
+      {
+        "id": "AW_SONSTIGE_BIS20_BMWI",
+        "name": "Außenwand massiv - Sonstige massive Wandaufbauten bis 20 cm",
+        "component_type": "WALL_EXTERIOR",
+        "construction_type": "OTHER_THIN",
+        "u_values": {
+          "bis_1918": 3.0, "1919_bis_1948": 3.0, "1949_bis_1957": 3.0,
+          "1958_bis_1968": 1.4, "1969_bis_1978": 1.0, "1979_bis_1983": 0.8,
+          "1984_bis_1994": 0.7, "1995_bis_2001": 0.7, "ab_2002": 0.4
+        }
+      },
+      {
+        "id": "AW_SONSTIGE_UEBER20_BMWI",
+        "name": "Außenwand massiv - Sonstige Wandaufbauten über 20 cm ggf. mit ursprünglicher Dämmung",
+        "component_type": "WALL_EXTERIOR",
+        "construction_type": "OTHER_THICK",
+        "u_values": {
+          "bis_1918": 2.2, "1919_bis_1948": 2.2, "1949_bis_1957": 2.2,
+          "1958_bis_1968": 1.4, "1969_bis_1978": 1.0, "1979_bis_1983": 0.8,
+          "1984_bis_1994": 0.6, "1995_bis_2001": 0.5, "ab_2002": 0.4
+        }
+      }
+    ],
+
+    "walls_timber": [
+      {
+        "id": "AW_HOLZ_MASSIVHOLZ_BMWI",
+        "name": "Außenwand Holzkonstruktion - Massivholzwand/Holzrahmen/Holztafelwand mit dämmender Füllung",
+        "component_type": "WALL_EXTERIOR",
+        "construction_type": "TIMBER_FRAME_INSULATED",
+        "u_values": {
+          "bis_1918": 0.5, "1919_bis_1948": 0.5, "1949_bis_1957": 0.5,
+          "1958_bis_1968": 0.5, "1969_bis_1978": 0.5, "1979_bis_1983": 0.5,
+          "1984_bis_1994": 0.4, "1995_bis_2001": 0.4, "ab_2002": 0.3
+        }
+      },
+      {
+        "id": "AW_FACHWERK_LEHM_BMWI",
+        "name": "Außenwand Holzkonstruktion - Fachwerkwand Lehm-/Lehmziegelausfachung bis 25 cm",
+        "component_type": "WALL_EXTERIOR",
+        "construction_type": "HALF_TIMBERED_CLAY",
+        "u_values": {
+          "bis_1918": 1.5, "1919_bis_1948": 1.5, "1949_bis_1957": 1.5,
+          "1958_bis_1968": null, "1969_bis_1978": null, "1979_bis_1983": null,
+          "1984_bis_1994": null, "1995_bis_2001": null, "ab_2002": null
+        },
+        "note": "Nur für Altbauten bis 1957"
+      },
+      {
+        "id": "AW_FACHWERK_ZIEGEL_BMWI",
+        "name": "Außenwand Holzkonstruktion - Fachwerkwand Vollziegel/Naturstein bis 25 cm",
+        "component_type": "WALL_EXTERIOR",
+        "construction_type": "HALF_TIMBERED_BRICK",
+        "u_values": {
+          "bis_1918": 2.0, "1919_bis_1948": 2.0, "1949_bis_1957": 2.0,
+          "1958_bis_1968": null, "1969_bis_1978": null, "1979_bis_1983": null,
+          "1984_bis_1994": null, "1995_bis_2001": null, "ab_2002": null
+        },
+        "note": "Nur für Altbauten bis 1957"
+      },
+      {
+        "id": "AW_HOLZ_SONSTIGE_BMWI",
+        "name": "Außenwand Holzkonstruktion - Sonstige Holzkonstruktion",
+        "component_type": "WALL_EXTERIOR",
+        "construction_type": "TIMBER_OTHER",
+        "u_values": {
+          "bis_1918": 2.0, "1919_bis_1948": 2.0, "1949_bis_1957": 1.5,
+          "1958_bis_1968": 1.4, "1969_bis_1978": 0.6, "1979_bis_1983": 0.5,
+          "1984_bis_1994": 0.4, "1995_bis_2001": 0.4, "ab_2002": 0.3
+        }
+      }
+    ],
+
+    "basement_ceilings": [
+      {
+        "id": "KD_STAHLBETON_BMWI",
+        "name": "Kellerdecke - Stahlbeton massiv",
+        "component_type": "CEILING_BASEMENT",
+        "construction_type": "REINFORCED_CONCRETE",
+        "u_values": {
+          "bis_1918": 1.6, "1919_bis_1948": 1.6, "1949_bis_1957": 2.3,
+          "1958_bis_1968": 1.0, "1969_bis_1978": 1.0, "1979_bis_1983": 0.8,
+          "1984_bis_1994": 0.6, "1995_bis_2001": 0.6, "ab_2002": 0.5
+        }
+      },
+      {
+        "id": "KD_HOLZBALKEN_BMWI",
+        "name": "Kellerdecke - Holzbalkendecke",
+        "component_type": "CEILING_BASEMENT",
+        "construction_type": "TIMBER_BEAM",
+        "u_values": {
+          "bis_1918": 1.0, "1919_bis_1948": 1.0, "1949_bis_1957": 1.0,
+          "1958_bis_1968": 0.8, "1969_bis_1978": 0.6, "1979_bis_1983": 0.6,
+          "1984_bis_1994": 0.4, "1995_bis_2001": 0.4, "ab_2002": 0.4
+        }
+      },
+      {
+        "id": "KD_ZIEGEL_BMWI",
+        "name": "Kellerdecke - Ziegel- oder Hohlsteinkonstruktion",
+        "component_type": "CEILING_BASEMENT",
+        "construction_type": "BRICK_HOLLOW_BLOCK",
+        "u_values": {
+          "bis_1918": 1.2, "1919_bis_1948": 1.2, "1949_bis_1957": 1.5,
+          "1958_bis_1968": 1.0, "1969_bis_1978": 1.0, "1979_bis_1983": 0.8,
+          "1984_bis_1994": 0.6, "1995_bis_2001": 0.6, "ab_2002": 0.5
+        }
+      }
+    ],
+
+    "floors_ground": [
+      {
+        "id": "BG_STAHLBETON_BMWI",
+        "name": "Boden gegen Erdreich - Stahlbeton massiv",
+        "component_type": "FLOOR_GROUND",
+        "construction_type": "REINFORCED_CONCRETE",
+        "u_values": {
+          "bis_1918": 1.6, "1919_bis_1948": 1.6, "1949_bis_1957": 2.3,
+          "1958_bis_1968": 1.2, "1969_bis_1978": 1.2, "1979_bis_1983": 0.8,
+          "1984_bis_1994": 0.6, "1995_bis_2001": 0.6, "ab_2002": 0.5
+        }
+      },
+      {
+        "id": "BG_ZIEGEL_HOLZ_BMWI",
+        "name": "Boden gegen Erdreich - Ziegel- oder Holzkonstruktion",
+        "component_type": "FLOOR_GROUND",
+        "construction_type": "BRICK_TIMBER",
+        "u_values": {
+          "bis_1918": 1.2, "1919_bis_1948": 1.2, "1949_bis_1957": 1.5,
+          "1958_bis_1968": 1.0, "1969_bis_1978": 1.0, "1979_bis_1983": 0.8,
+          "1984_bis_1994": 0.6, "1995_bis_2001": 0.6, "ab_2002": null
+        }
+      },
+      {
+        "id": "BG_HOLZ_HOHLRAUM_BMWI",
+        "name": "Boden gegen Erdreich/Hohlraum - Holzkonstruktion",
+        "component_type": "FLOOR_GROUND_VOID",
+        "construction_type": "TIMBER",
+        "u_values": {
+          "bis_1918": 1.8, "1919_bis_1948": 1.8, "1949_bis_1957": 1.0,
+          "1958_bis_1968": 0.8, "1969_bis_1978": 0.6, "1979_bis_1983": 0.6,
+          "1984_bis_1994": 0.4, "1995_bis_2001": 0.4, "ab_2002": null
+        }
+      }
+    ],
+
+    "special_components": [
+      {
+        "id": "ROLLKASTEN_UNGEDAEMMT_BMWI",
+        "name": "Rollladenkasten - Ungedämmt",
+        "component_type": "ROLLER_SHUTTER_BOX",
+        "construction_type": "UNINSULATED",
+        "u_values": {
+          "bis_1918": 3.6, "1919_bis_1948": 3.6, "1949_bis_1957": 3.6,
+          "1958_bis_1968": 3.6, "1969_bis_1978": 3.6, "1979_bis_1983": 3.6,
+          "1984_bis_1994": 3.6, "1995_bis_2001": null, "ab_2002": null
+        }
+      },
+      {
+        "id": "ROLLKASTEN_GEDAEMMT_BMWI",
+        "name": "Rollladenkasten - Gedämmt",
+        "component_type": "ROLLER_SHUTTER_BOX",
+        "construction_type": "INSULATED",
+        "u_values": {
+          "bis_1918": 2.2, "1919_bis_1948": 2.2, "1949_bis_1957": 2.2,
+          "1958_bis_1968": 1.8, "1969_bis_1978": 1.8, "1979_bis_1983": 1.8,
+          "1984_bis_1994": 1.5, "1995_bis_2001": 1.4, "ab_2002": 0.85
+        }
+      },
+      {
+        "id": "TUER_METALL_BMWI",
+        "name": "Türen - Im Wesentlichen aus Metall",
+        "component_type": "DOOR",
+        "construction_type": "METAL",
+        "u_values": {"all_ages": 4.0}
+      },
+      {
+        "id": "TUER_HOLZ_BMWI",
+        "name": "Türen - Im Wesentlichen aus Holz, Holzwerkstoffen oder Kunststoff",
+        "component_type": "DOOR",
+        "construction_type": "WOOD_PLASTIC",
+        "u_values": {"all_ages": 2.9}
+      }
+    ]
+  },
+
+  "transparent_constructions": {
+    "description": "Tabelle 3: U-Werte transparenter Bauteile in W/(m²·K)",
+    "reference": "Bundesanzeiger Tabelle 3",
+    "note": "Enthält UW (Fenster gesamt), Ug (Glas) und Glastyp nach DIN V 18599-2 Tabelle 8",
+    
+    "windows": [
+      {
+        "id": "FENSTER_HOLZ_EINFACH_BMWI",
+        "name": "Holzfenster einfach verglast",
+        "frame_material": "WOOD",
+        "glazing_type": "SINGLE",
+        "uw_values": {"bis_1978": 5.0},
+        "ug_values": {"bis_1978": 5.8},
+        "din18599_glass_type": {"bis_1978": "einfach"}
+      },
+      {
+        "id": "FENSTER_HOLZ_ZWEIFACH_BMWI",
+        "name": "Holzfenster zwei Scheiben (ISO/Kasten/Verbund)",
+        "frame_material": "WOOD",
+        "glazing_type": "DOUBLE",
+        "uw_values": {
+          "bis_1978": 2.7, "1979_bis_1983": 2.7, "1984_bis_1994": 2.7,
+          "ab_1995_bis_2001": 1.6, "ab_2002": 1.5
+        },
+        "ug_values": {
+          "bis_1978": 2.9, "1979_bis_1983": 2.9, "1984_bis_1994": 2.9,
+          "ab_1995_bis_2001": 1.4, "ab_2002": 1.2
+        },
+        "din18599_glass_type": {
+          "bis_1978": "zweifach", "1979_bis_1983": "zweifach", "1984_bis_1994": "zweifach",
+          "ab_1995_bis_2001": "MSIV 2", "ab_2002": "MSIV 2"
+        }
+      },
+      {
+        "id": "FENSTER_KUNSTSTOFF_ISO_BMWI",
+        "name": "Kunststofffenster Isolierverglasung",
+        "frame_material": "PLASTIC",
+        "glazing_type": "INSULATED",
+        "uw_values": {
+          "bis_1978": 3.0, "1979_bis_1983": 3.0, "1984_bis_1994": 3.0,
+          "ab_1995_bis_2001": 1.9, "ab_2002": 1.5
+        },
+        "ug_values": {
+          "bis_1978": 2.9, "1979_bis_1983": 2.9, "1984_bis_1994": 2.9,
+          "ab_1995_bis_2001": 1.4, "ab_2002": 1.2
+        },
+        "din18599_glass_type": {
+          "bis_1978": "zweifach", "1979_bis_1983": "zweifach", "1984_bis_1994": "zweifach",
+          "ab_1995_bis_2001": "MSIV 2", "ab_2002": "MSIV 2"
+        }
+      },
+      {
+        "id": "FENSTER_ALU_ISO_BMWI",
+        "name": "Aluminium-/Stahlfenster Isolierverglasung",
+        "frame_material": "METAL",
+        "glazing_type": "INSULATED",
+        "uw_values": {
+          "bis_1978": 4.3, "1979_bis_1983": 4.3, "1984_bis_1994": 3.2,
+          "ab_1995_bis_2001": 1.9, "ab_2002": 1.5
+        },
+        "ug_values": {
+          "bis_1978": 2.9, "1979_bis_1983": 2.9, "1984_bis_1994": 2.9,
+          "ab_1995_bis_2001": 1.4, "ab_2002": 1.2
+        },
+        "din18599_glass_type": {
+          "bis_1978": "zweifach", "1979_bis_1983": "zweifach", "1984_bis_1994": "zweifach",
+          "ab_1995_bis_2001": "MSIV 2", "ab_2002": "MSIV 2"
+        }
+      }
+    ]
+  }
+}

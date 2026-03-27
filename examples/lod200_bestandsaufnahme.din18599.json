@@ -1,0 +1,165 @@
+{
+  "schema_info": {
+    "url": "https://din18599-ifc.de/schema/v1",
+    "version": "2.0.0"
+  },
+  "meta": {
+    "project_name": "iSFP Bestandsaufnahme - Altbau Lindenstraße 42",
+    "ifc_file_ref": "lindenstrasse42_bestand.ifc",
+    "ifc_guid_building": "3Wm9Nr5Xt1SzRmZt6dP0HF",
+    "lod": "200",
+    "data_quality": {
+      "geometry": "200",
+      "envelope": "200",
+      "systems": "200"
+    },
+    "software_name": "DWEapp",
+    "software_version": "1.0.0",
+    "calculation_date": "2026-03-27T09:00:00Z",
+    "norm_version": "DIN V 18599:2018-09",
+    "catalog_references": ["DE_BMWI2020_BAUTEILE v1.0.0"]
+  },
+  "input": {
+    "climate_location": {
+      "postcode": "50667",
+      "city": "Köln",
+      "try_region_code": 5
+    },
+    "zones": [
+      {
+        "id": "ZONE-EG",
+        "name": "Erdgeschoss Wohnung",
+        "usage_profile": "17",
+        "area_an": 85,
+        "volume_v": 212.5,
+        "height_h": 2.5,
+        "air_change_n50": 3.5,
+        "design_temp_heating": 20,
+        "lighting_control": "MANUAL",
+        "space_guids": ["4Gn0Os6Yu2TzSnAu7eQ1IG"]
+      },
+      {
+        "id": "ZONE-OG",
+        "name": "Obergeschoss Wohnung",
+        "usage_profile": "17",
+        "area_an": 85,
+        "volume_v": 212.5,
+        "height_h": 2.5,
+        "air_change_n50": 3.5,
+        "design_temp_heating": 20,
+        "lighting_control": "MANUAL",
+        "space_guids": ["5Ho1Pt7Zv3UzToVu8fR2JH"]
+      }
+    ],
+    "elements": [
+      {
+        "ifc_guid": "6Ip2Qu8Aw4VzUpWv9gS3KI",
+        "boundary_condition": "EXTERIOR",
+        "construction_catalog_ref": "AW_VOLLZIEGEL_20_30_BMWI",
+        "u_value_undisturbed": 1.8,
+        "thermal_bridge_delta_u": 0.15,
+        "thermal_bridge_type": "DEFAULT",
+        "solar_absorption": 0.5,
+        "orientation": 180,
+        "inclination": 90,
+        "_comment": "Südwand - Vollziegel 25cm, Baujahr 1928"
+      },
+      {
+        "ifc_guid": "7Jq3Rv9Bx5WzVqXw0hT4LJ",
+        "boundary_condition": "EXTERIOR",
+        "construction_catalog_ref": "AW_VOLLZIEGEL_20_30_BMWI",
+        "u_value_undisturbed": 1.8,
+        "thermal_bridge_delta_u": 0.15,
+        "thermal_bridge_type": "DEFAULT",
+        "solar_absorption": 0.5,
+        "orientation": 0,
+        "inclination": 90,
+        "_comment": "Nordwand - Vollziegel 25cm"
+      },
+      {
+        "ifc_guid": "8Kr4Sw0Cy6XzWrYx1iU5MK",
+        "boundary_condition": "EXTERIOR",
+        "construction_catalog_ref": "DACH_MASSIV_BMWI",
+        "u_value_undisturbed": 2.1,
+        "thermal_bridge_delta_u": 0.1,
+        "thermal_bridge_type": "DEFAULT",
+        "solar_absorption": 0.8,
+        "orientation": 180,
+        "inclination": 0,
+        "_comment": "Flachdach massiv, ungedämmt"
+      },
+      {
+        "ifc_guid": "9Ls5Tx1Dz7YzXsZy2jV6NL",
+        "boundary_condition": "GROUND",
+        "construction_catalog_ref": "KD_STAHLBETON_BMWI",
+        "u_value_undisturbed": 1.6,
+        "thermal_bridge_delta_u": 0.05,
+        "thermal_bridge_type": "DEFAULT",
+        "orientation": 0,
+        "inclination": 0,
+        "_comment": "Kellerdecke Stahlbeton, ungedämmt"
+      }
+    ],
+    "windows": [
+      {
+        "ifc_guid": "0Mt6Uy2Ez8ZzYtAz3kW7OM",
+        "u_value_glass": 2.9,
+        "u_value_frame": 2.5,
+        "psi_spacer": 0.08,
+        "g_value": 0.75,
+        "frame_fraction": 0.3,
+        "shading_factor_fs": 0.95,
+        "horizon_angle": 0,
+        "overhang_angle": 0,
+        "_comment": "Holzfenster Isolierverglasung, Baujahr ca. 1985"
+      }
+    ],
+    "systems": [
+      {
+        "id": "SYS-HEATING-01",
+        "type": "BOILER_GAS",
+        "name": "Gaskessel Niedertemperatur",
+        "energy_source": "GAS",
+        "year_built": 1995,
+        "condensing": false,
+        "operation_mode": "MONOVALENT",
+        "_comment": "NT-Kessel, Baujahr geschätzt aus Typenschild"
+      }
+    ],
+    "distribution": [
+      {
+        "type": "TWO_PIPE",
+        "temp_flow_design": 70,
+        "temp_return_design": 55,
+        "pipe_insulation": "50_PERCENT",
+        "hydraulic_balance": false,
+        "pump_control": "UNCONTROLLED",
+        "_comment": "Teilgedämmte Verteilung, kein hydraulischer Abgleich"
+      }
+    ],
+    "dhw": [
+      {
+        "type": "CENTRAL",
+        "storage_volume": 150,
+        "storage_loss_factor": 3.5,
+        "circulation": true,
+        "circulation_length": 25,
+        "pipe_insulation": "NONE",
+        "_comment": "Zentraler Speicher im unbeheizten Keller, Zirkulation ungedämmt"
+      }
+    ],
+    "ventilation": [
+      {
+        "type": "WINDOW",
+        "heat_recovery": false,
+        "_comment": "Fensterlüftung"
+      }
+    ]
+  },
+  "_comments": {
+    "lod": "LOD 200: iSFP-Beratung mit vereinfachten Katalogwerten",
+    "data_source": "Begehung + Bundesanzeiger-Katalog nach Baujahr",
+    "accuracy": "±20-30% - geeignet für Sanierungsfahrplan",
+    "methodology": "Grobe Geometrie, U-Werte aus Baujahr-Tabellen, visuelle Systemerfassung"
+  }
+}

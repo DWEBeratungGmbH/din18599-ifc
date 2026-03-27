@@ -1,0 +1,228 @@
+{
+  "schema_info": {
+    "url": "https://din18599-ifc.de/schema/v1",
+    "version": "2.0.0"
+  },
+  "meta": {
+    "project_name": "Sanierungsvarianten Mehrfamilienhaus Kaiserplatz 5",
+    "variant_set_name": "iSFP Variantenvergleich 2026",
+    "created_date": "2026-03-27T10:00:00Z"
+  },
+  "base": {
+    "meta": {
+      "project_id": "PRJ-2026-042",
+      "project_name": "MFH Kaiserplatz 5 - IST-Zustand",
+      "ifc_file_ref": "kaiserplatz5_bestand.ifc",
+      "ifc_guid_building": "4Xn0Ps7Zu3VzTnBv8fQ2IH",
+      "lod": "300",
+      "software_name": "DWEapp",
+      "software_version": "1.0.0",
+      "calculation_date": "2026-03-27T10:00:00Z",
+      "catalog_references": ["DE_BMWI2020_BAUTEILE v1.0.0"]
+    },
+    "input": {
+      "climate_location": {
+        "postcode": "80331",
+        "city": "München",
+        "try_region_code": 12
+      },
+      "zones": [
+        {
+          "id": "ZONE-WE01",
+          "name": "Wohnung 1 (EG)",
+          "usage_profile": "17",
+          "area_an": 95,
+          "volume_v": 237.5,
+          "height_h": 2.5,
+          "air_change_n50": 4.0,
+          "design_temp_heating": 20,
+          "space_guids": ["5Yo1Qt8Av4WzUoBw9gR3JI"]
+        }
+      ],
+      "materials": [
+        {
+          "id": "MAT-BRICK-01",
+          "name": "Vollziegel",
+          "type": "STANDARD",
+          "lambda": 0.81,
+          "density": 1800,
+          "specific_heat": 1000
+        },
+        {
+          "id": "MAT-PLASTER-01",
+          "name": "Kalkzementputz",
+          "type": "STANDARD",
+          "lambda": 0.87,
+          "density": 1800,
+          "specific_heat": 1000
+        }
+      ],
+      "layer_structures": [
+        {
+          "id": "LS-AW-BESTAND",
+          "name": "Außenwand Bestand - Vollziegel 38cm",
+          "type": "WALL",
+          "layers": [
+            {"position": 1, "material_id": "MAT-PLASTER-01", "thickness_mm": 15},
+            {"position": 2, "material_id": "MAT-BRICK-01", "thickness_mm": 380},
+            {"position": 3, "material_id": "MAT-PLASTER-01", "thickness_mm": 15}
+          ],
+          "calculated_values": {
+            "r_total_m2k_w": 0.65,
+            "u_value_w_m2k": 1.54
+          },
+          "surface_properties": {
+            "exterior_finish": "Putz hellgrau",
+            "solar_absorption": 0.5
+          }
+        }
+      ],
+      "elements": [
+        {
+          "ifc_guid": "6Zp2Ru9Bw5XzVpCx0hS4KJ",
+          "boundary_condition": "EXTERIOR",
+          "layer_structure_ref": "LS-AW-BESTAND",
+          "u_value_undisturbed": 1.54,
+          "thermal_bridge_delta_u": 0.15,
+          "thermal_bridge_type": "DEFAULT",
+          "orientation": 180,
+          "inclination": 90
+        }
+      ],
+      "windows": [
+        {
+          "ifc_guid": "7Aq3Sv0Cx6YzWqDy1iT5LK",
+          "u_value_glass": 2.9,
+          "u_value_frame": 2.5,
+          "psi_spacer": 0.08,
+          "g_value": 0.75,
+          "frame_fraction": 0.3
+        }
+      ],
+      "systems": [
+        {
+          "id": "SYS-HEAT-BASE",
+          "type": "BOILER_GAS",
+          "name": "Gaskessel Standard alt",
+          "energy_source": "GAS",
+          "year_built": 1988,
+          "condensing": false,
+          "operation_mode": "MONOVALENT"
+        }
+      ]
+    }
+  },
+  "scenarios": [
+    {
+      "id": "VAR-01",
+      "name": "Sanierung WDVS 16cm",
+      "description": "Außenwand WDVS 16cm EPS, Fenster bleiben",
+      "delta": {
+        "materials": [
+          {
+            "id": "MAT-EPS-01",
+            "name": "EPS-Dämmung WLG 035",
+            "type": "STANDARD",
+            "lambda": 0.035,
+            "density": 15
+          }
+        ],
+        "layer_structures": [
+          {
+            "id": "LS-AW-WDVS16",
+            "name": "Außenwand WDVS 16cm",
+            "type": "WALL",
+            "layers": [
+              {"position": 1, "material_id": "MAT-PLASTER-01", "thickness_mm": 8},
+              {"position": 2, "material_id": "MAT-EPS-01", "thickness_mm": 160},
+              {"position": 3, "material_id": "MAT-PLASTER-01", "thickness_mm": 15},
+              {"position": 4, "material_id": "MAT-BRICK-01", "thickness_mm": 380},
+              {"position": 5, "material_id": "MAT-PLASTER-01", "thickness_mm": 15}
+            ],
+            "calculated_values": {
+              "r_total_m2k_w": 5.23,
+              "u_value_w_m2k": 0.19
+            }
+          }
+        ],
+        "elements": [
+          {
+            "ifc_guid": "6Zp2Ru9Bw5XzVpCx0hS4KJ",
+            "layer_structure_ref": "LS-AW-WDVS16",
+            "u_value_undisturbed": 0.19,
+            "thermal_bridge_delta_u": 0.05
+          }
+        ]
+      }
+    },
+    {
+      "id": "VAR-02",
+      "name": "Vollsanierung WDVS + Fenster + Heizung",
+      "description": "WDVS 16cm + neue Fenster Uw=0.95 + Brennwertkessel",
+      "delta": {
+        "materials": [
+          {
+            "id": "MAT-EPS-01",
+            "name": "EPS-Dämmung WLG 035",
+            "type": "STANDARD",
+            "lambda": 0.035,
+            "density": 15
+          }
+        ],
+        "layer_structures": [
+          {
+            "id": "LS-AW-WDVS16",
+            "name": "Außenwand WDVS 16cm",
+            "type": "WALL",
+            "layers": [
+              {"position": 1, "material_id": "MAT-PLASTER-01", "thickness_mm": 8},
+              {"position": 2, "material_id": "MAT-EPS-01", "thickness_mm": 160},
+              {"position": 3, "material_id": "MAT-PLASTER-01", "thickness_mm": 15},
+              {"position": 4, "material_id": "MAT-BRICK-01", "thickness_mm": 380},
+              {"position": 5, "material_id": "MAT-PLASTER-01", "thickness_mm": 15}
+            ],
+            "calculated_values": {
+              "r_total_m2k_w": 5.23,
+              "u_value_w_m2k": 0.19
+            }
+          }
+        ],
+        "elements": [
+          {
+            "ifc_guid": "6Zp2Ru9Bw5XzVpCx0hS4KJ",
+            "layer_structure_ref": "LS-AW-WDVS16",
+            "u_value_undisturbed": 0.19,
+            "thermal_bridge_delta_u": 0.05
+          }
+        ],
+        "windows": [
+          {
+            "ifc_guid": "7Aq3Sv0Cx6YzWqDy1iT5LK",
+            "u_value_glass": 0.7,
+            "u_value_frame": 1.0,
+            "psi_spacer": 0.04,
+            "g_value": 0.6,
+            "frame_fraction": 0.25
+          }
+        ],
+        "systems": [
+          {
+            "id": "SYS-HEAT-NEW",
+            "type": "BOILER_GAS",
+            "name": "Brennwertkessel neu",
+            "energy_source": "GAS",
+            "year_built": 2026,
+            "condensing": true,
+            "operation_mode": "MONOVALENT"
+          }
+        ]
+      }
+    }
+  ],
+  "_comments": {
+    "lod": "LOD 300: Variantenvergleich mit detaillierten Schichtaufbauten",
+    "methodology": "Delta-Modell: Nur Änderungen zu Base gespeichert",
+    "use_case": "iSFP Sanierungsfahrplan, Fördergutachten",
+    "accuracy": "±10-15% - geeignet für Wirtschaftlichkeitsberechnung"
+  }
+}

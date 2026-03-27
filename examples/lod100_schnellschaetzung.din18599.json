@@ -1,0 +1,79 @@
+{
+  "schema_info": {
+    "url": "https://din18599-ifc.de/schema/v1",
+    "version": "2.0.0"
+  },
+  "meta": {
+    "project_name": "Schnellschätzung Musterstraße 1",
+    "ifc_file_ref": "einfamilienhaus_1975.ifc",
+    "ifc_guid_building": "2Uj8Lq3Vr9QxPkXr4bN8FD",
+    "lod": "100",
+    "software_name": "DWEapp",
+    "software_version": "1.0.0",
+    "calculation_date": "2026-03-27T08:00:00Z",
+    "catalog_references": ["DE_BMWI2020_BAUTEILE v1.0.0"]
+  },
+  "input": {
+    "climate_location": {
+      "postcode": "52062",
+      "city": "Aachen",
+      "try_region_code": 5
+    },
+    "zones": [
+      {
+        "id": "ZONE-01",
+        "name": "Wohnbereich",
+        "usage_profile": "17",
+        "area_an": 150,
+        "volume_v": 375,
+        "height_h": 2.5,
+        "air_change_n50": 3.0,
+        "design_temp_heating": 20,
+        "space_guids": ["3Fk9Mp4Ws0RyQlYs5cO9GE"]
+      }
+    ],
+    "elements": [
+      {
+        "ifc_guid": "1Ab2Cd3Ef4Gh5Ij6Kl7Mn8",
+        "boundary_condition": "EXTERIOR",
+        "construction_catalog_ref": "AW_HOCHLOCHZIEGEL_BMWI",
+        "u_value_undisturbed": 1.4,
+        "thermal_bridge_delta_u": 0.1,
+        "thermal_bridge_type": "DEFAULT",
+        "solar_absorption": 0.6,
+        "orientation": 180,
+        "inclination": 90
+      }
+    ],
+    "windows": [
+      {
+        "ifc_guid": "2Bc3De4Fg5Hi6Jk7Lm8No9",
+        "u_value_glass": 2.9,
+        "u_value_frame": 2.0,
+        "psi_spacer": 0.08,
+        "g_value": 0.75,
+        "frame_fraction": 0.3,
+        "shading_factor_fs": 0.9,
+        "horizon_angle": 0,
+        "overhang_angle": 0
+      }
+    ],
+    "systems": [
+      {
+        "id": "SYS-01",
+        "type": "BOILER_GAS",
+        "name": "Gaskessel Standard",
+        "energy_source": "GAS",
+        "year_built": 1975,
+        "condensing": false,
+        "operation_mode": "MONOVALENT"
+      }
+    ]
+  },
+  "_comments": {
+    "lod": "LOD 100: Schnellschätzung mit minimalen Eingaben",
+    "data_source": "U-Wert aus Bundesanzeiger-Katalog (Baujahr 1975 → Hochlochziegel 1.4 W/m²K)",
+    "accuracy": "±30-50% - nur für Machbarkeitsstudien",
+    "missing_details": "Keine Schichtaufbauten, keine detaillierte Geometrie, pauschale Systeme"
+  }
+}

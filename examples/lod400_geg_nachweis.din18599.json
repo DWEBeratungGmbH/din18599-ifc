@@ -1,0 +1,312 @@
+{
+  "schema_info": {
+    "url": "https://din18599-ifc.de/schema/v1",
+    "version": "2.0.0"
+  },
+  "meta": {
+    "project_id": "PRJ-2026-089",
+    "project_name": "Neubau Effizienzhaus 40 - Parkstraße 12",
+    "ifc_file_ref": "parkstrasse12_ausfuehrung.ifc",
+    "ifc_guid_building": "8Br4Tw1Ez9AzYtBz3kV7NM",
+    "lod": "400",
+    "software_name": "DWEapp",
+    "software_version": "1.0.0",
+    "calculation_date": "2026-03-27T11:00:00Z",
+    "norm_version": "DIN V 18599:2018-09"
+  },
+  "input": {
+    "climate_location": {
+      "postcode": "10115",
+      "city": "Berlin",
+      "try_region_code": 4
+    },
+    "zones": [
+      {
+        "id": "ZONE-EG-WOHNEN",
+        "name": "EG Wohn-/Essbereich",
+        "usage_profile": "17",
+        "area_an": 65,
+        "volume_v": 195,
+        "height_h": 3.0,
+        "air_change_n50": 0.6,
+        "design_temp_heating": 20,
+        "design_temp_cooling": 26,
+        "lighting_control": "PRESENCE",
+        "space_guids": ["9Cs5Ux2Fz0BzZuCz4lW8ON"]
+      },
+      {
+        "id": "ZONE-OG-SCHLAFEN",
+        "name": "OG Schlafzimmer",
+        "usage_profile": "17",
+        "area_an": 45,
+        "volume_v": 135,
+        "height_h": 3.0,
+        "air_change_n50": 0.6,
+        "design_temp_heating": 18,
+        "lighting_control": "MANUAL",
+        "space_guids": ["0Dt6Vy3Gz1CzAvDz5mX9PO"]
+      }
+    ],
+    "materials": [
+      {
+        "id": "MAT-CONCRETE",
+        "name": "Stahlbeton C30/37",
+        "type": "STANDARD",
+        "lambda": 2.3,
+        "density": 2400,
+        "specific_heat": 1000,
+        "vapor_resistance_factor": 130
+      },
+      {
+        "id": "MAT-EPS-032",
+        "name": "EPS-Dämmung WLG 032",
+        "type": "STANDARD",
+        "lambda": 0.032,
+        "density": 20,
+        "specific_heat": 1500,
+        "vapor_resistance_factor": 40
+      },
+      {
+        "id": "MAT-MINERAL-WOOL",
+        "name": "Mineralwolle WLG 035",
+        "type": "STANDARD",
+        "lambda": 0.035,
+        "density": 30,
+        "specific_heat": 1030,
+        "vapor_resistance_factor": 1
+      },
+      {
+        "id": "MAT-GYPSUM",
+        "name": "Gipskartonplatte",
+        "type": "STANDARD",
+        "lambda": 0.25,
+        "density": 900,
+        "specific_heat": 1000,
+        "vapor_resistance_factor": 8.3
+      },
+      {
+        "id": "MAT-PLASTER-EXTERIOR",
+        "name": "Außenputz mineralisch",
+        "type": "STANDARD",
+        "lambda": 0.87,
+        "density": 1800,
+        "specific_heat": 1000,
+        "vapor_resistance_factor": 19
+      },
+      {
+        "id": "AIR-CAVITY-VERTICAL",
+        "name": "Luftschicht 5cm vertikal",
+        "type": "AIR_LAYER",
+        "air_layer_type": "STILL",
+        "orientation": "VERTICAL",
+        "r_value": 0.18
+      }
+    ],
+    "layer_structures": [
+      {
+        "id": "LS-WALL-EXT-KfW40",
+        "name": "Außenwand KfW 40 - WDVS 30cm",
+        "type": "WALL",
+        "layers": [
+          {"position": 1, "material_id": "MAT-PLASTER-EXTERIOR", "thickness_mm": 8},
+          {"position": 2, "material_id": "MAT-EPS-032", "thickness_mm": 300},
+          {"position": 3, "material_id": "MAT-CONCRETE", "thickness_mm": 200},
+          {"position": 4, "material_id": "MAT-GYPSUM", "thickness_mm": 12.5}
+        ],
+        "calculated_values": {
+          "r_total_m2k_w": 9.63,
+          "u_value_w_m2k": 0.10,
+          "sd_total_m": 14.2,
+          "thermal_mass_j_m2k": 240000
+        },
+        "surface_properties": {
+          "exterior_finish": "Putz weiß",
+          "solar_absorption": 0.3,
+          "emissivity": 0.9
+        }
+      },
+      {
+        "id": "LS-ROOF-FLAT-KfW40",
+        "name": "Flachdach KfW 40 - PU 32cm",
+        "type": "ROOF",
+        "layers": [
+          {"position": 1, "material_id": "MAT-EPS-032", "thickness_mm": 320},
+          {"position": 2, "material_id": "MAT-CONCRETE", "thickness_mm": 200},
+          {"position": 3, "material_id": "MAT-GYPSUM", "thickness_mm": 12.5}
+        ],
+        "calculated_values": {
+          "r_total_m2k_w": 10.17,
+          "u_value_w_m2k": 0.098,
+          "sd_total_m": 13.0,
+          "thermal_mass_j_m2k": 240000
+        },
+        "surface_properties": {
+          "exterior_finish": "Bitumenbahn",
+          "solar_absorption": 0.8,
+          "emissivity": 0.9
+        }
+      },
+      {
+        "id": "LS-FLOOR-SLAB-KfW40",
+        "name": "Bodenplatte KfW 40 - Perimeterdämmung 20cm",
+        "type": "FLOOR",
+        "layers": [
+          {"position": 1, "material_id": "MAT-EPS-032", "thickness_mm": 200},
+          {"position": 2, "material_id": "MAT-CONCRETE", "thickness_mm": 250}
+        ],
+        "calculated_values": {
+          "r_total_m2k_w": 6.35,
+          "u_value_w_m2k": 0.157,
+          "sd_total_m": 8.1
+        }
+      }
+    ],
+    "elements": [
+      {
+        "ifc_guid": "1Eu7Wz4Hz2DzBwEz6nY0QP",
+        "boundary_condition": "EXTERIOR",
+        "layer_structure_ref": "LS-WALL-EXT-KfW40",
+        "u_value_undisturbed": 0.10,
+        "thermal_bridge_delta_u": 0.02,
+        "thermal_bridge_type": "DETAILED",
+        "solar_absorption": 0.3,
+        "orientation": 180,
+        "inclination": 90
+      },
+      {
+        "ifc_guid": "2Fv8Xz5Iz3EzCxFz7oZ1RQ",
+        "boundary_condition": "EXTERIOR",
+        "layer_structure_ref": "LS-ROOF-FLAT-KfW40",
+        "u_value_undisturbed": 0.098,
+        "thermal_bridge_delta_u": 0.01,
+        "thermal_bridge_type": "DETAILED",
+        "solar_absorption": 0.8,
+        "orientation": 0,
+        "inclination": 0
+      },
+      {
+        "ifc_guid": "3Gw9Yz6Jz4FzDyGz8pA2SR",
+        "boundary_condition": "GROUND",
+        "layer_structure_ref": "LS-FLOOR-SLAB-KfW40",
+        "u_value_undisturbed": 0.157,
+        "thermal_bridge_delta_u": 0.01,
+        "thermal_bridge_type": "DETAILED",
+        "orientation": 0,
+        "inclination": 0
+      }
+    ],
+    "windows": [
+      {
+        "ifc_guid": "4Hx0Az7Kz5GzEzHz9qB3TS",
+        "u_value_glass": 0.5,
+        "u_value_frame": 0.8,
+        "psi_spacer": 0.03,
+        "g_value": 0.5,
+        "frame_fraction": 0.2,
+        "shading_factor_fs": 1.0,
+        "horizon_angle": 0,
+        "overhang_angle": 30
+      }
+    ],
+    "systems": [
+      {
+        "id": "SYS-HP-01",
+        "type": "HEAT_PUMP_BRINE",
+        "name": "Sole-Wasser-WP hocheffizient",
+        "energy_source": "ELECTRICITY",
+        "year_built": 2026,
+        "operation_mode": "MONOVALENT",
+        "heat_pump": {
+          "cop_a2_w35": 4.8,
+          "cop_a7_w35": 5.2,
+          "refrigerant": "R290 (Propan)"
+        }
+      }
+    ],
+    "distribution": [
+      {
+        "type": "TWO_PIPE",
+        "temp_flow_design": 35,
+        "temp_return_design": 28,
+        "pipe_insulation": "100_PERCENT",
+        "hydraulic_balance": true,
+        "pump_control": "ADAPTIVE"
+      }
+    ],
+    "dhw": [
+      {
+        "type": "CENTRAL",
+        "storage_volume": 300,
+        "storage_loss_factor": 1.8,
+        "circulation": true,
+        "circulation_length": 15,
+        "pipe_insulation": "100_PERCENT"
+      }
+    ],
+    "ventilation": [
+      {
+        "type": "SUPPLY_EXHAUST",
+        "heat_recovery": true,
+        "heat_recovery_efficiency": 0.85,
+        "volume_flow": 250,
+        "spf_fan": 0.35
+      }
+    ],
+    "lighting": [
+      {
+        "zone_id": "ZONE-EG-WOHNEN",
+        "technology": "LED",
+        "control": "PRESENCE",
+        "installed_power": 5.0
+      },
+      {
+        "zone_id": "ZONE-OG-SCHLAFEN",
+        "technology": "LED",
+        "control": "MANUAL",
+        "installed_power": 4.0
+      }
+    ],
+    "automation": {
+      "class": "B"
+    },
+    "pv": [
+      {
+        "peak_power": 10.0,
+        "orientation": 180,
+        "inclination": 30,
+        "system_loss": 0.14,
+        "battery_capacity": 10.0
+      }
+    ]
+  },
+  "output": {
+    "energy_balance": {
+      "final_energy_kwh_a": 4250,
+      "primary_energy_kwh_a": 2890,
+      "useful_energy_kwh_a": 6800,
+      "energy_reference_area": 110
+    },
+    "sectors": {
+      "heating_kwh_a": 2850,
+      "cooling_kwh_a": 0,
+      "dhw_kwh_a": 950,
+      "ventilation_kwh_a": 280,
+      "lighting_kwh_a": 170
+    },
+    "indicators": {
+      "qp_val_kwh_m2a": 26.3,
+      "qp_ref_kwh_m2a": 65.0,
+      "ht_prime_val_w_m2k": 0.28,
+      "ht_prime_ref_w_m2k": 0.40,
+      "efficiency_class": "A+",
+      "co2_emissions_kg_a": 580,
+      "renewable_share_percent": 75
+    }
+  },
+  "_comments": {
+    "lod": "LOD 400: GEG-Nachweis mit vollständigen Schichtaufbauten",
+    "data_source": "Ausführungsplanung, Produktdatenblätter, Blower-Door-Test",
+    "accuracy": "±5-10% - geeignet für Bauantrag, Förderbescheid KfW",
+    "methodology": "Detaillierte U-Wert-Berechnung, Wärmebrücken nach Ψ-Katalog, gemessener n50-Wert"
+  }
+}

@@ -1,0 +1,2221 @@
+{
+  "quelle": "BAnz AT 04.12.2020 B1 – Regeln zur Datenaufnahme und Datenverwendung im Wohngebäudebestand vom 8. Oktober 2020",
+  "tabelle_2_u_werte_opake_bauteile": {
+    "beschreibung": "Pauschalwerte für den Wärmedurchgangskoeffizienten nicht nachträglich gedämmter opaker Bauteile in W/(m²·K)",
+    "baualtersklassen": [
+      "bis_1918",
+      "1919_bis_1948",
+      "1949_bis_1957",
+      "1958_bis_1968",
+      "1969_bis_1978",
+      "1979_bis_1983",
+      "1984_bis_1994",
+      "1995_bis_2001",
+      "ab_2002"
+    ],
+    "bauteile": [
+      {
+        "bauteil": "Dach",
+        "konstruktion": "Massive Konstruktion",
+        "werte": {
+          "bis_1918": 2.1,
+          "1919_bis_1948": 2.1,
+          "1949_bis_1957": 2.1,
+          "1958_bis_1968": 1.3,
+          "1969_bis_1978": 1.3,
+          "1979_bis_1983": 0.6,
+          "1984_bis_1994": 0.4,
+          "1995_bis_2001": 0.3,
+          "ab_2002": 0.2
+        }
+      },
+      {
+        "bauteil": "Dach",
+        "konstruktion": "Holzkonstruktion",
+        "werte": {
+          "bis_1918": 2.6,
+          "1919_bis_1948": 1.4,
+          "1949_bis_1957": 1.4,
+          "1958_bis_1968": 1.4,
+          "1969_bis_1978": 0.8,
+          "1979_bis_1983": 0.7,
+          "1984_bis_1994": 0.5,
+          "1995_bis_2001": 0.3,
+          "ab_2002": 0.2
+        }
+      },
+      {
+        "bauteil": "Oberste Geschossdecke",
+        "konstruktion": "Massive Decke",
+        "werte": {
+          "bis_1918": 2.1,
+          "1919_bis_1948": 2.1,
+          "1949_bis_1957": 2.1,
+          "1958_bis_1968": 2.1,
+          "1969_bis_1978": 0.6,
+          "1979_bis_1983": 0.6,
+          "1984_bis_1994": 0.3,
+          "1995_bis_2001": 0.3,
+          "ab_2002": 0.2
+        }
+      },
+      {
+        "bauteil": "Oberste Geschossdecke",
+        "konstruktion": "Holzbalkendecke",
+        "werte": {
+          "bis_1918": 1.0,
+          "1919_bis_1948": 1.0,
+          "1949_bis_1957": 0.8,
+          "1958_bis_1968": 0.7,
+          "1969_bis_1978": 0.6,
+          "1979_bis_1983": 0.4,
+          "1984_bis_1994": 0.3,
+          "1995_bis_2001": 0.3,
+          "ab_2002": 0.2
+        }
+      },
+      {
+        "bauteil": "Außenwand massiv",
+        "konstruktion": "Zweischalig ohne Dämmschicht",
+        "werte": {
+          "bis_1918": 1.3,
+          "1919_bis_1948": 1.3,
+          "1949_bis_1957": 1.3,
+          "1958_bis_1968": 1.4,
+          "1969_bis_1978": 1.0,
+          "1979_bis_1983": 0.8,
+          "1984_bis_1994": 0.6,
+          "1995_bis_2001": 0.5,
+          "ab_2002": 0.4
+        }
+      },
+      {
+        "bauteil": "Außenwand massiv",
+        "konstruktion": "Zweischalig mit Dämmschicht",
+        "werte": {
+          "bis_1918": null,
+          "1919_bis_1948": null,
+          "1949_bis_1957": 1.0,
+          "1958_bis_1968": 0.9,
+          "1969_bis_1978": 0.9,
+          "1979_bis_1983": 0.7,
+          "1984_bis_1994": 0.5,
+          "1995_bis_2001": 0.5,
+          "ab_2002": 0.4
+        }
+      },
+      {
+        "bauteil": "Außenwand massiv",
+        "konstruktion": "Vollziegel/Naturstein/KS/Bims bis 20 cm",
+        "werte": {
+          "bis_1918": 2.8,
+          "1919_bis_1948": 2.8,
+          "1949_bis_1957": 2.8,
+          "1958_bis_1968": null,
+          "1969_bis_1978": null,
+          "1979_bis_1983": null,
+          "1984_bis_1994": null,
+          "1995_bis_2001": null,
+          "ab_2002": null
+        }
+      },
+      {
+        "bauteil": "Außenwand massiv",
+        "konstruktion": "Vollziegel/Naturstein/KS/Bims 20-30 cm",
+        "werte": {
+          "bis_1918": 1.8,
+          "1919_bis_1948": 1.8,
+          "1949_bis_1957": 1.8,
+          "1958_bis_1968": null,
+          "1969_bis_1978": null,
+          "1979_bis_1983": null,
+          "1984_bis_1994": null,
+          "1995_bis_2001": null,
+          "ab_2002": null
+        }
+      },
+      {
+        "bauteil": "Außenwand massiv",
+        "konstruktion": "Vollziegel/Naturstein/KS/Bims über 30 cm",
+        "werte": {
+          "bis_1918": 1.5,
+          "1919_bis_1948": 1.5,
+          "1949_bis_1957": 1.5,
+          "1958_bis_1968": null,
+          "1969_bis_1978": null,
+          "1979_bis_1983": null,
+          "1984_bis_1994": null,
+          "1995_bis_2001": null,
+          "ab_2002": null
+        }
+      },
+      {
+        "bauteil": "Außenwand massiv",
+        "konstruktion": "Hochlochziegel/Bimsbeton-Hohlsteine poröse Materialien",
+        "werte": {
+          "bis_1918": 1.4,
+          "1919_bis_1948": 1.4,
+          "1949_bis_1957": 1.4,
+          "1958_bis_1968": 1.4,
+          "1969_bis_1978": 1.0,
+          "1979_bis_1983": 0.8,
+          "1984_bis_1994": 0.6,
+          "1995_bis_2001": 0.5,
+          "ab_2002": 0.4
+        }
+      },
+      {
+        "bauteil": "Außenwand massiv",
+        "konstruktion": "Sonstige massive Wandaufbauten bis 20 cm",
+        "werte": {
+          "bis_1918": 3.0,
+          "1919_bis_1948": 3.0,
+          "1949_bis_1957": 3.0,
+          "1958_bis_1968": 1.4,
+          "1969_bis_1978": 1.0,
+          "1979_bis_1983": 0.8,
+          "1984_bis_1994": 0.7,
+          "1995_bis_2001": 0.7,
+          "ab_2002": 0.4
+        }
+      },
+      {
+        "bauteil": "Außenwand massiv",
+        "konstruktion": "Sonstige Wandaufbauten über 20 cm ggf. mit ursprünglicher Dämmung",
+        "werte": {
+          "bis_1918": 2.2,
+          "1919_bis_1948": 2.2,
+          "1949_bis_1957": 2.2,
+          "1958_bis_1968": 1.4,
+          "1969_bis_1978": 1.0,
+          "1979_bis_1983": 0.8,
+          "1984_bis_1994": 0.6,
+          "1995_bis_2001": 0.5,
+          "ab_2002": 0.4
+        }
+      },
+      {
+        "bauteil": "Außenwand Holzkonstruktion",
+        "konstruktion": "Massivholzwand/Holzrahmen/Holztafelwand mit dämmender Füllung",
+        "werte": {
+          "bis_1918": 0.5,
+          "1919_bis_1948": 0.5,
+          "1949_bis_1957": 0.5,
+          "1958_bis_1968": 0.5,
+          "1969_bis_1978": 0.5,
+          "1979_bis_1983": 0.5,
+          "1984_bis_1994": 0.4,
+          "1995_bis_2001": 0.4,
+          "ab_2002": 0.3
+        }
+      },
+      {
+        "bauteil": "Außenwand Holzkonstruktion",
+        "konstruktion": "Fachwerkwand Lehm-/Lehmziegelausfachung bis 25 cm",
+        "werte": {
+          "bis_1918": 1.5,
+          "1919_bis_1948": 1.5,
+          "1949_bis_1957": 1.5,
+          "1958_bis_1968": null,
+          "1969_bis_1978": null,
+          "1979_bis_1983": null,
+          "1984_bis_1994": null,
+          "1995_bis_2001": null,
+          "ab_2002": null
+        }
+      },
+      {
+        "bauteil": "Außenwand Holzkonstruktion",
+        "konstruktion": "Fachwerkwand Vollziegel/Naturstein bis 25 cm",
+        "werte": {
+          "bis_1918": 2.0,
+          "1919_bis_1948": 2.0,
+          "1949_bis_1957": 2.0,
+          "1958_bis_1968": null,
+          "1969_bis_1978": null,
+          "1979_bis_1983": null,
+          "1984_bis_1994": null,
+          "1995_bis_2001": null,
+          "ab_2002": null
+        }
+      },
+      {
+        "bauteil": "Außenwand Holzkonstruktion",
+        "konstruktion": "Sonstige Holzkonstruktion",
+        "werte": {
+          "bis_1918": 2.0,
+          "1919_bis_1948": 2.0,
+          "1949_bis_1957": 1.5,
+          "1958_bis_1968": 1.4,
+          "1969_bis_1978": 0.6,
+          "1979_bis_1983": 0.5,
+          "1984_bis_1994": 0.4,
+          "1995_bis_2001": 0.4,
+          "ab_2002": 0.3
+        }
+      },
+      {
+        "bauteil": "Kellerdecke",
+        "konstruktion": "Stahlbeton massiv",
+        "werte": {
+          "bis_1918": 1.6,
+          "1919_bis_1948": 1.6,
+          "1949_bis_1957": 2.3,
+          "1958_bis_1968": 1.0,
+          "1969_bis_1978": 1.0,
+          "1979_bis_1983": 0.8,
+          "1984_bis_1994": 0.6,
+          "1995_bis_2001": 0.6,
+          "ab_2002": 0.5
+        }
+      },
+      {
+        "bauteil": "Kellerdecke",
+        "konstruktion": "Holzbalkendecke",
+        "werte": {
+          "bis_1918": 1.0,
+          "1919_bis_1948": 1.0,
+          "1949_bis_1957": 1.0,
+          "1958_bis_1968": 0.8,
+          "1969_bis_1978": 0.6,
+          "1979_bis_1983": 0.6,
+          "1984_bis_1994": 0.4,
+          "1995_bis_2001": 0.4,
+          "ab_2002": 0.4
+        }
+      },
+      {
+        "bauteil": "Kellerdecke",
+        "konstruktion": "Ziegel- oder Hohlsteinkonstruktion",
+        "werte": {
+          "bis_1918": 1.2,
+          "1919_bis_1948": 1.2,
+          "1949_bis_1957": 1.5,
+          "1958_bis_1968": 1.0,
+          "1969_bis_1978": 1.0,
+          "1979_bis_1983": 0.8,
+          "1984_bis_1994": 0.6,
+          "1995_bis_2001": 0.6,
+          "ab_2002": 0.5
+        }
+      },
+      {
+        "bauteil": "Boden gegen Erdreich",
+        "konstruktion": "Stahlbeton massiv",
+        "werte": {
+          "bis_1918": 1.6,
+          "1919_bis_1948": 1.6,
+          "1949_bis_1957": 2.3,
+          "1958_bis_1968": 1.2,
+          "1969_bis_1978": 1.2,
+          "1979_bis_1983": 0.8,
+          "1984_bis_1994": 0.6,
+          "1995_bis_2001": 0.6,
+          "ab_2002": 0.5
+        }
+      },
+      {
+        "bauteil": "Boden gegen Erdreich",
+        "konstruktion": "Ziegel- oder Holzkonstruktion",
+        "werte": {
+          "bis_1918": 1.2,
+          "1919_bis_1948": 1.2,
+          "1949_bis_1957": 1.5,
+          "1958_bis_1968": 1.0,
+          "1969_bis_1978": 1.0,
+          "1979_bis_1983": 0.8,
+          "1984_bis_1994": 0.6,
+          "1995_bis_2001": 0.6,
+          "ab_2002": null
+        }
+      },
+      {
+        "bauteil": "Boden gegen Erdreich/Hohlraum",
+        "konstruktion": "Holzkonstruktion",
+        "werte": {
+          "bis_1918": 1.8,
+          "1919_bis_1948": 1.8,
+          "1949_bis_1957": 1.0,
+          "1958_bis_1968": 0.8,
+          "1969_bis_1978": 0.6,
+          "1979_bis_1983": 0.6,
+          "1984_bis_1994": 0.4,
+          "1995_bis_2001": 0.4,
+          "ab_2002": null
+        }
+      },
+      {
+        "bauteil": "Rollladenkasten",
+        "konstruktion": "Ungedämmt",
+        "werte": {
+          "bis_1918": 3.6,
+          "1919_bis_1948": 3.6,
+          "1949_bis_1957": 3.6,
+          "1958_bis_1968": 3.6,
+          "1969_bis_1978": 3.6,
+          "1979_bis_1983": 3.6,
+          "1984_bis_1994": 3.6,
+          "1995_bis_2001": null,
+          "ab_2002": null
+        }
+      },
+      {
+        "bauteil": "Rollladenkasten",
+        "konstruktion": "Gedämmt",
+        "werte": {
+          "bis_1918": 2.2,
+          "1919_bis_1948": 2.2,
+          "1949_bis_1957": 2.2,
+          "1958_bis_1968": 1.8,
+          "1969_bis_1978": 1.8,
+          "1979_bis_1983": 1.8,
+          "1984_bis_1994": 1.5,
+          "1995_bis_2001": 1.4,
+          "ab_2002": 0.85
+        }
+      },
+      {
+        "bauteil": "Türen",
+        "konstruktion": "Im Wesentlichen aus Metall",
+        "werte": {
+          "alle_baualtersklassen": 4.0
+        }
+      },
+      {
+        "bauteil": "Türen",
+        "konstruktion": "Im Wesentlichen aus Holz, Holzwerkstoffen oder Kunststoff",
+        "werte": {
+          "alle_baualtersklassen": 2.9
+        }
+      }
+    ]
+  },
+  "tabelle_3_u_werte_transparente_bauteile": {
+    "beschreibung": "Pauschalwerte für den Wärmedurchgangskoeffizienten transparenter Bauteile in W/(m²·K) sowie Verglasungstyp nach DIN V 18599-2 Tabelle 8",
+    "bauteile": [
+      {
+        "bauteil": "Fenster",
+        "konstruktion": "Holzfenster einfach verglast",
+        "eigenschaft": "UW",
+        "werte": {
+          "bis_1978": 5.0,
+          "1979_bis_1983": null,
+          "1984_bis_1994": null,
+          "ab_1995_bis_2001": null,
+          "ab_2002": null
+        }
+      },
+      {
+        "bauteil": "Fenster",
+        "konstruktion": "Holzfenster einfach verglast",
+        "eigenschaft": "Glas",
+        "werte": {
+          "bis_1978": "einfach",
+          "1979_bis_1983": null,
+          "1984_bis_1994": null,
+          "ab_1995_bis_2001": null,
+          "ab_2002": null
+        }
+      },
+      {
+        "bauteil": "Fenster",
+        "konstruktion": "Holzfenster einfach verglast",
+        "eigenschaft": "Ug",
+        "werte": {
+          "bis_1978": 5.8,
+          "1979_bis_1983": null,
+          "1984_bis_1994": null,
+          "ab_1995_bis_2001": null,
+          "ab_2002": null
+        }
+      },
+      {
+        "bauteil": "Fenster",
+        "konstruktion": "Holzfenster zwei Scheiben (ISO/Kasten/Verbund)",
+        "eigenschaft": "UW",
+        "werte": {
+          "bis_1978": 2.7,
+          "1979_bis_1983": 2.7,
+          "1984_bis_1994": 2.7,
+          "ab_1995_bis_2001": 1.6,
+          "ab_2002": 1.5
+        }
+      },
+      {
+        "bauteil": "Fenster",
+        "konstruktion": "Holzfenster zwei Scheiben",
+        "eigenschaft": "Glas",
+        "werte": {
+          "bis_1978": "zweifach",
+          "1979_bis_1983": "zweifach",
+          "1984_bis_1994": "zweifach",
+          "ab_1995_bis_2001": "MSIV 2",
+          "ab_2002": "MSIV 2"
+        }
+      },
+      {
+        "bauteil": "Fenster",
+        "konstruktion": "Holzfenster zwei Scheiben",
+        "eigenschaft": "Ug",
+        "werte": {
+          "bis_1978": 2.9,
+          "1979_bis_1983": 2.9,
+          "1984_bis_1994": 2.9,
+          "ab_1995_bis_2001": 1.4,
+          "ab_2002": 1.2
+        }
+      },
+      {
+        "bauteil": "Fenster",
+        "konstruktion": "Kunststofffenster Isolierverglasung",
+        "eigenschaft": "UW",
+        "werte": {
+          "bis_1978": 3.0,
+          "1979_bis_1983": 3.0,
+          "1984_bis_1994": 3.0,
+          "ab_1995_bis_2001": 1.9,
+          "ab_2002": 1.5
+        }
+      },
+      {
+        "bauteil": "Fenster",
+        "konstruktion": "Kunststofffenster Isolierverglasung",
+        "eigenschaft": "Glas",
+        "werte": {
+          "bis_1978": "zweifach",
+          "1979_bis_1983": "zweifach",
+          "1984_bis_1994": "zweifach",
+          "ab_1995_bis_2001": "MSIV 2",
+          "ab_2002": "MSIV 2"
+        }
+      },
+      {
+        "bauteil": "Fenster",
+        "konstruktion": "Kunststofffenster Isolierverglasung",
+        "eigenschaft": "Ug",
+        "werte": {
+          "bis_1978": 2.9,
+          "1979_bis_1983": 2.9,
+          "1984_bis_1994": 2.9,
+          "ab_1995_bis_2001": 1.4,
+          "ab_2002": 1.2
+        }
+      },
+      {
+        "bauteil": "Fenster",
+        "konstruktion": "Aluminium-/Stahlfenster Isolierverglasung",
+        "eigenschaft": "UW",
+        "werte": {
+          "bis_1978": 4.3,
+          "1979_bis_1983": 4.3,
+          "1984_bis_1994": 3.2,
+          "ab_1995_bis_2001": 1.9,
+          "ab_2002": 1.5
+        }
+      },
+      {
+        "bauteil": "Fenster",
+        "konstruktion": "Aluminium-/Stahlfenster Isolierverglasung",
+        "eigenschaft": "Glas",
+        "werte": {
+          "bis_1978": "zweifach",
+          "1979_bis_1983": "zweifach",
+          "1984_bis_1994": "zweifach",
+          "ab_1995_bis_2001": "MSIV 2",
+          "ab_2002": "MSIV 2"
+        }
+      },
+      {
+        "bauteil": "Fenster",
+        "konstruktion": "Aluminium-/Stahlfenster Isolierverglasung",
+        "eigenschaft": "Ug",
+        "werte": {
+          "bis_1978": 2.9,
+          "1979_bis_1983": 2.9,
+          "1984_bis_1994": 2.9,
+          "ab_1995_bis_2001": 1.4,
+          "ab_2002": 1.2
+        }
+      }
+    ]
+  },
+  "tabelle_4_anlagentechnik_warmwasser": {
+    "beschreibung": "Pauschale Ansätze für Anlagentechnik Warmwasser (Berechnung nach DIN V 4701-10 i.V.m. DIN V 4108-6). Kennwerte bezogen auf Gebäudenutzfläche AN [kWh/(m²·a)]",
+    "prozessbereiche": {
+      "verteilung_warmwasser": [
+        {
+          "nr": "1.1",
+          "bezeichnung": "Zentrale Verteilung mit Zirkulation",
+          "baualtersklasse": "bis 1978",
+          "waermeverluste_150": 68.6,
+          "waermeverluste_500": 47.4,
+          "waermeverluste_2500": 38.9,
+          "heizwaermegutschrift_150": 12.4,
+          "heizwaermegutschrift_500": 14.6,
+          "heizwaermegutschrift_2500": 15.9,
+          "hilfsenergie_150": 1.4,
+          "hilfsenergie_500": 0.8,
+          "hilfsenergie_2500": 0.6
+        },
+        {
+          "nr": "1.2",
+          "bezeichnung": "Zentrale Verteilung mit Zirkulation nachträglich gedämmt",
+          "baualtersklasse": "bis 1978 nachtr. gedämmt",
+          "waermeverluste_150": 41.9,
+          "waermeverluste_500": 35.4,
+          "waermeverluste_2500": 33.2,
+          "heizwaermegutschrift_150": 12.4,
+          "heizwaermegutschrift_500": 14.6,
+          "heizwaermegutschrift_2500": 15.9,
+          "hilfsenergie_150": 1.4,
+          "hilfsenergie_500": 0.8,
+          "hilfsenergie_2500": 0.6
+        },
+        {
+          "nr": "1.3",
+          "bezeichnung": "Zentrale Verteilung mit Zirkulation",
+          "baualtersklasse": "ab 1979 bis 1994",
+          "waermeverluste_150": 27.3,
+          "waermeverluste_500": 22.6,
+          "waermeverluste_2500": 21.0,
+          "heizwaermegutschrift_150": 8.2,
+          "heizwaermegutschrift_500": 9.3,
+          "heizwaermegutschrift_2500": 9.9,
+          "hilfsenergie_150": 1.4,
+          "hilfsenergie_500": 0.8,
+          "hilfsenergie_2500": 0.6
+        },
+        {
+          "nr": "1.4",
+          "bezeichnung": "Zentrale Verteilung mit Zirkulation",
+          "baualtersklasse": "ab 1995",
+          "waermeverluste_150": 11.6,
+          "waermeverluste_500": 7.6,
+          "waermeverluste_2500": 6.6,
+          "heizwaermegutschrift_150": 1.7,
+          "heizwaermegutschrift_500": 1.9,
+          "heizwaermegutschrift_2500": 2.2,
+          "hilfsenergie_150": 0.8,
+          "hilfsenergie_500": 0.3,
+          "hilfsenergie_2500": 0.1
+        },
+        {
+          "nr": "2.1",
+          "bezeichnung": "Zentrale Verteilung ohne Zirkulation",
+          "baualtersklasse": "bis 1978",
+          "waermeverluste_150": 17.0,
+          "waermeverluste_500": 10.4,
+          "waermeverluste_2500": 8.1,
+          "heizwaermegutschrift_150": 3.5,
+          "heizwaermegutschrift_500": 3.5,
+          "heizwaermegutschrift_2500": 3.5,
+          "hilfsenergie_150": 0,
+          "hilfsenergie_500": 0,
+          "hilfsenergie_2500": 0
+        },
+        {
+          "nr": "2.2",
+          "bezeichnung": "Zentrale Verteilung ohne Zirkulation nachträglich gedämmt",
+          "baualtersklasse": "bis 1978 nachtr. gedämmt",
+          "waermeverluste_150": 12.6,
+          "waermeverluste_500": 8.8,
+          "waermeverluste_2500": 7.4,
+          "heizwaermegutschrift_150": 3.5,
+          "heizwaermegutschrift_500": 3.5,
+          "heizwaermegutschrift_2500": 3.5,
+          "hilfsenergie_150": 0,
+          "hilfsenergie_500": 0,
+          "hilfsenergie_2500": 0
+        },
+        {
+          "nr": "2.3",
+          "bezeichnung": "Zentrale Verteilung ohne Zirkulation",
+          "baualtersklasse": "ab 1979 bis 1994",
+          "waermeverluste_150": 10.8,
+          "waermeverluste_500": 8.3,
+          "waermeverluste_2500": 7.5,
+          "heizwaermegutschrift_150": 3.7,
+          "heizwaermegutschrift_500": 3.7,
+          "heizwaermegutschrift_2500": 3.7,
+          "hilfsenergie_150": 0,
+          "hilfsenergie_500": 0,
+          "hilfsenergie_2500": 0
+        },
+        {
+          "nr": "2.4",
+          "bezeichnung": "Zentrale Verteilung ohne Zirkulation",
+          "baualtersklasse": "ab 1995",
+          "waermeverluste_150": 5.4,
+          "waermeverluste_500": 3.4,
+          "waermeverluste_2500": 2.8,
+          "heizwaermegutschrift_150": 1.0,
+          "heizwaermegutschrift_500": 1.0,
+          "heizwaermegutschrift_2500": 1.0,
+          "hilfsenergie_150": 0,
+          "hilfsenergie_500": 0,
+          "hilfsenergie_2500": 0
+        },
+        {
+          "nr": "3.1",
+          "bezeichnung": "Dezentrales System",
+          "baualtersklasse": "bis 1994",
+          "waermeverluste_150": 3.8,
+          "waermeverluste_500": 3.8,
+          "waermeverluste_2500": 3.8,
+          "heizwaermegutschrift_150": 2.0,
+          "heizwaermegutschrift_500": 2.0,
+          "heizwaermegutschrift_2500": 2.0,
+          "hilfsenergie_150": 0,
+          "hilfsenergie_500": 0,
+          "hilfsenergie_2500": 0
+        },
+        {
+          "nr": "3.2",
+          "bezeichnung": "Dezentrales System",
+          "baualtersklasse": "ab 1995",
+          "waermeverluste_150": 1.5,
+          "waermeverluste_500": 1.5,
+          "waermeverluste_2500": 1.5,
+          "heizwaermegutschrift_150": 0.7,
+          "heizwaermegutschrift_500": 0.7,
+          "heizwaermegutschrift_2500": 0.7,
+          "hilfsenergie_150": 0,
+          "hilfsenergie_500": 0,
+          "hilfsenergie_2500": 0
+        }
+      ],
+      "speicherung_warmwasser": [
+        {
+          "nr": "4",
+          "bezeichnung": "Zentrale WW-Speicher außerhalb thermischer Hülle",
+          "baualtersklasse": "alle",
+          "waermeverluste_150": 5.1,
+          "waermeverluste_500": 1.8,
+          "waermeverluste_2500": 0.5,
+          "heizwaermegutschrift_150": 0,
+          "heizwaermegutschrift_500": 0,
+          "heizwaermegutschrift_2500": 0,
+          "hilfsenergie_150": 0.2,
+          "hilfsenergie_500": 0.2,
+          "hilfsenergie_2500": 0.3
+        },
+        {
+          "nr": "5",
+          "bezeichnung": "Zentrale WW-Speicher innerhalb thermischer Hülle",
+          "baualtersklasse": "alle",
+          "waermeverluste_150": 4.2,
+          "waermeverluste_500": 1.4,
+          "waermeverluste_2500": 0.4,
+          "heizwaermegutschrift_150": 2.2,
+          "heizwaermegutschrift_500": 0.8,
+          "heizwaermegutschrift_2500": 0.2,
+          "hilfsenergie_150": 0.2,
+          "hilfsenergie_500": 0.2,
+          "hilfsenergie_2500": 0.3
+        },
+        {
+          "nr": "6",
+          "bezeichnung": "Gasbefeuerter Speicher",
+          "baualtersklasse": "alle",
+          "waermeverluste_150": 18.0,
+          "waermeverluste_500": 11.9,
+          "waermeverluste_2500": null,
+          "heizwaermegutschrift_150": 0,
+          "heizwaermegutschrift_500": 0,
+          "heizwaermegutschrift_2500": null,
+          "hilfsenergie_150": 0,
+          "hilfsenergie_500": 0,
+          "hilfsenergie_2500": null
+        },
+        {
+          "nr": "7.1",
+          "bezeichnung": "Elektro-Kleinspeicher",
+          "baualtersklasse": "alle",
+          "waermeverluste_150": 1.5,
+          "waermeverluste_500": 1.5,
+          "waermeverluste_2500": 1.5,
+          "heizwaermegutschrift_150": 0.8,
+          "heizwaermegutschrift_500": 0.8,
+          "heizwaermegutschrift_2500": 0.8,
+          "hilfsenergie_150": 0,
+          "hilfsenergie_500": 0,
+          "hilfsenergie_2500": 0
+        },
+        {
+          "nr": "7.2",
+          "bezeichnung": "Wohnungsweise Nachtstromspeicher",
+          "baualtersklasse": "alle",
+          "waermeverluste_150": 2.4,
+          "waermeverluste_500": 2.4,
+          "waermeverluste_2500": 2.4,
+          "heizwaermegutschrift_150": 1.3,
+          "heizwaermegutschrift_500": 1.3,
+          "heizwaermegutschrift_2500": 1.3,
+          "hilfsenergie_150": 0,
+          "hilfsenergie_500": 0,
+          "hilfsenergie_2500": 0
+        }
+      ],
+      "waermeerzeugung_warmwasser": [
+        {
+          "nr": "8.1",
+          "bezeichnung": "Standard-Heizkessel Gebläsekessel (Konstanttemp.)",
+          "baualtersklasse": "bis 1986",
+          "aufwandszahl_150": 2.05,
+          "aufwandszahl_500": 1.64,
+          "aufwandszahl_2500": 1.33,
+          "heizwaermegutschrift_150": 0,
+          "heizwaermegutschrift_500": 0,
+          "heizwaermegutschrift_2500": 0,
+          "hilfsenergie_150": 0.1,
+          "hilfsenergie_500": 0.1,
+          "hilfsenergie_2500": 0.1
+        },
+        {
+          "nr": "8.2",
+          "bezeichnung": "Standard-Heizkessel Gebläsekessel (Konstanttemp.)",
+          "baualtersklasse": "ab 1987 bis 1994",
+          "aufwandszahl_150": 1.9,
+          "aufwandszahl_500": 1.57,
+          "aufwandszahl_2500": 1.31,
+          "heizwaermegutschrift_150": 0,
+          "heizwaermegutschrift_500": 0,
+          "heizwaermegutschrift_2500": 0,
+          "hilfsenergie_150": 0.2,
+          "hilfsenergie_500": 0.1,
+          "hilfsenergie_2500": 0.1
+        },
+        {
+          "nr": "8.3",
+          "bezeichnung": "Standard-Heizkessel (ab 1995)",
+          "baualtersklasse": "ab 1995",
+          "aufwandszahl_150": 1.71,
+          "aufwandszahl_500": 1.46,
+          "aufwandszahl_2500": 1.26,
+          "heizwaermegutschrift_150": 0,
+          "heizwaermegutschrift_500": 0,
+          "heizwaermegutschrift_2500": 0,
+          "hilfsenergie_150": 0.2,
+          "hilfsenergie_500": 0.1,
+          "hilfsenergie_2500": 0.1
+        },
+        {
+          "nr": "9.1",
+          "bezeichnung": "Niedertemperatur-Heizkessel Gebläsekessel (NT)",
+          "baualtersklasse": "bis 1986",
+          "aufwandszahl_150": 1.3,
+          "aufwandszahl_500": 1.23,
+          "aufwandszahl_2500": 1.18,
+          "heizwaermegutschrift_150": 0,
+          "heizwaermegutschrift_500": 0,
+          "heizwaermegutschrift_2500": 0,
+          "hilfsenergie_150": 0.1,
+          "hilfsenergie_500": 0.1,
+          "hilfsenergie_2500": 0.1
+        },
+        {
+          "nr": "9.2",
+          "bezeichnung": "Niedertemperatur-Heizkessel Gebläsekessel (NT)",
+          "baualtersklasse": "ab 1987 bis 1994",
+          "aufwandszahl_150": 1.31,
+          "aufwandszahl_500": 1.23,
+          "aufwandszahl_2500": 1.17,
+          "heizwaermegutschrift_150": 0,
+          "heizwaermegutschrift_500": 0,
+          "heizwaermegutschrift_2500": 0,
+          "hilfsenergie_150": 0.2,
+          "hilfsenergie_500": 0.1,
+          "hilfsenergie_2500": 0.1
+        },
+        {
+          "nr": "9.3",
+          "bezeichnung": "Niedertemperatur-Heizkessel (ab 1995)",
+          "baualtersklasse": "ab 1995",
+          "aufwandszahl_150": 1.19,
+          "aufwandszahl_500": 1.15,
+          "aufwandszahl_2500": 1.12,
+          "heizwaermegutschrift_150": 0,
+          "heizwaermegutschrift_500": 0,
+          "heizwaermegutschrift_2500": 0,
+          "hilfsenergie_150": 0.2,
+          "hilfsenergie_500": 0.1,
+          "hilfsenergie_2500": 0.1
+        },
+        {
+          "nr": "10.1",
+          "bezeichnung": "Brennwert-Kessel (bis 1994)",
+          "baualtersklasse": "bis 1986",
+          "aufwandszahl_150": 1.24,
+          "aufwandszahl_500": 1.17,
+          "aufwandszahl_2500": 1.13,
+          "heizwaermegutschrift_150": 0,
+          "heizwaermegutschrift_500": 0,
+          "heizwaermegutschrift_2500": 0,
+          "hilfsenergie_150": 0.1,
+          "hilfsenergie_500": 0.1,
+          "hilfsenergie_2500": 0.1
+        },
+        {
+          "nr": "10.2",
+          "bezeichnung": "Brennwert-Kessel (bis 1994)",
+          "baualtersklasse": "ab 1987 bis 1994",
+          "aufwandszahl_150": 1.25,
+          "aufwandszahl_500": 1.17,
+          "aufwandszahl_2500": 1.12,
+          "heizwaermegutschrift_150": 0,
+          "heizwaermegutschrift_500": 0,
+          "heizwaermegutschrift_2500": 0,
+          "hilfsenergie_150": 0.2,
+          "hilfsenergie_500": 0.1,
+          "hilfsenergie_2500": 0.1
+        },
+        {
+          "nr": "10.3",
+          "bezeichnung": "Brennwert-Kessel (ab 1995)",
+          "baualtersklasse": "ab 1995",
+          "aufwandszahl_150": 1.15,
+          "aufwandszahl_500": 1.12,
+          "aufwandszahl_2500": 1.09,
+          "heizwaermegutschrift_150": 0,
+          "heizwaermegutschrift_500": 0,
+          "heizwaermegutschrift_2500": 0,
+          "hilfsenergie_150": 0.2,
+          "hilfsenergie_500": 0.1,
+          "hilfsenergie_2500": 0.1
+        },
+        {
+          "nr": "11",
+          "bezeichnung": "Brennwertkessel verbessert",
+          "baualtersklasse": "ab 1999",
+          "aufwandszahl_150": 1.13,
+          "aufwandszahl_500": 1.1,
+          "aufwandszahl_2500": 1.07,
+          "heizwaermegutschrift_150": 0,
+          "heizwaermegutschrift_500": 0,
+          "heizwaermegutschrift_2500": 0,
+          "hilfsenergie_150": 0.2,
+          "hilfsenergie_500": 0.1,
+          "hilfsenergie_2500": 0.1
+        },
+        {
+          "nr": "12",
+          "bezeichnung": "Fern-/Nahwärme",
+          "baualtersklasse": "alle",
+          "aufwandszahl_150": 1.14,
+          "aufwandszahl_500": 1.14,
+          "aufwandszahl_2500": 1.14,
+          "heizwaermegutschrift_150": 0,
+          "heizwaermegutschrift_500": 0,
+          "heizwaermegutschrift_2500": 0,
+          "hilfsenergie_150": 0.4,
+          "hilfsenergie_500": 0.4,
+          "hilfsenergie_2500": 0.4
+        },
+        {
+          "nr": "13.1",
+          "bezeichnung": "Elektro-WP Außenluft (Luft/Wasser)",
+          "baualtersklasse": "ab 1979 bis 1994",
+          "aufwandszahl_150": 0.44,
+          "aufwandszahl_500": 0.44,
+          "aufwandszahl_2500": 0.44,
+          "heizwaermegutschrift_150": 0,
+          "heizwaermegutschrift_500": 0,
+          "heizwaermegutschrift_2500": 0,
+          "hilfsenergie_150": 0,
+          "hilfsenergie_500": 0,
+          "hilfsenergie_2500": 0
+        },
+        {
+          "nr": "13.2",
+          "bezeichnung": "Elektro-WP Außenluft (Luft/Wasser)",
+          "baualtersklasse": "ab 1995",
+          "aufwandszahl_150": 0.41,
+          "aufwandszahl_500": 0.41,
+          "aufwandszahl_2500": 0.41,
+          "heizwaermegutschrift_150": 0,
+          "heizwaermegutschrift_500": 0,
+          "heizwaermegutschrift_2500": 0,
+          "hilfsenergie_150": 0,
+          "hilfsenergie_500": 0,
+          "hilfsenergie_2500": 0
+        },
+        {
+          "nr": "14.1",
+          "bezeichnung": "Elektro-WP Erdreich monovalent (Sole/Wasser)",
+          "baualtersklasse": "ab 1979 bis 1994",
+          "aufwandszahl_150": 0.38,
+          "aufwandszahl_500": 0.38,
+          "aufwandszahl_2500": 0.38,
+          "heizwaermegutschrift_150": 0,
+          "heizwaermegutschrift_500": 0,
+          "heizwaermegutschrift_2500": 0,
+          "hilfsenergie_150": 0.3,
+          "hilfsenergie_500": 0.3,
+          "hilfsenergie_2500": 0.2
+        },
+        {
+          "nr": "14.2",
+          "bezeichnung": "Elektro-WP Erdreich monovalent (Sole/Wasser)",
+          "baualtersklasse": "ab 1995",
+          "aufwandszahl_150": 0.32,
+          "aufwandszahl_500": 0.32,
+          "aufwandszahl_2500": 0.32,
+          "heizwaermegutschrift_150": 0,
+          "heizwaermegutschrift_500": 0,
+          "heizwaermegutschrift_2500": 0,
+          "hilfsenergie_150": 0.3,
+          "hilfsenergie_500": 0.3,
+          "hilfsenergie_2500": 0.2
+        },
+        {
+          "nr": "15.1",
+          "bezeichnung": "Elektro-WP Grundwasser monovalent (Wasser/Wasser)",
+          "baualtersklasse": "ab 1979 bis 1994",
+          "aufwandszahl_150": 0.31,
+          "aufwandszahl_500": 0.31,
+          "aufwandszahl_2500": 0.31,
+          "heizwaermegutschrift_150": 0,
+          "heizwaermegutschrift_500": 0,
+          "heizwaermegutschrift_2500": 0,
+          "hilfsenergie_150": 0.5,
+          "hilfsenergie_500": 0.4,
+          "hilfsenergie_2500": 0.4
+        },
+        {
+          "nr": "15.2",
+          "bezeichnung": "Elektro-WP Grundwasser monovalent (Wasser/Wasser)",
+          "baualtersklasse": "ab 1995",
+          "aufwandszahl_150": 0.28,
+          "aufwandszahl_500": 0.28,
+          "aufwandszahl_2500": 0.28,
+          "heizwaermegutschrift_150": 0,
+          "heizwaermegutschrift_500": 0,
+          "heizwaermegutschrift_2500": 0,
+          "hilfsenergie_150": 0.5,
+          "hilfsenergie_500": 0.4,
+          "hilfsenergie_2500": 0.4
+        },
+        {
+          "nr": "16.1",
+          "bezeichnung": "Elektro-WP Abluft (Abluft/Wasser)",
+          "baualtersklasse": "ab 1979 bis 1994",
+          "aufwandszahl_150": 0.33,
+          "aufwandszahl_500": 0.33,
+          "aufwandszahl_2500": 0.33,
+          "heizwaermegutschrift_150": 0,
+          "heizwaermegutschrift_500": 0,
+          "heizwaermegutschrift_2500": 0,
+          "hilfsenergie_150": 0,
+          "hilfsenergie_500": 0,
+          "hilfsenergie_2500": 0
+        },
+        {
+          "nr": "16.2",
+          "bezeichnung": "Elektro-WP Abluft (Abluft/Wasser)",
+          "baualtersklasse": "ab 1995",
+          "aufwandszahl_150": 0.3,
+          "aufwandszahl_500": 0.3,
+          "aufwandszahl_2500": 0.3,
+          "heizwaermegutschrift_150": 0,
+          "heizwaermegutschrift_500": 0,
+          "heizwaermegutschrift_2500": 0,
+          "hilfsenergie_150": 0,
+          "hilfsenergie_500": 0,
+          "hilfsenergie_2500": 0
+        },
+        {
+          "nr": "17.1",
+          "bezeichnung": "Elektro-WW-WP Kellerluft",
+          "baualtersklasse": "ab 1979 bis 1994",
+          "aufwandszahl_150": 0.41,
+          "aufwandszahl_500": 0.41,
+          "aufwandszahl_2500": 0.41,
+          "heizwaermegutschrift_150": 0,
+          "heizwaermegutschrift_500": 0,
+          "heizwaermegutschrift_2500": 0,
+          "hilfsenergie_150": 0,
+          "hilfsenergie_500": 0,
+          "hilfsenergie_2500": 0
+        },
+        {
+          "nr": "17.2",
+          "bezeichnung": "Elektro-WW-WP Kellerluft",
+          "baualtersklasse": "ab 1995",
+          "aufwandszahl_150": 0.38,
+          "aufwandszahl_500": 0.38,
+          "aufwandszahl_2500": 0.38,
+          "heizwaermegutschrift_150": 0,
+          "heizwaermegutschrift_500": 0,
+          "heizwaermegutschrift_2500": 0,
+          "hilfsenergie_150": 0,
+          "hilfsenergie_500": 0,
+          "hilfsenergie_2500": 0
+        },
+        {
+          "nr": "18",
+          "bezeichnung": "Zentraler Elektro-Speicher",
+          "baualtersklasse": "alle",
+          "aufwandszahl_150": 1.0,
+          "aufwandszahl_500": 1.0,
+          "aufwandszahl_2500": 1.0,
+          "heizwaermegutschrift_150": 0,
+          "heizwaermegutschrift_500": 0,
+          "heizwaermegutschrift_2500": 0,
+          "hilfsenergie_150": 0,
+          "hilfsenergie_500": 0,
+          "hilfsenergie_2500": 0
+        },
+        {
+          "nr": "19",
+          "bezeichnung": "Direkt beheizter Trinkwarmwasserspeicher (Gas)",
+          "baualtersklasse": "alle",
+          "aufwandszahl_150": 1.22,
+          "aufwandszahl_500": 1.22,
+          "aufwandszahl_2500": null,
+          "heizwaermegutschrift_150": 0,
+          "heizwaermegutschrift_500": 0,
+          "heizwaermegutschrift_2500": null,
+          "hilfsenergie_150": 0,
+          "hilfsenergie_500": 0,
+          "hilfsenergie_2500": null
+        },
+        {
+          "nr": "20.1",
+          "bezeichnung": "Therme (NT-Kessel Umlaufwasserheizer)",
+          "baualtersklasse": "bis 1994",
+          "aufwandszahl_150": 1.32,
+          "aufwandszahl_500": 1.32,
+          "aufwandszahl_2500": null,
+          "heizwaermegutschrift_150": 0,
+          "heizwaermegutschrift_500": 0,
+          "heizwaermegutschrift_2500": null,
+          "hilfsenergie_150": 0.2,
+          "hilfsenergie_500": 0.2,
+          "hilfsenergie_2500": null
+        },
+        {
+          "nr": "20.2",
+          "bezeichnung": "Therme (NT-Kessel Umlaufwasserheizer)",
+          "baualtersklasse": "ab 1995",
+          "aufwandszahl_150": 1.32,
+          "aufwandszahl_500": 1.32,
+          "aufwandszahl_2500": null,
+          "heizwaermegutschrift_150": 0,
+          "heizwaermegutschrift_500": 0,
+          "heizwaermegutschrift_2500": null,
+          "hilfsenergie_150": 0.2,
+          "hilfsenergie_500": 0.2,
+          "hilfsenergie_2500": null
+        },
+        {
+          "nr": "21",
+          "bezeichnung": "Brennwerttherme (BW-Kessel ab 1995)",
+          "baualtersklasse": "ab 1995",
+          "aufwandszahl_150": 1.28,
+          "aufwandszahl_500": 1.28,
+          "aufwandszahl_2500": null,
+          "heizwaermegutschrift_150": 0,
+          "heizwaermegutschrift_500": 0,
+          "heizwaermegutschrift_2500": null,
+          "hilfsenergie_150": 0.2,
+          "hilfsenergie_500": 0.2,
+          "hilfsenergie_2500": null
+        },
+        {
+          "nr": "22",
+          "bezeichnung": "Dezentraler Elektro-Speicher",
+          "baualtersklasse": "alle",
+          "aufwandszahl_150": 1.0,
+          "aufwandszahl_500": 1.0,
+          "aufwandszahl_2500": 1.0,
+          "heizwaermegutschrift_150": 0,
+          "heizwaermegutschrift_500": 0,
+          "heizwaermegutschrift_2500": 0,
+          "hilfsenergie_150": 0,
+          "hilfsenergie_500": 0,
+          "hilfsenergie_2500": 0
+        },
+        {
+          "nr": "23",
+          "bezeichnung": "Elektro-Durchlauferhitzer",
+          "baualtersklasse": "alle",
+          "aufwandszahl_150": 1.0,
+          "aufwandszahl_500": 1.0,
+          "aufwandszahl_2500": 1.0,
+          "heizwaermegutschrift_150": 0,
+          "heizwaermegutschrift_500": 0,
+          "heizwaermegutschrift_2500": 0,
+          "hilfsenergie_150": 0,
+          "hilfsenergie_500": 0,
+          "hilfsenergie_2500": 0
+        },
+        {
+          "nr": "24.1",
+          "bezeichnung": "Gas-Durchlauferhitzer",
+          "baualtersklasse": "bis 1994",
+          "aufwandszahl_150": 1.19,
+          "aufwandszahl_500": 1.19,
+          "aufwandszahl_2500": 1.19,
+          "heizwaermegutschrift_150": 0,
+          "heizwaermegutschrift_500": 0,
+          "heizwaermegutschrift_2500": 0,
+          "hilfsenergie_150": 0,
+          "hilfsenergie_500": 0,
+          "hilfsenergie_2500": 0
+        },
+        {
+          "nr": "24.2",
+          "bezeichnung": "Gas-Durchlauferhitzer",
+          "baualtersklasse": "ab 1995",
+          "aufwandszahl_150": 1.16,
+          "aufwandszahl_500": 1.16,
+          "aufwandszahl_2500": 1.16,
+          "heizwaermegutschrift_150": 0,
+          "heizwaermegutschrift_500": 0,
+          "heizwaermegutschrift_2500": 0,
+          "hilfsenergie_150": 0,
+          "hilfsenergie_500": 0,
+          "hilfsenergie_2500": 0
+        },
+        {
+          "nr": "25",
+          "bezeichnung": "Solare Trinkwasserbereitung",
+          "baualtersklasse": "alle",
+          "von_solaranlage_bereitgestellte_waerme_150": 13.3,
+          "von_solaranlage_bereitgestellte_waerme_500": 10.4,
+          "von_solaranlage_bereitgestellte_waerme_2500": 7.5,
+          "hilfsenergie_150": 0.8,
+          "hilfsenergie_500": 0.4,
+          "hilfsenergie_2500": 0.3
+        }
+      ]
+    }
+  },
+  "tabelle_5_anlagentechnik_heizung": {
+    "beschreibung": "Pauschale Ansätze für Anlagentechnik Heizung (Berechnung nach DIN V 4701-10 i.V.m. DIN V 4108-6). Kennwerte bezogen auf Gebäudenutzfläche AN",
+    "prozessbereiche": {
+      "uebergabe_heizung": [
+        {
+          "nr": "1",
+          "bezeichnung": "Zentralheizung thermostatisch geregelt",
+          "heizkreistemperatur": "alle",
+          "baualtersklasse": "alle",
+          "waermeverluste_150": 3.3,
+          "waermeverluste_500": 3.3,
+          "waermeverluste_2500": 3.3,
+          "hilfsenergie_150": 0,
+          "hilfsenergie_500": 0,
+          "hilfsenergie_2500": 0
+        },
+        {
+          "nr": "2",
+          "bezeichnung": "Einzelfeuerstätte",
+          "heizkreistemperatur": "keine",
+          "baualtersklasse": "alle",
+          "waermeverluste_150": 0,
+          "waermeverluste_500": 0,
+          "waermeverluste_2500": 0,
+          "hilfsenergie_150": 0,
+          "hilfsenergie_500": 0,
+          "hilfsenergie_2500": 0
+        }
+      ],
+      "verteilung_heizung": [
+        {
+          "nr": "3.1",
+          "bezeichnung": "Zentrale Verteilung",
+          "heizkreistemperatur": "70/55°C",
+          "baualtersklasse": "bis 1978",
+          "waermeverluste_150": 75.1,
+          "waermeverluste_500": 43.5,
+          "waermeverluste_2500": 32.7,
+          "hilfsenergie_150": 2.3,
+          "hilfsenergie_500": 1.0,
+          "hilfsenergie_2500": 0.5
+        },
+        {
+          "nr": "3.2",
+          "bezeichnung": "Zentrale Verteilung nachträglich gedämmt",
+          "heizkreistemperatur": "70/55°C",
+          "baualtersklasse": "bis 1978 nachtr. gedämmt",
+          "waermeverluste_150": 40.9,
+          "waermeverluste_500": 28.2,
+          "waermeverluste_2500": 23.9,
+          "hilfsenergie_150": 2.3,
+          "hilfsenergie_500": 1.0,
+          "hilfsenergie_2500": 0.5
+        },
+        {
+          "nr": "3.3",
+          "bezeichnung": "Zentrale Verteilung",
+          "heizkreistemperatur": "70/55°C",
+          "baualtersklasse": "ab 1979 bis 1994",
+          "waermeverluste_150": 20.2,
+          "waermeverluste_500": 13.8,
+          "waermeverluste_2500": 11.6,
+          "hilfsenergie_150": 1.9,
+          "hilfsenergie_500": 0.8,
+          "hilfsenergie_2500": 0.4
+        },
+        {
+          "nr": "3.4",
+          "bezeichnung": "Zentrale Verteilung",
+          "heizkreistemperatur": "70/55°C",
+          "baualtersklasse": "ab 1995",
+          "waermeverluste_150": 9.3,
+          "waermeverluste_500": 5.4,
+          "waermeverluste_2500": 4.1,
+          "hilfsenergie_150": 1.6,
+          "hilfsenergie_500": 0.7,
+          "hilfsenergie_2500": 0.3
+        },
+        {
+          "nr": "4.1",
+          "bezeichnung": "Zentrale Verteilung",
+          "heizkreistemperatur": "55/45°C",
+          "baualtersklasse": "bis 1978",
+          "waermeverluste_150": 57.4,
+          "waermeverluste_500": 32.9,
+          "waermeverluste_2500": 24.4,
+          "hilfsenergie_150": 2.5,
+          "hilfsenergie_500": 1.2,
+          "hilfsenergie_2500": 0.7
+        },
+        {
+          "nr": "4.2",
+          "bezeichnung": "Zentrale Verteilung nachträglich gedämmt",
+          "heizkreistemperatur": "55/45°C",
+          "baualtersklasse": "bis 1978 nachtr. gedämmt",
+          "waermeverluste_150": 30.8,
+          "waermeverluste_500": 21.0,
+          "waermeverluste_2500": 17.6,
+          "hilfsenergie_150": 2.5,
+          "hilfsenergie_500": 1.2,
+          "hilfsenergie_2500": 0.7
+        },
+        {
+          "nr": "4.3",
+          "bezeichnung": "Zentrale Verteilung",
+          "heizkreistemperatur": "55/45°C",
+          "baualtersklasse": "ab 1979 bis 1994",
+          "waermeverluste_150": 15.3,
+          "waermeverluste_500": 10.3,
+          "waermeverluste_2500": 8.5,
+          "hilfsenergie_150": 2.0,
+          "hilfsenergie_500": 0.9,
+          "hilfsenergie_2500": 0.5
+        },
+        {
+          "nr": "4.4",
+          "bezeichnung": "Zentrale Verteilung",
+          "heizkreistemperatur": "55/45°C",
+          "baualtersklasse": "ab 1995",
+          "waermeverluste_150": 9.3,
+          "waermeverluste_500": 3.9,
+          "waermeverluste_2500": 2.9,
+          "hilfsenergie_150": 1.7,
+          "hilfsenergie_500": 0.8,
+          "hilfsenergie_2500": 0.5
+        },
+        {
+          "nr": "5.1",
+          "bezeichnung": "Wohnungsweise Verteilung",
+          "heizkreistemperatur": "alle",
+          "baualtersklasse": "bis 1978",
+          "waermeverluste_150": 8.4,
+          "waermeverluste_500": 8.4,
+          "waermeverluste_2500": 8.4,
+          "hilfsenergie_150": 3.4,
+          "hilfsenergie_500": 3.4,
+          "hilfsenergie_2500": 3.4
+        },
+        {
+          "nr": "5.2",
+          "bezeichnung": "Wohnungsweise Verteilung",
+          "heizkreistemperatur": "alle",
+          "baualtersklasse": "ab 1979 bis 1994",
+          "waermeverluste_150": 5.4,
+          "waermeverluste_500": 5.4,
+          "waermeverluste_2500": 5.4,
+          "hilfsenergie_150": 2.7,
+          "hilfsenergie_500": 2.7,
+          "hilfsenergie_2500": 2.7
+        },
+        {
+          "nr": "5.3",
+          "bezeichnung": "Wohnungsweise Verteilung",
+          "heizkreistemperatur": "alle",
+          "baualtersklasse": "ab 1995",
+          "waermeverluste_150": 1.3,
+          "waermeverluste_500": 1.3,
+          "waermeverluste_2500": 1.3,
+          "hilfsenergie_150": 2.3,
+          "hilfsenergie_500": 2.3,
+          "hilfsenergie_2500": 2.3
+        },
+        {
+          "nr": "6",
+          "bezeichnung": "Dezentrales System (ohne Verteilung)",
+          "heizkreistemperatur": "keine",
+          "baualtersklasse": "alle",
+          "waermeverluste_150": 0,
+          "waermeverluste_500": 0,
+          "waermeverluste_2500": 0,
+          "hilfsenergie_150": 0,
+          "hilfsenergie_500": 0,
+          "hilfsenergie_2500": 0
+        }
+      ],
+      "speicherung_heizung": [
+        {
+          "nr": "7.1",
+          "bezeichnung": "El.-Zentralspeicher",
+          "heizkreistemperatur": "70/55°C",
+          "baualtersklasse": "bis 1994",
+          "waermeverluste_formel": "(280+0.57*VS)/AN",
+          "hilfsenergie_150": 0.5,
+          "hilfsenergie_500": 0.2,
+          "hilfsenergie_2500": 0.1
+        },
+        {
+          "nr": "7.2",
+          "bezeichnung": "El.-Zentralspeicher",
+          "heizkreistemperatur": "70/55°C",
+          "baualtersklasse": "ab 1995",
+          "waermeverluste_formel": "(210+0.43*VS)/AN",
+          "hilfsenergie_150": 0.4,
+          "hilfsenergie_500": 0.2,
+          "hilfsenergie_2500": 0.1
+        },
+        {
+          "nr": "7.3",
+          "bezeichnung": "El.-Zentralspeicher",
+          "heizkreistemperatur": "55/45°C",
+          "baualtersklasse": "bis 1994",
+          "waermeverluste_formel": "(196+0.40*VS)/AN",
+          "hilfsenergie_150": 0.5,
+          "hilfsenergie_500": 0.2,
+          "hilfsenergie_2500": 0.1
+        },
+        {
+          "nr": "7.4",
+          "bezeichnung": "El.-Zentralspeicher",
+          "heizkreistemperatur": "55/45°C",
+          "baualtersklasse": "ab 1995",
+          "waermeverluste_formel": "(147+0.30*VS)/AN",
+          "hilfsenergie_150": 0.4,
+          "hilfsenergie_500": 0.2,
+          "hilfsenergie_2500": 0.1
+        },
+        {
+          "nr": "8.1",
+          "bezeichnung": "Pufferspeicher El.-Wärmepumpe",
+          "heizkreistemperatur": "55/45°C",
+          "baualtersklasse": "bis 1994",
+          "waermeverluste_formel": "(196+0.40*VS)/AN",
+          "hilfsenergie_150": 0.5,
+          "hilfsenergie_500": 0.2,
+          "hilfsenergie_2500": 0.1
+        },
+        {
+          "nr": "8.2",
+          "bezeichnung": "Pufferspeicher El.-Wärmepumpe",
+          "heizkreistemperatur": "55/45°C",
+          "baualtersklasse": "ab 1995",
+          "waermeverluste_formel": "(147+0.30*VS)/AN",
+          "hilfsenergie_150": 0.4,
+          "hilfsenergie_500": 0.2,
+          "hilfsenergie_2500": 0.1
+        },
+        {
+          "nr": "9.1",
+          "bezeichnung": "Pufferspeicher Festbrennstoffkessel",
+          "heizkreistemperatur": "70/55°C",
+          "baualtersklasse": "bis 1994",
+          "waermeverluste_formel": "(280+0.57*VS)/AN",
+          "hilfsenergie_150": 0.5,
+          "hilfsenergie_500": 0.2,
+          "hilfsenergie_2500": 0.1
+        },
+        {
+          "nr": "9.2",
+          "bezeichnung": "Pufferspeicher Festbrennstoffkessel",
+          "heizkreistemperatur": "70/55°C",
+          "baualtersklasse": "ab 1995",
+          "waermeverluste_formel": "(210+0.43*VS)/AN",
+          "hilfsenergie_150": 0.4,
+          "hilfsenergie_500": 0.2,
+          "hilfsenergie_2500": 0.1
+        },
+        {
+          "nr": "9.3",
+          "bezeichnung": "Pufferspeicher Festbrennstoffkessel",
+          "heizkreistemperatur": "55/45°C",
+          "baualtersklasse": "bis 1994",
+          "waermeverluste_formel": "(196+0.40*VS)/AN",
+          "hilfsenergie_150": 0.5,
+          "hilfsenergie_500": 0.2,
+          "hilfsenergie_2500": 0.1
+        },
+        {
+          "nr": "9.4",
+          "bezeichnung": "Pufferspeicher Festbrennstoffkessel",
+          "heizkreistemperatur": "55/45°C",
+          "baualtersklasse": "ab 1995",
+          "waermeverluste_formel": "(147+0.30*VS)/AN",
+          "hilfsenergie_150": 0.4,
+          "hilfsenergie_500": 0.2,
+          "hilfsenergie_2500": 0.1
+        }
+      ],
+      "waermeerzeugung_heizung": [
+        {
+          "nr": "10.1",
+          "bezeichnung": "Standard-Heizkessel Gebläsekessel (Konstanttemp.)",
+          "heizkreistemperatur": "70/55°C",
+          "baualtersklasse": "bis 1986",
+          "aufwandszahl_150": 1.47,
+          "aufwandszahl_500": 1.36,
+          "aufwandszahl_2500": 1.28,
+          "hilfsenergie_150": 1.2,
+          "hilfsenergie_500": 0.5,
+          "hilfsenergie_2500": 0.2
+        },
+        {
+          "nr": "10.2",
+          "bezeichnung": "Standard-Heizkessel Gebläsekessel (Konstanttemp.)",
+          "heizkreistemperatur": "70/55°C",
+          "baualtersklasse": "1987 bis 1994",
+          "aufwandszahl_150": 1.34,
+          "aufwandszahl_500": 1.26,
+          "aufwandszahl_2500": 1.19,
+          "hilfsenergie_150": 0.8,
+          "hilfsenergie_500": 0.4,
+          "hilfsenergie_2500": 0.2
+        },
+        {
+          "nr": "10.3",
+          "bezeichnung": "Standard-Heizkessel (ab 1995)",
+          "heizkreistemperatur": "70/55°C",
+          "baualtersklasse": "ab 1995",
+          "aufwandszahl_150": 1.33,
+          "aufwandszahl_500": 1.23,
+          "aufwandszahl_2500": 1.16,
+          "hilfsenergie_150": 0.7,
+          "hilfsenergie_500": 0.4,
+          "hilfsenergie_2500": 0.2
+        },
+        {
+          "nr": "11.1",
+          "bezeichnung": "NT-Heizkessel Gebläsekessel",
+          "heizkreistemperatur": "70/55°C",
+          "baualtersklasse": "bis 1986",
+          "aufwandszahl_150": 1.24,
+          "aufwandszahl_500": 1.21,
+          "aufwandszahl_2500": 1.18,
+          "hilfsenergie_150": 1.2,
+          "hilfsenergie_500": 0.5,
+          "hilfsenergie_2500": 0.2
+        },
+        {
+          "nr": "11.2",
+          "bezeichnung": "NT-Heizkessel Gebläsekessel",
+          "heizkreistemperatur": "70/55°C",
+          "baualtersklasse": "1987 bis 1994",
+          "aufwandszahl_150": 1.19,
+          "aufwandszahl_500": 1.15,
+          "aufwandszahl_2500": 1.13,
+          "hilfsenergie_150": 0.8,
+          "hilfsenergie_500": 0.4,
+          "hilfsenergie_2500": 0.2
+        },
+        {
+          "nr": "11.3",
+          "bezeichnung": "NT-Heizkessel (ab 1995)",
+          "heizkreistemperatur": "70/55°C",
+          "baualtersklasse": "ab 1995",
+          "aufwandszahl_150": 1.14,
+          "aufwandszahl_500": 1.11,
+          "aufwandszahl_2500": 1.09,
+          "hilfsenergie_150": 0.7,
+          "hilfsenergie_500": 0.4,
+          "hilfsenergie_2500": 0.2
+        },
+        {
+          "nr": "12.1",
+          "bezeichnung": "Brennwert-Kessel (bis 1994)",
+          "heizkreistemperatur": "70/55°C",
+          "baualtersklasse": "bis 1986",
+          "aufwandszahl_150": 1.11,
+          "aufwandszahl_500": 1.09,
+          "aufwandszahl_2500": 1.07,
+          "hilfsenergie_150": 1.2,
+          "hilfsenergie_500": 0.5,
+          "hilfsenergie_2500": 0.2
+        },
+        {
+          "nr": "12.2",
+          "bezeichnung": "Brennwert-Kessel (bis 1994)",
+          "heizkreistemperatur": "70/55°C",
+          "baualtersklasse": "1987 bis 1994",
+          "aufwandszahl_150": 1.09,
+          "aufwandszahl_500": 1.06,
+          "aufwandszahl_2500": 1.04,
+          "hilfsenergie_150": 0.8,
+          "hilfsenergie_500": 0.4,
+          "hilfsenergie_2500": 0.2
+        },
+        {
+          "nr": "12.3",
+          "bezeichnung": "Brennwert-Kessel (ab 1995)",
+          "heizkreistemperatur": "70/55°C",
+          "baualtersklasse": "ab 1995",
+          "aufwandszahl_150": 1.07,
+          "aufwandszahl_500": 1.05,
+          "aufwandszahl_2500": 1.04,
+          "hilfsenergie_150": 0.7,
+          "hilfsenergie_500": 0.4,
+          "hilfsenergie_2500": 0.2
+        },
+        {
+          "nr": "13",
+          "bezeichnung": "Brennwertkessel verbessert",
+          "heizkreistemperatur": "55/45°C",
+          "baualtersklasse": "ab 1999",
+          "aufwandszahl_150": 0.99,
+          "aufwandszahl_500": 0.98,
+          "aufwandszahl_2500": 0.97,
+          "hilfsenergie_150": 0.7,
+          "hilfsenergie_500": 0.4,
+          "hilfsenergie_2500": 0.2
+        },
+        {
+          "nr": "14",
+          "bezeichnung": "Fern-/Nahwärme",
+          "heizkreistemperatur": "alle",
+          "baualtersklasse": "alle",
+          "aufwandszahl_150": 1.02,
+          "aufwandszahl_500": 1.02,
+          "aufwandszahl_2500": 1.02,
+          "hilfsenergie_150": 0,
+          "hilfsenergie_500": 0,
+          "hilfsenergie_2500": 0
+        },
+        {
+          "nr": "15.1",
+          "bezeichnung": "Elektro-WP Außenluft (Luft/Wasser)",
+          "heizkreistemperatur": "55/45°C",
+          "baualtersklasse": "1979 bis 1994",
+          "aufwandszahl_150": 0.45,
+          "aufwandszahl_500": 0.45,
+          "aufwandszahl_2500": 0.45,
+          "hilfsenergie_150": 0,
+          "hilfsenergie_500": 0,
+          "hilfsenergie_2500": 0
+        },
+        {
+          "nr": "15.2",
+          "bezeichnung": "Elektro-WP Außenluft (Luft/Wasser)",
+          "heizkreistemperatur": "55/45°C",
+          "baualtersklasse": "ab 1995",
+          "aufwandszahl_150": 0.43,
+          "aufwandszahl_500": 0.43,
+          "aufwandszahl_2500": 0.43,
+          "hilfsenergie_150": 0,
+          "hilfsenergie_500": 0,
+          "hilfsenergie_2500": 0
+        },
+        {
+          "nr": "15.3",
+          "bezeichnung": "Elektro-WP Außenluft (Luft/Wasser)",
+          "heizkreistemperatur": "<40°C",
+          "baualtersklasse": "1979 bis 1994",
+          "aufwandszahl_150": 0.4,
+          "aufwandszahl_500": 0.4,
+          "aufwandszahl_2500": 0.4,
+          "hilfsenergie_150": 0,
+          "hilfsenergie_500": 0,
+          "hilfsenergie_2500": 0
+        },
+        {
+          "nr": "15.4",
+          "bezeichnung": "Elektro-WP Außenluft (Luft/Wasser)",
+          "heizkreistemperatur": "<40°C",
+          "baualtersklasse": "ab 1995",
+          "aufwandszahl_150": 0.38,
+          "aufwandszahl_500": 0.38,
+          "aufwandszahl_2500": 0.38,
+          "hilfsenergie_150": 0,
+          "hilfsenergie_500": 0,
+          "hilfsenergie_2500": 0
+        },
+        {
+          "nr": "16.1",
+          "bezeichnung": "Elektro-WP Erdreich (Sole/Wasser)",
+          "heizkreistemperatur": "55/45°C",
+          "baualtersklasse": "1979 bis 1994",
+          "aufwandszahl_150": 0.36,
+          "aufwandszahl_500": 0.36,
+          "aufwandszahl_2500": 0.36,
+          "hilfsenergie_150": 1.2,
+          "hilfsenergie_500": 1.0,
+          "hilfsenergie_2500": 0.9
+        },
+        {
+          "nr": "16.2",
+          "bezeichnung": "Elektro-WP Erdreich (Sole/Wasser)",
+          "heizkreistemperatur": "55/45°C",
+          "baualtersklasse": "ab 1995",
+          "aufwandszahl_150": 0.3,
+          "aufwandszahl_500": 0.3,
+          "aufwandszahl_2500": 0.3,
+          "hilfsenergie_150": 1.2,
+          "hilfsenergie_500": 1.0,
+          "hilfsenergie_2500": 0.9
+        },
+        {
+          "nr": "16.3",
+          "bezeichnung": "Elektro-WP Erdreich (Sole/Wasser)",
+          "heizkreistemperatur": "<40°C",
+          "baualtersklasse": "1979 bis 1994",
+          "aufwandszahl_150": 0.32,
+          "aufwandszahl_500": 0.32,
+          "aufwandszahl_2500": 0.32,
+          "hilfsenergie_150": 1.2,
+          "hilfsenergie_500": 1.0,
+          "hilfsenergie_2500": 0.9
+        },
+        {
+          "nr": "16.4",
+          "bezeichnung": "Elektro-WP Erdreich (Sole/Wasser)",
+          "heizkreistemperatur": "<40°C",
+          "baualtersklasse": "ab 1995",
+          "aufwandszahl_150": 0.27,
+          "aufwandszahl_500": 0.27,
+          "aufwandszahl_2500": 0.27,
+          "hilfsenergie_150": 1.2,
+          "hilfsenergie_500": 1.0,
+          "hilfsenergie_2500": 0.9
+        },
+        {
+          "nr": "17.1",
+          "bezeichnung": "Elektro-WP Grundwasser (Wasser/Wasser)",
+          "heizkreistemperatur": "55/45°C",
+          "baualtersklasse": "1979 bis 1994",
+          "aufwandszahl_150": 0.3,
+          "aufwandszahl_500": 0.3,
+          "aufwandszahl_2500": 0.3,
+          "hilfsenergie_150": 1.9,
+          "hilfsenergie_500": 1.7,
+          "hilfsenergie_2500": 1.5
+        },
+        {
+          "nr": "17.2",
+          "bezeichnung": "Elektro-WP Grundwasser (Wasser/Wasser)",
+          "heizkreistemperatur": "55/45°C",
+          "baualtersklasse": "ab 1995",
+          "aufwandszahl_150": 0.25,
+          "aufwandszahl_500": 0.25,
+          "aufwandszahl_2500": 0.25,
+          "hilfsenergie_150": 1.9,
+          "hilfsenergie_500": 1.7,
+          "hilfsenergie_2500": 1.5
+        },
+        {
+          "nr": "17.3",
+          "bezeichnung": "Elektro-WP Grundwasser (Wasser/Wasser)",
+          "heizkreistemperatur": "<40°C",
+          "baualtersklasse": "1979 bis 1994",
+          "aufwandszahl_150": 0.27,
+          "aufwandszahl_500": 0.27,
+          "aufwandszahl_2500": 0.27,
+          "hilfsenergie_150": 1.9,
+          "hilfsenergie_500": 1.7,
+          "hilfsenergie_2500": 1.5
+        },
+        {
+          "nr": "17.4",
+          "bezeichnung": "Elektro-WP Grundwasser (Wasser/Wasser)",
+          "heizkreistemperatur": "<40°C",
+          "baualtersklasse": "ab 1995",
+          "aufwandszahl_150": 0.22,
+          "aufwandszahl_500": 0.22,
+          "aufwandszahl_2500": 0.22,
+          "hilfsenergie_150": 1.9,
+          "hilfsenergie_500": 1.7,
+          "hilfsenergie_2500": 1.5
+        },
+        {
+          "nr": "18.1",
+          "bezeichnung": "Elektro-WP Abluft (Abluft/Wasser)",
+          "heizkreistemperatur": "55/45°C",
+          "baualtersklasse": "1979 bis 1994",
+          "aufwandszahl_150": 0.32,
+          "aufwandszahl_500": 0.32,
+          "aufwandszahl_2500": 0.32,
+          "hilfsenergie_150": 0,
+          "hilfsenergie_500": 0,
+          "hilfsenergie_2500": 0
+        },
+        {
+          "nr": "18.2",
+          "bezeichnung": "Elektro-WP Abluft (Abluft/Wasser)",
+          "heizkreistemperatur": "55/45°C",
+          "baualtersklasse": "ab 1995",
+          "aufwandszahl_150": 0.29,
+          "aufwandszahl_500": 0.29,
+          "aufwandszahl_2500": 0.29,
+          "hilfsenergie_150": 0,
+          "hilfsenergie_500": 0,
+          "hilfsenergie_2500": 0
+        },
+        {
+          "nr": "19",
+          "bezeichnung": "Zentraler Elektro-Speicher/Blockspeicher",
+          "heizkreistemperatur": "alle",
+          "baualtersklasse": "alle",
+          "aufwandszahl_150": 1.02,
+          "aufwandszahl_500": 1.02,
+          "aufwandszahl_2500": null,
+          "hilfsenergie_150": 0,
+          "hilfsenergie_500": 0,
+          "hilfsenergie_2500": null
+        },
+        {
+          "nr": "20.1",
+          "bezeichnung": "Therme (NT-Kessel Umlaufwasserheizer)",
+          "heizkreistemperatur": "alle",
+          "baualtersklasse": "bis 1994",
+          "aufwandszahl_150": 1.24,
+          "aufwandszahl_500": 1.24,
+          "aufwandszahl_2500": 1.24,
+          "hilfsenergie_150": 1.2,
+          "hilfsenergie_500": 1.2,
+          "hilfsenergie_2500": 1.2
+        },
+        {
+          "nr": "20.2",
+          "bezeichnung": "Therme (NT-Kessel Umlaufwasserheizer)",
+          "heizkreistemperatur": "alle",
+          "baualtersklasse": "ab 1995",
+          "aufwandszahl_150": 1.14,
+          "aufwandszahl_500": 1.14,
+          "aufwandszahl_2500": 1.14,
+          "hilfsenergie_150": 1.5,
+          "hilfsenergie_500": 1.5,
+          "hilfsenergie_2500": 1.5
+        },
+        {
+          "nr": "21",
+          "bezeichnung": "Brennwerttherme (BW-Kessel ab 1995)",
+          "heizkreistemperatur": "alle",
+          "baualtersklasse": "ab 1995",
+          "aufwandszahl_150": 1.07,
+          "aufwandszahl_500": 1.07,
+          "aufwandszahl_2500": 1.07,
+          "hilfsenergie_150": 1.5,
+          "hilfsenergie_500": 1.5,
+          "hilfsenergie_2500": 1.5
+        },
+        {
+          "nr": "22",
+          "bezeichnung": "Ölbefeuerte Einzelöfen",
+          "heizkreistemperatur": "alle",
+          "baualtersklasse": "alle",
+          "aufwandszahl_150": 1.4,
+          "aufwandszahl_500": 1.4,
+          "aufwandszahl_2500": null,
+          "hilfsenergie_150": 0,
+          "hilfsenergie_500": 0,
+          "hilfsenergie_2500": null
+        },
+        {
+          "nr": "23",
+          "bezeichnung": "Kohlebefeuerter eiserner Ofen oder Kachelofen",
+          "heizkreistemperatur": "alle",
+          "baualtersklasse": "alle",
+          "aufwandszahl_150": 1.6,
+          "aufwandszahl_500": 1.6,
+          "aufwandszahl_2500": null,
+          "hilfsenergie_150": 0,
+          "hilfsenergie_500": 0,
+          "hilfsenergie_2500": null
+        },
+        {
+          "nr": "24",
+          "bezeichnung": "Gasraumheizer Außenwand-Gerät",
+          "heizkreistemperatur": "alle",
+          "baualtersklasse": "alle",
+          "aufwandszahl_150": 1.47,
+          "aufwandszahl_500": 1.47,
+          "aufwandszahl_2500": null,
+          "hilfsenergie_150": 0,
+          "hilfsenergie_500": 0,
+          "hilfsenergie_2500": null
+        },
+        {
+          "nr": "25.1",
+          "bezeichnung": "Elektro-Nachtspeicherheizung",
+          "heizkreistemperatur": "alle",
+          "baualtersklasse": "bis 1994",
+          "aufwandszahl_150": 1.12,
+          "aufwandszahl_500": 1.12,
+          "aufwandszahl_2500": null,
+          "hilfsenergie_150": 0,
+          "hilfsenergie_500": 0,
+          "hilfsenergie_2500": null
+        },
+        {
+          "nr": "25.2",
+          "bezeichnung": "Elektro-Nachtspeicherheizung",
+          "heizkreistemperatur": "alle",
+          "baualtersklasse": "ab 1995",
+          "aufwandszahl_150": 1.05,
+          "aufwandszahl_500": 1.05,
+          "aufwandszahl_2500": null,
+          "hilfsenergie_150": 0,
+          "hilfsenergie_500": 0,
+          "hilfsenergie_2500": null
+        },
+        {
+          "nr": "26",
+          "bezeichnung": "Elektro-Direktheizgerät",
+          "heizkreistemperatur": "alle",
+          "baualtersklasse": "alle",
+          "aufwandszahl_150": 1.02,
+          "aufwandszahl_500": 1.02,
+          "aufwandszahl_2500": null,
+          "hilfsenergie_150": 0,
+          "hilfsenergie_500": 0,
+          "hilfsenergie_2500": null
+        }
+      ]
+    }
+  },
+  "tabelle_6_anlagentechnik_lueftung": {
+    "beschreibung": "Pauschale Ansätze Anlagentechnik Lüftung (Berechnung nach DIN V 4701-10 i.V.m. DIN V 4108-6). Kennwerte in kWh/(m²·a)",
+    "prozessbereiche": {
+      "uebergabe_lueftung": [
+        {
+          "nr": "1",
+          "bezeichnung": "Wohnungslüftungsanlagen mit Zulufttemperaturen < 20°C",
+          "baualtersklasse": "alle",
+          "waermeverluste": 0,
+          "hilfsenergie": 0
+        }
+      ],
+      "verteilung_lueftung": [
+        {
+          "nr": "2.1",
+          "bezeichnung": "Abluftanlage ohne WRG",
+          "baualtersklasse": "bis 1989",
+          "waermeverluste_150": 0,
+          "waermeverluste_500": 0,
+          "waermeverluste_2500": 0,
+          "hilfsenergie_150": null,
+          "hilfsenergie_500": 4.0,
+          "hilfsenergie_2500": null
+        },
+        {
+          "nr": "2.2",
+          "bezeichnung": "Abluftanlage ohne WRG",
+          "baualtersklasse": "ab 1990 bis 1994",
+          "waermeverluste_150": 0,
+          "waermeverluste_500": 0,
+          "waermeverluste_2500": 0,
+          "hilfsenergie_150": null,
+          "hilfsenergie_500": 2.7,
+          "hilfsenergie_2500": null
+        },
+        {
+          "nr": "2.3",
+          "bezeichnung": "Abluftanlage ohne WRG",
+          "baualtersklasse": "ab 1995",
+          "waermeverluste_150": 0,
+          "waermeverluste_500": 0,
+          "waermeverluste_2500": 0,
+          "hilfsenergie_150": null,
+          "hilfsenergie_500": 1.3,
+          "hilfsenergie_2500": null
+        },
+        {
+          "nr": "3.1",
+          "bezeichnung": "Zu-/Abluftanlage WRG WÜT eta>60% – innerhalb thermischer Hülle",
+          "baualtersklasse": "alle",
+          "waermeverluste_150": 0,
+          "waermeverluste_500": 0,
+          "waermeverluste_2500": 0,
+          "hilfsenergie_150": 0,
+          "hilfsenergie_500": 0,
+          "hilfsenergie_2500": 0
+        },
+        {
+          "nr": "3.21",
+          "bezeichnung": "Zu-/Abluftanlage WRG WÜT eta>60% – außerhalb thermischer Hülle im Dach",
+          "baualtersklasse": "bis 1989",
+          "waermeverluste_150": 5.2,
+          "waermeverluste_500": 2.5,
+          "waermeverluste_2500": 2.5,
+          "hilfsenergie_150": 0,
+          "hilfsenergie_500": 0,
+          "hilfsenergie_2500": 0
+        },
+        {
+          "nr": "3.22",
+          "bezeichnung": "Zu-/Abluftanlage WRG WÜT eta>60% – außerhalb thermischer Hülle im Dach",
+          "baualtersklasse": "ab 1990 bis 1994",
+          "waermeverluste_150": 4.3,
+          "waermeverluste_500": 2.1,
+          "waermeverluste_2500": 2.1,
+          "hilfsenergie_150": 0,
+          "hilfsenergie_500": 0,
+          "hilfsenergie_2500": 0
+        },
+        {
+          "nr": "3.23",
+          "bezeichnung": "Zu-/Abluftanlage WRG WÜT eta>60% – außerhalb thermischer Hülle im Dach",
+          "baualtersklasse": "ab 1995",
+          "waermeverluste_150": 3.5,
+          "waermeverluste_500": 1.7,
+          "waermeverluste_2500": 1.7,
+          "hilfsenergie_150": 0,
+          "hilfsenergie_500": 0,
+          "hilfsenergie_2500": 0
+        },
+        {
+          "nr": "3.31",
+          "bezeichnung": "Zu-/Abluftanlage WRG WÜT eta>60% – außerhalb thermischer Hülle im Keller",
+          "baualtersklasse": "bis 1989",
+          "waermeverluste_150": 1.5,
+          "waermeverluste_500": 0.7,
+          "waermeverluste_2500": 0.7,
+          "hilfsenergie_150": 0,
+          "hilfsenergie_500": 0,
+          "hilfsenergie_2500": 0
+        },
+        {
+          "nr": "3.32",
+          "bezeichnung": "Zu-/Abluftanlage WRG WÜT eta>60% – außerhalb thermischer Hülle im Keller",
+          "baualtersklasse": "ab 1990 bis 1994",
+          "waermeverluste_150": 1.2,
+          "waermeverluste_500": 0.6,
+          "waermeverluste_2500": 0.6,
+          "hilfsenergie_150": 0,
+          "hilfsenergie_500": 0,
+          "hilfsenergie_2500": 0
+        },
+        {
+          "nr": "3.33",
+          "bezeichnung": "Zu-/Abluftanlage WRG WÜT eta>60% – außerhalb thermischer Hülle im Keller",
+          "baualtersklasse": "ab 1995",
+          "waermeverluste_150": 1.0,
+          "waermeverluste_500": 0.5,
+          "waermeverluste_2500": 0.5,
+          "hilfsenergie_150": 0,
+          "hilfsenergie_500": 0,
+          "hilfsenergie_2500": 0
+        }
+      ],
+      "waermeerzeugung_lueftung": [
+        {
+          "nr": "4.1",
+          "bezeichnung": "Abluftanlage ohne WRG (Wärmegutschrift)",
+          "baualtersklasse": "vor 1989",
+          "waermegutschrift_150": 3.7,
+          "waermegutschrift_500": null,
+          "waermegutschrift_2500": null,
+          "hilfsenergie_150": 0,
+          "hilfsenergie_500": 0,
+          "hilfsenergie_2500": 0
+        },
+        {
+          "nr": "4.2",
+          "bezeichnung": "Abluftanlage ohne WRG (Wärmegutschrift)",
+          "baualtersklasse": "ab 1990 bis 1994",
+          "waermegutschrift_150": 3.3,
+          "waermegutschrift_500": null,
+          "waermegutschrift_2500": null,
+          "hilfsenergie_150": 0,
+          "hilfsenergie_500": 0,
+          "hilfsenergie_2500": 0
+        },
+        {
+          "nr": "4.3",
+          "bezeichnung": "Abluftanlage ohne WRG (Wärmegutschrift)",
+          "baualtersklasse": "ab 1995",
+          "waermegutschrift_150": 3.0,
+          "waermegutschrift_500": null,
+          "waermegutschrift_2500": null,
+          "hilfsenergie_150": 0,
+          "hilfsenergie_500": 0,
+          "hilfsenergie_2500": 0
+        }
+      ]
+    }
+  },
+  "tabelle_11_wschv1977_mittlere_u_werte": {
+    "beschreibung": "Höchstwerte des mittleren Wärmedurchgangskoeffizienten Ūmax [W/(m²·K)] nach Wärmeschutzverordnung 1977 in Abhängigkeit von A/Ve",
+    "werte": [
+      {
+        "a_ve_m_inv": 0.24,
+        "u_max": 1.4
+      },
+      {
+        "a_ve_m_inv": 0.3,
+        "u_max": 1.24
+      },
+      {
+        "a_ve_m_inv": 0.4,
+        "u_max": 1.09
+      },
+      {
+        "a_ve_m_inv": 0.5,
+        "u_max": 0.99
+      },
+      {
+        "a_ve_m_inv": 0.6,
+        "u_max": 0.93
+      },
+      {
+        "a_ve_m_inv": 0.7,
+        "u_max": 0.88
+      },
+      {
+        "a_ve_m_inv": 0.8,
+        "u_max": 0.85
+      },
+      {
+        "a_ve_m_inv": 0.9,
+        "u_max": 0.82
+      },
+      {
+        "a_ve_m_inv": 1.0,
+        "u_max": 0.8
+      },
+      {
+        "a_ve_m_inv": 1.1,
+        "u_max": 0.78
+      },
+      {
+        "a_ve_m_inv": 1.2,
+        "u_max": 0.77
+      }
+    ]
+  },
+  "tabelle_1_geometrische_vereinfachungen": {
+    "beschreibung": "Geometrische Vereinfachungen und Korrekturen für den Rechengang (Maßtoleranz max. 3 %)",
+    "eintraege": [
+      {
+        "nr": "1a",
+        "massnahme_bauteil": "Fensteraufmaß",
+        "vereinfachung": "Fensterbreite = 55 v.H. der Raumbreite (analog DIN 5034); Fensterhöhe = lichte Raumhöhe minus 1,50 m"
+      },
+      {
+        "nr": "1b",
+        "massnahme_bauteil": "Aufmaß Außentüren",
+        "vereinfachung": "Nicht erforderlich bei Anwendung von Nr. 1a (Türen in Pauschalwert enthalten)"
+      },
+      {
+        "nr": "1c",
+        "massnahme_bauteil": "Rollladenkästen",
+        "vereinfachung": "Fläche = 10 v.H. der Fensterfläche"
+      },
+      {
+        "nr": "2",
+        "massnahme_bauteil": "Opake Vor-/Rücksprünge bis 0,5 m und Brandriegel",
+        "vereinfachung": "Dürfen übermessen werden"
+      },
+      {
+        "nr": "3a",
+        "massnahme_bauteil": "Aufzugsunterfahrten, Pumpensümpfe (Ausbuchtung nach unten ins Erdreich)",
+        "vereinfachung": "Dürfen übermessen werden"
+      },
+      {
+        "nr": "3b",
+        "massnahme_bauteil": "Treppenabgänge, Aufzugs-/Leitungsschächte nach unten in unbeheizten Bereich",
+        "vereinfachung": "Dürfen übermessen werden (nicht bei starker Belüftung z.B. Tiefgarage)"
+      },
+      {
+        "nr": "3c",
+        "massnahme_bauteil": "Treppenaufgänge und Schächte nach oben ohne thermischen Abschluss",
+        "vereinfachung": "Ersatzfläche in Ebene der obersten Geschossdecke",
+        "ersatz_u_werte_treppenaufgaenge_bis_25m2": {
+          "bis_1918": 6.8,
+          "j1919_bis_1957": 5.7,
+          "j1958_bis_1978": 3.6,
+          "ab_1979": 1.3
+        },
+        "ersatz_u_werte_schachte_bis_5m2": {
+          "bis_1978": 13.0,
+          "ab_1979": 8.0
+        },
+        "ersatz_u_werte_schachte_ueber_5m2": {
+          "bis_1978": 10.0,
+          "ab_1979": 6.0
+        }
+      },
+      {
+        "nr": "4",
+        "massnahme_bauteil": "Flächen der Heizkörpernischen",
+        "vereinfachung": "Fläche = Hälfte der Fläche des darüber liegenden Fensters"
+      },
+      {
+        "nr": "5",
+        "massnahme_bauteil": "Lüftungsschächte",
+        "vereinfachung": "Dürfen übermessen werden"
+      },
+      {
+        "nr": "6",
+        "massnahme_bauteil": "Sonstige opake Bauteile mit jeweils weniger als 1,0 m² Fläche",
+        "vereinfachung": "Dürfen übermessen werden"
+      },
+      {
+        "nr": "7",
+        "massnahme_bauteil": "Neigung",
+        "vereinfachung": "Darf auf 0°, 30°, 45°, 60° oder 90° gerundet werden"
+      }
+    ]
+  },
+  "tabelle_12_wschv1977_bauteil_hoechst_u_werte": {
+    "beschreibung": "Höchstwerte der Wärmedurchgangskoeffizienten einzelner Bauteile nach Wärmeschutzverordnung 1977",
+    "einheit": "W/(m²·K)",
+    "eintraege": [
+      {
+        "nr": "1a",
+        "bauteil": "Außenwand (Grundrissbereich 1: Kompaktgebäude, A/Ve < 0,5)",
+        "u_max": 1.45
+      },
+      {
+        "nr": "1b",
+        "bauteil": "Außenwand (Grundrissbereich 2: 0,5 ≤ A/Ve < 0,8)",
+        "u_max": 1.55
+      },
+      {
+        "nr": "1c",
+        "bauteil": "Außenwand (Grundrissbereich 3: A/Ve ≥ 0,8)",
+        "u_max": 1.75
+      },
+      {
+        "nr": "2",
+        "bauteil": "Oberste Geschossdecke / Dach",
+        "u_max": 0.45
+      },
+      {
+        "nr": "3",
+        "bauteil": "Kellerdecke (Decke über unbeheiztem Kellergeschoss)",
+        "u_max": 0.8
+      },
+      {
+        "nr": "4",
+        "bauteil": "Boden gegen Erdreich",
+        "u_max": 0.9
+      },
+      {
+        "nr": "5",
+        "bauteil": "Fenster",
+        "u_max": null,
+        "hinweis": "Mindestanforderung: Doppelverglasung (keine numerische U-Wert-Anforderung in WSchV 1977)"
+      }
+    ]
+  }
+}
