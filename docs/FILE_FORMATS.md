@@ -846,7 +846,265 @@ function getAbsolutePosition(element) {
 
 ---
 
-## 10. Best Practices (Modi)
+## 10. Bauteilflächen-Aggregation
+
+### Hierarchie (5 Ebenen)
+
+```
+1. Gebäude
+   └─ 2. Zone
+       └─ 3. Raum (Space)
+           └─ 4. Bauteiltyp (Wall, Roof, Floor, Window)
+               └─ 5. U-Wert / Schichtaufbau
+```
+
+**Ziel:** Alle unterschiedlichen Bauteile pro Gebäude sichtbar machen
+
+### Beispiel: Aggregiertes Output
+
+```json
+{
+  "output": {
+    "envelope_aggregation": {
+      "building": {
+        "total_area_exterior": 250.5,
+        "total_area_windows": 35.0,
+        "u_avg_opaque": 0.28,
+        "u_avg_transparent": 1.1,
+        "zones": [
+          {
+            "zone_id": "ZONE-01",
+            "zone_name": "Wohnbereich EG",
+            "total_area_exterior": 150.5,
+            "spaces": [
+              {
+                "space_id": "SPACE-01",
+                "space_name": "Wohnzimmer",
+                "types": [
+                  {
+                    "type": "WALL",
+                    "boundary_condition": "EXTERIOR",
+                    "constructions": [
+                      {
+                        "layer_structure_ref": "LS-AW-GEDAEMMT",
+                        "u_value": 0.24,
+                        "area": 45.0,
+                        "orientations": [
+                          {
+                            "relative_orientation": 0,    // Vorne (relativ zu Gebäude)
+                            "area": 15.0
+                          },
+                          {
+                            "relative_orientation": 90,   // Rechts
+                            "area": 15.0
+                          },
+                          {
+                            "relative_orientation": 270,  // Links
+                            "area": 15.0
+                          }
+                        ]
+                      },
+                      {
+                        "layer_structure_ref": "LS-AW-UNGEDAEMMT",
+                        "u_value": 1.4,
+                        "area": 20.0,
+                        "orientations": [
+                          {
+                            "relative_orientation": 180,  // Hinten
+                            "area": 20.0
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "WINDOW",
+                    "boundary_condition": "EXTERIOR",
+                    "constructions": [
+                      {
+                        "window_type": "DOUBLE_GLAZED",
+                        "u_value": 1.1,
+                        "g_value": 0.6,
+                        "area": 8.0,
+                        "orientations": [
+                          {
+                            "relative_orientation": 0,    // Südfenster (wenn Gebäude nach Süden zeigt)
+                            "area": 8.0
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
+```
+
+### Aggregations-Funktion
+
+```javascript
+function aggregateEnvelope(sidecar) {
+  const building = {
+    total_area_exterior: 0,
+    total_area_windows: 0,
+    zones: []
+  };
+  
+  // Ebene 1: Gebäude
+  sidecar.input.zones.forEach(zone => {
+    const zoneAgg = {
+      zone_id: zone.id,
+      zone_name: zone.name,
+      spaces: []
+    };
+    
+    // Ebene 2: Zone → Ebene 3: Räume
+    (zone.spaces || []).forEach(space => {
+      const spaceAgg = {
+        space_id: space.id,
+        space_name: space.name,
+        types: {}
+      };
+      
+      // Ebene 4: Bauteiltyp
+      const elements = sidecar.input.elements.filter(
+        e => e.space_id === space.id || e.zone_id === zone.id
+      );
+      
+      elements.forEach(element => {
+        const typeKey = element.type;
+        
+        if (!spaceAgg.types[typeKey]) {
+          spaceAgg.types[typeKey] = {
+            type: typeKey,
+            boundary_condition: element.boundary_condition,
+            constructions: {}
+          };
+        }
+        
+        // Ebene 5: U-Wert / Schichtaufbau
+        const constructionKey = element.layer_structure_ref || 
+                               `U${element.u_value_undisturbed}`;
+        
+        if (!spaceAgg.types[typeKey].constructions[constructionKey]) {
+          spaceAgg.types[typeKey].constructions[constructionKey] = {
+            layer_structure_ref: element.layer_structure_ref,
+            u_value: element.u_value_undisturbed,
+            area: 0,
+            orientations: {}
+          };
+        }
+        
+        const construction = spaceAgg.types[typeKey].constructions[constructionKey];
+        construction.area += element.area;
+        
+        // Nach Orientierung gruppieren (relativ!)
+        const orientation = element.relative_orientation || 0;
+        if (!construction.orientations[orientation]) {
+          construction.orientations[orientation] = {
+            relative_orientation: orientation,
+            area: 0
+          };
+        }
+        construction.orientations[orientation].area += element.area;
+      });
+      
+      // Objekte in Arrays umwandeln
+      spaceAgg.types = Object.values(spaceAgg.types).map(type => ({
+        ...type,
+        constructions: Object.values(type.constructions).map(c => ({
+          ...c,
+          orientations: Object.values(c.orientations)
+        }))
+      }));
+      
+      zoneAgg.spaces.push(spaceAgg);
+    });
+    
+    building.zones.push(zoneAgg);
+  });
+  
+  return building;
+}
+```
+
+### Relative Orientierung berechnen
+
+```javascript
+function calculateAbsoluteOrientation(element, building) {
+  const relativeOrientation = element.relative_orientation || 0;
+  const northAngle = building.geometry.north_angle || 0;
+  
+  // Absolute Orientierung = Nord-Ausrichtung + Relative Orientierung
+  let absoluteOrientation = (northAngle + relativeOrientation) % 360;
+  
+  // Normalisieren auf 0-360°
+  if (absoluteOrientation < 0) {
+    absoluteOrientation += 360;
+  }
+  
+  return absoluteOrientation;
+}
+
+// Beispiel:
+// Gebäude: north_angle = 45° (Gebäude zeigt nach Nordost)
+// Wand: relative_orientation = 0° (vorne)
+// → Absolute Orientierung = 45° (Nordost)
+
+// Wand: relative_orientation = 90° (rechts)
+// → Absolute Orientierung = 135° (Südost)
+```
+
+### Himmelsrichtungen ermitteln
+
+```javascript
+function getCardinalDirection(absoluteOrientation) {
+  const directions = [
+    { name: "NORTH", range: [337.5, 22.5] },
+    { name: "NORTHEAST", range: [22.5, 67.5] },
+    { name: "EAST", range: [67.5, 112.5] },
+    { name: "SOUTHEAST", range: [112.5, 157.5] },
+    { name: "SOUTH", range: [157.5, 202.5] },
+    { name: "SOUTHWEST", range: [202.5, 247.5] },
+    { name: "WEST", range: [247.5, 292.5] },
+    { name: "NORTHWEST", range: [292.5, 337.5] }
+  ];
+  
+  for (const dir of directions) {
+    if (absoluteOrientation >= dir.range[0] && 
+        absoluteOrientation < dir.range[1]) {
+      return dir.name;
+    }
+  }
+  
+  return "NORTH"; // Fallback
+}
+```
+
+### Use Case: Gebäude drehen
+
+```javascript
+// Gebäude um 45° nach Osten drehen
+building.geometry.north_angle = 45;
+
+// Alle Wände behalten ihre relative Orientierung:
+// - Vorderwand: relative_orientation = 0° → absolut 45° (Nordost)
+// - Rechte Wand: relative_orientation = 90° → absolut 135° (Südost)
+// - Hinterwand: relative_orientation = 180° → absolut 225° (Südwest)
+// - Linke Wand: relative_orientation = 270° → absolut 315° (Nordwest)
+
+// Solare Gewinne werden automatisch neu berechnet!
+```
+
+---
+
+## 11. Best Practices (Modi)
 
 ### Wann welcher Modus?
 

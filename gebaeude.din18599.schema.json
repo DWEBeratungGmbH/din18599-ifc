@@ -265,10 +265,20 @@
           "items": {
             "type": "object",
             "properties": {
+              "id": { "type": "string", "description": "Eindeutige Element-ID" },
+              "name": { "type": "string", "description": "Bauteilname" },
+              "type": {
+                "type": "string",
+                "enum": ["WALL", "ROOF", "FLOOR", "CEILING", "SLAB"],
+                "description": "Bauteiltyp"
+              },
+              "zone_id": { "type": "string", "description": "Referenz zur Zone" },
+              "space_id": { "type": "string", "description": "Referenz zum Raum (optional)" },
               "ifc_guid": { "type": "string", "description": "Referenz zu IfcWall, IfcSlab, etc." },
+              "area": { "type": "number", "description": "Bauteilfläche in m²" },
               "boundary_condition": {
                 "type": "string",
-                "enum": ["EXTERIOR", "GROUND", "UNHEATED", "HEATED", "ADIABATIC"]
+                "enum": ["EXTERIOR", "GROUND", "UNHEATED", "HEATED", "ADIABATIC", "INTERIOR"]
               },
               "u_value_undisturbed": { "type": "number", "description": "U-Wert im Gefach (ohne Wärmebrücken) W/m²K" },
               "thermal_bridge_delta_u": { "type": "number", "description": "Wärmebrückenzuschlag W/m²K" },
@@ -277,13 +287,56 @@
                 "enum": ["DEFAULT", "REDUCED", "DETAILED"]
               },
               "solar_absorption": { "type": "number", "description": "Absorptionsgrad der Oberfläche (0-1)" },
-              "orientation": { "type": "number", "description": "0=N, 90=O, 180=S, 270=W" },
+              "orientation": { "type": "number", "description": "DEPRECATED: Absolute Orientierung 0=N, 90=O, 180=S, 270=W" },
+              "relative_orientation": { 
+                "type": "number", 
+                "minimum": 0,
+                "maximum": 360,
+                "description": "Orientierung relativ zum Gebäude in Grad (0=vorne, 90=rechts, 180=hinten, 270=links)"
+              },
               "inclination": { "type": "number", "description": "0=Horizontal, 90=Vertikal" },
               "layer_structure_ref": { "type": "string", "description": "Referenz auf eine Schichtaufbau-ID" },
               "u_value_override": { "type": "number", "description": "Manueller U-Wert überschreibt automatische Berechnung aus layer_structure_ref" },
-              "construction_catalog_ref": { "type": "string", "description": "Referenz auf Katalog-Eintrag (z.B. AW_VOLLZIEGEL_BIS20_BMWI)" }
+              "construction_catalog_ref": { "type": "string", "description": "Referenz auf Katalog-Eintrag (z.B. AW_VOLLZIEGEL_BIS20_BMWI)" },
+              "geometry": {
+                "type": "object",
+                "description": "Vereinfachte Geometrie (optional)",
+                "properties": {
+                  "type": { "type": "string", "enum": ["Line2D", "Rectangle2D", "Polygon2D", "Polygon3D"] },
+                  "parent_ref": { "type": "string", "description": "Referenz zum Parent (Space oder Zone)" },
+                  "local_origin": {
+                    "type": "array",
+                    "items": { "type": "number" },
+                    "minItems": 3,
+                    "maxItems": 3
+                  },
+                  "start": {
+                    "type": "array",
+                    "items": { "type": "number" },
+                    "minItems": 2,
+                    "maxItems": 3,
+                    "description": "Startpunkt (für Line2D)"
+                  },
+                  "end": {
+                    "type": "array",
+                    "items": { "type": "number" },
+                    "minItems": 2,
+                    "maxItems": 3,
+                    "description": "Endpunkt (für Line2D)"
+                  },
+                  "height": { "type": "number", "description": "Höhe für Extrusion (Line2D → Wand)" },
+                  "coordinates": {
+                    "type": "array",
+                    "description": "Polygon-Punkte",
+                    "items": {
+                      "type": "array",
+                      "items": { "type": "number" }
+                    }
+                  }
+                }
+              }
             },
-            "required": ["ifc_guid", "boundary_condition"]
+            "required": ["boundary_condition"]
           }
         },
         "windows": {

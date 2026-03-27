@@ -1,0 +1,403 @@
+{
+  "schema_info": {
+    "url": "https://din18599-ifc.de/schema/v1",
+    "version": "2.0.0"
+  },
+  "meta": {
+    "project_id": "DEMO-HIERARCHICAL-001",
+    "project_name": "Musterhaus - Hierarchische Geometrie Demo",
+    "ifc_file_ref": "musterhaus_hierarchical.ifc",
+    "ifc_guid_building": "3Xk9Lm2Pr8QvNjYt5bM7FE",
+    "simplified_geometry": true,
+    "geometry_mode": "HIERARCHICAL",
+    "software_name": "DIN18599-IFC Demo",
+    "software_version": "2.0.0",
+    "calculation_date": "2026-03-27T11:00:00Z",
+    "norm_version": "DIN V 18599:2018-09",
+    "lod": "300"
+  },
+  "input": {
+    "building": {
+      "geometry": {
+        "origin": [0, 0, 0],
+        "north_angle": 45
+      }
+    },
+    "climate_location": {
+      "postcode": "10115",
+      "city": "Berlin",
+      "try_region_code": 4
+    },
+    "zones": [
+      {
+        "id": "ZONE-EG",
+        "name": "Wohnbereich Erdgeschoss",
+        "usage_profile": "17",
+        "area_an": 125.5,
+        "height_h": 2.5,
+        "volume_v": 313.75,
+        "air_change_n50": 3.0,
+        "design_temp_heating": 20.0,
+        "lighting_control": "MANUAL",
+        "geometry": {
+          "type": "Polygon2D",
+          "parent_ref": "BUILDING",
+          "local_origin": [0, 0, 0],
+          "rotation": 0,
+          "coordinates": [
+            [0, 0],
+            [10, 0],
+            [10, 8.5],
+            [6, 8.5],
+            [6, 12.5],
+            [0, 12.5]
+          ],
+          "floor_level": 0.0,
+          "ceiling_height": 2.5
+        },
+        "spaces": [
+          {
+            "id": "SPACE-WOHNZIMMER",
+            "name": "Wohnzimmer",
+            "area_an": 85.0,
+            "geometry": {
+              "type": "Polygon2D",
+              "parent_ref": "ZONE-EG",
+              "local_origin": [0, 0, 0],
+              "coordinates": [
+                [0, 0],
+                [10, 0],
+                [10, 8.5],
+                [0, 8.5]
+              ]
+            }
+          },
+          {
+            "id": "SPACE-KUECHE",
+            "name": "Küche",
+            "area_an": 24.0,
+            "geometry": {
+              "type": "Polygon2D",
+              "parent_ref": "ZONE-EG",
+              "local_origin": [0, 8.5, 0],
+              "coordinates": [
+                [0, 0],
+                [6, 0],
+                [6, 4],
+                [0, 4]
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "elements": [
+      {
+        "id": "AW-SUED",
+        "name": "Außenwand Süd (Wohnzimmer)",
+        "type": "WALL",
+        "zone_id": "ZONE-EG",
+        "space_id": "SPACE-WOHNZIMMER",
+        "area": 25.0,
+        "boundary_condition": "EXTERIOR",
+        "u_value_undisturbed": 0.24,
+        "relative_orientation": 0,
+        "inclination": 90,
+        "layer_structure_ref": "LS-AW-GEDAEMMT",
+        "geometry": {
+          "type": "Line2D",
+          "parent_ref": "SPACE-WOHNZIMMER",
+          "local_origin": [0, 0, 0],
+          "start": [0, 0],
+          "end": [10, 0],
+          "height": 2.5
+        }
+      },
+      {
+        "id": "AW-OST",
+        "name": "Außenwand Ost (Wohnzimmer)",
+        "type": "WALL",
+        "zone_id": "ZONE-EG",
+        "space_id": "SPACE-WOHNZIMMER",
+        "area": 21.25,
+        "boundary_condition": "EXTERIOR",
+        "u_value_undisturbed": 0.24,
+        "relative_orientation": 90,
+        "inclination": 90,
+        "layer_structure_ref": "LS-AW-GEDAEMMT",
+        "geometry": {
+          "type": "Line2D",
+          "parent_ref": "SPACE-WOHNZIMMER",
+          "local_origin": [10, 0, 0],
+          "start": [0, 0],
+          "end": [0, 8.5],
+          "height": 2.5
+        }
+      },
+      {
+        "id": "AW-WEST",
+        "name": "Außenwand West (Wohnzimmer + Küche)",
+        "type": "WALL",
+        "zone_id": "ZONE-EG",
+        "area": 31.25,
+        "boundary_condition": "EXTERIOR",
+        "u_value_undisturbed": 1.4,
+        "relative_orientation": 270,
+        "inclination": 90,
+        "construction_catalog_ref": "AW_VOLLZIEGEL_BIS20_BMWI",
+        "geometry": {
+          "type": "Line2D",
+          "parent_ref": "ZONE-EG",
+          "local_origin": [0, 0, 0],
+          "start": [0, 0],
+          "end": [0, 12.5],
+          "height": 2.5
+        }
+      },
+      {
+        "id": "AW-NORD-KUECHE",
+        "name": "Außenwand Nord (Küche)",
+        "type": "WALL",
+        "zone_id": "ZONE-EG",
+        "space_id": "SPACE-KUECHE",
+        "area": 15.0,
+        "boundary_condition": "EXTERIOR",
+        "u_value_undisturbed": 1.4,
+        "relative_orientation": 180,
+        "inclination": 90,
+        "construction_catalog_ref": "AW_VOLLZIEGEL_BIS20_BMWI",
+        "geometry": {
+          "type": "Line2D",
+          "parent_ref": "SPACE-KUECHE",
+          "local_origin": [0, 4, 0],
+          "start": [0, 0],
+          "end": [6, 0],
+          "height": 2.5
+        }
+      },
+      {
+        "id": "IW-WOHNZIMMER-KUECHE",
+        "name": "Trennwand Wohnzimmer/Küche",
+        "type": "WALL",
+        "zone_id": "ZONE-EG",
+        "area": 10.0,
+        "boundary_condition": "INTERIOR",
+        "u_value_undisturbed": 0.8,
+        "relative_orientation": 180,
+        "inclination": 90,
+        "geometry": {
+          "type": "Line2D",
+          "parent_ref": "ZONE-EG",
+          "local_origin": [6, 8.5, 0],
+          "start": [0, 0],
+          "end": [0, 4],
+          "height": 2.5
+        }
+      },
+      {
+        "id": "DACH-EG",
+        "name": "Dach über EG",
+        "type": "ROOF",
+        "zone_id": "ZONE-EG",
+        "area": 125.5,
+        "boundary_condition": "EXTERIOR",
+        "u_value_undisturbed": 0.18,
+        "relative_orientation": 0,
+        "inclination": 0,
+        "layer_structure_ref": "LS-DACH-GEDAEMMT"
+      },
+      {
+        "id": "BODEN-EG",
+        "name": "Bodenplatte EG",
+        "type": "FLOOR",
+        "zone_id": "ZONE-EG",
+        "area": 125.5,
+        "boundary_condition": "GROUND",
+        "u_value_undisturbed": 0.25,
+        "inclination": 0
+      }
+    ],
+    "windows": [
+      {
+        "id": "FENSTER-SUED-01",
+        "name": "Südfenster Wohnzimmer",
+        "space_id": "SPACE-WOHNZIMMER",
+        "area": 8.0,
+        "u_value_glass": 1.1,
+        "u_value_frame": 1.3,
+        "g_value": 0.6,
+        "frame_fraction": 0.3,
+        "relative_orientation": 0,
+        "inclination": 90
+      },
+      {
+        "id": "FENSTER-OST-01",
+        "name": "Ostfenster Wohnzimmer",
+        "space_id": "SPACE-WOHNZIMMER",
+        "area": 4.0,
+        "u_value_glass": 1.1,
+        "u_value_frame": 1.3,
+        "g_value": 0.6,
+        "frame_fraction": 0.3,
+        "relative_orientation": 90,
+        "inclination": 90
+      }
+    ],
+    "layer_structures": [
+      {
+        "id": "LS-AW-GEDAEMMT",
+        "name": "Außenwand gedämmt (WDVS)",
+        "layers": [
+          {
+            "material_ref": "MAT-PUTZ",
+            "thickness": 0.01
+          },
+          {
+            "material_ref": "MAT-EPS",
+            "thickness": 0.16
+          },
+          {
+            "material_ref": "MAT-ZIEGEL",
+            "thickness": 0.24
+          },
+          {
+            "material_ref": "MAT-PUTZ",
+            "thickness": 0.015
+          }
+        ]
+      },
+      {
+        "id": "LS-DACH-GEDAEMMT",
+        "name": "Dach gedämmt",
+        "layers": [
+          {
+            "material_ref": "MAT-MINERALWOLLE",
+            "thickness": 0.24
+          }
+        ]
+      }
+    ],
+    "materials": [
+      {
+        "id": "MAT-PUTZ",
+        "name": "Kalkzementputz",
+        "lambda": 0.87,
+        "density": 1800
+      },
+      {
+        "id": "MAT-EPS",
+        "name": "EPS 035",
+        "lambda": 0.035,
+        "density": 15
+      },
+      {
+        "id": "MAT-ZIEGEL",
+        "name": "Hochlochziegel",
+        "lambda": 0.45,
+        "density": 800
+      },
+      {
+        "id": "MAT-MINERALWOLLE",
+        "name": "Mineralwolle",
+        "lambda": 0.035,
+        "density": 30
+      }
+    ]
+  },
+  "output": {
+    "envelope_aggregation": {
+      "building": {
+        "total_area_exterior": 127.5,
+        "total_area_windows": 12.0,
+        "total_area_interior": 10.0,
+        "u_avg_opaque": 0.58,
+        "u_avg_transparent": 1.15,
+        "zones": [
+          {
+            "zone_id": "ZONE-EG",
+            "zone_name": "Wohnbereich Erdgeschoss",
+            "total_area_exterior": 127.5,
+            "spaces": [
+              {
+                "space_id": "SPACE-WOHNZIMMER",
+                "space_name": "Wohnzimmer",
+                "types": [
+                  {
+                    "type": "WALL",
+                    "boundary_condition": "EXTERIOR",
+                    "constructions": [
+                      {
+                        "layer_structure_ref": "LS-AW-GEDAEMMT",
+                        "u_value": 0.24,
+                        "area": 46.25,
+                        "orientations": [
+                          {
+                            "relative_orientation": 0,
+                            "absolute_orientation": 45,
+                            "cardinal_direction": "NORTHEAST",
+                            "area": 25.0
+                          },
+                          {
+                            "relative_orientation": 90,
+                            "absolute_orientation": 135,
+                            "cardinal_direction": "SOUTHEAST",
+                            "area": 21.25
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "space_id": "SPACE-KUECHE",
+                "space_name": "Küche",
+                "types": [
+                  {
+                    "type": "WALL",
+                    "boundary_condition": "EXTERIOR",
+                    "constructions": [
+                      {
+                        "construction_catalog_ref": "AW_VOLLZIEGEL_BIS20_BMWI",
+                        "u_value": 1.4,
+                        "area": 15.0,
+                        "orientations": [
+                          {
+                            "relative_orientation": 180,
+                            "absolute_orientation": 225,
+                            "cardinal_direction": "SOUTHWEST",
+                            "area": 15.0
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "summary_by_construction": [
+              {
+                "layer_structure_ref": "LS-AW-GEDAEMMT",
+                "u_value": 0.24,
+                "total_area": 46.25,
+                "percentage": 36.3
+              },
+              {
+                "construction_catalog_ref": "AW_VOLLZIEGEL_BIS20_BMWI",
+                "u_value": 1.4,
+                "total_area": 46.25,
+                "percentage": 36.3
+              },
+              {
+                "layer_structure_ref": "LS-DACH-GEDAEMMT",
+                "u_value": 0.18,
+                "total_area": 125.5,
+                "percentage": 98.4
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
