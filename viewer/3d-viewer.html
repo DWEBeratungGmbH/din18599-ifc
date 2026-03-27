@@ -484,35 +484,46 @@
             const geometry = window.geometry;
             if (!geometry) return;
             
-            const position = calculateAbsolutePosition(window, data);
-            
             if (geometry.type === 'Rectangle2D') {
                 const width = geometry.width || 1;
                 const height = geometry.height || 1.5;
+                const localOrigin = geometry.local_origin || [0, 0, 0];
                 
-                // Plane statt Box (halbtransparent)
+                // Finde Parent Space für absolute Position
+                let absoluteX = localOrigin[0];
+                let absoluteY = localOrigin[2];
+                let absoluteZ = localOrigin[1];
+                
+                if (window.space_id) {
+                    const space = findSpace(window.space_id, data);
+                    if (space && space.geometry && space.geometry.local_origin) {
+                        absoluteX += space.geometry.local_origin[0];
+                        absoluteY += space.geometry.local_origin[2];
+                        absoluteZ += space.geometry.local_origin[1];
+                    }
+                }
+                
+                // Plane (halbtransparent)
                 const windowGeometry = new THREE.PlaneGeometry(width, height);
                 const windowMaterial = new THREE.MeshStandardMaterial({ 
                     color: COLORS.WINDOW,
                     transparent: true,
-                    opacity: 0.4,
+                    opacity: 0.5,
                     roughness: 0.1,
                     metalness: 0.9,
-                    side: THREE.DoubleSide
+                    side: THREE.DoubleSide,
+                    emissive: COLORS.WINDOW,
+                    emissiveIntensity: 0.2
                 });
                 const windowMesh = new THREE.Mesh(windowGeometry, windowMaterial);
                 
                 // Position
-                windowMesh.position.set(
-                    position[0],
-                    position[2] + height / 2,
-                    position[1]
-                );
+                windowMesh.position.set(absoluteX, absoluteY, absoluteZ);
                 
                 // Rotation based on orientation
                 const relativeOrientation = window.relative_orientation || 0;
                 const angle = THREE.MathUtils.degToRad(relativeOrientation);
-                windowMesh.rotation.y = angle;
+                windowMesh.rotation.y = angle + Math.PI / 2;
                 
                 windowsGroup.add(windowMesh);
             }
