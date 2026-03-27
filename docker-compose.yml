@@ -1,0 +1,67 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:17-alpine
+    container_name: din18599-postgres
+    environment:
+      POSTGRES_DB: din18599
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database/migrations:/docker-entrypoint-initdb.d/migrations
+      - ./database/seeds:/docker-entrypoint-initdb.d/seeds
+      - ./catalogs:/opt/din18599-ifc/catalogs:ro
+      - ./examples:/opt/din18599-ifc/examples:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - din18599-network
+
+  # FastAPI Backend
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    container_name: din18599-api
+    environment:
+      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/din18599
+      CORS_ORIGINS: "*"
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - ./api:/app
+      - ./examples:/app/examples:ro
+      - ./catalogs:/app/catalogs:ro
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+    networks:
+      - din18599-network
+
+  # Web Viewer (Static Files)
+  viewer:
+    image: nginx:alpine
+    container_name: din18599-viewer
+    ports:
+      - "8080:80"
+    volumes:
+      - ./viewer:/usr/share/nginx/html:ro
+      - ./examples:/usr/share/nginx/html/examples:ro
+    networks:
+      - din18599-network
+
+volumes:
+  postgres_data:
+
+networks:
+  din18599-network:
+    driver: bridge
