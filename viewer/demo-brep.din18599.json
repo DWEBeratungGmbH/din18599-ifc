@@ -103,14 +103,6 @@
           "vertices": ["V3", "V0", "V4", "V7"]
         },
         {
-          "id": "IW-TRENNWAND",
-          "name": "Trennwand Wohnen/Küche",
-          "type": "WALL",
-          "boundary_condition": "INTERIOR",
-          "u_value": 0.8,
-          "vertices": ["V0", "V1", "V5", "V4"]
-        },
-        {
           "id": "DACH",
           "name": "Dach",
           "type": "ROOF",
