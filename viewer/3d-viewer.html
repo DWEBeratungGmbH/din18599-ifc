@@ -652,7 +652,7 @@
             document.getElementById('north-value').textContent = angle + '°';
             buildingGroup.rotation.y = THREE.MathUtils.degToRad(angle);
             
-            if (currentData) {
+            if (currentData && currentData.input.building?.geometry) {
                 currentData.input.building.geometry.north_angle = angle;
             }
         });
