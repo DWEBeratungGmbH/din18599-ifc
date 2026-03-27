@@ -401,7 +401,7 @@
             }
             
             if (geometry.type === 'Line2D') {
-                // Wall from line
+                // Wall from line - als Plane ohne Dicke
                 const start = geometry.start || [0, 0];
                 const end = geometry.end || [0, 0];
                 const height = geometry.height || 2.5;
@@ -411,29 +411,72 @@
                     Math.pow(end[1] - start[1], 2)
                 );
                 
-                const wallGeometry = new THREE.BoxGeometry(length, height, 0.2);
+                // PlaneGeometry statt BoxGeometry (keine Dicke!)
+                const wallGeometry = new THREE.PlaneGeometry(length, height);
                 const wallMaterial = new THREE.MeshStandardMaterial({ 
                     color: color,
                     roughness: 0.8,
-                    metalness: 0.2
+                    metalness: 0.2,
+                    side: THREE.DoubleSide
                 });
                 const wall = new THREE.Mesh(wallGeometry, wallMaterial);
                 
-                // Position
-                wall.position.set(
-                    position[0] + (start[0] + end[0]) / 2,
-                    position[2] + height / 2,
-                    position[1] + (start[1] + end[1]) / 2
-                );
+                // Position (Mittelpunkt der Wand)
+                const centerX = position[0] + (start[0] + end[0]) / 2;
+                const centerY = position[2] + height / 2;
+                const centerZ = position[1] + (start[1] + end[1]) / 2;
                 
-                // Rotation
+                wall.position.set(centerX, centerY, centerZ);
+                
+                // Rotation um Y-Achse (horizontal)
                 const angle = Math.atan2(end[1] - start[1], end[0] - start[0]);
-                wall.rotation.y = angle;
+                wall.rotation.y = angle + Math.PI / 2; // +90° für korrekte Ausrichtung
                 
                 wall.castShadow = true;
                 wall.receiveShadow = true;
                 
                 wallsGroup.add(wall);
+            } else if (geometry.type === 'Polygon2D') {
+                // Floor/Roof from polygon (halbtransparent)
+                const coords = geometry.coordinates || [];
+                if (coords.length < 3) return;
+                
+                // Create shape from coordinates
+                const shape = new THREE.Shape();
+                shape.moveTo(coords[0][0], coords[0][1]);
+                for (let i = 1; i < coords.length; i++) {
+                    shape.lineTo(coords[i][0], coords[i][1]);
+                }
+                
+                const planeGeometry = new THREE.ShapeGeometry(shape);
+                const planeMaterial = new THREE.MeshStandardMaterial({ 
+                    color: color,
+                    roughness: 0.6,
+                    metalness: 0.1,
+                    transparent: true,
+                    opacity: 0.7,
+                    side: THREE.DoubleSide
+                });
+                const plane = new THREE.Mesh(planeGeometry, planeMaterial);
+                
+                // Position: X und Z aus position, Y ist die Höhe (local_origin[2])
+                plane.position.set(
+                    position[0],
+                    position[2],
+                    position[1]
+                );
+                
+                // Rotate to horizontal (floor/roof)
+                plane.rotation.x = -Math.PI / 2;
+                
+                plane.receiveShadow = true;
+                plane.castShadow = false;
+                
+                if (element.type === 'ROOF') {
+                    roofsGroup.add(plane);
+                } else {
+                    floorsGroup.add(plane);
+                }
             }
         }
         
