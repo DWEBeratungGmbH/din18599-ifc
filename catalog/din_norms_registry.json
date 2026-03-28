@@ -915,13 +915,90 @@
           "number": "6",
           "version": "2018-09",
           "title": "Endenergiebedarf von Lüftungsanlagen, Luftheizungsanlagen und Kühlsystemen für den Wohnungsbau",
-          "summary": "Berechnung Endenergiebedarf für Wohnungslüftung und Wohnungskühlung",
-          "description": "Teil 6 legt die Berechnung des Endenergiebedarfs von Wohnungslüftungsanlagen (zentral, dezentral, Einzelraumlüftung) und Kühlsystemen für Wohngebäude fest.",
+          "summary": "Berechnung Endenergiebedarf für Wohnungslüftung, Luftheizung und Wohnungskühlung",
+          "description": "Teil 6 legt die Berechnung des Endenergiebedarfs von Wohnungslüftungsanlagen (zentral, dezentral, Einzelraumlüftung), Luftheizungsanlagen und Kühlsystemen für Wohngebäude fest. Berücksichtigt werden Abluft-Wärmepumpen, Wärmeübertrager, Erdreich-Zuluft-Wärmeübertrager, Solar-Zuluft-Kollektoren und Wohnungskühlsysteme. 4-Prozessschritte-Modell: Übergabe → Verteilung → Speicherung → Erzeugung.",
           "scope": "residential_ventilation_cooling",
           "pages": 72,
-          "sections": [],
-          "tables": [],
-          "annexes": []
+          "normative_references": [
+            "DIN_1946-6",
+            "DIN_18599-1_2018-09",
+            "DIN_18599-2_2025-10",
+            "DIN_18599-5_2025-10",
+            "DIN_18599-7_2025-10",
+            "DIN_18599-8_2018-09",
+            "DIN_18599-10_2018-09",
+            "DIN_EN_308",
+            "DIN_EN_12976-1",
+            "DIN_EN_12976-2",
+            "DIN_EN_13141",
+            "DIN_EN_13142",
+            "DIN_EN_14511",
+            "DIN_EN_16573",
+            "DIN_EN_16798-5-1_2017-11",
+            "DIN_EN_ISO_9806",
+            "VDI_4640_BLATT_4"
+          ],
+          "sections": [
+            {
+              "id": "DIN_18599-6_2018-09_SEC_2",
+              "number": "2",
+              "name": "Normative Verweisungen",
+              "summary": "17 referenzierte Normen: DIN 1946-6 (Wohnungslüftung), DIN/TS 18599 Teile 1,2,5,7,8,10, DIN EN 308 (WRG), DIN EN 12976 (Solar), DIN EN 13141/13142 (Lüftung Wohnungen), DIN EN 14511 (Wärmepumpen), DIN EN 16573 (Multifunktionale Lüftungseinheiten), DIN EN 16798-5-1 (Energiebedarf Lüftung), DIN EN ISO 9806 (Solarkollektoren), VDI 4640 Blatt 4 (Erdwärme)"
+            },
+            {
+              "id": "DIN_18599-6_2018-09_SEC_3",
+              "number": "3",
+              "name": "Begriffe, Symbole, Einheiten und Indizes",
+              "summary": "30 Begriffe (Primärenergiebedarf, Endenergiebedarf, Nutzenergiebedarf, Nutzwärmebedarf, Nutzkältebedarf, Nutzenergiebedarf Trinkwarmwasser, Zone, Versorgungsbereich, technisches Gewerk, Nettogrundfläche, Bruttovolumen, Nettoraumvolumen, Bilanzinnentemperatur, Luftvolumen, Luftwechsel, Verluste Anlagentechnik, erneuerbare Energie, Bilanzzeitraum, Hilfsenergieaufwand, Energieinhalt, Wohnungslüftungsanlage/WLA, Luftheizungsanlage, Übergabe, Verteilung, Speicherung, Erzeugung, Betriebszeit Wohnungslüftungssystem, Produktwert, Standardwert, Teillüftung), Tabelle 1 (Symbole), Tabelle 2 (Indizes), Abkürzungen, Bild 3 (Indizierungsschema)"
+            },
+            {
+              "id": "DIN_18599-6_2018-09_SEC_3_1",
+              "number": "3.1",
+              "name": "Begriffe",
+              "summary": "30 zentrale Begriffe für Wohnungslüftung, Luftheizung und Wohnungskühlung"
+            },
+            {
+              "id": "DIN_18599-6_2018-09_SEC_3_2",
+              "number": "3.2",
+              "name": "Symbole, Einheiten, Indizes",
+              "summary": "Tabelle 1 (30+ Symbole), Tabelle 2 (60+ Indizes)"
+            },
+            {
+              "id": "DIN_18599-6_2018-09_SEC_3_3",
+              "number": "3.3",
+              "name": "Abkürzungen",
+              "summary": "AKM, EVU, EWÜT, E-S-WÜT, DX, S-KOL, TRY, TWE, TWW, VRF, WÜT, WSchV"
+            }
+          ],
+          "tables": [
+            {
+              "id": "DIN_18599-6_2018-09_TAB_1",
+              "number": "1",
+              "name": "Symbole und Einheiten",
+              "type": "symbols",
+              "protected": false,
+              "summary": "30+ Symbole für Wohnungslüftung: A (Fläche), c (spez. Wärmekapazität), COP (Leistungszahl Wärmepumpe), d (Tag), DH (Gradtagstunden), EER (Leistungszahl Kältemaschine), f (Faktor), F (Gradtagszahl), FC (Lastfaktor), h (Stunde), H (Stundensumme/Wärmetransferkoeffizient), I (Beleuchtung), L (Länge), n (Luftwechsel), p (spez. Leistungsaufnahme), P (Leistung), PLV (Teillastfaktor), Q (Energie), Q̇ (Leistung/Energiestrom), R (Wärmeleitwiderstand), SEER (Jahresarbeitszahl Kältemaschine), SPI (spez. Leistungsaufnahme Ventilatoren), t (Zeit), U (Wärmedurchgangskoeffizient), V (Volumen), V̇ (Volumenstrom), W (Hilfsenergieaufwand), w (Wichtungsfaktor), Δ (Differenz), λ (Wärmeleitfähigkeit), η (Nutzungsgrad/Effizienz), Φ (Leistung/Energiestrom), θ (Celsiustemperatur), ρ (Dichte), ζ (Nennwärmeverhältnis), σ (Verhältnis)",
+              "parameters_count": 35
+            },
+            {
+              "id": "DIN_18599-6_2018-09_TAB_2",
+              "number": "2",
+              "name": "Indizes",
+              "type": "indices",
+              "protected": false,
+              "summary": "60+ Indizes: a (Jahr), add (zusätzlich), b (Nutzenergiebedarf), B (Außenbauteile), c (Kühlung), C (Regelung), ce (Verluste Übergabe), con (Verbindung), cu (Kältemaschine), d (Verluste Verteilung), day (Tag), ddh (Gradtagsstunden), e (äußere), exch (Wärmeübertrager), ETA (Abluft), f (End-), fan (Ventilator), frost (Abtaubetrieb), g (Verluste Erzeugung), gr-exch (Erdreich-Zuluft-WÜT), h (Heizung), hp (Wärmepumpe), i (innen), in (zugeführt), int (intermittierend), i/j/k (Laufindex), I (innere), L (Lufttemperaturprofil), l (Beleuchtung), limit (Ankühlung), loss (Wärmeverluste Lüftungsgerät), max/min, mech (mechanisch/ventilatorgestützt), mth (monatlich), NGF, o (Außenluft), on/off, out (abgegeben/außerhalb thermischer Hülle), outg (Erzeugernutzenergieabgabe), p (Primär-), part (Teilkühlung), pre-h (Vorwärmer), prod (produziert), pu (Pumpe), P0 (Bereitschaft), Radiant (Strahlungseinfluss), rec (Wärmerückgewinnung), re-h (Nachheizregister), rc (Wohnungskühlungssystem), reg (regenerativ), rv (Wohnungslüftungssystem), s (Verluste Speicherung), sol-pan (Solar-Zuluft-Kollektor), st (Befeuchtung), SUP (Zuluft), sup-decr (Zuluftabsenkung), T (Transmission), tech (Technische Verluste), therm (thermisch), tight (Dichtheit Lüftungsgerät), v (Lüftungssystem), V (Lüftung), w (Trinkwarmwasser), WH (Wassererwärmung), TTC (Zeit Zapfzyklus)",
+              "parameters_count": 65
+            }
+          ],
+          "annexes": [
+            {
+              "id": "DIN_18599-6_2018-09_ANNEX_A",
+              "letter": "A",
+              "name": "Systemübersichten",
+              "type": "informative",
+              "summary": "Bild 4 (Systemübersicht Wohnungslüftung nach DIN 1946-6), Bild 5 (Systemübersicht Wohnungskühlung)"
+            }
+          ]
         },
         {
           "id": "DIN_18599-7_2018-09",
