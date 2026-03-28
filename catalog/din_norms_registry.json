@@ -1285,11 +1285,75 @@
           "version": "2018-09",
           "title": "End- und Primärenergiebedarf von stromproduzierenden Anlagen",
           "summary": "Berechnung Eigenstromerzeugung (KWK, PV, Wind) und Anrechnung",
-          "description": "Teil 9 legt die Berechnung des End- und Primärenergiebedarfs unter Berücksichtigung von stromproduzierenden Anlagen fest: Kraft-Wärme-Kopplung (KWK), Photovoltaik (PV) und Windkraft. Regelt die Anrechnung von Eigenstromerzeugung auf den Primärenergiebedarf.",
+          "description": "Teil 9 legt die Berechnung des End- und Primärenergiebedarfs unter Berücksichtigung von stromproduzierenden Anlagen fest: Kraft-Wärme-Kopplung (KWK, Brennstoffzellen), Photovoltaik (PV, gebäudeintegriert/additiv, mit/ohne Batterie), Windkraft (WEA). Regelt die Anrechnung von Eigenstromerzeugung auf den Primärenergiebedarf und die Verrechnung mit dem Strombedarf des Gebäudes.",
           "scope": "electricity_generation",
           "pages": 64,
-          "sections": [],
-          "tables": [],
+          "normative_references": [
+            "DIN_18599-1_2025-10",
+            "DIN_18599-5_2018-09",
+            "DIN_18599-8_2018-09",
+            "DIN_EN_60904-3",
+            "DIN_EN_61829",
+            "DIN_EN_50465"
+          ],
+          "sections": [
+            {
+              "id": "DIN_18599-9_2018-09_SEC_2",
+              "number": "2",
+              "name": "Normative Verweisungen",
+              "summary": "6 referenzierte Normen: DIN/TS 18599 Teile 1,5,8, DIN EN 60904-3 (VDE 0126-4-3, PV-Messgrundsätze), DIN EN 61829 (VDE 0126-24, PV-Kennlinien), DIN EN 50465 (VDE 0130-310, KWK-Geräte ≤70 kW)"
+            },
+            {
+              "id": "DIN_18599-9_2018-09_SEC_3",
+              "number": "3",
+              "name": "Begriffe, Symbole, Einheiten und Indizes",
+              "summary": "19 Begriffe (KWK, Stromkennzahl, Brennstoffzellenheizgerät, Brennstoffzelle, PV-Generator, BIPV, additives PV-System, erzeugte elektrische Nettoenergie, Peakleistung, vor Ort erzeugte erneuerbare Energie, erneuerbare Energie, Solarbestrahlungsstärke, solare Bestrahlungsenergie, Nennkapazität Batterie, Nutzkapazität Batterie, max. Entladetiefe, Systemwirkungsgrad Batterie, Entladezeit Batterie, flächenbezogener Anwendungsstrombedarf), Tabelle 1 (Symbole KWK/WEA/PV), Tabelle 2 (Indizes), Bild 3 (Indizierungsschema)"
+            },
+            {
+              "id": "DIN_18599-9_2018-09_SEC_4",
+              "number": "4",
+              "name": "Verknüpfung der Teile der Reihe DIN/TS 18599",
+              "summary": "Tabelle 3 (Eingangsgrößen), Tabelle 4 (Ausgangsgrößen)"
+            }
+          ],
+          "tables": [
+            {
+              "id": "DIN_18599-9_2018-09_TAB_1",
+              "number": "1",
+              "name": "Symbole",
+              "type": "symbols",
+              "protected": false,
+              "summary": "30+ Symbole für KWK/WEA/PV: Allgemein: A (Fläche), P (Leistung), Q (Energie), W (Hilfsenergie). KWK: σ (Stromkennzahl), A…p (Koeffizient), d (Laufzeit), f (Faktor), n (Anzahl), q (spez. Energie), t (Zeitspanne), V (Volumen), x (Grad), η (Nutzungsgrad/Wirkungsgrad), θ (Temperatur), κ (Deckungsanteil). WEA: v (mittlere monatliche Windgeschwindigkeit), h (Nabenhöhe), D (Rotordurchmesser), α (Höhenexponent), A_Weib (Weibull-Skalierungsfaktor), k_Weib (Weibull-Formfaktor), ρ (Luftdichte). PV: C (Kapazität Batterie), c (bezogene Kapazität), E (jährliche/monatliche solare Bestrahlungsenergie), f (Faktor), I (solare Bestrahlungsstärke), K (Koeffizient), φ (Energie-Anteil/Gleichzeitigkeitsfaktor), γ (bezogene Leistung), η (Wirkungsgrad/Nutzungsgrad)",
+              "parameters_count": 35
+            },
+            {
+              "id": "DIN_18599-9_2018-09_TAB_2",
+              "number": "2",
+              "name": "Indizes",
+              "type": "indices",
+              "protected": false,
+              "summary": "70+ Indizes: Allgemein: x (Platzhalter), a (Jahr/jährlich), aux (Hilfs-/Hilfsenergie), c (Kühlung/Kälte), f (End(energie)), i (Zählindex/Monate), rv (Wohnungslüftung), therm (thermisch), w (Trinkwarmwasser), h (Heizung), outg* (Erzeugernutzenergie), rB (rechnerische Betriebszeit), NGF (Nettogrundfläche). KWK: BOL (Beginn Nutzungsdauer), CHP (Kraft-Wärme-Kopplung), el,CHP (elektrischer Anteil), d (Tag/je Tag), gen (Wärmeerzeuger), Grenz (Grenz-), Hi (heizwertbezogen), HN (Heiznetz), HP (Spitzenlastkessel/-brenner), Hs/Hi (Brennwert/Heizwert), lower/m/min (untere/mittlere/minimal), mod (Modulations-), Netz (Wärmenetz), op (Betrieb), outg (Erzeugernutzwärmeabgabe), p (primär-), Pint (Teillast), prod (produziert), PS (Pufferspeicher), RA/RL (Rücklauftemperatur), S (Sommer), Start (Start-Vorgang), Strom (elektrische Energie), th,CHP (thermisch KWK ohne Spitzenlastkessel). WEA: prod (produziert), WEA (Wind-Energie-Anlage), Rotor, WK (Windgeschwindigkeitsklasse), Weib (Weibull Faktoren), Wind. PV: b (Bedarf), Batt (Batterie), Dis (Entladung), DLE (Durchlauferhitzer elektrisch), DOD (Entladetiefe), eff (effektiv), el (elektrisch), ESP (Elektrischer Warmwasserspeicher), in (Aufnahme/Entnahme öffentliches Netz), loss (Verlust), ges (gesamt/summiert), nenn (Nenn-), nutz (Nutz-), oB (ohne Batterie), out (Abgabe/Rückspeisung öffentliches Netz), perf (Leistung), pk (spitzen), prod (produziert), PV (Photovoltaik), Q (Energiemenge), ref (Referenz-/Bezugs-), sol (solar), TGA (Technische Gebäudeausstattung), Hp (Wärmepumpe elektrisch)",
+              "parameters_count": 75
+            },
+            {
+              "id": "DIN_18599-9_2018-09_TAB_3",
+              "number": "3",
+              "name": "Eingangsgrößen aus anderen Teilen der Reihe DIN/TS 18599",
+              "type": "interface_inputs",
+              "protected": false,
+              "summary": "Eingangsgrößen von Teilen 1,5,6,7,8,10 (Q_f,Strom, A_NGF, f_p,Strom, f_p,HP/f_p,CHP, f_Hs/Hi, Q_h,f,Hp, Q_h,f,gen,ESP, Q_h,f, Q_h,outg, d_h,rB, Q_rv,outg, Q_c,outg,therm, Q_h*,outg, Q_w,f,DLE, Q_w,f,ESP, Q_w,f,Hp, Q_w,f, Q_w,outg, W_w,f,Hp, t_d, t_d,PV, d_mth, I_sol, v, q_el,b, W_f,HP,a)",
+              "parameters_count": 26
+            },
+            {
+              "id": "DIN_18599-9_2018-09_TAB_4",
+              "number": "4",
+              "name": "Ausgangsgrößen für andere Teile der Reihe DIN/TS 18599",
+              "type": "interface_outputs",
+              "protected": false,
+              "summary": "Ausgangsgrößen für Teil 1 (Q_f,prod,CHP,a, f_p, Q_f,a, Q_f,CHP,a, Q_f,HP,a, P_th,CHP, Q_f,prod,WEA, Q_el,b, Q_f,prod,PV, Q_f,out,PV, Q_f,nutz,PV, Q_f,in,Strom, W_PV,i)",
+              "parameters_count": 13
+            }
+          ],
           "annexes": []
         },
         {
