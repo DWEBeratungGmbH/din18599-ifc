@@ -117,6 +117,44 @@ function calculateFaceArea(face, vertexMap) {
 
 ---
 
+---
+
+## Open-Source Geometry Editoren
+
+### Pascal Editor (Empfohlung)
+
+**GitHub:** https://github.com/pascalorg/editor
+
+**Features:**
+- React Three Fiber + WebGPU
+- 3D Building Editor (Wände, Böden, Dächer, Fenster)
+- Auto-Mitering, CSG Cutouts
+- Snap-to-Grid, Collision Detection
+- Zones und Levels
+
+**Architektur:**
+```
+apps/
+  └── editor/          # Next.js App
+packages/
+  ├── core/           # Schema, State Management
+  └── viewer/         # 3D Rendering (React Three Fiber)
+```
+
+**Warum Pascal?**
+- ✅ Modern (React, TypeScript, WebGPU)
+- ✅ Speziell für Gebäude
+- ✅ Open Source (MIT Lizenz)
+- ✅ Viel zu lernen (State Management, Rendering)
+- ✅ Gut für Integration
+
+**Alternativen:**
+- **FloorspaceJS** (NREL) - Speziell für Building Energy Modeling
+- **xeokit SDK** - BIM-fokussiert, IFC Support
+- **Blender + IfcBlender** - Desktop, sehr mächtig
+
+---
+
 ## Migration vom alten Format
 
 \`\`\`javascript

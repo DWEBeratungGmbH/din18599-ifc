@@ -73,6 +73,44 @@
       "description": "Metadaten zum Projekt und zur Berechnung",
       "type": "object",
       "properties": {
+        "variants": {
+          "type": "array",
+          "description": "Zentrale Varianten-Definition für iSFP-Stufen und Planungsvarianten (v2.1)",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string", "description": "Eindeutige Varianten-ID" },
+              "name": { "type": "string", "description": "Variantenname" },
+              "type": { 
+                "enum": ["BASE", "SCENARIO"],
+                "description": "BASE = IST-Zustand, SCENARIO = Sanierungsvariante"
+              },
+              "dependency_type": {
+                "enum": ["ADDITIVE", "ALTERNATIVE"],
+                "description": "ADDITIVE = Baut auf vorheriger auf (iSFP-Stufen), ALTERNATIVE = Alternative zur vorherigen (Planungsvarianten)"
+              },
+              "depends_on": {
+                "type": "string",
+                "description": "Varianten-ID der Basis-Variante (nur bei ADDITIVE)"
+              },
+              "priority": { 
+                "type": "integer", 
+                "minimum": 1,
+                "description": "Priorität für iSFP (1 = höchste)"
+              },
+              "timeline": { 
+                "type": "integer",
+                "description": "Jahr der geplanten Umsetzung"
+              },
+              "funding": { 
+                "enum": ["NONE", "BEG_EM", "BEG_WG", "BEG_NWG", "KFW_261", "KFW_262"],
+                "description": "Förderprogramm"
+              },
+              "description": { "type": "string" }
+            },
+            "required": ["id", "name", "type"]
+          }
+        },
         "project_id": { "type": "string" },
         "project_name": { "type": "string" },
         "ifc_file_ref": { "type": "string", "description": "Dateiname der zugehörigen IFC-Datei" },
@@ -250,7 +288,81 @@
             "properties": {
               "id": { "type": "string" },
               "name": { "type": "string" },
-              "usage_profile": { "type": "string", "description": "Code nach DIN 18599-10, z.B. '17'" },
+              "usage_profile": {
+                "type": "object",
+                "description": "Nutzungsprofil nach DIN 18599-10 (v2.1)",
+                "oneOf": [
+                  {
+                    "description": "Wohngebäude (EFH/MFH)",
+                    "properties": {
+                      "type": { "const": "RESIDENTIAL" },
+                      "building_type": { 
+                        "enum": ["EFH", "MFH"],
+                        "description": "EFH = Einfamilienhaus, MFH = Mehrfamilienhaus"
+                      },
+                      "source": {
+                        "enum": ["DIN_18599_10", "CUSTOM"],
+                        "description": "DIN_18599_10 = Norm-Werte, CUSTOM = Individuelle Werte"
+                      },
+                      "parameters_din": {
+                        "type": "object",
+                        "description": "Norm-Werte aus DIN 18599-10 Tabelle 5",
+                        "properties": {
+                          "theta_i_h_soll": { "type": "number", "description": "Raum-Solltemperatur Heizfall in °C" },
+                          "theta_i_c_soll": { "type": "number", "description": "Raum-Solltemperatur Kühlfall in °C" },
+                          "delta_theta_i_na": { "type": "number", "description": "Temperaturabsenkung reduzierter Betrieb in K" },
+                          "q_i": { "type": "number", "description": "Interne Wärmequellen in Wh/(m²·d) - EFH: 45, MFH: 90" },
+                          "n_nutz": { "type": "number", "description": "Nutzungsbedingter Mindestaußenluftwechsel in 1/h" },
+                          "q_el_b": { "type": "number", "description": "Anwendungsstrombedarf in Wh/(m²·d)" }
+                        }
+                      },
+                      "parameters_individuell": {
+                        "type": "object",
+                        "description": "Abweichungen zur Norm (nur geänderte Werte)",
+                        "properties": {
+                          "theta_i_h_soll": { "type": "number" },
+                          "theta_i_c_soll": { "type": "number" },
+                          "q_i": { "type": "number" },
+                          "n_nutz": { "type": "number" }
+                        }
+                      },
+                      "custom_reason": {
+                        "type": "string",
+                        "description": "Begründung für individuelle Werte (nur bei source=CUSTOM)"
+                      }
+                    },
+                    "required": ["type", "building_type", "source"]
+                  },
+                  {
+                    "description": "Nichtwohngebäude (43 Profile)",
+                    "properties": {
+                      "type": { "const": "NON_RESIDENTIAL" },
+                      "profile_id": {
+                        "type": "string",
+                        "pattern": "^(0[1-9]|[1-3][0-9]|4[0-3])$",
+                        "description": "DIN 18599-10 Nutzungsprofil-Code (01-43)"
+                      },
+                      "source": {
+                        "enum": ["DIN_18599_10", "CUSTOM"],
+                        "description": "DIN_18599_10 = Norm-Werte, CUSTOM = Individuelle Werte"
+                      },
+                      "parameters_din": {
+                        "type": "object",
+                        "description": "Norm-Werte aus DIN 18599-10 Tabelle 6+7"
+                      },
+                      "parameters_individuell": {
+                        "type": "object",
+                        "description": "Abweichungen zur Norm (nur geänderte Werte)"
+                      },
+                      "custom_reason": {
+                        "type": "string",
+                        "description": "Begründung für individuelle Werte (nur bei source=CUSTOM)"
+                      }
+                    },
+                    "required": ["type", "profile_id", "source"]
+                  }
+                ]
+              },
               "area_an": { "type": "number", "description": "Energiebezugsfläche AN in m²" },
               "height_h": { "type": "number", "description": "Lichte Raumhöhe in m" },
               "volume_v": { "type": "number", "description": "Nettoraumvolumen Vi in m³" },
@@ -345,10 +457,20 @@
             "properties": {
               "id": { "type": "string", "description": "Eindeutige Element-ID" },
               "name": { "type": "string", "description": "Bauteilname" },
+              "variant_id": {
+                "type": "string",
+                "description": "Referenz zu meta.variants[].id (zu welcher Variante gehört das Element?)"
+              },
               "type": {
                 "type": "string",
-                "enum": ["WALL", "ROOF", "FLOOR", "CEILING", "SLAB"],
-                "description": "Bauteiltyp"
+                "enum": ["WALL", "ROOF", "FLOOR", "CEILING", "DOOR", "UNDEFINED"],
+                "description": "Bauteiltyp (UNDEFINED = Typ unbekannt, nicht in Berechnung)"
+              },
+              "status": {
+                "type": "string",
+                "enum": ["ACTIVE", "PASSIVE", "PLANNED", "DEMOLISHED"],
+                "default": "ACTIVE",
+                "description": "ACTIVE: In Berechnung, PASSIVE: Nicht berücksichtigt, PLANNED: Geplant, DEMOLISHED: Rückbau"
               },
               "zone_id": { "type": "string", "description": "Referenz zur Zone" },
               "space_id": { "type": "string", "description": "Referenz zum Raum (optional)" },
@@ -356,7 +478,55 @@
               "area": { "type": "number", "description": "Bauteilfläche in m²" },
               "boundary_condition": {
                 "type": "string",
-                "enum": ["EXTERIOR", "GROUND", "UNHEATED", "HEATED", "ADIABATIC", "INTERIOR"]
+                "enum": [
+                  "EXTERIOR",
+                  "GROUND",
+                  "INTERIOR",
+                  "HEATED",
+                  "UNHEATED",
+                  "UNHEATED_ROOF_UNINSULATED",
+                  "UNHEATED_ROOF_INSULATED",
+                  "LOW_HEATED",
+                  "ADIABATIC"
+                ],
+                "description": "Randbedingung nach DIN 18599-2. EXTERIOR (Fx=1.0), GROUND (Fx=0.8), UNHEATED (Fx=0.5), UNHEATED_ROOF_UNINSULATED (Fx=0.8), UNHEATED_ROOF_INSULATED (Fx=0.5), LOW_HEATED (Fx=0.35), INTERIOR/HEATED/ADIABATIC (Fx=0.0)"
+              },
+              "f_x": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1,
+                "description": "Temperaturfaktor DIN V 18599-2. Optional - wird aus boundary_condition berechnet wenn nicht angegeben. Für Bodenplatten: Manuell nach Tabelle 6 setzen."
+              },
+              "ground_properties": {
+                "type": "object",
+                "description": "Für Bodenplatten: Parameter für Fx-Berechnung nach DIN 18599-2 Tabelle 6",
+                "properties": {
+                  "characteristic_dimension_b": {
+                    "type": "number",
+                    "description": "Charakteristisches Bodenplattenmaß B = Ag / (0.5 * P) in m"
+                  },
+                  "thermal_resistance_rf": {
+                    "type": "number",
+                    "description": "Wärmedurchlasswiderstand Rf in m²K/W"
+                  },
+                  "edge_insulation": {
+                    "type": "object",
+                    "properties": {
+                      "type": { 
+                        "enum": ["NONE", "HORIZONTAL", "VERTICAL"],
+                        "description": "Art der Randdämmung"
+                      },
+                      "depth_d": { 
+                        "type": "number",
+                        "description": "Tiefe/Breite der Randdämmung in m"
+                      },
+                      "thermal_resistance": { 
+                        "type": "number",
+                        "description": "Wärmedurchlasswiderstand der Randdämmung R_WD,RD in m²K/W"
+                      }
+                    }
+                  }
+                }
               },
               "u_value_undisturbed": { "type": "number", "description": "U-Wert im Gefach (ohne Wärmebrücken) W/m²K" },
               "thermal_bridge_delta_u": { "type": "number", "description": "Wärmebrückenzuschlag W/m²K" },
@@ -414,7 +584,8 @@
                 }
               }
             },
-            "required": ["boundary_condition"]
+            "required": ["id", "type", "boundary_condition"],
+            "additionalProperties": false
           }
         },
         "windows": {
