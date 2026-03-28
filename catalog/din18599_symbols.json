@@ -1,8 +1,24 @@
 {
-  "version": "DIN V 18599:2018-09",
-  "description": "DIN 18599 Symbol-Glossar - Reine Norm-Semantik (STATISCH)",
+  "version": "2.0.0",
+  "description": "DIN 18599 Symbol-Registry - Alle Symbole aus Teilen 1-11",
   "last_updated": "2026-03-28",
   "note": "Diese Datei ändert sich nur bei Normen-Revision. Keine Tabellenwerte, keine Implementierungsdetails.",
+  "statistics": {
+    "total_symbols": 562,
+    "part_1": 75,
+    "part_2": 50,
+    "part_3": 60,
+    "part_4": 35,
+    "part_5": 90,
+    "part_6": 52,
+    "part_7": 75,
+    "part_8": 55,
+    "part_9": 35,
+    "part_10": 25,
+    "part_11": 10,
+    "current_count": 30,
+    "completion_percentage": 5
+  },
   
   "symbols": [
     {
