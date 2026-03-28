@@ -1362,21 +1362,41 @@
           "version": "2018-09",
           "title": "Nutzungsrandbedingungen, Klimadaten",
           "summary": "Nutzungsprofile (43 NWG + Wohnen), Klimadaten, Betriebszeiten",
-          "description": "Teil 10 legt die Nutzungsrandbedingungen für Wohn- und Nichtwohngebäude fest: Raumtemperaturen (Heizen/Kühlen), interne Lasten (Personen, Geräte, Beleuchtung), Luftwechselraten, Betriebszeiten sowie Klimadaten für Deutschland (Testreferenzjahre, Monatsmittelwerte).",
+          "description": "Teil 10 legt die Nutzungsrandbedingungen für Wohn- und Nichtwohngebäude fest: Raumtemperaturen (Heizen/Kühlen), interne Lasten (Personen, Geräte, Beleuchtung), Luftwechselraten, Betriebszeiten, Warmwasserbedarf sowie Klimadaten für Deutschland (Testreferenzjahre, Monatsmittelwerte Außentemperatur/Solarstrahlung/Windgeschwindigkeit). Enthält 43 detaillierte Nutzungsprofile für Nichtwohngebäude (Büro, Bildung, Gesundheit, Handel, Gastronomie, Sport, Kultur, etc.).",
           "scope": "usage_profiles_climate",
           "pages": 156,
+          "normative_references": [
+            "DIN_EN_12464-1",
+            "DIN_EN_16798-1",
+            "DIN_18599-1_2018-09",
+            "DIN_18599-2_2018-09",
+            "DIN_18599-3_2018-09",
+            "DIN_18599-4_2025-10",
+            "DIN_18599-5_2018-09",
+            "DIN_18599-6_2018-09",
+            "DIN_18599-7_2018-09",
+            "DIN_18599-8_2018-09",
+            "DIN_18599-9_2018-09",
+            "DIN_18599-11_2018-09"
+          ],
           "sections": [
+            {
+              "id": "DIN_18599-10_2018-09_SEC_2",
+              "number": "2",
+              "name": "Normative Verweisungen",
+              "summary": "12 referenzierte Normen: DIN EN 12464-1 (Beleuchtung Arbeitsstätten), DIN EN 16798-1 (Innenraumklima), DIN/TS 18599 Teile 1-9 und 11"
+            },
             {
               "id": "DIN_18599-10_2018-09_SEC_3",
               "number": "3",
-              "name": "Symbole, Einheiten, Indizes",
-              "summary": "Tabelle 1 (Symbole mit deutscher und englischer Bedeutung), Tabelle 2 (Indizes)"
+              "name": "Begriffe, Symbole, Einheiten und Indizes",
+              "summary": "Keine eigenen Begriffe (Verweis auf Teile 1-9,11), Tabelle 1 (25+ Symbole), Tabelle 2 (60+ Indizes)"
             },
             {
               "id": "DIN_18599-10_2018-09_SEC_4",
               "number": "4",
               "name": "Verknüpfung der Teile der Reihe DIN/TS 18599",
-              "summary": "Tabelle 3 (Eingangsgrößen aus anderen Teilen), Tabelle 4 (Ausgangsgrößen für andere Teile)"
+              "summary": "Tabelle 3 (1 Eingangsgröße: A_NGF,WE,m), Tabelle 4 (50+ Ausgangsgrößen für Teile 2-9)"
             },
             {
               "id": "DIN_18599-10_2018-09_SEC_5",
@@ -1404,8 +1424,8 @@
               "name": "Symbole",
               "type": "symbols",
               "protected": false,
-              "summary": "Übersicht aller Formelzeichen mit deutscher und englischer Bedeutung sowie üblicher Einheit",
-              "parameters_count": 45
+              "summary": "25+ Symbole: a (Anteil anwesender Personen), A (Fläche), C/c (Faktor), d (Tag), δ (Sonnendeklination/Differenz), E (Beleuchtungsstärke), F (Faktor), h (Höhe), I (solare Einstrahlung), J (Tag des Monats), Θ (Celsiustemperatur), k (Faktor), n (Anzahl), Q (Energie), q (spez. Energie), t/teq (Zeit/Zeitgleichung), V̇ (Volumenstrom), v (mittlere monatliche Windgeschwindigkeit), φ (geographische Breite), ω (Stundenwinkel)",
+              "parameters_count": 25
             },
             {
               "id": "DIN_18599-10_2018-09_TAB_2",
@@ -1413,26 +1433,26 @@
               "name": "Indizes",
               "type": "indices",
               "protected": false,
-              "summary": "Übersicht aller Indizes (i, e, h, c, soll, nutz, NA, el, b, I, op, etc.)",
-              "parameters_count": 52
+              "summary": "60+ Indizes: a (Anteil/Jahr/Jahreswert), A (Außen/Minderungsanteil/relative Abwesenheit), adapt (adaptiv GA), app (Arbeitshilfen), as (nach Sonnenuntergang), b (Bedarf), bs (vor Sonnenaufgang), c (Kühlung/Raumkühlsystem), e (äußere), ende (Nutzungsende), d (Tag/Tageswert), el (elektrisch/elektrische Energie), EMS (Gebäudeautomation), Geb (Gebäude), h/h,op (Heizung/Heizbetrieb), i (innen), I (innere), m (Mittel), M (Monat), max/min (maximal/minimal), NA (Nachtabschaltung), Nacht (Nachtbetrieb), Ne (Nutzebene), NGF (Nettogrundfläche), nutz/Nutz,a/Nutz,e/Nutz,d (Nutzung/Nutzungsbeginn/Nutzungsende/tägliche Nutzungsstunden), op (Betrieb/Betriebszeit Beleuchtung), p (Personen(bezogen)), PV (Photovoltaik), RLT (raumlufttechnische Anlage), rc (Wohnungskühlung), rv (Wohnungslüftung), S (Solar), soll (Sollwert), Sonnenaufgang/Sonnenuntergang (Zeit), Sp (Spitzenzapfung), start (Nutzungsbeginn), Tag (Tagbetrieb), tb (Teilbeheizung), V/V,mech (Lüftung/mechanische Lüftung), w (Trinkwarmwasser), WO (Wohnen), we (Wochenende), WE (Wohneinheit)",
+              "parameters_count": 65
             },
             {
               "id": "DIN_18599-10_2018-09_TAB_3",
               "number": "3",
-              "name": "Eingangsgrößen aus anderen Teilen",
-              "type": "interface_input",
+              "name": "Eingangsgrößen aus anderen Teilen der Reihe DIN/TS 18599",
+              "type": "interface_inputs",
               "protected": false,
-              "summary": "Benötigte Parameter aus DIN 18599-1 bis -9 (z.B. A_NGF,WE,m aus Teil 1)",
+              "summary": "1 Eingangsgröße von Teil 1: A_NGF,WE,m (mittlere Nettogrundfläche einer Wohnung)",
               "parameters_count": 1
             },
             {
               "id": "DIN_18599-10_2018-09_TAB_4",
               "number": "4",
-              "name": "Ausgangsgrößen für andere Teile",
-              "type": "interface_output",
+              "name": "Ausgangsgrößen für andere Teile der Reihe DIN/TS 18599",
+              "type": "interface_outputs",
               "protected": false,
-              "summary": "Bereitgestellte Parameter für DIN 18599-1 bis -9 (Temperaturen, Lasten, Luftwechsel, Betriebszeiten)",
-              "parameters_count": 38
+              "summary": "50+ Ausgangsgrößen für Teile 2-9: Nutzung Beginn/Ende, Nutzungsstunden täglich/jährlich (Tag/Nacht), Anzahl Nutzungstage, Betriebsdauer RLT/WLA/Kühlung/Heizung (täglich/monatlich), Anzahl Tage/Stunden, Wartungswert Beleuchtungsstärke, Höhe Nutzebene, Minderungsfaktor Sehaufgabe, relative Abwesenheit, Raumindex, Teilbetriebsfaktor Beleuchtung, Anpassungsfaktor Beleuchtung vertikaler Flächen, Verschmutzungsfaktor, Feuchteanforderung, Mindestaußenluftvolumenstrom, nutzungsbedingter Mindestaußenluftwechsel, Wärmeabgabe Personen/Arbeitshilfen/Beleuchtung, Abminderungsfaktor Verschmutzung, Jahreswert/Tageswert Nutzenergiebedarf TWW, Anzahl Spitzenzapfungen, Raum-Solltemperatur Heizung/Kühlung, minimale/maximale Innentemperatur Auslegung, Temperaturabsenkung reduzierter Betrieb, Anteil mitbeheizte Fläche, Tagesmittel Außentemperatur Auslegungstag Heiz-/Kühlfall, maximale stündliche solare Einstrahlung Auslegungstag, Monatsmittelwert Außenlufttemperatur, mittlere monatliche solare Einstrahlung, mittlere monatliche Windgeschwindigkeit, relative Abwesenheit RLT, Teilbetriebsfaktor RLT, Mindestaußenluftvolumenstrom Klasse II DIN EN 16798-1, Summand/Faktor Gebäudeautomation, täglicher flächenbezogener Anwendungsstrombedarf, tägliche Stundenzahl relevante solare Einstrahlung",
+              "parameters_count": 55
             },
             {
               "id": "DIN_18599-10_2018-09_TAB_5",
