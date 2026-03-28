@@ -1181,11 +1181,102 @@
           "version": "2018-09",
           "title": "Nutz- und Endenergiebedarf von Warmwasserbereitungssystemen",
           "summary": "Berechnung Trinkwarmwasserbedarf für Wohn- und Nichtwohngebäude",
-          "description": "Teil 8 legt die Berechnung des Nutz- und Endenergiebedarfs für Trinkwarmwasser fest. Berücksichtigt werden Nutzwärmebedarf (nach Nutzungstyp), Speicherverluste, Zirkulationsverluste, Verteilungsverluste und Erzeugerverluste.",
+          "description": "Teil 8 legt die Berechnung des Nutz- und Endenergiebedarfs für Trinkwarmwasser fest. Berücksichtigt werden Nutzwärmebedarf (nach Nutzungstyp), Übergabeverluste (Zapfverluste), Verteilungsverluste (Leitungen, Zirkulation), Speicherverluste und Erzeugerverluste. Wärmeerzeuger: Solaranlagen, Wärmepumpen, Durchlauferhitzer, Heizkessel, Speicher, Fern-/Nahwärme, Duschabwasser-WRG. 4-Prozessschritte-Modell: Übergabe → Verteilung → Speicherung → Erzeugung.",
           "scope": "domestic_hot_water",
           "pages": 86,
-          "sections": [],
-          "tables": [],
+          "normative_references": [
+            "DIN_18599-1_2025-10",
+            "DIN_18599-2_2018-09",
+            "DIN_18599-5_2025-10",
+            "DIN_18599-6_2018-09",
+            "DIN_18599-9_2018-09",
+            "DIN_18599-10_2018-09",
+            "DIN_EN_89",
+            "DIN_EN_308",
+            "DIN_EN_12828",
+            "DIN_EN_12897",
+            "DIN_EN_12975",
+            "DIN_EN_12977-3",
+            "DIN_EN_14511",
+            "DIN_EN_14825",
+            "DIN_EN_15502-2-1",
+            "DIN_EN_15502-2-2",
+            "DIN_EN_15332",
+            "DIN_EN_16147",
+            "DIN_EN_IEC_60379",
+            "DIN_EN_ISO_9806",
+            "DIN_EN_ISO_10211",
+            "NEN_7120",
+            "VDI_4650_BLATT_2",
+            "DVGW_W_551"
+          ],
+          "sections": [
+            {
+              "id": "DIN_18599-8_2018-09_SEC_2",
+              "number": "2",
+              "name": "Normative Verweisungen",
+              "summary": "24 referenzierte Normen: DIN/TS 18599 Teile 1,2,5,6,9,10, DIN EN 89 (Gasheizer), DIN EN 308 (WRG), DIN EN 12828/12897 (Heizungsanlagen/Speicher), DIN EN 12975/12977-3 (Solaranlagen), DIN EN 14511/14825/16147 (Wärmepumpen), DIN EN 15502 (Gaskessel), DIN EN 15332 (Speicher), DIN EN IEC 60379 (Elektrospeicher), DIN EN ISO 9806/10211 (Solar/Wärmebrücken), NEN 7120, VDI 4650 Blatt 2, DVGW W 551 (Legionellen)"
+            },
+            {
+              "id": "DIN_18599-8_2018-09_SEC_3",
+              "number": "3",
+              "name": "Begriffe, Symbole, Einheiten und Indizes",
+              "summary": "24 Begriffe (Aufwandszahl, Bereitschaftsverlust, dezentrale/wohnungszentrale/zentrale TWE-Anlage, Endenergiebedarf, Erzeugung, Feuerungsleistung, Heizleistung, Hilfsenergieaufwand, Konditionierung, Lastfaktor, Leistungszahl/COP, Nennleistung, Nutzenergiebedarf TWW, Produktwert, Speicherung, Standardwert, Übergabe, Verluste Anlagentechnik, Verteilung, Wärmeträger, Zone), Tabelle 1 (Symbole), Tabelle 2 (Indizes), Bild 3 (Indizierungsschema)"
+            },
+            {
+              "id": "DIN_18599-8_2018-09_SEC_4",
+              "number": "4",
+              "name": "Verknüpfung der Teile der Reihe DIN/TS 18599",
+              "summary": "Tabelle 3 (Eingangsgrößen), Tabelle 4 (Ausgangsgrößen), Tabelle 5 (Wärmeerzeuger), Abschnitt 4.3 (Erzeugernutzwärmeabgabe, Endenergiebedarf, Hilfsenergieaufwand, ungeregelte Wärmeeinträge), Abschnitt 4.4 (Berechnungsverfahren, Bild 4: TWE-Anlage)"
+            }
+          ],
+          "tables": [
+            {
+              "id": "DIN_18599-8_2018-09_TAB_1",
+              "number": "1",
+              "name": "Symbole und Einheiten",
+              "type": "symbols",
+              "protected": false,
+              "summary": "50+ Symbole für TWW: A (Fläche), a/b (Anteil/Faktor), B (Breite), BL (Belegungsdichte), c (spez. Wärmekapazität), C (Konstante), COP/SCOP (Leistungskennzahl), d (Tage), e (Aufwandszahl), f (Faktor), FC (Lastfaktor), h/H (Höhe/Strahlungssumme), HDH (Heizgradstunden), HAT (Sekunden/Tag), K (Einstrahlkorrekturfaktor), k (Koeffizient), L (Länge), n/N (Anzahl), p (Druck/Person), P (Leistung), q (Verlust), Q (Energie), R (Wärmeübergangswiderstand), t (Zeit), U/UA (Wärmedurchgangskoeffizient/Wärmeverlustrate), V/V̇ (Volumen/Volumenstrom), W (Hilfsenergieaufwand), X (Platzhalter), z (tägliche Laufzeit), α (Zeitanteil), β (Belastungsgrad), κ (Deckungsanteil), η (Wirkungsgrad), θ (Temperatur), ρ (Dichte)",
+              "parameters_count": 55
+            },
+            {
+              "id": "DIN_18599-8_2018-09_TAB_2",
+              "number": "2",
+              "name": "Indizes",
+              "type": "indices",
+              "protected": false,
+              "summary": "100+ Indizes: 70 (Temperaturrandbedingung), A (Auslegung), a (Jahr), Abgl (Abgleich), App (Apparat), aux (Hilfsenergie/Solarteil), av (mittel), B (Bauteile), b (Bedarf), bin (Klassen), bp (Bivalenzpunkt), bu (Nachheizung), c (Kollektor), ce (Übergabe), combi (Kombination), cond (Kondensation), d (Verteilung), day (Tag), del (angeliefert), dirt (Schmutz), DS (Hausstation), DWHR (Duschabwasser-WRG), e (elektrisch/Effizienz/außen), ETA-rec (Abluft nach WRG), exh (Fortluft), f (Endenergie/Faktor), fan (Ventilator), fl (Volllast), G (Gebäude/Zone), g/gen (Wärmeerzeuger), ges (gesamt), h (Heizung), hem(50°), hours, Hp (Wärmepumpe), Hs/Hi (Brennwert/Heizwert), hydr (hydraulisch), I (Umgebung/Intern), i (Zähler/unterer/Klassen), in (Aufnahme), int (intermittierend), Itc (Abschaltpunkt), k (Kessel), K (Kombianlage/Kaltwasser), L (Lufttemperaturprofil), lower/upper, ls (Verlust), ltc (Abschalt-), max, meas (gemessen), mot (Motor), mth (monatlich), n (Nenn/Exponent), NA (Nachtabsenkung), NGA (Neigung/Ausrichtung), NGF, op (Betrieb), out/outg, P0/Pint/Pn (Bereitschaft/Teillast/Nennlast), prim (Primär-), prod (produziert), PS (Pufferspeicher), Pu (Pumpe), Q (Wärmemenge), rB (rechnerische Betriebszeit), rd (zurückgewonnen), red (reduziert), reg (regenerativ), rl (rückgewinnbar), RV (Rückflussverhinderer), rv (Wohnungslüftungssystem), s (Speicher/Abstrahlung/oberer), S (Strang), Sch (Schaltung), shower, sin (reiner Heizbetrieb), SL (Stichleitung), slr (Auslastung Solar), sol (Solar), Sp (Spitzenzapfung), sys (Referenz), TH (Thermostatventil), V (horizontale Verteilung), VH (Vorhaltetemperatur), w (Trinkwarmwasser), WE (Wohneinheit), WRG (Wärmerückgewinnung), X (Platzhalter), Z (Zirkulationskreis), Zapf (Zapfverluste)",
+              "parameters_count": 110
+            },
+            {
+              "id": "DIN_18599-8_2018-09_TAB_3",
+              "number": "3",
+              "name": "Eingangsgrößen aus anderen Teilen der Reihe DIN/TS 18599",
+              "type": "interface_inputs",
+              "protected": false,
+              "summary": "Eingangsgrößen von Teilen 1,2,5,6,7,10 (n_G, n_G,Sanitär, L_char,Sanitär, h_G,Sanitär, h_G, A_NGF,Sanitär, A_NGF, A_NGF,WE,m, f_Hs/Hi, n_WE, θ_i,h, Q_w,sol, t_gen,op,combi,max,i, t_off,hp,d, d_h,rB, P_n, α_hp, f_Strom/i, θ_VA, Q*_rv,w,outg, n_Sp, d_mth, d_op,a, d_nutz,a, I_sol/I_sol,Ref, θ_e, q_w,b,a, q_w,b,day,NGF/q_w,b,day,X, θ_I,h,soll, t_op,day, Q_c,rd*, Q_h,rd*)",
+              "parameters_count": 32
+            },
+            {
+              "id": "DIN_18599-8_2018-09_TAB_4",
+              "number": "4",
+              "name": "Ausgangsgrößen für andere Teile der Reihe DIN/TS 18599",
+              "type": "interface_outputs",
+              "protected": false,
+              "summary": "Ausgangsgrößen für Teile 1,2,5,6,7,9 (Q_w,b, Q_w,f,in/Q_w,f,prod/Q_w,f,out, Q_w,outg, Q_w,ce, W_w,ce, Q_w,d, W_w,d, Q_I,w,d, Q_w,s, Q_w,s,a, W_w,s, Q_I,w,s, Q_w,gen, t_w,Pn,day, W_w,gen, Q_I,w,gen, Q_w,f,Hp/Q_w,f,DLE/Q_w,f,ESP, Q*_w,outg, t_w,gen,op,combi/t_w,gen,op,sng, Q_w,outg,bu, Q_w,DWHR,day)",
+              "parameters_count": 25
+            },
+            {
+              "id": "DIN_18599-8_2018-09_TAB_5",
+              "number": "5",
+              "name": "Ausgangsgrößen für Wärmeerzeuger an DIN/TS 18599-1",
+              "type": "interface_outputs_generators",
+              "protected": false,
+              "summary": "Wärmeerzeuger: Solaranlagen (6.5.2), strombetriebene WP (6.5.5), wärmebetriebene WP (6.5.5), Elektrodurchlauferhitzer (6.5.7), Gas-Durchlauferhitzer (6.5.8), Duschabwasser-WRG (6.5.11), Heizkessel (6.5.13), Gaswärmepumpe (6.5.14), elektrisch beheizter TWW-Speicher (6.5.16), gasbeheizter Speicher (6.5.17), Fern-/Nahwärme (6.5.18)",
+              "parameters_count": 11
+            }
+          ],
           "annexes": []
         },
         {
