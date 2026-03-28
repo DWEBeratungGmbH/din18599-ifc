@@ -751,12 +751,164 @@
           "version": "2018-09",
           "title": "Endenergiebedarf von Heizsystemen",
           "summary": "Berechnung Endenergiebedarf für Wärmeerzeugung, -verteilung, -übergabe und -speicherung",
-          "description": "Teil 5 legt die Berechnung des Endenergiebedarfs von Heizsystemen fest. Berücksichtigt werden Verluste und Hilfsenergie für Erzeugung (Kessel, Wärmepumpen, KWK, Fernwärme), Verteilung (Rohrleitungen), Übergabe (Heizkörper, Fußbodenheizung) und Speicherung (Pufferspeicher).",
+          "description": "Teil 5 legt die Berechnung des Endenergiebedarfs von Heizsystemen fest. Berücksichtigt werden Verluste und Hilfsenergie für Erzeugung (Kessel, Wärmepumpen, KWK, Fernwärme, Solaranlagen), Verteilung (Rohrleitungen, Stränge, Stichleitungen), Übergabe (Heizkörper, Fußbodenheizung, Lufterhitzer, Deckenheizung) und Speicherung (Pufferspeicher). 4-Prozessschritte-Modell: Übergabe → Verteilung → Speicherung → Erzeugung.",
           "scope": "heating_systems",
           "pages": 186,
-          "sections": [],
-          "tables": [],
-          "annexes": []
+          "normative_references": [
+            "DIN_4108-2",
+            "DIN_18599-1_2025-10",
+            "DIN_18599-2_2025-10",
+            "DIN_18599-6_2018-09",
+            "DIN_18599-7_2025-10",
+            "DIN_18599-8_2025-10",
+            "DIN_18599-9_2018-09",
+            "DIN_18599-10_2018-09",
+            "DIN_18599-11_2018-09",
+            "DIN_EN_215",
+            "DIN_EN_303-5",
+            "DIN_EN_304",
+            "DIN_EN_416",
+            "DIN_EN_419",
+            "DIN_EN_656",
+            "DIN_EN_1264-4",
+            "DIN_EN_12828",
+            "DIN_EN_12831-1",
+            "DIN_EN_12897",
+            "DIN_EN_12975-2_2006-06",
+            "DIN_EN_13410",
+            "DIN_EN_13842",
+            "DIN_EN_14037",
+            "DIN_EN_14336",
+            "DIN_EN_14511",
+            "DIN_EN_14511-3",
+            "DIN_EN_14825",
+            "DIN_EN_15035",
+            "DIN_EN_15232-1_2017-12",
+            "DIN_EN_15316-2",
+            "DIN_EN_15500-1",
+            "DIN_EN_15502-2-2",
+            "DIN_EN_16147",
+            "DIN_EN_17082",
+            "DIN_EN_ISO_7730",
+            "DIN_EN_ISO_9806",
+            "DIN_EN_ISO_10211",
+            "ISO_11855-7",
+            "VDI_4650_BLATT_2"
+          ],
+          "sections": [
+            {
+              "id": "DIN_18599-5_2018-09_SEC_2",
+              "number": "2",
+              "name": "Normative Verweisungen",
+              "summary": "38 referenzierte Normen: DIN 4108-2, DIN/TS 18599 Teile 1,2,6-11, DIN EN Serie (Heizkessel, Wärmepumpen, Solaranlagen), VDI 4650"
+            },
+            {
+              "id": "DIN_18599-5_2018-09_SEC_3",
+              "number": "3",
+              "name": "Begriffe, Symbole, Einheiten und Indizes",
+              "summary": "42 Begriffe (Aufwandszahl, Bereitschaftsverlust, Bivalenztemperatur, COP/Leistungszahl, Deckungsanteil, Endenergiebedarf, Erzeugung, Feuerungsleistung, Heizleistung, Hilfsenergieaufwand, kombinierter Betrieb, Konditionierung, Lastfaktor, Nennleistung, Nutzenergiebedarf, Produktwert, Standardwert, Teillastbetrieb, Übergabe, Verlust, Verteilung, Wärmeerzeuger, Wärmeträger, Wohnungsstationen, zentrale/dezentrale Heizungsanlage, Zone), Tabelle 1 (Symbole), Tabelle 2 (Indizes), Bild 3 (Indizierungsschema)"
+            },
+            {
+              "id": "DIN_18599-5_2018-09_SEC_3_1",
+              "number": "3.1",
+              "name": "Begriffe",
+              "summary": "42 zentrale Begriffe für Heizsysteme"
+            },
+            {
+              "id": "DIN_18599-5_2018-09_SEC_3_2",
+              "number": "3.2",
+              "name": "Symbole, Einheiten, Indizes und Abkürzungen",
+              "summary": "Tabelle 1 (80+ Symbole), Tabelle 2 (100+ Indizes), Abkürzungen (BImSchV, eu.bac, EC-Motor, WÜT, EVU, VRF, PV, THG, TRV), Bild 3 (Indizierungsschema)"
+            },
+            {
+              "id": "DIN_18599-5_2018-09_SEC_4",
+              "number": "4",
+              "name": "Verknüpfung der Teile der Reihe DIN/TS 18599",
+              "summary": "Tabelle 3 (Eingangsgrößen), Tabelle 4 (Ausgangsgrößen), Tabelle 5 (Wärmeerzeuger-Ausgangsgrößen), Abschnitt 4.3 (Erzeugernutzwärmeabgabe, Endenergiebedarf, Hilfsenergieaufwand, ungeregelte Wärmeeinträge)"
+            },
+            {
+              "id": "DIN_18599-5_2018-09_SEC_5",
+              "number": "5",
+              "name": "Allgemeines zur Berechnung",
+              "summary": "Berechnungsverfahren, Prozessbereiche (Übergabe, Verteilung, Speicherung, Erzeugung)"
+            },
+            {
+              "id": "DIN_18599-5_2018-09_SEC_6",
+              "number": "6",
+              "name": "Berechnung der Prozessbereiche",
+              "summary": "6.2 Übergabe, 6.3 Verteilung, 6.4 Speicherung, 6.5 Erzeugung (Solaranlagen, Wärmepumpen, Heizkessel, dezentrale Systeme, Gaswärmepumpen, elektrische Wärmeerzeuger, Fern-/Nahwärme)"
+            }
+          ],
+          "tables": [
+            {
+              "id": "DIN_18599-5_2018-09_TAB_1",
+              "number": "1",
+              "name": "Symbole und Einheiten",
+              "type": "symbols",
+              "protected": false,
+              "summary": "80+ Symbole für Heizsysteme: A (Fläche), a-f (Koeffizienten), B (Breite/Brennstoffdurchsatz), c (spez. Wärmekapazität), C (Konstante), COP (Leistungszahl), d (Tage), DH (Gradtagstunden), e (Aufwandszahl), f (Faktor), FC (Lastfaktor), h (Höhe), H (Strahlungssumme), HDH (kumulierte Gradtagstunden), HH (Stundensumme), k (Zählindex/Wärmeverlustkoeffizient), K/L (Temperaturkorrekturfaktoren), L (Länge), M (Massestrom), n/N (Anzahl), p (Druck), P (Leistung), Q (Energie), R (Wärmeübergangswiderstand), SCOP (Jahresarbeitszahl), t (Zeit), TKi (Temperaturklasse), U (Wärmedurchgangskoeffizient), V (Volumen), V̇ (Volumenstrom), W (Hilfsenergieaufwand/hydraulischer Energiebedarf), α (Leistungsanteil/Wärmeübergangszahl), β (Belastungsgrad), Φ (Heizlast/Heizleistung), φ (relative Heizleistung), κ (Deckungsanteil), η (Wirkungsgrad), θ (Temperatur)",
+              "parameters_count": 85
+            },
+            {
+              "id": "DIN_18599-5_2018-09_TAB_2",
+              "number": "2",
+              "name": "Indizes",
+              "type": "indices",
+              "protected": false,
+              "summary": "100+ Indizes: a (Jahr), A (Anbindung/Auslegung), ad (Adaption), aux (Hilfsenergie), av (mittel), b (Bedarf), B (Bauteile/Betrieb), Bezug, BIN (Klassen), Bio (Biomasse), biv (Bivalenzpunkt), bu (Nachheizung), c (Kollektor), C (Regelung), ce (Übergabe), CHP (KWK), combi (Kombination), con (Verbindung), cond (Kondensation), d (Verteilung), day (Tag), del (angeliefert), DS (Hausstation), DWHR (Duschabwasser-WRG), e (elektrisch/außen), ESP (Elektrischer Wärmeerzeuger), exh (Abluft), f (Endenergie/Faktor), fan (Ventilator), FBH (Fußbodenheizung), G (Gebäude/Zone), g/gen (Wärmeerzeuger), ges (gesamt), Grenz, H (Heizung/Heizsystem), hem(50°), HK (Heizkreis), HN (Himmelsrichtung/Neigung), Hp/hp (Wärmepumpe), HP (Spitzenlast-Erzeuger), Hs/Hi (Brennwert/Heizwert), hydr (hydraulisch), i (Zählindex/unterer/intern), j (Zählindex), in (Aufnahme), int (intermittierend), Itc (Abschaltpunkt), k (Kessel), K (Kombianlage/Kaltwasser), km (mittlere Kesseltemperatur), LH (Lufterhitzer), ls (Verlust), lower/upper, max/min, meas (gemessen), mot (Motor), mth (monatlich), n (Nenn), NA (Nachtabsenkung), N (Nacht), NGF, op (Betrieb), out (nach außen), outg (Erzeugernutzenergieabgabe), Pu (Pumpe), Pn/Pint/P0 (Volllast/Teillast/Bereitschaft), pa (Teilfläche), PM (Pumpenmanagement), prim (Primär), prod (produziert), PS (Pufferspeicher), PtH (Power-to-Heat), Q (Wärmemenge), RA (Rücklauf Auslegung), rB (rechnerische Betriebszeit), rd (zurückgewonnen), reg (regenerativ), rl (rückgewinnbar), rL (rechnerische Laufzeit), RL (Rücklauf), rv (Wohnungslüftungssystem), RV (Rückflussverhinderer), s (Speicher/Abstrahlung/oberer), S (Strang), Sch (Schaltung), sek (Sekundär), sin (reiner Heizbetrieb), SL (Stichleitung), slr (Auslastung Solaranlage), sol (Solar), soll (Soll/Nutz), str (Lufttemperaturprofil), sys (Referenz), Test, TKi, üsv (Überströmventil), V (horizontale Verteilung), VA/VL (Vorlauf), w (Trinkwarmwasser), W (Wärme), we (Wochenendabsenkung), wE (weitere Wärmeerzeuger), Z (Zirkulationskreis), 70 (Temperaturrandbedingung)",
+              "parameters_count": 110
+            },
+            {
+              "id": "DIN_18599-5_2018-09_TAB_3",
+              "number": "3",
+              "name": "Eingangsgrößen aus anderen Teilen der Reihe DIN/TS 18599",
+              "type": "interface_inputs",
+              "protected": false,
+              "summary": "Eingangsgrößen von Teilen 1,2,6,7,8,9,10 (n_G, B_char, L_char, Q_w,outg, h_G, h_R, A_NGF, f_Hs/Hi, θ_i,h, θ_i,c, θ_i,h,soll, Φ_h,max, d_op,mth, t_h, t_h,a, Q_h,b, Q_rv,h,outg*, θ_rd, θ_r,op, Q_c,f, Q_h*,b, θ_C,therm, t_R,op, θ_h*, Q_rd,mot/Q_rd, Q_w,outg,bu, Q_w,DWHR,day, Q_w,outg*, Q_w,s,a, t_w,gen,op,combi, t_w,gen,op,sng, t_w,Pn,day, P_th,CHP, d_mth, d_op,a, I_sol/I_sol,Ref, θ_e, θ_e,min, t_c,op,day, t_h*,op,day, t_h,op,day, Q_c,rd*, Q_c,outg, Q_h,outg,rd, Q_h,outg,rd,bu, θ_rd, θ_c,RL)",
+              "parameters_count": 45
+            },
+            {
+              "id": "DIN_18599-5_2018-09_TAB_4",
+              "number": "4",
+              "name": "Ausgangsgrößen für andere Teile der Reihe DIN/TS 18599",
+              "type": "interface_outputs",
+              "protected": false,
+              "summary": "Ausgangsgrößen für Teile 1,2,6,7,8,9 (Q_h,outg, Q_h,g, Q_h,f,in, Q_h,f,prod, Q_h,f,out, Q_h,f, Q_I,h, d_h,rB, Q_h,ce, W_h,ce, Q_h,d, W_h,d, Q_h,s, W_h,s, W_h,gen, Q_h,f,gen,HPp, Q_h,f,gen,ESP, P_n, t_off,hp,d, Q_h,rd*, W_h,d, θ_VL,av, θ_RL,av, θ_VA, θ_RA, α_hp, f_Strom/i)",
+              "parameters_count": 28
+            },
+            {
+              "id": "DIN_18599-5_2018-09_TAB_5",
+              "number": "5",
+              "name": "Ausgangsgrößen für Wärmeerzeuger an Teil 1 der Reihe DIN/TS 18599",
+              "type": "interface_outputs_generators",
+              "protected": false,
+              "summary": "Wärmeerzeuger-spezifische Ausgangsgrößen: Solaranlagen (6.5.2), strombetriebene Wärmepumpe (6.5.3), wärmebetriebene Wärmepumpe (6.5.3), Heizkessel (6.5.4.3), dezentral brennstoffbeheizte Systeme (6.5.5.1-6.5.5.5), dezentrale Hallenheizung (6.5.5.6), Gaswärmepumpe (6.5.7), elektrisch beheizte Wärmeerzeuger (6.5.8), Fern-/Nahwärme (6.5.9)",
+              "parameters_count": 9
+            }
+          ],
+          "annexes": [
+            {
+              "id": "DIN_18599-5_2018-09_ANNEX_A",
+              "letter": "A",
+              "name": "Berechnungsbeispiele",
+              "type": "informative",
+              "summary": "Beispielrechnungen für verschiedene Heizsysteme"
+            },
+            {
+              "id": "DIN_18599-5_2018-09_ANNEX_B",
+              "letter": "B",
+              "name": "Tabellenwerte",
+              "type": "normative",
+              "summary": "Standardwerte für Wärmeerzeuger, Verteilsysteme, Übergabesysteme"
+            },
+            {
+              "id": "DIN_18599-5_2018-09_ANNEX_G",
+              "letter": "G",
+              "name": "Wärmeverschiebung",
+              "type": "normative",
+              "summary": "Berechnung Wärmepumpe mit Raumkühlung als Wärmequelle"
+            }
+          ]
         },
         {
           "id": "DIN_18599-6_2018-09",
