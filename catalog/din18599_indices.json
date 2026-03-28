@@ -16,281 +16,3702 @@
     "part_9": 75,
     "part_10": 65,
     "part_11": 25,
-    "current_count": 12,
-    "completion_percentage": 2
+    "current_count": 319,
+    "completion_percentage": 43
   },
-  
   "indices": [
     {
       "index": "i",
       "name_de": "innen",
       "name_en": "indoor, interior",
       "type": "location",
-      "used_in_parts": [1, 2, 3, 4, 5, 6, 7, 8, 10, 11],
-      "examples": ["theta_i", "theta_i_h_soll", "theta_i_c_soll"]
+      "used_in_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        9
+      ],
+      "examples": [
+        "theta_i",
+        "theta_i_h_soll",
+        "theta_i_c_soll"
+      ]
     },
     {
       "index": "e",
       "name_de": "außen, äußere",
       "name_en": "external, exterior, outdoor",
       "type": "location",
-      "used_in_parts": [1, 2, 3, 5, 6, 7, 8, 10],
-      "examples": ["theta_e", "Q_e"]
+      "used_in_parts": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        10,
+        4
+      ],
+      "examples": [
+        "theta_e",
+        "Q_e"
+      ]
     },
     {
       "index": "h",
       "name_de": "Heizung, Raumheizsystem",
       "name_en": "heating, heating system",
       "type": "system",
-      "used_in_parts": [1, 2, 3, 5, 6, 7, 8, 9, 10, 11],
-      "examples": ["Q_h_b", "Q_h_f", "W_h", "theta_i_h_soll"]
+      "used_in_parts": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "examples": [
+        "Q_h_b",
+        "Q_h_f",
+        "W_h",
+        "theta_i_h_soll"
+      ]
     },
     {
       "index": "c",
       "name_de": "Kühlung, Raumkühlsystem",
       "name_en": "cooling system",
       "type": "system",
-      "used_in_parts": [1, 2, 3, 6, 7, 9, 10, 11],
-      "examples": ["Q_c_b", "Q_c_f", "W_c", "theta_i_c_soll"]
+      "used_in_parts": [
+        1,
+        2,
+        3,
+        6,
+        7,
+        9,
+        10,
+        11,
+        5
+      ],
+      "examples": [
+        "Q_c_b",
+        "Q_c_f",
+        "W_c",
+        "theta_i_c_soll"
+      ]
     },
     {
       "index": "w",
       "name_de": "Trinkwarmwasser",
       "name_en": "domestic hot water, potable hot water",
       "type": "system",
-      "used_in_parts": [1, 5, 8, 9, 10, 11],
-      "examples": ["Q_w_b", "Q_w_f", "Q_w_outg"]
+      "used_in_parts": [
+        1,
+        5,
+        8,
+        9,
+        10,
+        11,
+        6
+      ],
+      "examples": [
+        "Q_w_b",
+        "Q_w_f",
+        "Q_w_outg"
+      ]
     },
     {
       "index": "l",
       "name_de": "Beleuchtung, Licht",
       "name_en": "lighting, light",
       "type": "system",
-      "used_in_parts": [1, 4, 9, 11],
-      "examples": ["Q_l_b", "Q_l_f", "W_l"]
+      "used_in_parts": [
+        1,
+        4,
+        9,
+        11,
+        6
+      ],
+      "examples": [
+        "Q_l_b",
+        "Q_l_f",
+        "W_l"
+      ]
     },
     {
       "index": "v",
       "name_de": "Lüftung, Luftaufbereitung",
       "name_en": "ventilation, air conditioning",
       "type": "system",
-      "used_in_parts": [1, 3, 6, 7, 10],
-      "examples": ["Q_v_b", "Q_vh_b", "Q_vc_b"]
+      "used_in_parts": [
+        1,
+        3,
+        6,
+        7,
+        10
+      ],
+      "examples": [
+        "Q_v_b",
+        "Q_vh_b",
+        "Q_vc_b"
+      ]
     },
     {
       "index": "b",
       "name_de": "Bedarf",
       "name_en": "use, need, demand",
       "type": "energy_level",
-      "used_in_parts": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-      "examples": ["Q_h_b", "Q_c_b", "Q_w_b", "Q_l_b"]
+      "used_in_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "examples": [
+        "Q_h_b",
+        "Q_c_b",
+        "Q_w_b",
+        "Q_l_b"
+      ]
     },
     {
       "index": "f",
       "name_de": "Endenergie",
       "name_en": "final energy",
       "type": "energy_level",
-      "used_in_parts": [1, 5, 6, 7, 8, 9],
-      "examples": ["Q_h_f", "Q_c_f", "Q_w_f", "Q_l_f"]
+      "used_in_parts": [
+        1,
+        5,
+        6,
+        7,
+        8,
+        9,
+        2,
+        11
+      ],
+      "examples": [
+        "Q_h_f",
+        "Q_c_f",
+        "Q_w_f",
+        "Q_l_f"
+      ]
     },
     {
       "index": "p",
       "name_de": "Primärenergie, primär, Personen",
       "name_en": "primary energy, primary, person",
       "type": "energy_level",
-      "used_in_parts": [1, 2, 9, 10],
-      "examples": ["Q_p", "f_p", "q_p"]
+      "used_in_parts": [
+        1,
+        2,
+        9,
+        10,
+        6
+      ],
+      "examples": [
+        "Q_p",
+        "f_p",
+        "q_p"
+      ]
     },
     {
       "index": "ce",
       "name_de": "Übergabe, Regelung der Übergabe",
       "name_en": "emission, control of emission",
       "type": "process_step",
-      "used_in_parts": [1, 5, 6, 7, 8, 11],
-      "examples": ["Q_h_ce", "Q_c_ce", "Q_w_ce", "e_ce"]
+      "used_in_parts": [
+        1,
+        5,
+        6,
+        7,
+        8,
+        11
+      ],
+      "examples": [
+        "Q_h_ce",
+        "Q_c_ce",
+        "Q_w_ce",
+        "e_ce"
+      ]
     },
     {
       "index": "d",
       "name_de": "Verteilung, Tag/Tageswert",
       "name_en": "distribution, day/daily value",
       "type": "process_step",
-      "used_in_parts": [1, 5, 6, 7, 8, 9, 10, 11],
-      "examples": ["Q_h_d", "Q_c_d", "Q_w_d", "e_d", "t_d", "d_nutz_a"]
+      "used_in_parts": [
+        1,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        2
+      ],
+      "examples": [
+        "Q_h_d",
+        "Q_c_d",
+        "Q_w_d",
+        "e_d",
+        "t_d",
+        "d_nutz_a"
+      ]
     },
     {
       "index": "s",
       "name_de": "Speicherung, Speicher",
       "name_en": "storage",
       "type": "process_step",
-      "used_in_parts": [1, 5, 7, 8],
-      "examples": ["Q_h_s", "Q_c_s", "Q_w_s", "e_s"]
+      "used_in_parts": [
+        1,
+        5,
+        7,
+        8,
+        2,
+        4,
+        6
+      ],
+      "examples": [
+        "Q_h_s",
+        "Q_c_s",
+        "Q_w_s",
+        "e_s"
+      ]
     },
     {
       "index": "g",
       "name_de": "Erzeugung, Wärmeerzeuger",
       "name_en": "generation, heat generator",
       "type": "process_step",
-      "used_in_parts": [1, 5, 6, 7, 8, 9, 11],
-      "examples": ["Q_h_g", "Q_c_g", "Q_w_gen", "e_g"]
+      "used_in_parts": [
+        1,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        2
+      ],
+      "examples": [
+        "Q_h_g",
+        "Q_c_g",
+        "Q_w_gen",
+        "e_g"
+      ]
     },
     {
       "index": "outg",
       "name_de": "Erzeugernutzwärmeabgabe, Erzeugernutzenergie",
       "name_en": "useful generator heat output, useful generator energy output",
       "type": "process_step",
-      "used_in_parts": [5, 6, 7, 8, 9],
-      "examples": ["Q_h_outg", "Q_c_outg", "Q_w_outg"]
+      "used_in_parts": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        1
+      ],
+      "examples": [
+        "Q_h_outg",
+        "Q_c_outg",
+        "Q_w_outg"
+      ]
     },
     {
       "index": "a",
       "name_de": "Anteil, Jahr/Jahreswert, Über-",
       "name_en": "proportion, year/annual value, over",
       "type": "time",
-      "used_in_parts": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
-      "examples": ["Q_h_f_a", "d_nutz_a", "q_w_b_a"]
+      "used_in_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "examples": [
+        "Q_h_f_a",
+        "d_nutz_a",
+        "q_w_b_a"
+      ]
     },
     {
       "index": "mth",
       "name_de": "Monat, monatlich",
       "name_en": "month, monthly",
       "type": "time",
-      "used_in_parts": [1, 2, 3, 5, 6, 7, 8, 9],
-      "examples": ["Q_h_b_mth", "d_mth"]
+      "used_in_parts": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "examples": [
+        "Q_h_b_mth",
+        "d_mth"
+      ]
     },
     {
       "index": "op",
       "name_de": "Betrieb, Betriebszeit",
       "name_en": "operation, operating time",
       "type": "state",
-      "used_in_parts": [2, 3, 5, 6, 7, 8, 9, 10, 11],
-      "examples": ["t_op", "t_h_op", "d_op_a"]
+      "used_in_parts": [
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "examples": [
+        "t_op",
+        "t_h_op",
+        "d_op_a"
+      ]
     },
     {
       "index": "nutz",
       "name_de": "Nutzung",
       "name_en": "use, during using hours",
       "type": "state",
-      "used_in_parts": [2, 3, 4, 10],
-      "examples": ["t_nutz_d", "d_nutz_a", "n_nutz"]
+      "used_in_parts": [
+        2,
+        3,
+        4,
+        10,
+        9
+      ],
+      "examples": [
+        "t_nutz_d",
+        "d_nutz_a",
+        "n_nutz"
+      ]
     },
     {
       "index": "soll",
       "name_de": "Sollwert",
       "name_en": "set-point value",
       "type": "state",
-      "used_in_parts": [2, 5, 8, 10],
-      "examples": ["theta_i_h_soll", "theta_i_c_soll"]
+      "used_in_parts": [
+        2,
+        5,
+        8,
+        10
+      ],
+      "examples": [
+        "theta_i_h_soll",
+        "theta_i_c_soll"
+      ]
     },
     {
       "index": "NA",
       "name_de": "Nachtabschaltung, Nachtabsenkung",
       "name_en": "reduced heating operation, night-time set-back",
       "type": "state",
-      "used_in_parts": [2, 5, 10, 11],
-      "examples": ["delta_theta_i_NA"]
+      "used_in_parts": [
+        2,
+        5,
+        10,
+        11
+      ],
+      "examples": [
+        "delta_theta_i_NA"
+      ]
     },
     {
       "index": "el",
       "name_de": "elektrisch, elektrische Energie",
       "name_en": "electrical, electric power",
       "type": "energy_type",
-      "used_in_parts": [1, 4, 8, 9, 10, 11],
-      "examples": ["Q_el_b", "q_el_b", "W_el"]
+      "used_in_parts": [
+        1,
+        4,
+        8,
+        9,
+        10,
+        11
+      ],
+      "examples": [
+        "Q_el_b",
+        "q_el_b",
+        "W_el"
+      ]
     },
     {
       "index": "aux",
       "name_de": "Hilfsenergie, Hilfs-",
       "name_en": "auxiliary energy, auxiliary",
       "type": "energy_type",
-      "used_in_parts": [1, 5, 6, 7, 8, 9, 11],
-      "examples": ["W_aux"]
+      "used_in_parts": [
+        1,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11
+      ],
+      "examples": [
+        "W_aux"
+      ]
     },
     {
       "index": "I",
       "name_de": "innere, intern",
       "name_en": "internal",
       "type": "location",
-      "used_in_parts": [2, 8, 10],
-      "examples": ["Q_I", "q_I", "theta_I"]
+      "used_in_parts": [
+        2,
+        8,
+        10,
+        1,
+        6
+      ],
+      "examples": [
+        "Q_I",
+        "q_I",
+        "theta_I"
+      ]
     },
     {
       "index": "S",
       "name_de": "Solar, Sommer",
       "name_en": "solar, summer",
       "type": "source",
-      "used_in_parts": [2, 5, 8, 10, 11],
-      "examples": ["Q_S", "I_sol"]
+      "used_in_parts": [
+        2,
+        5,
+        8,
+        10,
+        11,
+        1,
+        3,
+        9
+      ],
+      "examples": [
+        "Q_S",
+        "I_sol"
+      ]
     },
     {
       "index": "T",
       "name_de": "Transmission",
       "name_en": "transmission",
       "type": "heat_transfer",
-      "used_in_parts": [2],
-      "examples": ["Q_T", "H_T"]
+      "used_in_parts": [
+        2,
+        1,
+        3,
+        6
+      ],
+      "examples": [
+        "Q_T",
+        "H_T"
+      ]
     },
     {
       "index": "V",
       "name_de": "Lüftung, Verteilung (horizontal)",
       "name_en": "ventilation, distribution (horizontal)",
       "type": "heat_transfer",
-      "used_in_parts": [2, 3, 8, 10],
-      "examples": ["Q_V", "H_V"]
+      "used_in_parts": [
+        2,
+        3,
+        8,
+        10,
+        1,
+        4,
+        5,
+        6
+      ],
+      "examples": [
+        "Q_V",
+        "H_V"
+      ]
     },
     {
       "index": "NGF",
       "name_de": "Nettogrundfläche",
       "name_en": "net floor area",
       "type": "area",
-      "used_in_parts": [1, 8, 9, 10],
-      "examples": ["A_NGF", "q_w_b_day_NGF"]
+      "used_in_parts": [
+        1,
+        8,
+        9,
+        10,
+        5,
+        6
+      ],
+      "examples": [
+        "A_NGF",
+        "q_w_b_day_NGF"
+      ]
     },
     {
       "index": "WE",
       "name_de": "Wohneinheit, Wohnung",
       "name_en": "residential unit, apartment",
       "type": "building_type",
-      "used_in_parts": [1, 8, 10],
-      "examples": ["A_NGF_WE_m", "n_WE"]
+      "used_in_parts": [
+        1,
+        8,
+        10
+      ],
+      "examples": [
+        "A_NGF_WE_m",
+        "n_WE"
+      ]
     },
     {
       "index": "max",
       "name_de": "maximal",
       "name_en": "maximum",
       "type": "value_type",
-      "used_in_parts": [2, 3, 5, 6, 7, 10],
-      "examples": ["P_H_max", "P_C_max", "theta_i_c_max"]
+      "used_in_parts": [
+        2,
+        3,
+        5,
+        6,
+        7,
+        10
+      ],
+      "examples": [
+        "P_H_max",
+        "P_C_max",
+        "theta_i_c_max"
+      ]
     },
     {
       "index": "min",
       "name_de": "minimal, Mindest-",
       "name_en": "minimal, minimum",
       "type": "value_type",
-      "used_in_parts": [2, 3, 9, 10],
-      "examples": ["theta_i_h_min", "n_min"]
+      "used_in_parts": [
+        2,
+        3,
+        9,
+        10,
+        1,
+        6
+      ],
+      "examples": [
+        "theta_i_h_min",
+        "n_min"
+      ]
     },
     {
       "index": "av",
       "name_de": "mittel, mittlere",
       "name_en": "average, mean",
       "type": "value_type",
-      "used_in_parts": [5, 7, 9, 11],
-      "examples": ["theta_VL_av", "theta_RL_av"]
+      "used_in_parts": [
+        5,
+        7,
+        9,
+        11
+      ],
+      "examples": [
+        "theta_VL_av",
+        "theta_RL_av"
+      ]
+    },
+    {
+      "index": "aut",
+      "name_de": "Automation",
+      "name_en": "automation",
+      "type": "general",
+      "used_in_parts": [
+        1,
+        11
+      ],
+      "examples": []
+    },
+    {
+      "index": "B",
+      "name_de": "Brüstung",
+      "name_en": "breast",
+      "type": "general",
+      "used_in_parts": [
+        1,
+        2,
+        4,
+        5,
+        6
+      ],
+      "examples": []
+    },
+    {
+      "index": "bio",
+      "name_de": "biogen",
+      "name_en": "biogenic",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": []
+    },
+    {
+      "index": "c\\*",
+      "name_de": "RLT-Kühlfunktion, Kälteversorgung der RLT-Anlage",
+      "name_en": "cooling energy supply for the ac-system",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": []
+    },
+    {
+      "index": "char",
+      "name_de": "charakteristisch",
+      "name_en": "characteristic",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": []
+    },
+    {
+      "index": "CHP",
+      "name_de": "Kraft-Wärme-Kopplung (KWK)",
+      "name_en": "combined heat and power",
+      "type": "general",
+      "used_in_parts": [
+        1,
+        5,
+        9
+      ],
+      "examples": []
+    },
+    {
+      "index": "CO",
+      "name_de": "Kohlenstoffdioxid",
+      "name_en": "carbon dioxide",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": []
+    },
+    {
+      "index": "ext",
+      "name_de": "externes Versorgungsnetz",
+      "name_en": "external distribution net",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": []
+    },
+    {
+      "index": "fac",
+      "name_de": "Geräte",
+      "name_en": "facilities",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": []
+    },
+    {
+      "index": "fossil",
+      "name_de": "fossil",
+      "name_en": "fossil",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": []
+    },
+    {
+      "index": "g, gen",
+      "name_de": "Erzeugung",
+      "name_en": "generation",
+      "type": "general",
+      "used_in_parts": [
+        1,
+        5,
+        11
+      ],
+      "examples": []
+    },
+    {
+      "index": "G",
+      "name_de": "Geschoss",
+      "name_en": "floor",
+      "type": "general",
+      "used_in_parts": [
+        1,
+        2,
+        5
+      ],
+      "examples": []
+    },
+    {
+      "index": "geo",
+      "name_de": "geometrisch",
+      "name_en": "geometric",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": []
+    },
+    {
+      "index": "goods",
+      "name_de": "Güter",
+      "name_en": "goods",
+      "type": "general",
+      "used_in_parts": [
+        1,
+        2
+      ],
+      "examples": []
+    },
+    {
+      "index": "h\\*",
+      "name_de": "RLT-Heizfunktion, Wärmeversorgung der RLT-Anlage",
+      "name_en": "heating energy supply for the ac-system",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": []
+    },
+    {
+      "index": "Hi",
+      "name_de": "heizwertbezogen",
+      "name_en": "based on inferior heating value",
+      "type": "general",
+      "used_in_parts": [
+        1,
+        9
+      ],
+      "examples": []
+    },
+    {
+      "index": "Hs",
+      "name_de": "brennwertbezogen",
+      "name_en": "based on superior heating value",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": []
+    },
+    {
+      "index": "in",
+      "name_de": "zugeführt",
+      "name_en": "delivered (into)",
+      "type": "general",
+      "used_in_parts": [
+        1,
+        3,
+        5,
+        6,
+        9
+      ],
+      "examples": []
+    },
+    {
+      "index": "inf",
+      "name_de": "Infiltration",
+      "name_en": "infiltration",
+      "type": "general",
+      "used_in_parts": [
+        1,
+        2
+      ],
+      "examples": []
+    },
+    {
+      "index": "*i, j, k, x*",
+      "name_de": "Laufindex",
+      "name_en": "running index",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": []
+    },
+    {
+      "index": "m",
+      "name_de": "mittel-",
+      "name_en": "average",
+      "type": "general",
+      "used_in_parts": [
+        1,
+        9,
+        10
+      ],
+      "examples": []
+    },
+    {
+      "index": "mech",
+      "name_de": "mechanisch, maschinell",
+      "name_en": "mechanical",
+      "type": "general",
+      "used_in_parts": [
+        1,
+        2,
+        3,
+        6
+      ],
+      "examples": []
+    },
+    {
+      "index": "N, Nutz",
+      "name_de": "Nutz-",
+      "name_en": "use",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": []
+    },
+    {
+      "index": "opak",
+      "name_de": "opak",
+      "name_en": "opaque",
+      "type": "general",
+      "used_in_parts": [
+        1,
+        2
+      ],
+      "examples": []
+    },
+    {
+      "index": "out",
+      "name_de": "abgegeben, abgeführt",
+      "name_en": "discharged (out)",
+      "type": "general",
+      "used_in_parts": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        9
+      ],
+      "examples": []
+    },
+    {
+      "index": "P",
+      "name_de": "Person",
+      "name_en": "person",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": []
+    },
+    {
+      "index": "PP",
+      "name_de": "Kraftwerk",
+      "name_en": "power plant",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": []
+    },
+    {
+      "index": "prod",
+      "name_de": "produziert",
+      "name_en": "produced",
+      "type": "general",
+      "used_in_parts": [
+        1,
+        5,
+        6,
+        9
+      ],
+      "examples": []
+    },
+    {
+      "index": "PV",
+      "name_de": "Photovoltaik",
+      "name_en": "photovoltaics",
+      "type": "general",
+      "used_in_parts": [
+        1,
+        9,
+        10
+      ],
+      "examples": []
+    },
+    {
+      "index": "R",
+      "name_de": "Raum",
+      "name_en": "room",
+      "type": "general",
+      "used_in_parts": [
+        1,
+        4
+      ],
+      "examples": []
+    },
+    {
+      "index": "rc",
+      "name_de": "Wohnungskühlsystem",
+      "name_en": "residential cooling system",
+      "type": "general",
+      "used_in_parts": [
+        1,
+        6,
+        10
+      ],
+      "examples": []
+    },
+    {
+      "index": "rv",
+      "name_de": "Wohnungslüftungssystem",
+      "name_en": "residential heating system",
+      "type": "general",
+      "used_in_parts": [
+        1,
+        5,
+        6,
+        9,
+        10,
+        11
+      ],
+      "examples": []
+    },
+    {
+      "index": "Sanitär",
+      "name_de": "Sanitär-",
+      "name_en": "sanitary",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": []
+    },
+    {
+      "index": "st",
+      "name_de": "Befeuchtung",
+      "name_en": "humidification",
+      "type": "general",
+      "used_in_parts": [
+        1,
+        3,
+        6
+      ],
+      "examples": []
+    },
+    {
+      "index": "self",
+      "name_de": "selbst",
+      "name_en": "self",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": []
+    },
+    {
+      "index": "sink",
+      "name_de": "Wärmesenke",
+      "name_en": "heat sink",
+      "type": "general",
+      "used_in_parts": [
+        1,
+        2
+      ],
+      "examples": []
+    },
+    {
+      "index": "source",
+      "name_de": "Wärmequelle",
+      "name_en": "heat source",
+      "type": "general",
+      "used_in_parts": [
+        1,
+        2
+      ],
+      "examples": []
+    },
+    {
+      "index": "Strom",
+      "name_de": "Strom",
+      "name_en": "electricity",
+      "type": "general",
+      "used_in_parts": [
+        1,
+        9
+      ],
+      "examples": []
+    },
+    {
+      "index": "SUP",
+      "name_de": "Zuluft",
+      "name_en": "supply air",
+      "type": "general",
+      "used_in_parts": [
+        1,
+        2,
+        3,
+        6
+      ],
+      "examples": []
+    },
+    {
+      "index": "tot",
+      "name_de": "total, Gesamt-",
+      "name_en": "total",
+      "type": "general",
+      "used_in_parts": [
+        1,
+        2
+      ],
+      "examples": []
+    },
+    {
+      "index": "tr",
+      "name_de": "transparent",
+      "name_en": "transparent",
+      "type": "general",
+      "used_in_parts": [
+        1,
+        2
+      ],
+      "examples": []
+    },
+    {
+      "index": "use",
+      "name_de": "genutzt",
+      "name_en": "used",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": []
+    },
+    {
+      "index": "vc",
+      "name_de": "RLT-Lüftungssystem (kalt, als Wärmesenke wirksam)",
+      "name_en": "ventilation ac-system (cold)",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": []
+    },
+    {
+      "index": "vh",
+      "name_de": "RLT-Lüftungssystem (warm, als Wärmequelle wirksam)",
+      "name_en": "ventilation ac-system (hot)",
+      "type": "general",
+      "used_in_parts": [
+        1,
+        11
+      ],
+      "examples": []
+    },
+    {
+      "index": "Wärme",
+      "name_de": "Wärme",
+      "name_en": "thermal energy",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": []
+    },
+    {
+      "index": "WB",
+      "name_de": "Wärmebrücken",
+      "name_en": "thermal bridges, heat bridges",
+      "type": "general",
+      "used_in_parts": [
+        1,
+        2
+      ],
+      "examples": []
+    },
+    {
+      "index": "WEA",
+      "name_de": "Windenergieanlage",
+      "name_en": "wind energy plant",
+      "type": "general",
+      "used_in_parts": [
+        1,
+        9
+      ],
+      "examples": []
+    },
+    {
+      "index": "wohn",
+      "name_de": "Wohn-",
+      "name_en": "living",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": []
+    },
+    {
+      "index": "Deutsch",
+      "name_de": "Englisch",
+      "name_en": "",
+      "type": "general",
+      "used_in_parts": [
+        2,
+        4,
+        5,
+        6,
+        9,
+        10,
+        11
+      ],
+      "examples": []
+    },
+    {
+      "index": "adapt",
+      "name_de": "adaptiv (Gebäudeautomation)",
+      "name_en": "adaptive (building automation)",
+      "type": "general",
+      "used_in_parts": [
+        2,
+        10,
+        11
+      ],
+      "examples": []
+    },
+    {
+      "index": "ATD",
+      "name_de": "Berücksichtigung von Außenluftdurchlässen",
+      "name_en": "air transfer device",
+      "type": "general",
+      "used_in_parts": [
+        2
+      ],
+      "examples": []
+    },
+    {
+      "index": "f,b",
+      "name_de": "über Bodenplatte bzw. Kellerfußboden in das Erdreich",
+      "name_en": "via floor slab or floor of basement to ground",
+      "type": "general",
+      "used_in_parts": [
+        2
+      ],
+      "examples": []
+    },
+    {
+      "index": "w,b",
+      "name_de": "über Kellerwand in das Erdreich",
+      "name_en": "via wall of basement to ground",
+      "type": "general",
+      "used_in_parts": [
+        2
+      ],
+      "examples": []
+    },
+    {
+      "index": "C",
+      "name_de": "die Wärmespeicherung betreffend",
+      "name_en": "relating to heat storage",
+      "type": "general",
+      "used_in_parts": [
+        2,
+        5,
+        6,
+        11
+      ],
+      "examples": []
+    },
+    {
+      "index": "D",
+      "name_de": "über Wände und Decken zum unbeheizten Dachraum",
+      "name_en": "via ceiling and internal wall to unheated attic space",
+      "type": "general",
+      "used_in_parts": [
+        2,
+        4
+      ],
+      "examples": []
+    },
+    {
+      "index": "eff",
+      "name_de": "effektiv",
+      "name_en": "effective",
+      "type": "general",
+      "used_in_parts": [
+        2,
+        4,
+        9
+      ],
+      "examples": []
+    },
+    {
+      "index": "elektr",
+      "name_de": "elektrisch",
+      "name_en": "electrical",
+      "type": "general",
+      "used_in_parts": [
+        2
+      ],
+      "examples": []
+    },
+    {
+      "index": "E",
+      "name_de": "Hüllfläche nach DIN EN ISO 9972",
+      "name_en": "enveloping surface according to DIN EN ISO 9972",
+      "type": "general",
+      "used_in_parts": [
+        2
+      ],
+      "examples": []
+    },
+    {
+      "index": "EMS",
+      "name_de": "Gebäudeautomation",
+      "name_en": "building automation",
+      "type": "general",
+      "used_in_parts": [
+        2,
+        10
+      ],
+      "examples": []
+    },
+    {
+      "index": "ETA",
+      "name_de": "Abluft einer mechanischen Lüftungsanlage",
+      "name_en": "extract air",
+      "type": "general",
+      "used_in_parts": [
+        2,
+        3,
+        6
+      ],
+      "examples": []
+    },
+    {
+      "index": "F",
+      "name_de": "Rahmen",
+      "name_en": "frame",
+      "type": "general",
+      "used_in_parts": [
+        2,
+        3,
+        4
+      ],
+      "examples": []
+    },
+    {
+      "index": "app",
+      "name_de": "Arbeitshilfen",
+      "name_en": "appliances",
+      "type": "general",
+      "used_in_parts": [
+        2,
+        10
+      ],
+      "examples": []
+    },
+    {
+      "index": "In",
+      "name_de": "eintretend",
+      "name_en": "delivered (into), input, entering",
+      "type": "general",
+      "used_in_parts": [
+        2,
+        4
+      ],
+      "examples": []
+    },
+    {
+      "index": "ls",
+      "name_de": "Verlust",
+      "name_en": "loss",
+      "type": "general",
+      "used_in_parts": [
+        2,
+        5
+      ],
+      "examples": []
+    },
+    {
+      "index": "ls,ce",
+      "name_de": "Verluste der Übergabe",
+      "name_en": "control and emission",
+      "type": "general",
+      "used_in_parts": [
+        2
+      ],
+      "examples": []
+    },
+    {
+      "index": "iu",
+      "name_de": "von beheizter Gebäudezone in eine unbeheizte Gebäudezone",
+      "name_en": "from thermally conditioned to thermally unconditioned zone",
+      "type": "general",
+      "used_in_parts": [
+        2
+      ],
+      "examples": []
+    },
+    {
+      "index": "*j,k,l*",
+      "name_de": "Laufvariablen",
+      "name_en": "serial variables",
+      "type": "general",
+      "used_in_parts": [
+        2
+      ],
+      "examples": []
+    },
+    {
+      "index": "L",
+      "name_de": "Licht",
+      "name_en": "light",
+      "type": "general",
+      "used_in_parts": [
+        2,
+        3,
+        4,
+        6
+      ],
+      "examples": []
+    },
+    {
+      "index": "nb",
+      "name_de": "niedrig beheizter Raum bzw. Gebäudezone (mit Temperaturen zwischen 12 °C und 19 °C)",
+      "name_en": "low heated room/zone (with temperatures between 12 °C and 19 °C)",
+      "type": "general",
+      "used_in_parts": [
+        2
+      ],
+      "examples": []
+    },
+    {
+      "index": "neig",
+      "name_de": "Neigung",
+      "name_en": "tilt",
+      "type": "general",
+      "used_in_parts": [
+        2
+      ],
+      "examples": []
+    },
+    {
+      "index": "res",
+      "name_de": "resultierend",
+      "name_en": "resulting",
+      "type": "general",
+      "used_in_parts": [
+        2
+      ],
+      "examples": []
+    },
+    {
+      "index": "sh",
+      "name_de": "Abschluss",
+      "name_en": "shutter",
+      "type": "general",
+      "used_in_parts": [
+        2
+      ],
+      "examples": []
+    },
+    {
+      "index": "seasonal",
+      "name_de": "saisonale Anpassung des Fensterluftwechsels für Wohngebäude",
+      "name_en": "seasonal adjustment of window air exchange for residential buildings",
+      "type": "general",
+      "used_in_parts": [
+        2
+      ],
+      "examples": []
+    },
+    {
+      "index": "sus",
+      "name_de": "über aufgeständerten Fußboden",
+      "name_en": "via suspended floor",
+      "type": "general",
+      "used_in_parts": [
+        2
+      ],
+      "examples": []
+    },
+    {
+      "index": "tb",
+      "name_de": "teilbeheizt, Teilbeheizung",
+      "name_en": "partially heated",
+      "type": "general",
+      "used_in_parts": [
+        2,
+        10
+      ],
+      "examples": []
+    },
+    {
+      "index": "TI",
+      "name_de": "transparente Wärmedämmung",
+      "name_en": "transparent thermal insulation",
+      "type": "general",
+      "used_in_parts": [
+        2
+      ],
+      "examples": []
+    },
+    {
+      "index": "u",
+      "name_de": "unbeheizter oder ungekühlter Raum bzw. Gebäudezone",
+      "name_en": "unheated or uncooled space or building zone",
+      "type": "general",
+      "used_in_parts": [
+        2,
+        3,
+        4
+      ],
+      "examples": []
+    },
+    {
+      "index": "ub",
+      "name_de": "über Trenndecke und Trennwände zum unbeheizten Kellerraum",
+      "name_en": "via ceiling and internal wall to unheated basement room",
+      "type": "general",
+      "used_in_parts": [
+        2
+      ],
+      "examples": []
+    },
+    {
+      "index": "ue",
+      "name_de": "von unbeheizter Gebäudezone zur Außenluft (siehe auch Index „e\")",
+      "name_en": "from unheated building zone to external air (also prefer to subscript „e\")",
+      "type": "general",
+      "used_in_parts": [
+        2
+      ],
+      "examples": []
+    },
+    {
+      "index": "V,mech",
+      "name_de": "mechanische Lüftung betreffend",
+      "name_en": "concerning mechanical ventilation",
+      "type": "general",
+      "used_in_parts": [
+        2,
+        10
+      ],
+      "examples": []
+    },
+    {
+      "index": "win",
+      "name_de": "Fenster",
+      "name_en": "window",
+      "type": "general",
+      "used_in_parts": [
+        2
+      ],
+      "examples": []
+    },
+    {
+      "index": "wirk",
+      "name_de": "wirksam",
+      "name_en": "effective",
+      "type": "general",
+      "used_in_parts": [
+        2
+      ],
+      "examples": []
+    },
+    {
+      "index": "we",
+      "name_de": "Wochenend- oder Ferienbetrieb",
+      "name_en": "weekend or holiday-period operating mode",
+      "type": "general",
+      "used_in_parts": [
+        2,
+        5,
+        10
+      ],
+      "examples": []
+    },
+    {
+      "index": "WG",
+      "name_de": "Wohngebäude",
+      "name_en": "residential building",
+      "type": "general",
+      "used_in_parts": [
+        2
+      ],
+      "examples": []
+    },
+    {
+      "index": "x",
+      "name_de": "stellvertretend für verschiedene Zustände, Bauteile, Bereiche",
+      "name_en": "represents states, elements or zones",
+      "type": "general",
+      "used_in_parts": [
+        2,
+        3,
+        9
+      ],
+      "examples": []
+    },
+    {
+      "index": "z",
+      "name_de": "angrenzende Gebäudezone",
+      "name_en": "adjacent building zone",
+      "type": "general",
+      "used_in_parts": [
+        2
+      ],
+      "examples": []
+    },
+    {
+      "index": "12h",
+      "name_de": "12-stündige tägliche Betriebszeit",
+      "name_en": "12-hour daily operating time",
+      "type": "general",
+      "used_in_parts": [
+        3
+      ],
+      "examples": []
+    },
+    {
+      "index": "18 °C",
+      "name_de": "Zulufttemperatur-Sollwert 18 °C",
+      "name_en": "supply air temperature setpoint 18 °C",
+      "type": "general",
+      "used_in_parts": [
+        3
+      ],
+      "examples": []
+    },
+    {
+      "index": "DEC",
+      "name_de": "sorptionsgestützte RLT-Anlage",
+      "name_en": "Desiccative Evaporative Cooling",
+      "type": "general",
+      "used_in_parts": [
+        3
+      ],
+      "examples": []
+    },
+    {
+      "index": "ev",
+      "name_de": "Verdunstungsbefeuchter",
+      "name_en": "evaporator",
+      "type": "general",
+      "used_in_parts": [
+        3
+      ],
+      "examples": []
+    },
+    {
+      "index": "eve",
+      "name_de": "Verdunstungsbefeuchter Abluft (sorptionsgestützte RLT-Anlage)",
+      "name_en": "evaporator extract air (sorption-supported air conditioning system)",
+      "type": "general",
+      "used_in_parts": [
+        3
+      ],
+      "examples": []
+    },
+    {
+      "index": "evs",
+      "name_de": "Verdunstungsbefeuchter Zuluft (sorptionsgestützte RLT-Anlage)",
+      "name_en": "evaporator supply air (sorption-supported air conditioning system)",
+      "type": "general",
+      "used_in_parts": [
+        3
+      ],
+      "examples": []
+    },
+    {
+      "index": "IEC",
+      "name_de": "indirekte Verdunstungskühlung",
+      "name_en": "indirect evaporative cooling",
+      "type": "general",
+      "used_in_parts": [
+        3
+      ],
+      "examples": []
+    },
+    {
+      "index": "*j*",
+      "name_de": "Laufvariable für den Luftvolumenstrom im Teillastfall",
+      "name_en": "running variable for the air volume flow in the partial load case",
+      "type": "general",
+      "used_in_parts": [
+        3
+      ],
+      "examples": []
+    },
+    {
+      "index": "*i*",
+      "name_de": "Laufvariable für Nutzenergieart Wärme, Kälte, Dampf",
+      "name_en": "running variable for useful energy type heat, cold, steam",
+      "type": "general",
+      "used_in_parts": [
+        3
+      ],
+      "examples": []
+    },
+    {
+      "index": "o",
+      "name_de": "Abweichung nach oben",
+      "name_en": "deviation upwards",
+      "type": "general",
+      "used_in_parts": [
+        3,
+        4,
+        6,
+        11
+      ],
+      "examples": []
+    },
+    {
+      "index": "ODA",
+      "name_de": "Außenluft",
+      "name_en": "outside air",
+      "type": "general",
+      "used_in_parts": [
+        3
+      ],
+      "examples": []
+    },
+    {
+      "index": "rec",
+      "name_de": "Wärmerückgewinnung (WRG)",
+      "name_en": "heat recovery",
+      "type": "general",
+      "used_in_parts": [
+        3,
+        6
+      ],
+      "examples": []
+    },
+    {
+      "index": "So",
+      "name_de": "Sommer (Auslegungsfall)",
+      "name_en": "summer (design case)",
+      "type": "general",
+      "used_in_parts": [
+        3
+      ],
+      "examples": []
+    },
+    {
+      "index": "sorp",
+      "name_de": "Sorptionstrockner",
+      "name_en": "sorption dehumidifier",
+      "type": "general",
+      "used_in_parts": [
+        3
+      ],
+      "examples": []
+    },
+    {
+      "index": "t",
+      "name_de": "Temperatur, Temperaturanforderung",
+      "name_en": "temperature, temperature requirement",
+      "type": "general",
+      "used_in_parts": [
+        3,
+        4
+      ],
+      "examples": []
+    },
+    {
+      "index": "W",
+      "name_de": "Wasser",
+      "name_en": "water",
+      "type": "general",
+      "used_in_parts": [
+        3,
+        4,
+        5
+      ],
+      "examples": []
+    },
+    {
+      "index": "Wi",
+      "name_de": "Winter (Auslegungsfall)",
+      "name_en": "winter (design case)",
+      "type": "general",
+      "used_in_parts": [
+        3
+      ],
+      "examples": []
+    },
+    {
+      "index": "\\*",
+      "name_de": "Auslegungszustand",
+      "name_en": "design status",
+      "type": "general",
+      "used_in_parts": [
+        3
+      ],
+      "examples": []
+    },
+    {
+      "index": "́́",
+      "name_de": "Nächsthöhere Stützstelle für lineare Interpolation",
+      "name_en": "next higher interpolation point for linear interpolation",
+      "type": "general",
+      "used_in_parts": [
+        3
+      ],
+      "examples": []
+    },
+    {
+      "index": "́",
+      "name_de": "Nächstkleinere Stützstelle für lineare Interpolation",
+      "name_en": "next lower interpolation point for linear interpolation",
+      "type": "general",
+      "used_in_parts": [
+        3
+      ],
+      "examples": []
+    },
+    {
+      "index": "Symbol",
+      "name_de": "Bedeutung",
+      "name_en": "",
+      "type": "general",
+      "used_in_parts": [
+        4
+      ],
+      "examples": []
+    },
+    {
+      "index": "A",
+      "name_de": "Abwesenheit",
+      "name_en": "Absence",
+      "type": "general",
+      "used_in_parts": [
+        4,
+        5,
+        10
+      ],
+      "examples": []
+    },
+    {
+      "index": "At",
+      "name_de": "Atrium",
+      "name_en": "Atrium",
+      "type": "general",
+      "used_in_parts": [
+        4
+      ],
+      "examples": []
+    },
+    {
+      "index": "D65",
+      "name_de": "Normlichtart D65",
+      "name_en": "Standard light source D65",
+      "type": "general",
+      "used_in_parts": [
+        4
+      ],
+      "examples": []
+    },
+    {
+      "index": "GDF",
+      "name_de": "Glasdoppelfassade",
+      "name_en": "Glazed curtain wall, glazed double facade",
+      "type": "general",
+      "used_in_parts": [
+        4
+      ],
+      "examples": []
+    },
+    {
+      "index": "gesamt",
+      "name_de": "gesamt",
+      "name_en": "total",
+      "type": "general",
+      "used_in_parts": [
+        4
+      ],
+      "examples": []
+    },
+    {
+      "index": "hA",
+      "name_de": "horizontale Auskragung",
+      "name_en": "Horizontal fin or projection",
+      "type": "general",
+      "used_in_parts": [
+        4
+      ],
+      "examples": []
+    },
+    {
+      "index": "i,j,n",
+      "name_de": "Laufindizes",
+      "name_en": "indices",
+      "type": "general",
+      "used_in_parts": [
+        4
+      ],
+      "examples": []
+    },
+    {
+      "index": "kon",
+      "name_de": "Kontrolle",
+      "name_en": "control",
+      "type": "general",
+      "used_in_parts": [
+        4
+      ],
+      "examples": []
+    },
+    {
+      "index": "KTL",
+      "name_de": "kein Tageslicht",
+      "name_en": "No daylight",
+      "type": "general",
+      "used_in_parts": [
+        4
+      ],
+      "examples": []
+    },
+    {
+      "index": "lV",
+      "name_de": "lineare Verbauung",
+      "name_en": "Linear obstruction",
+      "type": "general",
+      "used_in_parts": [
+        4
+      ],
+      "examples": []
+    },
+    {
+      "index": "Nacht",
+      "name_de": "Nachtzeit",
+      "name_en": "Night time",
+      "type": "general",
+      "used_in_parts": [
+        4,
+        10
+      ],
+      "examples": []
+    },
+    {
+      "index": "Ne",
+      "name_de": "Nutzebene",
+      "name_en": "workplane",
+      "type": "general",
+      "used_in_parts": [
+        4,
+        10
+      ],
+      "examples": []
+    },
+    {
+      "index": "Obl",
+      "name_de": "Oberlicht",
+      "name_en": "Rooflight",
+      "type": "general",
+      "used_in_parts": [
+        4
+      ],
+      "examples": []
+    },
+    {
+      "index": "Pe",
+      "name_de": "Pendelebene",
+      "name_en": "Pendulum level",
+      "type": "general",
+      "used_in_parts": [
+        4
+      ],
+      "examples": []
+    },
+    {
+      "index": "Prä",
+      "name_de": "Präsenz",
+      "name_en": "Presence",
+      "type": "general",
+      "used_in_parts": [
+        4
+      ],
+      "examples": []
+    },
+    {
+      "index": "Rb",
+      "name_de": "Rohbau",
+      "name_en": "Building shell, carcass",
+      "type": "general",
+      "used_in_parts": [
+        4
+      ],
+      "examples": []
+    },
+    {
+      "index": "rel",
+      "name_de": "relativ",
+      "name_en": "relative",
+      "type": "general",
+      "used_in_parts": [
+        4
+      ],
+      "examples": []
+    },
+    {
+      "index": "RG",
+      "name_de": "Raumgrundfläche",
+      "name_en": "Room floor area",
+      "type": "general",
+      "used_in_parts": [
+        4
+      ],
+      "examples": []
+    },
+    {
+      "index": "Rt",
+      "name_de": "Raumtiefe",
+      "name_en": "Room depth",
+      "type": "general",
+      "used_in_parts": [
+        4
+      ],
+      "examples": []
+    },
+    {
+      "index": "SA",
+      "name_de": "Sonnenschutz aktiviert",
+      "name_en": "Sunshading activated",
+      "type": "general",
+      "used_in_parts": [
+        4
+      ],
+      "examples": []
+    },
+    {
+      "index": "SNA",
+      "name_de": "Sonnenschutz nicht aktiviert",
+      "name_en": "Sunshading not activated",
+      "type": "general",
+      "used_in_parts": [
+        4,
+        11
+      ],
+      "examples": []
+    },
+    {
+      "index": "St",
+      "name_de": "Sturz",
+      "name_en": "Lintel",
+      "type": "general",
+      "used_in_parts": [
+        4
+      ],
+      "examples": []
+    },
+    {
+      "index": "Tag",
+      "name_de": "Tageszeit",
+      "name_en": "Daytime",
+      "type": "general",
+      "used_in_parts": [
+        4,
+        10
+      ],
+      "examples": []
+    },
+    {
+      "index": "TB",
+      "name_de": "Tafelbeleuchtung",
+      "name_en": "Blackboard lighting",
+      "type": "general",
+      "used_in_parts": [
+        4
+      ],
+      "examples": []
+    },
+    {
+      "index": "TL",
+      "name_de": "Tageslicht",
+      "name_en": "Daylight",
+      "type": "general",
+      "used_in_parts": [
+        4,
+        11
+      ],
+      "examples": []
+    },
+    {
+      "index": "Tr",
+      "name_de": "Transparenz",
+      "name_en": "Transparency",
+      "type": "general",
+      "used_in_parts": [
+        4
+      ],
+      "examples": []
+    },
+    {
+      "index": "vA",
+      "name_de": "vertikale Auskragung",
+      "name_en": "Vertical fin or projection",
+      "type": "general",
+      "used_in_parts": [
+        4
+      ],
+      "examples": []
+    },
+    {
+      "index": "Vers",
+      "name_de": "Versorgung",
+      "name_en": "Supply",
+      "type": "general",
+      "used_in_parts": [
+        4,
+        11
+      ],
+      "examples": []
+    },
+    {
+      "index": "vereinfacht",
+      "name_de": "vereinfacht",
+      "name_en": "Simplified",
+      "type": "general",
+      "used_in_parts": [
+        4
+      ],
+      "examples": []
+    },
+    {
+      "index": "ad",
+      "name_de": "Adaption",
+      "name_en": "adaptation",
+      "type": "general",
+      "used_in_parts": [
+        5
+      ],
+      "examples": []
+    },
+    {
+      "index": "Bezug",
+      "name_de": "Bezugsgröße",
+      "name_en": "reference value",
+      "type": "general",
+      "used_in_parts": [
+        5
+      ],
+      "examples": []
+    },
+    {
+      "index": "BIN",
+      "name_de": "Klasse(n)",
+      "name_en": "bin(s)/class(es)",
+      "type": "general",
+      "used_in_parts": [
+        5
+      ],
+      "examples": []
+    },
+    {
+      "index": "Bio",
+      "name_de": "Biomasse",
+      "name_en": "biomass",
+      "type": "general",
+      "used_in_parts": [
+        5
+      ],
+      "examples": []
+    },
+    {
+      "index": "biv",
+      "name_de": "Bivalenzpunkt",
+      "name_en": "bivalence point",
+      "type": "general",
+      "used_in_parts": [
+        5
+      ],
+      "examples": []
+    },
+    {
+      "index": "bu",
+      "name_de": "Nachheizung",
+      "name_en": "supplementary heating",
+      "type": "general",
+      "used_in_parts": [
+        5
+      ],
+      "examples": []
+    },
+    {
+      "index": "combi",
+      "name_de": "Kombination: Heizung und Trinkwarmwasser",
+      "name_en": "combination: heating and domestic/potable hot water",
+      "type": "general",
+      "used_in_parts": [
+        5
+      ],
+      "examples": []
+    },
+    {
+      "index": "con",
+      "name_de": "Verbindung",
+      "name_en": "connection",
+      "type": "general",
+      "used_in_parts": [
+        5,
+        6
+      ],
+      "examples": []
+    },
+    {
+      "index": "cond",
+      "name_de": "Kondensation",
+      "name_en": "condensation",
+      "type": "general",
+      "used_in_parts": [
+        5
+      ],
+      "examples": []
+    },
+    {
+      "index": "day",
+      "name_de": "Tag",
+      "name_en": "day",
+      "type": "general",
+      "used_in_parts": [
+        5,
+        6
+      ],
+      "examples": []
+    },
+    {
+      "index": "del",
+      "name_de": "angeliefert",
+      "name_en": "delivered",
+      "type": "general",
+      "used_in_parts": [
+        5
+      ],
+      "examples": []
+    },
+    {
+      "index": "DS",
+      "name_de": "Hausstation",
+      "name_en": "district heating substation",
+      "type": "general",
+      "used_in_parts": [
+        5
+      ],
+      "examples": []
+    },
+    {
+      "index": "DWHR",
+      "name_de": "Abflusswasser-Wärmerückgewinnung (für Duschen)",
+      "name_en": "drain water heat recovery (for showers)",
+      "type": "general",
+      "used_in_parts": [
+        5
+      ],
+      "examples": []
+    },
+    {
+      "index": "ESP",
+      "name_de": "Elektrischer Wärmerzeuger",
+      "name_en": "electric heat generator",
+      "type": "general",
+      "used_in_parts": [
+        5,
+        9
+      ],
+      "examples": []
+    },
+    {
+      "index": "exh",
+      "name_de": "Abluft",
+      "name_en": "exhaust air",
+      "type": "general",
+      "used_in_parts": [
+        5
+      ],
+      "examples": []
+    },
+    {
+      "index": "fan",
+      "name_de": "Ventilator, Gebläse",
+      "name_en": "fan, blower",
+      "type": "general",
+      "used_in_parts": [
+        5,
+        6,
+        11
+      ],
+      "examples": []
+    },
+    {
+      "index": "FBH",
+      "name_de": "Fußbodenheizung",
+      "name_en": "underfloor heating",
+      "type": "general",
+      "used_in_parts": [
+        5
+      ],
+      "examples": []
+    },
+    {
+      "index": "ges",
+      "name_de": "gesamt",
+      "name_en": "total",
+      "type": "general",
+      "used_in_parts": [
+        5,
+        9
+      ],
+      "examples": []
+    },
+    {
+      "index": "Grenz",
+      "name_de": "Grenz-",
+      "name_en": "limit",
+      "type": "general",
+      "used_in_parts": [
+        5,
+        9
+      ],
+      "examples": []
+    },
+    {
+      "index": "H",
+      "name_de": "Heizung",
+      "name_en": "heating",
+      "type": "general",
+      "used_in_parts": [
+        5
+      ],
+      "examples": []
+    },
+    {
+      "index": "hem(50°)",
+      "name_de": "Einstrahlwinkelkorrekturfaktor bei 50°",
+      "name_en": "incidence angle correction factor at 50°",
+      "type": "general",
+      "used_in_parts": [
+        5
+      ],
+      "examples": []
+    },
+    {
+      "index": "HK",
+      "name_de": "Heizkreis",
+      "name_en": "heating circuit",
+      "type": "general",
+      "used_in_parts": [
+        5,
+        11
+      ],
+      "examples": []
+    },
+    {
+      "index": "HN",
+      "name_de": "Himmelsrichtung und Neigung (eines Solarkollektors)",
+      "name_en": "orientation and inclination (of a solar collector)",
+      "type": "general",
+      "used_in_parts": [
+        5,
+        9
+      ],
+      "examples": []
+    },
+    {
+      "index": "Hp, hp",
+      "name_de": "Wärmepumpe",
+      "name_en": "heat pump",
+      "type": "general",
+      "used_in_parts": [
+        5
+      ],
+      "examples": []
+    },
+    {
+      "index": "HP",
+      "name_de": "Spitzenlast-Erzeuger (einer KWK-Anlage; hier bezogen auf Spitzenlast-Wärmeerzeuger)",
+      "name_en": "peak-load/supplementary generator (of a combined heat and power system; here referring to supplementary heat generator)",
+      "type": "general",
+      "used_in_parts": [
+        5,
+        9
+      ],
+      "examples": []
+    },
+    {
+      "index": "Hs/Hi",
+      "name_de": "Brennwert zu Heizwert (Umrechnungsfaktor)",
+      "name_en": "Higher to lower calorific value (conversion factor)",
+      "type": "general",
+      "used_in_parts": [
+        5,
+        9
+      ],
+      "examples": []
+    },
+    {
+      "index": "hydr",
+      "name_de": "hydraulisch",
+      "name_en": "hydronic/hydraulic",
+      "type": "general",
+      "used_in_parts": [
+        5
+      ],
+      "examples": []
+    },
+    {
+      "index": "j",
+      "name_de": "allgemeiner Zählindex (Kontext beachten)",
+      "name_en": "general counting index (note the context)",
+      "type": "general",
+      "used_in_parts": [
+        5
+      ],
+      "examples": []
+    },
+    {
+      "index": "int",
+      "name_de": "intermittierend",
+      "name_en": "intermittent",
+      "type": "general",
+      "used_in_parts": [
+        5,
+        6
+      ],
+      "examples": []
+    },
+    {
+      "index": "Itc",
+      "name_de": "Abschaltpunkt",
+      "name_en": "switch-off point",
+      "type": "general",
+      "used_in_parts": [
+        5
+      ],
+      "examples": []
+    },
+    {
+      "index": "k",
+      "name_de": "Kessel",
+      "name_en": "boiler",
+      "type": "general",
+      "used_in_parts": [
+        5
+      ],
+      "examples": []
+    },
+    {
+      "index": "K",
+      "name_de": "Kombianlage, Kaltwasser",
+      "name_en": "combination system, cold water",
+      "type": "general",
+      "used_in_parts": [
+        5
+      ],
+      "examples": []
+    },
+    {
+      "index": "km",
+      "name_de": "mittlere Kessel-(Temperatur)",
+      "name_en": "average boiler (temperature)",
+      "type": "general",
+      "used_in_parts": [
+        5
+      ],
+      "examples": []
+    },
+    {
+      "index": "LH",
+      "name_de": "Lufterhitzer",
+      "name_en": "air heater",
+      "type": "general",
+      "used_in_parts": [
+        5
+      ],
+      "examples": []
+    },
+    {
+      "index": "lower",
+      "name_de": "untere",
+      "name_en": "lower",
+      "type": "general",
+      "used_in_parts": [
+        5,
+        9
+      ],
+      "examples": []
+    },
+    {
+      "index": "meas",
+      "name_de": "gemessen",
+      "name_en": "measured",
+      "type": "general",
+      "used_in_parts": [
+        5
+      ],
+      "examples": []
+    },
+    {
+      "index": "mot",
+      "name_de": "Motor",
+      "name_en": "motor",
+      "type": "general",
+      "used_in_parts": [
+        5
+      ],
+      "examples": []
+    },
+    {
+      "index": "n",
+      "name_de": "Nenn, Exponent",
+      "name_en": "nominal, exponent",
+      "type": "general",
+      "used_in_parts": [
+        5
+      ],
+      "examples": []
+    },
+    {
+      "index": "N",
+      "name_de": "Nacht",
+      "name_en": "Night",
+      "type": "general",
+      "used_in_parts": [
+        5
+      ],
+      "examples": []
+    },
+    {
+      "index": "Pu",
+      "name_de": "Pumpe",
+      "name_en": "pump",
+      "type": "general",
+      "used_in_parts": [
+        5,
+        11
+      ],
+      "examples": []
+    },
+    {
+      "index": "Pn",
+      "name_de": "Volllast, Nennlast",
+      "name_en": "full load, nominal/rated load",
+      "type": "general",
+      "used_in_parts": [
+        5
+      ],
+      "examples": []
+    },
+    {
+      "index": "Pint",
+      "name_de": "Teillast",
+      "name_en": "partial load",
+      "type": "general",
+      "used_in_parts": [
+        5,
+        9
+      ],
+      "examples": []
+    },
+    {
+      "index": "P0",
+      "name_de": "Bereitschaft, Stillstand, Stand-by",
+      "name_en": "standby, standstill",
+      "type": "general",
+      "used_in_parts": [
+        5,
+        6
+      ],
+      "examples": []
+    },
+    {
+      "index": "pa",
+      "name_de": "Teilfläche",
+      "name_en": "partial area",
+      "type": "general",
+      "used_in_parts": [
+        5
+      ],
+      "examples": []
+    },
+    {
+      "index": "PM",
+      "name_de": "Pumpenmanagement",
+      "name_en": "pump management",
+      "type": "general",
+      "used_in_parts": [
+        5
+      ],
+      "examples": []
+    },
+    {
+      "index": "prim",
+      "name_de": "Primär-",
+      "name_en": "primary",
+      "type": "general",
+      "used_in_parts": [
+        5
+      ],
+      "examples": []
+    },
+    {
+      "index": "PS",
+      "name_de": "Pufferspeicher",
+      "name_en": "buffer tank",
+      "type": "general",
+      "used_in_parts": [
+        5,
+        9
+      ],
+      "examples": []
+    },
+    {
+      "index": "PtH",
+      "name_de": "Power-to-Heat",
+      "name_en": "Power-to-Heat",
+      "type": "general",
+      "used_in_parts": [
+        5
+      ],
+      "examples": []
+    },
+    {
+      "index": "Q",
+      "name_de": "Wärmemenge",
+      "name_en": "heat quantity",
+      "type": "general",
+      "used_in_parts": [
+        5,
+        9
+      ],
+      "examples": []
+    },
+    {
+      "index": "RA",
+      "name_de": "Rücklauf bei Auslegungsbedingungen",
+      "name_en": "return under design conditions",
+      "type": "general",
+      "used_in_parts": [
+        5,
+        9
+      ],
+      "examples": []
+    },
+    {
+      "index": "rB",
+      "name_de": "rechnerische Betriebszeit",
+      "name_en": "calculated operating time",
+      "type": "general",
+      "used_in_parts": [
+        5,
+        9
+      ],
+      "examples": []
+    },
+    {
+      "index": "rd",
+      "name_de": "zurückgewonnen",
+      "name_en": "recovered",
+      "type": "general",
+      "used_in_parts": [
+        5
+      ],
+      "examples": []
+    },
+    {
+      "index": "reg",
+      "name_de": "regenerativ",
+      "name_en": "regenerative",
+      "type": "general",
+      "used_in_parts": [
+        5,
+        6
+      ],
+      "examples": []
+    },
+    {
+      "index": "rl",
+      "name_de": "rückgewinnbar",
+      "name_en": "recoverable",
+      "type": "general",
+      "used_in_parts": [
+        5
+      ],
+      "examples": []
+    },
+    {
+      "index": "rL",
+      "name_de": "rechnerische Laufzeit",
+      "name_en": "calculated term",
+      "type": "general",
+      "used_in_parts": [
+        5
+      ],
+      "examples": []
+    },
+    {
+      "index": "RL",
+      "name_de": "Rücklauf",
+      "name_en": "return",
+      "type": "general",
+      "used_in_parts": [
+        5,
+        9
+      ],
+      "examples": []
+    },
+    {
+      "index": "RV",
+      "name_de": "Rückflussverhinderer",
+      "name_en": "backflow preventer",
+      "type": "general",
+      "used_in_parts": [
+        5
+      ],
+      "examples": []
+    },
+    {
+      "index": "Sch",
+      "name_de": "Schaltung",
+      "name_en": "circuit",
+      "type": "general",
+      "used_in_parts": [
+        5
+      ],
+      "examples": []
+    },
+    {
+      "index": "sek",
+      "name_de": "Sekundär-",
+      "name_en": "secondary",
+      "type": "general",
+      "used_in_parts": [
+        5
+      ],
+      "examples": []
+    },
+    {
+      "index": "sin",
+      "name_de": "reiner Heizbetrieb",
+      "name_en": "heating only",
+      "type": "general",
+      "used_in_parts": [
+        5
+      ],
+      "examples": []
+    },
+    {
+      "index": "SL",
+      "name_de": "Stichleitung",
+      "name_en": "branch pipes (connection between riser and emission system)",
+      "type": "general",
+      "used_in_parts": [
+        5
+      ],
+      "examples": []
+    },
+    {
+      "index": "slr",
+      "name_de": "Auslastung Solaranlage",
+      "name_en": "utilization of solar system",
+      "type": "general",
+      "used_in_parts": [
+        5
+      ],
+      "examples": []
+    },
+    {
+      "index": "sol",
+      "name_de": "Solar",
+      "name_en": "solar",
+      "type": "general",
+      "used_in_parts": [
+        5,
+        9
+      ],
+      "examples": []
+    },
+    {
+      "index": "str",
+      "name_de": "Lufttemperaturprofil",
+      "name_en": "stratification",
+      "type": "general",
+      "used_in_parts": [
+        5
+      ],
+      "examples": []
+    },
+    {
+      "index": "sys",
+      "name_de": "Referenz",
+      "name_en": "reference",
+      "type": "general",
+      "used_in_parts": [
+        5
+      ],
+      "examples": []
+    },
+    {
+      "index": "Test",
+      "name_de": "Testbedingung",
+      "name_en": "test condition",
+      "type": "general",
+      "used_in_parts": [
+        5
+      ],
+      "examples": []
+    },
+    {
+      "index": "TKi",
+      "name_de": "Temperaturklasse i",
+      "name_en": "temperature class i",
+      "type": "general",
+      "used_in_parts": [
+        5
+      ],
+      "examples": []
+    },
+    {
+      "index": "upper",
+      "name_de": "obere",
+      "name_en": "upper",
+      "type": "general",
+      "used_in_parts": [
+        5
+      ],
+      "examples": []
+    },
+    {
+      "index": "üsv",
+      "name_de": "Überströmventil",
+      "name_en": "bypass valve",
+      "type": "general",
+      "used_in_parts": [
+        5
+      ],
+      "examples": []
+    },
+    {
+      "index": "VA",
+      "name_de": "Vorlauf(temperatur) bei Auslegungsbedingungen",
+      "name_en": "flow (temperature) at design conditions",
+      "type": "general",
+      "used_in_parts": [
+        5
+      ],
+      "examples": []
+    },
+    {
+      "index": "VL",
+      "name_de": "Vorlauf",
+      "name_en": "flow",
+      "type": "general",
+      "used_in_parts": [
+        5
+      ],
+      "examples": []
+    },
+    {
+      "index": "wE",
+      "name_de": "weitere Wärmeerzeuger",
+      "name_en": "additional heat generators",
+      "type": "general",
+      "used_in_parts": [
+        5
+      ],
+      "examples": []
+    },
+    {
+      "index": "Z",
+      "name_de": "Zirkulationskreis",
+      "name_en": "circulation circuit",
+      "type": "general",
+      "used_in_parts": [
+        5
+      ],
+      "examples": []
+    },
+    {
+      "index": "70",
+      "name_de": "Temperaturrandbedingung (Kontext Kesselwirkungsgrad/Bereitschaftsverlust)",
+      "name_en": "temperature boundary condition (context boiler efficiency / standby loss)",
+      "type": "general",
+      "used_in_parts": [
+        5
+      ],
+      "examples": []
+    },
+    {
+      "index": "add",
+      "name_de": "zusätzlich",
+      "name_en": "additional",
+      "type": "general",
+      "used_in_parts": [
+        6
+      ],
+      "examples": []
+    },
+    {
+      "index": "cu",
+      "name_de": "Kältemaschine",
+      "name_en": "cooling unit",
+      "type": "general",
+      "used_in_parts": [
+        6
+      ],
+      "examples": []
+    },
+    {
+      "index": "ddh",
+      "name_de": "Gradtagsstunden",
+      "name_en": "degree-day hours",
+      "type": "general",
+      "used_in_parts": [
+        6
+      ],
+      "examples": []
+    },
+    {
+      "index": "exch",
+      "name_de": "Wärmeübertrager",
+      "name_en": "heat exchanger",
+      "type": "general",
+      "used_in_parts": [
+        6
+      ],
+      "examples": []
+    },
+    {
+      "index": "frost",
+      "name_de": "Abtaubetrieb Lüftungsgerät",
+      "name_en": "defrost operating mode of ventilation unit",
+      "type": "general",
+      "used_in_parts": [
+        6
+      ],
+      "examples": []
+    },
+    {
+      "index": "gr-exch",
+      "name_de": "Erdreich-Zuluft-Wärmeübertrager",
+      "name_en": "ground/supply air heat exchanger",
+      "type": "general",
+      "used_in_parts": [
+        6
+      ],
+      "examples": []
+    },
+    {
+      "index": "hp",
+      "name_de": "Wärmepumpe",
+      "name_en": "heat pump",
+      "type": "general",
+      "used_in_parts": [
+        6
+      ],
+      "examples": []
+    },
+    {
+      "index": "*i, j, k*",
+      "name_de": "Laufindex",
+      "name_en": "running index",
+      "type": "general",
+      "used_in_parts": [
+        6
+      ],
+      "examples": []
+    },
+    {
+      "index": "limit",
+      "name_de": "An-(kühlung)",
+      "name_en": "limited cooling",
+      "type": "general",
+      "used_in_parts": [
+        6
+      ],
+      "examples": []
+    },
+    {
+      "index": "loss",
+      "name_de": "Wärmeverluste Lüftungsgerät",
+      "name_en": "heat losses of ventilation unit",
+      "type": "general",
+      "used_in_parts": [
+        6,
+        9
+      ],
+      "examples": []
+    },
+    {
+      "index": "on",
+      "name_de": "an",
+      "name_en": "on",
+      "type": "general",
+      "used_in_parts": [
+        6
+      ],
+      "examples": []
+    },
+    {
+      "index": "off",
+      "name_de": "aus",
+      "name_en": "off",
+      "type": "general",
+      "used_in_parts": [
+        6
+      ],
+      "examples": []
+    },
+    {
+      "index": "part",
+      "name_de": "Teil-(kühlung)",
+      "name_en": "partly cooling",
+      "type": "general",
+      "used_in_parts": [
+        6
+      ],
+      "examples": []
+    },
+    {
+      "index": "pre-h",
+      "name_de": "Vorwärmer",
+      "name_en": "pre-heater",
+      "type": "general",
+      "used_in_parts": [
+        6
+      ],
+      "examples": []
+    },
+    {
+      "index": "pu",
+      "name_de": "Pumpe",
+      "name_en": "pump",
+      "type": "general",
+      "used_in_parts": [
+        6
+      ],
+      "examples": []
+    },
+    {
+      "index": "Radiant",
+      "name_de": "Strahlungseinfluss",
+      "name_en": "radiation effect",
+      "type": "general",
+      "used_in_parts": [
+        6
+      ],
+      "examples": []
+    },
+    {
+      "index": "re-h",
+      "name_de": "Nachheizregister",
+      "name_en": "re-heater",
+      "type": "general",
+      "used_in_parts": [
+        6
+      ],
+      "examples": []
+    },
+    {
+      "index": "sol-pan",
+      "name_de": "Solar-Zuluft-Kollektor",
+      "name_en": "solar/supply air panel",
+      "type": "general",
+      "used_in_parts": [
+        6
+      ],
+      "examples": []
+    },
+    {
+      "index": "sup-decr",
+      "name_de": "Zuluftabsenkung oder -abschaltung",
+      "name_en": "decreasing supply air",
+      "type": "general",
+      "used_in_parts": [
+        6
+      ],
+      "examples": []
+    },
+    {
+      "index": "tech",
+      "name_de": "Technische Verluste (ce + d + s + g)",
+      "name_en": "technical losses (ce + d + s + g)",
+      "type": "general",
+      "used_in_parts": [
+        6
+      ],
+      "examples": []
+    },
+    {
+      "index": "therm",
+      "name_de": "thermisch",
+      "name_en": "thermic",
+      "type": "general",
+      "used_in_parts": [
+        6,
+        9
+      ],
+      "examples": []
+    },
+    {
+      "index": "tight",
+      "name_de": "Dichtheit Lüftungsgerät",
+      "name_en": "airtightness of ventilation unit",
+      "type": "general",
+      "used_in_parts": [
+        6
+      ],
+      "examples": []
+    },
+    {
+      "index": "WH",
+      "name_de": "Wassererwärmung",
+      "name_en": "water heating",
+      "type": "general",
+      "used_in_parts": [
+        6
+      ],
+      "examples": []
+    },
+    {
+      "index": "TTC",
+      "name_de": "Zeit Zapfzyklus",
+      "name_en": "time for taping cycle",
+      "type": "general",
+      "used_in_parts": [
+        6
+      ],
+      "examples": []
+    },
+    {
+      "index": "AKM",
+      "name_de": "Absorptionskältemaschinen",
+      "name_en": "",
+      "type": "general",
+      "used_in_parts": [
+        6
+      ],
+      "examples": []
+    },
+    {
+      "index": "EVU",
+      "name_de": "Energieversorgungsunternehmen",
+      "name_en": "",
+      "type": "general",
+      "used_in_parts": [
+        6
+      ],
+      "examples": []
+    },
+    {
+      "index": "EWÜT",
+      "name_de": "Erdreich-Zuluft-Wärmeübertrager",
+      "name_en": "",
+      "type": "general",
+      "used_in_parts": [
+        6
+      ],
+      "examples": []
+    },
+    {
+      "index": "E-S-WÜT",
+      "name_de": "Erdreich-Sole-Zuluft-Wärmeübertrager",
+      "name_en": "",
+      "type": "general",
+      "used_in_parts": [
+        6
+      ],
+      "examples": []
+    },
+    {
+      "index": "DX",
+      "name_de": "Direktverdampfungssysteme (en: direct expansion system)",
+      "name_en": "",
+      "type": "general",
+      "used_in_parts": [
+        6
+      ],
+      "examples": []
+    },
+    {
+      "index": "S-KOL",
+      "name_de": "Solar-Zuluft-Kollektoren",
+      "name_en": "",
+      "type": "general",
+      "used_in_parts": [
+        6
+      ],
+      "examples": []
+    },
+    {
+      "index": "TRY",
+      "name_de": "Testreferenzjahr (en: test reference year)",
+      "name_en": "",
+      "type": "general",
+      "used_in_parts": [
+        6
+      ],
+      "examples": []
+    },
+    {
+      "index": "TWE",
+      "name_de": "Trinkwassererwärmung",
+      "name_en": "",
+      "type": "general",
+      "used_in_parts": [
+        6
+      ],
+      "examples": []
+    },
+    {
+      "index": "TWW",
+      "name_de": "Trinkwarmwasser",
+      "name_en": "",
+      "type": "general",
+      "used_in_parts": [
+        6
+      ],
+      "examples": []
+    },
+    {
+      "index": "VRF",
+      "name_de": "Raumklimagerät mit variablem Kältemittelmassestrom (en: variable refrigerant flow)",
+      "name_en": "",
+      "type": "general",
+      "used_in_parts": [
+        6
+      ],
+      "examples": []
+    },
+    {
+      "index": "WÜT",
+      "name_de": "Wärmeübertrager",
+      "name_en": "",
+      "type": "general",
+      "used_in_parts": [
+        6
+      ],
+      "examples": []
+    },
+    {
+      "index": "WSchV",
+      "name_de": "Wärmeschutzverordnung (WärmeschutzV)",
+      "name_en": "",
+      "type": "general",
+      "used_in_parts": [
+        6
+      ],
+      "examples": []
+    },
+    {
+      "index": "outg\\*",
+      "name_de": "Erzeugernutzenergie, kontextspezifisch angepasst",
+      "name_en": "useful generator energy output, context-dependent",
+      "type": "general",
+      "used_in_parts": [
+        9
+      ],
+      "examples": []
+    },
+    {
+      "index": "BOL",
+      "name_de": "Beginn der Nutzungsdauer",
+      "name_en": "start of useful life",
+      "type": "general",
+      "used_in_parts": [
+        9
+      ],
+      "examples": []
+    },
+    {
+      "index": "el,CHP",
+      "name_de": "elektrischer Anteil/Kennwert (der KWK-Anlage)",
+      "name_en": "electrical portion/parameter (of the CHP system)",
+      "type": "general",
+      "used_in_parts": [
+        9
+      ],
+      "examples": []
+    },
+    {
+      "index": "gen",
+      "name_de": "Wärmeerzeuger (Generator) (siehe DIN/TS 18599-5 und DIN/TS 18599-8)",
+      "name_en": "heat generator (generator) (see DIN/TS 18599-5 and DIN/TS 18599-8)",
+      "type": "general",
+      "used_in_parts": [
+        9
+      ],
+      "examples": []
+    },
+    {
+      "index": "mod",
+      "name_de": "Modulations-",
+      "name_en": "modulation",
+      "type": "general",
+      "used_in_parts": [
+        9
+      ],
+      "examples": []
+    },
+    {
+      "index": "Netz",
+      "name_de": "Wärmenetz",
+      "name_en": "heat network",
+      "type": "general",
+      "used_in_parts": [
+        9
+      ],
+      "examples": []
+    },
+    {
+      "index": "Start",
+      "name_de": "Start-Vorgang",
+      "name_en": "start process",
+      "type": "general",
+      "used_in_parts": [
+        9
+      ],
+      "examples": []
+    },
+    {
+      "index": "th,CHP",
+      "name_de": "thermisch der KWK-Anlage (ohne Spitzenlastkessel)",
+      "name_en": "thermal of the CHP plant (without peak load boiler)",
+      "type": "general",
+      "used_in_parts": [
+        9
+      ],
+      "examples": []
+    },
+    {
+      "index": "Rotor",
+      "name_de": "an zentraler Drehachse angebrachtes aerodynamisch wirksames Bauteil der WEA",
+      "name_en": "aerodynamically effective component of the WTGS attached to the central axis of rotation",
+      "type": "general",
+      "used_in_parts": [
+        9
+      ],
+      "examples": []
+    },
+    {
+      "index": "WK",
+      "name_de": "Windgeschwindigkeitsklasse",
+      "name_en": "wind speed class",
+      "type": "general",
+      "used_in_parts": [
+        9
+      ],
+      "examples": []
+    },
+    {
+      "index": "Weib",
+      "name_de": "Weibull Faktoren (Skalierung und Form)",
+      "name_en": "Weibull factors (scaling and shape)",
+      "type": "general",
+      "used_in_parts": [
+        9
+      ],
+      "examples": []
+    },
+    {
+      "index": "Wind",
+      "name_de": "Wind (atmosphärische Luftströmung)",
+      "name_en": "Wind (atmospheric air flow)",
+      "type": "general",
+      "used_in_parts": [
+        9
+      ],
+      "examples": []
+    },
+    {
+      "index": "Batt",
+      "name_de": "Batterie",
+      "name_en": "battery",
+      "type": "general",
+      "used_in_parts": [
+        9
+      ],
+      "examples": []
+    },
+    {
+      "index": "Dis",
+      "name_de": "Entladung",
+      "name_en": "discharge",
+      "type": "general",
+      "used_in_parts": [
+        9
+      ],
+      "examples": []
+    },
+    {
+      "index": "DLE",
+      "name_de": "Durchlauferhitzer (elektrisch, zur Trinkwassererwärmung)",
+      "name_en": "instantaneous water heater (electric, for heating drinking water)",
+      "type": "general",
+      "used_in_parts": [
+        9
+      ],
+      "examples": []
+    },
+    {
+      "index": "DOD",
+      "name_de": "Entladetiefe",
+      "name_en": "depth of discharge",
+      "type": "general",
+      "used_in_parts": [
+        9
+      ],
+      "examples": []
+    },
+    {
+      "index": "nenn",
+      "name_de": "Nenn-",
+      "name_en": "nominal",
+      "type": "general",
+      "used_in_parts": [
+        9
+      ],
+      "examples": []
+    },
+    {
+      "index": "oB",
+      "name_de": "Ohne Batterie",
+      "name_en": "without battery",
+      "type": "general",
+      "used_in_parts": [
+        9
+      ],
+      "examples": []
+    },
+    {
+      "index": "perf",
+      "name_de": "Leistung",
+      "name_en": "performance",
+      "type": "general",
+      "used_in_parts": [
+        9
+      ],
+      "examples": []
+    },
+    {
+      "index": "pk",
+      "name_de": "spitzen",
+      "name_en": "peak",
+      "type": "general",
+      "used_in_parts": [
+        9
+      ],
+      "examples": []
+    },
+    {
+      "index": "ref",
+      "name_de": "Referenz-, Bezugs-",
+      "name_en": "reference",
+      "type": "general",
+      "used_in_parts": [
+        9,
+        11
+      ],
+      "examples": []
+    },
+    {
+      "index": "TGA",
+      "name_de": "Technische Gebäudeausstattung",
+      "name_en": "technical building equipment",
+      "type": "general",
+      "used_in_parts": [
+        9
+      ],
+      "examples": []
+    },
+    {
+      "index": "Hp",
+      "name_de": "Wärmepumpe (elektrisch)",
+      "name_en": "heat pump (electric)",
+      "type": "general",
+      "used_in_parts": [
+        9
+      ],
+      "examples": []
+    },
+    {
+      "index": "as",
+      "name_de": "nach Sonnenuntergang",
+      "name_en": "after sunset",
+      "type": "general",
+      "used_in_parts": [
+        10
+      ],
+      "examples": []
+    },
+    {
+      "index": "bs",
+      "name_de": "vor Sonnenaufgang",
+      "name_en": "before sunrise",
+      "type": "general",
+      "used_in_parts": [
+        10
+      ],
+      "examples": []
+    },
+    {
+      "index": "ende",
+      "name_de": "Nutzungsende",
+      "name_en": "ende of use",
+      "type": "general",
+      "used_in_parts": [
+        10
+      ],
+      "examples": []
+    },
+    {
+      "index": "Geb",
+      "name_de": "Gebäude",
+      "name_en": "building",
+      "type": "general",
+      "used_in_parts": [
+        10
+      ],
+      "examples": []
+    },
+    {
+      "index": "h,op",
+      "name_de": "Heizbetrieb",
+      "name_en": "operation of heating system, heating mode",
+      "type": "general",
+      "used_in_parts": [
+        10
+      ],
+      "examples": []
+    },
+    {
+      "index": "M",
+      "name_de": "Monat",
+      "name_en": "month",
+      "type": "general",
+      "used_in_parts": [
+        10
+      ],
+      "examples": []
+    },
+    {
+      "index": "Nutz,a",
+      "name_de": "Nutzungsbeginn",
+      "name_en": "start of use",
+      "type": "general",
+      "used_in_parts": [
+        10
+      ],
+      "examples": []
+    },
+    {
+      "index": "Nutz,e",
+      "name_de": "Nutzungsende",
+      "name_en": "end of use",
+      "type": "general",
+      "used_in_parts": [
+        10
+      ],
+      "examples": []
+    },
+    {
+      "index": "Nutz,d",
+      "name_de": "tägliche Nutzungsstunden",
+      "name_en": "daily hours of use",
+      "type": "general",
+      "used_in_parts": [
+        10
+      ],
+      "examples": []
+    },
+    {
+      "index": "RLT",
+      "name_de": "raumlufttechnische Anlage",
+      "name_en": "air-handling system",
+      "type": "general",
+      "used_in_parts": [
+        10
+      ],
+      "examples": []
+    },
+    {
+      "index": "Sonnenaufgang",
+      "name_de": "Zeit des Sonnenaufgangs",
+      "name_en": "time of sunrise",
+      "type": "general",
+      "used_in_parts": [
+        10
+      ],
+      "examples": []
+    },
+    {
+      "index": "Sonnenuntergang",
+      "name_de": "Zeit des Sonnenuntergangs",
+      "name_en": "time of sunset",
+      "type": "general",
+      "used_in_parts": [
+        10
+      ],
+      "examples": []
+    },
+    {
+      "index": "Sp",
+      "name_de": "Spitzenzapfung",
+      "name_en": "peak tapping",
+      "type": "general",
+      "used_in_parts": [
+        10
+      ],
+      "examples": []
+    },
+    {
+      "index": "start",
+      "name_de": "Nutzungsbeginn",
+      "name_en": "start of use",
+      "type": "general",
+      "used_in_parts": [
+        10
+      ],
+      "examples": []
+    },
+    {
+      "index": "WO",
+      "name_de": "Wohnen",
+      "name_en": "living",
+      "type": "general",
+      "used_in_parts": [
+        10
+      ],
+      "examples": []
+    },
+    {
+      "index": "BAC",
+      "name_de": "Gebäudeautomation",
+      "name_en": "Building automation and control",
+      "type": "general",
+      "used_in_parts": [
+        11
+      ],
+      "examples": []
+    },
+    {
+      "index": "GAM",
+      "name_de": "Gebäudeautomation und Management",
+      "name_en": "Building automation and management",
+      "type": "general",
+      "used_in_parts": [
+        11
+      ],
+      "examples": []
+    },
+    {
+      "index": "ziel",
+      "name_de": "Ziel",
+      "name_en": "Goal",
+      "type": "general",
+      "used_in_parts": [
+        11
+      ],
+      "examples": []
     }
   ],
-  
   "categories": [
-    {"id": "location", "name_de": "Ort/Lage", "name_en": "Location"},
-    {"id": "system", "name_de": "System/Gewerk", "name_en": "System/Trade"},
-    {"id": "energy_level", "name_de": "Energieniveau", "name_en": "Energy level"},
-    {"id": "process_step", "name_de": "Prozessschritt", "name_en": "Process step"},
-    {"id": "time", "name_de": "Zeit", "name_en": "Time"},
-    {"id": "state", "name_de": "Zustand/Betrieb", "name_en": "State/Operation"},
-    {"id": "energy_type", "name_de": "Energieart", "name_en": "Energy type"},
-    {"id": "source", "name_de": "Quelle", "name_en": "Source"},
-    {"id": "heat_transfer", "name_de": "Wärmeübertragung", "name_en": "Heat transfer"},
-    {"id": "area", "name_de": "Fläche", "name_en": "Area"},
-    {"id": "building_type", "name_de": "Gebäudetyp", "name_en": "Building type"},
-    {"id": "value_type", "name_de": "Werttyp", "name_en": "Value type"}
+    {
+      "id": "location",
+      "name_de": "Ort/Lage",
+      "name_en": "Location"
+    },
+    {
+      "id": "system",
+      "name_de": "System/Gewerk",
+      "name_en": "System/Trade"
+    },
+    {
+      "id": "energy_level",
+      "name_de": "Energieniveau",
+      "name_en": "Energy level"
+    },
+    {
+      "id": "process_step",
+      "name_de": "Prozessschritt",
+      "name_en": "Process step"
+    },
+    {
+      "id": "time",
+      "name_de": "Zeit",
+      "name_en": "Time"
+    },
+    {
+      "id": "state",
+      "name_de": "Zustand/Betrieb",
+      "name_en": "State/Operation"
+    },
+    {
+      "id": "energy_type",
+      "name_de": "Energieart",
+      "name_en": "Energy type"
+    },
+    {
+      "id": "source",
+      "name_de": "Quelle",
+      "name_en": "Source"
+    },
+    {
+      "id": "heat_transfer",
+      "name_de": "Wärmeübertragung",
+      "name_en": "Heat transfer"
+    },
+    {
+      "id": "area",
+      "name_de": "Fläche",
+      "name_en": "Area"
+    },
+    {
+      "id": "building_type",
+      "name_de": "Gebäudetyp",
+      "name_en": "Building type"
+    },
+    {
+      "id": "value_type",
+      "name_de": "Werttyp",
+      "name_en": "Value type"
+    }
   ]
 }

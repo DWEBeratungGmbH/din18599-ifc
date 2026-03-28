@@ -16,8 +16,8 @@
     "part_9": 35,
     "part_10": 25,
     "part_11": 10,
-    "current_count": 79,
-    "completion_percentage": 14
+    "current_count": 157,
+    "completion_percentage": 28
   },
   "symbols": [
     {
@@ -43,7 +43,15 @@
       "data_type": "number",
       "min_value": 0,
       "category": "geometry",
-      "norm_ref": "DIN_18599-1_2018-09_TAB_1"
+      "norm_ref": "DIN_18599-1_2018-09_TAB_1",
+      "used_in_parts": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        10
+      ]
     },
     {
       "symbol": "B",
@@ -55,7 +63,10 @@
       "data_type": "number",
       "min_value": 0,
       "category": "geometry",
-      "norm_ref": "DIN_18599-1_2018-09_TAB_1"
+      "norm_ref": "DIN_18599-1_2018-09_TAB_1",
+      "used_in_parts": [
+        5
+      ]
     },
     {
       "symbol": "Delta",
@@ -80,7 +91,13 @@
       "min_value": 0,
       "category": "efficiency",
       "note": "Kehrwert des Nutzungsgrades (e = 1/η)",
-      "norm_ref": "DIN_18599-1_2018-09_TAB_1"
+      "norm_ref": "DIN_18599-1_2018-09_TAB_1",
+      "used_in_parts": [
+        1,
+        2,
+        4,
+        5
+      ]
     },
     {
       "symbol": "f",
@@ -92,7 +109,14 @@
       "data_type": "number",
       "category": "dimensionless",
       "note": "Allgemeiner Faktor (z.B. f_p für Primärenergiefaktor, F_x für Temperaturfaktor)",
-      "norm_ref": "DIN_18599-1_2018-09_TAB_1"
+      "norm_ref": "DIN_18599-1_2018-09_TAB_1",
+      "used_in_parts": [
+        2,
+        3,
+        5,
+        6,
+        11
+      ]
     },
     {
       "symbol": "g",
@@ -106,7 +130,12 @@
       "max_value": 1,
       "category": "thermal_transmission",
       "note": "g-Wert für Fenster und transparente Bauteile",
-      "norm_ref": "DIN_18599-1_2018-09_TAB_1"
+      "norm_ref": "DIN_18599-1_2018-09_TAB_1",
+      "used_in_parts": [
+        1,
+        2,
+        3
+      ]
     },
     {
       "symbol": "h",
@@ -118,7 +147,16 @@
       "data_type": "number",
       "min_value": 0,
       "category": "geometry",
-      "norm_ref": "DIN_18599-1_2018-09_TAB_1"
+      "norm_ref": "DIN_18599-1_2018-09_TAB_1",
+      "used_in_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        10
+      ]
     },
     {
       "symbol": "H",
@@ -131,7 +169,13 @@
       "min_value": 0,
       "category": "energy_content",
       "note": "H_i = Heizwert (inferior), H_s = Brennwert (superior)",
-      "norm_ref": "DIN_18599-1_2018-09_TAB_1"
+      "norm_ref": "DIN_18599-1_2018-09_TAB_1",
+      "used_in_parts": [
+        1,
+        2,
+        5,
+        6
+      ]
     },
     {
       "symbol": "L",
@@ -143,7 +187,13 @@
       "data_type": "number",
       "min_value": 0,
       "category": "geometry",
-      "norm_ref": "DIN_18599-1_2018-09_TAB_1"
+      "norm_ref": "DIN_18599-1_2018-09_TAB_1",
+      "used_in_parts": [
+        1,
+        5,
+        6,
+        11
+      ]
     },
     {
       "symbol": "m",
@@ -155,7 +205,11 @@
       "data_type": "number",
       "min_value": 0,
       "category": "mass",
-      "norm_ref": "DIN_18599-1_2018-09_TAB_1"
+      "norm_ref": "DIN_18599-1_2018-09_TAB_1",
+      "used_in_parts": [
+        1,
+        4
+      ]
     },
     {
       "symbol": "n",
@@ -168,7 +222,13 @@
       "min_value": 0,
       "category": "dimensionless",
       "note": "Auch für Luftwechselrate (1/h)",
-      "norm_ref": "DIN_18599-1_2018-09_TAB_1"
+      "norm_ref": "DIN_18599-1_2018-09_TAB_1",
+      "used_in_parts": [
+        1,
+        2,
+        6,
+        10
+      ]
     },
     {
       "symbol": "eta",
@@ -259,7 +319,13 @@
       "min_value": 0,
       "category": "thermal_transmission",
       "note": "U-Wert für Bauteile",
-      "norm_ref": "DIN_18599-1_2018-09_TAB_1"
+      "norm_ref": "DIN_18599-1_2018-09_TAB_1",
+      "used_in_parts": [
+        1,
+        2,
+        5,
+        6
+      ]
     },
     {
       "symbol": "V",
@@ -271,7 +337,13 @@
       "data_type": "number",
       "min_value": 0,
       "category": "geometry",
-      "norm_ref": "DIN_18599-1_2018-09_TAB_1"
+      "norm_ref": "DIN_18599-1_2018-09_TAB_1",
+      "used_in_parts": [
+        1,
+        2,
+        5,
+        6
+      ]
     },
     {
       "symbol": "W",
@@ -968,10 +1040,10 @@
     {
       "symbol": "*A*",
       "symbol_latex": "*A*",
-      "name_de": "Fläche",
+      "name_de": "Weibull-Skalierungsfaktor",
       "name_en": "",
-      "unit": "area",
-      "unit_latex": "area",
+      "unit": "Weibull scaling factor",
+      "unit_latex": "Weibull scaling factor",
       "data_type": "number",
       "category": "general",
       "used_in_parts": [
@@ -1103,7 +1175,10 @@
       "data_type": "number",
       "category": "general",
       "used_in_parts": [
-        9
+        9,
+        3,
+        5,
+        11
       ],
       "norm_refs": [
         "DIN_18599-9_2018-09_TAB_1"
@@ -1148,22 +1223,6 @@
       "name_en": "",
       "unit": "diameter (rotor diameter of the WTGS)",
       "unit_latex": "diameter (rotor diameter of the WTGS)",
-      "data_type": "number",
-      "category": "general",
-      "used_in_parts": [
-        9
-      ],
-      "norm_refs": [
-        "DIN_18599-9_2018-09_TAB_1"
-      ]
-    },
-    {
-      "symbol": "*A*",
-      "symbol_latex": "*A*",
-      "name_de": "Weibull-Skalierungsfaktor",
-      "name_en": "",
-      "unit": "Weibull scaling factor",
-      "unit_latex": "Weibull scaling factor",
       "data_type": "number",
       "category": "general",
       "used_in_parts": [
@@ -1299,6 +1358,1314 @@
       ],
       "norm_refs": [
         "DIN_18599-9_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "Anteil",
+      "symbol_latex": "Anteil",
+      "name_de": "fraction",
+      "name_en": "---",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "Breite",
+      "symbol_latex": "Breite",
+      "name_de": "width",
+      "name_en": "m",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "f, F",
+      "symbol_latex": "f, F",
+      "name_de": "Faktor",
+      "name_en": "factor",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "a",
+      "symbol_latex": "a",
+      "name_de": "numerischer Parameter, Koeffizient",
+      "name_en": "numerical parameter, coefficient",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        2,
+        4,
+        10
+      ],
+      "norm_refs": [
+        "DIN_18599-2_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "b",
+      "symbol_latex": "b",
+      "name_de": "Koeffizient",
+      "name_en": "coefficient",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        2,
+        4
+      ],
+      "norm_refs": [
+        "DIN_18599-2_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "BK",
+      "symbol_latex": "BK",
+      "name_de": "Bilanzkennwert des transparenten Bauteils",
+      "name_en": "characteristic value for energy balance of the transparent component",
+      "unit": "W/(mK)",
+      "unit_latex": "W/(mK)",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        2
+      ],
+      "norm_refs": [
+        "DIN_18599-2_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "c",
+      "symbol_latex": "c",
+      "name_de": "spezifische Wärmekapazität",
+      "name_en": "specific heat capacity",
+      "unit": "kJ/(kg · K), Wh/(kg · K)",
+      "unit_latex": "kJ/(kg · K), Wh/(kg · K)",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        2,
+        3,
+        5,
+        6
+      ],
+      "norm_refs": [
+        "DIN_18599-2_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "C",
+      "symbol_latex": "C",
+      "name_de": "wirksame Wärmekapazität der Gebäudezone",
+      "name_en": "effective heat capacity of a building zone",
+      "unit": "kJ/K, Wh/K",
+      "unit_latex": "kJ/K, Wh/K",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        2,
+        4,
+        5
+      ],
+      "norm_refs": [
+        "DIN_18599-2_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "d",
+      "symbol_latex": "d",
+      "name_de": "Anzahl der Tage des Monats",
+      "name_en": "number of days per month",
+      "unit": "d/mth",
+      "unit_latex": "d/mth",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        2,
+        3,
+        5,
+        6,
+        10
+      ],
+      "norm_refs": [
+        "DIN_18599-2_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "F, f",
+      "symbol_latex": "F, f",
+      "name_de": "Faktor",
+      "name_en": "factor",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        2
+      ],
+      "norm_refs": [
+        "DIN_18599-2_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "F",
+      "symbol_latex": "F",
+      "name_de": "strahlungswirksamer Formfaktor zwischen Bauteil und Himmel bzw. Teilbestrahlungsfaktor für seitliche Abschattungsflächen",
+      "name_en": "radiation-effective form factor between element and sky, or partial shading correction factor for fins",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        2,
+        6,
+        10
+      ],
+      "norm_refs": [
+        "DIN_18599-2_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "I",
+      "symbol_latex": "I",
+      "name_de": "mittlere monatliche solare Einstrahlung",
+      "name_en": "average monthly solar irradiation",
+      "unit": "W/m",
+      "unit_latex": "W/m",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        2,
+        6,
+        10
+      ],
+      "norm_refs": [
+        "DIN_18599-2_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "l",
+      "symbol_latex": "l",
+      "name_de": "Länge (einer linienförmigen Wärmebrücke)",
+      "name_en": "length (of a linear thermal bridge)",
+      "unit": "m",
+      "unit_latex": "m",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        2
+      ],
+      "norm_refs": [
+        "DIN_18599-2_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "q",
+      "symbol_latex": "q",
+      "name_de": "hüllflächenbezogene Luftdurchlässigkeit bei 50 Pa Druckdifferenz",
+      "name_en": "area based Air permeability at a pressure difference of 50 Pa",
+      "unit": "m/(m h)",
+      "unit_latex": "m/(m h)",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        2,
+        3,
+        10
+      ],
+      "norm_refs": [
+        "DIN_18599-2_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "R",
+      "symbol_latex": "R",
+      "name_de": "Wärmedurchlasswiderstand, Wärmeübergangswiderstand",
+      "name_en": "thermal resistance, surface resistance",
+      "unit": "m·K/W",
+      "unit_latex": "m·K/W",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        2,
+        5,
+        6
+      ],
+      "norm_refs": [
+        "DIN_18599-2_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "S",
+      "symbol_latex": "S",
+      "name_de": "Strahlungsgewinnkoeffizient",
+      "name_en": "coefficient for solar radiation",
+      "unit": "W/(m · K)",
+      "unit_latex": "W/(m · K)",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        2
+      ],
+      "norm_refs": [
+        "DIN_18599-2_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "t",
+      "symbol_latex": "t",
+      "name_de": "Zeitspanne, Zeit",
+      "name_en": "time, time period, hours",
+      "unit": "h",
+      "unit_latex": "h",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        10,
+        11
+      ],
+      "norm_refs": [
+        "DIN_18599-2_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "Wärmestrom",
+      "symbol_latex": "Wärmestrom",
+      "name_de": "energy flow rate, power, heat flow",
+      "name_en": "W",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        2
+      ],
+      "norm_refs": [
+        "DIN_18599-2_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "Rohdichte",
+      "symbol_latex": "Rohdichte",
+      "name_de": "(bulk) density",
+      "name_en": "kg/m",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        2
+      ],
+      "norm_refs": [
+        "DIN_18599-2_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "Differenz",
+      "symbol_latex": "Differenz",
+      "name_de": "difference",
+      "name_en": "---",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        3,
+        6,
+        10
+      ],
+      "norm_refs": [
+        "DIN_18599-3_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "p",
+      "symbol_latex": "p",
+      "name_de": "konstanter Druckverlustanteil eines Kanalnetzes",
+      "name_en": "constant pressure loss component of a duct network",
+      "unit": "Pa",
+      "unit_latex": "Pa",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        3,
+        4,
+        5,
+        6,
+        11
+      ],
+      "norm_refs": [
+        "DIN_18599-3_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "p\\",
+      "symbol_latex": "p\\",
+      "name_de": "Gesamtdruckverlust des Abluftkanalnetzes bei Auslegungsluftvolumenstrom",
+      "name_en": "total pressure loss of the exhaust air duct network at design air flow rate",
+      "unit": "Pa",
+      "unit_latex": "Pa",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        3
+      ],
+      "norm_refs": [
+        "DIN_18599-3_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "P",
+      "symbol_latex": "P",
+      "name_de": "Leistung",
+      "name_en": "power",
+      "unit": "kW",
+      "unit_latex": "kW",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        3,
+        4,
+        5,
+        6,
+        11
+      ],
+      "norm_refs": [
+        "DIN_18599-3_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "Summe",
+      "symbol_latex": "Summe",
+      "name_de": "sum",
+      "name_en": "---",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        3
+      ],
+      "norm_refs": [
+        "DIN_18599-3_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "T",
+      "symbol_latex": "T",
+      "name_de": "Zeit oder Dauer der Zeitspanne",
+      "name_en": "time or duration of the time period",
+      "unit": "h",
+      "unit_latex": "h",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        3
+      ],
+      "norm_refs": [
+        "DIN_18599-3_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "x",
+      "symbol_latex": "x",
+      "name_de": "Wassergehalt der Luft (absolute Luftfeuchte)",
+      "name_en": "water content of the air (absolute humidity)",
+      "unit": "g/kg",
+      "unit_latex": "g/kg",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        3
+      ],
+      "norm_refs": [
+        "DIN_18599-3_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "bf",
+      "symbol_latex": "bf",
+      "name_de": "Belegungsfaktor",
+      "name_en": "Occupation factor",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        4
+      ],
+      "norm_refs": [
+        "DIN_18599-4_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "D",
+      "symbol_latex": "D",
+      "name_de": "Tageslichtquotient",
+      "name_en": "Daylight factor",
+      "unit": "\\%",
+      "unit_latex": "\\%",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        4
+      ],
+      "norm_refs": [
+        "DIN_18599-4_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "Umgebung",
+      "symbol_latex": "Umgebung",
+      "name_de": "Surrounding",
+      "name_en": "---",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        4
+      ],
+      "norm_refs": [
+        "DIN_18599-4_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "f, F",
+      "symbol_latex": "f, F",
+      "name_de": "Faktoren",
+      "name_en": "Factors",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        4
+      ],
+      "norm_refs": [
+        "DIN_18599-4_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "J",
+      "symbol_latex": "J",
+      "name_de": "Anzahl Berechnungsbereiche",
+      "name_en": "Number of evaluation areas",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        4,
+        10
+      ],
+      "norm_refs": [
+        "DIN_18599-4_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "k",
+      "symbol_latex": "k",
+      "name_de": "Raumindex",
+      "name_en": "Room index",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        4,
+        5,
+        10
+      ],
+      "norm_refs": [
+        "DIN_18599-4_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "N",
+      "symbol_latex": "N",
+      "name_de": "Anzahl Zonen",
+      "name_en": "Number of zones",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        4
+      ],
+      "norm_refs": [
+        "DIN_18599-4_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "v",
+      "symbol_latex": "v",
+      "name_de": "Verteilungsschlüssel",
+      "name_en": "Distribution key",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        4,
+        10
+      ],
+      "norm_refs": [
+        "DIN_18599-4_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "WF",
+      "symbol_latex": "WF",
+      "name_de": "Wartungsfaktor",
+      "name_en": "Maintenance factor",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        4
+      ],
+      "norm_refs": [
+        "DIN_18599-4_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "wi",
+      "symbol_latex": "wi",
+      "name_de": "Lichtschachtindex",
+      "name_en": "well-index",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        4
+      ],
+      "norm_refs": [
+        "DIN_18599-4_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "a bis f",
+      "symbol_latex": "a bis f",
+      "name_de": "kontextspezifische Koeffizienten",
+      "name_en": "context-dependent coefficients",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        5
+      ],
+      "norm_refs": [
+        "DIN_18599-5_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "COP",
+      "symbol_latex": "COP",
+      "name_de": "Leistungszahl",
+      "name_en": "coefficient of performance",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        5,
+        6
+      ],
+      "norm_refs": [
+        "DIN_18599-5_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "DH",
+      "symbol_latex": "DH",
+      "name_de": "Gradtagstunden",
+      "name_en": "heating degree hours",
+      "unit": "Kh",
+      "unit_latex": "Kh",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        5,
+        6
+      ],
+      "norm_refs": [
+        "DIN_18599-5_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "FC",
+      "symbol_latex": "FC",
+      "name_de": "Lastfaktor",
+      "name_en": "load factor",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        5,
+        6
+      ],
+      "norm_refs": [
+        "DIN_18599-5_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "HDH",
+      "symbol_latex": "HDH",
+      "name_de": "kumulierte Gradtagstunden",
+      "name_en": "summed-up heating degree hours",
+      "unit": "Kh",
+      "unit_latex": "Kh",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        5
+      ],
+      "norm_refs": [
+        "DIN_18599-5_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "HH",
+      "symbol_latex": "HH",
+      "name_de": "Stundensumme",
+      "name_en": "summed-up hours",
+      "unit": "h",
+      "unit_latex": "h",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        5
+      ],
+      "norm_refs": [
+        "DIN_18599-5_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "K, L",
+      "symbol_latex": "K, L",
+      "name_de": "Temperaturkorrekturfaktoren (Heizkessel)",
+      "name_en": "temperature correction factors (boilers)",
+      "unit": "1/K",
+      "unit_latex": "1/K",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        5
+      ],
+      "norm_refs": [
+        "DIN_18599-5_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "M",
+      "symbol_latex": "M",
+      "name_de": "Massestrom",
+      "name_en": "mass flow",
+      "unit": "kg/s",
+      "unit_latex": "kg/s",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        5
+      ],
+      "norm_refs": [
+        "DIN_18599-5_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "n, N",
+      "symbol_latex": "n, N",
+      "name_de": "Anzahl",
+      "name_en": "number (amount)",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        5,
+        11
+      ],
+      "norm_refs": [
+        "DIN_18599-5_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "SCOP",
+      "symbol_latex": "SCOP",
+      "name_de": "rechnerische Jahresarbeitszahl",
+      "name_en": "calculated seasonal coefficient of performance",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        5
+      ],
+      "norm_refs": [
+        "DIN_18599-5_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "TKi",
+      "symbol_latex": "TKi",
+      "name_de": "Temperaturklasse i",
+      "name_en": "temperature class i",
+      "unit": "°C",
+      "unit_latex": "°C",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        5
+      ],
+      "norm_refs": [
+        "DIN_18599-5_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "EER",
+      "symbol_latex": "EER",
+      "name_de": "Leistungszahl (Kältemaschine)",
+      "name_en": "energy efficiency ratio",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        6
+      ],
+      "norm_refs": [
+        "DIN_18599-6_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "PLV",
+      "symbol_latex": "PLV",
+      "name_de": "Teillastfaktor",
+      "name_en": "part load value",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        6
+      ],
+      "norm_refs": [
+        "DIN_18599-6_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "SEER",
+      "symbol_latex": "SEER",
+      "name_de": "Jahresarbeitszahl (Kältemaschine)",
+      "name_en": "seasonal energy efficiency ratio",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        6
+      ],
+      "norm_refs": [
+        "DIN_18599-6_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "SPI",
+      "symbol_latex": "SPI",
+      "name_de": "spezifische Leistungsaufnahme Ventilatoren",
+      "name_en": "specific power input",
+      "unit": "W/(m/h)",
+      "unit_latex": "W/(m/h)",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        6
+      ],
+      "norm_refs": [
+        "DIN_18599-6_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "w",
+      "symbol_latex": "w",
+      "name_de": "Wichtungsfaktor",
+      "name_en": "weighting factor",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        6
+      ],
+      "norm_refs": [
+        "DIN_18599-6_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "Dichte",
+      "symbol_latex": "Dichte",
+      "name_de": "density",
+      "name_en": "kg/m",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        6
+      ],
+      "norm_refs": [
+        "DIN_18599-6_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "Verhältnis",
+      "symbol_latex": "Verhältnis",
+      "name_de": "ratio",
+      "name_en": "---",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        6
+      ],
+      "norm_refs": [
+        "DIN_18599-6_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "|",
+      "symbol_latex": "|",
+      "name_de": "| Deutsch",
+      "name_en": "| Englisch",
+      "unit": "|",
+      "unit_latex": "|",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        9
+      ],
+      "norm_refs": [
+        "DIN_18599-9_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "| A",
+      "symbol_latex": "| A",
+      "name_de": "| Fläche",
+      "name_en": "| area",
+      "unit": "| m",
+      "unit_latex": "| m",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        9
+      ],
+      "norm_refs": [
+        "DIN_18599-9_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "| P",
+      "symbol_latex": "| P",
+      "name_de": "| Leistung",
+      "name_en": "| power",
+      "unit": "| W, kW",
+      "unit_latex": "| W, kW",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        9
+      ],
+      "norm_refs": [
+        "DIN_18599-9_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "| Q",
+      "symbol_latex": "| Q",
+      "name_de": "| Energie",
+      "name_en": "| energy",
+      "unit": "| kWh",
+      "unit_latex": "| kWh",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        9
+      ],
+      "norm_refs": [
+        "DIN_18599-9_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "| W",
+      "symbol_latex": "| W",
+      "name_de": "| Hilfsenergie (Elektroenergie)",
+      "name_en": "| auxiliary energy (Electricity)",
+      "unit": "| kWh",
+      "unit_latex": "| kWh",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        9
+      ],
+      "norm_refs": [
+        "DIN_18599-9_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "| A...p",
+      "symbol_latex": "| A...p",
+      "name_de": "| Koeffizient",
+      "name_en": "| coefficient",
+      "unit": "| *---*",
+      "unit_latex": "| *---*",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        9
+      ],
+      "norm_refs": [
+        "DIN_18599-9_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "| d",
+      "symbol_latex": "| d",
+      "name_de": "| Laufzeit",
+      "name_en": "| runtime",
+      "unit": "| h",
+      "unit_latex": "| h",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        9
+      ],
+      "norm_refs": [
+        "DIN_18599-9_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "| f",
+      "symbol_latex": "| f",
+      "name_de": "| Faktor",
+      "name_en": "| factor",
+      "unit": "| *---*",
+      "unit_latex": "| *---*",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        9
+      ],
+      "norm_refs": [
+        "DIN_18599-9_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "| n",
+      "symbol_latex": "| n",
+      "name_de": "| Anzahl",
+      "name_en": "| number",
+      "unit": "| *---*",
+      "unit_latex": "| *---*",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        9
+      ],
+      "norm_refs": [
+        "DIN_18599-9_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "| q",
+      "symbol_latex": "| q",
+      "name_de": "| spezifische Energie",
+      "name_en": "| specific energy",
+      "unit": "| kWh/(ma)",
+      "unit_latex": "| kWh/(ma)",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        9
+      ],
+      "norm_refs": [
+        "DIN_18599-9_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "| t",
+      "symbol_latex": "| t",
+      "name_de": "| Zeitspanne",
+      "name_en": "| time span",
+      "unit": "| d/a",
+      "unit_latex": "| d/a",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        9
+      ],
+      "norm_refs": [
+        "DIN_18599-9_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "| V",
+      "symbol_latex": "| V",
+      "name_de": "| Volumen",
+      "name_en": "| volume",
+      "unit": "| m, l",
+      "unit_latex": "| m, l",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        9
+      ],
+      "norm_refs": [
+        "DIN_18599-9_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "| x",
+      "symbol_latex": "| x",
+      "name_de": "| Grad",
+      "name_en": "| degree",
+      "unit": "| *---*",
+      "unit_latex": "| *---*",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        9
+      ],
+      "norm_refs": [
+        "DIN_18599-9_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "| v",
+      "symbol_latex": "| v",
+      "name_de": "| mittlere monatliche Windgeschwindigkeit",
+      "name_en": "| mean monthly wind speed",
+      "unit": "| m/s",
+      "unit_latex": "| m/s",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        9
+      ],
+      "norm_refs": [
+        "DIN_18599-9_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "| h",
+      "symbol_latex": "| h",
+      "name_de": "| Nabenhöhe der WEA",
+      "name_en": "| hub height of the wind turbine generator system (WTGS)",
+      "unit": "| m",
+      "unit_latex": "| m",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        9
+      ],
+      "norm_refs": [
+        "DIN_18599-9_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "| D",
+      "symbol_latex": "| D",
+      "name_de": "| Durchmesser (Rotordurchmesser der WEA)",
+      "name_en": "| diameter (rotor diameter of the WTGS)",
+      "unit": "| m",
+      "unit_latex": "| m",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        9
+      ],
+      "norm_refs": [
+        "DIN_18599-9_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "| k",
+      "symbol_latex": "| k",
+      "name_de": "| Weibull-Formfaktor",
+      "name_en": "| Weibull form factor",
+      "unit": "| ---",
+      "unit_latex": "| ---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        9
+      ],
+      "norm_refs": [
+        "DIN_18599-9_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "| C",
+      "symbol_latex": "| C",
+      "name_de": "| Kapazität (Batterie)",
+      "name_en": "| capacity (battery)",
+      "unit": "| kWh",
+      "unit_latex": "| kWh",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        9
+      ],
+      "norm_refs": [
+        "DIN_18599-9_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "| c",
+      "symbol_latex": "| c",
+      "name_de": "| (auf eine Energiemenge) bezogene Kapazität",
+      "name_en": "| capacity (related to a quantity of energy)",
+      "unit": "| kWh/(MWh/a)",
+      "unit_latex": "| kWh/(MWh/a)",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        9
+      ],
+      "norm_refs": [
+        "DIN_18599-9_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "| E",
+      "symbol_latex": "| E",
+      "name_de": "| jährliche bzw. monatliche solare Bestrahlungsenergie",
+      "name_en": "| annual or monthly solar irradiation energy",
+      "unit": "| kWh/(m · a)a",
+      "unit_latex": "| kWh/(m · a)a",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        9
+      ],
+      "norm_refs": [
+        "DIN_18599-9_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "| I",
+      "symbol_latex": "| I",
+      "name_de": "| solare Bestrahlungsstärke",
+      "name_en": "| solar irradiance",
+      "unit": "| W/m",
+      "unit_latex": "| W/m",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        9
+      ],
+      "norm_refs": [
+        "DIN_18599-9_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "| K",
+      "symbol_latex": "| K",
+      "name_de": "| Koeffizient",
+      "name_en": "| coefficient",
+      "unit": "| kW/m",
+      "unit_latex": "| kW/m",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        9
+      ],
+      "norm_refs": [
+        "DIN_18599-9_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "C, c",
+      "symbol_latex": "C, c",
+      "name_de": "Faktor",
+      "name_en": "factor",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        10
+      ],
+      "norm_refs": [
+        "DIN_18599-10_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "E",
+      "symbol_latex": "E",
+      "name_de": "Beleuchtungsstärke",
+      "name_en": "illuminance",
+      "unit": "lx",
+      "unit_latex": "lx",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        10
+      ],
+      "norm_refs": [
+        "DIN_18599-10_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "teq",
+      "symbol_latex": "teq",
+      "name_de": "Zeitgleichung",
+      "name_en": "equation of time",
+      "unit": "min",
+      "unit_latex": "min",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        10
+      ],
+      "norm_refs": [
+        "DIN_18599-10_2018-09_TAB_1"
       ]
     }
   ],
