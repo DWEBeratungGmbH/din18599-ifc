@@ -968,6 +968,18 @@
               "number": "3.3",
               "name": "Abkürzungen",
               "summary": "AKM, EVU, EWÜT, E-S-WÜT, DX, S-KOL, TRY, TWE, TWW, VRF, WÜT, WSchV"
+            },
+            {
+              "id": "DIN_18599-6_2018-09_SEC_4",
+              "number": "4",
+              "name": "Verknüpfung der Teile der Reihe DIN/TS 18599",
+              "summary": "Tabelle 3 (Eingangsgrößen), Tabelle 4 (Ausgangsgrößen), Tabelle 5 (Wärme-/Kälteerzeugung), Abschnitt 4.4 (Berechnungsverfahren: Lüftungswärmesenken, Wärmeverluste, kombinierte Wärmeerzeugung)"
+            },
+            {
+              "id": "DIN_18599-6_2018-09_SEC_4_4",
+              "number": "4.4",
+              "name": "Berechnungsverfahren",
+              "summary": "4.4.1 Allgemeines (Bild 4+5: Systemübersichten), 4.4.2 Lüftungswärmesenken (Gleichung 1-2), 4.4.3 Wärmeverluste/Wärmeeinträge/Hilfsenergieaufwand (Gleichung 3-12), 4.4.4 Kombinierte Wärmeerzeugung (Abluft-Zuluft-WÜT, Abluft-Wärmepumpen, Luftheizungsanlagen)"
             }
           ],
           "tables": [
@@ -988,6 +1000,33 @@
               "protected": false,
               "summary": "60+ Indizes: a (Jahr), add (zusätzlich), b (Nutzenergiebedarf), B (Außenbauteile), c (Kühlung), C (Regelung), ce (Verluste Übergabe), con (Verbindung), cu (Kältemaschine), d (Verluste Verteilung), day (Tag), ddh (Gradtagsstunden), e (äußere), exch (Wärmeübertrager), ETA (Abluft), f (End-), fan (Ventilator), frost (Abtaubetrieb), g (Verluste Erzeugung), gr-exch (Erdreich-Zuluft-WÜT), h (Heizung), hp (Wärmepumpe), i (innen), in (zugeführt), int (intermittierend), i/j/k (Laufindex), I (innere), L (Lufttemperaturprofil), l (Beleuchtung), limit (Ankühlung), loss (Wärmeverluste Lüftungsgerät), max/min, mech (mechanisch/ventilatorgestützt), mth (monatlich), NGF, o (Außenluft), on/off, out (abgegeben/außerhalb thermischer Hülle), outg (Erzeugernutzenergieabgabe), p (Primär-), part (Teilkühlung), pre-h (Vorwärmer), prod (produziert), pu (Pumpe), P0 (Bereitschaft), Radiant (Strahlungseinfluss), rec (Wärmerückgewinnung), re-h (Nachheizregister), rc (Wohnungskühlungssystem), reg (regenerativ), rv (Wohnungslüftungssystem), s (Verluste Speicherung), sol-pan (Solar-Zuluft-Kollektor), st (Befeuchtung), SUP (Zuluft), sup-decr (Zuluftabsenkung), T (Transmission), tech (Technische Verluste), therm (thermisch), tight (Dichtheit Lüftungsgerät), v (Lüftungssystem), V (Lüftung), w (Trinkwarmwasser), WH (Wassererwärmung), TTC (Zeit Zapfzyklus)",
               "parameters_count": 65
+            },
+            {
+              "id": "DIN_18599-6_2018-09_TAB_3",
+              "number": "3",
+              "name": "Eingangsgrößen aus anderen Teilen der Reihe DIN/TS 18599",
+              "type": "interface_inputs",
+              "protected": false,
+              "summary": "Eingangsgrößen von Teilen 1,2,5,8,10 (V, n_G, h_G, Q_h,b, Q_c,b, Q_h,outg, Q_h,ce, Q_h,d, Q_h,s, Q_h,reg, Q_w,outg, θ_e, t_V,mech, t_d)",
+              "parameters_count": 14
+            },
+            {
+              "id": "DIN_18599-6_2018-09_TAB_4",
+              "number": "4",
+              "name": "Ausgangsgrößen für andere Teile der Reihe DIN/TS 18599",
+              "type": "interface_outputs",
+              "protected": false,
+              "summary": "Ausgangsgrößen für Teile 1,2,5,8 (Q_rv,b, Q_rc,b, Q_rv,ce, Q_rv,d, Q_rc,ce, Q_rc,d, Q_rc,s, Q_rv,g, Q_rc,g, Q_rv,f,in, Q_rc,f,in, Q_rv,f,prod, Q_rc,f,prod, Q_rv,f,out, Q_rc,f,out, W_rv, W_rc, Q_I,rv, Q_I,rv,c, Q_I,rc, Q_I,rc,c, θ_v,mech, n_mech, Q*_rv,h,outg, Q*_rv,w,outg)",
+              "parameters_count": 25
+            },
+            {
+              "id": "DIN_18599-6_2018-09_TAB_5",
+              "number": "5",
+              "name": "Ausgangsgrößen für die Wärme- und Kälteerzeugung nach DIN/TS 18599-1",
+              "type": "interface_outputs_generators",
+              "protected": false,
+              "summary": "Wohnungslüftungssystem: Abluft-Wasser-WP/Abluft-Zuluft-WP/Abluft-Zuluft-Wasser-WP (9.2), Abluft-Zuluft-WÜT (9.2), Nachheizregister (9.2); Wohnungskühlsystem: Kompressionskälte (9.9), Sorptionskälte (9.9)",
+              "parameters_count": 5
             }
           ],
           "annexes": [
