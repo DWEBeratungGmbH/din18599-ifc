@@ -1,0 +1,184 @@
+{
+  "version": "DIN V 18599-10:2018-09",
+  "description": "DIN 18599-10 Nutzungsprofile - Tabellenwerte (VERSIONIERT)",
+  "last_updated": "2026-03-28",
+  "note": "Diese Datei enthält die konkreten Werte aus DIN 18599-10 Tabelle 5-7. Ändert sich bei Normen-Revision.",
+  
+  "residential": {
+    "EFH": {
+      "name_de": "Einfamilienhaus",
+      "name_en": "Single-family house",
+      "din_table": "Tabelle 5",
+      "parameters": {
+        "theta_i_h_soll": {
+          "value": 20,
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Heizung"
+        },
+        "theta_i_c_soll": {
+          "value": 25,
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Kühlung"
+        },
+        "delta_theta_i_NA": {
+          "value": 4,
+          "unit": "K",
+          "description": "Temperaturabsenkung reduzierter Betrieb"
+        },
+        "q_I": {
+          "value": 45,
+          "unit": "Wh/(m²·d)",
+          "description": "Interne Wärmequellen (Personen + Geräte + Beleuchtung)"
+        },
+        "n_nutz": {
+          "value": 0.5,
+          "unit": "1/h",
+          "description": "Mindestaußenluftwechsel (nicht kontrolliert)",
+          "variants": {
+            "not_controlled": 0.5,
+            "central_controlled": 0.45,
+            "room_controlled": 0.4
+          }
+        },
+        "q_el_b": {
+          "value": 63,
+          "unit": "Wh/(m²·d)",
+          "description": "Anwendungsstrombedarf"
+        },
+        "d_nutz_a": {
+          "value": 365,
+          "unit": "d/a",
+          "description": "Jährliche Nutzungstage"
+        }
+      }
+    },
+    "MFH": {
+      "name_de": "Mehrfamilienhaus",
+      "name_en": "Multi-family house",
+      "din_table": "Tabelle 5",
+      "parameters": {
+        "theta_i_h_soll": {
+          "value": 20,
+          "unit": "°C"
+        },
+        "theta_i_c_soll": {
+          "value": 25,
+          "unit": "°C"
+        },
+        "delta_theta_i_NA": {
+          "value": 4,
+          "unit": "K"
+        },
+        "q_I": {
+          "value": 90,
+          "unit": "Wh/(m²·d)",
+          "description": "Höher als EFH wegen höherer Personendichte"
+        },
+        "n_nutz": {
+          "value": 0.5,
+          "unit": "1/h",
+          "variants": {
+            "not_controlled": 0.5,
+            "central_controlled": 0.45,
+            "room_controlled": 0.4
+          }
+        },
+        "q_el_b": {
+          "value": 63,
+          "unit": "Wh/(m²·d)"
+        },
+        "d_nutz_a": {
+          "value": 365,
+          "unit": "d/a"
+        }
+      }
+    }
+  },
+  
+  "non_residential": {
+    "01": {
+      "name_de": "Einzelbüro",
+      "name_en": "Single office",
+      "din_table": "Tabelle 6",
+      "parameters": {
+        "theta_i_h_soll": {
+          "value": 20,
+          "unit": "°C"
+        },
+        "theta_i_c_soll": {
+          "value": 26,
+          "unit": "°C"
+        },
+        "q_I_p": {
+          "value": 70,
+          "unit": "W/Person",
+          "description": "Wärmeabgabe Personen"
+        },
+        "q_I_app": {
+          "value": 7,
+          "unit": "W/m²",
+          "description": "Wärmeabgabe Arbeitshilfen"
+        },
+        "n_nutz": {
+          "value": 0.7,
+          "unit": "1/h"
+        },
+        "t_nutz_d": {
+          "value": 12,
+          "unit": "h/d",
+          "description": "Tägliche Nutzungsstunden"
+        },
+        "d_nutz_a": {
+          "value": 250,
+          "unit": "d/a",
+          "description": "Jährliche Nutzungstage (Werktage)"
+        }
+      }
+    },
+    "02": {
+      "name_de": "Gruppenbüro",
+      "name_en": "Group office",
+      "din_table": "Tabelle 6",
+      "parameters": {
+        "theta_i_h_soll": {
+          "value": 20,
+          "unit": "°C"
+        },
+        "theta_i_c_soll": {
+          "value": 26,
+          "unit": "°C"
+        },
+        "q_I_p": {
+          "value": 70,
+          "unit": "W/Person"
+        },
+        "q_I_app": {
+          "value": 7,
+          "unit": "W/m²"
+        },
+        "n_nutz": {
+          "value": 1.0,
+          "unit": "1/h",
+          "description": "Höher als Einzelbüro wegen mehr Personen"
+        },
+        "t_nutz_d": {
+          "value": 12,
+          "unit": "h/d"
+        },
+        "d_nutz_a": {
+          "value": 250,
+          "unit": "d/a"
+        }
+      }
+    }
+  },
+  
+  "metadata": {
+    "profile_count": {
+      "residential": 2,
+      "non_residential": 43,
+      "total": 45
+    },
+    "note": "Aktuell nur Beispiel-Profile (01-02). Vollständige 43 NWG-Profile folgen in separatem Task."
+  }
+}

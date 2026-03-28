@@ -1,0 +1,48 @@
+{
+  "version": "2.1.0",
+  "description": "Mapping von DIN 18599 Symbolen zu JSON Schema Paths (IMPLEMENTIERUNGSDETAIL)",
+  "last_updated": "2026-03-28",
+  "note": "Diese Datei ist KEIN Teil der Norm-Registry. Sie definiert nur, wo Symbole im gebaeude.din18599.schema.json landen.",
+  
+  "mappings": {
+    "zone_parameters": {
+      "theta_i_h_soll": "zones[].usage_profile.parameters_din.theta_i_h_soll",
+      "theta_i_c_soll": "zones[].usage_profile.parameters_din.theta_i_c_soll",
+      "delta_theta_i_NA": "zones[].usage_profile.parameters_din.delta_theta_i_na",
+      "q_I": "zones[].usage_profile.parameters_din.q_i",
+      "q_el_b": "zones[].usage_profile.parameters_din.q_el_b",
+      "n_nutz": "zones[].usage_profile.parameters_din.n_nutz",
+      "t_nutz_d": "zones[].usage_profile.parameters_din.t_nutz_d",
+      "d_nutz_a": "zones[].usage_profile.parameters_din.d_nutz_a"
+    },
+    "element_parameters": {
+      "F_x": "elements[].f_x",
+      "A": "elements[].area",
+      "U": "elements[].u_value_undisturbed",
+      "delta_U_WB": "elements[].thermal_bridge_delta_u"
+    },
+    "window_parameters": {
+      "U_g": "windows[].u_value_glass",
+      "U_f": "windows[].u_value_frame",
+      "g": "windows[].g_value",
+      "psi_g": "windows[].psi_spacer"
+    },
+    "building_parameters": {
+      "A_NGF": "meta.building_area",
+      "V_e": "meta.building_volume"
+    }
+  },
+  
+  "validation_rules": {
+    "required_by_scope": {
+      "zone": ["theta_i_h_soll", "q_I", "n_nutz"],
+      "element": ["F_x", "A"],
+      "window": ["U_g", "U_f", "g"]
+    },
+    "conditional_required": {
+      "boundary_condition_GROUND": ["F_x"],
+      "usage_profile_type_RESIDENTIAL": ["theta_i_h_soll", "q_I"],
+      "usage_profile_type_NON_RESIDENTIAL": ["theta_i_h_soll", "q_I_p", "q_I_app"]
+    }
+  }
+}

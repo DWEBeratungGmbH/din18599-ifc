@@ -1,0 +1,75 @@
+{
+  "version": "DIN V 18599:2018-09",
+  "description": "DIN 18599 Interface-Mapping - Welche Symbole fließen zwischen welchen Teilen (Tabelle 3+4)",
+  "last_updated": "2026-03-28",
+  "note": "Diese Datei definiert nur die Datenflüsse zwischen DIN-Teilen. Keine Werte, nur Referenzen.",
+  
+  "inputs": [
+    {
+      "symbol": "A_NGF_WE_m",
+      "source_part": "DIN/TS 18599-1",
+      "target_part": "DIN/TS 18599-10",
+      "din_table": "Tabelle 3",
+      "description_de": "Mittlere Nettogrundfläche einer Wohnung - wird aus Teil 1 benötigt für Trinkwarmwasserberechnung"
+    }
+  ],
+  
+  "outputs": [
+    {
+      "symbol": "theta_i_h_soll",
+      "source_part": "DIN/TS 18599-10",
+      "target_parts": ["DIN/TS 18599-2", "DIN/TS 18599-5", "DIN/TS 18599-8"],
+      "din_table": "Tabelle 4",
+      "din_section": "Abschnitt 5 bzw. Abschnitt 6",
+      "description_de": "Raum-Solltemperatur Heizung - wird in Teil 2, 5 und 8 benötigt"
+    },
+    {
+      "symbol": "theta_i_c_soll",
+      "source_part": "DIN/TS 18599-10",
+      "target_parts": ["DIN/TS 18599-2"],
+      "din_table": "Tabelle 4",
+      "din_section": "Abschnitt 5 bzw. Abschnitt 6",
+      "description_de": "Raum-Solltemperatur Kühlung - wird in Teil 2 benötigt"
+    },
+    {
+      "symbol": "n_nutz",
+      "source_part": "DIN/TS 18599-10",
+      "target_parts": ["DIN/TS 18599-2"],
+      "din_table": "Tabelle 4",
+      "din_section": "Abschnitt 5 bzw. Abschnitt 6",
+      "description_de": "Nutzungsbedingter Mindestaußenluftwechsel - wird in Teil 2 benötigt"
+    },
+    {
+      "symbol": "q_I",
+      "source_part": "DIN/TS 18599-10",
+      "target_parts": ["DIN/TS 18599-2"],
+      "din_table": "Tabelle 4",
+      "din_section": "Abschnitt 5",
+      "description_de": "Interne Wärmequellen - wird in Teil 2 benötigt"
+    },
+    {
+      "symbol": "F_V",
+      "source_part": "DIN/TS 18599-10",
+      "target_parts": ["DIN/TS 18599-2"],
+      "din_table": "Tabelle 4",
+      "din_section": "Abschnitt 5 bzw. Abschnitt 6",
+      "description_de": "Abminderungsfaktor infolge von Verschmutzung - wird in Teil 2 benötigt"
+    },
+    {
+      "symbol": "t_nutz_d",
+      "source_part": "DIN/TS 18599-10",
+      "target_parts": ["DIN/TS 18599-8"],
+      "din_table": "Tabelle 4",
+      "din_section": "Abschnitt 5 bzw. Abschnitt 6",
+      "description_de": "Tägliche Nutzungsstunden - wird in Teil 8 benötigt"
+    },
+    {
+      "symbol": "d_nutz_a",
+      "source_part": "DIN/TS 18599-10",
+      "target_parts": ["DIN/TS 18599-2", "DIN/TS 18599-5", "DIN/TS 18599-8"],
+      "din_table": "Tabelle 4",
+      "din_section": "Abschnitt 5 bzw. Abschnitt 6",
+      "description_de": "Jährliche Nutzungstage - wird in Teil 2, 5 und 8 benötigt"
+    }
+  ]
+}
