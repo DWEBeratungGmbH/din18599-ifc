@@ -656,6 +656,52 @@
       "related_symbols": ["tau"],
       "category": "thermal_conditions",
       "see_also": []
+    },
+    {
+      "id": "TERM_RLT_ANLAGE",
+      "number": "3.1.51",
+      "part": 3,
+      "term_de": "Raumlufttechnische Anlage",
+      "term_en": "Air handling system",
+      "abbreviation": "RLT",
+      "definition_de": "Technische Einrichtung zur Aufbereitung und Verteilung von Luft (Erwärmen, Kühlen, Befeuchten, Entfeuchten, Filtern)",
+      "norm_refs": ["DIN_18599-3_2018-09_SEC_3"],
+      "category": "building_services",
+      "see_also": []
+    },
+    {
+      "id": "TERM_WAERMERUECKGEWINNUNG",
+      "number": "3.1.52",
+      "part": 3,
+      "term_de": "Wärmerückgewinnung",
+      "term_en": "Heat recovery",
+      "abbreviation": "WRG",
+      "definition_de": "Rückgewinnung von Wärme aus der Abluft zur Vorwärmung der Zuluft",
+      "norm_refs": ["DIN_18599-3_2018-09_SEC_3"],
+      "category": "building_services",
+      "see_also": []
+    },
+    {
+      "id": "TERM_SORPTIONSGESTUETZT",
+      "number": "3.1.53",
+      "part": 3,
+      "term_de": "Sorptionsgestütztes System",
+      "term_en": "Sorption-assisted system",
+      "definition_de": "RLT-System mit sorptiver Entfeuchtung und/oder Befeuchtung",
+      "norm_refs": ["DIN_18599-3_2018-09_SEC_3"],
+      "category": "building_services",
+      "see_also": []
+    },
+    {
+      "id": "TERM_INDIREKTE_VERDUNSTUNGSKUEHLUNG",
+      "number": "3.1.54",
+      "part": 3,
+      "term_de": "Indirekte Verdunstungskühlung",
+      "term_en": "Indirect evaporative cooling",
+      "definition_de": "Kühlung der Zuluft durch Verdunstung in einem separaten Luftstrom",
+      "norm_refs": ["DIN_18599-3_2018-09_SEC_3"],
+      "category": "cooling",
+      "see_also": []
     }
   ],
   
