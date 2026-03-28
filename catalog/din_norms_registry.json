@@ -1088,6 +1088,18 @@
               "number": "3.2",
               "name": "Symbole, Einheiten und Indizes",
               "summary": "Tabelle 1 (70+ Symbole), Tabelle 2 (10 Indizes)"
+            },
+            {
+              "id": "DIN_18599-7_2018-09_SEC_4",
+              "number": "4",
+              "name": "Verknüpfung der Teile der Reihe DIN/TS 18599",
+              "summary": "Tabelle 3 (Eingangsgrößen), Tabelle 4 (Ausgangsgrößen), Tabelle 5 (Kälteerzeugung), Tabelle 6 (Abgrenzung Heizung/Kühlung), Abschnitt 4.4 (Berechnungsverfahren: Bild 5-8 Energieflüsse, Schnittstellen Heizungstechnik)"
+            },
+            {
+              "id": "DIN_18599-7_2018-09_SEC_4_4",
+              "number": "4.4",
+              "name": "Berechnungsverfahren",
+              "summary": "4.4.1 Allgemeine Darstellung (Bild 5-8: Heizung RLT, Kälte RLT, Kälte Raum, Dampf Befeuchtung), 4.4.2 Schnittstellen Heizungstechnik (Tabelle 6: Abgrenzung Teil 5/Teil 7, Nachheizung/Nachkühlung, Umluft/Statisch)"
             }
           ],
           "tables": [
@@ -1108,9 +1120,60 @@
               "protected": false,
               "summary": "10 Indizes: EHA (Fortluft), FC (Freie Kühlung), GW (Grundwasser), GS (Erdreich), H (Erhitzer), Prod (Produktkennwert), SRG (Sorptionstrockner), VB (Wasserbefeuchter), VBZ (Wasserbefeuchter Zuluft DEC), VBA (Wasserbefeuchter Abluft indirekte Verdunstungskühlung)",
               "parameters_count": 10
+            },
+            {
+              "id": "DIN_18599-7_2018-09_TAB_3",
+              "number": "3",
+              "name": "Eingangsgrößen aus anderen Teilen der Reihe DIN/TS 18599",
+              "type": "interface_inputs",
+              "protected": false,
+              "summary": "Eingangsgrößen von Teilen 2,3,5,8,10 (Q_vh,b, Q_vc,b, Q_vst,b, Q_c,b,i, t_RLT-Betrieb, t_H,r, P_H,max, t_c,r, P_C*,max, P_C,max, t_c,op, t_rec, t_VB, β_c,grenz, Q_h,outg, W_h,d, Q*_h,rd,in, θ_VL,av, θ_RL,av, θ_VA, θ_RA, Q_w,outg, t_h,op,d, t_v,op,d, d_nutz,a)",
+              "parameters_count": 25
+            },
+            {
+              "id": "DIN_18599-7_2018-09_TAB_4",
+              "number": "4",
+              "name": "Ausgangsgrößen für andere Teile der Reihe DIN/TS 18599",
+              "type": "interface_outputs",
+              "protected": false,
+              "summary": "Ausgangsgrößen für Teile 1,2,5 (Q_h*,b, θ_h*, t_H*,op, Q_C,f, θ_C,therm, t_R,op, Q_rd,mot/Q_rd, θ_rd, Q_l,vh/Q_l,ch/Q_l,c*/Q_l,c/Q_l,vc, W_c/W_h*/W_st, β_c,grenz, V̇_dc, Q_vh,ce/Q_vc,ce/Q_c,ce/Q_c*,ce/Q_st,ce, Q_vh,d/Q_vc,d/Q_c*,d/Q_c,d/Q_st,d, Q_c,s/Q_c*,s, Q_c,g/Q_c*,g/Q_st,g, Q_c,f,in/Q_c*,f,in/Q_st,f,in, Q_c,f,prod/Q_c*,f,prod, Q_c,f,out/Q_c*,f,out, Q_h,outg,rd/Q_h,outg,rd,bu, Q_c,rd*/Q_h,rd*, Q_c,outg, θ_c,RL)",
+              "parameters_count": 45
+            },
+            {
+              "id": "DIN_18599-7_2018-09_TAB_5",
+              "number": "5",
+              "name": "Ausgangsgrößen für die Kälteerzeugung für DIN/TS 18599-1",
+              "type": "interface_outputs_generators",
+              "protected": false,
+              "summary": "Kälteerzeugung: Kompressionskälte mit Wärmeverschiebung (7.1.3, 8.5.2, H.2), Sorptionskälte (7.1.4), gasbetriebene Kälte (7.1.5), freie Kühlung (7.2), geothermische Kühlung (7.3), Dampfversorgung (7.4)",
+              "parameters_count": 6
+            },
+            {
+              "id": "DIN_18599-7_2018-09_TAB_6",
+              "number": "6",
+              "name": "Abgrenzung Raumheizung in DIN/TS 18599-5 und Raumkühlung in DIN/TS 18599-7",
+              "type": "interface_boundary",
+              "protected": false,
+              "summary": "6 Systemkonfigurationen: Nachheizung/Nachkühlung Zuluft (Teil 5/Teil 7), Vorheizung/Hauptkühlung Klimagerät (Teil 7), Umluftheizung/-kühlung Zone (Teil 5/Teil 7), Statische Heizung/Kühlung Zone (Teil 5/Teil 7), Ventilatorstrombedarf (Teil 3/Teil 5)",
+              "parameters_count": 6
             }
           ],
-          "annexes": []
+          "annexes": [
+            {
+              "id": "DIN_18599-7_2018-09_ANNEX_C",
+              "letter": "C",
+              "name": "Ungeregelte Wärme- und Kälteeinträge",
+              "type": "normative",
+              "summary": "Berechnung ungeregelte Einträge durch RLT und Kühlsysteme"
+            },
+            {
+              "id": "DIN_18599-7_2018-09_ANNEX_H",
+              "letter": "H",
+              "name": "Wärmeverschiebung",
+              "type": "normative",
+              "summary": "Berechnung Kompressionskälte mit Abwärmenutzung durch Wärmeverschiebung"
+            }
+          ]
         },
         {
           "id": "DIN_18599-8_2018-09",
