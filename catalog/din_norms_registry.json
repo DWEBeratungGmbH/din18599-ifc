@@ -1045,11 +1045,71 @@
           "version": "2018-09",
           "title": "Endenergiebedarf von Raumlufttechnik- und Klimakältesystemen für den Nichtwohnungsbau",
           "summary": "Berechnung Endenergiebedarf für RLT-Anlagen und Kältesysteme in Nichtwohngebäuden",
-          "description": "Teil 7 legt die Berechnung des Endenergiebedarfs von Raumlufttechnischen Anlagen und Klimakältesystemen für Nichtwohngebäude fest. Berücksichtigt werden zentrale und dezentrale RLT-Anlagen, Kälteerzeugung, Kälteverteilung und freie Kühlung.",
+          "description": "Teil 7 legt die Berechnung des Endenergiebedarfs von Raumlufttechnischen Anlagen (zentral, dezentral, VVS/KVS) und Klimakältesystemen für Nichtwohngebäude fest. Berücksichtigt werden Wärmerückgewinnung, Befeuchtung, Kälteerzeugung (Kompressions-/Sorptionskälte), Kälteverteilung, Kältespeicherung, Rückkühlung und freie Kühlung. 4-Prozessschritte-Modell: Übergabe → Verteilung → Speicherung → Erzeugung.",
           "scope": "non_residential_hvac",
           "pages": 124,
-          "sections": [],
-          "tables": [],
+          "normative_references": [
+            "DIN_8960",
+            "DIN_18599-1_2025-10",
+            "DIN_18599-2_2025-10",
+            "DIN_18599-3_2025-10",
+            "DIN_18599-5_2025-10",
+            "DIN_18599-6_2025-10",
+            "DIN_18599-8_2018-09",
+            "DIN_18599-10_2025-10",
+            "DIN_EN_308",
+            "DIN_EN_13053",
+            "DIN_EN_14511",
+            "DIN_EN_14825",
+            "DIN_EN_16798-1",
+            "DIN_EN_16798-3"
+          ],
+          "sections": [
+            {
+              "id": "DIN_18599-7_2018-09_SEC_2",
+              "number": "2",
+              "name": "Normative Verweisungen",
+              "summary": "14 referenzierte Normen: DIN 8960 (Kältemittel), DIN/TS 18599 Teile 1,2,3,5,6,8,10, DIN EN 308 (WRG), DIN EN 13053 (RLT-Geräte), DIN EN 14511/14825 (Wärmepumpen/Kältemaschinen), DIN EN 16798-1/3 (Lüftung Gebäude)"
+            },
+            {
+              "id": "DIN_18599-7_2018-09_SEC_3",
+              "number": "3",
+              "name": "Begriffe, Symbole, Einheiten und Indizes",
+              "summary": "8 Begriffe (Kälteversorgungsbereich, SFP-Wert, Temperaturänderungsgrad WRG, Feuchteänderungsgrad WRG, Nachheizung, Nachkühlung, Produktwert, Standardwert), Tabelle 1 (Symbole), Tabelle 2 (Indizes), Bild 4 (Indizierungsschema)"
+            },
+            {
+              "id": "DIN_18599-7_2018-09_SEC_3_1",
+              "number": "3.1",
+              "name": "Begriffe",
+              "summary": "8 zentrale Begriffe für RLT und Klimakälte"
+            },
+            {
+              "id": "DIN_18599-7_2018-09_SEC_3_2",
+              "number": "3.2",
+              "name": "Symbole, Einheiten und Indizes",
+              "summary": "Tabelle 1 (70+ Symbole), Tabelle 2 (10 Indizes)"
+            }
+          ],
+          "tables": [
+            {
+              "id": "DIN_18599-7_2018-09_TAB_1",
+              "number": "1",
+              "name": "Symbole und Einheiten",
+              "type": "symbols",
+              "protected": false,
+              "summary": "70+ Symbole für RLT/Klimakälte: A_K,A (Luftkanal-/Geräteoberfläche), b (Bewertungsfaktor), b_VC/b_VH (Vollbenutzungsstunden), c_RLT (relative Abwesenheit), e_d,l (Aufwandszahl Verteilung), EER/SEER (Kälteleistungszahl), E_KK/E_RLT (Effizienz), f-Faktoren (Verlust, Korrektur, Teillast, Freikühlung, Parallel, Speicher), l_ES (Bohrtiefe Erdsonden), P (Leistung), PLV_av (Teillastfaktor), P_SFP (spez. Leistungsaufnahme Ventilator), Q_C (Endenergie/Kälteleistung Sorption), q_ES/q_R (spez. Entzugs-/Rückkühlleistung), R (Druckgefälle), T (absolute Temperatur), t (Betriebszeiten), V̇ (Volumenstrom), W (Hilfsenergieaufwand), Δp (Druckerhöhung/Differenzdruck), ζ (Nennwärmeverhältnis), η (Nutzungsgrad), θ (Temperatur), ν (kinematische Viskosität)",
+              "parameters_count": 75
+            },
+            {
+              "id": "DIN_18599-7_2018-09_TAB_2",
+              "number": "2",
+              "name": "Indizes",
+              "type": "indices",
+              "protected": false,
+              "summary": "10 Indizes: EHA (Fortluft), FC (Freie Kühlung), GW (Grundwasser), GS (Erdreich), H (Erhitzer), Prod (Produktkennwert), SRG (Sorptionstrockner), VB (Wasserbefeuchter), VBZ (Wasserbefeuchter Zuluft DEC), VBA (Wasserbefeuchter Abluft indirekte Verdunstungskühlung)",
+              "parameters_count": 10
+            }
+          ],
           "annexes": []
         },
         {
