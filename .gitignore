@@ -27,3 +27,8 @@ Thumbs.db
 # Temp files
 *.tmp
 .cache/
+
+# Urheberrechtlich geschützte Norm-Daten (DIN/Beuth)
+catalog-private/
+*.xlsx
+din18599_katalog.*
