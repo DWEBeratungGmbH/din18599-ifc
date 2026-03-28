@@ -1515,11 +1515,74 @@
           "version": "2018-09",
           "title": "Gebäudeautomation",
           "summary": "Effizienzfaktoren für Gebäudeautomation und technisches Gebäudemanagement",
-          "description": "Teil 11 legt die Berücksichtigung von Gebäudeautomation (GA) und technischem Gebäudemanagement (TGM) fest. Definiert Effizienzklassen nach DIN EN ISO 52120-1 und Faktoren zur Reduktion des Energiebedarfs durch automatisierte Regelung.",
+          "description": "Teil 11 legt die Berücksichtigung von Gebäudeautomation (GA) und technischem Gebäudemanagement (TGM) in der Energiebilanzierung fest. Definiert GA-Effizienzklassen A-D (Automationsgrad) nach DIN EN ISO 52120-1 und Faktoren zur Reduktion des Energiebedarfs durch automatisierte Regelung, Steuerung, Überwachung und Optimierung der TGA (Heizung, Kühlung, Lüftung, Beleuchtung). Berücksichtigt Raumautomation, Einzelraumregelung, Zonenregelung, technisches Monitoring und Energiemanagement.",
           "scope": "building_automation",
           "pages": 48,
-          "sections": [],
-          "tables": [],
+          "normative_references": [
+            "DIN_18599-1_2018-09",
+            "DIN_18599-2_2025-10",
+            "DIN_18599-4_2025-10",
+            "DIN_18599-5_2025-10",
+            "DIN_18599-6_2025-10",
+            "DIN_18599-7_2025-10",
+            "DIN_18599-8_2025-10",
+            "DIN_18599-10_2025-10",
+            "DIN_EN_13142",
+            "DIN_EN_14511-1",
+            "DIN_EN_14511-2",
+            "DIN_EN_14511-3",
+            "DIN_EN_14511-4",
+            "DIN_EN_16798-3"
+          ],
+          "sections": [
+            {
+              "id": "DIN_18599-11_2018-09_SEC_2",
+              "number": "2",
+              "name": "Normative Verweisungen",
+              "summary": "14 referenzierte Normen: DIN/TS 18599 Teile 1,2,4,5,6,7,8,10, DIN EN 13142 (Lüftung Wohnungen), DIN EN 14511 Teile 1-4 (Wärmepumpen), DIN EN 16798-3 (Lüftung Nichtwohngebäude)"
+            },
+            {
+              "id": "DIN_18599-11_2018-09_SEC_3",
+              "number": "3",
+              "name": "Begriffe, Symbole und Einheiten",
+              "summary": "10 Begriffe (Gebäudeautomation/GA, Gebäudemanagement, Energiemanagement, Raumautomation, Endenergiebedarf, Nutzenergiebedarf, Technisches Monitoring, Wärmeenergie, Zone, Automationsgrad), Tabelle 1 (Symbole), Tabelle 2 (Indizes)"
+            },
+            {
+              "id": "DIN_18599-11_2018-09_SEC_4",
+              "number": "4",
+              "name": "Verknüpfung der Teile der Reihe DIN/TS 18599",
+              "summary": "Tabelle 3 (1 Ausgangsgröße: W_aut Hilfsenergieaufwand Automation für Teil 1)"
+            }
+          ],
+          "tables": [
+            {
+              "id": "DIN_18599-11_2018-09_TAB_1",
+              "number": "1",
+              "name": "Symbole und Einheiten",
+              "type": "symbols",
+              "protected": false,
+              "summary": "10 Symbole: f (Faktor/Einflussfaktor), L (Übertragungskoeffizient), n/N (Anzahl), P (Leistung), t (Zeit/Zeitspanne), Θ (Temperatur), ΔΘ (Temperaturdifferenz), Δp (Druckdifferenz), Q (Energie), W (Hilfsenergieaufwand)",
+              "parameters_count": 10
+            },
+            {
+              "id": "DIN_18599-11_2018-09_TAB_2",
+              "number": "2",
+              "name": "Indizes",
+              "type": "indices",
+              "protected": false,
+              "summary": "25 Indizes: a (Jahr/Über-), adapt (adaptiv), aux (Hilfsenergie), aut (Automation), av (mittel), BAC (Gebäudeautomation), b (Bedarf), c (Kühlung), C (Regelung/Steuerung), ce (Regelung Übergabe), d (Verteilung), el (elektrisch), f (Endenergie), fan (Ventilator/Lüfter/Gebläse), GAM (Gebäudeautomation und Management), g/gen (Erzeugung), h (Heizung), HK (Heizkreis), l (Licht), o (Betrieb), Pu (Pumpe), ref (Referenz), rv (Wohnungslüftung), SNA (Sonnenschutz nicht aktiviert), TL (Tageslicht), Vers (Versorgung), vh (Lüftung Heizen), ziel (Ziel)",
+              "parameters_count": 25
+            },
+            {
+              "id": "DIN_18599-11_2018-09_TAB_3",
+              "number": "3",
+              "name": "Ausgangsgrößen für andere Teile der Reihe DIN/TS 18599",
+              "type": "interface_outputs",
+              "protected": false,
+              "summary": "1 Ausgangsgröße für Teil 1: W_aut (Hilfsenergieaufwand für Automation, kWh/a)",
+              "parameters_count": 1
+            }
+          ],
           "annexes": []
         }
       ]
