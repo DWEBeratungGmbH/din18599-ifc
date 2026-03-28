@@ -479,13 +479,139 @@
           "number": "3",
           "version": "2018-09",
           "title": "Nutzenergiebedarf für die energetische Luftaufbereitung",
-          "summary": "Berechnung Nutzenergiebedarf für Befeuchtung und Entfeuchtung",
-          "description": "Teil 3 legt die Berechnung des Nutzenergiebedarfs für die energetische Luftaufbereitung (Befeuchtung, Entfeuchtung) in raumlufttechnischen Anlagen fest.",
+          "summary": "Berechnung Nutzenergiebedarf für Heizen, Kühlen, Befeuchten, Entfeuchten von Luft in RLT-Anlagen",
+          "description": "Teil 3 legt die Berechnung des Nutzenergiebedarfs für die energetische Luftaufbereitung (Erwärmen, Kühlen, Befeuchten, Entfeuchten) in raumlufttechnischen Anlagen fest. Kennwertverfahren mit monatlicher Bilanzierung, Berücksichtigung von Wärmerückgewinnung, sorptionsgestützten Systemen und indirekter Verdunstungskühlung.",
           "scope": "air_conditioning",
           "pages": 38,
-          "sections": [],
-          "tables": [],
-          "annexes": []
+          "normative_references": [
+            "DIN_18599-2_2025-10",
+            "DIN_18599-7_2025-10",
+            "DIN_18599-10_2025-10",
+            "DIN_EN_308",
+            "DIN_EN_16798-1",
+            "DIN_EN_ISO_6946",
+            "DIN_EN_ISO_7345",
+            "DIN_EN_ISO_9288",
+            "DIN_EN_ISO_52016-1"
+          ],
+          "sections": [
+            {
+              "id": "DIN_18599-3_2018-09_SEC_2",
+              "number": "2",
+              "name": "Normative Verweisungen",
+              "summary": "9 referenzierte Normen: DIN/TS 18599 Teile 2,7,10, DIN EN 308 (Wärmerückgewinnung), DIN EN 16798-1 (Lüftung), DIN EN ISO (Wärmetechnik)"
+            },
+            {
+              "id": "DIN_18599-3_2018-09_SEC_3",
+              "number": "3",
+              "name": "Begriffe, Symbole und Einheiten",
+              "summary": "19 Begriffe (Zone, Nutzwärme-/Nutzkältebedarf, Wärmequelle/-senke, RLT-Anlage, Komponente, Luftzustände, Volumenströme, Wärmerückgewinnung, Produktwert, Standardwert), Tabelle 1 (Symbole), Tabelle 2 (Indizes)"
+            },
+            {
+              "id": "DIN_18599-3_2018-09_SEC_3_1",
+              "number": "3.1",
+              "name": "Begriffe",
+              "summary": "19 zentrale Begriffe für RLT-Anlagen und Luftaufbereitung"
+            },
+            {
+              "id": "DIN_18599-3_2018-09_SEC_3_2",
+              "number": "3.2",
+              "name": "Symbole, Einheiten und Indizes",
+              "summary": "Tabelle 1 (100+ Symbole), Tabelle 2 (40+ Indizes), Abkürzungen (DGNB, BNB, QS)"
+            },
+            {
+              "id": "DIN_18599-3_2018-09_SEC_4",
+              "number": "4",
+              "name": "Verknüpfung der Teile der Reihe DIN/TS 18599",
+              "summary": "Tabelle 3 (Eingangsgrößen), Tabelle 4 (Ausgangsgrößen), Abschnitt 4.4 (Berechnungsverfahren)"
+            },
+            {
+              "id": "DIN_18599-3_2018-09_SEC_5",
+              "number": "5",
+              "name": "Anlagentypen und Komponentenreihung",
+              "summary": "Klassifikation von RLT-Anlagen nach Komponentenreihung"
+            },
+            {
+              "id": "DIN_18599-3_2018-09_SEC_6",
+              "number": "6",
+              "name": "Zuluftvolumenstrom",
+              "summary": "Berechnung monatlicher Zuluftvolumenströme (konstant, variabel, kühllastabhängig)"
+            },
+            {
+              "id": "DIN_18599-3_2018-09_SEC_7",
+              "number": "7",
+              "name": "Nutzenergiebedarf der thermischen Luftaufbereitung",
+              "summary": "Kennwertverfahren mit Interpolation und Korrekturfaktoren"
+            },
+            {
+              "id": "DIN_18599-3_2018-09_SEC_8",
+              "number": "8",
+              "name": "Endenergiebedarf für die Luftförderung",
+              "summary": "Berechnung elektrischer Energiebedarf für Ventilatoren"
+            }
+          ],
+          "tables": [
+            {
+              "id": "DIN_18599-3_2018-09_TAB_1",
+              "number": "1",
+              "name": "Symbole und Einheiten",
+              "type": "symbols",
+              "protected": false,
+              "summary": "100+ Symbole für RLT-Anlagen: c, c_p,L, Δ, Δp_konst, Δp*_ETA, Δp*_SUP, Δp*, Δh_rec, d, d_v,mech,mth, f, f_c,DEC, f_h,DEC, f_IEC, f_IEC,18°C, f_p, f_T,h, f_T,c, f_T,st, f_T,IEC, g, g_c,u,mth, g_c,o,mth, g_h,u,mth, g_h,o,mth, g_IEC,o, g_IEC,u, h, h_ODA,Wi, h_ODA,So, h_ETA,Wi, h_ETA,So, h_SUP,Wi, h_SUP,So, η, η_t,comp, η_x,comp, φ, ρ_L, P, P_v, p_SFP, P_v,SUP, P_v,ETA, P_c, P_h, P_st, p, p_S, q, q_c, q_h, q_st, q_i,18°C,12h,mth, q_i,18°C,mth, q_i,mth, Q, Q_c,b, Q_vc,b,mth, Q_vh,b,mth, Q_st,b,mth, Q̇_c,max, Σ, θ, θ_hc, θ_v,mech,mth, θ_SUP,So, θ_i,c,soll, θ_SUP,Wi, T, t_v,mech,mth, t_v,mech,j,mth, t_h,r, t_c,r, t_st,r, t_sorp,r, t_rec,r, t_ev,r, t_eve,r, t_evs,r, t_h, t_c, t_st, t_sorp, t_rec, t_ev, t_eve, t_evs, V̇, V̇_mech,b,mth, V̇_mech,mth, V̇_min, V̇*, V̇_j, Σ_mth V̇, Σ_mth V̇³, V̇_mech,max, V̇_SUP, V̇_ETA, W, W_V,mth, Φ_rec, x, ζ_DEC",
+              "parameters_count": 105
+            },
+            {
+              "id": "DIN_18599-3_2018-09_TAB_2",
+              "number": "2",
+              "name": "Indizes",
+              "type": "indices",
+              "protected": false,
+              "summary": "40+ Indizes: 12h, 18°C, c, DEC, ev, eve, evs, ETA, F, h, IEC, in, j, i, L, mth, max, min, mech, o, ODA, out, rec, SUP, S, So, sorp, st, T, t, u, v, W, Wi, x, *, ́́, ́",
+              "parameters_count": 42
+            },
+            {
+              "id": "DIN_18599-3_2018-09_TAB_3",
+              "number": "3",
+              "name": "Eingangsgrößen aus anderen Teilen der Reihe DIN/TS 18599",
+              "type": "interface_inputs",
+              "protected": false,
+              "summary": "Eingangsgrößen von Teilen 2,7,10 (Q_c,b, Q̇_c,max, θ_i,c,soll, V̇_A, V̇_dc, t_v,op,d, d_op,a, d_mth)",
+              "parameters_count": 8
+            },
+            {
+              "id": "DIN_18599-3_2018-09_TAB_4",
+              "number": "4",
+              "name": "Ausgangsgrößen für andere Teile der Reihe DIN/TS 18599",
+              "type": "interface_outputs",
+              "protected": false,
+              "summary": "Ausgangsgrößen für Teile 1,2,5,7 (θ_v,mech,mth, V̇_mech,b,mth, Q_vc,b,mth, Q_vh,b,mth, Q_st,b,mth, t_h, t_rec, t_eve, t_evs, P_c, P_h, V̇*, W_V,mth, θ_SUP,Wi)",
+              "parameters_count": 14
+            }
+          ],
+          "annexes": [
+            {
+              "id": "DIN_18599-3_2018-09_ANNEX_A",
+              "letter": "A",
+              "name": "Kennwerttabellen",
+              "type": "normative",
+              "summary": "Tabellen A.1 bis A.13 mit spezifischen Nutzenergiebedarfswerten für verschiedene RLT-Anlagentypen",
+              "note": "Enthält die Basiskennwerte q_i,18°C,12h,mth für Heizen, Kühlen, Befeuchten"
+            },
+            {
+              "id": "DIN_18599-3_2018-09_ANNEX_B",
+              "letter": "B",
+              "name": "Laufzeiten von Komponenten",
+              "type": "normative",
+              "summary": "Berechnung jährlicher Laufzeiten für Erhitzer, Kühler, Befeuchter, Wärmerückgewinner"
+            },
+            {
+              "id": "DIN_18599-3_2018-09_ANNEX_C",
+              "letter": "C",
+              "name": "Berechnungsgrundlagen für Stundenschrittverfahren",
+              "type": "normative",
+              "summary": "Randbedingungen und Modellbildung für alternative Berechnung im Stundenschritt"
+            }
+          ]
         },
         {
           "id": "DIN_18599-4_2025-10",
