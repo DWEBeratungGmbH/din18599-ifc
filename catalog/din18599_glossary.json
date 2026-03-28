@@ -1,9 +1,23 @@
 {
-  "version": "1.0.0",
-  "description": "Glossar - Begriffsdefinitionen aus DIN 18599-1 Abschnitt 3",
+  "version": "2.0.0",
+  "description": "Glossar - Begriffsdefinitionen aus DIN 18599 Teile 1-11",
   "last_updated": "2026-03-28",
-  "source": "DIN/TS 18599-1:2018-09, Abschnitt 3 - Begriffe",
+  "source": "DIN/TS 18599 Teile 1-11, Abschnitt 3 - Begriffe",
   "note": "Alle Begriffe mit Referenzen zu Norm-IDs aus din_norms_registry.json. Definitionen sind urheberrechtlich geschützt (nur Struktur public).",
+  "statistics": {
+    "total_terms": 222,
+    "part_1": 47,
+    "part_2": 7,
+    "part_3": 19,
+    "part_4": 20,
+    "part_5": 44,
+    "part_6": 24,
+    "part_7": 8,
+    "part_8": 24,
+    "part_9": 19,
+    "part_10": 0,
+    "part_11": 10
+  },
   
   "terms": [
     {
@@ -555,6 +569,93 @@
       "related_symbols": [],
       "category": "emissions",
       "see_also": ["TERM_PRIMAERENERGIEBEDARF"]
+    },
+    {
+      "id": "TERM_AUSSENINDUZIERTE_LUEFTUNG",
+      "number": "3.1.44",
+      "part": 2,
+      "term_de": "außeninduzierte Lüftung",
+      "term_en": "wind-induced ventilation",
+      "definition_de": "Natürliche Lüftung durch Druckdifferenzen infolge von Wind und Temperaturdifferenzen",
+      "norm_refs": ["DIN_18599-2_2025-10_SEC_3"],
+      "category": "ventilation",
+      "see_also": ["TERM_LUFTWECHSEL"]
+    },
+    {
+      "id": "TERM_FREIE_KUEHLUNG",
+      "number": "3.1.45",
+      "part": 2,
+      "term_de": "freie Kühlung",
+      "term_en": "free cooling",
+      "definition_de": "Kühlung durch erhöhten Luftwechsel ohne Einsatz aktiver Kühltechnik",
+      "norm_refs": ["DIN_18599-2_2025-10_SEC_3"],
+      "category": "cooling",
+      "see_also": ["TERM_NUTZKAELTEBEDARF"]
+    },
+    {
+      "id": "TERM_INTERNE_WAERMEQUELLEN",
+      "number": "3.1.46",
+      "part": 2,
+      "term_de": "interne Wärmequellen",
+      "term_en": "internal heat sources",
+      "abbreviation": "Q_I",
+      "definition_de": "Wärmeeinträge durch Personen, Beleuchtung, Arbeitshilfen und Prozesse innerhalb der Zone",
+      "norm_refs": ["DIN_18599-2_2025-10_SEC_3"],
+      "related_symbols": ["Q_I"],
+      "category": "heat_balance",
+      "see_also": ["TERM_WAERMEQUELLE"]
+    },
+    {
+      "id": "TERM_SOLARE_WAERMEQUELLEN",
+      "number": "3.1.47",
+      "part": 2,
+      "term_de": "solare Wärmequellen",
+      "term_en": "solar heat sources",
+      "abbreviation": "Q_S",
+      "definition_de": "Wärmeeinträge durch solare Einstrahlung über transparente und opake Bauteile",
+      "norm_refs": ["DIN_18599-2_2025-10_SEC_3"],
+      "related_symbols": ["Q_S"],
+      "category": "heat_balance",
+      "see_also": ["TERM_WAERMEQUELLE"]
+    },
+    {
+      "id": "TERM_TRANSMISSIONSWAERMEVERLUST",
+      "number": "3.1.48",
+      "part": 2,
+      "term_de": "Transmissionswärmeverlust",
+      "term_en": "transmission heat loss",
+      "abbreviation": "Q_T",
+      "definition_de": "Wärmeverlust durch Wärmeleitung über die wärmeübertragende Umfassungsfläche",
+      "norm_refs": ["DIN_18599-2_2025-10_SEC_3"],
+      "related_symbols": ["Q_T", "H_T"],
+      "category": "heat_balance",
+      "see_also": ["TERM_WAERMESENKE"]
+    },
+    {
+      "id": "TERM_LUEFTUNGSWAERMEVERLUST",
+      "number": "3.1.49",
+      "part": 2,
+      "term_de": "Lüftungswärmeverlust",
+      "term_en": "ventilation heat loss",
+      "abbreviation": "Q_V",
+      "definition_de": "Wärmeverlust durch Luftaustausch (Infiltration und Lüftung)",
+      "norm_refs": ["DIN_18599-2_2025-10_SEC_3"],
+      "related_symbols": ["Q_V", "H_V"],
+      "category": "heat_balance",
+      "see_also": ["TERM_WAERMESENKE", "TERM_LUFTWECHSEL"]
+    },
+    {
+      "id": "TERM_ZEITKONSTANTE",
+      "number": "3.1.50",
+      "part": 2,
+      "term_de": "Zeitkonstante",
+      "term_en": "time constant",
+      "abbreviation": "tau",
+      "definition_de": "Kennwert für die thermische Trägheit eines Gebäudes oder einer Zone",
+      "norm_refs": ["DIN_18599-2_2025-10_SEC_3"],
+      "related_symbols": ["tau"],
+      "category": "thermal_conditions",
+      "see_also": []
     }
   ],
   
