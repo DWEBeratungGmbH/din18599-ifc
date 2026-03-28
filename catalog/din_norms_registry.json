@@ -618,14 +618,132 @@
           "number": "4",
           "version": "2025-10",
           "title": "Nutz- und Endenergiebedarf für Beleuchtung",
-          "summary": "Berechnung Beleuchtungsenergiebedarf mit Tageslichtnutzung und Steuerung",
-          "description": "Teil 4 legt die Berechnung des Nutz- und Endenergiebedarfs für Beleuchtung fest. Berücksichtigt werden Wartungswerte der Beleuchtungsstärke, Tageslichtversorgung, Präsenz- und Konstantlichtregelung sowie Leuchtenwirkungsgrade.",
+          "summary": "Berechnung Beleuchtungsenergiebedarf mit Tageslichtnutzung, Präsenz- und Konstantlichtregelung",
+          "description": "Teil 4 legt die Berechnung des Nutz- und Endenergiebedarfs für Beleuchtung fest. Berücksichtigt werden Wartungswerte der Beleuchtungsstärke nach DIN EN 12464-1, Tageslichtversorgung (Tageslichtquotient, Oberlichter, Glasdoppelfassaden), Präsenz- und Konstantlichtregelung sowie Leuchtenwirkungsgrade. Detaillierte Berechnung für verschiedene Raumtypen und Nutzungen.",
           "scope": "lighting",
           "pages": 94,
-          "changes_from_previous": "Aktualisierung der Beleuchtungsstärken nach DIN EN 12464-1:2021, neue LED-Wirkungsgrade",
-          "sections": [],
-          "tables": [],
-          "annexes": []
+          "changes_from_previous": "Aktualisierung der Beleuchtungsstärken nach DIN EN 12464-1:2021, neue LED-Wirkungsgrade, erweiterte Tageslichtberechnung",
+          "normative_references": [
+            "DIN_5034-3",
+            "DIN_5034-6",
+            "DIN_4108-4",
+            "DIN_18599-1_2018-09",
+            "DIN_18599-2_2018-09",
+            "DIN_18599-10_2025-10",
+            "DIN_EN_410",
+            "DIN_EN_12464-1",
+            "DIN_EN_ISO_52022"
+          ],
+          "sections": [
+            {
+              "id": "DIN_18599-4_2025-10_SEC_2",
+              "number": "2",
+              "name": "Normative Verweisungen",
+              "summary": "9 referenzierte Normen: DIN 5034 (Tageslicht), DIN 4108-4 (Wärmeschutz), DIN/TS 18599 Teile 1,2,10, DIN EN 410 (Glas), DIN EN 12464-1 (Beleuchtung Arbeitsstätten), DIN EN ISO 52022 (Tageslicht)"
+            },
+            {
+              "id": "DIN_18599-4_2025-10_SEC_3",
+              "number": "3",
+              "name": "Begriffe, Symbole, Einheiten und Indizes",
+              "summary": "20 Begriffe (Beleuchtungsstärke, Wartungswert, Lichtstrom, Belichtung, Tageslichtquotient, Lampe, Leuchte, Vorschaltgerät, Dachoberlicht, Kontrollsystem, Verbauung, Sehaufgabe, Produktwert, Standardwert, Aufwandszahl), Tabelle 1 (Symbole), Tabelle 2 (Indizes)"
+            },
+            {
+              "id": "DIN_18599-4_2025-10_SEC_3_1",
+              "number": "3.1",
+              "name": "Begriffe",
+              "summary": "20 zentrale Begriffe für Beleuchtungsberechnung"
+            },
+            {
+              "id": "DIN_18599-4_2025-10_SEC_3_2",
+              "number": "3.2",
+              "name": "Symbole, Einheiten und Indizes",
+              "summary": "Tabelle 1 (30+ Symbole), Tabelle 2 (50+ Indizes), Abkürzungen (EVG, GDF, KVG, VVG)"
+            },
+            {
+              "id": "DIN_18599-4_2025-10_SEC_4",
+              "number": "4",
+              "name": "Verknüpfung der Teile der Reihe DIN/TS 18599",
+              "summary": "Tabelle 3 (Eingangsgrößen), Tabelle 4 (Ausgangsgrößen)"
+            },
+            {
+              "id": "DIN_18599-4_2025-10_SEC_5",
+              "number": "5",
+              "name": "Berechnungsverfahren",
+              "summary": "Allgemeines Verfahren zur Berechnung des Beleuchtungsenergiebedarfs"
+            },
+            {
+              "id": "DIN_18599-4_2025-10_SEC_6",
+              "number": "6",
+              "name": "Tageslichtversorgung",
+              "summary": "Berechnung Tageslichtquotient, Berücksichtigung von Oberlichtern, Glasdoppelfassaden, Verbauung"
+            },
+            {
+              "id": "DIN_18599-4_2025-10_SEC_7",
+              "number": "7",
+              "name": "Nutzenergiebedarf für Beleuchtung",
+              "summary": "Berechnung Q_l,b mit Wartungswert, Raumindex, Reflexionsgraden"
+            },
+            {
+              "id": "DIN_18599-4_2025-10_SEC_8",
+              "number": "8",
+              "name": "Endenergiebedarf für Beleuchtung",
+              "summary": "Berechnung Q_l,f mit Aufwandszahl, Berücksichtigung von Vorschaltgeräten und Steuerung"
+            }
+          ],
+          "tables": [
+            {
+              "id": "DIN_18599-4_2025-10_TAB_1",
+              "number": "1",
+              "name": "Symbole",
+              "type": "symbols",
+              "protected": false,
+              "summary": "30+ Symbole für Beleuchtung: a (Tiefe), A (Fläche), b (Breite), bf (Belegungsfaktor), C (Korrekturfaktor), D (Tageslichtquotient), e (Aufwandszahl), E_m (Wartungswert Beleuchtungsstärke), E_U (Umgebung), f/F (Faktoren), h (Höhe), J (Anzahl Berechnungsbereiche), k (Raumindex/Korrekturfaktor), m (Minderungsfaktor), N (Anzahl Zonen), η (Wirkungsgrad), p (flächenbezogene Leistung), P (Leistung), ρ (Reflexionsgrad), φ (Lichtstromanteil), t (Zeit), τ (Lichttransmissionsgrad), v (Verteilungsschlüssel), WF (Wartungsfaktor), wi (Lichtschachtindex), γ (Neigungswinkel)",
+              "parameters_count": 32
+            },
+            {
+              "id": "DIN_18599-4_2025-10_TAB_2",
+              "number": "2",
+              "name": "Indizes",
+              "type": "indices",
+              "protected": false,
+              "summary": "50+ Indizes: e (außen), A (Abwesenheit), At (Atrium), B (Boden), D (Decke), D65 (Normlichtart), eff (effektiv), F (verglaste Seite), GDF (Glasdoppelfassade), gesamt, hA (horizontale Auskragung), i/j/n (Laufindizes), In (Innenhof), kon (Kontrolle), KTL (kein Tageslicht), L (Lampe), lV (lineare Verbauung), Nacht, Ne (Nutzebene), o (oben), Obl (Oberlicht), Pe (Pendelebene), Prä (Präsenz), R (Raum), Rb (Rohbau), rel (relativ), RG (Raumgrundfläche), Rt (Raumtiefe), s (Lichtfläche), SA (Sonnenschutz aktiviert), SNA (Sonnenschutz nicht aktiviert), St (Sturz), t (Gebäudebetriebszeit), Tag, TB (Tafelbeleuchtung), TL (Tageslicht), Tr (Transparenz), u (unten), V (Verbauung), vA (vertikale Auskragung), Vers (Versorgung), vereinfacht, W (Wand)",
+              "parameters_count": 52
+            },
+            {
+              "id": "DIN_18599-4_2025-10_TAB_3",
+              "number": "3",
+              "name": "Eingangsgrößen aus anderen Teilen der Reihe DIN/TS 18599",
+              "type": "interface_inputs",
+              "protected": false,
+              "summary": "Eingangsgrößen von Teil 10 (t_Tag, t_Nacht, E_m, h_Ne, k_A, k_VB, C_A, k, F_t, k_2)",
+              "parameters_count": 10
+            },
+            {
+              "id": "DIN_18599-4_2025-10_TAB_4",
+              "number": "4",
+              "name": "Ausgangsgrößen für andere Teile der Reihe DIN/TS 18599",
+              "type": "interface_outputs",
+              "protected": false,
+              "summary": "Ausgangsgrößen für Teile 1,2 (Q_l,b, Q_l,f, W_l/Q_l,aux)",
+              "parameters_count": 3
+            }
+          ],
+          "annexes": [
+            {
+              "id": "DIN_18599-4_2025-10_ANNEX_A",
+              "letter": "A",
+              "name": "Berechnungsbeispiele",
+              "type": "informative",
+              "summary": "Beispielrechnungen für verschiedene Raumtypen und Beleuchtungssituationen"
+            },
+            {
+              "id": "DIN_18599-4_2025-10_ANNEX_B",
+              "letter": "B",
+              "name": "Tabellenwerte",
+              "type": "normative",
+              "summary": "Standardwerte für Reflexionsgrade, Wartungsfaktoren, Leuchtenwirkungsgrade"
+            }
+          ]
         },
         {
           "id": "DIN_18599-5_2018-09",
