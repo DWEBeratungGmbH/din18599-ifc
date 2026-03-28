@@ -1,0 +1,540 @@
+{
+  "version": "1.0.0",
+  "description": "Zentrale Registry aller relevanten DIN-Normen für Energieberatung",
+  "last_updated": "2026-03-28",
+  "note": "Single Source of Truth für Norm-Referenzierung. Version ist Teil der ID für eindeutige Zuordnung bei Normen-Updates.",
+  
+  "norms": [
+    {
+      "id": "DIN_277_2021-08",
+      "name": "DIN 277",
+      "version": "2021-08",
+      "title": "Grundflächen und Rauminhalte im Hochbau",
+      "title_en": "Floor areas and volumes of buildings",
+      "summary": "Definition und Berechnung von Grundflächen (BGF, NGF, NRF) und Rauminhalten",
+      "description": "Diese Norm legt die Berechnung von Grundflächen und Rauminhalten von Bauwerken oder Teilen von Bauwerken im Hochbau fest. Sie dient der Ermittlung von Flächen für die Kostenplanung, Ausschreibung und Abrechnung sowie für Facility Management.",
+      "scope": "building_areas",
+      "status": "active",
+      "publisher": "DIN",
+      "publication_date": "2021-08",
+      "replaces": ["DIN_277_2016-01"],
+      "language": "de",
+      "pages": 28,
+      "price_eur": 98.90,
+      "url": "https://www.beuth.de/de/norm/din-277/339826891",
+      "keywords": ["Grundfläche", "Rauminhalt", "BGF", "NGF", "NRF", "Brutto-Grundfläche", "Netto-Grundfläche"],
+      "related_norms": ["DIN_EN_15221-6"],
+      "application_areas": ["Kostenplanung", "Facility Management", "Energieausweis"],
+      "parts": [],
+      "sections": [
+        {
+          "id": "DIN_277_2021-08_SEC_3",
+          "number": "3",
+          "name": "Begriffe",
+          "summary": "Definitionen der Grundflächen-Arten (BGF, NGF, NRF, TF, VF)"
+        },
+        {
+          "id": "DIN_277_2021-08_SEC_4",
+          "number": "4",
+          "name": "Grundflächen",
+          "summary": "Berechnung von Brutto-Grundfläche, Netto-Grundfläche, Nutzungsfläche, Technikfläche, Verkehrsfläche"
+        },
+        {
+          "id": "DIN_277_2021-08_SEC_5",
+          "number": "5",
+          "name": "Rauminhalte",
+          "summary": "Berechnung von Brutto-Rauminhalt (BRI) und Netto-Rauminhalt (NRI)"
+        }
+      ],
+      "tables": [
+        {
+          "id": "DIN_277_2021-08_TAB_1",
+          "number": "1",
+          "name": "Gliederung der Grundflächen",
+          "type": "classification",
+          "protected": false,
+          "summary": "Hierarchische Gliederung: BGF → NGF → (NRF, TF, VF)"
+        }
+      ],
+      "annexes": []
+    },
+    {
+      "id": "DIN_EN_ISO_13789_2017-09",
+      "name": "DIN EN ISO 13789",
+      "version": "2017-09",
+      "title": "Wärmetechnisches Verhalten von Gebäuden — Transmissions- und Lüftungswärmetransferkoeffizient — Berechnungsverfahren",
+      "title_en": "Thermal performance of buildings — Transmission and ventilation heat transfer coefficients — Calculation method",
+      "summary": "Berechnung von Wärmetransferkoeffizienten für Transmission und Lüftung",
+      "description": "Diese Internationale Norm legt ein Verfahren und Konventionen für die Berechnung des stationären Transmissions- und Lüftungswärmetransferkoeffizienten fest. Sie gilt für beheizte oder gekühlte Gebäude und Gebäudeteile und berücksichtigt Wärmebrücken, Erdreichkopplung und Luftwechsel.",
+      "scope": "thermal_transmission",
+      "status": "active",
+      "publisher": "DIN/CEN/ISO",
+      "publication_date": "2017-09",
+      "replaces": ["DIN_EN_ISO_13789_2010-03"],
+      "language": "de",
+      "pages": 52,
+      "url": "https://www.beuth.de/de/norm/din-en-iso-13789/268551891",
+      "keywords": ["Wärmetransfer", "U-Wert", "Transmission", "Lüftung", "Wärmebrücken"],
+      "related_norms": ["DIN_EN_ISO_6946", "DIN_EN_ISO_13370", "DIN_V_18599-2"],
+      "application_areas": ["GEG", "Energieausweis", "Wärmebedarfsberechnung"],
+      "parts": [],
+      "sections": [
+        {
+          "id": "DIN_EN_ISO_13789_2017-09_SEC_5",
+          "number": "5",
+          "name": "Transmissionswärmetransferkoeffizient",
+          "summary": "Berechnung H_T mit U-Werten, Flächen und Korrekturfaktoren"
+        },
+        {
+          "id": "DIN_EN_ISO_13789_2017-09_SEC_6",
+          "number": "6",
+          "name": "Lüftungswärmetransferkoeffizient",
+          "summary": "Berechnung H_V mit Luftwechselraten und Volumina"
+        }
+      ],
+      "tables": [],
+      "annexes": [
+        {
+          "id": "DIN_EN_ISO_13789_2017-09_ANNEX_A",
+          "letter": "A",
+          "name": "Berechnung des Wärmetransferkoeffizienten",
+          "type": "normative",
+          "summary": "Detaillierte Berechnungsformeln und Beispiele"
+        }
+      ]
+    },
+    {
+      "id": "DIN_18599_2018-09",
+      "name": "DIN/TS 18599",
+      "version": "2018-09",
+      "title": "Energetische Bewertung von Gebäuden — Berechnung des Nutz-, End- und Primärenergiebedarfs für Heizung, Kühlung, Lüftung, Trinkwarmwasser und Beleuchtung",
+      "title_en": "Energy efficiency of buildings — Calculation of the net, final and primary energy demand for heating, cooling, ventilation, domestic hot water and lighting",
+      "summary": "Umfassende Berechnungsmethode für energetische Gebäudebewertung (12 Teile)",
+      "description": "Diese Normenreihe legt ein Verfahren zur ganzheitlichen Bilanzierung der Energieeffizienz von Gebäuden fest. Sie umfasst alle relevanten Energieanwendungen (Heizung, Kühlung, Lüftung, Trinkwarmwasser, Beleuchtung) und berücksichtigt die Anlagentechnik detailliert. Die Norm ist Grundlage für GEG-Nachweise und Energieausweise.",
+      "scope": "energy_performance",
+      "status": "active",
+      "publisher": "DIN",
+      "publication_date": "2018-09",
+      "replaces": ["DIN_V_18599_2016-10"],
+      "language": "de",
+      "keywords": ["Energiebedarf", "Primärenergie", "Endenergie", "Nutzenergie", "GEG", "Energieausweis"],
+      "related_norms": ["DIN_V_4108-6", "DIN_V_4701-10", "DIN_EN_ISO_13790"],
+      "application_areas": ["GEG", "BAFA", "KfW", "Energieausweis", "Gebäudeenergiegesetz"],
+      "parts": [
+        {
+          "id": "DIN_18599-1_2018-09",
+          "number": "1",
+          "version": "2018-09",
+          "title": "Allgemeine Bilanzierungsverfahren, Begriffe, Zonierung und Bewertung der Energieträger",
+          "summary": "Grundlagen, Begriffe, Zonierungsregeln, Primärenergiefaktoren",
+          "description": "Teil 1 legt die allgemeinen Grundlagen der Normenreihe fest: Bilanzierungsprinzipien nach DIN EN ISO 13790, zentrale Begriffe (Nutzenergie, Endenergie, Primärenergie), Zonierungsregeln für Gebäude sowie Primärenergiefaktoren und CO2-Emissionsfaktoren für Energieträger.",
+          "scope": "general",
+          "pages": 68,
+          "sections": [
+            {
+              "id": "DIN_18599-1_2018-09_SEC_3",
+              "number": "3",
+              "name": "Begriffe",
+              "summary": "Definitionen: Nutzenergie, Endenergie, Primärenergie, Zone, Konditionierte Fläche, etc."
+            },
+            {
+              "id": "DIN_18599-1_2018-09_SEC_4",
+              "number": "4",
+              "name": "Zonierung",
+              "summary": "Regeln zur Bildung von Zonen mit einheitlichen Nutzungsbedingungen und Anlagentechnik"
+            },
+            {
+              "id": "DIN_18599-1_2018-09_SEC_5",
+              "number": "5",
+              "name": "Bewertung der Energieträger",
+              "summary": "Primärenergiefaktoren (f_p) und CO2-Emissionsfaktoren für Gas, Öl, Strom, Fernwärme, etc."
+            }
+          ],
+          "tables": [
+            {
+              "id": "DIN_18599-1_2018-09_TAB_4",
+              "number": "4",
+              "name": "Primärenergiefaktoren",
+              "type": "energy_factors",
+              "protected": true,
+              "summary": "f_p-Werte für verschiedene Energieträger (nicht erneuerbar und erneuerbar)",
+              "parameters_count": 15
+            }
+          ],
+          "annexes": []
+        },
+        {
+          "id": "DIN_18599-2_2025-10",
+          "number": "2",
+          "version": "2025-10",
+          "title": "Nutzenergiebedarf für Heizen und Kühlen von Gebäudezonen",
+          "summary": "Berechnung Heiz- und Kühlbedarf (Transmission, Lüftung, Solare Gewinne)",
+          "description": "Teil 2 legt die Berechnung des Nutzenergiebedarfs für Heizen und Kühlen fest. Berücksichtigt werden Transmissionswärmeverluste (über Außenbauteile, Wärmebrücken, Erdreich), Lüftungswärmeverluste, interne und solare Wärmegewinne sowie Nutzungsgrade. Monatsbilanzverfahren nach DIN EN ISO 13790.",
+          "scope": "heating_cooling",
+          "pages": 142,
+          "changes_from_previous": "Aktualisierung der Temperaturfaktoren Fx (Tabelle 5+6), neue Berechnungsverfahren für Wärmebrücken, erweiterte Randbedingungen für Erdreichkopplung",
+          "sections": [
+            {
+              "id": "DIN_18599-2_2025-10_SEC_3",
+              "number": "3",
+              "name": "Symbole, Einheiten, Indizes",
+              "summary": "Verwendete Formelzeichen (Q, H, U, A, θ, ...) und Indizes (h, c, T, V, ...)"
+            },
+            {
+              "id": "DIN_18599-2_2025-10_SEC_5",
+              "number": "5",
+              "name": "Transmissionswärmeverluste",
+              "summary": "Berechnung Q_T mit U-Werten, Flächen, Temperaturfaktoren Fx und Wärmebrückenzuschlägen"
+            },
+            {
+              "id": "DIN_18599-2_2025-10_SEC_6",
+              "number": "6",
+              "name": "Lüftungswärmeverluste",
+              "summary": "Berechnung Q_V mit Luftwechselraten (Infiltration + mechanische Lüftung)"
+            },
+            {
+              "id": "DIN_18599-2_2025-10_SEC_7",
+              "number": "7",
+              "name": "Solare Wärmegewinne",
+              "summary": "Berechnung Q_S mit g-Werten, Fensterflächen, Verschattung und Orientierung"
+            },
+            {
+              "id": "DIN_18599-2_2025-10_SEC_8",
+              "number": "8",
+              "name": "Interne Wärmegewinne",
+              "summary": "Berechnung Q_I aus Personen, Geräten und Beleuchtung"
+            }
+          ],
+          "tables": [
+            {
+              "id": "DIN_18599-2_2025-10_TAB_5",
+              "number": "5",
+              "name": "Temperaturfaktoren Fx (außer Bodenplatte)",
+              "type": "temperature_factors",
+              "protected": true,
+              "summary": "Fx-Werte für Außenwände, Dächer, Bauteile zu unbeheizten/niedrig beheizten Räumen",
+              "parameters_count": 9
+            },
+            {
+              "id": "DIN_18599-2_2025-10_TAB_6",
+              "number": "6",
+              "name": "Temperaturfaktoren Fx (Bodenplatte)",
+              "type": "temperature_factors_ground",
+              "protected": true,
+              "summary": "Fx-Werte in Abhängigkeit von Bodenplattenmaß B und Wärmedurchlasswiderstand Rf",
+              "parameters_count": 48
+            }
+          ],
+          "annexes": [
+            {
+              "id": "DIN_18599-2_2025-10_ANNEX_A",
+              "letter": "A",
+              "name": "Vereinfachtes Verfahren",
+              "type": "informative",
+              "summary": "Pauschale Werte für Vorplanung und Grobabschätzung"
+            }
+          ]
+        },
+        {
+          "id": "DIN_18599-3_2018-09",
+          "number": "3",
+          "version": "2018-09",
+          "title": "Nutzenergiebedarf für die energetische Luftaufbereitung",
+          "summary": "Berechnung Nutzenergiebedarf für Befeuchtung und Entfeuchtung",
+          "description": "Teil 3 legt die Berechnung des Nutzenergiebedarfs für die energetische Luftaufbereitung (Befeuchtung, Entfeuchtung) in raumlufttechnischen Anlagen fest.",
+          "scope": "air_conditioning",
+          "pages": 38,
+          "sections": [],
+          "tables": [],
+          "annexes": []
+        },
+        {
+          "id": "DIN_18599-4_2025-10",
+          "number": "4",
+          "version": "2025-10",
+          "title": "Nutz- und Endenergiebedarf für Beleuchtung",
+          "summary": "Berechnung Beleuchtungsenergiebedarf mit Tageslichtnutzung und Steuerung",
+          "description": "Teil 4 legt die Berechnung des Nutz- und Endenergiebedarfs für Beleuchtung fest. Berücksichtigt werden Wartungswerte der Beleuchtungsstärke, Tageslichtversorgung, Präsenz- und Konstantlichtregelung sowie Leuchtenwirkungsgrade.",
+          "scope": "lighting",
+          "pages": 94,
+          "changes_from_previous": "Aktualisierung der Beleuchtungsstärken nach DIN EN 12464-1:2021, neue LED-Wirkungsgrade",
+          "sections": [],
+          "tables": [],
+          "annexes": []
+        },
+        {
+          "id": "DIN_18599-5_2018-09",
+          "number": "5",
+          "version": "2018-09",
+          "title": "Endenergiebedarf von Heizsystemen",
+          "summary": "Berechnung Endenergiebedarf für Wärmeerzeugung, -verteilung, -übergabe und -speicherung",
+          "description": "Teil 5 legt die Berechnung des Endenergiebedarfs von Heizsystemen fest. Berücksichtigt werden Verluste und Hilfsenergie für Erzeugung (Kessel, Wärmepumpen, KWK, Fernwärme), Verteilung (Rohrleitungen), Übergabe (Heizkörper, Fußbodenheizung) und Speicherung (Pufferspeicher).",
+          "scope": "heating_systems",
+          "pages": 186,
+          "sections": [],
+          "tables": [],
+          "annexes": []
+        },
+        {
+          "id": "DIN_18599-6_2018-09",
+          "number": "6",
+          "version": "2018-09",
+          "title": "Endenergiebedarf von Lüftungsanlagen, Luftheizungsanlagen und Kühlsystemen für den Wohnungsbau",
+          "summary": "Berechnung Endenergiebedarf für Wohnungslüftung und Wohnungskühlung",
+          "description": "Teil 6 legt die Berechnung des Endenergiebedarfs von Wohnungslüftungsanlagen (zentral, dezentral, Einzelraumlüftung) und Kühlsystemen für Wohngebäude fest.",
+          "scope": "residential_ventilation_cooling",
+          "pages": 72,
+          "sections": [],
+          "tables": [],
+          "annexes": []
+        },
+        {
+          "id": "DIN_18599-7_2018-09",
+          "number": "7",
+          "version": "2018-09",
+          "title": "Endenergiebedarf von Raumlufttechnik- und Klimakältesystemen für den Nichtwohnungsbau",
+          "summary": "Berechnung Endenergiebedarf für RLT-Anlagen und Kältesysteme in Nichtwohngebäuden",
+          "description": "Teil 7 legt die Berechnung des Endenergiebedarfs von Raumlufttechnischen Anlagen und Klimakältesystemen für Nichtwohngebäude fest. Berücksichtigt werden zentrale und dezentrale RLT-Anlagen, Kälteerzeugung, Kälteverteilung und freie Kühlung.",
+          "scope": "non_residential_hvac",
+          "pages": 124,
+          "sections": [],
+          "tables": [],
+          "annexes": []
+        },
+        {
+          "id": "DIN_18599-8_2018-09",
+          "number": "8",
+          "version": "2018-09",
+          "title": "Nutz- und Endenergiebedarf von Warmwasserbereitungssystemen",
+          "summary": "Berechnung Trinkwarmwasserbedarf für Wohn- und Nichtwohngebäude",
+          "description": "Teil 8 legt die Berechnung des Nutz- und Endenergiebedarfs für Trinkwarmwasser fest. Berücksichtigt werden Nutzwärmebedarf (nach Nutzungstyp), Speicherverluste, Zirkulationsverluste, Verteilungsverluste und Erzeugerverluste.",
+          "scope": "domestic_hot_water",
+          "pages": 86,
+          "sections": [],
+          "tables": [],
+          "annexes": []
+        },
+        {
+          "id": "DIN_18599-9_2018-09",
+          "number": "9",
+          "version": "2018-09",
+          "title": "End- und Primärenergiebedarf von stromproduzierenden Anlagen",
+          "summary": "Berechnung Eigenstromerzeugung (KWK, PV, Wind) und Anrechnung",
+          "description": "Teil 9 legt die Berechnung des End- und Primärenergiebedarfs unter Berücksichtigung von stromproduzierenden Anlagen fest: Kraft-Wärme-Kopplung (KWK), Photovoltaik (PV) und Windkraft. Regelt die Anrechnung von Eigenstromerzeugung auf den Primärenergiebedarf.",
+          "scope": "electricity_generation",
+          "pages": 64,
+          "sections": [],
+          "tables": [],
+          "annexes": []
+        },
+        {
+          "id": "DIN_18599-10_2018-09",
+          "number": "10",
+          "version": "2018-09",
+          "title": "Nutzungsrandbedingungen, Klimadaten",
+          "summary": "Nutzungsprofile (43 NWG + Wohnen), Klimadaten, Betriebszeiten",
+          "description": "Teil 10 legt die Nutzungsrandbedingungen für Wohn- und Nichtwohngebäude fest: Raumtemperaturen (Heizen/Kühlen), interne Lasten (Personen, Geräte, Beleuchtung), Luftwechselraten, Betriebszeiten sowie Klimadaten für Deutschland (Testreferenzjahre, Monatsmittelwerte).",
+          "scope": "usage_profiles_climate",
+          "pages": 156,
+          "sections": [
+            {
+              "id": "DIN_18599-10_2018-09_SEC_3",
+              "number": "3",
+              "name": "Symbole, Einheiten, Indizes",
+              "summary": "Tabelle 1 (Symbole mit deutscher und englischer Bedeutung), Tabelle 2 (Indizes)"
+            },
+            {
+              "id": "DIN_18599-10_2018-09_SEC_4",
+              "number": "4",
+              "name": "Verknüpfung der Teile der Reihe DIN/TS 18599",
+              "summary": "Tabelle 3 (Eingangsgrößen aus anderen Teilen), Tabelle 4 (Ausgangsgrößen für andere Teile)"
+            },
+            {
+              "id": "DIN_18599-10_2018-09_SEC_5",
+              "number": "5",
+              "name": "Nutzungsrandbedingungen Wohngebäude",
+              "summary": "Parameter für EFH und MFH (Tabelle 5): Temperaturen, interne Lasten, Luftwechsel, Warmwasser"
+            },
+            {
+              "id": "DIN_18599-10_2018-09_SEC_6",
+              "number": "6",
+              "name": "Nutzungsrandbedingungen Nichtwohngebäude",
+              "summary": "43 Nutzungsprofile (Tabelle 6+7): Büro, Schule, Krankenhaus, Handel, Gastronomie, Sport, etc."
+            },
+            {
+              "id": "DIN_18599-10_2018-09_SEC_7",
+              "number": "7",
+              "name": "Klimadaten",
+              "summary": "Testreferenzjahre (TRY) für 15 Klimaregionen, Monatsmittelwerte Außentemperatur und Solarstrahlung"
+            }
+          ],
+          "tables": [
+            {
+              "id": "DIN_18599-10_2018-09_TAB_1",
+              "number": "1",
+              "name": "Symbole",
+              "type": "symbols",
+              "protected": false,
+              "summary": "Übersicht aller Formelzeichen mit deutscher und englischer Bedeutung sowie üblicher Einheit",
+              "parameters_count": 45
+            },
+            {
+              "id": "DIN_18599-10_2018-09_TAB_2",
+              "number": "2",
+              "name": "Indizes",
+              "type": "indices",
+              "protected": false,
+              "summary": "Übersicht aller Indizes (i, e, h, c, soll, nutz, NA, el, b, I, op, etc.)",
+              "parameters_count": 52
+            },
+            {
+              "id": "DIN_18599-10_2018-09_TAB_3",
+              "number": "3",
+              "name": "Eingangsgrößen aus anderen Teilen",
+              "type": "interface_input",
+              "protected": false,
+              "summary": "Benötigte Parameter aus DIN 18599-1 bis -9 (z.B. A_NGF,WE,m aus Teil 1)",
+              "parameters_count": 1
+            },
+            {
+              "id": "DIN_18599-10_2018-09_TAB_4",
+              "number": "4",
+              "name": "Ausgangsgrößen für andere Teile",
+              "type": "interface_output",
+              "protected": false,
+              "summary": "Bereitgestellte Parameter für DIN 18599-1 bis -9 (Temperaturen, Lasten, Luftwechsel, Betriebszeiten)",
+              "parameters_count": 38
+            },
+            {
+              "id": "DIN_18599-10_2018-09_TAB_5",
+              "number": "5",
+              "name": "Nutzungsrandbedingungen Wohngebäude",
+              "type": "usage_profile_residential",
+              "protected": true,
+              "summary": "Parameter für EFH und MFH: θ_i,h,soll, θ_i,c,soll, Δθ_i,NA, q_I, n_nutz, q_w,b,a, q_el,b, etc.",
+              "parameters_count": 12,
+              "profiles_count": 2
+            },
+            {
+              "id": "DIN_18599-10_2018-09_TAB_6",
+              "number": "6",
+              "name": "Nutzungsrandbedingungen Nichtwohngebäude (Profile 1-18)",
+              "type": "usage_profile_non_residential",
+              "protected": true,
+              "summary": "Profile 01-18: Einzelbüro, Gruppenbüro, Großraumbüro, Besprechung, Schalterhalle, Klassenzimmer, Hörsaal, etc.",
+              "parameters_count": 24,
+              "profiles_count": 18
+            },
+            {
+              "id": "DIN_18599-10_2018-09_TAB_7",
+              "number": "7",
+              "name": "Nutzungsrandbedingungen Nichtwohngebäude (Profile 19-43)",
+              "type": "usage_profile_non_residential",
+              "protected": true,
+              "summary": "Profile 19-43: Krankenhaus, Hotel, Gastronomie, Verkauf, Lager, Sporthalle, Schwimmbad, Theater, etc.",
+              "parameters_count": 24,
+              "profiles_count": 25
+            }
+          ],
+          "annexes": [
+            {
+              "id": "DIN_18599-10_2018-09_ANNEX_A",
+              "letter": "A",
+              "name": "Klimadaten Deutschland",
+              "type": "normative",
+              "summary": "15 Klimaregionen mit Testreferenzjahren (TRY) für stündliche Simulationen"
+            },
+            {
+              "id": "DIN_18599-10_2018-09_ANNEX_B",
+              "letter": "B",
+              "name": "Testreferenzjahre",
+              "type": "normative",
+              "summary": "Stündliche Klimadaten (Temperatur, Strahlung, Wind, Feuchte) für TRY"
+            },
+            {
+              "id": "DIN_18599-10_2018-09_ANNEX_E",
+              "letter": "E",
+              "name": "Monatsmittelwerte Außentemperatur und solare Einstrahlung",
+              "type": "normative",
+              "summary": "Tabellen für 15 Klimaregionen Deutschlands (für Monatsbilanzverfahren)"
+            }
+          ]
+        },
+        {
+          "id": "DIN_18599-11_2018-09",
+          "number": "11",
+          "version": "2018-09",
+          "title": "Gebäudeautomation",
+          "summary": "Effizienzfaktoren für Gebäudeautomation und technisches Gebäudemanagement",
+          "description": "Teil 11 legt die Berücksichtigung von Gebäudeautomation (GA) und technischem Gebäudemanagement (TGM) fest. Definiert Effizienzklassen nach DIN EN ISO 52120-1 und Faktoren zur Reduktion des Energiebedarfs durch automatisierte Regelung.",
+          "scope": "building_automation",
+          "pages": 48,
+          "sections": [],
+          "tables": [],
+          "annexes": []
+        }
+      ]
+    }
+  ],
+  
+  "id_structure": {
+    "description": "Hierarchische ID-Struktur mit Versionierung für eindeutige Referenzierung",
+    "pattern": "{NORM}_{VERSION}[_{PART}][_{TYPE}_{NUMBER}]",
+    "examples": [
+      {
+        "level": "Norm",
+        "id": "DIN_277_2021-08",
+        "description": "Norm mit Version"
+      },
+      {
+        "level": "Teil",
+        "id": "DIN_18599-10_2018-09",
+        "description": "Norm-Teil mit Version"
+      },
+      {
+        "level": "Abschnitt",
+        "id": "DIN_18599-10_2018-09_SEC_5",
+        "description": "Abschnitt 5 in Teil 10"
+      },
+      {
+        "level": "Tabelle",
+        "id": "DIN_18599-10_2018-09_TAB_5",
+        "description": "Tabelle 5 in Teil 10"
+      },
+      {
+        "level": "Anhang",
+        "id": "DIN_18599-10_2018-09_ANNEX_E",
+        "description": "Anhang E in Teil 10"
+      }
+    ]
+  },
+  
+  "metadata_fields": {
+    "description": "Erklärung aller verwendeten Felder",
+    "fields": [
+      {"field": "id", "type": "string", "required": true, "description": "Eindeutige ID mit Version (z.B. DIN_277_2021-08)"},
+      {"field": "name", "type": "string", "required": true, "description": "Kurzer Norm-Name (z.B. DIN 277)"},
+      {"field": "version", "type": "string", "required": true, "description": "Ausgabedatum im Format YYYY-MM"},
+      {"field": "title", "type": "string", "required": true, "description": "Vollständiger deutscher Titel"},
+      {"field": "title_en", "type": "string", "required": false, "description": "Englischer Titel (falls vorhanden)"},
+      {"field": "summary", "type": "string", "required": true, "description": "Kurzbeschreibung in einem Satz"},
+      {"field": "description", "type": "string", "required": true, "description": "Ausführliche Beschreibung (2-3 Sätze)"},
+      {"field": "scope", "type": "string", "required": true, "description": "Anwendungsbereich (building_areas, thermal_transmission, energy_performance, etc.)"},
+      {"field": "status", "type": "enum", "required": true, "values": ["active", "withdrawn", "superseded"], "description": "Status der Norm"},
+      {"field": "publisher", "type": "string", "required": true, "description": "Herausgeber (DIN, CEN, ISO, DIN/CEN/ISO)"},
+      {"field": "publication_date", "type": "string", "required": true, "description": "Veröffentlichungsdatum (YYYY-MM)"},
+      {"field": "replaces", "type": "array", "required": false, "description": "IDs der ersetzten Vorgängerversionen"},
+      {"field": "language", "type": "string", "required": true, "description": "Sprache (de, en, de/en)"},
+      {"field": "pages", "type": "integer", "required": false, "description": "Seitenzahl der Norm"},
+      {"field": "price_eur", "type": "number", "required": false, "description": "Preis in EUR (für Beschaffungsplanung)"},
+      {"field": "url", "type": "string", "required": false, "description": "Beuth-Verlag URL zum Kauf"},
+      {"field": "keywords", "type": "array", "required": false, "description": "Schlagwörter für Suche"},
+      {"field": "related_norms", "type": "array", "required": false, "description": "IDs verwandter Normen"},
+      {"field": "application_areas", "type": "array", "required": false, "description": "Anwendungsgebiete (GEG, KfW, BAFA, Energieausweis, etc.)"},
+      {"field": "changes_from_previous", "type": "string", "required": false, "description": "Wesentliche Änderungen zur Vorgängerversion"},
+      {"field": "protected", "type": "boolean", "required": true, "description": "Urheberrechtlich geschützt (true = nicht in Public Repo)"},
+      {"field": "parameters_count", "type": "integer", "required": false, "description": "Anzahl Parameter in Tabelle"},
+      {"field": "profiles_count", "type": "integer", "required": false, "description": "Anzahl Nutzungsprofile in Tabelle"}
+    ]
+  }
+}
