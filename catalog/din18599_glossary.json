@@ -1,11 +1,11 @@
 {
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Glossar - Begriffsdefinitionen aus DIN 18599 Teile 1-11",
   "last_updated": "2026-03-28",
   "source": "DIN/TS 18599 Teile 1-11, Abschnitt 3 - Begriffe",
   "note": "Alle Begriffe mit Referenzen zu Norm-IDs aus din_norms_registry.json. Definitionen sind urheberrechtlich geschützt (nur Struktur public).",
   "statistics": {
-    "total_terms": 222,
+    "total_terms": 169,
     "part_1": 47,
     "part_2": 7,
     "part_3": 19,
@@ -18,7 +18,6 @@
     "part_10": 0,
     "part_11": 10
   },
-  
   "terms": [
     {
       "id": "TERM_PRIMAERENERGIEBEDARF",
@@ -27,10 +26,18 @@
       "term_en": "Primary energy demand",
       "abbreviation": "Q_p",
       "definition_de": "Berechnete Energiemenge, die zusätzlich zum Energieinhalt des notwendigen Brennstoffs und der Hilfsenergieaufwände für die Anlagentechnik auch die Energiemengen einbezieht, die durch vorgelagerte Prozessketten außerhalb des Gebäudes bei der Gewinnung, Umwandlung und Verteilung der jeweils eingesetzten Brennstoffe bzw. Stoffe entstehen",
-      "norm_refs": ["DIN_18599-1_2018-09_SEC_3"],
-      "related_symbols": ["Q_p", "f_p"],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_SEC_3"
+      ],
+      "related_symbols": [
+        "Q_p",
+        "f_p"
+      ],
       "category": "energy_level",
-      "see_also": ["TERM_ENDENERGIEBEDARF", "TERM_NUTZENERGIEBEDARF"]
+      "see_also": [
+        "TERM_ENDENERGIEBEDARF",
+        "TERM_NUTZENERGIEBEDARF"
+      ]
     },
     {
       "id": "TERM_ENDENERGIEBEDARF",
@@ -39,11 +46,25 @@
       "term_en": "Final energy demand",
       "abbreviation": "Q_r",
       "definition_de": "Berechnete Energiemenge, die der Anlagentechnik (Heizungsanlage, raumlufttechnische Anlage, Warmwasserbereitungsanlage, Beleuchtungsanlage) zur Verfügung gestellt wird, um die festgelegte Rauminnentemperatur, die Erwärmung des Warmwassers und die gewünschte Beleuchtungsqualität über das ganze Jahr sicherzustellen",
-      "notes": ["Diese Energiemenge bezieht den für den Betrieb der Anlagentechnik benötigten Hilfsenergieaufwand ein", "Der Endenergiebedarf wird an der 'Schnittstelle' Gebäudehülle übergeben"],
-      "norm_refs": ["DIN_18599-1_2018-09_SEC_3"],
-      "related_symbols": ["Q_r", "Q_h,r", "Q_c,r", "Q_w,r", "Q_l,r"],
+      "notes": [
+        "Diese Energiemenge bezieht den für den Betrieb der Anlagentechnik benötigten Hilfsenergieaufwand ein",
+        "Der Endenergiebedarf wird an der 'Schnittstelle' Gebäudehülle übergeben"
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_SEC_3"
+      ],
+      "related_symbols": [
+        "Q_r",
+        "Q_h,r",
+        "Q_c,r",
+        "Q_w,r",
+        "Q_l,r"
+      ],
       "category": "energy_level",
-      "see_also": ["TERM_PRIMAERENERGIEBEDARF", "TERM_NUTZENERGIEBEDARF"]
+      "see_also": [
+        "TERM_PRIMAERENERGIEBEDARF",
+        "TERM_NUTZENERGIEBEDARF"
+      ]
     },
     {
       "id": "TERM_NUTZENERGIEBEDARF",
@@ -52,10 +73,21 @@
       "term_en": "Useful energy demand",
       "abbreviation": "Q_b",
       "definition_de": "Oberbegriff für Nutzwärmebedarf, Nutzkältebedarf, Nutzenergiebedarf für Trinkwarmwasser, Beleuchtung, Befeuchtung",
-      "norm_refs": ["DIN_18599-1_2018-09_SEC_3"],
-      "related_symbols": ["Q_b", "Q_h,b", "Q_c,b", "Q_w,b", "Q_l,b"],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_SEC_3"
+      ],
+      "related_symbols": [
+        "Q_b",
+        "Q_h,b",
+        "Q_c,b",
+        "Q_w,b",
+        "Q_l,b"
+      ],
       "category": "energy_level",
-      "see_also": ["TERM_NUTZWAERMEBEDARF", "TERM_NUTZKAELTEBEDARF"]
+      "see_also": [
+        "TERM_NUTZWAERMEBEDARF",
+        "TERM_NUTZKAELTEBEDARF"
+      ]
     },
     {
       "id": "TERM_NUTZWAERMEBEDARF",
@@ -63,12 +95,22 @@
       "term_de": "Nutzwärmebedarf",
       "term_en": "Useful heat demand",
       "abbreviation": "Q_h,b",
-      "alternative_terms": ["Heizwärmebedarf"],
+      "alternative_terms": [
+        "Heizwärmebedarf"
+      ],
       "definition_de": "Rechnerisch ermittelter Energiebedarf, der zur Aufrechterhaltung der festgelegten thermischen Raumkonditionen innerhalb einer Gebäudezone während der Heizzeit benötigt wird",
-      "norm_refs": ["DIN_18599-1_2018-09_SEC_3", "DIN_18599-2_2025-10"],
-      "related_symbols": ["Q_h,b"],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_SEC_3",
+        "DIN_18599-2_2025-10"
+      ],
+      "related_symbols": [
+        "Q_h,b"
+      ],
       "category": "energy_level",
-      "see_also": ["TERM_NUTZENERGIEBEDARF", "TERM_NUTZKAELTEBEDARF"]
+      "see_also": [
+        "TERM_NUTZENERGIEBEDARF",
+        "TERM_NUTZKAELTEBEDARF"
+      ]
     },
     {
       "id": "TERM_NUTZKAELTEBEDARF",
@@ -76,12 +118,22 @@
       "term_de": "Nutzkältebedarf",
       "term_en": "Useful cooling demand",
       "abbreviation": "Q_c,b",
-      "alternative_terms": ["Kühlbedarf"],
+      "alternative_terms": [
+        "Kühlbedarf"
+      ],
       "definition_de": "Rechnerisch ermittelter Energiebedarf, der zur Aufrechterhaltung der festgelegten thermischen Raumkonditionen innerhalb einer Gebäudezone benötigt wird in Zeiten, in denen die Wärmequellen eine höhere Energiemenge anbieten als benötigt wird",
-      "norm_refs": ["DIN_18599-1_2018-09_SEC_3", "DIN_18599-2_2025-10"],
-      "related_symbols": ["Q_c,b"],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_SEC_3",
+        "DIN_18599-2_2025-10"
+      ],
+      "related_symbols": [
+        "Q_c,b"
+      ],
       "category": "energy_level",
-      "see_also": ["TERM_NUTZENERGIEBEDARF", "TERM_NUTZWAERMEBEDARF"]
+      "see_also": [
+        "TERM_NUTZENERGIEBEDARF",
+        "TERM_NUTZWAERMEBEDARF"
+      ]
     },
     {
       "id": "TERM_NUTZENERGIEBEDARF_BELEUCHTUNG",
@@ -90,10 +142,17 @@
       "term_en": "Useful energy demand for lighting",
       "abbreviation": "Q_l,b",
       "definition_de": "Rechnerisch ermittelter Energiebedarf, der sich ergibt, wenn die Gebäudezone mit der im Nutzungsprofil festgelegten Beleuchtungsqualität beleuchtet wird",
-      "norm_refs": ["DIN_18599-1_2018-09_SEC_3", "DIN_18599-4_2025-10"],
-      "related_symbols": ["Q_l,b"],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_SEC_3",
+        "DIN_18599-4_2025-10"
+      ],
+      "related_symbols": [
+        "Q_l,b"
+      ],
       "category": "energy_level",
-      "see_also": ["TERM_NUTZENERGIEBEDARF"]
+      "see_also": [
+        "TERM_NUTZENERGIEBEDARF"
+      ]
     },
     {
       "id": "TERM_NUTZENERGIEBEDARF_TWW",
@@ -102,10 +161,17 @@
       "term_en": "Useful energy demand for domestic hot water",
       "abbreviation": "Q_w,b",
       "definition_de": "Rechnerisch ermittelter Energiebedarf, der sich ergibt, wenn die Gebäudezone mit der im Nutzungsprofil festgelegten Menge an Trinkwarmwasser entsprechenden Zulauftemperatur versorgt wird",
-      "norm_refs": ["DIN_18599-1_2018-09_SEC_3", "DIN_18599-8_2018-09"],
-      "related_symbols": ["Q_w,b"],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_SEC_3",
+        "DIN_18599-8_2018-09"
+      ],
+      "related_symbols": [
+        "Q_w,b"
+      ],
       "category": "energy_level",
-      "see_also": ["TERM_NUTZENERGIEBEDARF"]
+      "see_also": [
+        "TERM_NUTZENERGIEBEDARF"
+      ]
     },
     {
       "id": "TERM_NUTZENERGIEBEDARF_LUFTAUFBEREITUNG",
@@ -114,10 +180,17 @@
       "term_en": "Useful energy demand for air conditioning",
       "abbreviation": "Q_v,b",
       "definition_de": "Rechnerisch ermittelter Energiebedarf, der zum Erwärmen, Kühlen, Befeuchten und Entfeuchten der Luft in einer raumlufttechnischen Anlage zu- bzw. abgeführt wird, um den erforderlichen Zuluftzustand zu erreichen",
-      "norm_refs": ["DIN_18599-1_2018-09_SEC_3", "DIN_18599-3_2018-09"],
-      "related_symbols": ["Q_v,b"],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_SEC_3",
+        "DIN_18599-3_2018-09"
+      ],
+      "related_symbols": [
+        "Q_v,b"
+      ],
       "category": "energy_level",
-      "see_also": ["TERM_NUTZENERGIEBEDARF"]
+      "see_also": [
+        "TERM_NUTZENERGIEBEDARF"
+      ]
     },
     {
       "id": "TERM_ENERGIETRAEGER",
@@ -127,10 +200,17 @@
       "abbreviation": null,
       "definition_de": "Stoff oder Vorgang, der genutzt werden kann, um mechanische Arbeit oder Wärme zu erzeugen oder chemische oder physikalische Prozesse durchzuführen",
       "source_ref": "DIN EN ISO 52000-1:2018-03, 3.4.9",
-      "norm_refs": ["DIN_18599-1_2018-09_SEC_3", "DIN_18599-1_2018-09_SEC_5"],
-      "related_symbols": ["f_p"],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_SEC_3",
+        "DIN_18599-1_2018-09_SEC_5"
+      ],
+      "related_symbols": [
+        "f_p"
+      ],
       "category": "energy_system",
-      "see_also": ["TERM_PRIMAERENERGIEBEDARF"]
+      "see_also": [
+        "TERM_PRIMAERENERGIEBEDARF"
+      ]
     },
     {
       "id": "TERM_ENERGIEEFFIZIENZ",
@@ -139,8 +219,12 @@
       "term_en": "Energy efficiency",
       "abbreviation": null,
       "definition_de": "Bewertung der energetischen Qualität von Gebäuden durch Vergleich der Energiebedarfskennwerte mit Referenzwerten",
-      "notes": ["Die Bewertung erfolgt mit wirtschaftlich erreichbaren Energiebedarfskennwerten vergleichbarer neuer oder sanierter Gebäude"],
-      "norm_refs": ["DIN_18599-1_2018-09_SEC_3"],
+      "notes": [
+        "Die Bewertung erfolgt mit wirtschaftlich erreichbaren Energiebedarfskennwerten vergleichbarer neuer oder sanierter Gebäude"
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_SEC_3"
+      ],
       "related_symbols": [],
       "category": "assessment",
       "see_also": []
@@ -152,11 +236,18 @@
       "term_en": "Conditioning",
       "abbreviation": null,
       "definition_de": "Ausbildung bestimmter Bedingungen in Räumen durch Heizung, Kühlung, Be- und Entlüftung, Befeuchtung, Beleuchtung und Trinkwarmwasserversorgung",
-      "notes": ["Die Konditionierung hat das Ziel, die Nutzungsanforderungen an Innentemperatur, Frischluft, Licht, Luftfeuchte und/oder Trinkwarmwasser zu erfüllen"],
-      "norm_refs": ["DIN_18599-1_2018-09_SEC_3"],
+      "notes": [
+        "Die Konditionierung hat das Ziel, die Nutzungsanforderungen an Innentemperatur, Frischluft, Licht, Luftfeuchte und/oder Trinkwarmwasser zu erfüllen"
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_SEC_3"
+      ],
       "related_symbols": [],
       "category": "building_operation",
-      "see_also": ["TERM_KONDITIONIERTER_RAUM", "TERM_ZONE"]
+      "see_also": [
+        "TERM_KONDITIONIERTER_RAUM",
+        "TERM_ZONE"
+      ]
     },
     {
       "id": "TERM_KONDITIONIERTER_RAUM",
@@ -165,11 +256,19 @@
       "term_en": "conditioned space",
       "abbreviation": null,
       "definition_de": "Raum und/oder Raumgruppe, der/die auf eine bestimmte Solltemperatur beheizt und/oder gekühlt und/oder be- und entlüftet und/oder befeuchtet und/oder beleuchtet und/oder mit Trinkwarmwasser versorgt wird/werden",
-      "notes": ["Zonen sind konditionierte Räume und weisen mindestens eine Art der Konditionierung auf", "Räume ohne Konditionierung werden als 'nicht konditionierte Räume' bezeichnet"],
-      "norm_refs": ["DIN_18599-1_2018-09_SEC_3"],
+      "notes": [
+        "Zonen sind konditionierte Räume und weisen mindestens eine Art der Konditionierung auf",
+        "Räume ohne Konditionierung werden als 'nicht konditionierte Räume' bezeichnet"
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_SEC_3"
+      ],
       "related_symbols": [],
       "category": "building_structure",
-      "see_also": ["TERM_ZONE", "TERM_KONDITIONIERUNG"]
+      "see_also": [
+        "TERM_ZONE",
+        "TERM_KONDITIONIERUNG"
+      ]
     },
     {
       "id": "TERM_ZONE",
@@ -178,11 +277,23 @@
       "term_en": "Zone",
       "abbreviation": null,
       "definition_de": "Grundlegende räumliche Berechnungseinheit für die Energiebilanzierung",
-      "notes": ["Eine Zone fasst den Grundflächenanteil bzw. Bereich eines Gebäudes zusammen, der durch gleiche Nutzungsrandbedingungen gekennzeichnet ist", "Die Nutzungsrandbedingungen sind in DIN/TS 18599-10 zusammengestellt"],
-      "norm_refs": ["DIN_18599-1_2018-09_SEC_3", "DIN_18599-1_2018-09_SEC_4", "DIN_18599-10_2018-09"],
-      "related_symbols": ["A_NGF"],
+      "notes": [
+        "Eine Zone fasst den Grundflächenanteil bzw. Bereich eines Gebäudes zusammen, der durch gleiche Nutzungsrandbedingungen gekennzeichnet ist",
+        "Die Nutzungsrandbedingungen sind in DIN/TS 18599-10 zusammengestellt"
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_SEC_3",
+        "DIN_18599-1_2018-09_SEC_4",
+        "DIN_18599-10_2018-09"
+      ],
+      "related_symbols": [
+        "A_NGF"
+      ],
       "category": "building_structure",
-      "see_also": ["TERM_ZONIERUNG", "TERM_KONDITIONIERTER_RAUM"]
+      "see_also": [
+        "TERM_ZONIERUNG",
+        "TERM_KONDITIONIERTER_RAUM"
+      ]
     },
     {
       "id": "TERM_TECHNISCHES_GEWERK",
@@ -191,11 +302,18 @@
       "term_en": "technical building service",
       "abbreviation": null,
       "definition_de": "Oberbegriff für technische Versorgungssysteme, die die Konditionierung von Räumen sicherstellen",
-      "notes": ["Dieses Dokument erfasst die Gewerke Heizung, Kühlung, Trinkwarmwasserbereitung, Lüftung, Befeuchtung und Beleuchtung", "Zu einem technischen Gewerk können mehrere Versorgungssysteme gehören"],
-      "norm_refs": ["DIN_18599-1_2018-09_SEC_3"],
+      "notes": [
+        "Dieses Dokument erfasst die Gewerke Heizung, Kühlung, Trinkwarmwasserbereitung, Lüftung, Befeuchtung und Beleuchtung",
+        "Zu einem technischen Gewerk können mehrere Versorgungssysteme gehören"
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_SEC_3"
+      ],
       "related_symbols": [],
       "category": "building_services",
-      "see_also": ["TERM_VERSORGUNGSBEREICH"]
+      "see_also": [
+        "TERM_VERSORGUNGSBEREICH"
+      ]
     },
     {
       "id": "TERM_VERSORGUNGSBEREICH",
@@ -204,11 +322,19 @@
       "term_en": "supply area",
       "abbreviation": null,
       "definition_de": "Bereich, der die Gebäudeteile umfasst, die von der gleichen Technik versorgt werden",
-      "notes": ["Auch Berechnungsbereich (Beleuchtung), Heizungsbereich usw. genannt", "Ein Versorgungsbereich kann sich über mehrere Zonen erstrecken; eine Zone kann auch mehrere Versorgungsbereiche umfassen"],
-      "norm_refs": ["DIN_18599-1_2018-09_SEC_3"],
+      "notes": [
+        "Auch Berechnungsbereich (Beleuchtung), Heizungsbereich usw. genannt",
+        "Ein Versorgungsbereich kann sich über mehrere Zonen erstrecken; eine Zone kann auch mehrere Versorgungsbereiche umfassen"
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_SEC_3"
+      ],
       "related_symbols": [],
       "category": "building_services",
-      "see_also": ["TERM_TECHNISCHES_GEWERK", "TERM_ZONE"]
+      "see_also": [
+        "TERM_TECHNISCHES_GEWERK",
+        "TERM_ZONE"
+      ]
     },
     {
       "id": "TERM_BILANZGRENZE",
@@ -217,11 +343,19 @@
       "term_en": "system boundary",
       "abbreviation": null,
       "definition_de": "Begrenzung einer Zone oder eines Versorgungsbereiches, für welche eine Energiebilanz erstellt wird",
-      "notes": ["Regeln zur Bestimmung von Bilanzgrenzen werden in Abschnitt 8 beschrieben"],
-      "norm_refs": ["DIN_18599-1_2018-09_SEC_3", "DIN_18599-1_2018-09_SEC_8"],
+      "notes": [
+        "Regeln zur Bestimmung von Bilanzgrenzen werden in Abschnitt 8 beschrieben"
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_SEC_3",
+        "DIN_18599-1_2018-09_SEC_8"
+      ],
       "related_symbols": [],
       "category": "calculation",
-      "see_also": ["TERM_ZONE", "TERM_VERSORGUNGSBEREICH"]
+      "see_also": [
+        "TERM_ZONE",
+        "TERM_VERSORGUNGSBEREICH"
+      ]
     },
     {
       "id": "TERM_WAERMEUEBERTRAGEND_UMFASSUNGSFLAECHE",
@@ -230,11 +364,25 @@
       "term_en": "heat transfer surface",
       "abbreviation": "A",
       "definition_de": "Äußere Begrenzung jeder Zone",
-      "notes": ["Die wärmeübertragende Umfassungsfläche ist die Grenze zwischen konditionierten Räumen und der Außenluft, dem Erdreich oder nicht konditionierten Räumen", "Wird durch stoffliche Grenze gebildet: Außenfassade, Innenflächen, Kellerdecke, oberste Geschossdecke oder Dach"],
-      "norm_refs": ["DIN_18599-1_2018-09_SEC_3", "DIN_18599-1_2018-09_SEC_8", "DIN_18599-2_2025-10"],
-      "related_symbols": ["A", "U", "F_x"],
+      "notes": [
+        "Die wärmeübertragende Umfassungsfläche ist die Grenze zwischen konditionierten Räumen und der Außenluft, dem Erdreich oder nicht konditionierten Räumen",
+        "Wird durch stoffliche Grenze gebildet: Außenfassade, Innenflächen, Kellerdecke, oberste Geschossdecke oder Dach"
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_SEC_3",
+        "DIN_18599-1_2018-09_SEC_8",
+        "DIN_18599-2_2025-10"
+      ],
+      "related_symbols": [
+        "A",
+        "U",
+        "F_x"
+      ],
       "category": "building_envelope",
-      "see_also": ["TERM_ZONE", "TERM_BILANZGRENZE"]
+      "see_also": [
+        "TERM_ZONE",
+        "TERM_BILANZGRENZE"
+      ]
     },
     {
       "id": "TERM_BEZUGSFLAECHE",
@@ -242,13 +390,26 @@
       "term_de": "Bezugsfläche",
       "term_en": "reference area",
       "abbreviation": "A_NGF",
-      "alternative_terms": ["Nettogrundfläche"],
+      "alternative_terms": [
+        "Nettogrundfläche"
+      ],
       "definition_de": "Im konditionierten Gebäudevolumen zur Verfügung stehende nutzbare Fläche",
-      "notes": ["Als Bezugsfläche wird die Nettogrundfläche (A_NGF) verwendet"],
-      "norm_refs": ["DIN_18599-1_2018-09_SEC_3", "DIN_18599-1_2018-09_SEC_8", "DIN_277_2021-08"],
-      "related_symbols": ["A_NGF"],
+      "notes": [
+        "Als Bezugsfläche wird die Nettogrundfläche (A_NGF) verwendet"
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_SEC_3",
+        "DIN_18599-1_2018-09_SEC_8",
+        "DIN_277_2021-08"
+      ],
+      "related_symbols": [
+        "A_NGF"
+      ],
       "category": "building_area",
-      "see_also": ["TERM_NGF", "TERM_ZONE"]
+      "see_also": [
+        "TERM_NGF",
+        "TERM_ZONE"
+      ]
     },
     {
       "id": "TERM_BRUTTOVOLUMEN",
@@ -256,13 +417,24 @@
       "term_de": "Bruttovolumen",
       "term_en": "gross volume",
       "abbreviation": "V_e",
-      "alternative_terms": ["externes Volumen"],
+      "alternative_terms": [
+        "externes Volumen"
+      ],
       "definition_de": "Anhand von Außenmaßen ermitteltes Volumen eines Gebäudes oder einer Gebäudezone",
-      "notes": ["Schließt mindestens alle Räume ein, die direkt oder indirekt durch Raumverbund bestimmungsgemäß konditioniert werden"],
-      "norm_refs": ["DIN_18599-1_2018-09_SEC_3", "DIN_18599-1_2018-09_SEC_8"],
-      "related_symbols": ["V_e"],
+      "notes": [
+        "Schließt mindestens alle Räume ein, die direkt oder indirekt durch Raumverbund bestimmungsgemäß konditioniert werden"
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_SEC_3",
+        "DIN_18599-1_2018-09_SEC_8"
+      ],
+      "related_symbols": [
+        "V_e"
+      ],
       "category": "building_volume",
-      "see_also": ["TERM_NETTORAUMVOLUMEN"]
+      "see_also": [
+        "TERM_NETTORAUMVOLUMEN"
+      ]
     },
     {
       "id": "TERM_NETTORAUMVOLUMEN",
@@ -271,11 +443,22 @@
       "term_en": "net room volume",
       "abbreviation": "V",
       "definition_de": "Volumen einer konditionierten Zone bzw. eines gesamten Gebäudes, das dem Luftaustausch unterliegt",
-      "notes": ["Bestimmt sich anhand der inneren Abmessungen und schließt das Volumen der Gebäudekonstruktion aus", "Wird aus der Nettogrundfläche durch Multiplikation mit der lichten Raumhöhe ermittelt"],
-      "norm_refs": ["DIN_18599-1_2018-09_SEC_3", "DIN_18599-1_2018-09_SEC_8"],
-      "related_symbols": ["V"],
+      "notes": [
+        "Bestimmt sich anhand der inneren Abmessungen und schließt das Volumen der Gebäudekonstruktion aus",
+        "Wird aus der Nettogrundfläche durch Multiplikation mit der lichten Raumhöhe ermittelt"
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_SEC_3",
+        "DIN_18599-1_2018-09_SEC_8"
+      ],
+      "related_symbols": [
+        "V"
+      ],
       "category": "building_volume",
-      "see_also": ["TERM_BRUTTOVOLUMEN", "TERM_RAUMHOEHE"]
+      "see_also": [
+        "TERM_BRUTTOVOLUMEN",
+        "TERM_RAUMHOEHE"
+      ]
     },
     {
       "id": "TERM_GESCHOSSHOEHE",
@@ -284,11 +467,20 @@
       "term_en": "storey height",
       "abbreviation": "h_G",
       "definition_de": "Maß von Oberkante Rohdecke des betreffenden Geschosses bis zu Oberkante der Rohdecke des darüber liegenden Geschosses",
-      "notes": ["Bei obersten Geschossen ist das Höhenmaß bis zur Oberkante der Zone relevant"],
-      "norm_refs": ["DIN_18599-1_2018-09_SEC_3", "DIN_18599-1_2018-09_SEC_8"],
-      "related_symbols": ["h_G"],
+      "notes": [
+        "Bei obersten Geschossen ist das Höhenmaß bis zur Oberkante der Zone relevant"
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_SEC_3",
+        "DIN_18599-1_2018-09_SEC_8"
+      ],
+      "related_symbols": [
+        "h_G"
+      ],
       "category": "building_geometry",
-      "see_also": ["TERM_RAUMHOEHE"]
+      "see_also": [
+        "TERM_RAUMHOEHE"
+      ]
     },
     {
       "id": "TERM_RAUMHOEHE",
@@ -296,13 +488,25 @@
       "term_de": "Raumhöhe",
       "term_en": "room height",
       "abbreviation": "h",
-      "alternative_terms": ["lichte Raumhöhe"],
+      "alternative_terms": [
+        "lichte Raumhöhe"
+      ],
       "definition_de": "Höhendifferenz zwischen der Oberkante des Fußbodens bis zur Unterkante der Geschossdecke bzw. einer abgehängten Decke",
-      "notes": ["Für Wohngebäude kann sie vereinfacht aus dem Bruttovolumen bestimmt werden"],
-      "norm_refs": ["DIN_18599-1_2018-09_SEC_3", "DIN_18599-1_2018-09_SEC_8"],
-      "related_symbols": ["h"],
+      "notes": [
+        "Für Wohngebäude kann sie vereinfacht aus dem Bruttovolumen bestimmt werden"
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_SEC_3",
+        "DIN_18599-1_2018-09_SEC_8"
+      ],
+      "related_symbols": [
+        "h"
+      ],
       "category": "building_geometry",
-      "see_also": ["TERM_GESCHOSSHOEHE", "TERM_NETTORAUMVOLUMEN"]
+      "see_also": [
+        "TERM_GESCHOSSHOEHE",
+        "TERM_NETTORAUMVOLUMEN"
+      ]
     },
     {
       "id": "TERM_RAUM_SOLLTEMPERATUR",
@@ -311,11 +515,21 @@
       "term_en": "room set-point temperature",
       "abbreviation": "theta_i_soll",
       "definition_de": "Je nach Nutzungsprofil vorgegebene empfundene Temperatur im Innern eines Gebäudes bzw. einer Zone, die den Sollwert der Raumtemperatur bei Heiz- bzw. Kühlbetrieb repräsentiert",
-      "notes": ["In der Regel sind unterschiedliche Werte für den Heiz- und den Kühlbetrieb vorgesehen"],
-      "norm_refs": ["DIN_18599-1_2018-09_SEC_3", "DIN_18599-10_2018-09"],
-      "related_symbols": ["theta_i_h_soll", "theta_i_c_soll"],
+      "notes": [
+        "In der Regel sind unterschiedliche Werte für den Heiz- und den Kühlbetrieb vorgesehen"
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_SEC_3",
+        "DIN_18599-10_2018-09"
+      ],
+      "related_symbols": [
+        "theta_i_h_soll",
+        "theta_i_c_soll"
+      ],
       "category": "thermal_conditions",
-      "see_also": ["TERM_BILANZINNENTEMPERATUR"]
+      "see_also": [
+        "TERM_BILANZINNENTEMPERATUR"
+      ]
     },
     {
       "id": "TERM_BILANZINNENTEMPERATUR",
@@ -324,11 +538,20 @@
       "term_en": "balance indoor temperature",
       "abbreviation": "theta_i",
       "definition_de": "Mittlere Innentemperatur eines Gebäudes bzw. einer Zone unter Berücksichtigung von räumlich oder zeitlich eingeschränktem Heizbetrieb und im Falle der Kühlbedarfsermittlung unter Berücksichtigung von zugelassenen Temperaturschwankungen",
-      "notes": ["In der Regel werden unterschiedliche Werte für den Heiz- und den Kühlbetrieb angesetzt"],
-      "norm_refs": ["DIN_18599-1_2018-09_SEC_3", "DIN_18599-2_2025-10"],
-      "related_symbols": ["theta_i"],
+      "notes": [
+        "In der Regel werden unterschiedliche Werte für den Heiz- und den Kühlbetrieb angesetzt"
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_SEC_3",
+        "DIN_18599-2_2025-10"
+      ],
+      "related_symbols": [
+        "theta_i"
+      ],
       "category": "thermal_conditions",
-      "see_also": ["TERM_RAUM_SOLLTEMPERATUR"]
+      "see_also": [
+        "TERM_RAUM_SOLLTEMPERATUR"
+      ]
     },
     {
       "id": "TERM_AUSSENTEMPERATUR",
@@ -337,8 +560,13 @@
       "term_en": "outdoor temperature",
       "abbreviation": "theta_e",
       "definition_de": "Außenlufttemperatur, die aufgrund meteorologischer Messungen und Auswertungen für die Berechnung verwendet wird",
-      "norm_refs": ["DIN_18599-1_2018-09_SEC_3", "DIN_18599-10_2018-09"],
-      "related_symbols": ["theta_e"],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_SEC_3",
+        "DIN_18599-10_2018-09"
+      ],
+      "related_symbols": [
+        "theta_e"
+      ],
       "category": "climate",
       "see_also": []
     },
@@ -349,11 +577,21 @@
       "term_en": "heat sink",
       "abbreviation": null,
       "definition_de": "Wärmemenge, die der Gebäudezone entzogen wird",
-      "notes": ["Nicht einbezogen ist die geregelte Abfuhr von Wärme über das Kühlsystem (Kühlbedarf)"],
-      "norm_refs": ["DIN_18599-1_2018-09_SEC_3", "DIN_18599-2_2025-10"],
-      "related_symbols": ["Q_T", "Q_V"],
+      "notes": [
+        "Nicht einbezogen ist die geregelte Abfuhr von Wärme über das Kühlsystem (Kühlbedarf)"
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_SEC_3",
+        "DIN_18599-2_2025-10"
+      ],
+      "related_symbols": [
+        "Q_T",
+        "Q_V"
+      ],
       "category": "heat_balance",
-      "see_also": ["TERM_WAERMEQUELLE"]
+      "see_also": [
+        "TERM_WAERMEQUELLE"
+      ]
     },
     {
       "id": "TERM_WAERMEQUELLE",
@@ -361,13 +599,26 @@
       "term_de": "Wärmequelle",
       "term_en": "heat source",
       "abbreviation": null,
-      "alternative_terms": ["Wärmeeintrag"],
+      "alternative_terms": [
+        "Wärmeeintrag"
+      ],
       "definition_de": "Wärmemengen mit Temperaturen über der Innentemperatur, die der Gebäudezone zugeführt werden oder innerhalb der Gebäudezone entstehen",
-      "notes": ["Nicht einbezogen sind die Wärmeeinträge, die geregelt über die Anlage (Heizung, Lüftung) zugeführt werden"],
-      "norm_refs": ["DIN_18599-1_2018-09_SEC_3", "DIN_18599-2_2025-10"],
-      "related_symbols": ["Q_I", "Q_S"],
+      "notes": [
+        "Nicht einbezogen sind die Wärmeeinträge, die geregelt über die Anlage (Heizung, Lüftung) zugeführt werden"
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_SEC_3",
+        "DIN_18599-2_2025-10"
+      ],
+      "related_symbols": [
+        "Q_I",
+        "Q_S"
+      ],
       "category": "heat_balance",
-      "see_also": ["TERM_WAERMESENKE", "TERM_AUSNUTZUNGSGRAD"]
+      "see_also": [
+        "TERM_WAERMESENKE",
+        "TERM_AUSNUTZUNGSGRAD"
+      ]
     },
     {
       "id": "TERM_AUSNUTZUNGSGRAD",
@@ -376,11 +627,20 @@
       "term_en": "utilization factor of heat sources",
       "abbreviation": "eta",
       "definition_de": "Faktor, der die gesamten monatlichen oder jahreszeitlichen Wärmequellen reduziert, um den zur Deckung der Wärmesenken nutzbaren Teil der Wärmequellen festzustellen",
-      "notes": ["Der nicht nutzbare Anteil äußert sich in der Heizperiode als überhöhte Raumtemperatur und/oder überhöhter Luftwechsel"],
-      "norm_refs": ["DIN_18599-1_2018-09_SEC_3", "DIN_18599-2_2025-10"],
-      "related_symbols": ["eta"],
+      "notes": [
+        "Der nicht nutzbare Anteil äußert sich in der Heizperiode als überhöhte Raumtemperatur und/oder überhöhter Luftwechsel"
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_SEC_3",
+        "DIN_18599-2_2025-10"
+      ],
+      "related_symbols": [
+        "eta"
+      ],
       "category": "heat_balance",
-      "see_also": ["TERM_WAERMEQUELLE"]
+      "see_also": [
+        "TERM_WAERMEQUELLE"
+      ]
     },
     {
       "id": "TERM_LUFTWECHSEL",
@@ -389,10 +649,19 @@
       "term_en": "air change rate",
       "abbreviation": "n",
       "definition_de": "Luftvolumenstrom je Volumeneinheit",
-      "norm_refs": ["DIN_18599-1_2018-09_SEC_3", "DIN_18599-2_2025-10", "DIN_18599-10_2018-09"],
-      "related_symbols": ["n", "n_nutz"],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_SEC_3",
+        "DIN_18599-2_2025-10",
+        "DIN_18599-10_2018-09"
+      ],
+      "related_symbols": [
+        "n",
+        "n_nutz"
+      ],
       "category": "ventilation",
-      "see_also": ["TERM_LUEFTUNGSWAERMEVERLUST"]
+      "see_also": [
+        "TERM_LUEFTUNGSWAERMEVERLUST"
+      ]
     },
     {
       "id": "TERM_VERLUSTE_ANLAGENTECHNIK",
@@ -401,11 +670,23 @@
       "term_en": "system losses",
       "abbreviation": null,
       "definition_de": "Verluste (Wärmeabgabe, Kälteabgabe) in den technischen Prozessschritten zwischen dem Nutzenergiebedarf und dem Endenergiebedarf",
-      "notes": ["Verluste bei der Übergabe, der Verteilung, der Speicherung und der Erzeugung", "Die Verluste zählen, sofern sie im konditionierten Raum auftreten, zu den ungeregelten Wärmequellen oder Wärmesenken"],
-      "norm_refs": ["DIN_18599-1_2018-09_SEC_3"],
-      "related_symbols": ["e_ce", "e_d", "e_s", "e_g"],
+      "notes": [
+        "Verluste bei der Übergabe, der Verteilung, der Speicherung und der Erzeugung",
+        "Die Verluste zählen, sofern sie im konditionierten Raum auftreten, zu den ungeregelten Wärmequellen oder Wärmesenken"
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_SEC_3"
+      ],
+      "related_symbols": [
+        "e_ce",
+        "e_d",
+        "e_s",
+        "e_g"
+      ],
       "category": "building_services",
-      "see_also": ["TERM_AUFWANDSZAHL"]
+      "see_also": [
+        "TERM_AUFWANDSZAHL"
+      ]
     },
     {
       "id": "TERM_ERNEUERBARE_ENERGIE",
@@ -414,11 +695,17 @@
       "term_en": "renewable energy",
       "abbreviation": null,
       "definition_de": "Energie aus einer Quelle, deren Vorrat sich durch die Entnahme nicht verringert, wie z. B. (thermische und photovoltaische) Solarenergie, Wind, Wasserkraft, regenerative Biomasse",
-      "notes": ["Biomasseenergie zählt, da sie nachwachsend ist, ebenfalls zur erneuerbaren Energie, wobei sie begrenzt verfügbar ist"],
-      "norm_refs": ["DIN_18599-1_2018-09_SEC_3"],
+      "notes": [
+        "Biomasseenergie zählt, da sie nachwachsend ist, ebenfalls zur erneuerbaren Energie, wobei sie begrenzt verfügbar ist"
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_SEC_3"
+      ],
       "related_symbols": [],
       "category": "energy_source",
-      "see_also": ["TERM_UMWELTENERGIEN"]
+      "see_also": [
+        "TERM_UMWELTENERGIEN"
+      ]
     },
     {
       "id": "TERM_UMWELTENERGIEN",
@@ -427,10 +714,14 @@
       "term_en": "environmental energy",
       "abbreviation": null,
       "definition_de": "Solarenergie (thermisch, photovoltaisch, beleuchtungstechnisch), Erdwärme (aus dem Erdreich entnommene Energie, Geothermie), Umweltwärme oder -kälte (aus Umgebungsluft oder Wasser entnommene Energie), Windenergie",
-      "norm_refs": ["DIN_18599-1_2018-09_SEC_3"],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_SEC_3"
+      ],
       "related_symbols": [],
       "category": "energy_source",
-      "see_also": ["TERM_ERNEUERBARE_ENERGIE"]
+      "see_also": [
+        "TERM_ERNEUERBARE_ENERGIE"
+      ]
     },
     {
       "id": "TERM_ABWAERME",
@@ -439,8 +730,13 @@
       "term_en": "waste heat",
       "abbreviation": null,
       "definition_de": "Aus Prozessen entstammende Wärme- und Kältemengen, die innerhalb des bilanzierten Gebäudes einer Nutzung zugeführt oder einem anderen Gebäude zur Verfügung gestellt werden und anderenfalls ohne weitere Verwertung an die Umgebung abgegeben worden wären",
-      "notes": ["Abwärme entstammt nicht aus Einrichtungen, deren Zweck die Strom- oder Wärmeerzeugung ist", "Kann als Teil der inneren Wärmequellen oder -senken bilanziert werden"],
-      "norm_refs": ["DIN_18599-1_2018-09_SEC_3"],
+      "notes": [
+        "Abwärme entstammt nicht aus Einrichtungen, deren Zweck die Strom- oder Wärmeerzeugung ist",
+        "Kann als Teil der inneren Wärmequellen oder -senken bilanziert werden"
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_SEC_3"
+      ],
       "related_symbols": [],
       "category": "energy_source",
       "see_also": []
@@ -452,10 +748,16 @@
       "term_en": "auxiliary energy",
       "abbreviation": "W",
       "definition_de": "Energie, die von Heizungs-, Kühl-, Trinkwarmwasser-, Raumluft- einschließlich Lüftungs- und Beleuchtungssystemen zusätzlich für Pumpen, Ventilatoren, Regelung, Elektronik usw. verwendet wird, um die Nutzenergiebereitstellung zu ermöglichen",
-      "norm_refs": ["DIN_18599-1_2018-09_SEC_3"],
-      "related_symbols": ["W"],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_SEC_3"
+      ],
+      "related_symbols": [
+        "W"
+      ],
       "category": "building_services",
-      "see_also": ["TERM_ENDENERGIEBEDARF"]
+      "see_also": [
+        "TERM_ENDENERGIEBEDARF"
+      ]
     },
     {
       "id": "TERM_ENERGIEINHALT",
@@ -464,8 +766,13 @@
       "term_en": "energy content",
       "abbreviation": null,
       "definition_de": "Wärmemenge, die bei einer vollen Verbrennung unter einem konstanten Druck von 101320 Pa aus einer Menge eines Brennstoffes gewonnen werden kann",
-      "notes": ["Der Brennwert enthält die bei der Wasserdampfkondensation entstehende Wärmemenge", "Der Heizwert umfasst diese latente Wärme nicht"],
-      "norm_refs": ["DIN_18599-1_2018-09_SEC_3"],
+      "notes": [
+        "Der Brennwert enthält die bei der Wasserdampfkondensation entstehende Wärmemenge",
+        "Der Heizwert umfasst diese latente Wärme nicht"
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_SEC_3"
+      ],
       "related_symbols": [],
       "category": "energy_carrier",
       "see_also": []
@@ -477,10 +784,14 @@
       "term_en": "product value",
       "abbreviation": null,
       "definition_de": "Herstellerspezifischer Wert, der für dieses Rechenverfahren geeignet ist, auf der Grundlage einer Konformitätserklärung zu harmonisierten europäischen Spezifikationen bzw. entsprechenden Europäischen Richtlinien oder allgemein anerkannten Regeln der Technik oder eines bauaufsichtlichen Verwendbarkeitsnachweises",
-      "norm_refs": ["DIN_18599-1_2018-09_SEC_3"],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_SEC_3"
+      ],
       "related_symbols": [],
       "category": "calculation_method",
-      "see_also": ["TERM_STANDARDWERT"]
+      "see_also": [
+        "TERM_STANDARDWERT"
+      ]
     },
     {
       "id": "TERM_STANDARDWERT",
@@ -489,10 +800,14 @@
       "term_en": "standard value",
       "abbreviation": null,
       "definition_de": "Wert, der für den Berechnungsgang verwendet werden kann, sofern kein für das Rechenverfahren geeigneter Produktwert verfügbar ist",
-      "norm_refs": ["DIN_18599-1_2018-09_SEC_3"],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_SEC_3"
+      ],
       "related_symbols": [],
       "category": "calculation_method",
-      "see_also": ["TERM_PRODUKTWERT"]
+      "see_also": [
+        "TERM_PRODUKTWERT"
+      ]
     },
     {
       "id": "TERM_AUFWANDSZAHL",
@@ -501,11 +816,23 @@
       "term_en": "expenditure ratio",
       "abbreviation": "e",
       "definition_de": "Faktor, welcher den Aufwand eines Prozesses gegenüber dessen Nutzen beschreibt",
-      "notes": ["Basis der Betrachtung sind Energiemengen, wobei die Aufwandszahl selbst einheitenlos ist (Aufwand bezogen auf Nutzen)", "Prozesse sind Übergabe/Regelung, Verteilung, Speicherung, Erzeugung"],
-      "norm_refs": ["DIN_18599-1_2018-09_SEC_3"],
-      "related_symbols": ["e_ce", "e_d", "e_s", "e_g"],
+      "notes": [
+        "Basis der Betrachtung sind Energiemengen, wobei die Aufwandszahl selbst einheitenlos ist (Aufwand bezogen auf Nutzen)",
+        "Prozesse sind Übergabe/Regelung, Verteilung, Speicherung, Erzeugung"
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_SEC_3"
+      ],
+      "related_symbols": [
+        "e_ce",
+        "e_d",
+        "e_s",
+        "e_g"
+      ],
       "category": "efficiency",
-      "see_also": ["TERM_NUTZUNGSGRAD"]
+      "see_also": [
+        "TERM_NUTZUNGSGRAD"
+      ]
     },
     {
       "id": "TERM_NUTZUNGSGRAD",
@@ -514,11 +841,20 @@
       "term_en": "utilization ratio",
       "abbreviation": "eta",
       "definition_de": "Faktor, welcher den nutzbaren Anteil eines Energieaufwandes beschreibt",
-      "notes": ["Basis der Betrachtung sind Energiemengen, wobei der Nutzungsgrad selbst einheitenlos ist (Nutzen bezogen auf Aufwand)", "Prozesse sind Übergabe/Regelung, Verteilung, Speicherung, Erzeugung"],
-      "norm_refs": ["DIN_18599-1_2018-09_SEC_3"],
-      "related_symbols": ["eta"],
+      "notes": [
+        "Basis der Betrachtung sind Energiemengen, wobei der Nutzungsgrad selbst einheitenlos ist (Nutzen bezogen auf Aufwand)",
+        "Prozesse sind Übergabe/Regelung, Verteilung, Speicherung, Erzeugung"
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_SEC_3"
+      ],
+      "related_symbols": [
+        "eta"
+      ],
       "category": "efficiency",
-      "see_also": ["TERM_AUFWANDSZAHL"]
+      "see_also": [
+        "TERM_AUFWANDSZAHL"
+      ]
     },
     {
       "id": "TERM_BILANZZEITRAUM",
@@ -527,8 +863,13 @@
       "term_en": "balance period",
       "abbreviation": null,
       "definition_de": "Zeitspanne für die Bilanzierung der relevanten Energieströme für ein Gebäude",
-      "notes": ["Zur Berechnung des End- und Primärenergiebedarfs ist der Bilanzzeitraum ein Jahr", "Bei Teilenergiekennwerten kann er einen Monat oder einen Tag umfassen"],
-      "norm_refs": ["DIN_18599-1_2018-09_SEC_3"],
+      "notes": [
+        "Zur Berechnung des End- und Primärenergiebedarfs ist der Bilanzzeitraum ein Jahr",
+        "Bei Teilenergiekennwerten kann er einen Monat oder einen Tag umfassen"
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_SEC_3"
+      ],
       "related_symbols": [],
       "category": "calculation_method",
       "see_also": []
@@ -540,10 +881,15 @@
       "term_en": "single-family house",
       "abbreviation": "EFH",
       "definition_de": "Wohngebäude mit bis zu 2 Wohnungen",
-      "norm_refs": ["DIN_18599-1_2018-09_SEC_3", "DIN_18599-10_2018-09"],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_SEC_3",
+        "DIN_18599-10_2018-09"
+      ],
       "related_symbols": [],
       "category": "building_type",
-      "see_also": ["TERM_MEHRFAMILIENHAUS"]
+      "see_also": [
+        "TERM_MEHRFAMILIENHAUS"
+      ]
     },
     {
       "id": "TERM_MEHRFAMILIENHAUS",
@@ -552,10 +898,15 @@
       "term_en": "multi-family house",
       "abbreviation": "MFH",
       "definition_de": "Wohngebäude mit mehr als 2 Wohnungen",
-      "norm_refs": ["DIN_18599-1_2018-09_SEC_3", "DIN_18599-10_2018-09"],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_SEC_3",
+        "DIN_18599-10_2018-09"
+      ],
       "related_symbols": [],
       "category": "building_type",
-      "see_also": ["TERM_EINFAMILIENHAUS"]
+      "see_also": [
+        "TERM_EINFAMILIENHAUS"
+      ]
     },
     {
       "id": "TERM_CO2_AEQUIVALENT",
@@ -564,11 +915,18 @@
       "term_en": "CO₂ equivalent",
       "abbreviation": "CO₂-eq",
       "definition_de": "Berechnete Stoffmasse an Treibhausgasen, welche aus dem Endenergiebedarf an der Gebäudegrenze resultieren",
-      "notes": ["Es werden alle Einzelemissionen auf die Treibhauswirkung von Kohlenstoffdioxid gewichtet umgerechnet", "Berücksichtigt vorgelagerte Prozessketten außerhalb des Gebäudes"],
-      "norm_refs": ["DIN_18599-1_2018-09_SEC_3"],
+      "notes": [
+        "Es werden alle Einzelemissionen auf die Treibhauswirkung von Kohlenstoffdioxid gewichtet umgerechnet",
+        "Berücksichtigt vorgelagerte Prozessketten außerhalb des Gebäudes"
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_SEC_3"
+      ],
       "related_symbols": [],
       "category": "emissions",
-      "see_also": ["TERM_PRIMAERENERGIEBEDARF"]
+      "see_also": [
+        "TERM_PRIMAERENERGIEBEDARF"
+      ]
     },
     {
       "id": "TERM_AUSSENINDUZIERTE_LUEFTUNG",
@@ -577,9 +935,13 @@
       "term_de": "außeninduzierte Lüftung",
       "term_en": "wind-induced ventilation",
       "definition_de": "Natürliche Lüftung durch Druckdifferenzen infolge von Wind und Temperaturdifferenzen",
-      "norm_refs": ["DIN_18599-2_2025-10_SEC_3"],
+      "norm_refs": [
+        "DIN_18599-2_2025-10_SEC_3"
+      ],
       "category": "ventilation",
-      "see_also": ["TERM_LUFTWECHSEL"]
+      "see_also": [
+        "TERM_LUFTWECHSEL"
+      ]
     },
     {
       "id": "TERM_FREIE_KUEHLUNG",
@@ -588,9 +950,13 @@
       "term_de": "freie Kühlung",
       "term_en": "free cooling",
       "definition_de": "Kühlung durch erhöhten Luftwechsel ohne Einsatz aktiver Kühltechnik",
-      "norm_refs": ["DIN_18599-2_2025-10_SEC_3"],
+      "norm_refs": [
+        "DIN_18599-2_2025-10_SEC_3"
+      ],
       "category": "cooling",
-      "see_also": ["TERM_NUTZKAELTEBEDARF"]
+      "see_also": [
+        "TERM_NUTZKAELTEBEDARF"
+      ]
     },
     {
       "id": "TERM_INTERNE_WAERMEQUELLEN",
@@ -600,10 +966,16 @@
       "term_en": "internal heat sources",
       "abbreviation": "Q_I",
       "definition_de": "Wärmeeinträge durch Personen, Beleuchtung, Arbeitshilfen und Prozesse innerhalb der Zone",
-      "norm_refs": ["DIN_18599-2_2025-10_SEC_3"],
-      "related_symbols": ["Q_I"],
+      "norm_refs": [
+        "DIN_18599-2_2025-10_SEC_3"
+      ],
+      "related_symbols": [
+        "Q_I"
+      ],
       "category": "heat_balance",
-      "see_also": ["TERM_WAERMEQUELLE"]
+      "see_also": [
+        "TERM_WAERMEQUELLE"
+      ]
     },
     {
       "id": "TERM_SOLARE_WAERMEQUELLEN",
@@ -613,10 +985,16 @@
       "term_en": "solar heat sources",
       "abbreviation": "Q_S",
       "definition_de": "Wärmeeinträge durch solare Einstrahlung über transparente und opake Bauteile",
-      "norm_refs": ["DIN_18599-2_2025-10_SEC_3"],
-      "related_symbols": ["Q_S"],
+      "norm_refs": [
+        "DIN_18599-2_2025-10_SEC_3"
+      ],
+      "related_symbols": [
+        "Q_S"
+      ],
       "category": "heat_balance",
-      "see_also": ["TERM_WAERMEQUELLE"]
+      "see_also": [
+        "TERM_WAERMEQUELLE"
+      ]
     },
     {
       "id": "TERM_TRANSMISSIONSWAERMEVERLUST",
@@ -626,10 +1004,17 @@
       "term_en": "transmission heat loss",
       "abbreviation": "Q_T",
       "definition_de": "Wärmeverlust durch Wärmeleitung über die wärmeübertragende Umfassungsfläche",
-      "norm_refs": ["DIN_18599-2_2025-10_SEC_3"],
-      "related_symbols": ["Q_T", "H_T"],
+      "norm_refs": [
+        "DIN_18599-2_2025-10_SEC_3"
+      ],
+      "related_symbols": [
+        "Q_T",
+        "H_T"
+      ],
       "category": "heat_balance",
-      "see_also": ["TERM_WAERMESENKE"]
+      "see_also": [
+        "TERM_WAERMESENKE"
+      ]
     },
     {
       "id": "TERM_LUEFTUNGSWAERMEVERLUST",
@@ -639,10 +1024,18 @@
       "term_en": "ventilation heat loss",
       "abbreviation": "Q_V",
       "definition_de": "Wärmeverlust durch Luftaustausch (Infiltration und Lüftung)",
-      "norm_refs": ["DIN_18599-2_2025-10_SEC_3"],
-      "related_symbols": ["Q_V", "H_V"],
+      "norm_refs": [
+        "DIN_18599-2_2025-10_SEC_3"
+      ],
+      "related_symbols": [
+        "Q_V",
+        "H_V"
+      ],
       "category": "heat_balance",
-      "see_also": ["TERM_WAERMESENKE", "TERM_LUFTWECHSEL"]
+      "see_also": [
+        "TERM_WAERMESENKE",
+        "TERM_LUFTWECHSEL"
+      ]
     },
     {
       "id": "TERM_ZEITKONSTANTE",
@@ -652,8 +1045,12 @@
       "term_en": "time constant",
       "abbreviation": "tau",
       "definition_de": "Kennwert für die thermische Trägheit eines Gebäudes oder einer Zone",
-      "norm_refs": ["DIN_18599-2_2025-10_SEC_3"],
-      "related_symbols": ["tau"],
+      "norm_refs": [
+        "DIN_18599-2_2025-10_SEC_3"
+      ],
+      "related_symbols": [
+        "tau"
+      ],
       "category": "thermal_conditions",
       "see_also": []
     },
@@ -665,7 +1062,9 @@
       "term_en": "Air handling system",
       "abbreviation": "RLT",
       "definition_de": "Technische Einrichtung zur Aufbereitung und Verteilung von Luft (Erwärmen, Kühlen, Befeuchten, Entfeuchten, Filtern)",
-      "norm_refs": ["DIN_18599-3_2018-09_SEC_3"],
+      "norm_refs": [
+        "DIN_18599-3_2018-09_SEC_3"
+      ],
       "category": "building_services",
       "see_also": []
     },
@@ -677,7 +1076,9 @@
       "term_en": "Heat recovery",
       "abbreviation": "WRG",
       "definition_de": "Rückgewinnung von Wärme aus der Abluft zur Vorwärmung der Zuluft",
-      "norm_refs": ["DIN_18599-3_2018-09_SEC_3"],
+      "norm_refs": [
+        "DIN_18599-3_2018-09_SEC_3"
+      ],
       "category": "building_services",
       "see_also": []
     },
@@ -688,7 +1089,9 @@
       "term_de": "Sorptionsgestütztes System",
       "term_en": "Sorption-assisted system",
       "definition_de": "RLT-System mit sorptiver Entfeuchtung und/oder Befeuchtung",
-      "norm_refs": ["DIN_18599-3_2018-09_SEC_3"],
+      "norm_refs": [
+        "DIN_18599-3_2018-09_SEC_3"
+      ],
       "category": "building_services",
       "see_also": []
     },
@@ -699,34 +1102,1618 @@
       "term_de": "Indirekte Verdunstungskühlung",
       "term_en": "Indirect evaporative cooling",
       "definition_de": "Kühlung der Zuluft durch Verdunstung in einem separaten Luftstrom",
-      "norm_refs": ["DIN_18599-3_2018-09_SEC_3"],
+      "norm_refs": [
+        "DIN_18599-3_2018-09_SEC_3"
+      ],
       "category": "cooling",
+      "see_also": []
+    },
+    {
+      "id": "TERM_NUTZENERGIEBEDARF_DER_BELEUCHTUNG",
+      "number": "3.1.6",
+      "part": 1,
+      "term_de": "Nutzenergiebedarf der Beleuchtung",
+      "term_en": "",
+      "definition_de": "rechnerisch ermittelter Energiebedarf, der sich ergibt, wenn die Gebäudezone mit der im Nutzungsprofil festgelegten Beleuchtungsqualität beleuchtet wird",
+      "norm_refs": [
+        "DIN_18599-1_2018-09_SEC_3"
+      ],
+      "category": "energy_level",
+      "see_also": []
+    },
+    {
+      "id": "TERM_NUTZENERGIEBEDARF_FUER_TRINKWARMWASSER",
+      "number": "3.1.7",
+      "part": 1,
+      "term_de": "Nutzenergiebedarf für Trinkwarmwasser",
+      "term_en": "",
+      "definition_de": "rechnerisch ermittelter Energiebedarf, der sich ergibt, wenn die Gebäudezone mit der im Nutzungsprofil festgelegten Menge an Trinkwarmwasser entsprechenden Zulauftemperatur versorgt wird",
+      "norm_refs": [
+        "DIN_18599-1_2018-09_SEC_3"
+      ],
+      "category": "energy_level",
+      "see_also": []
+    },
+    {
+      "id": "TERM_NUTZENERGIEBEDARF_FUER_DIE_LUFTAUFBEREITUNG",
+      "number": "3.1.8",
+      "part": 1,
+      "term_de": "Nutzenergiebedarf für die Luftaufbereitung",
+      "term_en": "",
+      "definition_de": "rechnerisch ermittelter Energiebedarf, der zum Erwärmen, Kühlen, Befeuchten und Entfeuchten der Luft in einer raumlufttechnischen Anlage zu- bzw. abgeführt wird, um den erforderlichen Zuluftzustand zu erreichen",
+      "norm_refs": [
+        "DIN_18599-1_2018-09_SEC_3"
+      ],
+      "category": "energy_level",
+      "see_also": []
+    },
+    {
+      "id": "TERM_WAERMEUEBERTRAGENDE_UMFASSUNGSFLAECHE",
+      "number": "3.1.17",
+      "part": 1,
+      "term_de": "wärmeübertragende Umfassungsfläche",
+      "term_en": "",
+      "definition_de": "äußere Begrenzung jeder Zone",
+      "norm_refs": [
+        "DIN_18599-1_2018-09_SEC_3"
+      ],
+      "category": "energy_level",
+      "see_also": []
+    },
+    {
+      "id": "TERM_AUSNUTZUNGSGRAD_DER_WAERMEQUELLEN",
+      "number": "3.1.28",
+      "part": 1,
+      "term_de": "Ausnutzungsgrad der Wärmequellen",
+      "term_en": "",
+      "definition_de": "Faktor, der die gesamten monatlichen oder jahreszeitlichen Wärmequellen reduziert, um den zur Deckung der Wärmesenken nutzbaren Teil der Wärmequellen festzustellen",
+      "norm_refs": [
+        "DIN_18599-1_2018-09_SEC_3"
+      ],
+      "category": "energy_level",
+      "see_also": []
+    },
+    {
+      "id": "TERM_VERLUSTE_DER_ANLAGENTECHNIK",
+      "number": "3.1.30",
+      "part": 1,
+      "term_de": "Verluste der Anlagentechnik",
+      "term_en": "",
+      "definition_de": "Verluste (Wärmeabgabe, Kälteabgabe) in den technischen Prozessschritten zwischen dem Nutzenergiebedarf und dem Endenergiebedarf",
+      "norm_refs": [
+        "DIN_18599-1_2018-09_SEC_3"
+      ],
+      "category": "energy_level",
+      "see_also": []
+    },
+    {
+      "id": "TERM_CO_AEQUIVALENT",
+      "number": "3.1.43",
+      "part": 1,
+      "term_de": "CO-Äquivalent",
+      "term_en": "",
+      "definition_de": "berechnete Stoffmasse an Treibhausgasen, welche aus dem Endenergiebedarf an der Gebäudegrenze resultieren",
+      "norm_refs": [
+        "DIN_18599-1_2018-09_SEC_3"
+      ],
+      "category": "energy_level",
+      "see_also": []
+    },
+    {
+      "id": "TERM_WIRKSAME_WAERMEKAPAZITAET",
+      "number": "3.1.1",
+      "part": 2,
+      "term_de": "wirksame Wärmekapazität",
+      "term_en": "",
+      "definition_de": "Teilbetrag der Wärmekapazität einer Gebäudezone, der einen Einfluss auf den Heizwärmebedarf und auf die sommerliche Raumkonditionierung hat",
+      "norm_refs": [
+        "DIN_18599-2_2018-09_SEC_3"
+      ],
+      "category": "thermal_conditions",
+      "see_also": []
+    },
+    {
+      "id": "TERM_WAERMETRANSFERKOEFFIZIENT_FUER_TRANSMISSION",
+      "number": "3.1.2",
+      "part": 2,
+      "term_de": "Wärmetransferkoeffizient für Transmission",
+      "term_en": "",
+      "definition_de": "Wärmedurchgang je Zeiteinheit durch ein Bauteil, bezogen auf die Temperaturdifferenz der Luft zu beiden Seiten des Bauteils",
+      "norm_refs": [
+        "DIN_18599-2_2018-09_SEC_3"
+      ],
+      "category": "thermal_conditions",
+      "see_also": []
+    },
+    {
+      "id": "TERM_WAERMETRANSFERKOEFFIZIENT_FUER_LUEFTUNG",
+      "number": "3.1.3",
+      "part": 2,
+      "term_de": "Wärmetransferkoeffizient für Lüftung",
+      "term_en": "",
+      "definition_de": "Wärmeaustausch durch einen Luftvolumenstrom je Zeiteinheit, bezogen auf die Temperaturdifferenz",
+      "norm_refs": [
+        "DIN_18599-2_2018-09_SEC_3"
+      ],
+      "category": "thermal_conditions",
+      "see_also": []
+    },
+    {
+      "id": "TERM_ENDENERGIEBEDARF_FUER_DIE_LUFTFOERDERUNG",
+      "number": "3.1.6",
+      "part": 3,
+      "term_de": "Endenergiebedarf für die Luftförderung",
+      "term_en": "",
+      "definition_de": "rechnerischer Elektroenergiebedarf des Systems Ventilator --- Kraftübertragungsvorrichtung --- Motor, der zum Transport eines Luftvolumenstromes innerhalb des Berechnungszeitraumes erforderlich ist",
+      "norm_refs": [
+        "DIN_18599-3_2018-09_SEC_3"
+      ],
+      "category": "building_services",
+      "see_also": []
+    },
+    {
+      "id": "TERM_NUTZENERGIEBEDARF_DER_THERMISCHEN_LUFTAUFBEREITUNG",
+      "number": "3.1.7",
+      "part": 3,
+      "term_de": "Nutzenergiebedarf der thermischen Luftaufbereitung",
+      "term_en": "",
+      "definition_de": "rechnerischer Energiebedarf in Form von Wärme, Kälte und Wärme zur Dampferzeugung, der für das Erwärmen, Kühlen, Befeuchten und Entfeuchten von Luft notwendig ist, um eine thermodynamische Zustandsänderung vom Außenluftzustand zu einem vorgegebenen Zuluftzustand unter Berücksichtigung der Komponentenreihung, der grundsätzlichen Betriebsführung und der Energierückgewinnung herbeizuführen",
+      "norm_refs": [
+        "DIN_18599-3_2018-09_SEC_3"
+      ],
+      "category": "building_services",
+      "see_also": []
+    },
+    {
+      "id": "TERM_RAUMLUFTTECHNISCHE_ANLAGE",
+      "number": "3.1.8",
+      "part": 3,
+      "term_de": "raumlufttechnische Anlage",
+      "term_en": "",
+      "definition_de": "RLT",
+      "norm_refs": [
+        "DIN_18599-3_2018-09_SEC_3"
+      ],
+      "category": "building_services",
+      "see_also": []
+    },
+    {
+      "id": "TERM_KOMPONENTE",
+      "number": "3.1.9",
+      "part": 3,
+      "term_de": "Komponente",
+      "term_en": "",
+      "definition_de": "Apparat zur Energie- und/oder Stoffübertragung an die Luft innerhalb einer raumlufttechnischen Anlage",
+      "norm_refs": [
+        "DIN_18599-3_2018-09_SEC_3"
+      ],
+      "category": "building_services",
+      "see_also": []
+    },
+    {
+      "id": "TERM_AUSSENLUFTZUSTAND",
+      "number": "3.1.10",
+      "part": 3,
+      "term_de": "Außenluftzustand",
+      "term_en": "",
+      "definition_de": "thermodynamischer Zustand feuchter Luft in der Außenumgebung einer RLT-Anlage",
+      "norm_refs": [
+        "DIN_18599-3_2018-09_SEC_3"
+      ],
+      "category": "building_services",
+      "see_also": []
+    },
+    {
+      "id": "TERM_ABLUFTZUSTAND",
+      "number": "3.1.11",
+      "part": 3,
+      "term_de": "Abluftzustand",
+      "term_en": "",
+      "definition_de": "thermodynamischer Zustand von durch eine RLT-Anlage geförderter Luft bei Austritt aus dem Versorgungsbereich eines Gebäudes",
+      "norm_refs": [
+        "DIN_18599-3_2018-09_SEC_3"
+      ],
+      "category": "building_services",
+      "see_also": []
+    },
+    {
+      "id": "TERM_ZULUFTZUSTAND",
+      "number": "3.1.12",
+      "part": 3,
+      "term_de": "Zuluftzustand",
+      "term_en": "",
+      "definition_de": "thermodynamischer Zustand von durch eine RLT-Anlage geförderter feuchter Luft bei Eintritt in den Versorgungsbereich eines Gebäudes",
+      "norm_refs": [
+        "DIN_18599-3_2018-09_SEC_3"
+      ],
+      "category": "building_services",
+      "see_also": []
+    },
+    {
+      "id": "TERM_MONATLICHER_MITTLERER_ZULUFTVOLUMENSTROM",
+      "number": "3.1.13",
+      "part": 3,
+      "term_de": "monatlicher mittlerer Zuluftvolumenstrom",
+      "term_en": "",
+      "definition_de": "Luftvolumenstrom, der von einer RLT-Anlage als monatlicher Mittelwert während der Anlagenbetriebszeit gefördert und thermodynamisch behandelt wird",
+      "norm_refs": [
+        "DIN_18599-3_2018-09_SEC_3"
+      ],
+      "category": "building_services",
+      "see_also": []
+    },
+    {
+      "id": "TERM_MONATLICHER_BILANZ_ZULUFTVOLUMENSTROM",
+      "number": "3.1.14",
+      "part": 3,
+      "term_de": "monatlicher Bilanz-Zuluftvolumenstrom",
+      "term_en": "",
+      "definition_de": "mittlerer Luftvolumenstrom während der monatlichen Betriebszeit der RLT-Anlage, der einer Gebäudezone unabhängig von den sensiblen Heiz- und Kühllasten zugeführt wird",
+      "norm_refs": [
+        "DIN_18599-3_2018-09_SEC_3"
+      ],
+      "category": "building_services",
+      "see_also": []
+    },
+    {
+      "id": "TERM_TEMPERATURAENDERUNGSGRAD_DER_KOMPONENTE_WAERMERUECKGEWINNER",
+      "number": "3.1.15",
+      "part": 3,
+      "term_de": "Temperaturänderungsgrad der Komponente Wärmerückgewinner",
+      "term_en": "",
+      "definition_de": "Verhältnis der Lufttemperaturen eines Wärmerückgewinnungssystems für den Betriebsfall ohne Kondensation mit Bezug auf die Zuluftseite",
+      "norm_refs": [
+        "DIN_18599-3_2018-09_SEC_3"
+      ],
+      "category": "building_services",
+      "see_also": []
+    },
+    {
+      "id": "TERM_FEUCHTEAENDERUNGSGRAD_DER_KOMPONENTE_WAERMERUECKGEWINNER",
+      "number": "3.1.16",
+      "part": 3,
+      "term_de": "Feuchteänderungsgrad der Komponente Wärmerückgewinner",
+      "term_en": "",
+      "definition_de": "Verhältnis der absoluten Luftfeuchten eines Wärmerückgewinnungssystems mit Bezug auf die Zuluftseite",
+      "norm_refs": [
+        "DIN_18599-3_2018-09_SEC_3"
+      ],
+      "category": "building_services",
+      "see_also": []
+    },
+    {
+      "id": "TERM_WAERMERUECKGEWINNUNGSGRAD",
+      "number": "3.1.17",
+      "part": 3,
+      "term_de": "Wärmerückgewinnungsgrad",
+      "term_en": "",
+      "definition_de": "Oberbegriff für den Temperaturänderungsgrad und/oder den Feuchteänderungsgrad der Komponente Wärmerückgewinner mit Bezug auf die Zuluftseite",
+      "norm_refs": [
+        "DIN_18599-3_2018-09_SEC_3"
+      ],
+      "category": "building_services",
+      "see_also": []
+    },
+    {
+      "id": "TERM_LICHTSTROM",
+      "number": "3.1.3",
+      "part": 4,
+      "term_de": "Lichtstrom",
+      "term_en": "",
+      "definition_de": "Größe, abgeleitet aus dem Strahlungsfluss (Strahlungsleistung) durch Bewertung der Strahlung entsprechend der spektralen Empfindlichkeit des menschlichen Auges (nach der CIE-Definition des photometrischen Normalbeobachters) und ist die von einer Lichtquelle ausgestrahlte oder von einer Fläche empfangene Lichtleistung",
+      "norm_refs": [
+        "DIN_18599-4_2018-09_SEC_3"
+      ],
+      "category": "lighting",
+      "see_also": []
+    },
+    {
+      "id": "TERM_BELICHTUNG",
+      "number": "3.1.4",
+      "part": 4,
+      "term_de": "Belichtung",
+      "term_en": "",
+      "definition_de": "Quotient aus der Lichtmenge, die auf ein Flächenelement während der angegebenen Zeit auftrifft und der Fläche dieses Elementes",
+      "norm_refs": [
+        "DIN_18599-4_2018-09_SEC_3"
+      ],
+      "category": "lighting",
+      "see_also": []
+    },
+    {
+      "id": "TERM_TAGESLICHTQUOTIENT",
+      "number": "3.1.5",
+      "part": 4,
+      "term_de": "Tageslichtquotient",
+      "term_en": "",
+      "definition_de": "Verhältnis der Beleuchtungsstärke in einem Punkt einer gegebenen Ebene, die durch direktes oder indirektes Himmelslicht bei angenommener oder bekannter Leuchtdichteverteilung erzeugt wird, zur Horizontalbeleuchtungsstärke bei unverbauter Himmelshalbkugel",
+      "norm_refs": [
+        "DIN_18599-4_2018-09_SEC_3"
+      ],
+      "category": "lighting",
+      "see_also": []
+    },
+    {
+      "id": "TERM_PENDELLAENGE",
+      "number": "3.1.6",
+      "part": 4,
+      "term_de": "Pendellänge",
+      "term_en": "",
+      "definition_de": "Differenz aus Deckenhöhe und Höhe der Leuchtebene, d. h. der Ebene, die durch die Lichtschwerpunkte der Leuchten aufgespannt wird",
+      "norm_refs": [
+        "DIN_18599-4_2018-09_SEC_3"
+      ],
+      "category": "lighting",
+      "see_also": []
+    },
+    {
+      "id": "TERM_LICHTREFLEXIONSGRAD",
+      "number": "3.1.7",
+      "part": 4,
+      "term_de": "Lichtreflexionsgrad",
+      "term_en": "",
+      "definition_de": "Verhältnis des von einer Fläche reflektierten Lichtstroms zum auffallenden Lichtstrom",
+      "norm_refs": [
+        "DIN_18599-4_2018-09_SEC_3"
+      ],
+      "category": "lighting",
+      "see_also": []
+    },
+    {
+      "id": "TERM_LICHTTRANSMISSIONSGRAD",
+      "number": "3.1.8",
+      "part": 4,
+      "term_de": "Lichttransmissionsgrad",
+      "term_en": "",
+      "definition_de": "Verhältnis des durch einen Körper transmittierten Lichtstroms zum auffallenden Lichtstrom",
+      "norm_refs": [
+        "DIN_18599-4_2018-09_SEC_3"
+      ],
+      "category": "lighting",
+      "see_also": []
+    },
+    {
+      "id": "TERM_LAMPE",
+      "number": "3.1.9",
+      "part": 4,
+      "term_de": "Lampe",
+      "term_en": "",
+      "definition_de": "Quelle zur Erzeugung optischer Strahlung, im Allgemeinen im sichtbaren Bereich",
+      "norm_refs": [
+        "DIN_18599-4_2018-09_SEC_3"
+      ],
+      "category": "lighting",
+      "see_also": []
+    },
+    {
+      "id": "TERM_LEUCHTE",
+      "number": "3.1.10",
+      "part": 4,
+      "term_de": "Leuchte",
+      "term_en": "",
+      "definition_de": "Gerät, durch welches das von einer oder mehreren Lampen erzeugte Licht verteilt, gefiltert oder umgewandelt wird und welches Teile umfasst, die zur Befestigung und zum Schutz der Lampen erforderlich sind, nicht aber die Lampen selbst und, falls erforderlich, Schaltkreise sowie die Vorrichtungen zum Anschluss an das elektrische Versorgungsnetz",
+      "norm_refs": [
+        "DIN_18599-4_2018-09_SEC_3"
+      ],
+      "category": "lighting",
+      "see_also": []
+    },
+    {
+      "id": "TERM_VORSCHALTGERAET",
+      "number": "3.1.11",
+      "part": 4,
+      "term_de": "Vorschaltgerät",
+      "term_en": "",
+      "definition_de": "Vorrichtung, die zwischen dem Versorgungsstromkreis und einer oder mehreren Entladungslampen geschaltet ist und hauptsächlich dazu dient, den Lampenstrom auf den geforderten Wert zu begrenzen",
+      "norm_refs": [
+        "DIN_18599-4_2018-09_SEC_3"
+      ],
+      "category": "lighting",
+      "see_also": []
+    },
+    {
+      "id": "TERM_DACHOBERLICHT",
+      "number": "3.1.12",
+      "part": 4,
+      "term_de": "Dachoberlicht",
+      "term_en": "",
+      "definition_de": "Tageslichtöffnung in der Decke eines Raumes",
+      "norm_refs": [
+        "DIN_18599-4_2018-09_SEC_3"
+      ],
+      "category": "lighting",
+      "see_also": []
+    },
+    {
+      "id": "TERM_KONTROLLSYSTEM",
+      "number": "3.1.13",
+      "part": 4,
+      "term_de": "Kontrollsystem",
+      "term_en": "",
+      "definition_de": "elektronische Systeme, die zur Steuerung und Regelung eingesetzt werden von",
+      "norm_refs": [
+        "DIN_18599-4_2018-09_SEC_3"
+      ],
+      "category": "lighting",
+      "see_also": []
+    },
+    {
+      "id": "TERM_ELEKTRISCHE_BEWERTUNGSLEISTUNG_KUNSTLICHT",
+      "number": "3.1.14",
+      "part": 4,
+      "term_de": "elektrische Bewertungsleistung Kunstlicht",
+      "term_en": "",
+      "definition_de": "gesamte elektrische Anschlussleistung der Beleuchtungsanlage im Berechnungsbereich",
+      "norm_refs": [
+        "DIN_18599-4_2018-09_SEC_3"
+      ],
+      "category": "lighting",
+      "see_also": []
+    },
+    {
+      "id": "TERM_VERBAUUNG",
+      "number": "3.1.15",
+      "part": 4,
+      "term_de": "Verbauung",
+      "term_en": "",
+      "definition_de": "Lichthindernisse die vom jeweiligen Beobachterstandort aus Himmelsausschnitte verdecken",
+      "norm_refs": [
+        "DIN_18599-4_2018-09_SEC_3"
+      ],
+      "category": "lighting",
+      "see_also": []
+    },
+    {
+      "id": "TERM_SEHAUFGABE",
+      "number": "3.1.16",
+      "part": 4,
+      "term_de": "Sehaufgabe",
+      "term_en": "",
+      "definition_de": "sehrelevante Elemente der auszuführenden Arbeit",
+      "norm_refs": [
+        "DIN_18599-4_2018-09_SEC_3"
+      ],
+      "category": "lighting",
+      "see_also": []
+    },
+    {
+      "id": "TERM_BEREICH_DER_SEHAUFGABE",
+      "number": "3.1.17",
+      "part": 4,
+      "term_de": "Bereich der Sehaufgabe",
+      "term_en": "",
+      "definition_de": "Teilbereich des Arbeitsplatzes, in dem die Sehaufgabe ausgeführt wird",
+      "norm_refs": [
+        "DIN_18599-4_2018-09_SEC_3"
+      ],
+      "category": "lighting",
+      "see_also": []
+    },
+    {
+      "id": "TERM_AUFWANDSZAHL_FUER_BELEUCHTUNGSZWECKE",
+      "number": "3.1.20",
+      "part": 4,
+      "term_de": "Aufwandszahl für Beleuchtungszwecke",
+      "term_en": "",
+      "definition_de": "*e*",
+      "norm_refs": [
+        "DIN_18599-4_2018-09_SEC_3"
+      ],
+      "category": "lighting",
+      "see_also": []
+    },
+    {
+      "id": "TERM_BETRIEBSZEIT",
+      "number": "3.1.4",
+      "part": 5,
+      "term_de": "Betriebszeit",
+      "term_en": "",
+      "definition_de": "Heizzeit und Laufzeit im abgesenkten/abgeschalteten Betrieb",
+      "norm_refs": [
+        "DIN_18599-5_2018-09_SEC_3"
+      ],
+      "category": "heating",
+      "see_also": []
+    },
+    {
+      "id": "TERM_BETRACHTUNGSZEITRAUM",
+      "number": "3.1.7",
+      "part": 5,
+      "term_de": "Betrachtungszeitraum",
+      "term_en": "",
+      "definition_de": "Bilanzzeitraum",
+      "norm_refs": [
+        "DIN_18599-5_2018-09_SEC_3"
+      ],
+      "category": "heating",
+      "see_also": []
+    },
+    {
+      "id": "TERM_BIVALENZTEMPERATUR",
+      "number": "3.1.8",
+      "part": 5,
+      "term_de": "Bivalenztemperatur",
+      "term_en": "",
+      "definition_de": "Temperatur, bei der die Heizleistung der Wärmepumpe und der Gebäudewärmebedarf gleich sind",
+      "norm_refs": [
+        "DIN_18599-5_2018-09_SEC_3"
+      ],
+      "category": "heating",
+      "see_also": []
+    },
+    {
+      "id": "TERM_DECKUNGSANTEIL",
+      "number": "3.1.9",
+      "part": 5,
+      "term_de": "Deckungsanteil",
+      "term_en": "",
+      "definition_de": "Anteil an der Gesamtwärmelieferung",
+      "norm_refs": [
+        "DIN_18599-5_2018-09_SEC_3"
+      ],
+      "category": "heating",
+      "see_also": []
+    },
+    {
+      "id": "TERM_DEZENTRALE_HEIZUNGSANLAGE",
+      "number": "3.1.10",
+      "part": 5,
+      "term_de": "dezentrale Heizungsanlage",
+      "term_en": "",
+      "definition_de": "Heizungssystem, bei dem die Wärme in einem Gerät erzeugt und an den gleichen Raum übergeben wird, als deren Wärmeträgermedium Wasser oder Luft dient",
+      "norm_refs": [
+        "DIN_18599-5_2018-09_SEC_3"
+      ],
+      "category": "heating",
+      "see_also": []
+    },
+    {
+      "id": "TERM_ERZEUGUNG",
+      "number": "3.1.12",
+      "part": 5,
+      "term_de": "Erzeugung",
+      "term_en": "",
+      "definition_de": "Prozessbereich in der Anlagentechnik im Gebäude, in dem die Wärmemenge bereitgestellt wird, die für die Systeme benötigt wird, gegebenenfalls auch geliefert wird",
+      "norm_refs": [
+        "DIN_18599-5_2018-09_SEC_3"
+      ],
+      "category": "heating",
+      "see_also": []
+    },
+    {
+      "id": "TERM_FEUERUNGSLEISTUNG",
+      "number": "3.1.13",
+      "part": 5,
+      "term_de": "Feuerungsleistung",
+      "term_en": "",
+      "definition_de": "Wärmeleistung, die der Feuerung des Heizkessels mit dem Brennstoff entsprechend seinem spezifischen Heizwert zugeführt wird",
+      "norm_refs": [
+        "DIN_18599-5_2018-09_SEC_3"
+      ],
+      "category": "heating",
+      "see_also": []
+    },
+    {
+      "id": "TERM_HEIZLEISTUNG",
+      "number": "3.1.14",
+      "part": 5,
+      "term_de": "Heizleistung",
+      "term_en": "",
+      "definition_de": "je Zeiteinheit an den Wärmeträger Wasser nutzbar abgegebene Wärmemenge",
+      "norm_refs": [
+        "DIN_18599-5_2018-09_SEC_3"
+      ],
+      "category": "heating",
+      "see_also": []
+    },
+    {
+      "id": "TERM_VERSORGUNGSBEREICH_HEIZUNG",
+      "number": "3.1.15",
+      "part": 5,
+      "term_de": "Versorgungsbereich Heizung",
+      "term_en": "",
+      "definition_de": "Heizungsbereich",
+      "norm_refs": [
+        "DIN_18599-5_2018-09_SEC_3"
+      ],
+      "category": "heating",
+      "see_also": []
+    },
+    {
+      "id": "TERM_HEIZZEIT",
+      "number": "3.1.16",
+      "part": 5,
+      "term_de": "Heizzeit",
+      "term_en": "",
+      "definition_de": "Laufzeit des Heizsystems, um die vorgesehenen Nutzungstemperaturen sicherzustellen",
+      "norm_refs": [
+        "DIN_18599-5_2018-09_SEC_3"
+      ],
+      "category": "heating",
+      "see_also": []
+    },
+    {
+      "id": "TERM_KOMBINIERTER_BETRIEB",
+      "number": "3.1.18",
+      "part": 5,
+      "term_de": "kombinierter Betrieb",
+      "term_en": "",
+      "definition_de": "Wärmeerzeugerbetrieb mit zweifacher Nutzung",
+      "norm_refs": [
+        "DIN_18599-5_2018-09_SEC_3"
+      ],
+      "category": "heating",
+      "see_also": []
+    },
+    {
+      "id": "TERM_LASTFAKTOR",
+      "number": "3.1.21",
+      "part": 5,
+      "term_de": "Lastfaktor",
+      "term_en": "",
+      "definition_de": "Verhältnis zwischen der Laufzeit des Verdichters und der Gesamteinschaltzeit des Erzeugers (Bereitschaft und Betrieb)",
+      "norm_refs": [
+        "DIN_18599-5_2018-09_SEC_3"
+      ],
+      "category": "heating",
+      "see_also": []
+    },
+    {
+      "id": "TERM_LEISTUNGSZAHL",
+      "number": "3.1.22",
+      "part": 5,
+      "term_de": "Leistungszahl",
+      "term_en": "",
+      "definition_de": "*COP*, en: coefficient of performance",
+      "norm_refs": [
+        "DIN_18599-5_2018-09_SEC_3"
+      ],
+      "category": "heating",
+      "see_also": []
+    },
+    {
+      "id": "TERM_NENNLEISTUNG",
+      "number": "3.1.23",
+      "part": 5,
+      "term_de": "Nennleistung",
+      "term_en": "",
+      "definition_de": "unter bestimmungsgemäßen Betriebsbedingungen abgegebene oder aufgenommene maximale Leistung",
+      "norm_refs": [
+        "DIN_18599-5_2018-09_SEC_3"
+      ],
+      "category": "heating",
+      "see_also": []
+    },
+    {
+      "id": "TERM_NUTZWAERMEABGABE",
+      "number": "3.1.25",
+      "part": 5,
+      "term_de": "Nutzwärmeabgabe",
+      "term_en": "",
+      "definition_de": "Teil der Wärmemenge, der in das nachfolgende System abgegeben wird",
+      "norm_refs": [
+        "DIN_18599-5_2018-09_SEC_3"
+      ],
+      "category": "heating",
+      "see_also": []
+    },
+    {
+      "id": "TERM_RUECKLAUFTEMPERATURBEGRENZUNG",
+      "number": "3.1.29",
+      "part": 5,
+      "term_de": "Rücklauftemperaturbegrenzung",
+      "term_en": "",
+      "definition_de": "Systeme mit dezentral angeordneten Einrichtungen zur selbsttätigen Begrenzung der Rücklauftemperatur auf den Auslegungswert",
+      "norm_refs": [
+        "DIN_18599-5_2018-09_SEC_3"
+      ],
+      "category": "heating",
+      "see_also": []
+    },
+    {
+      "id": "TERM_SIMULTANBETRIEB",
+      "number": "3.1.30",
+      "part": 5,
+      "term_de": "Simultanbetrieb",
+      "term_en": "",
+      "definition_de": "gleichzeitige Erzeugung von Wärmeenergie zur Raumheizung und für die Trinkwassererwärmung",
+      "norm_refs": [
+        "DIN_18599-5_2018-09_SEC_3"
+      ],
+      "category": "heating",
+      "see_also": []
+    },
+    {
+      "id": "TERM_SPEICHERUNG",
+      "number": "3.1.31",
+      "part": 5,
+      "term_de": "Speicherung",
+      "term_en": "",
+      "definition_de": "Prozessbereich der Anlagentechnik, in dem in einem Medium enthaltene Wärme gespeichert wird",
+      "norm_refs": [
+        "DIN_18599-5_2018-09_SEC_3"
+      ],
+      "category": "heating",
+      "see_also": []
+    },
+    {
+      "id": "TERM_TEILLASTBETRIEB",
+      "number": "3.1.33",
+      "part": 5,
+      "term_de": "Teillastbetrieb",
+      "term_en": "",
+      "definition_de": "Betriebszustand eines Wärmeerzeugers, bei dem der tatsächliche Lastbedarf unter der tatsächlichen Ausgangskapazität des Wärmeerzeugers liegt",
+      "norm_refs": [
+        "DIN_18599-5_2018-09_SEC_3"
+      ],
+      "category": "heating",
+      "see_also": []
+    },
+    {
+      "id": "TERM_UEBERGABE",
+      "number": "3.1.34",
+      "part": 5,
+      "term_de": "Übergabe",
+      "term_en": "",
+      "definition_de": "Prozessbereich in der Anlagentechnik, welcher die Übergabe der Nutzenergie an den Ort der Nutzung unter Einhaltung der festgelegten Anforderungen (insbesondere Komfort) abbildet",
+      "norm_refs": [
+        "DIN_18599-5_2018-09_SEC_3"
+      ],
+      "category": "heating",
+      "see_also": []
+    },
+    {
+      "id": "TERM_VERLUST",
+      "number": "3.1.35",
+      "part": 5,
+      "term_de": "Verlust",
+      "term_en": "",
+      "definition_de": "Verluste (Wärmeabgabe) in den technischen Prozessschritten zwischen dem Nutzenergiebedarf und dem Endenergiebedarf, d. h. bei der Übergabe, der Verteilung, der Speicherung und der Erzeugung",
+      "norm_refs": [
+        "DIN_18599-5_2018-09_SEC_3"
+      ],
+      "category": "heating",
+      "see_also": []
+    },
+    {
+      "id": "TERM_VERTEILUNG",
+      "number": "3.1.36",
+      "part": 5,
+      "term_de": "Verteilung",
+      "term_en": "",
+      "definition_de": "Prozessbereich der Anlagentechnik, in dem die benötigte Energiemenge von der Erzeugung zum Wärmeübergabesystem transportiert wird",
+      "norm_refs": [
+        "DIN_18599-5_2018-09_SEC_3"
+      ],
+      "category": "heating",
+      "see_also": []
+    },
+    {
+      "id": "TERM_WAERMEENERGIE",
+      "number": "3.1.37",
+      "part": 5,
+      "term_de": "Wärmeenergie",
+      "term_en": "",
+      "definition_de": "Energie, die unmittelbar zur Deckung des Heizwärmebedarfs eingesetzt wird",
+      "norm_refs": [
+        "DIN_18599-5_2018-09_SEC_3"
+      ],
+      "category": "heating",
+      "see_also": []
+    },
+    {
+      "id": "TERM_WAERMEERZEUGER_MIT_ZWEIFACHER_NUTZUNG",
+      "number": "3.1.38",
+      "part": 5,
+      "term_de": "Wärmeerzeuger mit zweifacher Nutzung",
+      "term_en": "",
+      "definition_de": "Wärmeerzeuger, der Energie an zwei verschiedene Verbraucher liefert",
+      "norm_refs": [
+        "DIN_18599-5_2018-09_SEC_3"
+      ],
+      "category": "heating",
+      "see_also": []
+    },
+    {
+      "id": "TERM_WAERMETRAEGER",
+      "number": "3.1.39",
+      "part": 5,
+      "term_de": "Wärmeträger",
+      "term_en": "",
+      "definition_de": "jedes Medium, das für die Übertragung der Wärme ohne Zustandsänderung verwendet wird",
+      "norm_refs": [
+        "DIN_18599-5_2018-09_SEC_3"
+      ],
+      "category": "heating",
+      "see_also": []
+    },
+    {
+      "id": "TERM_WOHNUNGSSTATIONEN",
+      "number": "3.1.40",
+      "part": 5,
+      "term_de": "Wohnungsstationen",
+      "term_en": "",
+      "definition_de": "Systeme zur Heizung und/oder Trinkwassererwärmung, bei denen die zentral erzeugte Wärme durch erwärmtes Heizungswasser zu den Verbrauchern (meist Wohnungen) transportiert wird und bei denen die Erwärmung des Trinkwassers dort dezentral in der Wohnungsstation über einen Wärmeübertrager im Durchlaufprinzip, teilweise mit einer elektrischen Nachheizung, erfolgt",
+      "norm_refs": [
+        "DIN_18599-5_2018-09_SEC_3"
+      ],
+      "category": "heating",
+      "see_also": []
+    },
+    {
+      "id": "TERM_ZENTRALE_HEIZUNGSANLAGE",
+      "number": "3.1.41",
+      "part": 5,
+      "term_de": "zentrale Heizungsanlage",
+      "term_en": "",
+      "definition_de": "Heizungssystem, bei dem die Wärme in einem Gerät erzeugt wird und über Verteilleitungen an mehrere Räume eines Gebäudes transportiert wird, wobei als Wärmeträgermedium Wasser dient",
+      "norm_refs": [
+        "DIN_18599-5_2018-09_SEC_3"
+      ],
+      "category": "heating",
+      "see_also": []
+    },
+    {
+      "id": "TERM_NUTZENERGIEBEDARF_FUER_TRINKWARMWASSER",
+      "number": "3.1.6",
+      "part": 6,
+      "term_de": "Nutzenergiebedarf für Trinkwarmwasser",
+      "term_en": "",
+      "definition_de": "rechnerisch ermittelter Energiebedarf, der sich ergibt, wenn die Gebäudezone mit der im Nutzungsprofil festgelegten Menge an Trinkwarmwasser entsprechender Zulauftemperatur versorgt wird",
+      "norm_refs": [
+        "DIN_18599-6_2018-09_SEC_3"
+      ],
+      "category": "ventilation",
+      "see_also": []
+    },
+    {
+      "id": "TERM_NETTOGRUNDFLAECHE",
+      "number": "3.1.10",
+      "part": 6,
+      "term_de": "Nettogrundfläche",
+      "term_en": "",
+      "definition_de": "Bezugsfläche",
+      "norm_refs": [
+        "DIN_18599-6_2018-09_SEC_3"
+      ],
+      "category": "ventilation",
+      "see_also": []
+    },
+    {
+      "id": "TERM_LUFTVOLUMEN",
+      "number": "3.1.14",
+      "part": 6,
+      "term_de": "Luftvolumen",
+      "term_en": "",
+      "definition_de": "Nettovolumen",
+      "norm_refs": [
+        "DIN_18599-6_2018-09_SEC_3"
+      ],
+      "category": "ventilation",
+      "see_also": []
+    },
+    {
+      "id": "TERM_VERLUSTE_DER_ANLAGENTECHNIK",
+      "number": "3.1.16",
+      "part": 6,
+      "term_de": "Verluste der Anlagentechnik",
+      "term_en": "",
+      "definition_de": "Verluste (Wärmeabgabe, Kälteabgabe) in den technischen Prozessschritten zwischen dem Nutzenergiebedarf und dem Endenergiebedarf",
+      "norm_refs": [
+        "DIN_18599-6_2018-09_SEC_3"
+      ],
+      "category": "ventilation",
+      "see_also": []
+    },
+    {
+      "id": "TERM_WOHNUNGSLUEFTUNGSANLAGE",
+      "number": "3.1.21",
+      "part": 6,
+      "term_de": "Wohnungslüftungsanlage",
+      "term_en": "",
+      "definition_de": "WLA",
+      "norm_refs": [
+        "DIN_18599-6_2018-09_SEC_3"
+      ],
+      "category": "ventilation",
+      "see_also": []
+    },
+    {
+      "id": "TERM_LUFTHEIZUNGSANLAGE",
+      "number": "3.1.22",
+      "part": 6,
+      "term_de": "Luftheizungsanlage",
+      "term_en": "",
+      "definition_de": "Heizsysteme, bei denen die Wärmezufuhr in die Zone vollständig durch Luft als Wärmeträger erfolgt",
+      "norm_refs": [
+        "DIN_18599-6_2018-09_SEC_3"
+      ],
+      "category": "ventilation",
+      "see_also": []
+    },
+    {
+      "id": "TERM_UEBERGABE",
+      "number": "3.1.23",
+      "part": 6,
+      "term_de": "Übergabe",
+      "term_en": "",
+      "definition_de": "Prozessbereich in der Anlagentechnik, bei dem Energie übergeben wird unter Einhaltung der festgelegten Anforderungen",
+      "norm_refs": [
+        "DIN_18599-6_2018-09_SEC_3"
+      ],
+      "category": "ventilation",
+      "see_also": []
+    },
+    {
+      "id": "TERM_VERTEILUNG",
+      "number": "3.1.24",
+      "part": 6,
+      "term_de": "Verteilung",
+      "term_en": "",
+      "definition_de": "Prozessbereich der Anlagentechnik, in dem die benötigte Energiemenge von der Erzeugung zum Wärmeübergabesystem transportiert wird",
+      "norm_refs": [
+        "DIN_18599-6_2018-09_SEC_3"
+      ],
+      "category": "ventilation",
+      "see_also": []
+    },
+    {
+      "id": "TERM_SPEICHERUNG",
+      "number": "3.1.25",
+      "part": 6,
+      "term_de": "Speicherung",
+      "term_en": "",
+      "definition_de": "Prozessbereich der Anlagentechnik, in dem in einem Medium enthaltene Wärme gespeichert wird",
+      "norm_refs": [
+        "DIN_18599-6_2018-09_SEC_3"
+      ],
+      "category": "ventilation",
+      "see_also": []
+    },
+    {
+      "id": "TERM_ERZEUGUNG",
+      "number": "3.1.26",
+      "part": 6,
+      "term_de": "Erzeugung",
+      "term_en": "",
+      "definition_de": "Prozessbereich der Anlagentechnik, in dem die Wärmemenge bereitgestellt wird, die für die Systeme benötigt wird",
+      "norm_refs": [
+        "DIN_18599-6_2018-09_SEC_3"
+      ],
+      "category": "ventilation",
+      "see_also": []
+    },
+    {
+      "id": "TERM_BETRIEBSZEIT_EINES_WOHNUNGSLUEFTUNGSSYSTEMS",
+      "number": "3.1.27",
+      "part": 6,
+      "term_de": "Betriebszeit eines Wohnungslüftungssystems",
+      "term_en": "",
+      "definition_de": "bestimmt sich aus der Betriebszeit je Tag und der Betriebszeit je Monat",
+      "norm_refs": [
+        "DIN_18599-6_2018-09_SEC_3"
+      ],
+      "category": "ventilation",
+      "see_also": []
+    },
+    {
+      "id": "TERM_TEILLUEFTUNG",
+      "number": "3.1.30",
+      "part": 6,
+      "term_de": "Teillüftung",
+      "term_en": "",
+      "definition_de": "Zone wird nur flächenanteilig ventilatorgestützt gelüftet oder in der Zone existieren unterschiedliche ventilatorgestützte Lüftungssysteme",
+      "norm_refs": [
+        "DIN_18599-6_2018-09_SEC_3"
+      ],
+      "category": "ventilation",
+      "see_also": []
+    },
+    {
+      "id": "TERM_BEREITSCHAFTSVERLUST",
+      "number": "3.1.2",
+      "part": 8,
+      "term_de": "Bereitschaftsverlust",
+      "term_en": "",
+      "definition_de": "relativ zur Feuerungsleistung angegebene Wärmeleistung, die erforderlich ist, um den Wärmeerzeuger auf einer bestimmten Temperatur zu halten, wenn keine Heizleistung abgenommen wird",
+      "norm_refs": [
+        "DIN_18599-8_2018-09_SEC_3"
+      ],
+      "category": "hot_water",
+      "see_also": []
+    },
+    {
+      "id": "TERM_DEZENTRALE_TRINKWASSERERWAERMUNGSANLAGE",
+      "number": "3.1.3",
+      "part": 8,
+      "term_de": "dezentrale Trinkwassererwärmungsanlage",
+      "term_en": "",
+      "definition_de": "System, bei dem die Wärme zur Trinkwassererwärmung in einem Gerät erzeugt und im gleichen Raum übergeben wird",
+      "norm_refs": [
+        "DIN_18599-8_2018-09_SEC_3"
+      ],
+      "category": "hot_water",
+      "see_also": []
+    },
+    {
+      "id": "TERM_ERZEUGUNG",
+      "number": "3.1.5",
+      "part": 8,
+      "term_de": "Erzeugung",
+      "term_en": "",
+      "definition_de": "Prozessbereich der Anlagentechnik im Gebäude, in dem die Wärmemenge bereitgestellt wird, die für die Systeme benötigt wird",
+      "norm_refs": [
+        "DIN_18599-8_2018-09_SEC_3"
+      ],
+      "category": "hot_water",
+      "see_also": []
+    },
+    {
+      "id": "TERM_FEUERUNGSLEISTUNG",
+      "number": "3.1.6",
+      "part": 8,
+      "term_de": "Feuerungsleistung",
+      "term_en": "",
+      "definition_de": "Leistung, die der Feuerung des Heizkessels mit dem Brennstoff zugeführt wird, wobei der Heizwert *H* zugrunde gelegt wird",
+      "norm_refs": [
+        "DIN_18599-8_2018-09_SEC_3"
+      ],
+      "category": "hot_water",
+      "see_also": []
+    },
+    {
+      "id": "TERM_HEIZLEISTUNG",
+      "number": "3.1.7",
+      "part": 8,
+      "term_de": "Heizleistung",
+      "term_en": "",
+      "definition_de": "je Zeiteinheit an den Wärmeträger Wasser nutzbar abgegebene Wärmemenge",
+      "norm_refs": [
+        "DIN_18599-8_2018-09_SEC_3"
+      ],
+      "category": "hot_water",
+      "see_also": []
+    },
+    {
+      "id": "TERM_LASTFAKTOR",
+      "number": "3.1.11",
+      "part": 8,
+      "term_de": "Lastfaktor",
+      "term_en": "",
+      "definition_de": "Verhältnis zwischen der Laufzeit des Verdichters und der Gesamteinschaltzeit des Erzeugers (Bereitschaft und Betrieb)",
+      "norm_refs": [
+        "DIN_18599-8_2018-09_SEC_3"
+      ],
+      "category": "hot_water",
+      "see_also": []
+    },
+    {
+      "id": "TERM_LEISTUNGSZAHL",
+      "number": "3.1.12",
+      "part": 8,
+      "term_de": "Leistungszahl",
+      "term_en": "",
+      "definition_de": "*COP*",
+      "norm_refs": [
+        "DIN_18599-8_2018-09_SEC_3"
+      ],
+      "category": "hot_water",
+      "see_also": []
+    },
+    {
+      "id": "TERM_NENNLEISTUNG",
+      "number": "3.1.13",
+      "part": 8,
+      "term_de": "Nennleistung",
+      "term_en": "",
+      "definition_de": "unter bestimmungsgemäßen Betriebsbedingungen abgegebene oder aufgenommene maximale Leistung",
+      "norm_refs": [
+        "DIN_18599-8_2018-09_SEC_3"
+      ],
+      "category": "hot_water",
+      "see_also": []
+    },
+    {
+      "id": "TERM_NUTZENERGIEBEDARF_FUER_TRINKWARMWASSER",
+      "number": "3.1.14",
+      "part": 8,
+      "term_de": "Nutzenergiebedarf für Trinkwarmwasser",
+      "term_en": "",
+      "definition_de": "rechnerisch ermittelter Energiebedarf, der sich ergibt, wenn die Gebäudezone mit der im Nutzungsprofil festgelegten Menge an Trinkwarmwasser entsprechender Zulauftemperatur versorgt wird",
+      "norm_refs": [
+        "DIN_18599-8_2018-09_SEC_3"
+      ],
+      "category": "hot_water",
+      "see_also": []
+    },
+    {
+      "id": "TERM_SPEICHERUNG",
+      "number": "3.1.16",
+      "part": 8,
+      "term_de": "Speicherung",
+      "term_en": "",
+      "definition_de": "Prozessbereich der Anlagentechnik, in dem in einem Medium enthaltene Wärme gespeichert wird",
+      "norm_refs": [
+        "DIN_18599-8_2018-09_SEC_3"
+      ],
+      "category": "hot_water",
+      "see_also": []
+    },
+    {
+      "id": "TERM_UEBERGABE",
+      "number": "3.1.18",
+      "part": 8,
+      "term_de": "Übergabe",
+      "term_en": "",
+      "definition_de": "Prozessbereich in der Anlagentechnik, welcher die Übergabe der Nutzenergie an den Ort der Nutzung unter Einhaltung der festgelegten Anforderungen (insbesondere Komfort) abbildet",
+      "norm_refs": [
+        "DIN_18599-8_2018-09_SEC_3"
+      ],
+      "category": "hot_water",
+      "see_also": []
+    },
+    {
+      "id": "TERM_VERLUSTE_DER_ANLAGENTECHNIK",
+      "number": "3.1.19",
+      "part": 8,
+      "term_de": "Verluste der Anlagentechnik",
+      "term_en": "",
+      "definition_de": "Verluste (Wärmeabgabe, Kälteabgabe) in den technischen Prozessschritten zwischen dem Nutzenergiebedarf und dem Endenergiebedarf, d. h. bei der Übergabe, der Verteilung, der Speicherung und der Erzeugung",
+      "norm_refs": [
+        "DIN_18599-8_2018-09_SEC_3"
+      ],
+      "category": "hot_water",
+      "see_also": []
+    },
+    {
+      "id": "TERM_VERTEILUNG",
+      "number": "3.1.20",
+      "part": 8,
+      "term_de": "Verteilung",
+      "term_en": "",
+      "definition_de": "Prozessbereich der Anlagentechnik, in dem die benötigte Energiemenge von der Erzeugung zum Wärmeübergabesystem transportiert wird",
+      "norm_refs": [
+        "DIN_18599-8_2018-09_SEC_3"
+      ],
+      "category": "hot_water",
+      "see_also": []
+    },
+    {
+      "id": "TERM_KRAFT_WAERME_KOPPLUNG",
+      "number": "3.1.1",
+      "part": 9,
+      "term_de": "Kraft-Wärme-Kopplung",
+      "term_en": "",
+      "definition_de": "**KWK**",
+      "norm_refs": [
+        "DIN_18599-9_2018-09_SEC_3"
+      ],
+      "category": "electricity",
+      "see_also": []
+    },
+    {
+      "id": "TERM_STROMKENNZAHL",
+      "number": "3.1.2",
+      "part": 9,
+      "term_de": "Stromkennzahl",
+      "term_en": "",
+      "definition_de": "Verhältnis der Nettostromerzeugung zur Nettowärmeerzeugung eines KWK-Prozesses",
+      "norm_refs": [
+        "DIN_18599-9_2018-09_SEC_3"
+      ],
+      "category": "electricity",
+      "see_also": []
+    },
+    {
+      "id": "TERM_BRENNSTOFFZELLENHEIZGERAET",
+      "number": "3.1.3",
+      "part": 9,
+      "term_de": "Brennstoffzellenheizgerät",
+      "term_en": "",
+      "definition_de": "Gerät, das eine Brennstoffzelle sowie einen zusätzlichen Wärmeerzeuger (Spitzenlastkessel, -brenner) enthält",
+      "norm_refs": [
+        "DIN_18599-9_2018-09_SEC_3"
+      ],
+      "category": "electricity",
+      "see_also": []
+    },
+    {
+      "id": "TERM_BRENNSTOFFZELLE",
+      "number": "3.1.4",
+      "part": 9,
+      "term_de": "Brennstoffzelle",
+      "term_en": "",
+      "definition_de": "KWK-Gerät zur chemischen Umwandlung der Brennstoffenergie in Strom und Wärme",
+      "norm_refs": [
+        "DIN_18599-9_2018-09_SEC_3"
+      ],
+      "category": "electricity",
+      "see_also": []
+    },
+    {
+      "id": "TERM_PV_GENERATOR",
+      "number": "3.1.5",
+      "part": 9,
+      "term_de": "PV-Generator",
+      "term_en": "",
+      "definition_de": "Generator, der den photovoltaischen Effekt nutzt, um Sonnenlicht in Elektrizität umzuwandeln",
+      "norm_refs": [
+        "DIN_18599-9_2018-09_SEC_3"
+      ],
+      "category": "electricity",
+      "see_also": []
+    },
+    {
+      "id": "TERM_GEBAEUDEINTEGRIERTES_PHOTOVOLTAIKSYSTEM",
+      "number": "3.1.6",
+      "part": 9,
+      "term_de": "gebäudeintegriertes Photovoltaiksystem",
+      "term_en": "",
+      "definition_de": "BIPV, en: building-integrated photovoltaics",
+      "norm_refs": [
+        "DIN_18599-9_2018-09_SEC_3"
+      ],
+      "category": "electricity",
+      "see_also": []
+    },
+    {
+      "id": "TERM_ADDITIVES_PHOTOVOLTAIKSYSTEM",
+      "number": "3.1.7",
+      "part": 9,
+      "term_de": "additives Photovoltaiksystem",
+      "term_en": "",
+      "definition_de": "Photovoltaiksystem, bei dem PV-Module an oder auf einem Bauteil der Gebäudehülle montiert sind und neben der Funktion der Stromerzeugung keine zusätzliche Funktion der Gebäudehülle übernimmt",
+      "norm_refs": [
+        "DIN_18599-9_2018-09_SEC_3"
+      ],
+      "category": "electricity",
+      "see_also": []
+    },
+    {
+      "id": "TERM_ERZEUGTE_ELEKTRISCHE_NETTOENERGIE",
+      "number": "3.1.8",
+      "part": 9,
+      "term_de": "erzeugte elektrische Nettoenergie",
+      "term_en": "",
+      "definition_de": "gesamte vom Photovoltaikgenerator erzeugte Energie abzüglich des gesamten Hilfsenergieaufwandes innerhalb der Grenzen des betreffenden Teilsystems",
+      "norm_refs": [
+        "DIN_18599-9_2018-09_SEC_3"
+      ],
+      "category": "electricity",
+      "see_also": []
+    },
+    {
+      "id": "TERM_PEAKLEISTUNG",
+      "number": "3.1.9",
+      "part": 9,
+      "term_de": "Peakleistung",
+      "term_en": "",
+      "definition_de": "elektrische Leistung eines Photovoltaiksystems bei Normprüfbedingungen",
+      "norm_refs": [
+        "DIN_18599-9_2018-09_SEC_3"
+      ],
+      "category": "electricity",
+      "see_also": []
+    },
+    {
+      "id": "TERM_VOR_ORT_ERZEUGTE_ERNEUERBARE_ENERGIE",
+      "number": "3.1.10",
+      "part": 9,
+      "term_de": "vor Ort erzeugte erneuerbare Energie",
+      "term_en": "",
+      "definition_de": "Energie, die unter Nutzung erneuerbarer Energiequellen von direkt mit dem Gebäude verbundenen Anlagen der technischen Gebäudeausrüstung erzeugt wird",
+      "norm_refs": [
+        "DIN_18599-9_2018-09_SEC_3"
+      ],
+      "category": "electricity",
+      "see_also": []
+    },
+    {
+      "id": "TERM_SOLARBESTRAHLUNGSSTAERKE",
+      "number": "3.1.12",
+      "part": 9,
+      "term_de": "Solarbestrahlungsstärke",
+      "term_en": "",
+      "definition_de": "Leistungsdichte der auf eine Ebene einfallenden Strahlung, d. h. der Quotient aus dem Strahlungsfluss, der auf die Ebene auftrifft, und der Fläche der Ebene oder die Strahlungsleistung, die auf die Flächeneinheit auftrifft",
+      "norm_refs": [
+        "DIN_18599-9_2018-09_SEC_3"
+      ],
+      "category": "electricity",
+      "see_also": []
+    },
+    {
+      "id": "TERM_SOLARE_BESTRAHLUNGSENERGIE",
+      "number": "3.1.13",
+      "part": 9,
+      "term_de": "solare Bestrahlungsenergie",
+      "term_en": "",
+      "definition_de": "Energie der je Flächeneinheit auf die Ebene einfallenden Strahlung, die durch Integration der Bestrahlungsstärke über ein festgelegtes Zeitintervall, oft eine Stunde oder ein Tag, berechnet wird",
+      "norm_refs": [
+        "DIN_18599-9_2018-09_SEC_3"
+      ],
+      "category": "electricity",
+      "see_also": []
+    },
+    {
+      "id": "TERM_NENNKAPAZITAET_DER_BATTERIE",
+      "number": "3.1.14",
+      "part": 9,
+      "term_de": "Nennkapazität der Batterie",
+      "term_en": "",
+      "definition_de": "höchste Energiemenge, die einer Batterie mit dem Nennstrom entnommen werden kann",
+      "norm_refs": [
+        "DIN_18599-9_2018-09_SEC_3"
+      ],
+      "category": "electricity",
+      "see_also": []
+    },
+    {
+      "id": "TERM_NUTZKAPAZITAET_DER_BATTERIE",
+      "number": "3.1.15",
+      "part": 9,
+      "term_de": "Nutzkapazität der Batterie",
+      "term_en": "",
+      "definition_de": "Teil der Nennkapazität, der tatsächlich nach Einrechnung der maximalen Entladetiefe für eine Anwendung im Betrieb zur Verfügung steht",
+      "norm_refs": [
+        "DIN_18599-9_2018-09_SEC_3"
+      ],
+      "category": "electricity",
+      "see_also": []
+    },
+    {
+      "id": "TERM_MAXIMALE_ENTLADETIEFE",
+      "number": "3.1.16",
+      "part": 9,
+      "term_de": "maximale Entladetiefe",
+      "term_en": "",
+      "definition_de": "gibt an, welcher Anteil der Nennkapazität der Batterie entnommen werden kann, ohne die Lebensdauer negativ zu beeinflussen",
+      "norm_refs": [
+        "DIN_18599-9_2018-09_SEC_3"
+      ],
+      "category": "electricity",
+      "see_also": []
+    },
+    {
+      "id": "TERM_SYSTEMWIRKUNGSGRAD_DER_BATTERIE",
+      "number": "3.1.17",
+      "part": 9,
+      "term_de": "Systemwirkungsgrad der Batterie",
+      "term_en": "",
+      "definition_de": "gibt an, welcher Anteil der der Batterie zugeführten Energiemenge wieder entnommen werden kann und ist somit ein Maß für den Eigenverbrauch",
+      "norm_refs": [
+        "DIN_18599-9_2018-09_SEC_3"
+      ],
+      "category": "electricity",
+      "see_also": []
+    },
+    {
+      "id": "TERM_ENTLADEZEIT_DER_BATTERIE",
+      "number": "3.1.18",
+      "part": 9,
+      "term_de": "Entladezeit der Batterie",
+      "term_en": "",
+      "definition_de": "Dauer, innerhalb der die Nutzkapazität der Batterie --- ausgehend von einem vollgeladenen Zustand --- entnommen wird",
+      "norm_refs": [
+        "DIN_18599-9_2018-09_SEC_3"
+      ],
+      "category": "electricity",
+      "see_also": []
+    },
+    {
+      "id": "TERM_FLAECHENBEZOGENER_ANWENDUNGSSTROMBEDARF",
+      "number": "3.1.19",
+      "part": 9,
+      "term_de": "flächenbezogener Anwendungsstrombedarf",
+      "term_en": "",
+      "definition_de": "allgemeiner Strombedarf eines Gebäudes zur Nutzanwendung, bezogen auf die Bezugsfläche",
+      "norm_refs": [
+        "DIN_18599-9_2018-09_SEC_3"
+      ],
+      "category": "electricity",
+      "see_also": []
+    },
+    {
+      "id": "TERM_GEBAEUDEAUTOMATION",
+      "number": "3.1.1",
+      "part": 11,
+      "term_de": "Gebäudeautomation",
+      "term_en": "",
+      "definition_de": "**GA**",
+      "norm_refs": [
+        "DIN_18599-11_2018-09_SEC_3"
+      ],
+      "category": "automation",
+      "see_also": []
+    },
+    {
+      "id": "TERM_GEBAEUDEMANAGEMENT",
+      "number": "3.1.2",
+      "part": 11,
+      "term_de": "Gebäudemanagement",
+      "term_en": "",
+      "definition_de": "Gesamtheit der mit dem Management, dem Betrieb und der Überwachung von Gebäuden (einschließlich Anlagen und Installationen) verbundenen Leistungen",
+      "norm_refs": [
+        "DIN_18599-11_2018-09_SEC_3"
+      ],
+      "category": "automation",
+      "see_also": []
+    },
+    {
+      "id": "TERM_ENERGIEMANAGEMENT",
+      "number": "3.1.3",
+      "part": 11,
+      "term_de": "Energiemanagement",
+      "term_en": "",
+      "definition_de": "vorausschauende, organisierte und systematisierte Koordinierung von Beschaffung, Wandlung, Speicherung, Verteilung und Anwendung von Energie zur Deckung von Nutzungsanforderungen unter Berücksichtigung ökologischer und ökonomischer Zielsetzungen",
+      "norm_refs": [
+        "DIN_18599-11_2018-09_SEC_3"
+      ],
+      "category": "automation",
+      "see_also": []
+    },
+    {
+      "id": "TERM_RAUMAUTOMATION",
+      "number": "3.1.4",
+      "part": 11,
+      "term_de": "Raumautomation",
+      "term_en": "",
+      "definition_de": "anlagen-/anwendungsspezifische Geräte und Funktionen für Einzelraum- oder Zonenregelung, einschließlich integrierter Überwachung, Steuerlogik, Steuerung, Regelung und Optimierung der durch Kommunikationsfunktionen zusammengeschlossenen Technischen Gebäudeausrüstung, wie HLK und Kühlung, Beleuchtung, Fensterjalousiensteuerung (Sonnen/Blendschutz), Stromverteilung und anderer Gewerke",
+      "norm_refs": [
+        "DIN_18599-11_2018-09_SEC_3"
+      ],
+      "category": "automation",
+      "see_also": []
+    },
+    {
+      "id": "TERM_TECHNISCHES_MONITORING",
+      "number": "3.1.7",
+      "part": 11,
+      "term_de": "Technisches Monitoring",
+      "term_en": "",
+      "definition_de": "systematische Erfassung, Kontrolle und Auswertung von Energieverbräuchen sowie von Prozess- und Zustandsgrößen für das Ziel einer optimierten Betriebsführung",
+      "norm_refs": [
+        "DIN_18599-11_2018-09_SEC_3"
+      ],
+      "category": "automation",
+      "see_also": []
+    },
+    {
+      "id": "TERM_WAERMEENERGIE",
+      "number": "3.1.8",
+      "part": 11,
+      "term_de": "Wärmeenergie",
+      "term_en": "",
+      "definition_de": "Energie, die unmittelbar zur Deckung des Heizwärmebedarfs eingesetzt wird",
+      "norm_refs": [
+        "DIN_18599-11_2018-09_SEC_3"
+      ],
+      "category": "automation",
+      "see_also": []
+    },
+    {
+      "id": "TERM_AUTOMATIONSGRAD",
+      "number": "3.1.10",
+      "part": 11,
+      "term_de": "Automationsgrad",
+      "term_en": "",
+      "definition_de": "Art, Umfang und Zuordnung der Automatisierungsfunktionen innerhalb eines Gebäudes bzw. einer Zone, die für die Steuerung, Regelung und das technische Energiemanagement des Gebäude- und Anlagebetriebes eingesetzt werden entsprechend vorgegebener Anforderungskriterien",
+      "norm_refs": [
+        "DIN_18599-11_2018-09_SEC_3"
+      ],
+      "category": "automation",
       "see_also": []
     }
   ],
-  
   "categories": [
-    {"id": "energy_level", "name_de": "Energieniveaus", "name_en": "Energy levels"},
-    {"id": "energy_factor", "name_de": "Energiefaktoren", "name_en": "Energy factors"},
-    {"id": "building_structure", "name_de": "Gebäudestruktur", "name_en": "Building structure"},
-    {"id": "building_services", "name_de": "Anlagentechnik", "name_en": "Building services"},
-    {"id": "building_envelope", "name_de": "Gebäudehülle", "name_en": "Building envelope"},
-    {"id": "building_area", "name_de": "Gebäudeflächen", "name_en": "Building areas"},
-    {"id": "building_volume", "name_de": "Gebäudevolumen", "name_en": "Building volumes"},
-    {"id": "building_geometry", "name_de": "Gebäudegeometrie", "name_en": "Building geometry"},
-    {"id": "thermal_conditions", "name_de": "Thermische Bedingungen", "name_en": "Thermal conditions"},
-    {"id": "climate", "name_de": "Klima", "name_en": "Climate"},
-    {"id": "heat_balance", "name_de": "Wärmebilanz", "name_en": "Heat balance"},
-    {"id": "ventilation", "name_de": "Lüftung", "name_en": "Ventilation"},
-    {"id": "energy_source", "name_de": "Energiequellen", "name_en": "Energy sources"},
-    {"id": "energy_carrier", "name_de": "Energieträger", "name_en": "Energy carriers"},
-    {"id": "energy_system", "name_de": "Energiesysteme", "name_en": "Energy systems"},
-    {"id": "efficiency", "name_de": "Effizienz", "name_en": "Efficiency"},
-    {"id": "calculation", "name_de": "Berechnung", "name_en": "Calculation"},
-    {"id": "calculation_method", "name_de": "Berechnungsmethode", "name_en": "Calculation method"},
-    {"id": "building_type", "name_de": "Gebäudetypen", "name_en": "Building types"},
-    {"id": "emissions", "name_de": "Emissionen", "name_en": "Emissions"},
-    {"id": "assessment", "name_de": "Bewertung", "name_en": "Assessment"},
-    {"id": "building_operation", "name_de": "Gebäudebetrieb", "name_en": "Building operation"}
+    {
+      "id": "energy_level",
+      "name_de": "Energieniveaus",
+      "name_en": "Energy levels"
+    },
+    {
+      "id": "energy_factor",
+      "name_de": "Energiefaktoren",
+      "name_en": "Energy factors"
+    },
+    {
+      "id": "building_structure",
+      "name_de": "Gebäudestruktur",
+      "name_en": "Building structure"
+    },
+    {
+      "id": "building_services",
+      "name_de": "Anlagentechnik",
+      "name_en": "Building services"
+    },
+    {
+      "id": "building_envelope",
+      "name_de": "Gebäudehülle",
+      "name_en": "Building envelope"
+    },
+    {
+      "id": "building_area",
+      "name_de": "Gebäudeflächen",
+      "name_en": "Building areas"
+    },
+    {
+      "id": "building_volume",
+      "name_de": "Gebäudevolumen",
+      "name_en": "Building volumes"
+    },
+    {
+      "id": "building_geometry",
+      "name_de": "Gebäudegeometrie",
+      "name_en": "Building geometry"
+    },
+    {
+      "id": "thermal_conditions",
+      "name_de": "Thermische Bedingungen",
+      "name_en": "Thermal conditions"
+    },
+    {
+      "id": "climate",
+      "name_de": "Klima",
+      "name_en": "Climate"
+    },
+    {
+      "id": "heat_balance",
+      "name_de": "Wärmebilanz",
+      "name_en": "Heat balance"
+    },
+    {
+      "id": "ventilation",
+      "name_de": "Lüftung",
+      "name_en": "Ventilation"
+    },
+    {
+      "id": "energy_source",
+      "name_de": "Energiequellen",
+      "name_en": "Energy sources"
+    },
+    {
+      "id": "energy_carrier",
+      "name_de": "Energieträger",
+      "name_en": "Energy carriers"
+    },
+    {
+      "id": "energy_system",
+      "name_de": "Energiesysteme",
+      "name_en": "Energy systems"
+    },
+    {
+      "id": "efficiency",
+      "name_de": "Effizienz",
+      "name_en": "Efficiency"
+    },
+    {
+      "id": "calculation",
+      "name_de": "Berechnung",
+      "name_en": "Calculation"
+    },
+    {
+      "id": "calculation_method",
+      "name_de": "Berechnungsmethode",
+      "name_en": "Calculation method"
+    },
+    {
+      "id": "building_type",
+      "name_de": "Gebäudetypen",
+      "name_en": "Building types"
+    },
+    {
+      "id": "emissions",
+      "name_de": "Emissionen",
+      "name_en": "Emissions"
+    },
+    {
+      "id": "assessment",
+      "name_de": "Bewertung",
+      "name_en": "Assessment"
+    },
+    {
+      "id": "building_operation",
+      "name_de": "Gebäudebetrieb",
+      "name_en": "Building operation"
+    }
   ]
 }
