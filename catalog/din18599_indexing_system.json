@@ -1,0 +1,357 @@
+{
+  "version": "1.0.0",
+  "description": "DIN 18599 Indizierungs-Systematik - 3-Ebenen-Struktur für Symbole",
+  "last_updated": "2026-03-28",
+  "source": "DIN/TS 18599-10:2018-09, Bild 3 - Schema der Indizierung",
+  "note": "Hierarchische Struktur: Symbol → Technisches Gewerk → Bilanzebene → Optionale Spezifikation",
+  
+  "structure": {
+    "description": "Aufbau eines indizierten Symbols: Q_h,d bedeutet 'Wärmeverluste der Wärmeverteilung'",
+    "pattern": "{SYMBOL}_{INDEX_L1}[,{INDEX_L2}][,{INDEX_L3}]",
+    "example": {
+      "symbol": "Q_h,d",
+      "breakdown": {
+        "Q": "Energie (Symbol)",
+        "h": "Heizsystem (Level 1 - Technisches Gewerk)",
+        "d": "Verteilung (Level 2 - Bilanzebene)"
+      },
+      "meaning": "Wärmeverluste der Wärmeverteilung"
+    }
+  },
+  
+  "levels": [
+    {
+      "level": 0,
+      "name": "Symbol",
+      "description": "Grundsymbol ohne Indizierung",
+      "examples": [
+        {
+          "symbol": "Q",
+          "name_de": "Energie für die Konditionierung",
+          "name_en": "Energy for conditioning",
+          "norm_ref": "DIN_18599-10_2018-09_TAB_1"
+        },
+        {
+          "symbol": "W",
+          "name_de": "Hilfsenergie",
+          "name_en": "Auxiliary energy",
+          "norm_ref": "DIN_18599-10_2018-09_TAB_1"
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "Technisches Gewerk",
+      "description": "1. Stelle - Technisches Gewerk (c, h, l, st, rv, rc, v, vc, vh, w, oder ohne)",
+      "position": "Erste Indexstelle nach dem Symbol",
+      "indices": [
+        {
+          "index": "c",
+          "name_de": "Kühlsystem",
+          "name_en": "Cooling system",
+          "type": "system",
+          "norm_ref": "DIN_18599-10_2018-09_TAB_2"
+        },
+        {
+          "index": "c*",
+          "name_de": "RLT-Kühlfunktion",
+          "name_en": "HVAC cooling function",
+          "type": "system",
+          "norm_ref": "DIN_18599-10_2018-09_TAB_2"
+        },
+        {
+          "index": "h",
+          "name_de": "Heizsystem",
+          "name_en": "Heating system",
+          "type": "system",
+          "norm_ref": "DIN_18599-10_2018-09_TAB_2"
+        },
+        {
+          "index": "h*",
+          "name_de": "RLT-Heizfunktion",
+          "name_en": "HVAC heating function",
+          "type": "system",
+          "norm_ref": "DIN_18599-10_2018-09_TAB_2"
+        },
+        {
+          "index": "l",
+          "name_de": "Beleuchtung",
+          "name_en": "Lighting",
+          "type": "system",
+          "norm_ref": "DIN_18599-10_2018-09_TAB_2"
+        },
+        {
+          "index": "st",
+          "name_de": "RLT-Befeuchtung",
+          "name_en": "HVAC humidification",
+          "type": "system",
+          "norm_ref": "DIN_18599-10_2018-09_TAB_2"
+        },
+        {
+          "index": "rv",
+          "name_de": "Wohnungslüftungssystem",
+          "name_en": "Residential ventilation system",
+          "type": "system",
+          "norm_ref": "DIN_18599-10_2018-09_TAB_2"
+        },
+        {
+          "index": "rc",
+          "name_de": "Wohnungskühlsystem",
+          "name_en": "Residential cooling system",
+          "type": "system",
+          "norm_ref": "DIN_18599-10_2018-09_TAB_2"
+        },
+        {
+          "index": "v",
+          "name_de": "Luftsystem",
+          "name_en": "Air system",
+          "type": "system",
+          "norm_ref": "DIN_18599-10_2018-09_TAB_2"
+        },
+        {
+          "index": "vc",
+          "name_de": "RLT-Luftsystem kalt",
+          "name_en": "HVAC air system cold",
+          "type": "system",
+          "norm_ref": "DIN_18599-10_2018-09_TAB_2"
+        },
+        {
+          "index": "vh",
+          "name_de": "RLT-Luftsystem warm",
+          "name_en": "HVAC air system warm",
+          "type": "system",
+          "norm_ref": "DIN_18599-10_2018-09_TAB_2"
+        },
+        {
+          "index": "w",
+          "name_de": "Trinkwarmwasser",
+          "name_en": "Domestic hot water",
+          "type": "system",
+          "norm_ref": "DIN_18599-10_2018-09_TAB_2"
+        },
+        {
+          "index": "(ohne)",
+          "name_de": "Alle technischen Gewerke betreffend (allgemeiner Term)",
+          "name_en": "All technical building services (general term)",
+          "type": "general",
+          "norm_ref": "DIN_18599-10_2018-09_TAB_2"
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "name": "Bilanzebene / Prozessschritt",
+      "description": "2. Stelle - Bilanzebene oder Prozessschritt (b, outg, r, p, ce, d, s, g/gen, oder ohne)",
+      "position": "Zweite Indexstelle nach dem Symbol",
+      "indices": [
+        {
+          "index": "b",
+          "name_de": "Nutzenergie",
+          "name_en": "Useful energy",
+          "type": "energy_level",
+          "norm_ref": "DIN_18599-10_2018-09_TAB_2"
+        },
+        {
+          "index": "outg",
+          "name_de": "Wärme-/Kälteabgabe der Erzeugung an das Netz",
+          "name_en": "Heat/cold output from generation to network",
+          "type": "process_step",
+          "norm_ref": "DIN_18599-10_2018-09_TAB_2"
+        },
+        {
+          "index": "r",
+          "name_de": "Endenergie",
+          "name_en": "Final energy",
+          "type": "energy_level",
+          "norm_ref": "DIN_18599-10_2018-09_TAB_2"
+        },
+        {
+          "index": "p",
+          "name_de": "Primärenergie",
+          "name_en": "Primary energy",
+          "type": "energy_level",
+          "norm_ref": "DIN_18599-10_2018-09_TAB_2"
+        },
+        {
+          "index": "ce",
+          "name_de": "Übergabe",
+          "name_en": "Emission/Control",
+          "type": "process_step",
+          "norm_ref": "DIN_18599-10_2018-09_TAB_2"
+        },
+        {
+          "index": "d",
+          "name_de": "Verteilung",
+          "name_en": "Distribution",
+          "type": "process_step",
+          "norm_ref": "DIN_18599-10_2018-09_TAB_2"
+        },
+        {
+          "index": "s",
+          "name_de": "Speicherung",
+          "name_en": "Storage",
+          "type": "process_step",
+          "norm_ref": "DIN_18599-10_2018-09_TAB_2"
+        },
+        {
+          "index": "g",
+          "name_de": "Erzeugung",
+          "name_en": "Generation",
+          "type": "process_step",
+          "norm_ref": "DIN_18599-10_2018-09_TAB_2"
+        },
+        {
+          "index": "gen",
+          "name_de": "Erzeugung",
+          "name_en": "Generation",
+          "type": "process_step",
+          "norm_ref": "DIN_18599-10_2018-09_TAB_2"
+        },
+        {
+          "index": "(ohne)",
+          "name_de": "Alle Prozessschritte/Bilanzebenen betreffend",
+          "name_en": "All process steps/balance levels",
+          "type": "general",
+          "norm_ref": "DIN_18599-10_2018-09_TAB_2"
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "name": "Optionale weitere Indizierung",
+      "description": "3. Stelle - Weitere Spezifikation (kontextabhängig)",
+      "position": "Dritte und weitere Indexstellen",
+      "note": "Abhängig vom Kontext, z.B. Ort (i, e), Zustand (soll, ist), Zeit (a, d, m), etc.",
+      "examples": [
+        {
+          "symbol": "theta_i,h,soll",
+          "breakdown": {
+            "theta": "Temperatur",
+            "i": "innen (Ort - Level 3a)",
+            "h": "Heizung (Gewerk - Level 1)",
+            "soll": "Sollwert (Zustand - Level 3b)"
+          },
+          "meaning": "Raum-Solltemperatur Heizung"
+        },
+        {
+          "symbol": "q_I,p",
+          "breakdown": {
+            "q": "Spezifische Wärmeleistung",
+            "I": "Intern (Quelle - Level 3)",
+            "p": "Personen (Spezifikation - Level 3)"
+          },
+          "meaning": "Spezifische interne Wärmeleistung durch Personen"
+        }
+      ]
+    }
+  ],
+  
+  "index_types": {
+    "description": "Klassifikation der Indizes nach semantischem Typ",
+    "types": [
+      {
+        "type": "system",
+        "name_de": "Technisches Gewerk",
+        "name_en": "Technical building service",
+        "indices": ["h", "c", "v", "w", "l", "st", "rv", "rc", "vc", "vh", "h*", "c*"]
+      },
+      {
+        "type": "energy_level",
+        "name_de": "Energieniveau",
+        "name_en": "Energy level",
+        "indices": ["b", "r", "p"]
+      },
+      {
+        "type": "process_step",
+        "name_de": "Prozessschritt",
+        "name_en": "Process step",
+        "indices": ["ce", "d", "s", "g", "gen", "outg"]
+      },
+      {
+        "type": "location",
+        "name_de": "Ort",
+        "name_en": "Location",
+        "indices": ["i", "e", "I", "E"]
+      },
+      {
+        "type": "state",
+        "name_de": "Zustand",
+        "name_en": "State",
+        "indices": ["soll", "ist", "NA", "nutz", "op"]
+      },
+      {
+        "type": "time",
+        "name_de": "Zeit",
+        "name_en": "Time",
+        "indices": ["a", "d", "m", "h"]
+      },
+      {
+        "type": "energy_type",
+        "name_de": "Energieart",
+        "name_en": "Energy type",
+        "indices": ["el", "th"]
+      },
+      {
+        "type": "source",
+        "name_de": "Quelle/Senke",
+        "name_en": "Source/Sink",
+        "indices": ["I", "S", "T", "V"]
+      }
+    ]
+  },
+  
+  "validation_rules": {
+    "description": "Regeln zur Validierung von Symbol-Index-Kombinationen",
+    "rules": [
+      {
+        "rule": "system_energy_level",
+        "description": "Technisches Gewerk (L1) + Energieniveau (L2) ist valide",
+        "valid_examples": ["Q_h,b", "Q_c,r", "Q_w,p"],
+        "invalid_examples": ["Q_b,h"]
+      },
+      {
+        "rule": "system_process_step",
+        "description": "Technisches Gewerk (L1) + Prozessschritt (L2) ist valide",
+        "valid_examples": ["Q_h,d", "Q_c,s", "Q_w,g"],
+        "invalid_examples": ["Q_d,h"]
+      },
+      {
+        "rule": "location_before_state",
+        "description": "Ort (i/e) kommt vor Zustand (soll/ist)",
+        "valid_examples": ["theta_i,h,soll", "theta_e"],
+        "invalid_examples": ["theta_soll,i"]
+      }
+    ]
+  },
+  
+  "common_patterns": {
+    "description": "Häufig verwendete Symbol-Index-Muster",
+    "patterns": [
+      {
+        "pattern": "Q_{system},b",
+        "description": "Nutzenergiebedarf eines Gewerks",
+        "examples": ["Q_h,b", "Q_c,b", "Q_w,b", "Q_l,b"]
+      },
+      {
+        "pattern": "Q_{system},r",
+        "description": "Endenergiebedarf eines Gewerks",
+        "examples": ["Q_h,r", "Q_c,r", "Q_w,r", "Q_l,r"]
+      },
+      {
+        "pattern": "Q_{system},{process}",
+        "description": "Verluste/Aufwand in Prozessschritt",
+        "examples": ["Q_h,d", "Q_h,s", "Q_h,g", "Q_w,ce"]
+      },
+      {
+        "pattern": "theta_{location},{system},{state}",
+        "description": "Temperatur mit Ort, Gewerk und Zustand",
+        "examples": ["theta_i,h,soll", "theta_i,c,soll", "theta_e"]
+      },
+      {
+        "pattern": "q_{source}[,{detail}]",
+        "description": "Spezifische Wärmeleistung einer Quelle",
+        "examples": ["q_I", "q_I,p", "q_I,app", "q_S"]
+      }
+    ]
+  }
+}
