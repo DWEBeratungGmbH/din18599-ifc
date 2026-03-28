@@ -230,7 +230,137 @@ CREATE INDEX idx_users_deleted_at ON din18599.users(deleted_at) WHERE deleted_at
 COMMENT ON TABLE din18599.users IS 'Benutzer (optional, wenn kein externes Auth-System)';
 
 -- ============================================================================
--- 6. PROJEKT-MITGLIEDER (Team-Zugriff)
+-- 6. DIN 18599 VARIABLEN-REGISTRY (Tabelle 1-4)
+-- ============================================================================
+
+-- Tabelle 1: Symbole
+CREATE TABLE din18599.variables (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    
+    -- Symbol
+    symbol VARCHAR(50) UNIQUE NOT NULL,
+    symbol_latex VARCHAR(100),
+    
+    -- Namen
+    name_de TEXT NOT NULL,
+    name_en TEXT,
+    
+    -- Einheit
+    unit VARCHAR(50),
+    unit_latex VARCHAR(100),
+    
+    -- Datentyp
+    data_type VARCHAR(20) NOT NULL CHECK (data_type IN ('number', 'string', 'boolean', 'enum', 'array')),
+    min_value NUMERIC,
+    max_value NUMERIC,
+    enum_values TEXT[], -- Für Enums
+    
+    -- DIN-Referenz
+    din_part VARCHAR(20), -- z.B. 'DIN/TS 18599-2'
+    din_table VARCHAR(50), -- z.B. 'Tabelle 5'
+    din_section VARCHAR(50), -- z.B. 'Abschnitt 5'
+    
+    -- Verwendung
+    used_in TEXT[], -- Array von DIN-Teilen
+    category VARCHAR(50), -- temperature, thermal_transmission, internal_gains, etc.
+    scope VARCHAR(20) CHECK (scope IN ('building', 'zone', 'element', 'window', 'system', 'global')),
+    
+    -- Pflichtfeld?
+    required BOOLEAN DEFAULT false,
+    
+    -- Berechnung
+    calculation_method VARCHAR(50), -- automatic, manual, lookup, formula
+    formula TEXT, -- LaTeX-Formel
+    
+    -- Default-Werte (JSONB für Flexibilität)
+    default_values JSONB, -- {"residential_efh": 20, "residential_mfh": 20}
+    
+    -- Mapping zu Schema-Feldern
+    schema_path TEXT, -- z.B. 'zones[].usage_profile.parameters_din.theta_i_h_soll'
+    
+    -- Metadaten
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    
+    -- Constraints
+    CONSTRAINT variables_symbol_not_empty CHECK (LENGTH(TRIM(symbol)) > 0),
+    CONSTRAINT variables_name_de_not_empty CHECK (LENGTH(TRIM(name_de)) > 0)
+);
+
+CREATE INDEX idx_variables_symbol ON din18599.variables(symbol);
+CREATE INDEX idx_variables_category ON din18599.variables(category);
+CREATE INDEX idx_variables_scope ON din18599.variables(scope);
+CREATE INDEX idx_variables_used_in_gin ON din18599.variables USING GIN (used_in);
+
+COMMENT ON TABLE din18599.variables IS 'DIN 18599 Variablen-Registry (Tabelle 1: Symbole)';
+COMMENT ON COLUMN din18599.variables.symbol IS 'Symbol (z.B. theta_i_h_soll, F_x, q_I)';
+COMMENT ON COLUMN din18599.variables.symbol_latex IS 'LaTeX-Symbol (z.B. \\theta_{i,h,soll})';
+COMMENT ON COLUMN din18599.variables.schema_path IS 'JSON-Path im Schema (z.B. zones[].usage_profile.parameters_din.theta_i_h_soll)';
+
+-- Tabelle 2: Indizes
+CREATE TABLE din18599.indices (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    
+    -- Index
+    index_symbol VARCHAR(10) UNIQUE NOT NULL,
+    
+    -- Namen
+    name_de TEXT NOT NULL,
+    name_en TEXT,
+    
+    -- Beschreibung
+    description_de TEXT,
+    description_en TEXT,
+    
+    -- Metadaten
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    
+    -- Constraints
+    CONSTRAINT indices_symbol_not_empty CHECK (LENGTH(TRIM(index_symbol)) > 0)
+);
+
+CREATE INDEX idx_indices_symbol ON din18599.indices(index_symbol);
+
+COMMENT ON TABLE din18599.indices IS 'DIN 18599 Indizes (Tabelle 2)';
+COMMENT ON COLUMN din18599.indices.index_symbol IS 'Index-Symbol (z.B. i, h, soll, a)';
+
+-- Tabelle 3+4: Ein-/Ausgangsgrößen
+CREATE TABLE din18599.interface_variables (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    
+    -- Referenz zu Variable
+    variable_id UUID REFERENCES din18599.variables(id) ON DELETE CASCADE,
+    
+    -- Typ
+    interface_type VARCHAR(20) NOT NULL CHECK (interface_type IN ('INPUT', 'OUTPUT')),
+    
+    -- Quelle/Ziel
+    source_part VARCHAR(20), -- z.B. 'DIN/TS 18599-1' (bei INPUT)
+    target_part VARCHAR(20), -- z.B. 'DIN/TS 18599-2' (bei OUTPUT)
+    
+    -- DIN-Referenz
+    din_table VARCHAR(50), -- 'Tabelle 3' oder 'Tabelle 4'
+    din_section VARCHAR(50),
+    
+    -- Beschreibung
+    description_de TEXT,
+    description_en TEXT,
+    
+    -- Metadaten
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    
+    -- Constraints
+    UNIQUE(variable_id, interface_type, source_part, target_part)
+);
+
+CREATE INDEX idx_interface_variables_type ON din18599.interface_variables(interface_type);
+CREATE INDEX idx_interface_variables_variable_id ON din18599.interface_variables(variable_id);
+
+COMMENT ON TABLE din18599.interface_variables IS 'DIN 18599 Ein-/Ausgangsgrößen (Tabelle 3+4)';
+COMMENT ON COLUMN din18599.interface_variables.interface_type IS 'INPUT = Eingangsgröße (Tabelle 3), OUTPUT = Ausgangsgröße (Tabelle 4)';
+
+-- ============================================================================
+-- 7. PROJEKT-MITGLIEDER (Team-Zugriff)
 -- ============================================================================
 
 CREATE TABLE din18599.project_members (
