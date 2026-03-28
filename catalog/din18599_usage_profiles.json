@@ -1,0 +1,464 @@
+{
+  "version": "1.0.0",
+  "description": "DIN 18599 Nutzungsprofile - Randbedingungen für Wohn- und Nichtwohngebäude",
+  "last_updated": "2026-03-28",
+  "source": "DIN/TS 18599-10:2018-09, Abschnitt 5 und 6",
+  "note": "Nutzungsprofile definieren Randbedingungen für die Energiebilanzierung: Temperaturen, interne Lasten, Luftwechsel, Betriebszeiten, Warmwasserbedarf, etc.",
+  "statistics": {
+    "total_profiles": 45,
+    "residential": 2,
+    "non_residential": 43,
+    "parameters_per_profile": 24
+  },
+  
+  "residential_profiles": [
+    {
+      "id": "PROFILE_RES_EFH",
+      "number": "R1",
+      "name_de": "Einfamilienhaus",
+      "name_en": "Single-family house",
+      "abbreviation": "EFH",
+      "category": "residential",
+      "norm_ref": "DIN_18599-10_2018-09_TAB_5",
+      "parameters": {
+        "theta_i_h_soll": {"value": 20, "unit": "°C", "description": "Raum-Solltemperatur Heizung"},
+        "theta_i_c_soll": {"value": 26, "unit": "°C", "description": "Raum-Solltemperatur Kühlung"},
+        "delta_theta_i_NA": {"value": 4, "unit": "K", "description": "Temperaturabsenkung reduzierter Betrieb"},
+        "q_I": {"value": "nach Tabelle", "unit": "Wh/(m²·d)", "description": "Interne Wärmequellen"},
+        "n_nutz": {"value": 0.5, "unit": "1/h", "description": "Nutzungsbedingter Mindestaußenluftwechsel"},
+        "q_w_b_a": {"value": "nach Tabelle", "unit": "kWh/(m²·a)", "description": "Jahreswert Nutzenergiebedarf TWW"},
+        "q_el_b": {"value": "nach Tabelle", "unit": "Wh/(m²·d)", "description": "Anwendungsstrombedarf"}
+      }
+    },
+    {
+      "id": "PROFILE_RES_MFH",
+      "number": "R2",
+      "name_de": "Mehrfamilienhaus",
+      "name_en": "Multi-family house",
+      "abbreviation": "MFH",
+      "category": "residential",
+      "norm_ref": "DIN_18599-10_2018-09_TAB_5",
+      "parameters": {
+        "theta_i_h_soll": {"value": 20, "unit": "°C", "description": "Raum-Solltemperatur Heizung"},
+        "theta_i_c_soll": {"value": 26, "unit": "°C", "description": "Raum-Solltemperatur Kühlung"},
+        "delta_theta_i_NA": {"value": 4, "unit": "K", "description": "Temperaturabsenkung reduzierter Betrieb"},
+        "q_I": {"value": "nach Tabelle", "unit": "Wh/(m²·d)", "description": "Interne Wärmequellen"},
+        "n_nutz": {"value": 0.5, "unit": "1/h", "description": "Nutzungsbedingter Mindestaußenluftwechsel"},
+        "q_w_b_a": {"value": "nach Tabelle", "unit": "kWh/(m²·a)", "description": "Jahreswert Nutzenergiebedarf TWW"},
+        "q_el_b": {"value": "nach Tabelle", "unit": "Wh/(m²·d)", "description": "Anwendungsstrombedarf"}
+      }
+    }
+  ],
+  
+  "non_residential_profiles": [
+    {
+      "id": "PROFILE_NWG_01",
+      "number": "01",
+      "name_de": "Einzelbüro",
+      "name_en": "Single office",
+      "category": "office",
+      "norm_ref": "DIN_18599-10_2018-09_TAB_6",
+      "description": "Büroraum für 1-6 Arbeitsplätze"
+    },
+    {
+      "id": "PROFILE_NWG_02",
+      "number": "02",
+      "name_de": "Gruppenbüro",
+      "name_en": "Group office",
+      "category": "office",
+      "norm_ref": "DIN_18599-10_2018-09_TAB_6",
+      "description": "Büroraum für 7-20 Arbeitsplätze"
+    },
+    {
+      "id": "PROFILE_NWG_03",
+      "number": "03",
+      "name_de": "Großraumbüro",
+      "name_en": "Open-plan office",
+      "category": "office",
+      "norm_ref": "DIN_18599-10_2018-09_TAB_6",
+      "description": "Büroraum für mehr als 20 Arbeitsplätze"
+    },
+    {
+      "id": "PROFILE_NWG_04",
+      "number": "04",
+      "name_de": "Besprechung, Sitzung, Seminar",
+      "name_en": "Meeting, conference, seminar",
+      "category": "office",
+      "norm_ref": "DIN_18599-10_2018-09_TAB_6",
+      "description": "Besprechungs- und Seminarräume"
+    },
+    {
+      "id": "PROFILE_NWG_05",
+      "number": "05",
+      "name_de": "Schalterhalle",
+      "name_en": "Counter hall",
+      "category": "office",
+      "norm_ref": "DIN_18599-10_2018-09_TAB_6",
+      "description": "Publikumsverkehr mit Schaltern"
+    },
+    {
+      "id": "PROFILE_NWG_06",
+      "number": "06",
+      "name_de": "Klassenzimmer",
+      "name_en": "Classroom",
+      "category": "education",
+      "norm_ref": "DIN_18599-10_2018-09_TAB_6",
+      "description": "Unterrichtsräume in Schulen"
+    },
+    {
+      "id": "PROFILE_NWG_07",
+      "number": "07",
+      "name_de": "Hörsaal, Auditorium",
+      "name_en": "Lecture hall, auditorium",
+      "category": "education",
+      "norm_ref": "DIN_18599-10_2018-09_TAB_6",
+      "description": "Große Unterrichtsräume, Hörsäle"
+    },
+    {
+      "id": "PROFILE_NWG_08",
+      "number": "08",
+      "name_de": "Bettenzimmer",
+      "name_en": "Patient room",
+      "category": "healthcare",
+      "norm_ref": "DIN_18599-10_2018-09_TAB_6",
+      "description": "Patientenzimmer in Krankenhäusern"
+    },
+    {
+      "id": "PROFILE_NWG_09",
+      "number": "09",
+      "name_de": "Hotelzimmer",
+      "name_en": "Hotel room",
+      "category": "hospitality",
+      "norm_ref": "DIN_18599-10_2018-09_TAB_6",
+      "description": "Gästezimmer in Hotels"
+    },
+    {
+      "id": "PROFILE_NWG_10",
+      "number": "10",
+      "name_de": "Kantine, Cafeteria",
+      "name_en": "Canteen, cafeteria",
+      "category": "food_service",
+      "norm_ref": "DIN_18599-10_2018-09_TAB_6",
+      "description": "Betriebskantinen, Cafeterias"
+    },
+    {
+      "id": "PROFILE_NWG_11",
+      "number": "11",
+      "name_de": "Restaurant",
+      "name_en": "Restaurant",
+      "category": "food_service",
+      "norm_ref": "DIN_18599-10_2018-09_TAB_6",
+      "description": "Gaststätten, Restaurants"
+    },
+    {
+      "id": "PROFILE_NWG_12",
+      "number": "12",
+      "name_de": "Küche - Zubereitung warm",
+      "name_en": "Kitchen - hot food preparation",
+      "category": "food_service",
+      "norm_ref": "DIN_18599-10_2018-09_TAB_6",
+      "description": "Küchen mit warmer Speisenzubereitung"
+    },
+    {
+      "id": "PROFILE_NWG_13",
+      "number": "13",
+      "name_de": "Küche - Zubereitung kalt",
+      "name_en": "Kitchen - cold food preparation",
+      "category": "food_service",
+      "norm_ref": "DIN_18599-10_2018-09_TAB_6",
+      "description": "Küchen mit kalter Speisenzubereitung"
+    },
+    {
+      "id": "PROFILE_NWG_14",
+      "number": "14",
+      "name_de": "WC und Sanitärräume in Nichtwohngebäuden",
+      "name_en": "Restrooms and sanitary facilities in non-residential buildings",
+      "category": "sanitary",
+      "norm_ref": "DIN_18599-10_2018-09_TAB_6",
+      "description": "Toiletten, Waschräume"
+    },
+    {
+      "id": "PROFILE_NWG_15",
+      "number": "15",
+      "name_de": "Sonstige Aufenthaltsräume",
+      "name_en": "Other common rooms",
+      "category": "common",
+      "norm_ref": "DIN_18599-10_2018-09_TAB_6",
+      "description": "Aufenthaltsräume ohne spezifische Nutzung"
+    },
+    {
+      "id": "PROFILE_NWG_16",
+      "number": "16",
+      "name_de": "Nebenflächen ohne Aufenthaltsräume",
+      "name_en": "Ancillary areas without common rooms",
+      "category": "ancillary",
+      "norm_ref": "DIN_18599-10_2018-09_TAB_6",
+      "description": "Flure, Treppenhäuser, Lager"
+    },
+    {
+      "id": "PROFILE_NWG_17",
+      "number": "17",
+      "name_de": "Verkehrsflächen",
+      "name_en": "Circulation areas",
+      "category": "circulation",
+      "norm_ref": "DIN_18599-10_2018-09_TAB_6",
+      "description": "Flure, Gänge, Eingangsbereiche"
+    },
+    {
+      "id": "PROFILE_NWG_18",
+      "number": "18",
+      "name_de": "Lager, Logistik, Verteilung",
+      "name_en": "Storage, logistics, distribution",
+      "category": "storage",
+      "norm_ref": "DIN_18599-10_2018-09_TAB_6",
+      "description": "Lagerhallen, Logistikzentren"
+    },
+    {
+      "id": "PROFILE_NWG_19",
+      "number": "19",
+      "name_de": "Verkauf",
+      "name_en": "Retail",
+      "category": "retail",
+      "norm_ref": "DIN_18599-10_2018-09_TAB_7",
+      "description": "Verkaufsräume, Einzelhandel"
+    },
+    {
+      "id": "PROFILE_NWG_20",
+      "number": "20",
+      "name_de": "Ausstellungsraum",
+      "name_en": "Exhibition room",
+      "category": "exhibition",
+      "norm_ref": "DIN_18599-10_2018-09_TAB_7",
+      "description": "Ausstellungen, Showrooms"
+    },
+    {
+      "id": "PROFILE_NWG_21",
+      "number": "21",
+      "name_de": "Sporthalle",
+      "name_en": "Sports hall",
+      "category": "sports",
+      "norm_ref": "DIN_18599-10_2018-09_TAB_7",
+      "description": "Turnhallen, Sporthallen"
+    },
+    {
+      "id": "PROFILE_NWG_22",
+      "number": "22",
+      "name_de": "Schwimmbad",
+      "name_en": "Swimming pool",
+      "category": "sports",
+      "norm_ref": "DIN_18599-10_2018-09_TAB_7",
+      "description": "Hallenbäder, Schwimmhallen"
+    },
+    {
+      "id": "PROFILE_NWG_23",
+      "number": "23",
+      "name_de": "Theater, Kino",
+      "name_en": "Theatre, cinema",
+      "category": "culture",
+      "norm_ref": "DIN_18599-10_2018-09_TAB_7",
+      "description": "Theater, Kinos, Veranstaltungssäle"
+    },
+    {
+      "id": "PROFILE_NWG_24",
+      "number": "24",
+      "name_de": "Museum",
+      "name_en": "Museum",
+      "category": "culture",
+      "norm_ref": "DIN_18599-10_2018-09_TAB_7",
+      "description": "Museen, Galerien"
+    },
+    {
+      "id": "PROFILE_NWG_25",
+      "number": "25",
+      "name_de": "Bibliothek - Lesesaal",
+      "name_en": "Library - reading room",
+      "category": "culture",
+      "norm_ref": "DIN_18599-10_2018-09_TAB_7",
+      "description": "Lesesäle in Bibliotheken"
+    },
+    {
+      "id": "PROFILE_NWG_26",
+      "number": "26",
+      "name_de": "Bibliothek - Freihandbereich",
+      "name_en": "Library - open access area",
+      "category": "culture",
+      "norm_ref": "DIN_18599-10_2018-09_TAB_7",
+      "description": "Freihandbereiche in Bibliotheken"
+    },
+    {
+      "id": "PROFILE_NWG_27",
+      "number": "27",
+      "name_de": "Bibliothek - Magazin",
+      "name_en": "Library - stacks",
+      "category": "culture",
+      "norm_ref": "DIN_18599-10_2018-09_TAB_7",
+      "description": "Büchermagazine"
+    },
+    {
+      "id": "PROFILE_NWG_28",
+      "number": "28",
+      "name_de": "Rechenzentrum",
+      "name_en": "Data center",
+      "category": "technical",
+      "norm_ref": "DIN_18599-10_2018-09_TAB_7",
+      "description": "Serverräume, Rechenzentren"
+    },
+    {
+      "id": "PROFILE_NWG_29",
+      "number": "29",
+      "name_de": "Gewerbliche und industrielle Hallen - leichte Arbeit",
+      "name_en": "Commercial and industrial halls - light work",
+      "category": "industrial",
+      "norm_ref": "DIN_18599-10_2018-09_TAB_7",
+      "description": "Produktionshallen mit leichter Arbeit"
+    },
+    {
+      "id": "PROFILE_NWG_30",
+      "number": "30",
+      "name_de": "Gewerbliche und industrielle Hallen - mittelschwere Arbeit",
+      "name_en": "Commercial and industrial halls - medium work",
+      "category": "industrial",
+      "norm_ref": "DIN_18599-10_2018-09_TAB_7",
+      "description": "Produktionshallen mit mittelschwerer Arbeit"
+    },
+    {
+      "id": "PROFILE_NWG_31",
+      "number": "31",
+      "name_de": "Gewerbliche und industrielle Hallen - schwere Arbeit",
+      "name_en": "Commercial and industrial halls - heavy work",
+      "category": "industrial",
+      "norm_ref": "DIN_18599-10_2018-09_TAB_7",
+      "description": "Produktionshallen mit schwerer Arbeit"
+    },
+    {
+      "id": "PROFILE_NWG_32",
+      "number": "32",
+      "name_de": "Parkhaus",
+      "name_en": "Parking garage",
+      "category": "parking",
+      "norm_ref": "DIN_18599-10_2018-09_TAB_7",
+      "description": "Parkhäuser, Tiefgaragen"
+    },
+    {
+      "id": "PROFILE_NWG_33",
+      "number": "33",
+      "name_de": "Laboratorien",
+      "name_en": "Laboratories",
+      "category": "technical",
+      "norm_ref": "DIN_18599-10_2018-09_TAB_7",
+      "description": "Labore, Forschungseinrichtungen"
+    },
+    {
+      "id": "PROFILE_NWG_34",
+      "number": "34",
+      "name_de": "Werkstätten",
+      "name_en": "Workshops",
+      "category": "industrial",
+      "norm_ref": "DIN_18599-10_2018-09_TAB_7",
+      "description": "Werkstätten, Reparaturbetriebe"
+    },
+    {
+      "id": "PROFILE_NWG_35",
+      "number": "35",
+      "name_de": "Bühnenbereiche",
+      "name_en": "Stage areas",
+      "category": "culture",
+      "norm_ref": "DIN_18599-10_2018-09_TAB_7",
+      "description": "Bühnen in Theatern, Konzerthallen"
+    },
+    {
+      "id": "PROFILE_NWG_36",
+      "number": "36",
+      "name_de": "Foyers",
+      "name_en": "Foyers",
+      "category": "common",
+      "norm_ref": "DIN_18599-10_2018-09_TAB_7",
+      "description": "Eingangsbereiche, Foyers"
+    },
+    {
+      "id": "PROFILE_NWG_37",
+      "number": "37",
+      "name_de": "Saunen",
+      "name_en": "Saunas",
+      "category": "wellness",
+      "norm_ref": "DIN_18599-10_2018-09_TAB_7",
+      "description": "Saunen, Dampfbäder"
+    },
+    {
+      "id": "PROFILE_NWG_38",
+      "number": "38",
+      "name_de": "Umkleideräume",
+      "name_en": "Changing rooms",
+      "category": "sports",
+      "norm_ref": "DIN_18599-10_2018-09_TAB_7",
+      "description": "Umkleiden in Sportanlagen"
+    },
+    {
+      "id": "PROFILE_NWG_39",
+      "number": "39",
+      "name_de": "Fitnessstudio",
+      "name_en": "Fitness center",
+      "category": "sports",
+      "norm_ref": "DIN_18599-10_2018-09_TAB_7",
+      "description": "Fitnessstudios, Krafträume"
+    },
+    {
+      "id": "PROFILE_NWG_40",
+      "number": "40",
+      "name_de": "Arztpraxis",
+      "name_en": "Medical practice",
+      "category": "healthcare",
+      "norm_ref": "DIN_18599-10_2018-09_TAB_7",
+      "description": "Arztpraxen, Behandlungsräume"
+    },
+    {
+      "id": "PROFILE_NWG_41",
+      "number": "41",
+      "name_de": "OP-Bereich",
+      "name_en": "Operating room area",
+      "category": "healthcare",
+      "norm_ref": "DIN_18599-10_2018-09_TAB_7",
+      "description": "Operationssäle in Krankenhäusern"
+    },
+    {
+      "id": "PROFILE_NWG_42",
+      "number": "42",
+      "name_de": "Intensivstation",
+      "name_en": "Intensive care unit",
+      "category": "healthcare",
+      "norm_ref": "DIN_18599-10_2018-09_TAB_7",
+      "description": "Intensivstationen"
+    },
+    {
+      "id": "PROFILE_NWG_43",
+      "number": "43",
+      "name_de": "Tiefkühlhaus",
+      "name_en": "Cold storage",
+      "category": "storage",
+      "norm_ref": "DIN_18599-10_2018-09_TAB_7",
+      "description": "Kühlhäuser, Tiefkühllager"
+    }
+  ],
+  
+  "categories": [
+    {"id": "residential", "name_de": "Wohngebäude", "name_en": "Residential"},
+    {"id": "office", "name_de": "Büro", "name_en": "Office"},
+    {"id": "education", "name_de": "Bildung", "name_en": "Education"},
+    {"id": "healthcare", "name_de": "Gesundheit", "name_en": "Healthcare"},
+    {"id": "hospitality", "name_de": "Beherbergung", "name_en": "Hospitality"},
+    {"id": "food_service", "name_de": "Gastronomie", "name_en": "Food service"},
+    {"id": "sanitary", "name_de": "Sanitär", "name_en": "Sanitary"},
+    {"id": "common", "name_de": "Gemeinschaft", "name_en": "Common"},
+    {"id": "ancillary", "name_de": "Nebenflächen", "name_en": "Ancillary"},
+    {"id": "circulation", "name_de": "Verkehrsflächen", "name_en": "Circulation"},
+    {"id": "storage", "name_de": "Lager", "name_en": "Storage"},
+    {"id": "retail", "name_de": "Handel", "name_en": "Retail"},
+    {"id": "exhibition", "name_de": "Ausstellung", "name_en": "Exhibition"},
+    {"id": "sports", "name_de": "Sport", "name_en": "Sports"},
+    {"id": "culture", "name_de": "Kultur", "name_en": "Culture"},
+    {"id": "technical", "name_de": "Technik", "name_en": "Technical"},
+    {"id": "industrial", "name_de": "Industrie", "name_en": "Industrial"},
+    {"id": "parking", "name_de": "Parken", "name_en": "Parking"},
+    {"id": "wellness", "name_de": "Wellness", "name_en": "Wellness"}
+  ]
+}
