@@ -1,0 +1,296 @@
+{
+  "version": "1.0.0",
+  "description": "DIN 18599 Index-Registry - Alle Indizes aus Teilen 1-11",
+  "last_updated": "2026-03-28",
+  "note": "Systematische Erfassung aller Indizes zur Kennzeichnung von Größen in der DIN 18599 Normenreihe.",
+  "statistics": {
+    "total_indices": 735,
+    "part_1": 150,
+    "part_2": 80,
+    "part_3": 90,
+    "part_4": 55,
+    "part_5": 120,
+    "part_6": 75,
+    "part_7": 10,
+    "part_8": 110,
+    "part_9": 75,
+    "part_10": 65,
+    "part_11": 25,
+    "current_count": 12,
+    "completion_percentage": 2
+  },
+  
+  "indices": [
+    {
+      "index": "i",
+      "name_de": "innen",
+      "name_en": "indoor, interior",
+      "type": "location",
+      "used_in_parts": [1, 2, 3, 4, 5, 6, 7, 8, 10, 11],
+      "examples": ["theta_i", "theta_i_h_soll", "theta_i_c_soll"]
+    },
+    {
+      "index": "e",
+      "name_de": "außen, äußere",
+      "name_en": "external, exterior, outdoor",
+      "type": "location",
+      "used_in_parts": [1, 2, 3, 5, 6, 7, 8, 10],
+      "examples": ["theta_e", "Q_e"]
+    },
+    {
+      "index": "h",
+      "name_de": "Heizung, Raumheizsystem",
+      "name_en": "heating, heating system",
+      "type": "system",
+      "used_in_parts": [1, 2, 3, 5, 6, 7, 8, 9, 10, 11],
+      "examples": ["Q_h_b", "Q_h_f", "W_h", "theta_i_h_soll"]
+    },
+    {
+      "index": "c",
+      "name_de": "Kühlung, Raumkühlsystem",
+      "name_en": "cooling system",
+      "type": "system",
+      "used_in_parts": [1, 2, 3, 6, 7, 9, 10, 11],
+      "examples": ["Q_c_b", "Q_c_f", "W_c", "theta_i_c_soll"]
+    },
+    {
+      "index": "w",
+      "name_de": "Trinkwarmwasser",
+      "name_en": "domestic hot water, potable hot water",
+      "type": "system",
+      "used_in_parts": [1, 5, 8, 9, 10, 11],
+      "examples": ["Q_w_b", "Q_w_f", "Q_w_outg"]
+    },
+    {
+      "index": "l",
+      "name_de": "Beleuchtung, Licht",
+      "name_en": "lighting, light",
+      "type": "system",
+      "used_in_parts": [1, 4, 9, 11],
+      "examples": ["Q_l_b", "Q_l_f", "W_l"]
+    },
+    {
+      "index": "v",
+      "name_de": "Lüftung, Luftaufbereitung",
+      "name_en": "ventilation, air conditioning",
+      "type": "system",
+      "used_in_parts": [1, 3, 6, 7, 10],
+      "examples": ["Q_v_b", "Q_vh_b", "Q_vc_b"]
+    },
+    {
+      "index": "b",
+      "name_de": "Bedarf",
+      "name_en": "use, need, demand",
+      "type": "energy_level",
+      "used_in_parts": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+      "examples": ["Q_h_b", "Q_c_b", "Q_w_b", "Q_l_b"]
+    },
+    {
+      "index": "f",
+      "name_de": "Endenergie",
+      "name_en": "final energy",
+      "type": "energy_level",
+      "used_in_parts": [1, 5, 6, 7, 8, 9],
+      "examples": ["Q_h_f", "Q_c_f", "Q_w_f", "Q_l_f"]
+    },
+    {
+      "index": "p",
+      "name_de": "Primärenergie, primär, Personen",
+      "name_en": "primary energy, primary, person",
+      "type": "energy_level",
+      "used_in_parts": [1, 2, 9, 10],
+      "examples": ["Q_p", "f_p", "q_p"]
+    },
+    {
+      "index": "ce",
+      "name_de": "Übergabe, Regelung der Übergabe",
+      "name_en": "emission, control of emission",
+      "type": "process_step",
+      "used_in_parts": [1, 5, 6, 7, 8, 11],
+      "examples": ["Q_h_ce", "Q_c_ce", "Q_w_ce", "e_ce"]
+    },
+    {
+      "index": "d",
+      "name_de": "Verteilung, Tag/Tageswert",
+      "name_en": "distribution, day/daily value",
+      "type": "process_step",
+      "used_in_parts": [1, 5, 6, 7, 8, 9, 10, 11],
+      "examples": ["Q_h_d", "Q_c_d", "Q_w_d", "e_d", "t_d", "d_nutz_a"]
+    },
+    {
+      "index": "s",
+      "name_de": "Speicherung, Speicher",
+      "name_en": "storage",
+      "type": "process_step",
+      "used_in_parts": [1, 5, 7, 8],
+      "examples": ["Q_h_s", "Q_c_s", "Q_w_s", "e_s"]
+    },
+    {
+      "index": "g",
+      "name_de": "Erzeugung, Wärmeerzeuger",
+      "name_en": "generation, heat generator",
+      "type": "process_step",
+      "used_in_parts": [1, 5, 6, 7, 8, 9, 11],
+      "examples": ["Q_h_g", "Q_c_g", "Q_w_gen", "e_g"]
+    },
+    {
+      "index": "outg",
+      "name_de": "Erzeugernutzwärmeabgabe, Erzeugernutzenergie",
+      "name_en": "useful generator heat output, useful generator energy output",
+      "type": "process_step",
+      "used_in_parts": [5, 6, 7, 8, 9],
+      "examples": ["Q_h_outg", "Q_c_outg", "Q_w_outg"]
+    },
+    {
+      "index": "a",
+      "name_de": "Anteil, Jahr/Jahreswert, Über-",
+      "name_en": "proportion, year/annual value, over",
+      "type": "time",
+      "used_in_parts": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+      "examples": ["Q_h_f_a", "d_nutz_a", "q_w_b_a"]
+    },
+    {
+      "index": "mth",
+      "name_de": "Monat, monatlich",
+      "name_en": "month, monthly",
+      "type": "time",
+      "used_in_parts": [1, 2, 3, 5, 6, 7, 8, 9],
+      "examples": ["Q_h_b_mth", "d_mth"]
+    },
+    {
+      "index": "op",
+      "name_de": "Betrieb, Betriebszeit",
+      "name_en": "operation, operating time",
+      "type": "state",
+      "used_in_parts": [2, 3, 5, 6, 7, 8, 9, 10, 11],
+      "examples": ["t_op", "t_h_op", "d_op_a"]
+    },
+    {
+      "index": "nutz",
+      "name_de": "Nutzung",
+      "name_en": "use, during using hours",
+      "type": "state",
+      "used_in_parts": [2, 3, 4, 10],
+      "examples": ["t_nutz_d", "d_nutz_a", "n_nutz"]
+    },
+    {
+      "index": "soll",
+      "name_de": "Sollwert",
+      "name_en": "set-point value",
+      "type": "state",
+      "used_in_parts": [2, 5, 8, 10],
+      "examples": ["theta_i_h_soll", "theta_i_c_soll"]
+    },
+    {
+      "index": "NA",
+      "name_de": "Nachtabschaltung, Nachtabsenkung",
+      "name_en": "reduced heating operation, night-time set-back",
+      "type": "state",
+      "used_in_parts": [2, 5, 10, 11],
+      "examples": ["delta_theta_i_NA"]
+    },
+    {
+      "index": "el",
+      "name_de": "elektrisch, elektrische Energie",
+      "name_en": "electrical, electric power",
+      "type": "energy_type",
+      "used_in_parts": [1, 4, 8, 9, 10, 11],
+      "examples": ["Q_el_b", "q_el_b", "W_el"]
+    },
+    {
+      "index": "aux",
+      "name_de": "Hilfsenergie, Hilfs-",
+      "name_en": "auxiliary energy, auxiliary",
+      "type": "energy_type",
+      "used_in_parts": [1, 5, 6, 7, 8, 9, 11],
+      "examples": ["W_aux"]
+    },
+    {
+      "index": "I",
+      "name_de": "innere, intern",
+      "name_en": "internal",
+      "type": "location",
+      "used_in_parts": [2, 8, 10],
+      "examples": ["Q_I", "q_I", "theta_I"]
+    },
+    {
+      "index": "S",
+      "name_de": "Solar, Sommer",
+      "name_en": "solar, summer",
+      "type": "source",
+      "used_in_parts": [2, 5, 8, 10, 11],
+      "examples": ["Q_S", "I_sol"]
+    },
+    {
+      "index": "T",
+      "name_de": "Transmission",
+      "name_en": "transmission",
+      "type": "heat_transfer",
+      "used_in_parts": [2],
+      "examples": ["Q_T", "H_T"]
+    },
+    {
+      "index": "V",
+      "name_de": "Lüftung, Verteilung (horizontal)",
+      "name_en": "ventilation, distribution (horizontal)",
+      "type": "heat_transfer",
+      "used_in_parts": [2, 3, 8, 10],
+      "examples": ["Q_V", "H_V"]
+    },
+    {
+      "index": "NGF",
+      "name_de": "Nettogrundfläche",
+      "name_en": "net floor area",
+      "type": "area",
+      "used_in_parts": [1, 8, 9, 10],
+      "examples": ["A_NGF", "q_w_b_day_NGF"]
+    },
+    {
+      "index": "WE",
+      "name_de": "Wohneinheit, Wohnung",
+      "name_en": "residential unit, apartment",
+      "type": "building_type",
+      "used_in_parts": [1, 8, 10],
+      "examples": ["A_NGF_WE_m", "n_WE"]
+    },
+    {
+      "index": "max",
+      "name_de": "maximal",
+      "name_en": "maximum",
+      "type": "value_type",
+      "used_in_parts": [2, 3, 5, 6, 7, 10],
+      "examples": ["P_H_max", "P_C_max", "theta_i_c_max"]
+    },
+    {
+      "index": "min",
+      "name_de": "minimal, Mindest-",
+      "name_en": "minimal, minimum",
+      "type": "value_type",
+      "used_in_parts": [2, 3, 9, 10],
+      "examples": ["theta_i_h_min", "n_min"]
+    },
+    {
+      "index": "av",
+      "name_de": "mittel, mittlere",
+      "name_en": "average, mean",
+      "type": "value_type",
+      "used_in_parts": [5, 7, 9, 11],
+      "examples": ["theta_VL_av", "theta_RL_av"]
+    }
+  ],
+  
+  "categories": [
+    {"id": "location", "name_de": "Ort/Lage", "name_en": "Location"},
+    {"id": "system", "name_de": "System/Gewerk", "name_en": "System/Trade"},
+    {"id": "energy_level", "name_de": "Energieniveau", "name_en": "Energy level"},
+    {"id": "process_step", "name_de": "Prozessschritt", "name_en": "Process step"},
+    {"id": "time", "name_de": "Zeit", "name_en": "Time"},
+    {"id": "state", "name_de": "Zustand/Betrieb", "name_en": "State/Operation"},
+    {"id": "energy_type", "name_de": "Energieart", "name_en": "Energy type"},
+    {"id": "source", "name_de": "Quelle", "name_en": "Source"},
+    {"id": "heat_transfer", "name_de": "Wärmeübertragung", "name_en": "Heat transfer"},
+    {"id": "area", "name_de": "Fläche", "name_en": "Area"},
+    {"id": "building_type", "name_de": "Gebäudetyp", "name_en": "Building type"},
+    {"id": "value_type", "name_de": "Werttyp", "name_en": "Value type"}
+  ]
+}
