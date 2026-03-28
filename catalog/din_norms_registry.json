@@ -130,38 +130,146 @@
           "description": "Teil 1 legt die allgemeinen Grundlagen der Normenreihe fest: Bilanzierungsprinzipien nach DIN EN ISO 13790, zentrale Begriffe (Nutzenergie, Endenergie, Primärenergie), Zonierungsregeln für Gebäude sowie Primärenergiefaktoren und CO2-Emissionsfaktoren für Energieträger.",
           "scope": "general",
           "pages": 68,
+          "normative_references": [
+            "DIN_277_2021-08",
+            "DIN_EN_ISO_13789_2017-09",
+            "DIN_18599-2_2025-10",
+            "DIN_18599-3_2018-09",
+            "DIN_18599-4_2025-10",
+            "DIN_18599-5_2018-09",
+            "DIN_18599-6_2018-09",
+            "DIN_18599-7_2018-09",
+            "DIN_18599-8_2018-09",
+            "DIN_18599-9_2018-09",
+            "DIN_18599-10_2018-09",
+            "DIN_18599-11_2018-09"
+          ],
           "sections": [
+            {
+              "id": "DIN_18599-1_2018-09_SEC_2",
+              "number": "2",
+              "name": "Normative Verweisungen",
+              "summary": "Referenzierte Normen: DIN 277, DIN EN ISO 13789, DIN/TS 18599 Teile 2-11"
+            },
             {
               "id": "DIN_18599-1_2018-09_SEC_3",
               "number": "3",
+              "name": "Begriffe, Symbole, Einheiten und Indizes",
+              "summary": "43 Begriffe (Primärenergie bis CO2-Äquivalent), Symbole (Tabelle 1), Indizes (Tabelle 2), Indizierungs-Schema (Bild 3)"
+            },
+            {
+              "id": "DIN_18599-1_2018-09_SEC_3_1",
+              "number": "3.1",
               "name": "Begriffe",
-              "summary": "Definitionen: Nutzenergie, Endenergie, Primärenergie, Zone, Konditionierte Fläche, etc."
+              "summary": "43 zentrale Begriffe der Energiebilanzierung"
+            },
+            {
+              "id": "DIN_18599-1_2018-09_SEC_3_2",
+              "number": "3.2",
+              "name": "Symbole, Einheiten und Indizes",
+              "summary": "Tabelle 1 (Symbole), Tabelle 2 (Indizes), Bild 3 (Indizierungs-Schema)"
             },
             {
               "id": "DIN_18599-1_2018-09_SEC_4",
               "number": "4",
-              "name": "Zonierung",
-              "summary": "Regeln zur Bildung von Zonen mit einheitlichen Nutzungsbedingungen und Anlagentechnik"
+              "name": "Verknüpfung der Teile der Reihe DIN/TS 18599",
+              "summary": "Eingangsgrößen (Tabelle 4) und Ausgangsgrößen (Tabelle 5) zwischen den Norm-Teilen"
             },
             {
               "id": "DIN_18599-1_2018-09_SEC_5",
               "number": "5",
-              "name": "Bewertung der Energieträger",
-              "summary": "Primärenergiefaktoren (f_p) und CO2-Emissionsfaktoren für Gas, Öl, Strom, Fernwärme, etc."
+              "name": "Energiebilanz",
+              "summary": "Gesamtbilanz: Nutzenergie → Endenergie → Primärenergie"
+            },
+            {
+              "id": "DIN_18599-1_2018-09_SEC_6",
+              "number": "6",
+              "name": "Zonierung",
+              "summary": "Regeln zur Bildung von Zonen mit einheitlichen Nutzungsbedingungen und Anlagentechnik"
+            },
+            {
+              "id": "DIN_18599-1_2018-09_SEC_7",
+              "number": "7",
+              "name": "Zuordnung von Versorgungsbereichen zu Zonen",
+              "summary": "Regeln zur Aufteilung von Energiekennwerten auf Zonen"
+            },
+            {
+              "id": "DIN_18599-1_2018-09_SEC_8",
+              "number": "8",
+              "name": "Geometrische Randbedingungen",
+              "summary": "Bilanzgrenzen, Flächen (NGF), Volumina, charakteristische Längen"
             }
           ],
           "tables": [
             {
+              "id": "DIN_18599-1_2018-09_TAB_1",
+              "number": "1",
+              "name": "Symbole und Einheiten",
+              "type": "symbols",
+              "protected": false,
+              "summary": "Bilanzübergreifende Symbole: α, A, B, Δ, e, f, g, h, H, L, m, n, η, θ, τ, Q, U, V, W, x_CO2",
+              "parameters_count": 20
+            },
+            {
+              "id": "DIN_18599-1_2018-09_TAB_2",
+              "number": "2",
+              "name": "Indizes",
+              "type": "indices",
+              "protected": false,
+              "summary": "Bilanzübergreifende Indizes: a, aut, b, B, bio, c, c*, ce, char, CHP, CO2, d, e, el, ext, f, fac, fossil, g/gen, G, geo, goods, h, h*, Hi, Hs, i, I, in, inf, i/j/k/x, l, m, mech, min, mth, N/Nutz, NGF, opak, out, outg, P, p, PP, prod, PV, R, rc, rv, s, S, Sanitär, st, self, sink, source, Strom, SUP, T, tot, tr, use, v, V, vc, vh, w, Wärme, WB, WE, WEA, wohn",
+              "parameters_count": 89
+            },
+            {
+              "id": "DIN_18599-1_2018-09_TAB_3",
+              "number": "3",
+              "name": "Systematik der Indizierung und Bezeichnung",
+              "type": "indexing_system",
+              "protected": false,
+              "summary": "Energieflüsse für alle Gewerke: Nutzenergie → Übergabe → Verteilung → Speicherung → Erzeugernutzenergieabgabe → Erzeugung → Endenergiebedarf",
+              "note": "Zeigt Q_x,b → Q_x,ce → Q_x,d → Q_x,s → Q_x,outg → Q_x,g → Q_x,f für Gewerke: l, h, c, vh, vc, h*, c*, st, rv, rc, w"
+            },
+            {
               "id": "DIN_18599-1_2018-09_TAB_4",
               "number": "4",
-              "name": "Primärenergiefaktoren",
-              "type": "energy_factors",
-              "protected": true,
-              "summary": "f_p-Werte für verschiedene Energieträger (nicht erneuerbar und erneuerbar)",
-              "parameters_count": 15
+              "name": "Eingangsgrößen aus anderen Teilen der Reihe DIN/TS 18599",
+              "type": "interface_inputs",
+              "protected": false,
+              "summary": "Liste aller Eingangsgrößen für Teil 1 aus Teilen 2-11 (Q_h,b, Q_c,b, Q_vh,b, Q_vc,b, Q_st,b, W_v, Q_l,b, Q_l,f, W_l, Q_h,ce, Q_h,d, Q_h,s, Q_h,g, Q_h,f,in, Q_h,f,prod, Q_h,f,out, W_h, W_h*, Q_rv,b, Q_rc,b, Q_rv,ce, Q_rc,ce, Q_rv,d, Q_rc,d, Q_rv,s, Q_rc,s, Q_rv,g, Q_rc,g, Q_rv,f,in, Q_rc,f,in, Q_rv,f,prod, Q_rc,f,prod, Q_rv,f,out, Q_rc,f,out, W_rv, W_rc, Q_vh,ce, Q_vc,ce, Q_h*,ce, Q_c,ce, Q_c*,ce, Q_st,ce, Q_vh,d, Q_vc,d, Q_h*,d, Q_c*,d, Q_c,d, Q_st,d, Q_h*,s, Q_c,s, Q_c*,s, Q_c,g, Q_c*,g, Q_st,g, Q_c,f,in, Q_c*,f,in, Q_c,f,prod, Q_c*,f,prod, Q_c,f,out, Q_c*,f,out, Q_st,f,in, Q_st,f,prod, Q_st,f,out, W_c, W_c*, W_st, Q_w,b, Q_w,ce, Q_w,d, Q_w,s, Q_w,g, Q_w,f,in, Q_w,f,prod, Q_w,f,out, W_w, Q_el,b, Q_f,prod,WEA, Q_f,prod,PV, Q_f,prod,CHP, Q_f,out,PV, Q_f,nutz,PV, Q_f,in,Strom, W_PV,i, f_P, W_aut)",
+              "parameters_count": 89
+            },
+            {
+              "id": "DIN_18599-1_2018-09_TAB_5",
+              "number": "5",
+              "name": "Ausgangsgrößen für andere Teile der Reihe DIN/TS 18599",
+              "type": "interface_outputs",
+              "protected": false,
+              "summary": "Liste aller Ausgangsgrößen von Teil 1 für Teile 2-11 (Q_w,outg, Q_f,Strom, A_NGF, A_NGF,Sanitär, A (wärmeübertragende Umfassungsflächen), V, B_char, L_char, L_char,Sanitär, h_G, h_G,Sanitär, h_R, n_G, n_G,Sanitär, f_Hs/Hi, f_p, f_Strom, f_p,HP, f_p,CHP)",
+              "parameters_count": 18
             }
           ],
-          "annexes": []
+          "annexes": [
+            {
+              "id": "DIN_18599-1_2018-09_ANNEX_A",
+              "letter": "A",
+              "name": "Primärenergiefaktoren",
+              "type": "normative",
+              "summary": "Berechnung von Primärenergiefaktoren für KWK, Wärmepumpen und Nah-/Fernwärme"
+            },
+            {
+              "id": "DIN_18599-1_2018-09_ANNEX_B",
+              "letter": "B",
+              "name": "Verhältnis Brennwert/Heizwert",
+              "type": "normative",
+              "summary": "Umrechnungsfaktoren f_Hs/Hi für verschiedene Brennstoffe"
+            },
+            {
+              "id": "DIN_18599-1_2018-09_ANNEX_C",
+              "letter": "C",
+              "name": "Begriffserläuterungen im Vergleich zur DIN EN ISO 52000-1",
+              "type": "informative",
+              "summary": "Mapping zwischen DIN 18599 und ISO 52000 Terminologie"
+            }
+          ]
         },
         {
           "id": "DIN_18599-2_2025-10",
