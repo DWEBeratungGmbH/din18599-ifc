@@ -16,6 +16,7 @@
 
 - [Zielbild](#-zielbild)
 - [Features v2.0](#-features-v20)
+- [Roadmap 2026](#-roadmap-2026)
 - [Quick Start](#-quick-start)
 - [Scope & Datenmodell](#-scope--datenmodell)
 - [Workflow-Integration](#-workflow-integration)
@@ -77,7 +78,21 @@ Ein Energieberatungsprojekt besteht künftig aus mindestens zwei Dateien:
 
 ---
 
-## 🚀 Quick Start
+## �️ Roadmap 2026
+
+**Nächste Schritte:** Schema v2.1 (April), Katalog-System (April), Viewer-MVP (Mai)
+
+👉 **[Vollständige Roadmap ansehen](ROADMAP.md)**
+
+**Highlights:**
+- **Q2 2026:** Schema v2.1 mit kritischen Fixes, Katalog-Integration, Viewer-MVP
+- **Mai 2026:** MVP-Präsentation in Berlin
+- **Q3 2026:** IFC Integration, Editor-Prototyp
+- **Q4 2026:** Community-Aufbau, v3.0 Release
+
+---
+
+## 🎯 Quick Start
 
 ### Option A: Docker Compose (Empfohlen)
 
