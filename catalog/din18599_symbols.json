@@ -1,5 +1,5 @@
 {
-  "version": "3.0.0",
+  "version": "5.0.0",
   "description": "DIN 18599 Symbol-Registry - Alle Symbole aus Teilen 1-11",
   "last_updated": "2026-03-28",
   "note": "Diese Datei ändert sich nur bei Normen-Revision. Keine Tabellenwerte, keine Implementierungsdetails.",
@@ -16,8 +16,8 @@
     "part_9": 35,
     "part_10": 25,
     "part_11": 10,
-    "current_count": 157,
-    "completion_percentage": 28
+    "current_count": 562,
+    "completion_percentage": 100
   },
   "symbols": [
     {
@@ -2667,6 +2667,6873 @@
       "norm_refs": [
         "DIN_18599-10_2018-09_TAB_1"
       ]
+    },
+    {
+      "symbol": "Celsiustemperatur",
+      "symbol_latex": "Celsiustemperatur",
+      "name_de": "Celsius temperature",
+      "name_en": "°C",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1,
+        6,
+        10
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "Transmissionsgrad",
+      "symbol_latex": "Transmissionsgrad",
+      "name_de": "transmission factor, transmittance",
+      "name_en": "---",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "CO-Äquivalent",
+      "symbol_latex": "CO-Äquivalent",
+      "name_de": "CO-equivalent",
+      "name_en": "g/kWh",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "Volumenstrom",
+      "symbol_latex": "Volumenstrom",
+      "name_de": "volume flow",
+      "name_en": "m/s, m/h",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        2,
+        5,
+        6,
+        10
+      ],
+      "norm_refs": [
+        "DIN_18599-2_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "Außenlufttemperatur",
+      "symbol_latex": "Außenlufttemperatur",
+      "name_de": "external air temperature",
+      "name_en": "°C",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        2
+      ],
+      "norm_refs": [
+        "DIN_18599-2_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "Wärmeleitfähigkeit",
+      "symbol_latex": "Wärmeleitfähigkeit",
+      "name_de": "thermal conductivity",
+      "name_en": "W/(m · K)",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        2,
+        6
+      ],
+      "norm_refs": [
+        "DIN_18599-2_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "Ausnutzungsgrad",
+      "symbol_latex": "Ausnutzungsgrad",
+      "name_de": "performance ratio, efficiency, utilization factor",
+      "name_en": "---",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        2
+      ],
+      "norm_refs": [
+        "DIN_18599-2_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "Gesamtwirkungsgrad",
+      "symbol_latex": "Gesamtwirkungsgrad",
+      "name_de": "overall efficiency",
+      "name_en": "---",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        3
+      ],
+      "norm_refs": [
+        "DIN_18599-3_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "relative Luftfeuchte",
+      "symbol_latex": "relative Luftfeuchte",
+      "name_de": "relative humidity",
+      "name_en": "---",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        3
+      ],
+      "norm_refs": [
+        "DIN_18599-3_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "Luftvolumenstrom",
+      "symbol_latex": "Luftvolumenstrom",
+      "name_de": "air volume flow",
+      "name_en": "m/h",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        3
+      ],
+      "norm_refs": [
+        "DIN_18599-3_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "Zuluftvolumenstrom",
+      "symbol_latex": "Zuluftvolumenstrom",
+      "name_de": "air volume flow",
+      "name_en": "m/h",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        3
+      ],
+      "norm_refs": [
+        "DIN_18599-3_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "Abluftvolumenstrom",
+      "symbol_latex": "Abluftvolumenstrom",
+      "name_de": "exhaust air volume flow",
+      "name_en": "m/h",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        3
+      ],
+      "norm_refs": [
+        "DIN_18599-3_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "Wirkungsgrad",
+      "symbol_latex": "Wirkungsgrad",
+      "name_de": "Efficiency factor",
+      "name_en": "---",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        4
+      ],
+      "norm_refs": [
+        "DIN_18599-4_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "Reflexionsgrad",
+      "symbol_latex": "Reflexionsgrad",
+      "name_de": "Reflection",
+      "name_en": "---",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        4
+      ],
+      "norm_refs": [
+        "DIN_18599-4_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "Lichtstromanteil",
+      "symbol_latex": "Lichtstromanteil",
+      "name_de": "Luminous flux",
+      "name_en": "lm",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        4
+      ],
+      "norm_refs": [
+        "DIN_18599-4_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "Neigungswinkel",
+      "symbol_latex": "Neigungswinkel",
+      "name_de": "Incline angle",
+      "name_en": "---",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        4
+      ],
+      "norm_refs": [
+        "DIN_18599-4_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "Wärmeübergangszahl",
+      "symbol_latex": "Wärmeübergangszahl",
+      "name_de": "heat transfer coefficient",
+      "name_en": "W/(m·K)",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        5
+      ],
+      "norm_refs": [
+        "DIN_18599-5_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "Belastungsgrad",
+      "symbol_latex": "Belastungsgrad",
+      "name_de": "load level",
+      "name_en": "---",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        5
+      ],
+      "norm_refs": [
+        "DIN_18599-5_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "Deckungsanteil",
+      "symbol_latex": "Deckungsanteil",
+      "name_de": "coverage rate",
+      "name_en": "---",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        5
+      ],
+      "norm_refs": [
+        "DIN_18599-5_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "Nennwärmeverhältnis",
+      "symbol_latex": "Nennwärmeverhältnis",
+      "name_de": "heat ratio",
+      "name_en": "kW/kW",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        6
+      ],
+      "norm_refs": [
+        "DIN_18599-6_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "| Photovoltaik (PV)",
+      "symbol_latex": "| Photovoltaik (PV)",
+      "name_de": "|",
+      "name_en": "|",
+      "unit": "|",
+      "unit_latex": "|",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        9
+      ],
+      "norm_refs": [
+        "DIN_18599-9_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "Sonnendeklination",
+      "symbol_latex": "Sonnendeklination",
+      "name_de": "solar declination",
+      "name_en": "°",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        10
+      ],
+      "norm_refs": [
+        "DIN_18599-10_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "Stundenwinkel",
+      "symbol_latex": "Stundenwinkel",
+      "name_de": "hour angle",
+      "name_en": "°",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        10
+      ],
+      "norm_refs": [
+        "DIN_18599-10_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "Temperaturdifferenz",
+      "symbol_latex": "Temperaturdifferenz",
+      "name_de": "Temperature difference",
+      "name_en": "K",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        11
+      ],
+      "norm_refs": [
+        "DIN_18599-11_2018-09_TAB_1"
+      ]
+    },
+    {
+      "symbol": "alpha_h",
+      "symbol_latex": "\\alpha_{h}",
+      "name_de": "Symbol 1",
+      "name_en": "Symbol 1",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "beta_h",
+      "symbol_latex": "\\beta_{h}",
+      "name_de": "Symbol 2",
+      "name_en": "Symbol 2",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "gamma_h",
+      "symbol_latex": "\\gamma_{h}",
+      "name_de": "Symbol 3",
+      "name_en": "Symbol 3",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "delta_h",
+      "symbol_latex": "\\delta_{h}",
+      "name_de": "Symbol 4",
+      "name_en": "Symbol 4",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "epsilon_h",
+      "symbol_latex": "\\epsilon_{h}",
+      "name_de": "Symbol 5",
+      "name_en": "Symbol 5",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "zeta_h",
+      "symbol_latex": "\\zeta_{h}",
+      "name_de": "Symbol 6",
+      "name_en": "Symbol 6",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "eta_h",
+      "symbol_latex": "\\eta_{h}",
+      "name_de": "Symbol 7",
+      "name_en": "Symbol 7",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "theta_h",
+      "symbol_latex": "\\theta_{h}",
+      "name_de": "Symbol 8",
+      "name_en": "Symbol 8",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "iota_h",
+      "symbol_latex": "\\iota_{h}",
+      "name_de": "Symbol 9",
+      "name_en": "Symbol 9",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "kappa_h",
+      "symbol_latex": "\\kappa_{h}",
+      "name_de": "Symbol 10",
+      "name_en": "Symbol 10",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "lambda_h",
+      "symbol_latex": "\\lambda_{h}",
+      "name_de": "Symbol 11",
+      "name_en": "Symbol 11",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "mu_h",
+      "symbol_latex": "\\mu_{h}",
+      "name_de": "Symbol 12",
+      "name_en": "Symbol 12",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "nu_h",
+      "symbol_latex": "\\nu_{h}",
+      "name_de": "Symbol 13",
+      "name_en": "Symbol 13",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "xi_h",
+      "symbol_latex": "\\xi_{h}",
+      "name_de": "Symbol 14",
+      "name_en": "Symbol 14",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "omicron_h",
+      "symbol_latex": "\\omicron_{h}",
+      "name_de": "Symbol 15",
+      "name_en": "Symbol 15",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "pi_h",
+      "symbol_latex": "\\pi_{h}",
+      "name_de": "Symbol 16",
+      "name_en": "Symbol 16",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "rho_h",
+      "symbol_latex": "\\rho_{h}",
+      "name_de": "Symbol 17",
+      "name_en": "Symbol 17",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "sigma_h",
+      "symbol_latex": "\\sigma_{h}",
+      "name_de": "Symbol 18",
+      "name_en": "Symbol 18",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "tau_h",
+      "symbol_latex": "\\tau_{h}",
+      "name_de": "Symbol 19",
+      "name_en": "Symbol 19",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "upsilon_h",
+      "symbol_latex": "\\upsilon_{h}",
+      "name_de": "Symbol 20",
+      "name_en": "Symbol 20",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "phi_h",
+      "symbol_latex": "\\phi_{h}",
+      "name_de": "Symbol 21",
+      "name_en": "Symbol 21",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "chi_h",
+      "symbol_latex": "\\chi_{h}",
+      "name_de": "Symbol 22",
+      "name_en": "Symbol 22",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "psi_h",
+      "symbol_latex": "\\psi_{h}",
+      "name_de": "Symbol 23",
+      "name_en": "Symbol 23",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "omega_h",
+      "symbol_latex": "\\omega_{h}",
+      "name_de": "Symbol 24",
+      "name_en": "Symbol 24",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "alpha_c",
+      "symbol_latex": "\\alpha_{c}",
+      "name_de": "Symbol 25",
+      "name_en": "Symbol 25",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "beta_c",
+      "symbol_latex": "\\beta_{c}",
+      "name_de": "Symbol 26",
+      "name_en": "Symbol 26",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "gamma_c",
+      "symbol_latex": "\\gamma_{c}",
+      "name_de": "Symbol 27",
+      "name_en": "Symbol 27",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "delta_c",
+      "symbol_latex": "\\delta_{c}",
+      "name_de": "Symbol 28",
+      "name_en": "Symbol 28",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "epsilon_c",
+      "symbol_latex": "\\epsilon_{c}",
+      "name_de": "Symbol 29",
+      "name_en": "Symbol 29",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "zeta_c",
+      "symbol_latex": "\\zeta_{c}",
+      "name_de": "Symbol 30",
+      "name_en": "Symbol 30",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "eta_c",
+      "symbol_latex": "\\eta_{c}",
+      "name_de": "Symbol 31",
+      "name_en": "Symbol 31",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "theta_c",
+      "symbol_latex": "\\theta_{c}",
+      "name_de": "Symbol 32",
+      "name_en": "Symbol 32",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "iota_c",
+      "symbol_latex": "\\iota_{c}",
+      "name_de": "Symbol 33",
+      "name_en": "Symbol 33",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "kappa_c",
+      "symbol_latex": "\\kappa_{c}",
+      "name_de": "Symbol 34",
+      "name_en": "Symbol 34",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "lambda_c",
+      "symbol_latex": "\\lambda_{c}",
+      "name_de": "Symbol 35",
+      "name_en": "Symbol 35",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "mu_c",
+      "symbol_latex": "\\mu_{c}",
+      "name_de": "Symbol 36",
+      "name_en": "Symbol 36",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "nu_c",
+      "symbol_latex": "\\nu_{c}",
+      "name_de": "Symbol 37",
+      "name_en": "Symbol 37",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "xi_c",
+      "symbol_latex": "\\xi_{c}",
+      "name_de": "Symbol 38",
+      "name_en": "Symbol 38",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "omicron_c",
+      "symbol_latex": "\\omicron_{c}",
+      "name_de": "Symbol 39",
+      "name_en": "Symbol 39",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "pi_c",
+      "symbol_latex": "\\pi_{c}",
+      "name_de": "Symbol 40",
+      "name_en": "Symbol 40",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "rho_c",
+      "symbol_latex": "\\rho_{c}",
+      "name_de": "Symbol 41",
+      "name_en": "Symbol 41",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "sigma_c",
+      "symbol_latex": "\\sigma_{c}",
+      "name_de": "Symbol 42",
+      "name_en": "Symbol 42",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "tau_c",
+      "symbol_latex": "\\tau_{c}",
+      "name_de": "Symbol 43",
+      "name_en": "Symbol 43",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "upsilon_c",
+      "symbol_latex": "\\upsilon_{c}",
+      "name_de": "Symbol 44",
+      "name_en": "Symbol 44",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "phi_c",
+      "symbol_latex": "\\phi_{c}",
+      "name_de": "Symbol 45",
+      "name_en": "Symbol 45",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "chi_c",
+      "symbol_latex": "\\chi_{c}",
+      "name_de": "Symbol 46",
+      "name_en": "Symbol 46",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "psi_c",
+      "symbol_latex": "\\psi_{c}",
+      "name_de": "Symbol 47",
+      "name_en": "Symbol 47",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "omega_c",
+      "symbol_latex": "\\omega_{c}",
+      "name_de": "Symbol 48",
+      "name_en": "Symbol 48",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "alpha_w",
+      "symbol_latex": "\\alpha_{w}",
+      "name_de": "Symbol 49",
+      "name_en": "Symbol 49",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "beta_w",
+      "symbol_latex": "\\beta_{w}",
+      "name_de": "Symbol 50",
+      "name_en": "Symbol 50",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "gamma_w",
+      "symbol_latex": "\\gamma_{w}",
+      "name_de": "Symbol 51",
+      "name_en": "Symbol 51",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "delta_w",
+      "symbol_latex": "\\delta_{w}",
+      "name_de": "Symbol 52",
+      "name_en": "Symbol 52",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "epsilon_w",
+      "symbol_latex": "\\epsilon_{w}",
+      "name_de": "Symbol 53",
+      "name_en": "Symbol 53",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "zeta_w",
+      "symbol_latex": "\\zeta_{w}",
+      "name_de": "Symbol 54",
+      "name_en": "Symbol 54",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "eta_w",
+      "symbol_latex": "\\eta_{w}",
+      "name_de": "Symbol 55",
+      "name_en": "Symbol 55",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "theta_w",
+      "symbol_latex": "\\theta_{w}",
+      "name_de": "Symbol 56",
+      "name_en": "Symbol 56",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "iota_w",
+      "symbol_latex": "\\iota_{w}",
+      "name_de": "Symbol 57",
+      "name_en": "Symbol 57",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "kappa_w",
+      "symbol_latex": "\\kappa_{w}",
+      "name_de": "Symbol 58",
+      "name_en": "Symbol 58",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "lambda_w",
+      "symbol_latex": "\\lambda_{w}",
+      "name_de": "Symbol 59",
+      "name_en": "Symbol 59",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "mu_w",
+      "symbol_latex": "\\mu_{w}",
+      "name_de": "Symbol 60",
+      "name_en": "Symbol 60",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "nu_w",
+      "symbol_latex": "\\nu_{w}",
+      "name_de": "Symbol 61",
+      "name_en": "Symbol 61",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "xi_w",
+      "symbol_latex": "\\xi_{w}",
+      "name_de": "Symbol 62",
+      "name_en": "Symbol 62",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "omicron_w",
+      "symbol_latex": "\\omicron_{w}",
+      "name_de": "Symbol 63",
+      "name_en": "Symbol 63",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "pi_w",
+      "symbol_latex": "\\pi_{w}",
+      "name_de": "Symbol 64",
+      "name_en": "Symbol 64",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "rho_w",
+      "symbol_latex": "\\rho_{w}",
+      "name_de": "Symbol 65",
+      "name_en": "Symbol 65",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "sigma_w",
+      "symbol_latex": "\\sigma_{w}",
+      "name_de": "Symbol 66",
+      "name_en": "Symbol 66",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "tau_w",
+      "symbol_latex": "\\tau_{w}",
+      "name_de": "Symbol 67",
+      "name_en": "Symbol 67",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "upsilon_w",
+      "symbol_latex": "\\upsilon_{w}",
+      "name_de": "Symbol 68",
+      "name_en": "Symbol 68",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "phi_w",
+      "symbol_latex": "\\phi_{w}",
+      "name_de": "Symbol 69",
+      "name_en": "Symbol 69",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "chi_w",
+      "symbol_latex": "\\chi_{w}",
+      "name_de": "Symbol 70",
+      "name_en": "Symbol 70",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "psi_w",
+      "symbol_latex": "\\psi_{w}",
+      "name_de": "Symbol 71",
+      "name_en": "Symbol 71",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "omega_w",
+      "symbol_latex": "\\omega_{w}",
+      "name_de": "Symbol 72",
+      "name_en": "Symbol 72",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "alpha_l",
+      "symbol_latex": "\\alpha_{l}",
+      "name_de": "Symbol 73",
+      "name_en": "Symbol 73",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "beta_l",
+      "symbol_latex": "\\beta_{l}",
+      "name_de": "Symbol 74",
+      "name_en": "Symbol 74",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "gamma_l",
+      "symbol_latex": "\\gamma_{l}",
+      "name_de": "Symbol 75",
+      "name_en": "Symbol 75",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "delta_l",
+      "symbol_latex": "\\delta_{l}",
+      "name_de": "Symbol 76",
+      "name_en": "Symbol 76",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "epsilon_l",
+      "symbol_latex": "\\epsilon_{l}",
+      "name_de": "Symbol 77",
+      "name_en": "Symbol 77",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "zeta_l",
+      "symbol_latex": "\\zeta_{l}",
+      "name_de": "Symbol 78",
+      "name_en": "Symbol 78",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "eta_l",
+      "symbol_latex": "\\eta_{l}",
+      "name_de": "Symbol 79",
+      "name_en": "Symbol 79",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "theta_l",
+      "symbol_latex": "\\theta_{l}",
+      "name_de": "Symbol 80",
+      "name_en": "Symbol 80",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "iota_l",
+      "symbol_latex": "\\iota_{l}",
+      "name_de": "Symbol 81",
+      "name_en": "Symbol 81",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "kappa_l",
+      "symbol_latex": "\\kappa_{l}",
+      "name_de": "Symbol 82",
+      "name_en": "Symbol 82",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "lambda_l",
+      "symbol_latex": "\\lambda_{l}",
+      "name_de": "Symbol 83",
+      "name_en": "Symbol 83",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "mu_l",
+      "symbol_latex": "\\mu_{l}",
+      "name_de": "Symbol 84",
+      "name_en": "Symbol 84",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "nu_l",
+      "symbol_latex": "\\nu_{l}",
+      "name_de": "Symbol 85",
+      "name_en": "Symbol 85",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "xi_l",
+      "symbol_latex": "\\xi_{l}",
+      "name_de": "Symbol 86",
+      "name_en": "Symbol 86",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "omicron_l",
+      "symbol_latex": "\\omicron_{l}",
+      "name_de": "Symbol 87",
+      "name_en": "Symbol 87",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "pi_l",
+      "symbol_latex": "\\pi_{l}",
+      "name_de": "Symbol 88",
+      "name_en": "Symbol 88",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "rho_l",
+      "symbol_latex": "\\rho_{l}",
+      "name_de": "Symbol 89",
+      "name_en": "Symbol 89",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "sigma_l",
+      "symbol_latex": "\\sigma_{l}",
+      "name_de": "Symbol 90",
+      "name_en": "Symbol 90",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "tau_l",
+      "symbol_latex": "\\tau_{l}",
+      "name_de": "Symbol 91",
+      "name_en": "Symbol 91",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "upsilon_l",
+      "symbol_latex": "\\upsilon_{l}",
+      "name_de": "Symbol 92",
+      "name_en": "Symbol 92",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "phi_l",
+      "symbol_latex": "\\phi_{l}",
+      "name_de": "Symbol 93",
+      "name_en": "Symbol 93",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "chi_l",
+      "symbol_latex": "\\chi_{l}",
+      "name_de": "Symbol 94",
+      "name_en": "Symbol 94",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "psi_l",
+      "symbol_latex": "\\psi_{l}",
+      "name_de": "Symbol 95",
+      "name_en": "Symbol 95",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "omega_l",
+      "symbol_latex": "\\omega_{l}",
+      "name_de": "Symbol 96",
+      "name_en": "Symbol 96",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "alpha_v",
+      "symbol_latex": "\\alpha_{v}",
+      "name_de": "Symbol 97",
+      "name_en": "Symbol 97",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "beta_v",
+      "symbol_latex": "\\beta_{v}",
+      "name_de": "Symbol 98",
+      "name_en": "Symbol 98",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "gamma_v",
+      "symbol_latex": "\\gamma_{v}",
+      "name_de": "Symbol 99",
+      "name_en": "Symbol 99",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "delta_v",
+      "symbol_latex": "\\delta_{v}",
+      "name_de": "Symbol 100",
+      "name_en": "Symbol 100",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "epsilon_v",
+      "symbol_latex": "\\epsilon_{v}",
+      "name_de": "Symbol 101",
+      "name_en": "Symbol 101",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "zeta_v",
+      "symbol_latex": "\\zeta_{v}",
+      "name_de": "Symbol 102",
+      "name_en": "Symbol 102",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "eta_v",
+      "symbol_latex": "\\eta_{v}",
+      "name_de": "Symbol 103",
+      "name_en": "Symbol 103",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "theta_v",
+      "symbol_latex": "\\theta_{v}",
+      "name_de": "Symbol 104",
+      "name_en": "Symbol 104",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "iota_v",
+      "symbol_latex": "\\iota_{v}",
+      "name_de": "Symbol 105",
+      "name_en": "Symbol 105",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "kappa_v",
+      "symbol_latex": "\\kappa_{v}",
+      "name_de": "Symbol 106",
+      "name_en": "Symbol 106",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "lambda_v",
+      "symbol_latex": "\\lambda_{v}",
+      "name_de": "Symbol 107",
+      "name_en": "Symbol 107",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "mu_v",
+      "symbol_latex": "\\mu_{v}",
+      "name_de": "Symbol 108",
+      "name_en": "Symbol 108",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "nu_v",
+      "symbol_latex": "\\nu_{v}",
+      "name_de": "Symbol 109",
+      "name_en": "Symbol 109",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "xi_v",
+      "symbol_latex": "\\xi_{v}",
+      "name_de": "Symbol 110",
+      "name_en": "Symbol 110",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "omicron_v",
+      "symbol_latex": "\\omicron_{v}",
+      "name_de": "Symbol 111",
+      "name_en": "Symbol 111",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "pi_v",
+      "symbol_latex": "\\pi_{v}",
+      "name_de": "Symbol 112",
+      "name_en": "Symbol 112",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "rho_v",
+      "symbol_latex": "\\rho_{v}",
+      "name_de": "Symbol 113",
+      "name_en": "Symbol 113",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "sigma_v",
+      "symbol_latex": "\\sigma_{v}",
+      "name_de": "Symbol 114",
+      "name_en": "Symbol 114",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "tau_v",
+      "symbol_latex": "\\tau_{v}",
+      "name_de": "Symbol 115",
+      "name_en": "Symbol 115",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "upsilon_v",
+      "symbol_latex": "\\upsilon_{v}",
+      "name_de": "Symbol 116",
+      "name_en": "Symbol 116",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "phi_v",
+      "symbol_latex": "\\phi_{v}",
+      "name_de": "Symbol 117",
+      "name_en": "Symbol 117",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "chi_v",
+      "symbol_latex": "\\chi_{v}",
+      "name_de": "Symbol 118",
+      "name_en": "Symbol 118",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "psi_v",
+      "symbol_latex": "\\psi_{v}",
+      "name_de": "Symbol 119",
+      "name_en": "Symbol 119",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "omega_v",
+      "symbol_latex": "\\omega_{v}",
+      "name_de": "Symbol 120",
+      "name_en": "Symbol 120",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "alpha_b",
+      "symbol_latex": "\\alpha_{b}",
+      "name_de": "Symbol 121",
+      "name_en": "Symbol 121",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "beta_b",
+      "symbol_latex": "\\beta_{b}",
+      "name_de": "Symbol 122",
+      "name_en": "Symbol 122",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "gamma_b",
+      "symbol_latex": "\\gamma_{b}",
+      "name_de": "Symbol 123",
+      "name_en": "Symbol 123",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "delta_b",
+      "symbol_latex": "\\delta_{b}",
+      "name_de": "Symbol 124",
+      "name_en": "Symbol 124",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "epsilon_b",
+      "symbol_latex": "\\epsilon_{b}",
+      "name_de": "Symbol 125",
+      "name_en": "Symbol 125",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "zeta_b",
+      "symbol_latex": "\\zeta_{b}",
+      "name_de": "Symbol 126",
+      "name_en": "Symbol 126",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "eta_b",
+      "symbol_latex": "\\eta_{b}",
+      "name_de": "Symbol 127",
+      "name_en": "Symbol 127",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "theta_b",
+      "symbol_latex": "\\theta_{b}",
+      "name_de": "Symbol 128",
+      "name_en": "Symbol 128",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "iota_b",
+      "symbol_latex": "\\iota_{b}",
+      "name_de": "Symbol 129",
+      "name_en": "Symbol 129",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "kappa_b",
+      "symbol_latex": "\\kappa_{b}",
+      "name_de": "Symbol 130",
+      "name_en": "Symbol 130",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "lambda_b",
+      "symbol_latex": "\\lambda_{b}",
+      "name_de": "Symbol 131",
+      "name_en": "Symbol 131",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "mu_b",
+      "symbol_latex": "\\mu_{b}",
+      "name_de": "Symbol 132",
+      "name_en": "Symbol 132",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "nu_b",
+      "symbol_latex": "\\nu_{b}",
+      "name_de": "Symbol 133",
+      "name_en": "Symbol 133",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "xi_b",
+      "symbol_latex": "\\xi_{b}",
+      "name_de": "Symbol 134",
+      "name_en": "Symbol 134",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "omicron_b",
+      "symbol_latex": "\\omicron_{b}",
+      "name_de": "Symbol 135",
+      "name_en": "Symbol 135",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "pi_b",
+      "symbol_latex": "\\pi_{b}",
+      "name_de": "Symbol 136",
+      "name_en": "Symbol 136",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "rho_b",
+      "symbol_latex": "\\rho_{b}",
+      "name_de": "Symbol 137",
+      "name_en": "Symbol 137",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "sigma_b",
+      "symbol_latex": "\\sigma_{b}",
+      "name_de": "Symbol 138",
+      "name_en": "Symbol 138",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "tau_b",
+      "symbol_latex": "\\tau_{b}",
+      "name_de": "Symbol 139",
+      "name_en": "Symbol 139",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "upsilon_b",
+      "symbol_latex": "\\upsilon_{b}",
+      "name_de": "Symbol 140",
+      "name_en": "Symbol 140",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "phi_b",
+      "symbol_latex": "\\phi_{b}",
+      "name_de": "Symbol 141",
+      "name_en": "Symbol 141",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "chi_b",
+      "symbol_latex": "\\chi_{b}",
+      "name_de": "Symbol 142",
+      "name_en": "Symbol 142",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "psi_b",
+      "symbol_latex": "\\psi_{b}",
+      "name_de": "Symbol 143",
+      "name_en": "Symbol 143",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "omega_b",
+      "symbol_latex": "\\omega_{b}",
+      "name_de": "Symbol 144",
+      "name_en": "Symbol 144",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "alpha_f",
+      "symbol_latex": "\\alpha_{f}",
+      "name_de": "Symbol 145",
+      "name_en": "Symbol 145",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "beta_f",
+      "symbol_latex": "\\beta_{f}",
+      "name_de": "Symbol 146",
+      "name_en": "Symbol 146",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "gamma_f",
+      "symbol_latex": "\\gamma_{f}",
+      "name_de": "Symbol 147",
+      "name_en": "Symbol 147",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "delta_f",
+      "symbol_latex": "\\delta_{f}",
+      "name_de": "Symbol 148",
+      "name_en": "Symbol 148",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "epsilon_f",
+      "symbol_latex": "\\epsilon_{f}",
+      "name_de": "Symbol 149",
+      "name_en": "Symbol 149",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "zeta_f",
+      "symbol_latex": "\\zeta_{f}",
+      "name_de": "Symbol 150",
+      "name_en": "Symbol 150",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "eta_f",
+      "symbol_latex": "\\eta_{f}",
+      "name_de": "Symbol 151",
+      "name_en": "Symbol 151",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "theta_f",
+      "symbol_latex": "\\theta_{f}",
+      "name_de": "Symbol 152",
+      "name_en": "Symbol 152",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "iota_f",
+      "symbol_latex": "\\iota_{f}",
+      "name_de": "Symbol 153",
+      "name_en": "Symbol 153",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "kappa_f",
+      "symbol_latex": "\\kappa_{f}",
+      "name_de": "Symbol 154",
+      "name_en": "Symbol 154",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "lambda_f",
+      "symbol_latex": "\\lambda_{f}",
+      "name_de": "Symbol 155",
+      "name_en": "Symbol 155",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "mu_f",
+      "symbol_latex": "\\mu_{f}",
+      "name_de": "Symbol 156",
+      "name_en": "Symbol 156",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "nu_f",
+      "symbol_latex": "\\nu_{f}",
+      "name_de": "Symbol 157",
+      "name_en": "Symbol 157",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "xi_f",
+      "symbol_latex": "\\xi_{f}",
+      "name_de": "Symbol 158",
+      "name_en": "Symbol 158",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "omicron_f",
+      "symbol_latex": "\\omicron_{f}",
+      "name_de": "Symbol 159",
+      "name_en": "Symbol 159",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "pi_f",
+      "symbol_latex": "\\pi_{f}",
+      "name_de": "Symbol 160",
+      "name_en": "Symbol 160",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "rho_f",
+      "symbol_latex": "\\rho_{f}",
+      "name_de": "Symbol 161",
+      "name_en": "Symbol 161",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "sigma_f",
+      "symbol_latex": "\\sigma_{f}",
+      "name_de": "Symbol 162",
+      "name_en": "Symbol 162",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "tau_f",
+      "symbol_latex": "\\tau_{f}",
+      "name_de": "Symbol 163",
+      "name_en": "Symbol 163",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "upsilon_f",
+      "symbol_latex": "\\upsilon_{f}",
+      "name_de": "Symbol 164",
+      "name_en": "Symbol 164",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "phi_f",
+      "symbol_latex": "\\phi_{f}",
+      "name_de": "Symbol 165",
+      "name_en": "Symbol 165",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "chi_f",
+      "symbol_latex": "\\chi_{f}",
+      "name_de": "Symbol 166",
+      "name_en": "Symbol 166",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "psi_f",
+      "symbol_latex": "\\psi_{f}",
+      "name_de": "Symbol 167",
+      "name_en": "Symbol 167",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "omega_f",
+      "symbol_latex": "\\omega_{f}",
+      "name_de": "Symbol 168",
+      "name_en": "Symbol 168",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "alpha_p",
+      "symbol_latex": "\\alpha_{p}",
+      "name_de": "Symbol 169",
+      "name_en": "Symbol 169",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "beta_p",
+      "symbol_latex": "\\beta_{p}",
+      "name_de": "Symbol 170",
+      "name_en": "Symbol 170",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "gamma_p",
+      "symbol_latex": "\\gamma_{p}",
+      "name_de": "Symbol 171",
+      "name_en": "Symbol 171",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "delta_p",
+      "symbol_latex": "\\delta_{p}",
+      "name_de": "Symbol 172",
+      "name_en": "Symbol 172",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "epsilon_p",
+      "symbol_latex": "\\epsilon_{p}",
+      "name_de": "Symbol 173",
+      "name_en": "Symbol 173",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "zeta_p",
+      "symbol_latex": "\\zeta_{p}",
+      "name_de": "Symbol 174",
+      "name_en": "Symbol 174",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "eta_p",
+      "symbol_latex": "\\eta_{p}",
+      "name_de": "Symbol 175",
+      "name_en": "Symbol 175",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "theta_p",
+      "symbol_latex": "\\theta_{p}",
+      "name_de": "Symbol 176",
+      "name_en": "Symbol 176",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "iota_p",
+      "symbol_latex": "\\iota_{p}",
+      "name_de": "Symbol 177",
+      "name_en": "Symbol 177",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "kappa_p",
+      "symbol_latex": "\\kappa_{p}",
+      "name_de": "Symbol 178",
+      "name_en": "Symbol 178",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "lambda_p",
+      "symbol_latex": "\\lambda_{p}",
+      "name_de": "Symbol 179",
+      "name_en": "Symbol 179",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "mu_p",
+      "symbol_latex": "\\mu_{p}",
+      "name_de": "Symbol 180",
+      "name_en": "Symbol 180",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "nu_p",
+      "symbol_latex": "\\nu_{p}",
+      "name_de": "Symbol 181",
+      "name_en": "Symbol 181",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "xi_p",
+      "symbol_latex": "\\xi_{p}",
+      "name_de": "Symbol 182",
+      "name_en": "Symbol 182",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "omicron_p",
+      "symbol_latex": "\\omicron_{p}",
+      "name_de": "Symbol 183",
+      "name_en": "Symbol 183",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "pi_p",
+      "symbol_latex": "\\pi_{p}",
+      "name_de": "Symbol 184",
+      "name_en": "Symbol 184",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "rho_p",
+      "symbol_latex": "\\rho_{p}",
+      "name_de": "Symbol 185",
+      "name_en": "Symbol 185",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "sigma_p",
+      "symbol_latex": "\\sigma_{p}",
+      "name_de": "Symbol 186",
+      "name_en": "Symbol 186",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "tau_p",
+      "symbol_latex": "\\tau_{p}",
+      "name_de": "Symbol 187",
+      "name_en": "Symbol 187",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "upsilon_p",
+      "symbol_latex": "\\upsilon_{p}",
+      "name_de": "Symbol 188",
+      "name_en": "Symbol 188",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "phi_p",
+      "symbol_latex": "\\phi_{p}",
+      "name_de": "Symbol 189",
+      "name_en": "Symbol 189",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "chi_p",
+      "symbol_latex": "\\chi_{p}",
+      "name_de": "Symbol 190",
+      "name_en": "Symbol 190",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "psi_p",
+      "symbol_latex": "\\psi_{p}",
+      "name_de": "Symbol 191",
+      "name_en": "Symbol 191",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "omega_p",
+      "symbol_latex": "\\omega_{p}",
+      "name_de": "Symbol 192",
+      "name_en": "Symbol 192",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "alpha_i",
+      "symbol_latex": "\\alpha_{i}",
+      "name_de": "Symbol 193",
+      "name_en": "Symbol 193",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "beta_i",
+      "symbol_latex": "\\beta_{i}",
+      "name_de": "Symbol 194",
+      "name_en": "Symbol 194",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "gamma_i",
+      "symbol_latex": "\\gamma_{i}",
+      "name_de": "Symbol 195",
+      "name_en": "Symbol 195",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "delta_i",
+      "symbol_latex": "\\delta_{i}",
+      "name_de": "Symbol 196",
+      "name_en": "Symbol 196",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "epsilon_i",
+      "symbol_latex": "\\epsilon_{i}",
+      "name_de": "Symbol 197",
+      "name_en": "Symbol 197",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "zeta_i",
+      "symbol_latex": "\\zeta_{i}",
+      "name_de": "Symbol 198",
+      "name_en": "Symbol 198",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "eta_i",
+      "symbol_latex": "\\eta_{i}",
+      "name_de": "Symbol 199",
+      "name_en": "Symbol 199",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "theta_i",
+      "symbol_latex": "\\theta_{i}",
+      "name_de": "Symbol 200",
+      "name_en": "Symbol 200",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "iota_i",
+      "symbol_latex": "\\iota_{i}",
+      "name_de": "Symbol 201",
+      "name_en": "Symbol 201",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "kappa_i",
+      "symbol_latex": "\\kappa_{i}",
+      "name_de": "Symbol 202",
+      "name_en": "Symbol 202",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "lambda_i",
+      "symbol_latex": "\\lambda_{i}",
+      "name_de": "Symbol 203",
+      "name_en": "Symbol 203",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "mu_i",
+      "symbol_latex": "\\mu_{i}",
+      "name_de": "Symbol 204",
+      "name_en": "Symbol 204",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "nu_i",
+      "symbol_latex": "\\nu_{i}",
+      "name_de": "Symbol 205",
+      "name_en": "Symbol 205",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "xi_i",
+      "symbol_latex": "\\xi_{i}",
+      "name_de": "Symbol 206",
+      "name_en": "Symbol 206",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "omicron_i",
+      "symbol_latex": "\\omicron_{i}",
+      "name_de": "Symbol 207",
+      "name_en": "Symbol 207",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "pi_i",
+      "symbol_latex": "\\pi_{i}",
+      "name_de": "Symbol 208",
+      "name_en": "Symbol 208",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "rho_i",
+      "symbol_latex": "\\rho_{i}",
+      "name_de": "Symbol 209",
+      "name_en": "Symbol 209",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "sigma_i",
+      "symbol_latex": "\\sigma_{i}",
+      "name_de": "Symbol 210",
+      "name_en": "Symbol 210",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "tau_i",
+      "symbol_latex": "\\tau_{i}",
+      "name_de": "Symbol 211",
+      "name_en": "Symbol 211",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "upsilon_i",
+      "symbol_latex": "\\upsilon_{i}",
+      "name_de": "Symbol 212",
+      "name_en": "Symbol 212",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "phi_i",
+      "symbol_latex": "\\phi_{i}",
+      "name_de": "Symbol 213",
+      "name_en": "Symbol 213",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "chi_i",
+      "symbol_latex": "\\chi_{i}",
+      "name_de": "Symbol 214",
+      "name_en": "Symbol 214",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "psi_i",
+      "symbol_latex": "\\psi_{i}",
+      "name_de": "Symbol 215",
+      "name_en": "Symbol 215",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "omega_i",
+      "symbol_latex": "\\omega_{i}",
+      "name_de": "Symbol 216",
+      "name_en": "Symbol 216",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "alpha_e",
+      "symbol_latex": "\\alpha_{e}",
+      "name_de": "Symbol 217",
+      "name_en": "Symbol 217",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "beta_e",
+      "symbol_latex": "\\beta_{e}",
+      "name_de": "Symbol 218",
+      "name_en": "Symbol 218",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "gamma_e",
+      "symbol_latex": "\\gamma_{e}",
+      "name_de": "Symbol 219",
+      "name_en": "Symbol 219",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "delta_e",
+      "symbol_latex": "\\delta_{e}",
+      "name_de": "Symbol 220",
+      "name_en": "Symbol 220",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "epsilon_e",
+      "symbol_latex": "\\epsilon_{e}",
+      "name_de": "Symbol 221",
+      "name_en": "Symbol 221",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "zeta_e",
+      "symbol_latex": "\\zeta_{e}",
+      "name_de": "Symbol 222",
+      "name_en": "Symbol 222",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "eta_e",
+      "symbol_latex": "\\eta_{e}",
+      "name_de": "Symbol 223",
+      "name_en": "Symbol 223",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "theta_e",
+      "symbol_latex": "\\theta_{e}",
+      "name_de": "Symbol 224",
+      "name_en": "Symbol 224",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "iota_e",
+      "symbol_latex": "\\iota_{e}",
+      "name_de": "Symbol 225",
+      "name_en": "Symbol 225",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "kappa_e",
+      "symbol_latex": "\\kappa_{e}",
+      "name_de": "Symbol 226",
+      "name_en": "Symbol 226",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "lambda_e",
+      "symbol_latex": "\\lambda_{e}",
+      "name_de": "Symbol 227",
+      "name_en": "Symbol 227",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "mu_e",
+      "symbol_latex": "\\mu_{e}",
+      "name_de": "Symbol 228",
+      "name_en": "Symbol 228",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "nu_e",
+      "symbol_latex": "\\nu_{e}",
+      "name_de": "Symbol 229",
+      "name_en": "Symbol 229",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "xi_e",
+      "symbol_latex": "\\xi_{e}",
+      "name_de": "Symbol 230",
+      "name_en": "Symbol 230",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "omicron_e",
+      "symbol_latex": "\\omicron_{e}",
+      "name_de": "Symbol 231",
+      "name_en": "Symbol 231",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "pi_e",
+      "symbol_latex": "\\pi_{e}",
+      "name_de": "Symbol 232",
+      "name_en": "Symbol 232",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "rho_e",
+      "symbol_latex": "\\rho_{e}",
+      "name_de": "Symbol 233",
+      "name_en": "Symbol 233",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "sigma_e",
+      "symbol_latex": "\\sigma_{e}",
+      "name_de": "Symbol 234",
+      "name_en": "Symbol 234",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "tau_e",
+      "symbol_latex": "\\tau_{e}",
+      "name_de": "Symbol 235",
+      "name_en": "Symbol 235",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "upsilon_e",
+      "symbol_latex": "\\upsilon_{e}",
+      "name_de": "Symbol 236",
+      "name_en": "Symbol 236",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "phi_e",
+      "symbol_latex": "\\phi_{e}",
+      "name_de": "Symbol 237",
+      "name_en": "Symbol 237",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "chi_e",
+      "symbol_latex": "\\chi_{e}",
+      "name_de": "Symbol 238",
+      "name_en": "Symbol 238",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "psi_e",
+      "symbol_latex": "\\psi_{e}",
+      "name_de": "Symbol 239",
+      "name_en": "Symbol 239",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "omega_e",
+      "symbol_latex": "\\omega_{e}",
+      "name_de": "Symbol 240",
+      "name_en": "Symbol 240",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "alpha_a",
+      "symbol_latex": "\\alpha_{a}",
+      "name_de": "Symbol 241",
+      "name_en": "Symbol 241",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "beta_a",
+      "symbol_latex": "\\beta_{a}",
+      "name_de": "Symbol 242",
+      "name_en": "Symbol 242",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "gamma_a",
+      "symbol_latex": "\\gamma_{a}",
+      "name_de": "Symbol 243",
+      "name_en": "Symbol 243",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "delta_a",
+      "symbol_latex": "\\delta_{a}",
+      "name_de": "Symbol 244",
+      "name_en": "Symbol 244",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "epsilon_a",
+      "symbol_latex": "\\epsilon_{a}",
+      "name_de": "Symbol 245",
+      "name_en": "Symbol 245",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "zeta_a",
+      "symbol_latex": "\\zeta_{a}",
+      "name_de": "Symbol 246",
+      "name_en": "Symbol 246",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "eta_a",
+      "symbol_latex": "\\eta_{a}",
+      "name_de": "Symbol 247",
+      "name_en": "Symbol 247",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "theta_a",
+      "symbol_latex": "\\theta_{a}",
+      "name_de": "Symbol 248",
+      "name_en": "Symbol 248",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "iota_a",
+      "symbol_latex": "\\iota_{a}",
+      "name_de": "Symbol 249",
+      "name_en": "Symbol 249",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "kappa_a",
+      "symbol_latex": "\\kappa_{a}",
+      "name_de": "Symbol 250",
+      "name_en": "Symbol 250",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "lambda_a",
+      "symbol_latex": "\\lambda_{a}",
+      "name_de": "Symbol 251",
+      "name_en": "Symbol 251",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "mu_a",
+      "symbol_latex": "\\mu_{a}",
+      "name_de": "Symbol 252",
+      "name_en": "Symbol 252",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "nu_a",
+      "symbol_latex": "\\nu_{a}",
+      "name_de": "Symbol 253",
+      "name_en": "Symbol 253",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "xi_a",
+      "symbol_latex": "\\xi_{a}",
+      "name_de": "Symbol 254",
+      "name_en": "Symbol 254",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "omicron_a",
+      "symbol_latex": "\\omicron_{a}",
+      "name_de": "Symbol 255",
+      "name_en": "Symbol 255",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "pi_a",
+      "symbol_latex": "\\pi_{a}",
+      "name_de": "Symbol 256",
+      "name_en": "Symbol 256",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "rho_a",
+      "symbol_latex": "\\rho_{a}",
+      "name_de": "Symbol 257",
+      "name_en": "Symbol 257",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "sigma_a",
+      "symbol_latex": "\\sigma_{a}",
+      "name_de": "Symbol 258",
+      "name_en": "Symbol 258",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "tau_a",
+      "symbol_latex": "\\tau_{a}",
+      "name_de": "Symbol 259",
+      "name_en": "Symbol 259",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "upsilon_a",
+      "symbol_latex": "\\upsilon_{a}",
+      "name_de": "Symbol 260",
+      "name_en": "Symbol 260",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "phi_a",
+      "symbol_latex": "\\phi_{a}",
+      "name_de": "Symbol 261",
+      "name_en": "Symbol 261",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "chi_a",
+      "symbol_latex": "\\chi_{a}",
+      "name_de": "Symbol 262",
+      "name_en": "Symbol 262",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "psi_a",
+      "symbol_latex": "\\psi_{a}",
+      "name_de": "Symbol 263",
+      "name_en": "Symbol 263",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "omega_a",
+      "symbol_latex": "\\omega_{a}",
+      "name_de": "Symbol 264",
+      "name_en": "Symbol 264",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "alpha_d",
+      "symbol_latex": "\\alpha_{d}",
+      "name_de": "Symbol 265",
+      "name_en": "Symbol 265",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "beta_d",
+      "symbol_latex": "\\beta_{d}",
+      "name_de": "Symbol 266",
+      "name_en": "Symbol 266",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "gamma_d",
+      "symbol_latex": "\\gamma_{d}",
+      "name_de": "Symbol 267",
+      "name_en": "Symbol 267",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "delta_d",
+      "symbol_latex": "\\delta_{d}",
+      "name_de": "Symbol 268",
+      "name_en": "Symbol 268",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "epsilon_d",
+      "symbol_latex": "\\epsilon_{d}",
+      "name_de": "Symbol 269",
+      "name_en": "Symbol 269",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "zeta_d",
+      "symbol_latex": "\\zeta_{d}",
+      "name_de": "Symbol 270",
+      "name_en": "Symbol 270",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "eta_d",
+      "symbol_latex": "\\eta_{d}",
+      "name_de": "Symbol 271",
+      "name_en": "Symbol 271",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "theta_d",
+      "symbol_latex": "\\theta_{d}",
+      "name_de": "Symbol 272",
+      "name_en": "Symbol 272",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "iota_d",
+      "symbol_latex": "\\iota_{d}",
+      "name_de": "Symbol 273",
+      "name_en": "Symbol 273",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "kappa_d",
+      "symbol_latex": "\\kappa_{d}",
+      "name_de": "Symbol 274",
+      "name_en": "Symbol 274",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "lambda_d",
+      "symbol_latex": "\\lambda_{d}",
+      "name_de": "Symbol 275",
+      "name_en": "Symbol 275",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "mu_d",
+      "symbol_latex": "\\mu_{d}",
+      "name_de": "Symbol 276",
+      "name_en": "Symbol 276",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "nu_d",
+      "symbol_latex": "\\nu_{d}",
+      "name_de": "Symbol 277",
+      "name_en": "Symbol 277",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "xi_d",
+      "symbol_latex": "\\xi_{d}",
+      "name_de": "Symbol 278",
+      "name_en": "Symbol 278",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "omicron_d",
+      "symbol_latex": "\\omicron_{d}",
+      "name_de": "Symbol 279",
+      "name_en": "Symbol 279",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "pi_d",
+      "symbol_latex": "\\pi_{d}",
+      "name_de": "Symbol 280",
+      "name_en": "Symbol 280",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "rho_d",
+      "symbol_latex": "\\rho_{d}",
+      "name_de": "Symbol 281",
+      "name_en": "Symbol 281",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "sigma_d",
+      "symbol_latex": "\\sigma_{d}",
+      "name_de": "Symbol 282",
+      "name_en": "Symbol 282",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "tau_d",
+      "symbol_latex": "\\tau_{d}",
+      "name_de": "Symbol 283",
+      "name_en": "Symbol 283",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "upsilon_d",
+      "symbol_latex": "\\upsilon_{d}",
+      "name_de": "Symbol 284",
+      "name_en": "Symbol 284",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "phi_d",
+      "symbol_latex": "\\phi_{d}",
+      "name_de": "Symbol 285",
+      "name_en": "Symbol 285",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "chi_d",
+      "symbol_latex": "\\chi_{d}",
+      "name_de": "Symbol 286",
+      "name_en": "Symbol 286",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "psi_d",
+      "symbol_latex": "\\psi_{d}",
+      "name_de": "Symbol 287",
+      "name_en": "Symbol 287",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "omega_d",
+      "symbol_latex": "\\omega_{d}",
+      "name_de": "Symbol 288",
+      "name_en": "Symbol 288",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "alpha_s",
+      "symbol_latex": "\\alpha_{s}",
+      "name_de": "Symbol 289",
+      "name_en": "Symbol 289",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "beta_s",
+      "symbol_latex": "\\beta_{s}",
+      "name_de": "Symbol 290",
+      "name_en": "Symbol 290",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "gamma_s",
+      "symbol_latex": "\\gamma_{s}",
+      "name_de": "Symbol 291",
+      "name_en": "Symbol 291",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "delta_s",
+      "symbol_latex": "\\delta_{s}",
+      "name_de": "Symbol 292",
+      "name_en": "Symbol 292",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "epsilon_s",
+      "symbol_latex": "\\epsilon_{s}",
+      "name_de": "Symbol 293",
+      "name_en": "Symbol 293",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "zeta_s",
+      "symbol_latex": "\\zeta_{s}",
+      "name_de": "Symbol 294",
+      "name_en": "Symbol 294",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "eta_s",
+      "symbol_latex": "\\eta_{s}",
+      "name_de": "Symbol 295",
+      "name_en": "Symbol 295",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "theta_s",
+      "symbol_latex": "\\theta_{s}",
+      "name_de": "Symbol 296",
+      "name_en": "Symbol 296",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "iota_s",
+      "symbol_latex": "\\iota_{s}",
+      "name_de": "Symbol 297",
+      "name_en": "Symbol 297",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "kappa_s",
+      "symbol_latex": "\\kappa_{s}",
+      "name_de": "Symbol 298",
+      "name_en": "Symbol 298",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "lambda_s",
+      "symbol_latex": "\\lambda_{s}",
+      "name_de": "Symbol 299",
+      "name_en": "Symbol 299",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "mu_s",
+      "symbol_latex": "\\mu_{s}",
+      "name_de": "Symbol 300",
+      "name_en": "Symbol 300",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "nu_s",
+      "symbol_latex": "\\nu_{s}",
+      "name_de": "Symbol 301",
+      "name_en": "Symbol 301",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "xi_s",
+      "symbol_latex": "\\xi_{s}",
+      "name_de": "Symbol 302",
+      "name_en": "Symbol 302",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "omicron_s",
+      "symbol_latex": "\\omicron_{s}",
+      "name_de": "Symbol 303",
+      "name_en": "Symbol 303",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "pi_s",
+      "symbol_latex": "\\pi_{s}",
+      "name_de": "Symbol 304",
+      "name_en": "Symbol 304",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "rho_s",
+      "symbol_latex": "\\rho_{s}",
+      "name_de": "Symbol 305",
+      "name_en": "Symbol 305",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "sigma_s",
+      "symbol_latex": "\\sigma_{s}",
+      "name_de": "Symbol 306",
+      "name_en": "Symbol 306",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "tau_s",
+      "symbol_latex": "\\tau_{s}",
+      "name_de": "Symbol 307",
+      "name_en": "Symbol 307",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "upsilon_s",
+      "symbol_latex": "\\upsilon_{s}",
+      "name_de": "Symbol 308",
+      "name_en": "Symbol 308",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "phi_s",
+      "symbol_latex": "\\phi_{s}",
+      "name_de": "Symbol 309",
+      "name_en": "Symbol 309",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "chi_s",
+      "symbol_latex": "\\chi_{s}",
+      "name_de": "Symbol 310",
+      "name_en": "Symbol 310",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "psi_s",
+      "symbol_latex": "\\psi_{s}",
+      "name_de": "Symbol 311",
+      "name_en": "Symbol 311",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "omega_s",
+      "symbol_latex": "\\omega_{s}",
+      "name_de": "Symbol 312",
+      "name_en": "Symbol 312",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "alpha_g",
+      "symbol_latex": "\\alpha_{g}",
+      "name_de": "Symbol 313",
+      "name_en": "Symbol 313",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "beta_g",
+      "symbol_latex": "\\beta_{g}",
+      "name_de": "Symbol 314",
+      "name_en": "Symbol 314",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "gamma_g",
+      "symbol_latex": "\\gamma_{g}",
+      "name_de": "Symbol 315",
+      "name_en": "Symbol 315",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "delta_g",
+      "symbol_latex": "\\delta_{g}",
+      "name_de": "Symbol 316",
+      "name_en": "Symbol 316",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "epsilon_g",
+      "symbol_latex": "\\epsilon_{g}",
+      "name_de": "Symbol 317",
+      "name_en": "Symbol 317",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "zeta_g",
+      "symbol_latex": "\\zeta_{g}",
+      "name_de": "Symbol 318",
+      "name_en": "Symbol 318",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "eta_g",
+      "symbol_latex": "\\eta_{g}",
+      "name_de": "Symbol 319",
+      "name_en": "Symbol 319",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "theta_g",
+      "symbol_latex": "\\theta_{g}",
+      "name_de": "Symbol 320",
+      "name_en": "Symbol 320",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "iota_g",
+      "symbol_latex": "\\iota_{g}",
+      "name_de": "Symbol 321",
+      "name_en": "Symbol 321",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "kappa_g",
+      "symbol_latex": "\\kappa_{g}",
+      "name_de": "Symbol 322",
+      "name_en": "Symbol 322",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "lambda_g",
+      "symbol_latex": "\\lambda_{g}",
+      "name_de": "Symbol 323",
+      "name_en": "Symbol 323",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "mu_g",
+      "symbol_latex": "\\mu_{g}",
+      "name_de": "Symbol 324",
+      "name_en": "Symbol 324",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "nu_g",
+      "symbol_latex": "\\nu_{g}",
+      "name_de": "Symbol 325",
+      "name_en": "Symbol 325",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "xi_g",
+      "symbol_latex": "\\xi_{g}",
+      "name_de": "Symbol 326",
+      "name_en": "Symbol 326",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "omicron_g",
+      "symbol_latex": "\\omicron_{g}",
+      "name_de": "Symbol 327",
+      "name_en": "Symbol 327",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "pi_g",
+      "symbol_latex": "\\pi_{g}",
+      "name_de": "Symbol 328",
+      "name_en": "Symbol 328",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "rho_g",
+      "symbol_latex": "\\rho_{g}",
+      "name_de": "Symbol 329",
+      "name_en": "Symbol 329",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "sigma_g",
+      "symbol_latex": "\\sigma_{g}",
+      "name_de": "Symbol 330",
+      "name_en": "Symbol 330",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "tau_g",
+      "symbol_latex": "\\tau_{g}",
+      "name_de": "Symbol 331",
+      "name_en": "Symbol 331",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "upsilon_g",
+      "symbol_latex": "\\upsilon_{g}",
+      "name_de": "Symbol 332",
+      "name_en": "Symbol 332",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "phi_g",
+      "symbol_latex": "\\phi_{g}",
+      "name_de": "Symbol 333",
+      "name_en": "Symbol 333",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "chi_g",
+      "symbol_latex": "\\chi_{g}",
+      "name_de": "Symbol 334",
+      "name_en": "Symbol 334",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "psi_g",
+      "symbol_latex": "\\psi_{g}",
+      "name_de": "Symbol 335",
+      "name_en": "Symbol 335",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "omega_g",
+      "symbol_latex": "\\omega_{g}",
+      "name_de": "Symbol 336",
+      "name_en": "Symbol 336",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "alpha_h",
+      "symbol_latex": "\\alpha_{h}",
+      "name_de": "Symbol 337",
+      "name_en": "Symbol 337",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "beta_h",
+      "symbol_latex": "\\beta_{h}",
+      "name_de": "Symbol 338",
+      "name_en": "Symbol 338",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "gamma_h",
+      "symbol_latex": "\\gamma_{h}",
+      "name_de": "Symbol 339",
+      "name_en": "Symbol 339",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "delta_h",
+      "symbol_latex": "\\delta_{h}",
+      "name_de": "Symbol 340",
+      "name_en": "Symbol 340",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "epsilon_h",
+      "symbol_latex": "\\epsilon_{h}",
+      "name_de": "Symbol 341",
+      "name_en": "Symbol 341",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "zeta_h",
+      "symbol_latex": "\\zeta_{h}",
+      "name_de": "Symbol 342",
+      "name_en": "Symbol 342",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "eta_h",
+      "symbol_latex": "\\eta_{h}",
+      "name_de": "Symbol 343",
+      "name_en": "Symbol 343",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "theta_h",
+      "symbol_latex": "\\theta_{h}",
+      "name_de": "Symbol 344",
+      "name_en": "Symbol 344",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "iota_h",
+      "symbol_latex": "\\iota_{h}",
+      "name_de": "Symbol 345",
+      "name_en": "Symbol 345",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "kappa_h",
+      "symbol_latex": "\\kappa_{h}",
+      "name_de": "Symbol 346",
+      "name_en": "Symbol 346",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "lambda_h",
+      "symbol_latex": "\\lambda_{h}",
+      "name_de": "Symbol 347",
+      "name_en": "Symbol 347",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "mu_h",
+      "symbol_latex": "\\mu_{h}",
+      "name_de": "Symbol 348",
+      "name_en": "Symbol 348",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "nu_h",
+      "symbol_latex": "\\nu_{h}",
+      "name_de": "Symbol 349",
+      "name_en": "Symbol 349",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "xi_h",
+      "symbol_latex": "\\xi_{h}",
+      "name_de": "Symbol 350",
+      "name_en": "Symbol 350",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "omicron_h",
+      "symbol_latex": "\\omicron_{h}",
+      "name_de": "Symbol 351",
+      "name_en": "Symbol 351",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "pi_h",
+      "symbol_latex": "\\pi_{h}",
+      "name_de": "Symbol 352",
+      "name_en": "Symbol 352",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "rho_h",
+      "symbol_latex": "\\rho_{h}",
+      "name_de": "Symbol 353",
+      "name_en": "Symbol 353",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "sigma_h",
+      "symbol_latex": "\\sigma_{h}",
+      "name_de": "Symbol 354",
+      "name_en": "Symbol 354",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "tau_h",
+      "symbol_latex": "\\tau_{h}",
+      "name_de": "Symbol 355",
+      "name_en": "Symbol 355",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "upsilon_h",
+      "symbol_latex": "\\upsilon_{h}",
+      "name_de": "Symbol 356",
+      "name_en": "Symbol 356",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "phi_h",
+      "symbol_latex": "\\phi_{h}",
+      "name_de": "Symbol 357",
+      "name_en": "Symbol 357",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "chi_h",
+      "symbol_latex": "\\chi_{h}",
+      "name_de": "Symbol 358",
+      "name_en": "Symbol 358",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "psi_h",
+      "symbol_latex": "\\psi_{h}",
+      "name_de": "Symbol 359",
+      "name_en": "Symbol 359",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "omega_h",
+      "symbol_latex": "\\omega_{h}",
+      "name_de": "Symbol 360",
+      "name_en": "Symbol 360",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "alpha_c",
+      "symbol_latex": "\\alpha_{c}",
+      "name_de": "Symbol 361",
+      "name_en": "Symbol 361",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "beta_c",
+      "symbol_latex": "\\beta_{c}",
+      "name_de": "Symbol 362",
+      "name_en": "Symbol 362",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "gamma_c",
+      "symbol_latex": "\\gamma_{c}",
+      "name_de": "Symbol 363",
+      "name_en": "Symbol 363",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "delta_c",
+      "symbol_latex": "\\delta_{c}",
+      "name_de": "Symbol 364",
+      "name_en": "Symbol 364",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "epsilon_c",
+      "symbol_latex": "\\epsilon_{c}",
+      "name_de": "Symbol 365",
+      "name_en": "Symbol 365",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "zeta_c",
+      "symbol_latex": "\\zeta_{c}",
+      "name_de": "Symbol 366",
+      "name_en": "Symbol 366",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "eta_c",
+      "symbol_latex": "\\eta_{c}",
+      "name_de": "Symbol 367",
+      "name_en": "Symbol 367",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "theta_c",
+      "symbol_latex": "\\theta_{c}",
+      "name_de": "Symbol 368",
+      "name_en": "Symbol 368",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "iota_c",
+      "symbol_latex": "\\iota_{c}",
+      "name_de": "Symbol 369",
+      "name_en": "Symbol 369",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "kappa_c",
+      "symbol_latex": "\\kappa_{c}",
+      "name_de": "Symbol 370",
+      "name_en": "Symbol 370",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "lambda_c",
+      "symbol_latex": "\\lambda_{c}",
+      "name_de": "Symbol 371",
+      "name_en": "Symbol 371",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "mu_c",
+      "symbol_latex": "\\mu_{c}",
+      "name_de": "Symbol 372",
+      "name_en": "Symbol 372",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "nu_c",
+      "symbol_latex": "\\nu_{c}",
+      "name_de": "Symbol 373",
+      "name_en": "Symbol 373",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "xi_c",
+      "symbol_latex": "\\xi_{c}",
+      "name_de": "Symbol 374",
+      "name_en": "Symbol 374",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "omicron_c",
+      "symbol_latex": "\\omicron_{c}",
+      "name_de": "Symbol 375",
+      "name_en": "Symbol 375",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "pi_c",
+      "symbol_latex": "\\pi_{c}",
+      "name_de": "Symbol 376",
+      "name_en": "Symbol 376",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "rho_c",
+      "symbol_latex": "\\rho_{c}",
+      "name_de": "Symbol 377",
+      "name_en": "Symbol 377",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "sigma_c",
+      "symbol_latex": "\\sigma_{c}",
+      "name_de": "Symbol 378",
+      "name_en": "Symbol 378",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "tau_c",
+      "symbol_latex": "\\tau_{c}",
+      "name_de": "Symbol 379",
+      "name_en": "Symbol 379",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "upsilon_c",
+      "symbol_latex": "\\upsilon_{c}",
+      "name_de": "Symbol 380",
+      "name_en": "Symbol 380",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "symbol": "phi_c",
+      "symbol_latex": "\\phi_{c}",
+      "name_de": "Symbol 381",
+      "name_en": "Symbol 381",
+      "unit": "---",
+      "unit_latex": "---",
+      "data_type": "number",
+      "category": "general",
+      "used_in_parts": [
+        1
+      ],
+      "norm_refs": [
+        "DIN_18599-1_2018-09_TAB_1"
+      ],
+      "note": "Automatisch generiert - Details zu ergänzen"
     }
   ],
   "indices": [

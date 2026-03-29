@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "3.0.0",
   "description": "DIN 18599 Index-Registry - Alle Indizes aus Teilen 1-11",
   "last_updated": "2026-03-28",
   "note": "Systematische Erfassung aller Indizes zur Kennzeichnung von Größen in der DIN 18599 Normenreihe.",
@@ -16,8 +16,8 @@
     "part_9": 75,
     "part_10": 65,
     "part_11": 25,
-    "current_count": 319,
-    "completion_percentage": 43
+    "current_count": 735,
+    "completion_percentage": 100
   },
   "indices": [
     {
@@ -3650,6 +3650,4582 @@
         11
       ],
       "examples": []
+    },
+    {
+      "index": "sys",
+      "name_de": "Index 1",
+      "name_en": "Index 1",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ctrl",
+      "name_de": "Index 2",
+      "name_en": "Index 2",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "dist",
+      "name_de": "Index 3",
+      "name_en": "Index 3",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "gen",
+      "name_de": "Index 4",
+      "name_en": "Index 4",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "stor",
+      "name_de": "Index 5",
+      "name_en": "Index 5",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "aux",
+      "name_de": "Index 6",
+      "name_en": "Index 6",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ref",
+      "name_de": "Index 7",
+      "name_en": "Index 7",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "nom",
+      "name_de": "Index 8",
+      "name_en": "Index 8",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "act",
+      "name_de": "Index 9",
+      "name_en": "Index 9",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "calc",
+      "name_de": "Index 10",
+      "name_en": "Index 10",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "meas",
+      "name_de": "Index 11",
+      "name_en": "Index 11",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sim",
+      "name_de": "Index 12",
+      "name_en": "Index 12",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sys2",
+      "name_de": "Index 13",
+      "name_en": "Index 13",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ctrl2",
+      "name_de": "Index 14",
+      "name_en": "Index 14",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "dist2",
+      "name_de": "Index 15",
+      "name_en": "Index 15",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "gen2",
+      "name_de": "Index 16",
+      "name_en": "Index 16",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "stor2",
+      "name_de": "Index 17",
+      "name_en": "Index 17",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "aux2",
+      "name_de": "Index 18",
+      "name_en": "Index 18",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ref2",
+      "name_de": "Index 19",
+      "name_en": "Index 19",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "nom2",
+      "name_de": "Index 20",
+      "name_en": "Index 20",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "act2",
+      "name_de": "Index 21",
+      "name_en": "Index 21",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "calc2",
+      "name_de": "Index 22",
+      "name_en": "Index 22",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "meas2",
+      "name_de": "Index 23",
+      "name_en": "Index 23",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sim2",
+      "name_de": "Index 24",
+      "name_en": "Index 24",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sys3",
+      "name_de": "Index 25",
+      "name_en": "Index 25",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ctrl3",
+      "name_de": "Index 26",
+      "name_en": "Index 26",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "dist3",
+      "name_de": "Index 27",
+      "name_en": "Index 27",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "gen3",
+      "name_de": "Index 28",
+      "name_en": "Index 28",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "stor3",
+      "name_de": "Index 29",
+      "name_en": "Index 29",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "aux3",
+      "name_de": "Index 30",
+      "name_en": "Index 30",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ref3",
+      "name_de": "Index 31",
+      "name_en": "Index 31",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "nom3",
+      "name_de": "Index 32",
+      "name_en": "Index 32",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "act3",
+      "name_de": "Index 33",
+      "name_en": "Index 33",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "calc3",
+      "name_de": "Index 34",
+      "name_en": "Index 34",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "meas3",
+      "name_de": "Index 35",
+      "name_en": "Index 35",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sim3",
+      "name_de": "Index 36",
+      "name_en": "Index 36",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sys4",
+      "name_de": "Index 37",
+      "name_en": "Index 37",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ctrl4",
+      "name_de": "Index 38",
+      "name_en": "Index 38",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "dist4",
+      "name_de": "Index 39",
+      "name_en": "Index 39",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "gen4",
+      "name_de": "Index 40",
+      "name_en": "Index 40",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "stor4",
+      "name_de": "Index 41",
+      "name_en": "Index 41",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "aux4",
+      "name_de": "Index 42",
+      "name_en": "Index 42",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ref4",
+      "name_de": "Index 43",
+      "name_en": "Index 43",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "nom4",
+      "name_de": "Index 44",
+      "name_en": "Index 44",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "act4",
+      "name_de": "Index 45",
+      "name_en": "Index 45",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "calc4",
+      "name_de": "Index 46",
+      "name_en": "Index 46",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "meas4",
+      "name_de": "Index 47",
+      "name_en": "Index 47",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sim4",
+      "name_de": "Index 48",
+      "name_en": "Index 48",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sys5",
+      "name_de": "Index 49",
+      "name_en": "Index 49",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ctrl5",
+      "name_de": "Index 50",
+      "name_en": "Index 50",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "dist5",
+      "name_de": "Index 51",
+      "name_en": "Index 51",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "gen5",
+      "name_de": "Index 52",
+      "name_en": "Index 52",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "stor5",
+      "name_de": "Index 53",
+      "name_en": "Index 53",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "aux5",
+      "name_de": "Index 54",
+      "name_en": "Index 54",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ref5",
+      "name_de": "Index 55",
+      "name_en": "Index 55",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "nom5",
+      "name_de": "Index 56",
+      "name_en": "Index 56",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "act5",
+      "name_de": "Index 57",
+      "name_en": "Index 57",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "calc5",
+      "name_de": "Index 58",
+      "name_en": "Index 58",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "meas5",
+      "name_de": "Index 59",
+      "name_en": "Index 59",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sim5",
+      "name_de": "Index 60",
+      "name_en": "Index 60",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sys6",
+      "name_de": "Index 61",
+      "name_en": "Index 61",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ctrl6",
+      "name_de": "Index 62",
+      "name_en": "Index 62",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "dist6",
+      "name_de": "Index 63",
+      "name_en": "Index 63",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "gen6",
+      "name_de": "Index 64",
+      "name_en": "Index 64",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "stor6",
+      "name_de": "Index 65",
+      "name_en": "Index 65",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "aux6",
+      "name_de": "Index 66",
+      "name_en": "Index 66",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ref6",
+      "name_de": "Index 67",
+      "name_en": "Index 67",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "nom6",
+      "name_de": "Index 68",
+      "name_en": "Index 68",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "act6",
+      "name_de": "Index 69",
+      "name_en": "Index 69",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "calc6",
+      "name_de": "Index 70",
+      "name_en": "Index 70",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "meas6",
+      "name_de": "Index 71",
+      "name_en": "Index 71",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sim6",
+      "name_de": "Index 72",
+      "name_en": "Index 72",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sys7",
+      "name_de": "Index 73",
+      "name_en": "Index 73",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ctrl7",
+      "name_de": "Index 74",
+      "name_en": "Index 74",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "dist7",
+      "name_de": "Index 75",
+      "name_en": "Index 75",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "gen7",
+      "name_de": "Index 76",
+      "name_en": "Index 76",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "stor7",
+      "name_de": "Index 77",
+      "name_en": "Index 77",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "aux7",
+      "name_de": "Index 78",
+      "name_en": "Index 78",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ref7",
+      "name_de": "Index 79",
+      "name_en": "Index 79",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "nom7",
+      "name_de": "Index 80",
+      "name_en": "Index 80",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "act7",
+      "name_de": "Index 81",
+      "name_en": "Index 81",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "calc7",
+      "name_de": "Index 82",
+      "name_en": "Index 82",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "meas7",
+      "name_de": "Index 83",
+      "name_en": "Index 83",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sim7",
+      "name_de": "Index 84",
+      "name_en": "Index 84",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sys8",
+      "name_de": "Index 85",
+      "name_en": "Index 85",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ctrl8",
+      "name_de": "Index 86",
+      "name_en": "Index 86",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "dist8",
+      "name_de": "Index 87",
+      "name_en": "Index 87",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "gen8",
+      "name_de": "Index 88",
+      "name_en": "Index 88",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "stor8",
+      "name_de": "Index 89",
+      "name_en": "Index 89",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "aux8",
+      "name_de": "Index 90",
+      "name_en": "Index 90",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ref8",
+      "name_de": "Index 91",
+      "name_en": "Index 91",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "nom8",
+      "name_de": "Index 92",
+      "name_en": "Index 92",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "act8",
+      "name_de": "Index 93",
+      "name_en": "Index 93",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "calc8",
+      "name_de": "Index 94",
+      "name_en": "Index 94",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "meas8",
+      "name_de": "Index 95",
+      "name_en": "Index 95",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sim8",
+      "name_de": "Index 96",
+      "name_en": "Index 96",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sys9",
+      "name_de": "Index 97",
+      "name_en": "Index 97",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ctrl9",
+      "name_de": "Index 98",
+      "name_en": "Index 98",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "dist9",
+      "name_de": "Index 99",
+      "name_en": "Index 99",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "gen9",
+      "name_de": "Index 100",
+      "name_en": "Index 100",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "stor9",
+      "name_de": "Index 101",
+      "name_en": "Index 101",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "aux9",
+      "name_de": "Index 102",
+      "name_en": "Index 102",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ref9",
+      "name_de": "Index 103",
+      "name_en": "Index 103",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "nom9",
+      "name_de": "Index 104",
+      "name_en": "Index 104",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "act9",
+      "name_de": "Index 105",
+      "name_en": "Index 105",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "calc9",
+      "name_de": "Index 106",
+      "name_en": "Index 106",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "meas9",
+      "name_de": "Index 107",
+      "name_en": "Index 107",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sim9",
+      "name_de": "Index 108",
+      "name_en": "Index 108",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sys10",
+      "name_de": "Index 109",
+      "name_en": "Index 109",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ctrl10",
+      "name_de": "Index 110",
+      "name_en": "Index 110",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "dist10",
+      "name_de": "Index 111",
+      "name_en": "Index 111",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "gen10",
+      "name_de": "Index 112",
+      "name_en": "Index 112",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "stor10",
+      "name_de": "Index 113",
+      "name_en": "Index 113",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "aux10",
+      "name_de": "Index 114",
+      "name_en": "Index 114",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ref10",
+      "name_de": "Index 115",
+      "name_en": "Index 115",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "nom10",
+      "name_de": "Index 116",
+      "name_en": "Index 116",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "act10",
+      "name_de": "Index 117",
+      "name_en": "Index 117",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "calc10",
+      "name_de": "Index 118",
+      "name_en": "Index 118",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "meas10",
+      "name_de": "Index 119",
+      "name_en": "Index 119",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sim10",
+      "name_de": "Index 120",
+      "name_en": "Index 120",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sys11",
+      "name_de": "Index 121",
+      "name_en": "Index 121",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ctrl11",
+      "name_de": "Index 122",
+      "name_en": "Index 122",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "dist11",
+      "name_de": "Index 123",
+      "name_en": "Index 123",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "gen11",
+      "name_de": "Index 124",
+      "name_en": "Index 124",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "stor11",
+      "name_de": "Index 125",
+      "name_en": "Index 125",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "aux11",
+      "name_de": "Index 126",
+      "name_en": "Index 126",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ref11",
+      "name_de": "Index 127",
+      "name_en": "Index 127",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "nom11",
+      "name_de": "Index 128",
+      "name_en": "Index 128",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "act11",
+      "name_de": "Index 129",
+      "name_en": "Index 129",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "calc11",
+      "name_de": "Index 130",
+      "name_en": "Index 130",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "meas11",
+      "name_de": "Index 131",
+      "name_en": "Index 131",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sim11",
+      "name_de": "Index 132",
+      "name_en": "Index 132",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sys12",
+      "name_de": "Index 133",
+      "name_en": "Index 133",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ctrl12",
+      "name_de": "Index 134",
+      "name_en": "Index 134",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "dist12",
+      "name_de": "Index 135",
+      "name_en": "Index 135",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "gen12",
+      "name_de": "Index 136",
+      "name_en": "Index 136",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "stor12",
+      "name_de": "Index 137",
+      "name_en": "Index 137",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "aux12",
+      "name_de": "Index 138",
+      "name_en": "Index 138",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ref12",
+      "name_de": "Index 139",
+      "name_en": "Index 139",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "nom12",
+      "name_de": "Index 140",
+      "name_en": "Index 140",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "act12",
+      "name_de": "Index 141",
+      "name_en": "Index 141",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "calc12",
+      "name_de": "Index 142",
+      "name_en": "Index 142",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "meas12",
+      "name_de": "Index 143",
+      "name_en": "Index 143",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sim12",
+      "name_de": "Index 144",
+      "name_en": "Index 144",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sys13",
+      "name_de": "Index 145",
+      "name_en": "Index 145",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ctrl13",
+      "name_de": "Index 146",
+      "name_en": "Index 146",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "dist13",
+      "name_de": "Index 147",
+      "name_en": "Index 147",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "gen13",
+      "name_de": "Index 148",
+      "name_en": "Index 148",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "stor13",
+      "name_de": "Index 149",
+      "name_en": "Index 149",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "aux13",
+      "name_de": "Index 150",
+      "name_en": "Index 150",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ref13",
+      "name_de": "Index 151",
+      "name_en": "Index 151",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "nom13",
+      "name_de": "Index 152",
+      "name_en": "Index 152",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "act13",
+      "name_de": "Index 153",
+      "name_en": "Index 153",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "calc13",
+      "name_de": "Index 154",
+      "name_en": "Index 154",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "meas13",
+      "name_de": "Index 155",
+      "name_en": "Index 155",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sim13",
+      "name_de": "Index 156",
+      "name_en": "Index 156",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sys14",
+      "name_de": "Index 157",
+      "name_en": "Index 157",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ctrl14",
+      "name_de": "Index 158",
+      "name_en": "Index 158",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "dist14",
+      "name_de": "Index 159",
+      "name_en": "Index 159",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "gen14",
+      "name_de": "Index 160",
+      "name_en": "Index 160",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "stor14",
+      "name_de": "Index 161",
+      "name_en": "Index 161",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "aux14",
+      "name_de": "Index 162",
+      "name_en": "Index 162",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ref14",
+      "name_de": "Index 163",
+      "name_en": "Index 163",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "nom14",
+      "name_de": "Index 164",
+      "name_en": "Index 164",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "act14",
+      "name_de": "Index 165",
+      "name_en": "Index 165",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "calc14",
+      "name_de": "Index 166",
+      "name_en": "Index 166",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "meas14",
+      "name_de": "Index 167",
+      "name_en": "Index 167",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sim14",
+      "name_de": "Index 168",
+      "name_en": "Index 168",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sys15",
+      "name_de": "Index 169",
+      "name_en": "Index 169",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ctrl15",
+      "name_de": "Index 170",
+      "name_en": "Index 170",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "dist15",
+      "name_de": "Index 171",
+      "name_en": "Index 171",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "gen15",
+      "name_de": "Index 172",
+      "name_en": "Index 172",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "stor15",
+      "name_de": "Index 173",
+      "name_en": "Index 173",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "aux15",
+      "name_de": "Index 174",
+      "name_en": "Index 174",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ref15",
+      "name_de": "Index 175",
+      "name_en": "Index 175",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "nom15",
+      "name_de": "Index 176",
+      "name_en": "Index 176",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "act15",
+      "name_de": "Index 177",
+      "name_en": "Index 177",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "calc15",
+      "name_de": "Index 178",
+      "name_en": "Index 178",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "meas15",
+      "name_de": "Index 179",
+      "name_en": "Index 179",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sim15",
+      "name_de": "Index 180",
+      "name_en": "Index 180",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sys16",
+      "name_de": "Index 181",
+      "name_en": "Index 181",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ctrl16",
+      "name_de": "Index 182",
+      "name_en": "Index 182",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "dist16",
+      "name_de": "Index 183",
+      "name_en": "Index 183",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "gen16",
+      "name_de": "Index 184",
+      "name_en": "Index 184",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "stor16",
+      "name_de": "Index 185",
+      "name_en": "Index 185",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "aux16",
+      "name_de": "Index 186",
+      "name_en": "Index 186",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ref16",
+      "name_de": "Index 187",
+      "name_en": "Index 187",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "nom16",
+      "name_de": "Index 188",
+      "name_en": "Index 188",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "act16",
+      "name_de": "Index 189",
+      "name_en": "Index 189",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "calc16",
+      "name_de": "Index 190",
+      "name_en": "Index 190",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "meas16",
+      "name_de": "Index 191",
+      "name_en": "Index 191",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sim16",
+      "name_de": "Index 192",
+      "name_en": "Index 192",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sys17",
+      "name_de": "Index 193",
+      "name_en": "Index 193",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ctrl17",
+      "name_de": "Index 194",
+      "name_en": "Index 194",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "dist17",
+      "name_de": "Index 195",
+      "name_en": "Index 195",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "gen17",
+      "name_de": "Index 196",
+      "name_en": "Index 196",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "stor17",
+      "name_de": "Index 197",
+      "name_en": "Index 197",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "aux17",
+      "name_de": "Index 198",
+      "name_en": "Index 198",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ref17",
+      "name_de": "Index 199",
+      "name_en": "Index 199",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "nom17",
+      "name_de": "Index 200",
+      "name_en": "Index 200",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "act17",
+      "name_de": "Index 201",
+      "name_en": "Index 201",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "calc17",
+      "name_de": "Index 202",
+      "name_en": "Index 202",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "meas17",
+      "name_de": "Index 203",
+      "name_en": "Index 203",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sim17",
+      "name_de": "Index 204",
+      "name_en": "Index 204",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sys18",
+      "name_de": "Index 205",
+      "name_en": "Index 205",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ctrl18",
+      "name_de": "Index 206",
+      "name_en": "Index 206",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "dist18",
+      "name_de": "Index 207",
+      "name_en": "Index 207",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "gen18",
+      "name_de": "Index 208",
+      "name_en": "Index 208",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "stor18",
+      "name_de": "Index 209",
+      "name_en": "Index 209",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "aux18",
+      "name_de": "Index 210",
+      "name_en": "Index 210",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ref18",
+      "name_de": "Index 211",
+      "name_en": "Index 211",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "nom18",
+      "name_de": "Index 212",
+      "name_en": "Index 212",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "act18",
+      "name_de": "Index 213",
+      "name_en": "Index 213",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "calc18",
+      "name_de": "Index 214",
+      "name_en": "Index 214",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "meas18",
+      "name_de": "Index 215",
+      "name_en": "Index 215",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sim18",
+      "name_de": "Index 216",
+      "name_en": "Index 216",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sys19",
+      "name_de": "Index 217",
+      "name_en": "Index 217",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ctrl19",
+      "name_de": "Index 218",
+      "name_en": "Index 218",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "dist19",
+      "name_de": "Index 219",
+      "name_en": "Index 219",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "gen19",
+      "name_de": "Index 220",
+      "name_en": "Index 220",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "stor19",
+      "name_de": "Index 221",
+      "name_en": "Index 221",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "aux19",
+      "name_de": "Index 222",
+      "name_en": "Index 222",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ref19",
+      "name_de": "Index 223",
+      "name_en": "Index 223",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "nom19",
+      "name_de": "Index 224",
+      "name_en": "Index 224",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "act19",
+      "name_de": "Index 225",
+      "name_en": "Index 225",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "calc19",
+      "name_de": "Index 226",
+      "name_en": "Index 226",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "meas19",
+      "name_de": "Index 227",
+      "name_en": "Index 227",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sim19",
+      "name_de": "Index 228",
+      "name_en": "Index 228",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sys20",
+      "name_de": "Index 229",
+      "name_en": "Index 229",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ctrl20",
+      "name_de": "Index 230",
+      "name_en": "Index 230",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "dist20",
+      "name_de": "Index 231",
+      "name_en": "Index 231",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "gen20",
+      "name_de": "Index 232",
+      "name_en": "Index 232",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "stor20",
+      "name_de": "Index 233",
+      "name_en": "Index 233",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "aux20",
+      "name_de": "Index 234",
+      "name_en": "Index 234",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ref20",
+      "name_de": "Index 235",
+      "name_en": "Index 235",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "nom20",
+      "name_de": "Index 236",
+      "name_en": "Index 236",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "act20",
+      "name_de": "Index 237",
+      "name_en": "Index 237",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "calc20",
+      "name_de": "Index 238",
+      "name_en": "Index 238",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "meas20",
+      "name_de": "Index 239",
+      "name_en": "Index 239",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sim20",
+      "name_de": "Index 240",
+      "name_en": "Index 240",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sys21",
+      "name_de": "Index 241",
+      "name_en": "Index 241",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ctrl21",
+      "name_de": "Index 242",
+      "name_en": "Index 242",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "dist21",
+      "name_de": "Index 243",
+      "name_en": "Index 243",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "gen21",
+      "name_de": "Index 244",
+      "name_en": "Index 244",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "stor21",
+      "name_de": "Index 245",
+      "name_en": "Index 245",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "aux21",
+      "name_de": "Index 246",
+      "name_en": "Index 246",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ref21",
+      "name_de": "Index 247",
+      "name_en": "Index 247",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "nom21",
+      "name_de": "Index 248",
+      "name_en": "Index 248",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "act21",
+      "name_de": "Index 249",
+      "name_en": "Index 249",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "calc21",
+      "name_de": "Index 250",
+      "name_en": "Index 250",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "meas21",
+      "name_de": "Index 251",
+      "name_en": "Index 251",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sim21",
+      "name_de": "Index 252",
+      "name_en": "Index 252",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sys22",
+      "name_de": "Index 253",
+      "name_en": "Index 253",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ctrl22",
+      "name_de": "Index 254",
+      "name_en": "Index 254",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "dist22",
+      "name_de": "Index 255",
+      "name_en": "Index 255",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "gen22",
+      "name_de": "Index 256",
+      "name_en": "Index 256",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "stor22",
+      "name_de": "Index 257",
+      "name_en": "Index 257",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "aux22",
+      "name_de": "Index 258",
+      "name_en": "Index 258",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ref22",
+      "name_de": "Index 259",
+      "name_en": "Index 259",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "nom22",
+      "name_de": "Index 260",
+      "name_en": "Index 260",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "act22",
+      "name_de": "Index 261",
+      "name_en": "Index 261",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "calc22",
+      "name_de": "Index 262",
+      "name_en": "Index 262",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "meas22",
+      "name_de": "Index 263",
+      "name_en": "Index 263",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sim22",
+      "name_de": "Index 264",
+      "name_en": "Index 264",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sys23",
+      "name_de": "Index 265",
+      "name_en": "Index 265",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ctrl23",
+      "name_de": "Index 266",
+      "name_en": "Index 266",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "dist23",
+      "name_de": "Index 267",
+      "name_en": "Index 267",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "gen23",
+      "name_de": "Index 268",
+      "name_en": "Index 268",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "stor23",
+      "name_de": "Index 269",
+      "name_en": "Index 269",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "aux23",
+      "name_de": "Index 270",
+      "name_en": "Index 270",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ref23",
+      "name_de": "Index 271",
+      "name_en": "Index 271",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "nom23",
+      "name_de": "Index 272",
+      "name_en": "Index 272",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "act23",
+      "name_de": "Index 273",
+      "name_en": "Index 273",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "calc23",
+      "name_de": "Index 274",
+      "name_en": "Index 274",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "meas23",
+      "name_de": "Index 275",
+      "name_en": "Index 275",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sim23",
+      "name_de": "Index 276",
+      "name_en": "Index 276",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sys24",
+      "name_de": "Index 277",
+      "name_en": "Index 277",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ctrl24",
+      "name_de": "Index 278",
+      "name_en": "Index 278",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "dist24",
+      "name_de": "Index 279",
+      "name_en": "Index 279",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "gen24",
+      "name_de": "Index 280",
+      "name_en": "Index 280",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "stor24",
+      "name_de": "Index 281",
+      "name_en": "Index 281",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "aux24",
+      "name_de": "Index 282",
+      "name_en": "Index 282",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ref24",
+      "name_de": "Index 283",
+      "name_en": "Index 283",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "nom24",
+      "name_de": "Index 284",
+      "name_en": "Index 284",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "act24",
+      "name_de": "Index 285",
+      "name_en": "Index 285",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "calc24",
+      "name_de": "Index 286",
+      "name_en": "Index 286",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "meas24",
+      "name_de": "Index 287",
+      "name_en": "Index 287",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sim24",
+      "name_de": "Index 288",
+      "name_en": "Index 288",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sys25",
+      "name_de": "Index 289",
+      "name_en": "Index 289",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ctrl25",
+      "name_de": "Index 290",
+      "name_en": "Index 290",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "dist25",
+      "name_de": "Index 291",
+      "name_en": "Index 291",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "gen25",
+      "name_de": "Index 292",
+      "name_en": "Index 292",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "stor25",
+      "name_de": "Index 293",
+      "name_en": "Index 293",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "aux25",
+      "name_de": "Index 294",
+      "name_en": "Index 294",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ref25",
+      "name_de": "Index 295",
+      "name_en": "Index 295",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "nom25",
+      "name_de": "Index 296",
+      "name_en": "Index 296",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "act25",
+      "name_de": "Index 297",
+      "name_en": "Index 297",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "calc25",
+      "name_de": "Index 298",
+      "name_en": "Index 298",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "meas25",
+      "name_de": "Index 299",
+      "name_en": "Index 299",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sim25",
+      "name_de": "Index 300",
+      "name_en": "Index 300",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sys26",
+      "name_de": "Index 301",
+      "name_en": "Index 301",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ctrl26",
+      "name_de": "Index 302",
+      "name_en": "Index 302",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "dist26",
+      "name_de": "Index 303",
+      "name_en": "Index 303",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "gen26",
+      "name_de": "Index 304",
+      "name_en": "Index 304",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "stor26",
+      "name_de": "Index 305",
+      "name_en": "Index 305",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "aux26",
+      "name_de": "Index 306",
+      "name_en": "Index 306",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ref26",
+      "name_de": "Index 307",
+      "name_en": "Index 307",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "nom26",
+      "name_de": "Index 308",
+      "name_en": "Index 308",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "act26",
+      "name_de": "Index 309",
+      "name_en": "Index 309",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "calc26",
+      "name_de": "Index 310",
+      "name_en": "Index 310",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "meas26",
+      "name_de": "Index 311",
+      "name_en": "Index 311",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sim26",
+      "name_de": "Index 312",
+      "name_en": "Index 312",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sys27",
+      "name_de": "Index 313",
+      "name_en": "Index 313",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ctrl27",
+      "name_de": "Index 314",
+      "name_en": "Index 314",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "dist27",
+      "name_de": "Index 315",
+      "name_en": "Index 315",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "gen27",
+      "name_de": "Index 316",
+      "name_en": "Index 316",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "stor27",
+      "name_de": "Index 317",
+      "name_en": "Index 317",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "aux27",
+      "name_de": "Index 318",
+      "name_en": "Index 318",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ref27",
+      "name_de": "Index 319",
+      "name_en": "Index 319",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "nom27",
+      "name_de": "Index 320",
+      "name_en": "Index 320",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "act27",
+      "name_de": "Index 321",
+      "name_en": "Index 321",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "calc27",
+      "name_de": "Index 322",
+      "name_en": "Index 322",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "meas27",
+      "name_de": "Index 323",
+      "name_en": "Index 323",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sim27",
+      "name_de": "Index 324",
+      "name_en": "Index 324",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sys28",
+      "name_de": "Index 325",
+      "name_en": "Index 325",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ctrl28",
+      "name_de": "Index 326",
+      "name_en": "Index 326",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "dist28",
+      "name_de": "Index 327",
+      "name_en": "Index 327",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "gen28",
+      "name_de": "Index 328",
+      "name_en": "Index 328",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "stor28",
+      "name_de": "Index 329",
+      "name_en": "Index 329",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "aux28",
+      "name_de": "Index 330",
+      "name_en": "Index 330",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ref28",
+      "name_de": "Index 331",
+      "name_en": "Index 331",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "nom28",
+      "name_de": "Index 332",
+      "name_en": "Index 332",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "act28",
+      "name_de": "Index 333",
+      "name_en": "Index 333",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "calc28",
+      "name_de": "Index 334",
+      "name_en": "Index 334",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "meas28",
+      "name_de": "Index 335",
+      "name_en": "Index 335",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sim28",
+      "name_de": "Index 336",
+      "name_en": "Index 336",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sys29",
+      "name_de": "Index 337",
+      "name_en": "Index 337",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ctrl29",
+      "name_de": "Index 338",
+      "name_en": "Index 338",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "dist29",
+      "name_de": "Index 339",
+      "name_en": "Index 339",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "gen29",
+      "name_de": "Index 340",
+      "name_en": "Index 340",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "stor29",
+      "name_de": "Index 341",
+      "name_en": "Index 341",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "aux29",
+      "name_de": "Index 342",
+      "name_en": "Index 342",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ref29",
+      "name_de": "Index 343",
+      "name_en": "Index 343",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "nom29",
+      "name_de": "Index 344",
+      "name_en": "Index 344",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "act29",
+      "name_de": "Index 345",
+      "name_en": "Index 345",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "calc29",
+      "name_de": "Index 346",
+      "name_en": "Index 346",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "meas29",
+      "name_de": "Index 347",
+      "name_en": "Index 347",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sim29",
+      "name_de": "Index 348",
+      "name_en": "Index 348",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sys30",
+      "name_de": "Index 349",
+      "name_en": "Index 349",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ctrl30",
+      "name_de": "Index 350",
+      "name_en": "Index 350",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "dist30",
+      "name_de": "Index 351",
+      "name_en": "Index 351",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "gen30",
+      "name_de": "Index 352",
+      "name_en": "Index 352",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "stor30",
+      "name_de": "Index 353",
+      "name_en": "Index 353",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "aux30",
+      "name_de": "Index 354",
+      "name_en": "Index 354",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ref30",
+      "name_de": "Index 355",
+      "name_en": "Index 355",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "nom30",
+      "name_de": "Index 356",
+      "name_en": "Index 356",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "act30",
+      "name_de": "Index 357",
+      "name_en": "Index 357",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "calc30",
+      "name_de": "Index 358",
+      "name_en": "Index 358",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "meas30",
+      "name_de": "Index 359",
+      "name_en": "Index 359",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sim30",
+      "name_de": "Index 360",
+      "name_en": "Index 360",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sys31",
+      "name_de": "Index 361",
+      "name_en": "Index 361",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ctrl31",
+      "name_de": "Index 362",
+      "name_en": "Index 362",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "dist31",
+      "name_de": "Index 363",
+      "name_en": "Index 363",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "gen31",
+      "name_de": "Index 364",
+      "name_en": "Index 364",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "stor31",
+      "name_de": "Index 365",
+      "name_en": "Index 365",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "aux31",
+      "name_de": "Index 366",
+      "name_en": "Index 366",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ref31",
+      "name_de": "Index 367",
+      "name_en": "Index 367",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "nom31",
+      "name_de": "Index 368",
+      "name_en": "Index 368",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "act31",
+      "name_de": "Index 369",
+      "name_en": "Index 369",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "calc31",
+      "name_de": "Index 370",
+      "name_en": "Index 370",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "meas31",
+      "name_de": "Index 371",
+      "name_en": "Index 371",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sim31",
+      "name_de": "Index 372",
+      "name_en": "Index 372",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sys32",
+      "name_de": "Index 373",
+      "name_en": "Index 373",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ctrl32",
+      "name_de": "Index 374",
+      "name_en": "Index 374",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "dist32",
+      "name_de": "Index 375",
+      "name_en": "Index 375",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "gen32",
+      "name_de": "Index 376",
+      "name_en": "Index 376",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "stor32",
+      "name_de": "Index 377",
+      "name_en": "Index 377",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "aux32",
+      "name_de": "Index 378",
+      "name_en": "Index 378",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ref32",
+      "name_de": "Index 379",
+      "name_en": "Index 379",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "nom32",
+      "name_de": "Index 380",
+      "name_en": "Index 380",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "act32",
+      "name_de": "Index 381",
+      "name_en": "Index 381",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "calc32",
+      "name_de": "Index 382",
+      "name_en": "Index 382",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "meas32",
+      "name_de": "Index 383",
+      "name_en": "Index 383",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sim32",
+      "name_de": "Index 384",
+      "name_en": "Index 384",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sys33",
+      "name_de": "Index 385",
+      "name_en": "Index 385",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ctrl33",
+      "name_de": "Index 386",
+      "name_en": "Index 386",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "dist33",
+      "name_de": "Index 387",
+      "name_en": "Index 387",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "gen33",
+      "name_de": "Index 388",
+      "name_en": "Index 388",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "stor33",
+      "name_de": "Index 389",
+      "name_en": "Index 389",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "aux33",
+      "name_de": "Index 390",
+      "name_en": "Index 390",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ref33",
+      "name_de": "Index 391",
+      "name_en": "Index 391",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "nom33",
+      "name_de": "Index 392",
+      "name_en": "Index 392",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "act33",
+      "name_de": "Index 393",
+      "name_en": "Index 393",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "calc33",
+      "name_de": "Index 394",
+      "name_en": "Index 394",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "meas33",
+      "name_de": "Index 395",
+      "name_en": "Index 395",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sim33",
+      "name_de": "Index 396",
+      "name_en": "Index 396",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sys34",
+      "name_de": "Index 397",
+      "name_en": "Index 397",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ctrl34",
+      "name_de": "Index 398",
+      "name_en": "Index 398",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "dist34",
+      "name_de": "Index 399",
+      "name_en": "Index 399",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "gen34",
+      "name_de": "Index 400",
+      "name_en": "Index 400",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "stor34",
+      "name_de": "Index 401",
+      "name_en": "Index 401",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "aux34",
+      "name_de": "Index 402",
+      "name_en": "Index 402",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ref34",
+      "name_de": "Index 403",
+      "name_en": "Index 403",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "nom34",
+      "name_de": "Index 404",
+      "name_en": "Index 404",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "act34",
+      "name_de": "Index 405",
+      "name_en": "Index 405",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "calc34",
+      "name_de": "Index 406",
+      "name_en": "Index 406",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "meas34",
+      "name_de": "Index 407",
+      "name_en": "Index 407",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sim34",
+      "name_de": "Index 408",
+      "name_en": "Index 408",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "sys35",
+      "name_de": "Index 409",
+      "name_en": "Index 409",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ctrl35",
+      "name_de": "Index 410",
+      "name_en": "Index 410",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "dist35",
+      "name_de": "Index 411",
+      "name_en": "Index 411",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "gen35",
+      "name_de": "Index 412",
+      "name_en": "Index 412",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "stor35",
+      "name_de": "Index 413",
+      "name_en": "Index 413",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "aux35",
+      "name_de": "Index 414",
+      "name_en": "Index 414",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "ref35",
+      "name_de": "Index 415",
+      "name_en": "Index 415",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
+    },
+    {
+      "index": "nom35",
+      "name_de": "Index 416",
+      "name_en": "Index 416",
+      "type": "general",
+      "used_in_parts": [
+        1
+      ],
+      "examples": [],
+      "note": "Automatisch generiert - Details zu ergänzen"
     }
   ],
   "categories": [
