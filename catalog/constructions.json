@@ -1,0 +1,368 @@
+{
+  "version": "1.0.0",
+  "description": "Schichtaufbau-Katalog für energetische Gebäudeakte - Typische Konstruktionen mit U-Wert-Berechnung",
+  "source": "DIN EN ISO 6946, Bundesanzeiger 2020, Typische Baukonstruktionen",
+  "last_updated": "2026-03-29",
+  "note": "Schichtaufbauten für Wände, Dächer, Böden mit automatischer U-Wert-Berechnung",
+  
+  "constructions": [
+    {
+      "id": "WALL_EXT_BRICK_UNINSULATED",
+      "name_de": "Außenwand Vollziegel ungedämmt (Altbau)",
+      "name_en": "External wall solid brick uninsulated",
+      "category": "wall_external",
+      "era": "pre_1978",
+      "u_value_calculated": 1.4,
+      "layers": [
+        {"material_ref": "MAT_LIME_CEMENT_PLASTER", "thickness": 0.015, "position": "exterior"},
+        {"material_ref": "MAT_BRICK_SOLID", "thickness": 0.365, "position": "core"},
+        {"material_ref": "MAT_GYPSUM_PLASTER", "thickness": 0.015, "position": "interior"}
+      ]
+    },
+    {
+      "id": "WALL_EXT_BRICK_WDVS_100",
+      "name_de": "Außenwand Ziegel + WDVS 10cm",
+      "name_en": "External wall brick + ETICS 10cm",
+      "category": "wall_external",
+      "era": "1995_2001",
+      "u_value_calculated": 0.32,
+      "layers": [
+        {"material_ref": "MAT_LIME_CEMENT_PLASTER", "thickness": 0.005, "position": "exterior"},
+        {"material_ref": "MAT_EPS_035", "thickness": 0.10, "position": "insulation"},
+        {"material_ref": "MAT_BRICK_PERFORATED", "thickness": 0.24, "position": "core"},
+        {"material_ref": "MAT_GYPSUM_PLASTER", "thickness": 0.015, "position": "interior"}
+      ]
+    },
+    {
+      "id": "WALL_EXT_BRICK_WDVS_160",
+      "name_de": "Außenwand Ziegel + WDVS 16cm (KfW 55)",
+      "name_en": "External wall brick + ETICS 16cm",
+      "category": "wall_external",
+      "era": "2016_2023",
+      "u_value_calculated": 0.21,
+      "layers": [
+        {"material_ref": "MAT_LIME_CEMENT_PLASTER", "thickness": 0.005, "position": "exterior"},
+        {"material_ref": "MAT_EPS_032", "thickness": 0.16, "position": "insulation"},
+        {"material_ref": "MAT_BRICK_PERFORATED", "thickness": 0.24, "position": "core"},
+        {"material_ref": "MAT_GYPSUM_PLASTER", "thickness": 0.015, "position": "interior"}
+      ]
+    },
+    {
+      "id": "WALL_EXT_BRICK_WDVS_200",
+      "name_de": "Außenwand Ziegel + WDVS 20cm (KfW 40)",
+      "name_en": "External wall brick + ETICS 20cm",
+      "category": "wall_external",
+      "era": "2024_plus",
+      "u_value_calculated": 0.17,
+      "layers": [
+        {"material_ref": "MAT_LIME_CEMENT_PLASTER", "thickness": 0.005, "position": "exterior"},
+        {"material_ref": "MAT_EPS_032", "thickness": 0.20, "position": "insulation"},
+        {"material_ref": "MAT_BRICK_PERFORATED", "thickness": 0.24, "position": "core"},
+        {"material_ref": "MAT_GYPSUM_PLASTER", "thickness": 0.015, "position": "interior"}
+      ]
+    },
+    {
+      "id": "WALL_EXT_POROTON_365",
+      "name_de": "Außenwand Poroton 36,5cm (monolithisch)",
+      "name_en": "External wall porous brick 36.5cm",
+      "category": "wall_external",
+      "era": "2009_2015",
+      "u_value_calculated": 0.28,
+      "layers": [
+        {"material_ref": "MAT_LIME_CEMENT_PLASTER", "thickness": 0.015, "position": "exterior"},
+        {"material_ref": "MAT_BRICK_POROUS", "thickness": 0.365, "position": "core"},
+        {"material_ref": "MAT_GYPSUM_PLASTER", "thickness": 0.015, "position": "interior"}
+      ]
+    },
+    {
+      "id": "WALL_EXT_CONCRETE_UNINSULATED",
+      "name_de": "Außenwand Beton ungedämmt (Altbau)",
+      "name_en": "External wall concrete uninsulated",
+      "category": "wall_external",
+      "era": "pre_1978",
+      "u_value_calculated": 2.8,
+      "layers": [
+        {"material_ref": "MAT_LIME_CEMENT_PLASTER", "thickness": 0.015, "position": "exterior"},
+        {"material_ref": "MAT_CONCRETE_NORMAL", "thickness": 0.20, "position": "core"},
+        {"material_ref": "MAT_GYPSUM_PLASTER", "thickness": 0.015, "position": "interior"}
+      ]
+    },
+    {
+      "id": "WALL_EXT_WOOD_FRAME_240",
+      "name_de": "Außenwand Holzrahmenbau 24cm",
+      "name_en": "External wall timber frame 24cm",
+      "category": "wall_external",
+      "era": "2016_2023",
+      "u_value_calculated": 0.18,
+      "sustainable": true,
+      "layers": [
+        {"material_ref": "MAT_LIME_CEMENT_PLASTER", "thickness": 0.015, "position": "exterior"},
+        {"material_ref": "MAT_WOOD_FIBER_040", "thickness": 0.06, "position": "insulation_exterior"},
+        {"material_ref": "MAT_WIND_BARRIER", "thickness": 0.001, "position": "membrane"},
+        {"material_ref": "MAT_WOOD_SPRUCE", "thickness": 0.04, "position": "structure"},
+        {"material_ref": "MAT_CELLULOSE_040", "thickness": 0.16, "position": "insulation_core"},
+        {"material_ref": "MAT_VAPOR_BARRIER", "thickness": 0.001, "position": "membrane"},
+        {"material_ref": "MAT_GYPSUM_BOARD", "thickness": 0.0125, "position": "interior"}
+      ]
+    },
+    {
+      "id": "ROOF_PITCHED_UNINSULATED",
+      "name_de": "Steildach ungedämmt (Altbau)",
+      "name_en": "Pitched roof uninsulated",
+      "category": "roof_pitched",
+      "era": "pre_1978",
+      "u_value_calculated": 1.8,
+      "layers": [
+        {"material_ref": "MAT_WOOD_SPRUCE", "thickness": 0.025, "position": "exterior"},
+        {"material_ref": "MAT_AIR_LAYER_SLIGHTLY_VENTILATED", "thickness": 0.05, "position": "air"},
+        {"material_ref": "MAT_WOOD_SPRUCE", "thickness": 0.025, "position": "interior"}
+      ]
+    },
+    {
+      "id": "ROOF_PITCHED_BETWEEN_RAFTERS_160",
+      "name_de": "Steildach Zwischensparrendämmung 16cm",
+      "name_en": "Pitched roof between rafters 16cm",
+      "category": "roof_pitched",
+      "era": "1995_2001",
+      "u_value_calculated": 0.28,
+      "layers": [
+        {"material_ref": "MAT_WOOD_SPRUCE", "thickness": 0.025, "position": "exterior"},
+        {"material_ref": "MAT_AIR_LAYER_SLIGHTLY_VENTILATED", "thickness": 0.05, "position": "air"},
+        {"material_ref": "MAT_WOOD_SPRUCE", "thickness": 0.04, "position": "structure"},
+        {"material_ref": "MAT_MINERAL_WOOL_035", "thickness": 0.16, "position": "insulation"},
+        {"material_ref": "MAT_VAPOR_BARRIER", "thickness": 0.001, "position": "membrane"},
+        {"material_ref": "MAT_GYPSUM_BOARD", "thickness": 0.0125, "position": "interior"}
+      ]
+    },
+    {
+      "id": "ROOF_PITCHED_FULL_INSULATION_240",
+      "name_de": "Steildach Aufsparrendämmung 24cm (KfW 40)",
+      "name_en": "Pitched roof above rafters 24cm",
+      "category": "roof_pitched",
+      "era": "2024_plus",
+      "u_value_calculated": 0.14,
+      "layers": [
+        {"material_ref": "MAT_WOOD_SPRUCE", "thickness": 0.025, "position": "exterior"},
+        {"material_ref": "MAT_PUR_024", "thickness": 0.24, "position": "insulation"},
+        {"material_ref": "MAT_WOOD_SPRUCE", "thickness": 0.06, "position": "structure"},
+        {"material_ref": "MAT_VAPOR_BARRIER", "thickness": 0.001, "position": "membrane"},
+        {"material_ref": "MAT_GYPSUM_BOARD", "thickness": 0.0125, "position": "interior"}
+      ]
+    },
+    {
+      "id": "ROOF_FLAT_UNINSULATED",
+      "name_de": "Flachdach ungedämmt (Altbau)",
+      "name_en": "Flat roof uninsulated",
+      "category": "roof_flat",
+      "era": "pre_1978",
+      "u_value_calculated": 1.6,
+      "layers": [
+        {"material_ref": "MAT_BITUMEN_MEMBRANE", "thickness": 0.005, "position": "exterior"},
+        {"material_ref": "MAT_CONCRETE_NORMAL", "thickness": 0.20, "position": "core"},
+        {"material_ref": "MAT_GYPSUM_PLASTER", "thickness": 0.015, "position": "interior"}
+      ]
+    },
+    {
+      "id": "ROOF_FLAT_INSULATED_200",
+      "name_de": "Flachdach gedämmt 20cm (KfW 55)",
+      "name_en": "Flat roof insulated 20cm",
+      "category": "roof_flat",
+      "era": "2016_2023",
+      "u_value_calculated": 0.17,
+      "layers": [
+        {"material_ref": "MAT_BITUMEN_MEMBRANE", "thickness": 0.005, "position": "exterior"},
+        {"material_ref": "MAT_XPS_035", "thickness": 0.20, "position": "insulation"},
+        {"material_ref": "MAT_VAPOR_BARRIER", "thickness": 0.001, "position": "membrane"},
+        {"material_ref": "MAT_CONCRETE_NORMAL", "thickness": 0.20, "position": "core"},
+        {"material_ref": "MAT_GYPSUM_PLASTER", "thickness": 0.015, "position": "interior"}
+      ]
+    },
+    {
+      "id": "FLOOR_BASEMENT_UNINSULATED",
+      "name_de": "Kellerdecke ungedämmt (Altbau)",
+      "name_en": "Basement ceiling uninsulated",
+      "category": "floor_basement",
+      "era": "pre_1978",
+      "u_value_calculated": 1.2,
+      "layers": [
+        {"material_ref": "MAT_CONCRETE_NORMAL", "thickness": 0.20, "position": "core"},
+        {"material_ref": "MAT_GYPSUM_PLASTER", "thickness": 0.015, "position": "interior"}
+      ]
+    },
+    {
+      "id": "FLOOR_BASEMENT_INSULATED_100",
+      "name_de": "Kellerdecke gedämmt 10cm",
+      "name_en": "Basement ceiling insulated 10cm",
+      "category": "floor_basement",
+      "era": "2009_2015",
+      "u_value_calculated": 0.32,
+      "layers": [
+        {"material_ref": "MAT_CONCRETE_NORMAL", "thickness": 0.20, "position": "core"},
+        {"material_ref": "MAT_EPS_035", "thickness": 0.10, "position": "insulation"},
+        {"material_ref": "MAT_GYPSUM_PLASTER", "thickness": 0.015, "position": "interior"}
+      ]
+    },
+    {
+      "id": "FLOOR_GROUND_SLAB_UNINSULATED",
+      "name_de": "Bodenplatte ungedämmt (Altbau)",
+      "name_en": "Ground slab uninsulated",
+      "category": "floor_ground",
+      "era": "pre_1978",
+      "u_value_calculated": 1.5,
+      "layers": [
+        {"material_ref": "MAT_SCREED_CEMENT", "thickness": 0.06, "position": "interior"},
+        {"material_ref": "MAT_CONCRETE_NORMAL", "thickness": 0.15, "position": "core"},
+        {"material_ref": "MAT_GRAVEL", "thickness": 0.20, "position": "ground"}
+      ]
+    },
+    {
+      "id": "FLOOR_GROUND_SLAB_PERIMETER_120",
+      "name_de": "Bodenplatte Perimeterdämmung 12cm",
+      "name_en": "Ground slab perimeter insulation 12cm",
+      "category": "floor_ground",
+      "era": "2016_2023",
+      "u_value_calculated": 0.28,
+      "layers": [
+        {"material_ref": "MAT_SCREED_CEMENT", "thickness": 0.06, "position": "interior"},
+        {"material_ref": "MAT_PE_FOIL", "thickness": 0.001, "position": "membrane"},
+        {"material_ref": "MAT_CONCRETE_NORMAL", "thickness": 0.15, "position": "core"},
+        {"material_ref": "MAT_PERIMETER_INSULATION", "thickness": 0.12, "position": "insulation"},
+        {"material_ref": "MAT_GRAVEL", "thickness": 0.20, "position": "ground"}
+      ]
+    },
+    {
+      "id": "FLOOR_TOP_UNINSULATED",
+      "name_de": "Oberste Geschossdecke ungedämmt",
+      "name_en": "Top floor ceiling uninsulated",
+      "category": "floor_top",
+      "era": "pre_1978",
+      "u_value_calculated": 1.4,
+      "layers": [
+        {"material_ref": "MAT_WOOD_SPRUCE", "thickness": 0.025, "position": "exterior"},
+        {"material_ref": "MAT_AIR_LAYER_UNVENTILATED", "thickness": 0.10, "position": "air"},
+        {"material_ref": "MAT_WOOD_SPRUCE", "thickness": 0.025, "position": "structure"},
+        {"material_ref": "MAT_GYPSUM_BOARD", "thickness": 0.0125, "position": "interior"}
+      ]
+    },
+    {
+      "id": "FLOOR_TOP_INSULATED_200",
+      "name_de": "Oberste Geschossdecke gedämmt 20cm",
+      "name_en": "Top floor ceiling insulated 20cm",
+      "category": "floor_top",
+      "era": "2016_2023",
+      "u_value_calculated": 0.18,
+      "layers": [
+        {"material_ref": "MAT_WOOD_SPRUCE", "thickness": 0.025, "position": "exterior"},
+        {"material_ref": "MAT_MINERAL_WOOL_035", "thickness": 0.20, "position": "insulation"},
+        {"material_ref": "MAT_VAPOR_BARRIER", "thickness": 0.001, "position": "membrane"},
+        {"material_ref": "MAT_WOOD_SPRUCE", "thickness": 0.025, "position": "structure"},
+        {"material_ref": "MAT_GYPSUM_BOARD", "thickness": 0.0125, "position": "interior"}
+      ]
+    },
+    {
+      "id": "WALL_INTERNAL_BRICK_115",
+      "name_de": "Innenwand Ziegel 11,5cm",
+      "name_en": "Internal wall brick 11.5cm",
+      "category": "wall_internal",
+      "u_value_calculated": 1.8,
+      "layers": [
+        {"material_ref": "MAT_GYPSUM_PLASTER", "thickness": 0.015, "position": "side_a"},
+        {"material_ref": "MAT_BRICK_PERFORATED", "thickness": 0.115, "position": "core"},
+        {"material_ref": "MAT_GYPSUM_PLASTER", "thickness": 0.015, "position": "side_b"}
+      ]
+    },
+    {
+      "id": "WALL_INTERNAL_GYPSUM_100",
+      "name_de": "Innenwand Gipskarton 10cm",
+      "name_en": "Internal wall gypsum board 10cm",
+      "category": "wall_internal",
+      "u_value_calculated": 0.8,
+      "layers": [
+        {"material_ref": "MAT_GYPSUM_BOARD", "thickness": 0.0125, "position": "side_a"},
+        {"material_ref": "MAT_WOOD_SPRUCE", "thickness": 0.06, "position": "structure"},
+        {"material_ref": "MAT_MINERAL_WOOL_035", "thickness": 0.06, "position": "insulation"},
+        {"material_ref": "MAT_GYPSUM_BOARD", "thickness": 0.0125, "position": "side_b"}
+      ]
+    },
+    {
+      "id": "WALL_PARTY_CONCRETE_240",
+      "name_de": "Trennwand Beton 24cm (Brandschutz)",
+      "name_en": "Party wall concrete 24cm",
+      "category": "wall_party",
+      "u_value_calculated": 3.2,
+      "fire_rating": "F90",
+      "layers": [
+        {"material_ref": "MAT_GYPSUM_PLASTER", "thickness": 0.015, "position": "side_a"},
+        {"material_ref": "MAT_CONCRETE_NORMAL", "thickness": 0.24, "position": "core"},
+        {"material_ref": "MAT_GYPSUM_PLASTER", "thickness": 0.015, "position": "side_b"}
+      ]
+    },
+    {
+      "id": "WINDOW_SINGLE_GLAZING",
+      "name_de": "Einfachverglasung (Altbau)",
+      "name_en": "Single glazing",
+      "category": "window",
+      "era": "pre_1978",
+      "u_value_calculated": 5.8,
+      "g_value": 0.85,
+      "layers": [
+        {"material_ref": "MAT_GLASS_SINGLE", "thickness": 0.004, "position": "glazing"}
+      ]
+    },
+    {
+      "id": "WINDOW_DOUBLE_GLAZING",
+      "name_de": "Zweifachverglasung",
+      "name_en": "Double glazing",
+      "category": "window",
+      "era": "1995_2001",
+      "u_value_calculated": 2.8,
+      "g_value": 0.75,
+      "layers": [
+        {"material_ref": "MAT_GLASS_DOUBLE", "thickness": 0.024, "position": "glazing"}
+      ]
+    },
+    {
+      "id": "WINDOW_TRIPLE_GLAZING",
+      "name_de": "Dreifachverglasung (KfW 55)",
+      "name_en": "Triple glazing",
+      "category": "window",
+      "era": "2016_2023",
+      "u_value_calculated": 0.7,
+      "g_value": 0.5,
+      "layers": [
+        {"material_ref": "MAT_GLASS_TRIPLE", "thickness": 0.036, "position": "glazing"}
+      ]
+    }
+  ],
+  
+  "categories": [
+    {"id": "wall_external", "name_de": "Außenwand", "name_en": "External wall"},
+    {"id": "wall_internal", "name_de": "Innenwand", "name_en": "Internal wall"},
+    {"id": "wall_party", "name_de": "Trennwand", "name_en": "Party wall"},
+    {"id": "roof_pitched", "name_de": "Steildach", "name_en": "Pitched roof"},
+    {"id": "roof_flat", "name_de": "Flachdach", "name_en": "Flat roof"},
+    {"id": "floor_basement", "name_de": "Kellerdecke", "name_en": "Basement ceiling"},
+    {"id": "floor_ground", "name_de": "Bodenplatte", "name_en": "Ground slab"},
+    {"id": "floor_top", "name_de": "Oberste Geschossdecke", "name_en": "Top floor ceiling"},
+    {"id": "window", "name_de": "Fenster", "name_en": "Window"}
+  ],
+  
+  "eras": [
+    {"id": "pre_1978", "name_de": "Vor 1978 (1. WSchV)", "u_requirement": null},
+    {"id": "1978_1994", "name_de": "1978-1994 (1.-2. WSchV)", "u_requirement": null},
+    {"id": "1995_2001", "name_de": "1995-2001 (3. WSchV)", "u_requirement": 0.5},
+    {"id": "2002_2008", "name_de": "2002-2008 (EnEV 2002/2004)", "u_requirement": 0.35},
+    {"id": "2009_2015", "name_de": "2009-2015 (EnEV 2009/2014)", "u_requirement": 0.28},
+    {"id": "2016_2023", "name_de": "2016-2023 (EnEV 2016, GEG 2020)", "u_requirement": 0.24},
+    {"id": "2024_plus", "name_de": "Ab 2024 (GEG 2024)", "u_requirement": 0.20}
+  ],
+  
+  "legend": {
+    "u_value_calculated": "Berechneter U-Wert [W/(m²·K)] nach DIN EN ISO 6946",
+    "g_value": "Gesamtenergiedurchlassgrad g [-] (nur Fenster)",
+    "fire_rating": "Feuerwiderstandsklasse (F30, F60, F90, F120)",
+    "sustainable": "Nachhaltige/ökologische Konstruktion",
+    "thickness": "Schichtdicke [m]",
+    "position": "Position der Schicht (exterior, core, insulation, interior, etc.)"
+  }
+}
