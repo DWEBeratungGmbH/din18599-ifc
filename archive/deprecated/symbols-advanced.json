@@ -1,0 +1,2179 @@
+[
+  {
+    "symbol": "Anteil",
+    "name_de": "fraction",
+    "name_en": "---",
+    "unit": "---",
+    "part": 1
+  },
+  {
+    "symbol": "A",
+    "name_de": "Fläche",
+    "name_en": "area",
+    "unit": "m",
+    "part": 1
+  },
+  {
+    "symbol": "Breite",
+    "name_de": "width",
+    "name_en": "m",
+    "unit": "---",
+    "part": 1
+  },
+  {
+    "symbol": "e",
+    "name_de": "Aufwandszahl",
+    "name_en": "expenditure factor",
+    "unit": "---",
+    "part": 1
+  },
+  {
+    "symbol": "f, F",
+    "name_de": "Faktor",
+    "name_en": "factor",
+    "unit": "---",
+    "part": 1
+  },
+  {
+    "symbol": "g",
+    "name_de": "Gesamtenergiedurchlassgrad",
+    "name_en": "total energy transmittance",
+    "unit": "---",
+    "part": 1
+  },
+  {
+    "symbol": "h",
+    "name_de": "Höhe",
+    "name_en": "height",
+    "unit": "m",
+    "part": 1
+  },
+  {
+    "symbol": "H",
+    "name_de": "Energiegehalt (Heizwert, Brennwert)",
+    "name_en": "heating value (inferior, superior)",
+    "unit": "kWh/m, kWh/l, kWh/kg",
+    "part": 1
+  },
+  {
+    "symbol": "L",
+    "name_de": "Länge",
+    "name_en": "length",
+    "unit": "m",
+    "part": 1
+  },
+  {
+    "symbol": "m",
+    "name_de": "jährliche Masse",
+    "name_en": "annual mass",
+    "unit": "kg/a",
+    "part": 1
+  },
+  {
+    "symbol": "n",
+    "name_de": "Anzahl",
+    "name_en": "number",
+    "unit": "---",
+    "part": 1
+  },
+  {
+    "symbol": "Q",
+    "name_de": "Energie",
+    "name_en": "energy",
+    "unit": "kWh",
+    "part": 1
+  },
+  {
+    "symbol": "U",
+    "name_de": "Wärmedurchgangskoeffizient",
+    "name_en": "heat transfer coefficient",
+    "unit": "W/(mK)",
+    "part": 1
+  },
+  {
+    "symbol": "V",
+    "name_de": "Volumen",
+    "name_en": "volume",
+    "unit": "m",
+    "part": 1
+  },
+  {
+    "symbol": "W",
+    "name_de": "Hilfsenergieaufwand",
+    "name_en": "auxiliary energy",
+    "unit": "kWh",
+    "part": 1
+  },
+  {
+    "symbol": "A",
+    "name_de": "Hüllfläche, Fläche eines Bauteils",
+    "name_en": "area",
+    "unit": "m",
+    "part": 2
+  },
+  {
+    "symbol": "a",
+    "name_de": "numerischer Parameter, Koeffizient",
+    "name_en": "numerical parameter, coefficient",
+    "unit": "---",
+    "part": 2
+  },
+  {
+    "symbol": "b",
+    "name_de": "Koeffizient",
+    "name_en": "coefficient",
+    "unit": "---",
+    "part": 2
+  },
+  {
+    "symbol": "A",
+    "name_de": "Nettogrundfläche",
+    "name_en": "net floor area",
+    "unit": "m",
+    "part": 2
+  },
+  {
+    "symbol": "BK",
+    "name_de": "Bilanzkennwert des transparenten Bauteils",
+    "name_en": "characteristic value for energy balance of the transparent component",
+    "unit": "W/(mK)",
+    "part": 2
+  },
+  {
+    "symbol": "c",
+    "name_de": "spezifische Wärmekapazität",
+    "name_en": "specific heat capacity",
+    "unit": "kJ/(kg · K), Wh/(kg · K)",
+    "part": 2
+  },
+  {
+    "symbol": "C",
+    "name_de": "wirksame Wärmekapazität der Gebäudezone",
+    "name_en": "effective heat capacity of a building zone",
+    "unit": "kJ/K, Wh/K",
+    "part": 2
+  },
+  {
+    "symbol": "d",
+    "name_de": "Anzahl der Tage des Monats",
+    "name_en": "number of days per month",
+    "unit": "d/mth",
+    "part": 2
+  },
+  {
+    "symbol": "d",
+    "name_de": "(durchschnittliche) Anzahl der Nutzungstage im Monat",
+    "name_en": "(average) number of days of use per month",
+    "unit": "d/mth",
+    "part": 2
+  },
+  {
+    "symbol": "d",
+    "name_de": "(durchschnittliche) Anzahl der Tage mit Wochenend- oder Ferienbetrieb im Monat",
+    "name_en": "(average) number of days with weekend or holiday period operation per month",
+    "unit": "d/mth",
+    "part": 2
+  },
+  {
+    "symbol": "e",
+    "name_de": "Volumenstromkoeffizient",
+    "name_en": "volume flow coefficient",
+    "unit": "---",
+    "part": 2
+  },
+  {
+    "symbol": "f",
+    "name_de": "Korrekturfaktor für eingeschränkten Heizbetrieb während der Nacht",
+    "name_en": "correction factor for reduced heating operation at night-time",
+    "unit": "---",
+    "part": 2
+  },
+  {
+    "symbol": "f",
+    "name_de": "Faktor für adaptive Temperaturführung (Gebäudeautomation)",
+    "name_en": "factor for adaptive temperature management (building automation)",
+    "unit": "---",
+    "part": 2
+  },
+  {
+    "symbol": "f",
+    "name_de": "Korrekturfaktor zur Berücksichtigung des Neigungseinflusses auf den Wärmedurchgang eines geneigten transparenten Bauteils",
+    "name_en": "correction factor to account for the influence of inclination on the thermal transmittance of a tilt transparent component",
+    "unit": "---",
+    "part": 2
+  },
+  {
+    "symbol": "f",
+    "name_de": "Korrekturfaktor für räumlich eingeschränkten Heizbetrieb",
+    "name_en": "correction factor for reduced heating operation in certain spaces",
+    "unit": "---",
+    "part": 2
+  },
+  {
+    "symbol": "f",
+    "name_de": "Faktor zur Bewertung der Infiltration bei mechanischer Lüftung",
+    "name_en": "factor for the evaluation of infiltration with mechanical ventilation",
+    "unit": "---",
+    "part": 2
+  },
+  {
+    "symbol": "f",
+    "name_de": "Koeffizient zur Windexposition",
+    "name_en": "coefficient of wind exposure",
+    "unit": "---",
+    "part": 2
+  },
+  {
+    "symbol": "f",
+    "name_de": "Faktor zur Berücksichtigung mechanischer Lüftung mit Wärmerückgewinnung",
+    "name_en": "factor for consideration of mechanical ventilation with heat recovery",
+    "unit": "---",
+    "part": 2
+  },
+  {
+    "symbol": "f",
+    "name_de": "Korrekturfaktor für eingeschränkten Heizbetrieb über mehrere Tage",
+    "name_en": "correction factor for reduced heating operation over several days",
+    "unit": "---",
+    "part": 2
+  },
+  {
+    "symbol": "f",
+    "name_de": "auf die Grundfläche bezogene Anteil der Fensterfläche",
+    "name_en": "proportion of the window area related to the floor area",
+    "unit": "---",
+    "part": 2
+  },
+  {
+    "symbol": "F, f",
+    "name_de": "Faktor",
+    "name_en": "factor",
+    "unit": "---",
+    "part": 2
+  },
+  {
+    "symbol": "F",
+    "name_de": "strahlungswirksamer Formfaktor zwischen Bauteil und Himmel bzw. Teilbestrahlungsfaktor für seitliche Abschattungsflächen",
+    "name_en": "radiation-effective form factor between element and sky, or partial shading correction factor for fins",
+    "unit": "---",
+    "part": 2
+  },
+  {
+    "symbol": "F",
+    "name_de": "Faktor zur Berücksichtigung der transparenten Fläche",
+    "name_en": "glas fraction",
+    "unit": "---",
+    "part": 2
+  },
+  {
+    "symbol": "F",
+    "name_de": "Faktor zur Berücksichtigung des Rahmenanteils",
+    "name_en": "frame fraction",
+    "unit": "---",
+    "part": 2
+  },
+  {
+    "symbol": "F",
+    "name_de": "Abminderungsfaktor infolge Verschattung",
+    "name_en": "shading coefficient",
+    "unit": "---",
+    "part": 2
+  },
+  {
+    "symbol": "F",
+    "name_de": "Faktor zur Berücksichtigung des Anteils der transparenten Dämmung",
+    "name_en": "fraction of transparent thermal insulation",
+    "unit": "---",
+    "part": 2
+  },
+  {
+    "symbol": "F",
+    "name_de": "Abminderungsfaktor durch Verschmutzung",
+    "name_en": "dirt depreciation factor",
+    "unit": "---",
+    "part": 2
+  },
+  {
+    "symbol": "F",
+    "name_de": "Abminderungsfaktor infolge nicht senkrechten Strahlungseinfalls",
+    "name_en": "correction factor to account for oblique incidence of solar radiation",
+    "unit": "---",
+    "part": 2
+  },
+  {
+    "symbol": "F",
+    "name_de": "Temperatur-Korrekturfaktor für Bauteilart *x*",
+    "name_en": "temperature correction factor for element type *x*",
+    "unit": "---",
+    "part": 2
+  },
+  {
+    "symbol": "g",
+    "name_de": "wirksamer Gesamtenergiedurchlassgrad",
+    "name_en": "effective total energy transmittance",
+    "unit": "---",
+    "part": 2
+  },
+  {
+    "symbol": "g",
+    "name_de": "Gesamtenergiedurchlassgrad unter Berücksichtigung des Sonnenschutzes",
+    "name_en": "total energy transmittance considering solar protection devices",
+    "unit": "---",
+    "part": 2
+  },
+  {
+    "symbol": "g",
+    "name_de": "Gesamtenergiedurchlassgrad bei senkrechtem Strahlungseinfall",
+    "name_en": "total energy transmittance for perpendicular incidence of solar radiation",
+    "unit": "---",
+    "part": 2
+  },
+  {
+    "symbol": "h",
+    "name_de": "lichte Raumhöhe",
+    "name_en": "clear height of the room",
+    "unit": "m",
+    "part": 2
+  },
+  {
+    "symbol": "h",
+    "name_de": "äußerer Abstrahlungskoeffizient",
+    "name_en": "external radiative heat transfer coefficient",
+    "unit": "W/(m · K)",
+    "part": 2
+  },
+  {
+    "symbol": "H",
+    "name_de": "Wärmetransferkoeffizient, allgemein",
+    "name_en": "heat transfer coefficient, general",
+    "unit": "W/K",
+    "part": 2
+  },
+  {
+    "symbol": "H",
+    "name_de": "stationärer Wärmeübertragungskoeffizient über das Erdreich nach DIN EN ISO 13370",
+    "name_en": "heat transfer coefficient for transmission through the ground according to DIN EN ISO 13370",
+    "unit": "W/K",
+    "part": 2
+  },
+  {
+    "symbol": "H",
+    "name_de": "Wärmetransferkoeffizient für Transmission für die gesamte Gebäudezone",
+    "name_en": "heat transfer coefficient for transmission for the entire building zone",
+    "unit": "W/K",
+    "part": 2
+  },
+  {
+    "symbol": "H",
+    "name_de": "Wärmetransferkoeffizient für Transmission zwischen beheizter Gebäudezone und Außenluft",
+    "name_en": "heat transfer coefficient by transmission between the heated building zone and external air",
+    "unit": "W/K",
+    "part": 2
+  },
+  {
+    "symbol": "H",
+    "name_de": "Wärmetransferkoeffizient für Transmission für zweidimensionale Wärmebrücken",
+    "name_en": "heat transfer coefficient by transmission for two-dimensional thermal bridge",
+    "unit": "W/K",
+    "part": 2
+  },
+  {
+    "symbol": "H",
+    "name_de": "Wärmetransferkoeffizient für Transmission über das Erdreich",
+    "name_en": "heat transfer coefficient by transmission through the ground",
+    "unit": "W/K",
+    "part": 2
+  },
+  {
+    "symbol": "H",
+    "name_de": "Wärmetransferkoeffizient für Lüftung",
+    "name_en": "heat transfer coefficient by ventilation",
+    "unit": "W/K",
+    "part": 2
+  },
+  {
+    "symbol": "H",
+    "name_de": "Wärmetransferkoeffizient für Infiltration",
+    "name_en": "heat transfer coefficient by infiltration",
+    "unit": "W/K",
+    "part": 2
+  },
+  {
+    "symbol": "H",
+    "name_de": "Wärmetransferkoeffizient für Fensterlüftung",
+    "name_en": "heat transfer coefficient for window airing",
+    "unit": "W/K",
+    "part": 2
+  },
+  {
+    "symbol": "H",
+    "name_de": "Wärmetransferkoeffizient für mechanische Lüftung",
+    "name_en": "heat transfer coefficient for mechanical ventilation",
+    "unit": "W/K",
+    "part": 2
+  },
+  {
+    "symbol": "H",
+    "name_de": "temperaturgewichteter Wärmetransferkoeffizient für mechanische Lüftung",
+    "name_en": "temperature-weighted heat transfer coefficient for mechanical ventilation",
+    "unit": "W/K",
+    "part": 2
+  },
+  {
+    "symbol": "I",
+    "name_de": "mittlere monatliche solare Einstrahlung",
+    "name_en": "average monthly solar irradiation",
+    "unit": "W/m",
+    "part": 2
+  },
+  {
+    "symbol": "l",
+    "name_de": "Länge (einer linienförmigen Wärmebrücke)",
+    "name_en": "length (of a linear thermal bridge)",
+    "unit": "m",
+    "part": 2
+  },
+  {
+    "symbol": "n",
+    "name_de": "Luftwechselrate nach DIN EN ISO 7345",
+    "name_en": "air change rate according to DIN EN ISO 7345",
+    "unit": "h",
+    "part": 2
+  },
+  {
+    "symbol": "n",
+    "name_de": "Luftwechselrate bei 50 Pa Druckdifferenz",
+    "name_en": "air change rate at a pressure difference of 50 Pa",
+    "unit": "h",
+    "part": 2
+  },
+  {
+    "symbol": "q",
+    "name_de": "hüllflächenbezogene Luftdurchlässigkeit bei 50 Pa Druckdifferenz",
+    "name_en": "area based Air permeability at a pressure difference of 50 Pa",
+    "unit": "m/(m h)",
+    "part": 2
+  },
+  {
+    "symbol": "Q",
+    "name_de": "Wärme, Wärmemenge nach DIN EN ISO 7345",
+    "name_en": "quantity of heat according to DIN EN ISO 7345",
+    "unit": "Wh, kWh",
+    "part": 2
+  },
+  {
+    "symbol": "Q",
+    "name_de": "Wärmesenken",
+    "name_en": "heat sinks",
+    "unit": "Wh, kWh",
+    "part": 2
+  },
+  {
+    "symbol": "Q",
+    "name_de": "Wärmequellen",
+    "name_en": "heat sources",
+    "unit": "Wh, kWh",
+    "part": 2
+  },
+  {
+    "symbol": "Q",
+    "name_de": "Solarwärmeeinträge, Strahlungswärme",
+    "name_en": "solar heat gains, radiation heat",
+    "unit": "Wh, kWh",
+    "part": 2
+  },
+  {
+    "symbol": "Q",
+    "name_de": "interne Wärme- oder Kälteeinträge",
+    "name_en": "internal thermal gains (heat or cold)",
+    "unit": "Wh, kWh",
+    "part": 2
+  },
+  {
+    "symbol": "Q",
+    "name_de": "bilanzierter Heizwärmebedarf der Gebäudezone",
+    "name_en": "balanced energy need for heating of the building zone",
+    "unit": "Wh, kWh",
+    "part": 2
+  },
+  {
+    "symbol": "Q",
+    "name_de": "bilanzierter Kühlbedarf der Gebäudezone",
+    "name_en": "balanced energy need for cooling of the building zone",
+    "unit": "Wh, kWh",
+    "part": 2
+  },
+  {
+    "symbol": "Q",
+    "name_de": "Wärmequelle durch solare Einstrahlung durch transparente Flächen",
+    "name_en": "solar heat gains from transparent surfaces",
+    "unit": "Wh",
+    "part": 2
+  },
+  {
+    "symbol": "Q",
+    "name_de": "Wärmequelle/-senke durch Strahlung auf/von opaken Flächen",
+    "name_en": "solar heat gains/losses by/from opaque surfaces",
+    "unit": "Wh",
+    "part": 2
+  },
+  {
+    "symbol": "R",
+    "name_de": "Wärmedurchlasswiderstand, Wärmeübergangswiderstand",
+    "name_en": "thermal resistance, surface resistance",
+    "unit": "m·K/W",
+    "part": 2
+  },
+  {
+    "symbol": "S",
+    "name_de": "Strahlungsgewinnkoeffizient",
+    "name_en": "coefficient for solar radiation",
+    "unit": "W/(m · K)",
+    "part": 2
+  },
+  {
+    "symbol": "t",
+    "name_de": "Zeitspanne, Zeit",
+    "name_en": "time, time period, hours",
+    "unit": "h",
+    "part": 2
+  },
+  {
+    "symbol": "t",
+    "name_de": "tägliche Betriebsdauer der mechanischen Lüftung",
+    "name_en": "daily operating time of the mechanical ventilation system",
+    "unit": "h",
+    "part": 2
+  },
+  {
+    "symbol": "U",
+    "name_de": "Wärmedurchgangskoeffizient",
+    "name_en": "thermal transmittance",
+    "unit": "W/(m · K)",
+    "part": 2
+  },
+  {
+    "symbol": "V",
+    "name_de": "Nettoraumvolumen (belüftetes Volumen)",
+    "name_en": "net volume of the space (ventilated volume)",
+    "unit": "m",
+    "part": 2
+  },
+  {
+    "symbol": "Wärmestrom",
+    "name_de": "energy flow rate, power, heat flow",
+    "name_en": "W",
+    "unit": "---",
+    "part": 2
+  },
+  {
+    "symbol": "Rohdichte",
+    "name_de": "(bulk) density",
+    "name_en": "kg/m",
+    "unit": "---",
+    "part": 2
+  },
+  {
+    "symbol": "c",
+    "name_de": "spezifische Wärmekapazität",
+    "name_en": "specific heat capacity",
+    "unit": "kJ/(kg · K)",
+    "part": 3
+  },
+  {
+    "symbol": "c",
+    "name_de": "spezifische Wärmekapazität von Luft",
+    "name_en": "specific heat capacity of air",
+    "unit": "kJ/(kg · K)",
+    "part": 3
+  },
+  {
+    "symbol": "Differenz",
+    "name_de": "difference",
+    "name_en": "---",
+    "unit": "---",
+    "part": 3
+  },
+  {
+    "symbol": "p",
+    "name_de": "konstanter Druckverlustanteil eines Kanalnetzes",
+    "name_en": "constant pressure loss component of a duct network",
+    "unit": "Pa",
+    "part": 3
+  },
+  {
+    "symbol": "p\\",
+    "name_de": "Gesamtdruckverlust des Abluftkanalnetzes bei Auslegungsluftvolumenstrom",
+    "name_en": "total pressure loss of the exhaust air duct network at design air flow rate",
+    "unit": "Pa",
+    "part": 3
+  },
+  {
+    "symbol": "p\\",
+    "name_de": "Gesamtdruckverlust des Zuluftkanalnetzes bei Auslegungsluftvolumenstrom",
+    "name_en": "total pressure loss of the supply air duct network at design air flow rate",
+    "unit": "Pa",
+    "part": 3
+  },
+  {
+    "symbol": "p\\",
+    "name_de": "Gesamtdruckverlust des Kanalnetzes bei Auslegungsvolumenstrom",
+    "name_en": "total pressure loss of the duct network at design flow rate",
+    "unit": "Pa",
+    "part": 3
+  },
+  {
+    "symbol": "h",
+    "name_de": "Enthalpiedifferenz der Zuluft infolge Wärmerückgewinnung",
+    "name_en": "enthalpy difference of the supply air due to heat recovery",
+    "unit": "kJ/kg",
+    "part": 3
+  },
+  {
+    "symbol": "d",
+    "name_de": "Anzahl Tage",
+    "name_en": "number of days",
+    "unit": "d",
+    "part": 3
+  },
+  {
+    "symbol": "d",
+    "name_de": "monatliche Betriebstagezahl der Anlage",
+    "name_en": "monthly operating days of the system",
+    "unit": "d",
+    "part": 3
+  },
+  {
+    "symbol": "f",
+    "name_de": "Korrekturfaktor",
+    "name_en": "correction factor",
+    "unit": "---",
+    "part": 3
+  },
+  {
+    "symbol": "f",
+    "name_de": "Reduktionsfaktor Nutzkälte für sorptionsgestützte RLT-Anlagen",
+    "name_en": "reduction factor for useful cooling for sorption-based air conditioning systems",
+    "unit": "---",
+    "part": 3
+  },
+  {
+    "symbol": "f",
+    "name_de": "Reduktionsfaktor Nutzwärme für sorptionsgestützte RLT-Anlagen",
+    "name_en": "reduction factor useful heat for sorption-based air conditioning systems",
+    "unit": "---",
+    "part": 3
+  },
+  {
+    "symbol": "f",
+    "name_de": "Reduktionsfaktor Nutzkälte durch indirekte Verdunstungskühlung",
+    "name_en": "reduction factor for useful cooling through indirect evaporative cooling",
+    "unit": "---",
+    "part": 3
+  },
+  {
+    "symbol": "f",
+    "name_de": "Reduktionsfaktor Nutzkälte durch indirekte Verdunstungskühlung bei Zulufttemperatur = 18 °C",
+    "name_en": "reduction factor for useful cooling through indirect evaporative cooling at supply air temperature = 18 °C",
+    "unit": "---",
+    "part": 3
+  },
+  {
+    "symbol": "f",
+    "name_de": "Druckverhältnis-Zahl eines Kanalnetzes",
+    "name_en": "Pressure ratio number of a duct network",
+    "unit": "---",
+    "part": 3
+  },
+  {
+    "symbol": "f",
+    "name_de": "Korrekturfaktor für den Einfluss der täglichen Betriebszeit auf den Nutzenergiebedarf Wärme",
+    "name_en": "correction factor for the influence of the daily operating time on the useful energy demand for heat",
+    "unit": "---",
+    "part": 3
+  },
+  {
+    "symbol": "f",
+    "name_de": "Korrekturfaktor für den Einfluss der täglichen Betriebszeit auf den Nutzenergiebedarf Kälte",
+    "name_en": "correction factor for the influence of the daily operating time on the useful energy demand for cooling",
+    "unit": "---",
+    "part": 3
+  },
+  {
+    "symbol": "f",
+    "name_de": "Korrekturfaktor für den Einfluss der täglichen Betriebszeit auf den Nutzenergiebedarf Dampf",
+    "name_en": "correction factor for the influence of the daily operating time on the useful energy demand for steam",
+    "unit": "---",
+    "part": 3
+  },
+  {
+    "symbol": "f",
+    "name_de": "Reduktionsfaktor für die relative Komponentenlaufzeit des Kühlers im Fall der indirekten Verdunstungskühlung",
+    "name_en": "reduction factor for the relative component running time of the cooler in the case of indirect evaporative cooling",
+    "unit": "---",
+    "part": 3
+  },
+  {
+    "symbol": "g",
+    "name_de": "Gradient des Energiebedarfs bei abweichenden Zulufttemperatur-Sollwerten",
+    "name_en": "gradient of the energy requirement with deviating supply air temperature setpoints",
+    "unit": "Wh/(K · m/h)",
+    "part": 3
+  },
+  {
+    "symbol": "g",
+    "name_de": "Gradient des monatlichen Kühlenergiebedarfs bei Zulufttemperatur-Sollwert 14 °C bis 18 °C",
+    "name_en": "gradient of the monthly cooling energy requirement with supply air temperature setpoint 14 °C to 18 °C",
+    "unit": "Wh/(K · m/h)",
+    "part": 3
+  },
+  {
+    "symbol": "g",
+    "name_de": "Gradient des monatlichen Kühlenergiebedarfs bei Zulufttemperatur-Sollwert 18 °C bis 22 °C",
+    "name_en": "gradient of the monthly cooling energy requirement with supply air temperature setpoint 18 °C to 22 °C",
+    "unit": "Wh/(K · m/h)",
+    "part": 3
+  },
+  {
+    "symbol": "g",
+    "name_de": "Gradient des monatlichen Heizenergiebedarfs bei Zulufttemperatur-Sollwert 14 °C bis 18 °C",
+    "name_en": "gradient of the monthly heating energy requirement with supply air temperature setpoint 14 °C to 18 °C",
+    "unit": "Wh/(K · m/h)",
+    "part": 3
+  },
+  {
+    "symbol": "g",
+    "name_de": "Gradient des monatlichen Heizenergiebedarfs bei Zulufttemperatur-Sollwert 18 °C bis 22 °C",
+    "name_en": "gradient of the monthly heating energy requirement with supply air temperature setpoint 18 °C to 22 °C",
+    "unit": "Wh/(K · m/h)",
+    "part": 3
+  },
+  {
+    "symbol": "g",
+    "name_de": "Gradient des Reduktionsfaktors *f* bei Zulufttemperaturabweichung im Bereich 18 °C bis 22 °C",
+    "name_en": "gradient of the reduction factor *f* with supply air temperature deviation in the range 18 °C to 22 °C",
+    "unit": "1/K",
+    "part": 3
+  },
+  {
+    "symbol": "g",
+    "name_de": "Gradient des Reduktionsfaktors *f* bei Zulufttemperaturabweichung im Bereich 14 °C bis 18 °C",
+    "name_en": "gradient of the reduction factor *f* with supply air temperature deviation in the range 14 °C to 18 °C",
+    "unit": "1/K",
+    "part": 3
+  },
+  {
+    "symbol": "h",
+    "name_de": "Enthalpie",
+    "name_en": "enthalpy",
+    "unit": "kJ/kg",
+    "part": 3
+  },
+  {
+    "symbol": "h",
+    "name_de": "Enthalpie der Außenluft im Auslegungsfall Winter",
+    "name_en": "enthalpy of the outside air in the winter design case",
+    "unit": "kJ/kg",
+    "part": 3
+  },
+  {
+    "symbol": "h",
+    "name_de": "Enthalpie der Außenluft im Auslegungsfall Sommer",
+    "name_en": "enthalpy of the outside air in the summer design case",
+    "unit": "kJ/kg",
+    "part": 3
+  },
+  {
+    "symbol": "h",
+    "name_de": "Enthalpie der Abluft im Auslegungsfall Winter",
+    "name_en": "enthalpy of the exhaust air in the winter design case",
+    "unit": "kJ/kg",
+    "part": 3
+  },
+  {
+    "symbol": "h",
+    "name_de": "Enthalpie der Abluft im Auslegungsfall Sommer",
+    "name_en": "enthalpy of the exhaust air in the summer design case",
+    "unit": "kJ/kg",
+    "part": 3
+  },
+  {
+    "symbol": "h",
+    "name_de": "Enthalpie der Zuluft im Auslegungsfall Winter",
+    "name_en": "enthalpy of the supply air in the winter design case",
+    "unit": "kJ/kg",
+    "part": 3
+  },
+  {
+    "symbol": "h",
+    "name_de": "Enthalpie der Zuluft im Auslegungsfall Sommer",
+    "name_en": "enthalpy of the supply air in the summer design case",
+    "unit": "kJ/kg",
+    "part": 3
+  },
+  {
+    "symbol": "P",
+    "name_de": "Leistung",
+    "name_en": "power",
+    "unit": "kW",
+    "part": 3
+  },
+  {
+    "symbol": "P",
+    "name_de": "(elektrische) Leistung eines Ventilators",
+    "name_en": "(electrical) power of a fan",
+    "unit": "kW",
+    "part": 3
+  },
+  {
+    "symbol": "p",
+    "name_de": "spezifische (elektrische) Leistung eines Ventilators",
+    "name_en": "specific fan power",
+    "unit": "Ws/m",
+    "part": 3
+  },
+  {
+    "symbol": "P",
+    "name_de": "(elektrische) Leistung des Zuluftventilators",
+    "name_en": "(electrical) output of the supply air fan",
+    "unit": "kW",
+    "part": 3
+  },
+  {
+    "symbol": "P",
+    "name_de": "(elektrische) Leistung des Abluftventilators",
+    "name_en": "(electrical) output of the exhaust air fan",
+    "unit": "kW",
+    "part": 3
+  },
+  {
+    "symbol": "P",
+    "name_de": "maximale Kühlleistung für die thermische Luftaufbereitung",
+    "name_en": "maximum cooling capacity for thermal air treatment",
+    "unit": "kW",
+    "part": 3
+  },
+  {
+    "symbol": "P",
+    "name_de": "maximale Heizleistung für die thermische Luftaufbereitung",
+    "name_en": "maximum heat capacity for thermal air treatment",
+    "unit": "kW",
+    "part": 3
+  },
+  {
+    "symbol": "P",
+    "name_de": "maximale Dampfleistung für die thermische Luftaufbereitung",
+    "name_en": "maximum steam capacity for thermal air treatment",
+    "unit": "kW",
+    "part": 3
+  },
+  {
+    "symbol": "p",
+    "name_de": "Druck",
+    "name_en": "pressure",
+    "unit": "Pa",
+    "part": 3
+  },
+  {
+    "symbol": "p",
+    "name_de": "Sättigungsdruck von Wasserdampf",
+    "name_en": "saturation pressure of water vapor",
+    "unit": "Pa",
+    "part": 3
+  },
+  {
+    "symbol": "q",
+    "name_de": "spezifischer Nutzenergiebedarf, bezogen auf den Luftvolumenstrom",
+    "name_en": "specific useful energy requirement, in relation to the air volume flow",
+    "unit": "Wh/(m/h)",
+    "part": 3
+  },
+  {
+    "symbol": "q",
+    "name_de": "Energiebedarf für Luftkühlung, bezogen auf den Luftvolumenstrom",
+    "name_en": "energy requirement for air cooling, in relation to the air volume flow",
+    "unit": "Wh/(m/h)",
+    "part": 3
+  },
+  {
+    "symbol": "q",
+    "name_de": "Energiebedarf für Luftheizung, bezogen auf den Luftvolumenstrom",
+    "name_en": "energy requirement for air heating, in relation to the air volume flow",
+    "unit": "Wh/(m/h)",
+    "part": 3
+  },
+  {
+    "symbol": "q",
+    "name_de": "Energiebedarf für Dampf-Luftbefeuchtung, bezogen auf den Luftvolumenstrom",
+    "name_en": "energy requirement for steam humidification, in relation to the air volume flow",
+    "unit": "Wh/(m/h)",
+    "part": 3
+  },
+  {
+    "symbol": "q",
+    "name_de": "monatlicher spezifischer Bedarf der Nutzenergieart *i* bei Zulufttemperatur-Sollwert 18 °C und täglicher Betriebsstundenzahl 12 h",
+    "name_en": "monthly specific demand of useful energy type *i* with supply air temperature setpoint 18 °C and daily operating hours 12 h",
+    "unit": "Wh/(m/h)",
+    "part": 3
+  },
+  {
+    "symbol": "q",
+    "name_de": "monatlicher spezifischer Bedarf der Nutzenergieart *i* bei Zulufttemperatur-Sollwert 18 °C und frei wählbarer täglicher Betriebsstundenzahl",
+    "name_en": "monthly specific demand of useful energy type *i* with supply air temperature setpoint 18 °C and freely selectable number of daily operating hours",
+    "unit": "Wh/(m/h)",
+    "part": 3
+  },
+  {
+    "symbol": "q",
+    "name_de": "monatlicher spezifischer Bedarf der Nutzenergieart *i* bei frei wählbarem Zulufttemperatur-Sollwert und frei wählbarer täglicher Betriebsstundenzahl",
+    "name_en": "monthly specific demand of useful energy type *i* with freely selectable supply air temperature setpoint and freely selectable number of daily operating hours",
+    "unit": "Wh/(m/h)",
+    "part": 3
+  },
+  {
+    "symbol": "Q",
+    "name_de": "Energiebedarf",
+    "name_en": "energy requirement",
+    "unit": "kWh",
+    "part": 3
+  },
+  {
+    "symbol": "Q",
+    "name_de": "monatlicher Nutzenergiebedarf zur Raumkühlung aus der Gebäudebilanz nach DIN/TS 18599-2",
+    "name_en": "monthly useful energy requirement for room cooling from the building balance according to DIN/TS 18599-2",
+    "unit": "kWh",
+    "part": 3
+  },
+  {
+    "symbol": "Q",
+    "name_de": "monatlicher Nutzenergiebedarf für die Luftkühlung",
+    "name_en": "monthly useful energy requirement for air cooling",
+    "unit": "kWh",
+    "part": 3
+  },
+  {
+    "symbol": "Q",
+    "name_de": "monatlicher Nutzenergiebedarf für die Lufterwärmung",
+    "name_en": "monthly useful energy requirement for air heating",
+    "unit": "kWh",
+    "part": 3
+  },
+  {
+    "symbol": "Q",
+    "name_de": "monatlicher Nutzenergiebedarf für die Dampf-Luftbefeuchtung",
+    "name_en": "monthly useful energy requirement for steam humidification",
+    "unit": "kWh",
+    "part": 3
+  },
+  {
+    "symbol": "Summe",
+    "name_de": "sum",
+    "name_en": "---",
+    "unit": "---",
+    "part": 3
+  },
+  {
+    "symbol": "Temperatur",
+    "name_de": "temperature",
+    "name_en": "°C",
+    "unit": "---",
+    "part": 3
+  },
+  {
+    "symbol": "T",
+    "name_de": "Zeit oder Dauer der Zeitspanne",
+    "name_en": "time or duration of the time period",
+    "unit": "h",
+    "part": 3
+  },
+  {
+    "symbol": "t",
+    "name_de": "tägliche Betriebsstundenzahl der RLT-Anlage innerhalb des Berechnungsmonats",
+    "name_en": "daily operating hours of the air handling unit within the calculation month",
+    "unit": "h/d",
+    "part": 3
+  },
+  {
+    "symbol": "t",
+    "name_de": "monatliche Betriebsstundenzahl des Teillastfalles *j*",
+    "name_en": "monthly operating hours of the partial load case j",
+    "unit": "h",
+    "part": 3
+  },
+  {
+    "symbol": "t",
+    "name_de": "relative jährliche Laufzeit des Lufterhitzers",
+    "name_en": "relative annual running time of the air heater",
+    "unit": "---",
+    "part": 3
+  },
+  {
+    "symbol": "t",
+    "name_de": "relative jährliche Laufzeit des Luftkühlers",
+    "name_en": "relative annual running time of the air cooler",
+    "unit": "---",
+    "part": 3
+  },
+  {
+    "symbol": "t",
+    "name_de": "relative jährliche Laufzeit des Dampfbefeuchters",
+    "name_en": "relative annual running time of the steam humidifier",
+    "unit": "---",
+    "part": 3
+  },
+  {
+    "symbol": "t",
+    "name_de": "relative jährliche Laufzeit des Sorptionstrockners",
+    "name_en": "relative annual running time of the",
+    "unit": "---",
+    "part": 3
+  },
+  {
+    "symbol": "t",
+    "name_de": "relative jährliche Laufzeit des Wärmerückgewinners",
+    "name_en": "relative annual running time of the heat recovery unit",
+    "unit": "---",
+    "part": 3
+  },
+  {
+    "symbol": "t",
+    "name_de": "relative jährliche Laufzeit des Verdunstungsbefeuchters",
+    "name_en": "relative annual running time of the evaporative humidifier",
+    "unit": "---",
+    "part": 3
+  },
+  {
+    "symbol": "t",
+    "name_de": "relative jährliche Laufzeit des Verdunstungsbefeuchters Abluft (sorptionsgestützte RLT-Anlage)",
+    "name_en": "relative annual running time of the evaporative humidifier exhaust air (sorption-supported air conditioning system)",
+    "unit": "---",
+    "part": 3
+  },
+  {
+    "symbol": "t",
+    "name_de": "relative jährliche Laufzeit des Verdunstungsbefeuchters Zuluft (sorptionsgestützte RLT-Anlage)",
+    "name_en": "relative annual running time of the evaporative humidifier supply air (sorption-supported air conditioning system)",
+    "unit": "---",
+    "part": 3
+  },
+  {
+    "symbol": "t",
+    "name_de": "jährliche Laufzeit des Lufterhitzers",
+    "name_en": "annual running time of the air heater",
+    "unit": "h",
+    "part": 3
+  },
+  {
+    "symbol": "t",
+    "name_de": "jährliche Laufzeit des Luftkühlers",
+    "name_en": "annual running time of the air cooler",
+    "unit": "h",
+    "part": 3
+  },
+  {
+    "symbol": "t",
+    "name_de": "jährliche Laufzeit des Dampfbefeuchters",
+    "name_en": "annual running time of the steam humidifier",
+    "unit": "h",
+    "part": 3
+  },
+  {
+    "symbol": "t",
+    "name_de": "jährliche Laufzeit des Sorptionstrockners",
+    "name_en": "annual running time of the sorption dehumidifier",
+    "unit": "---",
+    "part": 3
+  },
+  {
+    "symbol": "t",
+    "name_de": "jährliche Laufzeit des Wärmerückgewinners",
+    "name_en": "annual running time of the heat recovery unit",
+    "unit": "h",
+    "part": 3
+  },
+  {
+    "symbol": "t",
+    "name_de": "jährliche Laufzeit des Verdunstungsbefeuchters",
+    "name_en": "annual running time of the evaporative humidifier",
+    "unit": "h",
+    "part": 3
+  },
+  {
+    "symbol": "t",
+    "name_de": "jährliche Laufzeit des Verdunstungsbefeuchters Abluft (sorptionsgestützte RLT-Anlage)",
+    "name_en": "annual running time of the evaporative humidifier exhaust air (sorption-supported air conditioning system)",
+    "unit": "---",
+    "part": 3
+  },
+  {
+    "symbol": "t",
+    "name_de": "jährliche Laufzeit des Verdunstungsbefeuchters Zuluft (sorptionsgestützte RLT-Anlage)",
+    "name_en": "annual running time of the evaporative humidifier supply air (sorption-supported air conditioning system)",
+    "unit": "---",
+    "part": 3
+  },
+  {
+    "symbol": "W",
+    "name_de": "Energie (elektrisch)",
+    "name_en": "energy (electrical)",
+    "unit": "kWh",
+    "part": 3
+  },
+  {
+    "symbol": "W",
+    "name_de": "monatlicher Endenergiebedarf für die Luftförderung",
+    "name_en": "monthly final energy requirement for air conveyance",
+    "unit": "kWh",
+    "part": 3
+  },
+  {
+    "symbol": "x",
+    "name_de": "Wassergehalt der Luft (absolute Luftfeuchte)",
+    "name_en": "water content of the air (absolute humidity)",
+    "unit": "g/kg",
+    "part": 3
+  },
+  {
+    "symbol": "a",
+    "name_de": "Tiefe",
+    "name_en": "Depth",
+    "unit": "m",
+    "part": 4
+  },
+  {
+    "symbol": "A",
+    "name_de": "Fläche",
+    "name_en": "Area",
+    "unit": "m",
+    "part": 4
+  },
+  {
+    "symbol": "b",
+    "name_de": "Breite",
+    "name_en": "Width",
+    "unit": "m",
+    "part": 4
+  },
+  {
+    "symbol": "bf",
+    "name_de": "Belegungsfaktor",
+    "name_en": "Occupation factor",
+    "unit": "---",
+    "part": 4
+  },
+  {
+    "symbol": "C",
+    "name_de": "Korrekturfaktor",
+    "name_en": "Correction factor",
+    "unit": "---",
+    "part": 4
+  },
+  {
+    "symbol": "D",
+    "name_de": "Tageslichtquotient",
+    "name_en": "Daylight factor",
+    "unit": "\\%",
+    "part": 4
+  },
+  {
+    "symbol": "e",
+    "name_de": "Aufwandszahl",
+    "name_en": "Expenditure figure",
+    "unit": "---",
+    "part": 4
+  },
+  {
+    "symbol": "Umgebung",
+    "name_de": "Surrounding",
+    "name_en": "---",
+    "unit": "---",
+    "part": 4
+  },
+  {
+    "symbol": "f, F",
+    "name_de": "Faktoren",
+    "name_en": "Factors",
+    "unit": "---",
+    "part": 4
+  },
+  {
+    "symbol": "h",
+    "name_de": "Höhe",
+    "name_en": "Heigth",
+    "unit": "m",
+    "part": 4
+  },
+  {
+    "symbol": "J",
+    "name_de": "Anzahl Berechnungsbereiche",
+    "name_en": "Number of evaluation areas",
+    "unit": "---",
+    "part": 4
+  },
+  {
+    "symbol": "k",
+    "name_de": "Raumindex",
+    "name_en": "Room index",
+    "unit": "---",
+    "part": 4
+  },
+  {
+    "symbol": "k",
+    "name_de": "Korrekturfaktor",
+    "name_en": "Correction factor",
+    "unit": "---",
+    "part": 4
+  },
+  {
+    "symbol": "m",
+    "name_de": "Minderungsfaktor zur Berücksichtigung der Raumbelegung",
+    "name_en": "Reduction factor accouting for occupation of space",
+    "unit": "---",
+    "part": 4
+  },
+  {
+    "symbol": "N",
+    "name_de": "Anzahl Zonen",
+    "name_en": "Number of zones",
+    "unit": "---",
+    "part": 4
+  },
+  {
+    "symbol": "p",
+    "name_de": "flächenbezogene Leistung",
+    "name_en": "Specific installed power",
+    "unit": "W/m",
+    "part": 4
+  },
+  {
+    "symbol": "P",
+    "name_de": "Leistung",
+    "name_en": "Power",
+    "unit": "W",
+    "part": 4
+  },
+  {
+    "symbol": "t",
+    "name_de": "Zeit",
+    "name_en": "Time",
+    "unit": "h",
+    "part": 4
+  },
+  {
+    "symbol": "v",
+    "name_de": "Verteilungsschlüssel",
+    "name_en": "Distribution key",
+    "unit": "---",
+    "part": 4
+  },
+  {
+    "symbol": "WF",
+    "name_de": "Wartungsfaktor",
+    "name_en": "Maintenance factor",
+    "unit": "---",
+    "part": 4
+  },
+  {
+    "symbol": "wi",
+    "name_de": "Lichtschachtindex",
+    "name_en": "well-index",
+    "unit": "---",
+    "part": 4
+  },
+  {
+    "symbol": "A",
+    "name_de": "Fläche",
+    "name_en": "area",
+    "unit": "m",
+    "part": 5
+  },
+  {
+    "symbol": "a bis f",
+    "name_de": "kontextspezifische Koeffizienten",
+    "name_en": "context-dependent coefficients",
+    "unit": "---",
+    "part": 5
+  },
+  {
+    "symbol": "B",
+    "name_de": "Breite",
+    "name_en": "width",
+    "unit": "m",
+    "part": 5
+  },
+  {
+    "symbol": "B",
+    "name_de": "Brennstoffdurchsatz",
+    "name_en": "fuel throughput",
+    "unit": "kg/h, Nm/h",
+    "part": 5
+  },
+  {
+    "symbol": "c",
+    "name_de": "spezifische Wärmekapazität",
+    "name_en": "specific heat capacity",
+    "unit": "kontextabhängig J/(kg · K) oder kWh/(m · K)",
+    "part": 5
+  },
+  {
+    "symbol": "C",
+    "name_de": "Konstante",
+    "name_en": "constant",
+    "unit": "---",
+    "part": 5
+  },
+  {
+    "symbol": "COP",
+    "name_de": "Leistungszahl",
+    "name_en": "coefficient of performance",
+    "unit": "---",
+    "part": 5
+  },
+  {
+    "symbol": "d",
+    "name_de": "Zeitspanne in/Anzahl von Tagen",
+    "name_en": "time period in/number of days",
+    "unit": "d/a, d/mth",
+    "part": 5
+  },
+  {
+    "symbol": "DH",
+    "name_de": "Gradtagstunden",
+    "name_en": "heating degree hours",
+    "unit": "Kh",
+    "part": 5
+  },
+  {
+    "symbol": "e",
+    "name_de": "Aufwandszahl",
+    "name_en": "expenditure factor",
+    "unit": "---",
+    "part": 5
+  },
+  {
+    "symbol": "f",
+    "name_de": "Faktor",
+    "name_en": "factor",
+    "unit": "---",
+    "part": 5
+  },
+  {
+    "symbol": "FC",
+    "name_de": "Lastfaktor",
+    "name_en": "load factor",
+    "unit": "---",
+    "part": 5
+  },
+  {
+    "symbol": "h",
+    "name_de": "Höhe",
+    "name_en": "height",
+    "unit": "m",
+    "part": 5
+  },
+  {
+    "symbol": "H",
+    "name_de": "Strahlungssumme",
+    "name_en": "radiation sum",
+    "unit": "kWh",
+    "part": 5
+  },
+  {
+    "symbol": "HDH",
+    "name_de": "kumulierte Gradtagstunden",
+    "name_en": "summed-up heating degree hours",
+    "unit": "Kh",
+    "part": 5
+  },
+  {
+    "symbol": "HH",
+    "name_de": "Stundensumme",
+    "name_en": "summed-up hours",
+    "unit": "h",
+    "part": 5
+  },
+  {
+    "symbol": "k",
+    "name_de": "allgemeiner Zählindex (Kontext beachten)",
+    "name_en": "general counting index (note the context)",
+    "unit": "---",
+    "part": 5
+  },
+  {
+    "symbol": "k",
+    "name_de": "Wärmeverlustkoeffizient (Kollektorgleichung)",
+    "name_en": "heat loss coefficient (solar collector equation)",
+    "unit": "W/(m·K)",
+    "part": 5
+  },
+  {
+    "symbol": "K, L",
+    "name_de": "Temperaturkorrekturfaktoren (Heizkessel)",
+    "name_en": "temperature correction factors (boilers)",
+    "unit": "1/K",
+    "part": 5
+  },
+  {
+    "symbol": "L",
+    "name_de": "Länge",
+    "name_en": "length",
+    "unit": "m",
+    "part": 5
+  },
+  {
+    "symbol": "M",
+    "name_de": "Massestrom",
+    "name_en": "mass flow",
+    "unit": "kg/s",
+    "part": 5
+  },
+  {
+    "symbol": "n, N",
+    "name_de": "Anzahl",
+    "name_en": "number (amount)",
+    "unit": "---",
+    "part": 5
+  },
+  {
+    "symbol": "p",
+    "name_de": "Druck",
+    "name_en": "pressure",
+    "unit": "kPa",
+    "part": 5
+  },
+  {
+    "symbol": "P",
+    "name_de": "Leistung",
+    "name_en": "power",
+    "unit": "W, kW",
+    "part": 5
+  },
+  {
+    "symbol": "Q",
+    "name_de": "Energie",
+    "name_en": "energy",
+    "unit": "kWh/mth",
+    "part": 5
+  },
+  {
+    "symbol": "R",
+    "name_de": "Wärmeübergangswiderstand",
+    "name_en": "heat transmission resistance",
+    "unit": "(m · K)/W",
+    "part": 5
+  },
+  {
+    "symbol": "SCOP",
+    "name_de": "rechnerische Jahresarbeitszahl",
+    "name_en": "calculated seasonal coefficient of performance",
+    "unit": "---",
+    "part": 5
+  },
+  {
+    "symbol": "t",
+    "name_de": "Zeit, Zeitspanne",
+    "name_en": "time, time span",
+    "unit": "h/d, h/mth, h/a",
+    "part": 5
+  },
+  {
+    "symbol": "TKi",
+    "name_de": "Temperaturklasse i",
+    "name_en": "temperature class i",
+    "unit": "°C",
+    "part": 5
+  },
+  {
+    "symbol": "U",
+    "name_de": "Wärmedurchgangskoeffizient (längenbezogen, sofern nicht kontextspezifisch anders festgelegt)",
+    "name_en": "heat transfer coefficient (linear unless specified otherwise)",
+    "unit": "W/(m · K)",
+    "part": 5
+  },
+  {
+    "symbol": "V",
+    "name_de": "Volumen",
+    "name_en": "volume",
+    "unit": "m",
+    "part": 5
+  },
+  {
+    "symbol": "W",
+    "name_de": "Hilfsenergieaufwand",
+    "name_en": "auxiliary energy demand",
+    "unit": "kWh/mth",
+    "part": 5
+  },
+  {
+    "symbol": "W",
+    "name_de": "hydraulischer Energiebedarf",
+    "name_en": "hydraulic energy demand",
+    "unit": "kWh/mth",
+    "part": 5
+  },
+  {
+    "symbol": "Temperatur",
+    "name_de": "temperature",
+    "name_en": "°C",
+    "unit": "---",
+    "part": 5
+  },
+  {
+    "symbol": "A",
+    "name_de": "Fläche",
+    "name_en": "area",
+    "unit": "m",
+    "part": 6
+  },
+  {
+    "symbol": "c",
+    "name_de": "spezifische Wärmekapazität",
+    "name_en": "specific heat capacity",
+    "unit": "kJ/(kg · K)",
+    "part": 6
+  },
+  {
+    "symbol": "COP",
+    "name_de": "Leistungszahl (Wärmepumpe)",
+    "name_en": "coefficient of performance",
+    "unit": "---",
+    "part": 6
+  },
+  {
+    "symbol": "d",
+    "name_de": "Tag, täglich",
+    "name_en": "day",
+    "unit": "d",
+    "part": 6
+  },
+  {
+    "symbol": "DH",
+    "name_de": "Gradtagstunden",
+    "name_en": "heating degree hours",
+    "unit": "Kh",
+    "part": 6
+  },
+  {
+    "symbol": "EER",
+    "name_de": "Leistungszahl (Kältemaschine)",
+    "name_en": "energy efficiency ratio",
+    "unit": "---",
+    "part": 6
+  },
+  {
+    "symbol": "f",
+    "name_de": "Faktor",
+    "name_en": "factor",
+    "unit": "---",
+    "part": 6
+  },
+  {
+    "symbol": "F",
+    "name_de": "Gradtagszahl",
+    "name_en": "heating degree figure",
+    "unit": "Kh",
+    "part": 6
+  },
+  {
+    "symbol": "FC",
+    "name_de": "Lastfaktor",
+    "name_en": "load factor",
+    "unit": "---",
+    "part": 6
+  },
+  {
+    "symbol": "h",
+    "name_de": "Stunde",
+    "name_en": "hour",
+    "unit": "h",
+    "part": 6
+  },
+  {
+    "symbol": "H",
+    "name_de": "Stundensumme in der Temperaturklasse",
+    "name_en": "number of hours in the temperature class",
+    "unit": "h",
+    "part": 6
+  },
+  {
+    "symbol": "H",
+    "name_de": "Wärmetransferkoeffizient",
+    "name_en": "heat transfer coefficient",
+    "unit": "kW/K",
+    "part": 6
+  },
+  {
+    "symbol": "I",
+    "name_de": "Beleuchtung",
+    "name_en": "Lightning system",
+    "unit": "---",
+    "part": 6
+  },
+  {
+    "symbol": "L",
+    "name_de": "Länge",
+    "name_en": "length",
+    "unit": "m",
+    "part": 6
+  },
+  {
+    "symbol": "n",
+    "name_de": "Luftwechsel",
+    "name_en": "air change rate",
+    "unit": "1/h",
+    "part": 6
+  },
+  {
+    "symbol": "p",
+    "name_de": "spezifische Leistungsaufnahme",
+    "name_en": "specific power input",
+    "unit": "W/(m/h)",
+    "part": 6
+  },
+  {
+    "symbol": "P",
+    "name_de": "Leistung",
+    "name_en": "power",
+    "unit": "W",
+    "part": 6
+  },
+  {
+    "symbol": "PLV",
+    "name_de": "Teillastfaktor",
+    "name_en": "part load value",
+    "unit": "---",
+    "part": 6
+  },
+  {
+    "symbol": "Q",
+    "name_de": "Energie",
+    "name_en": "energy",
+    "unit": "kWh/a",
+    "part": 6
+  },
+  {
+    "symbol": "R",
+    "name_de": "Wärmeleitwiderstand",
+    "name_en": "Thermal resistance",
+    "unit": "(m · K)/W",
+    "part": 6
+  },
+  {
+    "symbol": "SEER",
+    "name_de": "Jahresarbeitszahl (Kältemaschine)",
+    "name_en": "seasonal energy efficiency ratio",
+    "unit": "---",
+    "part": 6
+  },
+  {
+    "symbol": "SPI",
+    "name_de": "spezifische Leistungsaufnahme Ventilatoren",
+    "name_en": "specific power input",
+    "unit": "W/(m/h)",
+    "part": 6
+  },
+  {
+    "symbol": "t",
+    "name_de": "Zeit, Zeitperiode",
+    "name_en": "time, time period",
+    "unit": "h, h/a",
+    "part": 6
+  },
+  {
+    "symbol": "U",
+    "name_de": "Wärmedurchgangskoeffizient",
+    "name_en": "thermal transmittance",
+    "unit": "W/(m · K)",
+    "part": 6
+  },
+  {
+    "symbol": "V",
+    "name_de": "Volumen",
+    "name_en": "volume",
+    "unit": "m",
+    "part": 6
+  },
+  {
+    "symbol": "W",
+    "name_de": "Hilfsenergieaufwand",
+    "name_en": "auxiliary energy",
+    "unit": "kWh/a",
+    "part": 6
+  },
+  {
+    "symbol": "w",
+    "name_de": "Wichtungsfaktor",
+    "name_en": "weighting factor",
+    "unit": "---",
+    "part": 6
+  },
+  {
+    "symbol": "Differenz",
+    "name_de": "difference",
+    "name_en": "---",
+    "unit": "---",
+    "part": 6
+  },
+  {
+    "symbol": "Dichte",
+    "name_de": "density",
+    "name_en": "kg/m",
+    "unit": "---",
+    "part": 6
+  },
+  {
+    "symbol": "Verhältnis",
+    "name_de": "ratio",
+    "name_en": "---",
+    "unit": "---",
+    "part": 6
+  },
+  {
+    "symbol": "|",
+    "name_de": "| Deutsch",
+    "name_en": "| Englisch",
+    "unit": "|",
+    "part": 9
+  },
+  {
+    "symbol": "| A",
+    "name_de": "| Fläche",
+    "name_en": "| area",
+    "unit": "| m",
+    "part": 9
+  },
+  {
+    "symbol": "| P",
+    "name_de": "| Leistung",
+    "name_en": "| power",
+    "unit": "| W, kW",
+    "part": 9
+  },
+  {
+    "symbol": "| Q",
+    "name_de": "| Energie",
+    "name_en": "| energy",
+    "unit": "| kWh",
+    "part": 9
+  },
+  {
+    "symbol": "| W",
+    "name_de": "| Hilfsenergie (Elektroenergie)",
+    "name_en": "| auxiliary energy (Electricity)",
+    "unit": "| kWh",
+    "part": 9
+  },
+  {
+    "symbol": "|",
+    "name_de": "| Stromkennzahl",
+    "name_en": "| power-to-heat ratio",
+    "unit": "| *---*",
+    "part": 9
+  },
+  {
+    "symbol": "| A...p",
+    "name_de": "| Koeffizient",
+    "name_en": "| coefficient",
+    "unit": "| *---*",
+    "part": 9
+  },
+  {
+    "symbol": "| d",
+    "name_de": "| Laufzeit",
+    "name_en": "| runtime",
+    "unit": "| h",
+    "part": 9
+  },
+  {
+    "symbol": "| f",
+    "name_de": "| Faktor",
+    "name_en": "| factor",
+    "unit": "| *---*",
+    "part": 9
+  },
+  {
+    "symbol": "| n",
+    "name_de": "| Anzahl",
+    "name_en": "| number",
+    "unit": "| *---*",
+    "part": 9
+  },
+  {
+    "symbol": "| q",
+    "name_de": "| spezifische Energie",
+    "name_en": "| specific energy",
+    "unit": "| kWh/(ma)",
+    "part": 9
+  },
+  {
+    "symbol": "| t",
+    "name_de": "| Zeitspanne",
+    "name_en": "| time span",
+    "unit": "| d/a",
+    "part": 9
+  },
+  {
+    "symbol": "| V",
+    "name_de": "| Volumen",
+    "name_en": "| volume",
+    "unit": "| m, l",
+    "part": 9
+  },
+  {
+    "symbol": "| x",
+    "name_de": "| Grad",
+    "name_en": "| degree",
+    "unit": "| *---*",
+    "part": 9
+  },
+  {
+    "symbol": "|",
+    "name_de": "| Nutzungsgrad, Wirkungsgrad",
+    "name_en": "| degree of utilisation, efficiency",
+    "unit": "| *---*",
+    "part": 9
+  },
+  {
+    "symbol": "|",
+    "name_de": "| Temperatur",
+    "name_en": "| temperature",
+    "unit": "| °C",
+    "part": 9
+  },
+  {
+    "symbol": "|",
+    "name_de": "| Deckungsanteil",
+    "name_en": "| coverage rate",
+    "unit": "| *---*",
+    "part": 9
+  },
+  {
+    "symbol": "| v",
+    "name_de": "| mittlere monatliche Windgeschwindigkeit",
+    "name_en": "| mean monthly wind speed",
+    "unit": "| m/s",
+    "part": 9
+  },
+  {
+    "symbol": "| h",
+    "name_de": "| Nabenhöhe der WEA",
+    "name_en": "| hub height of the wind turbine generator system (WTGS)",
+    "unit": "| m",
+    "part": 9
+  },
+  {
+    "symbol": "| D",
+    "name_de": "| Durchmesser (Rotordurchmesser der WEA)",
+    "name_en": "| diameter (rotor diameter of the WTGS)",
+    "unit": "| m",
+    "part": 9
+  },
+  {
+    "symbol": "|",
+    "name_de": "| Höhenexponent",
+    "name_en": "| height exponent",
+    "unit": "| ---",
+    "part": 9
+  },
+  {
+    "symbol": "| A",
+    "name_de": "| Weibull-Skalierungsfaktor",
+    "name_en": "| Weibull scaling factor",
+    "unit": "| m/s",
+    "part": 9
+  },
+  {
+    "symbol": "| k",
+    "name_de": "| Weibull-Formfaktor",
+    "name_en": "| Weibull form factor",
+    "unit": "| ---",
+    "part": 9
+  },
+  {
+    "symbol": "|",
+    "name_de": "| Dichte (Luftdichte)",
+    "name_en": "| density (air density)",
+    "unit": "| kg/m",
+    "part": 9
+  },
+  {
+    "symbol": "| C",
+    "name_de": "| Kapazität (Batterie)",
+    "name_en": "| capacity (battery)",
+    "unit": "| kWh",
+    "part": 9
+  },
+  {
+    "symbol": "| c",
+    "name_de": "| (auf eine Energiemenge) bezogene Kapazität",
+    "name_en": "| capacity (related to a quantity of energy)",
+    "unit": "| kWh/(MWh/a)",
+    "part": 9
+  },
+  {
+    "symbol": "| E",
+    "name_de": "| jährliche bzw. monatliche solare Bestrahlungsenergie",
+    "name_en": "| annual or monthly solar irradiation energy",
+    "unit": "| kWh/(m · a)a",
+    "part": 9
+  },
+  {
+    "symbol": "|",
+    "name_de": "|",
+    "name_en": "|",
+    "unit": "|",
+    "part": 9
+  },
+  {
+    "symbol": "|",
+    "name_de": "|",
+    "name_en": "|",
+    "unit": "| kWh/(m · mth)a",
+    "part": 9
+  },
+  {
+    "symbol": "| f",
+    "name_de": "| Faktor",
+    "name_en": "| factor",
+    "unit": "| ---",
+    "part": 9
+  },
+  {
+    "symbol": "| I",
+    "name_de": "| solare Bestrahlungsstärke",
+    "name_en": "| solar irradiance",
+    "unit": "| W/m",
+    "part": 9
+  },
+  {
+    "symbol": "| K",
+    "name_de": "| Koeffizient",
+    "name_en": "| coefficient",
+    "unit": "| kW/m",
+    "part": 9
+  },
+  {
+    "symbol": "|",
+    "name_de": "| (Energie-)Anteil, Gleichzeitigkeitsfaktor",
+    "name_en": "| (energy) share, simultaneity factor",
+    "unit": "| ---",
+    "part": 9
+  },
+  {
+    "symbol": "|",
+    "name_de": "| (auf eine Energiemenge) bezogene Leistung",
+    "name_en": "| specific power (related to a quantity of energy)",
+    "unit": "| kW/(MWh/a)",
+    "part": 9
+  },
+  {
+    "symbol": "|",
+    "name_de": "| Wirkungsgrad, Nutzungsgrad",
+    "name_en": "| efficiency (context-dependent defined by either power or energy) | 1 oder %",
+    "unit": "|",
+    "part": 9
+  },
+  {
+    "symbol": "|",
+    "name_de": "|",
+    "name_en": "|",
+    "unit": "|",
+    "part": 9
+  },
+  {
+    "symbol": "|",
+    "name_de": "| (kontextabhängig, entweder durch Leistung oder Energie definiert) |",
+    "name_en": "|",
+    "unit": "|",
+    "part": 9
+  },
+  {
+    "symbol": "a",
+    "name_de": "Anteil der je Stunde anwesender Personen",
+    "name_en": "percentage of people present per hour",
+    "unit": "---",
+    "part": 10
+  },
+  {
+    "symbol": "A",
+    "name_de": "Fläche",
+    "name_en": "area",
+    "unit": "m",
+    "part": 10
+  },
+  {
+    "symbol": "C, c",
+    "name_de": "Faktor",
+    "name_en": "factor",
+    "unit": "---",
+    "part": 10
+  },
+  {
+    "symbol": "d",
+    "name_de": "Tag",
+    "name_en": "day",
+    "unit": "d, d/a",
+    "part": 10
+  },
+  {
+    "symbol": "Differenz",
+    "name_de": "difference",
+    "name_en": "---",
+    "unit": "---",
+    "part": 10
+  },
+  {
+    "symbol": "E",
+    "name_de": "Beleuchtungsstärke",
+    "name_en": "illuminance",
+    "unit": "lx",
+    "part": 10
+  },
+  {
+    "symbol": "F",
+    "name_de": "Faktor",
+    "name_en": "factor",
+    "unit": "---",
+    "part": 10
+  },
+  {
+    "symbol": "h",
+    "name_de": "Höhe",
+    "name_en": "height",
+    "unit": "m",
+    "part": 10
+  },
+  {
+    "symbol": "I",
+    "name_de": "solare Einstrahlung",
+    "name_en": "irradiation intensity",
+    "unit": "W/m",
+    "part": 10
+  },
+  {
+    "symbol": "J",
+    "name_de": "Tag des Monats",
+    "name_en": "day of the month",
+    "unit": "---",
+    "part": 10
+  },
+  {
+    "symbol": "k",
+    "name_de": "Faktor",
+    "name_en": "factor",
+    "unit": "---",
+    "part": 10
+  },
+  {
+    "symbol": "n",
+    "name_de": "Anzahl",
+    "name_en": "number",
+    "unit": "---",
+    "part": 10
+  },
+  {
+    "symbol": "Q",
+    "name_de": "Energie",
+    "name_en": "energy, quantity of heat",
+    "unit": "kWh/a",
+    "part": 10
+  },
+  {
+    "symbol": "q",
+    "name_de": "spezifische Energie",
+    "name_en": "specific energy",
+    "unit": "Wh/(m · d)",
+    "part": 10
+  },
+  {
+    "symbol": "t",
+    "name_de": "Zeit, Zeitperiode",
+    "name_en": "time, time period, hours",
+    "unit": "h, h/a",
+    "part": 10
+  },
+  {
+    "symbol": "teq",
+    "name_de": "Zeitgleichung",
+    "name_en": "equation of time",
+    "unit": "min",
+    "part": 10
+  },
+  {
+    "symbol": "v",
+    "name_de": "mittlere monatliche Windgeschwindigkeit in 10 m Höhe über Grund",
+    "name_en": "average monthly wind velocity at 10 m height over the ground",
+    "unit": "m/s",
+    "part": 10
+  },
+  {
+    "symbol": "f",
+    "name_de": "Faktor",
+    "name_en": "factor",
+    "unit": "---",
+    "part": 11
+  },
+  {
+    "symbol": "f",
+    "name_de": "Einflussfaktor",
+    "name_en": "Influencing factor",
+    "unit": "---",
+    "part": 11
+  },
+  {
+    "symbol": "L",
+    "name_de": "Übertragungskoeffizient",
+    "name_en": "Transfer coefficient",
+    "unit": "W/K",
+    "part": 11
+  },
+  {
+    "symbol": "n, N",
+    "name_de": "Anzahl",
+    "name_en": "number",
+    "unit": "---",
+    "part": 11
+  },
+  {
+    "symbol": "P",
+    "name_de": "Leistung",
+    "name_en": "power",
+    "unit": "W, kW",
+    "part": 11
+  },
+  {
+    "symbol": "t",
+    "name_de": "Zeit, Zeitspanne",
+    "name_en": "time",
+    "unit": "h/d, h/mth, h/a",
+    "part": 11
+  },
+  {
+    "symbol": "Temperatur",
+    "name_de": "temperature",
+    "name_en": "°C",
+    "unit": "---",
+    "part": 11
+  },
+  {
+    "symbol": "p",
+    "name_de": "Druckdifferenz",
+    "name_en": "Pressure differenz",
+    "unit": "Pa",
+    "part": 11
+  },
+  {
+    "symbol": "Q",
+    "name_de": "Energie",
+    "name_en": "energy",
+    "unit": "kWh/mth",
+    "part": 11
+  },
+  {
+    "symbol": "W",
+    "name_de": "Hilfsenergieaufwand",
+    "name_en": "auxiliary energy",
+    "unit": "kWh/mth",
+    "part": 11
+  }
+]
