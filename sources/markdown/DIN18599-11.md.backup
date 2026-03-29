@@ -22,7 +22,7 @@ DIN-Normenausschuss Bauwesen (NABau) • DIN-Normenausschuss Heiz- und Raumluftt
 
 Alleinverkauf durch DIN Media GmbH, 10772 Berlin
 
-# Vorwort
+**Vorwort**
 
 Dieses Dokument wurde vom Gemeinschaftsarbeitsausschuss NA 005-12-01 GA „Gemeinschaftsarbeitsausschuss NABau/FNL/NHRS: Energetische Bewertung von Gebäuden (SpA CEN/TC 371, CEN/TC 371/WG 1, CEN/TC 371/WG 2, CEN/TC 371/WG 3, CEN/TC 371/WG 4, CEN/TC 371/WG 5, ISO/TC 163/WG 4 und ISO/TC 163/SC 2/WG 15)" erarbeitet. Der Inhalt wurde vom DIN-Normenausschuss Bauwesen (NABau) als Hauptträger erarbeitet und wird von den DIN-Normenausschüssen Lichttechnik (FNL) und Heiz- und Raumlufttechnik sowie deren Sicherheit (NHRS) als Mitträger getragen.
 
@@ -72,7 +72,7 @@ Die Reihe DIN/TS 18599 ist geeignet, den langfristigen Energiebedarf für Geb�
 
 Aktuelle Informationen zu diesem Dokument können über die Internetseiten von DIN (www.din.de) durch eine Suche nach der Dokumentennummer aufgerufen werden.
 
-# Änderungen
+**Änderungen**
 
 Gegenüber DIN V 18599-11:2018-09 wurden folgende Änderungen vorgenommen:
 
@@ -82,17 +82,17 @@ b)zusätzliche Erklärung für die Anwendung dieses Dokuments;
 
 c)redaktionelle Überarbeitung.
 
-# Frühere Ausgaben
+**Frühere Ausgaben**
 
 DIN V 18599-11: 2011-12, 2016-10, 2018-09
 
-# Einleitung
+**Einleitung**
 
 Die nach der Reihe DIN/TS 18599 durchgeführte Energiebilanz folgt einem integralen Ansatz, d. h., es erfolgt eine gemeinschaftliche Bewertung des Baukörpers, der Nutzung und der Anlagentechnik unter Berücksichtigung der gegenseitigen Wechselwirkungen. Zur Verbesserung der Übersichtlichkeit besteht die Reihe DIN/TS 18599 aus mehreren Teilen, die einzelne Themenschwerpunkte behandeln. Einen Überblick über die Inhalte der einzelnen Teile gibt Bild 1.
 
 ![Bild 1: Übersicht über die Teile von DIN/TS 18599](sources/images/media/image1.gif){width="6.3in" height="4.658333333333333in"}
 
-### Bild 1 --- Übersicht über die Teile von DIN/TS 18599
+**Bild 1 --- Übersicht über die Teile von DIN/TS 18599**
 
 Die Reihe DIN/TS 18599 stellt ein Rechenverfahren bereit, mit dessen Hilfe der Energiebedarf von Gebäuden und Anlagen unter vorgegebenen Bedingungen errechnet wird. Im Betrieb ergeben sich abweichende Bedingungen und ein vom Bedarf abweichender Verbrauch. Ein Teil dieser Bedingungen, die Witterungsbedingungen, sind nicht beeinflussbar. Aber auch der witterungsbereinigte Energieverbrauch einer Anlage kann deutlich höher ausfallen als ihr errechneter Bedarf.
 
@@ -104,7 +104,7 @@ Anhand von Beispielrechnungen wird gezeigt, wie sich die Auswirkungen der Raum- 
 
 Der Einsatz der Raum- und Gebäudeautomation ermöglicht neben der Steigerung der Energieeffizienz zusätzlich auch einen höheren Nutzenkomfort im Gebäude (z. B. durch vorausschauende Konditionierung einzelner Zonen).
 
-# 1 Anwendungsbereich
+**1Anwendungsbereich**
 
 Die Reihe DIN/TS 18599 stellt ein Verfahren zur Durchführung der Gesamtenergiebilanz von Gebäuden bereit. Der aufgezeigte Algorithmus ist anwendbar für die energetische Bilanzierung von:
 
@@ -160,9 +160,9 @@ Bild 2 zeigt schematisch die Einordnung dieser Technischen Spezifikation in das
 
 ![Bild 2: Einordnung von DIN/TS 18599-11 in das Berechnungsverfahren (schematisch) nach DIN/TS 18599](sources/images/media/image2.gif){width="6.283333333333333in" height="5.716666666666667in"}
 
-### Bild 2 --- Einordnung von DIN/TS 18599-11 in das Berechnungsverfahren (schematisch) nach DIN/TS 18599
+**Bild 2 --- Einordnung von DIN/TS 18599-11 in das Berechnungsverfahren (schematisch) nach DIN/TS 18599**
 
-# 2 Normative Verweisungen
+**2Normative Verweisungen**
 
 Die folgenden Dokumente werden im Text in solcher Weise in Bezug genommen, dass einige Teile davon oder ihr gesamter Inhalt Anforderungen des vorliegenden Dokuments darstellen. Bei datierten Verweisungen gilt nur die in Bezug genommene Ausgabe. Bei undatierten Verweisungen gilt die letzte Ausgabe des in Bezug genommenen Dokuments (einschließlich aller Änderungen).
 
@@ -194,9 +194,9 @@ DIN EN 14511-4, *Luftkonditionierer, Flüssigkeitskühlsätze und Wärmepumpen 
 
 DIN EN 16798-3, *Energetische Bewertung von Gebäuden --- Lüftung von Gebäuden --- Teil 3: Lüftung von Nichtwohngebäuden --- Leistungsanforderungen an Lüftungs- und Klimaanlagen und Raumkühlsysteme (Module M5-1, M5-4)*
 
-# 3 Begriffe, Symbole und Einheiten
+**3Begriffe, Symbole und Einheiten**
 
-## 3.1 Begriffe
+**3.1Begriffe**
 
 Für die Anwendung dieses Dokuments gelten die Begriffe nach DIN/TS 18599-1 bis DIN/TS 18599-10 und die folgenden Begriffe.
 
@@ -206,7 +206,7 @@ DIN und DKE stellen terminologische Datenbanken für die Verwendung in der Normu
 
 --DKE-IEV: verfügbar unter https://www.dke.de/DKE-IEV
 
-### 3.1.1
+**3.1.1**
 
 **Gebäudeautomation**
 
@@ -218,7 +218,7 @@ Anmerkung 1 zum Begriff: Das Gewerk und die Branche werden ebenfalls Gebäudeaut
 
 \[QUELLE: DIN EN ISO 16484-2:2004-10, 3.30\]
 
-### 3.1.2
+**3.1.2**
 
 **Gebäudemanagement**
 
@@ -228,7 +228,7 @@ Anmerkung 1 zum Begriff: Das Gebäudemanagement kann Teil des Facility-Managemen
 
 Anmerkung 2 zum Begriff: Siehe auch DIN EN ISO 52120-1.
 
-### 3.1.3
+**3.1.3**
 
 **Energiemanagement**
 
@@ -238,7 +238,7 @@ Anmerkung 1 zum Begriff: Zum Energiemanagement gehören Leistungen wie: gewerke�
 
 \[QUELLE: VDI 4602 Blatt 1:2018-04, 3.1, modifiziert: Anmerkung 1 zum Begriff wurde hinzugefügt.\]
 
-### 3.1.4
+**3.1.4**
 
 **Raumautomation**
 
@@ -246,7 +246,7 @@ anlagen-/anwendungsspezifische Geräte und Funktionen für Einzelraum- oder Zone
 
 \[QUELLE: DIN EN ISO 16484-2:2004-10, 3.173 --- modifiziert, Anmerkung wurde nicht übernommen.\]
 
-### 3.1.5
+**3.1.5**
 
 **Endenergiebedarf**
 
@@ -254,19 +254,19 @@ berechnete Energiemenge, die der Anlagentechnik (Heizungsanlage, raumlufttechnis
 
 Anmerkung 1 zum Begriff: Diese Energiemenge bezieht den für den Betrieb der Anlagentechnik benötigten Hilfsenergieaufwand ein. Der Endenergiebedarf wird an der „Schnittstelle" Gebäudehülle übergeben und stellt somit die Energiemenge dar, die der Verbraucher für eine bestimmungsgemäße Nutzung unter normativen Randbedingungen benötigt. Der Endenergiebedarf wird vor diesem Hintergrund nach verwendeten Energieträgern angegeben.
 
-### 3.1.6
+**3.1.6**
 
 **Nutzenergiebedarf**
 
 Oberbegriff für Nutzwärmebedarf, Nutzkältebedarf, Nutzenergiebedarf für Trinkwarmwasser, Beleuchtung, Befeuchtung
 
-### 3.1.7
+**3.1.7**
 
 **Technisches Monitoring**
 
 systematische Erfassung, Kontrolle und Auswertung von Energieverbräuchen sowie von Prozess- und Zustandsgrößen für das Ziel einer optimierten Betriebsführung
 
-### 3.1.8
+**3.1.8**
 
 **Wärmeenergie**
 
@@ -274,7 +274,7 @@ Energie, die unmittelbar zur Deckung des Heizwärmebedarfs eingesetzt wird
 
 Anmerkung 1 zum Begriff: Es handelt sich hierbei um thermische Energie.
 
-### 3.1.9
+**3.1.9**
 
 **Zone**
 
@@ -284,7 +284,7 @@ Anmerkung 1 zum Begriff: Eine Zone fasst den Grundflächenanteil bzw. Bereich ei
 
 Anmerkung 2 zum Begriff: Die Nutzungsrandbedingungen sind in DIN/TS 18599-10 zusammengestellt.
 
-### 3.1.10
+**3.1.10**
 
 **Automationsgrad**
 
@@ -292,13 +292,13 @@ Art, Umfang und Zuordnung der Automatisierungsfunktionen innerhalb eines Gebäud
 
 Anmerkung 1 zum Begriff: Der Automationsgrad lässt sich in A, B, C und D einteilen.
 
-## 3.2 Symbole, Einheiten und Indizes
+**3.2Symbole, Einheiten und Indizes**
 
 **3.2.1Symbole und Einheiten**
 
 Für Symbole und Einheiten siehe Tabelle 1.
 
-### Tabelle 1 --- Symbole und Einheiten
+**Tabelle 1 --- Symbole und Einheiten**
 
   -----------------------------------------------------------------------------
   Symbol   Bedeutung                                          Übliche Einheit
@@ -332,7 +332,7 @@ Für Symbole und Einheiten siehe Tabelle 1.
 
 Für Indizes siehe Tabelle 2.
 
-### Tabelle 2 --- Indizes
+**Tabelle 2 --- Indizes**
 
   --------------------------------------------------------------------------------
   Index    Bedeutung                          
@@ -400,13 +400,13 @@ Für Indizes siehe Tabelle 2.
 
 Die Indizierung der verwendeten Kennwerte orientiert sich an der den anderen Teilen der Reihe DIN/TS 18599 zugrundeliegenden Systematik.
 
-# 4 Verknüpfung der Teile der Reihe DIN/TS 18599
+**4Verknüpfung der Teile der Reihe DIN/TS 18599**
 
 Es werden keine Daten aus anderen Teilen der Reihe DIN/TS 18599 übernommen.
 
 Nach DIN/TS 18599-1 sind zu übergeben (siehe Tabelle 3):
 
-### Tabelle 3 --- Eingangsgrößen aus anderen Teilen der Reihe DIN/TS 18599
+**Tabelle 3 --- Eingangsgrößen aus anderen Teilen der Reihe DIN/TS 18599**
 
   -----------------------------------------------------------------------
   Bedeutung                                          Symbol     Einheit
@@ -415,9 +415,9 @@ Nach DIN/TS 18599-1 sind zu übergeben (siehe Tabelle 3):
 
   -----------------------------------------------------------------------
 
-# 5 Grundlagen und Randbedingungen
+**5Grundlagen und Randbedingungen**
 
-## 5.1 Möglichkeiten des Einflusses der Gebäudeautomation und des technischen Gebäudemanagements auf den Anlagen- und Gebäudebetrieb
+**5.1Möglichkeiten des Einflusses der Gebäudeautomation und des technischen Gebäudemanagements auf den Anlagen- und Gebäudebetrieb**
 
 Die Automatisierung des Gebäude- und Anlagenbetriebs sowie das technische Gebäudemanagement reduzieren bei gleichem Nutzerkomfort neben dem theoretischen Energiebedarf auch die für das Betreiben des Gebäudes und dessen technischer Anlagen tatsächlich erforderlichen energetischen Aufwendungen. Der Einfluss von Raum- und Gebäudeautomation sowie des Gebäudemanagements auf den Energiebedarf von Gebäuden resultiert dabei insbesondere aus einem an die Nutzung angepassten Gebäude- und Anlagenbetrieb. Aus diesem Grund sind in Abhängigkeit von der Nutzungsart des Gebäudes, dem Nutzerverhalten und der Art des Anlagenbetriebs sehr unterschiedliche Auswirkungen auf die Energieeffizienz des Gebäude- und Anlagenbetriebes zu erwarten. Für vergleichende Berechnungen von Energiebedarfswerten unterschiedlicher Automations- und Anlagenkonzepte müssen zunächst Annahmen zu den Profilen (Raum- oder Gebäudenutzungsprofil, Belegungsprofil, Anlagenbetriebsprofil) getroffen werden.
 
@@ -447,7 +447,7 @@ Im Vergleich zu festen Ein-/Ausschaltzeiten der Standardprofile können im reale
 
 ![Bild 3: Nutzungsprofil Büro aus Raum-Belegungsprofil (Prozent-Personen-Belegung je Stunde des Tages) und Anlagenbetriebsprofil (Anpassung der Einschaltzeit)](sources/images/media/image3.gif){width="5.1in" height="3.175in"}
 
-### Bild 3 --- Nutzungsprofil Büro aus Raum-Belegungsprofil (Prozent-Personen-Belegung je Stunde des Tages) und Anlagenbetriebsprofil (Anpassung der Einschaltzeit)
+**Bild 3 --- Nutzungsprofil Büro aus Raum-Belegungsprofil (Prozent-Personen-Belegung je Stunde des Tages) und Anlagenbetriebsprofil (Anpassung der Einschaltzeit)**
 
 --Verschiebung von Sollwerten und Sollwertbändern:
 
@@ -459,7 +459,7 @@ Die Methode des Verschiebens von Sollwerten und Sollwertbändern berücksichtigt
 
 ![Bild 4: Nutzungsprofil Büro aus Raum-Belegungsprofil und Anlagenbetriebsprofile (Anpassung der Sollwerte)](sources/images/media/image4.gif){width="5.141666666666667in" height="3.175in"}
 
-### Bild 4 --- Nutzungsprofil Büro aus Raum-Belegungsprofil und Anlagenbetriebsprofile (Anpassung der Sollwerte)
+**Bild 4 --- Nutzungsprofil Büro aus Raum-Belegungsprofil und Anlagenbetriebsprofile (Anpassung der Sollwerte)**
 
 --Gegenseitige Verriegelung von Anlagen:
 
@@ -475,7 +475,7 @@ Eine optimale Anpassung der Anlagenleistungen an den sich ändernden Nutzleistun
 
 Die Lastzustände lassen sich aus Betriebsdaten (z. B. Temperaturen, Wärmeströme, u. ä.) herleiten und können für eine gezielte Beeinflussung des Anlagenbetriebs genutzt werden.
 
-## 5.2 Klassifizierung von Gebäudeautomations- und Gebäudemanagementfunktionen
+**5.2Klassifizierung von Gebäudeautomations- und Gebäudemanagementfunktionen**
 
 Es stehen für den Betrieb von Gebäuden und deren technischen Anlagen vielfältig einsetzbare Gebäude- und Raumautomations- sowie Managementfunktionen zur Verfügung. Diese Funktionen sind bereits z. T. in DIN/TS 18599-1 bis DIN/TS 18599-10 beschrieben und werden nunmehr lediglich im Hinblick auf
 
@@ -519,7 +519,7 @@ Dabei sind
 
 4)In Abhängigkeit der gewichteten Gesamtpunktzahl *N* wird der für das Gewerk oder das Gebäude resultierende Automationsgrad wie in Tabelle 4 ermittelt.
 
-### Tabelle 4 --- Zuordnung der Automationsgrade
+**Tabelle 4 --- Zuordnung der Automationsgrade**
 
   -----------------------------------------------------------------------
   *N*                              Automationsgrad
@@ -555,7 +555,7 @@ Technische Anforderungen für das Energiemanagement in Gebäuden finden sich in�
 
 Weiterführende Informationen zu allgemeinen Bewertungsgrundsätzen für Steuer-, Regel- und Automationsfunktionen finden sich im informativen Anhang E.
 
-### Tabelle 5 --- Definition der Automatisierungsgrade in einem Gebäude
+**Tabelle 5 --- Definition der Automatisierungsgrade in einem Gebäude**
 
 <table>
 <colgroup>
@@ -3461,9 +3461,9 @@ Weiterführende Informationen zu allgemeinen Bewertungsgrundsätzen für Steuer-
 </tbody>
 </table>
 
-# 6 Rechenverfahren
+**6Rechenverfahren**
 
-## 6.1 Energetische Bewertung
+**6.1Energetische Bewertung**
 
 **6.1.1Gebäudeautomation**
 
@@ -3495,7 +3495,7 @@ Die Inbetriebnahme von ausgewählten Anlagen wird blockiert, um z. B. das gleich
 
 Die Auswirkungen der hier genannten Energiemanagementmaßnahmen auf den Energiebedarf von Gebäuden werden mit Hilfe des bestehenden Rechenverfahrens der DIN/TS 18599-2 ermittelt.
 
-## 6.2 Methode zur Anpassung der Bilanzinnentemperatur
+**6.2Methode zur Anpassung der Bilanzinnentemperatur**
 
 Für Gebäude, in denen ein Energiemanagementsystem installiert ist und betrieben wird, unterscheidet sich die mittlere Raumtemperatur während der Nutzungszeit von der für die jeweilige Nutzungsart aus DIN/TS 18599-10 vorgegebenen Bilanzinnentemperatur, weil
 
@@ -3509,9 +3509,9 @@ Die für die Berechnung relevante Bilanzinnentemperatur wird in DIN/TS 18599-2�
 
 Mit den vorstehenden Ansätzen können die Energieeinspareffekte durch Gebäudeautomation vollständig in den Bilanzierungsansätzen DIN/TS 18599 berücksichtigt werden.
 
-# 7 Detaillierte Beschreibung zur Anwendung der Gebäudeautomationsfunktionen
+**7Detaillierte Beschreibung zur Anwendung der Gebäudeautomationsfunktionen**
 
-## 7.1 Heizung
+**7.1Heizung**
 
 **7.1.1Übergabe**
 
@@ -3667,7 +3667,7 @@ Es ist zwischen den folgenden Arten der Regelung des Wärmespeichers zu untersch
 
 --H-9-2: Prognosegeführte Beladung (z. B. in Abhängigkeit von Lasten, Tarifen); Speicherung mit erweiterter Ladezustandserkennung;
 
-## 7.2 Kühlung
+**7.2Kühlung**
 
 **7.2.1Übergabe**
 
@@ -3809,7 +3809,7 @@ Es ist zwischen den folgenden Arten der Regelung bei der Betriebsabfolge in der 
 
 --C-7-4: Betriebsabfolge auf der Grundlage von vorausbestimmten Lasten.
 
-## 7.3 Lüftung
+**7.3Lüftung**
 
 **7.3.1Wohnungslüftung (nur für Wohngebäude)**
 
@@ -3997,7 +3997,7 @@ Es erfolgt eine Regelung des Volumenstroms zusammen mit einer nutzungsabhängig 
 
 Die Regelung des Luftvolumenstroms wird in DIN/TS 18599-3 berücksichtigt. Sie hat Auswirkungen auf den monatlichen Bilanz-Zuluftvolumenstrom *V* und den mittleren monatlichen Zuluftvolumenstrom *V*.
 
-## 7.4 Trinkwassererwärmung
+**7.4Trinkwassererwärmung**
 
 **7.4.1Warmwassererzeugung**
 
@@ -4023,7 +4023,7 @@ ANMERKUNG: Die Differenzierung in DIN/TS 18599-8 ist nicht vorgesehen, wobei 
 
 ANMERKUNG: Die Differenzierung in DIN/TS 18599-8 ist nicht vorgesehen, wobei die Punkte W-2-3 und W-2-4 durch die Anpassung an die Bedarfszeiten bzw. realen Nutzungszeiten energetische Einsparungen erzielen.
 
-## 7.5 Beleuchtung
+**7.5Beleuchtung**
 
 **7.5.1Regelung bzw. Steuerung des Kunstlichts**
 
@@ -4083,7 +4083,7 @@ Die Auswirkungen auf die Verbesserung der Tageslichtversorgung wird berücksicht
 
 --L-3-3: *C* = 0,60 (lichtlenkende Systeme).
 
-# 8 Elektrischer Energieaufwand für Betrieb von Automationsgeräten
+**8Elektrischer Energieaufwand für Betrieb von Automationsgeräten**
 
 Der elektrische Energieaufwand für den Betrieb der Steuer-, Regel- und Automationsgeräte (z. B. Controller, PC, Antriebe u. ä.) einschließlich Stand-by-Bedarf ist bei der Bewertung der Auswirkungen von Gebäudeautomation und Gebäudemanagement auf die Energieeffizienz eines Gebäudes zu berücksichtigen. Häufig schließt der im Berechnungsverfahren der Reihe DIN/TS 18599 ausgewiesene Hilfsenergieaufwand die Energie für Regelung, Elektronik usw. bereits ein, z. B.:
 
@@ -4095,7 +4095,7 @@ Der elektrische Energieaufwand für den Betrieb der Steuer-, Regel- und Automati
 
 Darüber hinaus wird für einzelne Anwendungsfälle der Hilfsenergieaufwand für Steuerung, Regelung und Automation explizit ausgewiesen. Tabelle 6 gibt eine Zusammenfassung des in den verschiedenen Teilen der Reihe DIN/TS 18599 berücksichtigten energetischen Hilfsenergieaufwands für Steuer-, Regel- und Automationsgeräte.
 
-### Tabelle 6 --- Übersicht über den für die Steuerung, Regelung und Automatisierung erforderlichen Hilfsenergieaufwand in der Reihe DIN/TS 18599
+**Tabelle 6 --- Übersicht über den für die Steuerung, Regelung und Automatisierung erforderlichen Hilfsenergieaufwand in der Reihe DIN/TS 18599**
 
   ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
                                                                                                                                                                                        Funktionsbeschreibung                                                                                                       Referenz
@@ -4145,7 +4145,7 @@ Darüber hinaus wird für einzelne Anwendungsfälle der Hilfsenergieaufwand für
 
 Der Hilfsenergieaufwand für die Automation *W* ist zu bestimmen, wenn *N* ≥ 0,7 erreicht wird \[siehe Gleichung (1)\]. Teilkennwerte zur Bestimmung des Gesamtaufwandes können anhand von Tabelle 7 ermittelt werden.
 
-### Tabelle 7 --- Standardwerte für Einrichtungen der Gebäudeautomation
+**Tabelle 7 --- Standardwerte für Einrichtungen der Gebäudeautomation**
 
   ------------------------------------------------------------------------------------------------------------------------------
   Funktion                            Gerät                             Hilfsenergieaufwand                  
@@ -4173,7 +4173,7 @@ Die Anzahl von Raumcontrollern bestimmt sich aus der Anzahl der ausgestatteten R
 
 Als Hilfsenergie für die Realisierung von GA-Automationsfunktionen auf Basis einer dezentralen Kommunikationsstruktur (z. B. durch ein Bussystem) kann ein Wert von 0,13 kWh/ma zu Grunde gelegt werden. Die Bezugsgröße ist hierbei die Bruttogeschossfläche (BGF). Hierbei handelt es sich ausschließlich um Geräte zur Realisierung der GA-Automationsfunktionen und keine speziellen Visualisierungskomponenten. Da die dezentralen Komponenten bei einer busbasierten Installation flächenbezogen mehr Elektronik besitzen, ist davon auszugehen, dass bei der Verwendung von zentralen Automationsstationen ein geringerer Aufwand für Hilfsenergie erforderlich ist (siehe Tabelle 8).
 
-### Tabelle 8 --- Standardwerte für Hilfsenergie für die Realisierung von Funktionen der Gebäudeautomation
+**Tabelle 8 --- Standardwerte für Hilfsenergie für die Realisierung von Funktionen der Gebäudeautomation**
 
   --------------------------------------------------------------------------------------------------------------------------------
                                                                            Dezentrale Automatisierung   Zentrale Automatisierung
@@ -4182,7 +4182,7 @@ Als Hilfsenergie für die Realisierung von GA-Automationsfunktionen auf Basis ei
 
   --------------------------------------------------------------------------------------------------------------------------------
 
-# Anhang A (informativ)Teilbetriebskennwerte für Gebäudeautomation
+**Anhang A (informativ)Teilbetriebskennwerte für Gebäudeautomation**
 
 **A.1Allgemeine Hinweise**
 
@@ -4202,7 +4202,7 @@ Im Bild A.1 ist die prinzipielle Verfahrensweise zur Berechnung der Teilbetrie
 
 **Bild A.1 --- Schema für Anwendung des Tabellenverfahrens**
 
-# Anhang B (informativ)Regelverfahren zur Führung und Adaption der Vorlauftemperatur in Heizungsanlagen
+**Anhang B (informativ)Regelverfahren zur Führung und Adaption der Vorlauftemperatur in Heizungsanlagen**
 
 **B.1Allgemeines**
 
@@ -4270,7 +4270,7 @@ Speziell die praxisrelevanten Verfahren, basierend auf dem Ventilhub und der Obe
 
 Für unbegrenzte und begrenzte Vorlauftemperaturadaption siehe außerdem DIN/TS 18599-5:2025-10, 5.3.2.
 
-# Anhang C (informativ)Verweisung auf Anwendung von Steuer-, Regelungs-, Automations- und Gebäudemanagementfunktionen in den bestehenden Technischen Spezifikationen der Reihe DIN/TS 18599
+**Anhang C (informativ)Verweisung auf Anwendung von Steuer-, Regelungs-, Automations- und Gebäudemanagementfunktionen in den bestehenden Technischen Spezifikationen der Reihe DIN/TS 18599**
 
 Die in der Reihe DIN/TS 18599 verwendeten Funktionen der Steuerung, Regelung und Automatisierung von Anlagen zur Heizung, Kühlung, Lüftung, Klimatisierung und Beleuchtung von Gebäuden sowie zur Trinkwassererwärmung sind in Tabelle C.1 anhand der charakteristischen Parameter und Einflussgrößen zusammenfassend dargestellt. Es erfolgt dabei eine Unterteilung in einzelne Gewerke, die sich im Wesentlichen an den Abgrenzungen der Teile der Reihe DIN/TS 18599 orientiert. Die Gewerke wiederum sind, soweit möglich, in verschiedene Prozessbereiche untergliedert, z. B. Erzeugung, Verteilung, Nutzenübergabe.
 
@@ -4438,7 +4438,7 @@ Parameter, deren Festlegung sich nicht nur auf die energetische Bewertung einzel
 |                      |                                                                                                                             | DIN/TS 18599-10:2025-10, Tabelle 4                                  |
 +----------------------+-----------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------+
 
-# Anhang D (normativ)Technische Anforderungen für das Energiemanagement in Gebäuden
+**Anhang D (normativ)Technische Anforderungen für das Energiemanagement in Gebäuden**
 
 Die Umsetzung eines Energiemanagements im Gebäude ist nur möglich, wenn bestimmte technische Anforderungen erfüllt sind. Diese Anforderungen gelten sowohl für Neubau- als auch für Bestandsgebäude und sind abhängig von der Art der umzusetzenden Managementfunktionen.
 
@@ -4472,7 +4472,7 @@ Daten-/Informationsmanagement, Betriebsoptimierung und Lastmanagement:
 
 --Voraussetzungen für eine verbrauchsabhängige Umlage der Energiekosten schaffen.
 
-# Anhang E (informativ)Allgemeine Bewertungsgrundsätze für Steuer-, Regel- und Automationsfunktionen
+**Anhang E (informativ)Allgemeine Bewertungsgrundsätze für Steuer-, Regel- und Automationsfunktionen**
 
 **E.1Allgemeines**
 
@@ -4546,7 +4546,7 @@ Dabei ist
 
 Die Werte für *f* sind von der Art der Regelung abhängig, variieren jedoch auch mit Gebäudetyp, Anlagentyp, Nutzerprofil, Klima usw. Der Einfluss dieser Parameter auf *f* ist aus Tabellen zu entnehmen oder mit Hilfe von Gleichungen zu bestimmen und muss durch zuvor durchgeführte Simulationen ermittelt werden.
 
-# Literaturhinweise
+**Literaturhinweise**
 
 \[1\]BAUMGART, S., et al.: Optimale Anpassung der Energiebereitstellung an den Bedarf, HLH Band 55 (2004), Nr. 6, S. 42--48
 

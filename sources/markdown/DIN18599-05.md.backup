@@ -22,7 +22,7 @@ DIN-Normenausschuss Bauwesen (NABau) • DIN-Normenausschuss Heiz- und Raumluftt
 
 Alleinverkauf durch DIN Media GmbH, 10772 Berlin
 
-# Vorwort
+**Vorwort**
 
 Dieses Dokument wurde vom Gemeinschaftsarbeitsausschuss NA 005-12-01 GA „Gemeinschaftsarbeitsausschuss NABau/FNL/NHRS: Energetische Bewertung von Gebäuden (SpA CEN/TC 371, CEN/TC 371/WG 1, CEN/TC 371/WG 2, CEN/TC 371/WG 3, CEN/TC 371/WG 4, CEN/TC 371/WG 5, ISO/TC 163/WG 4 und ISO/TC 163/SC 2/WG 15)" erarbeitet. Der Inhalt wurde vom DIN-Normenausschuss Bauwesen (NABau) als Hauptträger erarbeitet und wird vom DIN-Normenausschuss Heiz- und Raumlufttechnik sowie deren Sicherheit (NHRS) als Mitträger getragen.
 
@@ -72,13 +72,13 @@ Die Reihe DIN/TS 18599 ist dazu geeignet, den langfristigen Energiebedarf für
 
 Aktuelle Informationen zu diesem Dokument können über die Internetseiten von DIN (www.din.de) durch eine Suche nach der Dokumentennummer aufgerufen werden.
 
-### 3.1.4
+**3.1.4**
 
 **Betriebszeit**
 
 Heizzeit und Laufzeit im abgesenkten/abgeschalteten Betrieb
 
-### 3.1.5
+**3.1.5**
 
 **Bezugsfläche**
 
@@ -86,13 +86,13 @@ Nettogrundfläche
 
 im konditionierten Gebäudevolumen zur Verfügung stehende nutzbare Fläche
 
-### 3.1.6
+**3.1.6**
 
 **Bilanzinnentemperatur**
 
 mittlere Innentemperatur eines Gebäudes bzw. einer Zone unter Berücksichtigung von räumlich oder zeitlich eingeschränktem Heizbetrieb, die der Ermittlung des Heizwärmebedarfs zugrunde gelegt wird
 
-### 3.1.7
+**3.1.7**
 
 **Betrachtungszeitraum**
 
@@ -102,25 +102,25 @@ Zeitraum für die Bilanzierung der relevanten Energieströme für ein Gebäude o
 
 Anmerkung 1 zum Begriff: Zur Berechnung des End- und Primärenergiebedarfs ist der Bilanzzeitraum ein Jahr, bei der Berechnung von Teilenergiekennwerten kann er einen Monat oder einen Tag umfassen.
 
-### 3.1.8
+**3.1.8**
 
 **Bivalenztemperatur**
 
 Temperatur, bei der die Heizleistung der Wärmepumpe und der Gebäudewärmebedarf gleich sind
 
-### 3.1.9
+**3.1.9**
 
 **Deckungsanteil**
 
 Anteil an der Gesamtwärmelieferung
 
-### 3.1.10
+**3.1.10**
 
 **dezentrale Heizungsanlage**
 
 Heizungssystem, bei dem die Wärme in einem Gerät erzeugt und an den gleichen Raum übergeben wird, als deren Wärmeträgermedium Wasser oder Luft dient
 
-### 3.1.11
+**3.1.11**
 
 **Endenergiebedarf**
 
@@ -128,7 +128,7 @@ berechnete Energiemenge, die der Anlagentechnik (Heizungsanlage) zur Verfügung 
 
 Anmerkung 1 zum Begriff: Diese Energiemenge bezieht den für den Betrieb der Anlagentechnik benötigten Hilfsenergieaufwand ein. Der Endenergiebedarf wird an der „Schnittstelle" Gebäudehülle übergeben und stellt somit die Energiemenge dar, die der Verbraucher für eine bestimmungsgemäße Nutzung unter normativen Randbedingungen benötigt. Der Endenergiebedarf wird vor diesem Hintergrund nach verwendeten Energieträgern angegeben.
 
-### 3.1.12
+**3.1.12**
 
 **Erzeugung**
 
@@ -136,7 +136,7 @@ Prozessbereich in der Anlagentechnik im Gebäude, in dem die Wärmemenge bereitg
 
 Anmerkung 1 zum Begriff: Abluftwärmepumpe, siehe z. B. DIN/TS 18599-6.
 
-### 3.1.13
+**3.1.13**
 
 **Feuerungsleistung**
 
@@ -144,7 +144,7 @@ Wärmeleistung, die der Feuerung des Heizkessels mit dem Brennstoff entsprechend
 
 \[QUELLE: DIN EN 303-1:2017-11, 3.18, modifiziert\]
 
-### 3.1.14
+**3.1.14**
 
 **Heizleistung**
 
@@ -152,7 +152,7 @@ je Zeiteinheit an den Wärmeträger Wasser nutzbar abgegebene Wärmemenge
 
 Anmerkung 1 zum Begriff: Wenn Wärme vom Innenwärmetauscher zum Auftauen abgezogen wird, wird sie berücksichtigt.
 
-### 3.1.15
+**3.1.15**
 
 **Versorgungsbereich Heizung**
 
@@ -160,19 +160,19 @@ Heizungsbereich
 
 Bereich, der die Gebäudeteile, die von der gleichen Heiztechnik versorgt werden, umfasst und sich über mehrere Zonen erstrecken kann, wobei eine Zone auch mehrere Bereiche umfassen kann
 
-### 3.1.16
+**3.1.16**
 
 **Heizzeit**
 
 Laufzeit des Heizsystems, um die vorgesehenen Nutzungstemperaturen sicherzustellen
 
-### 3.1.17
+**3.1.17**
 
 **Hilfsenergieaufwand**
 
 Energie, die von Heizungssystemen zusätzlich für Pumpen, Ventilatoren, Regelung, Elektronik usw. verwendet wird, um die Nutzenergiebereitstellung zu ermöglichen
 
-### 3.1.18
+**3.1.18**
 
 **kombinierter Betrieb**
 
@@ -180,7 +180,7 @@ Wärmeerzeugerbetrieb mit zweifacher Nutzung
 
 BEISPIEL: Zweifache Nutzung für Heizung und Trinkwarmwasser.
 
-### 3.1.19
+**3.1.19**
 
 **Konditionierung**
 
@@ -188,7 +188,7 @@ Ausbildung bestimmter Bedingungen in Räumen durch Heizung, Kühlung, Be- und En
 
 Anmerkung 1 zum Begriff: Die Konditionierung hat das Ziel, die Nutzungsanforderungen an Innentemperatur, Frischluft, Licht, Luftfeuchte und/oder Trinkwarmwasser zu erfüllen.
 
-### 3.1.20
+**3.1.20**
 
 **konditionierter Raum**
 
@@ -196,13 +196,13 @@ Raum und/oder Raumgruppe, die auf eine bestimmte Solltemperatur beheizt und/oder
 
 Anmerkung 1 zum Begriff: Zonen sind konditionierte Räume und weisen mindestens eine Art der Konditionierung auf. Räume ohne Konditionierung werden als „nicht konditionierte Räume" bezeichnet.
 
-### 3.1.21
+**3.1.21**
 
 **Lastfaktor**
 
 Verhältnis zwischen der Laufzeit des Verdichters und der Gesamteinschaltzeit des Erzeugers (Bereitschaft und Betrieb)
 
-### 3.1.22
+**3.1.22**
 
 **Leistungszahl**
 
@@ -210,7 +210,7 @@ Verhältnis zwischen der Laufzeit des Verdichters und der Gesamteinschaltzeit de
 
 Verhältnis der Heizleistung zur effektiven Leistungsaufnahme einer Wärmepumpe
 
-### 3.1.23
+**3.1.23**
 
 **Nennleistung**
 
@@ -220,7 +220,7 @@ Anmerkung 1 zum Begriff: Bei Kesseln: die vom Hersteller für den Wärmeerzeuger
 
 Anmerkung 2 zum Begriff: Bei Pumpen: die elektrische Leistungsaufnahme bei Nennspannung unter bestimmungsgemäßen Betriebsbedingungen und maximaler Last.
 
-### 3.1.24
+**3.1.24**
 
 **Nutzenergiebedarf**
 
@@ -230,13 +230,13 @@ Anmerkung 1 zum Begriff: Gemeint ist beispielsweise die Wärmemenge, die von den
 
 BEISPIEL: Beispiele sind Nutzwärmebedarf, Nutzkältebedarf, Nutzenergiebedarf für Trinkwassererwärmung, Beleuchtung und Befeuchtung.
 
-### 3.1.25
+**3.1.25**
 
 **Nutzwärmeabgabe**
 
 Teil der Wärmemenge, der in das nachfolgende System abgegeben wird
 
-### 3.1.26
+**3.1.26**
 
 **Nutzwärmebedarf**
 
@@ -246,7 +246,7 @@ rechnerisch ermittelter Wärmebedarf, der zur Aufrechterhaltung der festgelegten
 
 Anmerkung 1 zum Begriff: Siehe DIN/TS 18599-1.
 
-### 3.1.27
+**3.1.27**
 
 **Produktwert**
 
@@ -262,7 +262,7 @@ der für dieses Rechenverfahren geeignet ist
 
 BEISPIEL: Harmonisierte Europäische Normen wie beispielsweise DIN EN 304, DIN EN 303-5, DIN EN 15502-2-2, DIN EN 15035 oder DIN EN 656.
 
-### 3.1.28
+**3.1.28**
 
 **Raumhöhe**
 
@@ -272,7 +272,7 @@ Höhendifferenz zwischen der Oberkante des Fußbodens bis zur Unterkante der Ges
 
 Anmerkung 1 zum Begriff: Für Wohngebäude darf sie vereinfacht aus dem Bruttovolumen (externes Volumen) bestimmt werden, wenn z. B. kein inneres Aufmaß gemacht wird (siehe DIN/TS 18599-1).
 
-### 3.1.29
+**3.1.29**
 
 **Rücklauftemperaturbegrenzung**
 
@@ -280,13 +280,13 @@ Systeme mit dezentral angeordneten Einrichtungen zur selbsttätigen Begrenzung d
 
 Anmerkung 1 zum Begriff: Bei Heizkreisen mit einer Rücklauftemperaturbegrenzung kann es zeitweise zu einer eingeschränkten thermischen Behaglichkeit kommen.
 
-### 3.1.30
+**3.1.30**
 
 **Simultanbetrieb**
 
 gleichzeitige Erzeugung von Wärmeenergie zur Raumheizung und für die Trinkwassererwärmung
 
-### 3.1.31
+**3.1.31**
 
 **Speicherung**
 
@@ -294,19 +294,19 @@ Prozessbereich der Anlagentechnik, in dem in einem Medium enthaltene Wärme gesp
 
 Anmerkung 1 zum Begriff: Bei Heizkreisen ist dies der Pufferspeicher (z. B. bei Wärmepumpenanlagen).
 
-### 3.1.32
+**3.1.32**
 
 **Standardwert**
 
 Wert, der für den Berechnungsgang verwendet werden kann, sofern kein für das Rechenverfahren geeigneter Produktwert verfügbar ist
 
-### 3.1.33
+**3.1.33**
 
 **Teillastbetrieb**
 
 Betriebszustand eines Wärmeerzeugers, bei dem der tatsächliche Lastbedarf unter der tatsächlichen Ausgangskapazität des Wärmeerzeugers liegt
 
-### 3.1.34
+**3.1.34**
 
 **Übergabe**
 
@@ -316,7 +316,7 @@ BEISPIEL: Beispielsweise kann Nutzwärme an einen zu beheizenden Raum übergebe
 
 Anmerkung 1 zum Begriff: Siehe DIN/TS 18599-10.
 
-### 3.1.35
+**3.1.35**
 
 **Verlust**
 
@@ -324,19 +324,19 @@ Verluste (Wärmeabgabe) in den technischen Prozessschritten zwischen dem Nutzene
 
 Anmerkung 1 zum Begriff: Die Verluste der Anlagentechnik zählen, sofern sie im konditionierten Raum auftreten, zu den Wärmequellen oder Wärmesenken.
 
-### 3.1.36
+**3.1.36**
 
 **Verteilung**
 
 Prozessbereich der Anlagentechnik, in dem die benötigte Energiemenge von der Erzeugung zum Wärmeübergabesystem transportiert wird
 
-### 3.1.37
+**3.1.37**
 
 **Wärmeenergie**
 
 Energie, die unmittelbar zur Deckung des Heizwärmebedarfs eingesetzt wird
 
-### 3.1.38
+**3.1.38**
 
 **Wärmeerzeuger mit zweifacher Nutzung**
 
@@ -344,7 +344,7 @@ Wärmeerzeuger, der Energie an zwei verschiedene Verbraucher liefert
 
 BEISPIEL: Zwei verschiedene Verbrauchen wie die Heizungssysteme und das Trinkwassererwärmungssystem in kombiniertem Betrieb.
 
-### 3.1.39
+**3.1.39**
 
 **Wärmeträger**
 
@@ -360,19 +360,19 @@ Anmerkung 1 zum Begriff: Dazu zählen neben dem in Heizkreisen umlaufenden Wasse
 
 --das im Wärmerückgewinnungswärmeübertrager umlaufende Wärmerückgewinnungsmedium.
 
-### 3.1.40
+**3.1.40**
 
 **Wohnungsstationen**
 
 Systeme zur Heizung und/oder Trinkwassererwärmung, bei denen die zentral erzeugte Wärme durch erwärmtes Heizungswasser zu den Verbrauchern (meist Wohnungen) transportiert wird und bei denen die Erwärmung des Trinkwassers dort dezentral in der Wohnungsstation über einen Wärmeübertrager im Durchlaufprinzip, teilweise mit einer elektrischen Nachheizung, erfolgt
 
-### 3.1.41
+**3.1.41**
 
 **zentrale Heizungsanlage**
 
 Heizungssystem, bei dem die Wärme in einem Gerät erzeugt wird und über Verteilleitungen an mehrere Räume eines Gebäudes transportiert wird, wobei als Wärmeträgermedium Wasser dient
 
-### 3.1.42
+**3.1.42**
 
 **Zone**
 
@@ -382,11 +382,11 @@ Anmerkung 1 zum Begriff: Eine Zone fasst den Grundflächenanteil bzw. Bereich ei
 
 Anmerkung 2 zum Begriff: Die Nutzungsrandbedingungen sind in DIN/TS 18599-10 zusammengestellt. Die Zonenkriterien sind als Teilungskriterien in DIN/TS 18599-1 erläutert.
 
-## 3.2 Symbole, Einheiten, Indizes und Abkürzungen
+**3.2Symbole, Einheiten, Indizes und Abkürzungen**
 
 Für die Anwendung dieses Dokuments gelten die Symbole und Einheiten nach Tabelle 1, die Indizes nach Tabelle 2.
 
-### Tabelle 1 --- Symbole und Einheiten
+**Tabelle 1 --- Symbole und Einheiten**
 
   --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   Symbol        Bedeutung                                                                                                                                                      Übliche Einheit
@@ -482,7 +482,7 @@ Für die Anwendung dieses Dokuments gelten die Symbole und Einheiten nach Tabel
                 Temperatur                                                                                     temperature                                                     °C
   --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-### Tabelle 2 --- Indizes
+**Tabelle 2 --- Indizes**
 
   --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   Index      Bedeutung                                                                             
@@ -738,11 +738,11 @@ Die Indizierung der Kennwerte der Anlagentechnik wird nach der folgenden Systema
 
 ![Bild 3: Schema der Indizierung](sources/images/media/image1.gif){width="5.95in" height="4.341666666666667in"}
 
-### Bild 3 --- Schema der Indizierung
+**Bild 3 --- Schema der Indizierung**
 
-# 4 Verknüpfung der Teile der Reihe DIN/TS 18599
+**4Verknüpfung der Teile der Reihe DIN/TS 18599**
 
-## 4.1 Allgemeines
+**4.1Allgemeines**
 
 Die folgenden zwei Unterabschnitte 4.2 und 4.3
 
@@ -766,11 +766,11 @@ von Heizsystemen für die weitere Bilanzierung in DIN/TS 18599-1.
 
 Liegen Systeme vor, die in diesem Dokument nicht dargestellt sind, so darf deren Bewertung nach anderen, physikalisch begründeten Algorithmen unter sinngemäßer Anwendung dieses Dokuments vorgenommen werden.
 
-## 4.2 Eingangsgrößen aus anderen Teilen der Reihe DIN/TS 18599
+**4.2Eingangsgrößen aus anderen Teilen der Reihe DIN/TS 18599**
 
 Die Tabelle 3 gibt einen Überblick über die Eingangsgrößen aus anderen Teilen der Reihe DIN/TS 18599.
 
-### Tabelle 3 --- Eingangsgrößen aus anderen Teilen der Reihe DIN/TS 18599
+**Tabelle 3 --- Eingangsgrößen aus anderen Teilen der Reihe DIN/TS 18599**
 
   ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   Bedeutung                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  Symbol     Quelle
@@ -882,7 +882,7 @@ Der Tagbetrieb entspricht dem Normalfall und wird durch die Heizzeit (Betriebsst
 
 Nur wenn der Nutzwärmebedarf *Q* \> 1 kWh (im Monat) ist, ist eine Beheizung erforderlich.
 
-## 4.3 Ausgangsgrößen für andere Teile der Reihe DIN/TS 18599
+**4.3Ausgangsgrößen für andere Teile der Reihe DIN/TS 18599**
 
 **4.3.1Allgemeines**
 
@@ -896,7 +896,7 @@ In den folgenden Unterabschnitten bis 4.3.5 werden die thermischen Verluste un
 
 Tabelle 4 gibt einen Überblick über die Ausgangsgrößen für andere Teile der Reihe DIN/TS 18599.
 
-### Tabelle 4 --- Ausgangsgrößen für andere Teile der Reihe DIN/TS 18599
+**Tabelle 4 --- Ausgangsgrößen für andere Teile der Reihe DIN/TS 18599**
 
   ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   Bedeutung                                                                                                                                                                               Symbol   nach Unterabschnitt dieses Dokuments   Bezug
@@ -980,7 +980,7 @@ Die Ergebnisse der Berechnung der Erzeuger werden nach Tabelle 5 zur Gesamtbil
 
 Eine Verrechnung der Endenergiebedarfe der Gewerke untereinander erfolgt in DIN/TS 18599-1:2025-10, 5.5.7 (z. B. erzeugter Strom nach DIN/TS 18599-9 und Strombedarf einer Wärmepumpe aus DIN/TS 18599-8).
 
-### Tabelle 5 --- Ausgangsgrößen für Wärmeerzeuger an Teil 1 der Reihe DIN/TS 18599
+**Tabelle 5 --- Ausgangsgrößen für Wärmeerzeuger an Teil 1 der Reihe DIN/TS 18599**
 
   -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   Abschnitt                                                                                          Technologie/-Erzeuger                                                                Erzeugerverlust            von außerhalb zugeführter Endenergiebedarf   produzierter oder technisch nutzbar gemachter Endenergiebedarf   nach außerhalb bereitgestellter Endenergiebedarf
@@ -1116,13 +1116,13 @@ ANMERKUNG: Ungeregelte Wärmeeinträge für den Teilabschnitt Wärmeübergabe f
 
 Die Berechnung der Werte erfolgt stets für die in DIN/TS 18599-1 festgelegten Zonen.
 
-# 5 Randbedingungen für die einzelnen Prozessbereiche
+**5Randbedingungen für die einzelnen Prozessbereiche**
 
-## 5.1 Allgemeines
+**5.1Allgemeines**
 
 Sofern sich aus den Vorgaben eine Betriebsdauer *t* = 0 ergibt, wird die zugehörige Belastung  ebenfalls Null. Bestehen Anforderungen aus DIN/TS 18599-7, so ist *t* entsprechend den dort festgelegten Zeiten zu bestimmen.
 
-## 5.2 Belastung
+**5.2Belastung**
 
 **5.2.1Wärmeübergabe**
 
@@ -1192,7 +1192,7 @@ Dabei ist
 
 In Tabelle 6 sind die Faktoren für den hydraulischen Abgleich angegeben.
 
-### Tabelle 6 --- Faktor für den hydraulischen Abgleich
+**Tabelle 6 --- Faktor für den hydraulischen Abgleich**
 
   -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   Einflussgrößen                                                                                                                                                                                                                                       *f*
@@ -1210,7 +1210,7 @@ In Tabelle 6 sind die Faktoren für den hydraulischen Abgleich angegeben.
 
 Für dezentrale Systeme ist *f* gleich 1.
 
-## 5.3 Temperaturen
+**5.3Temperaturen**
 
 **5.3.1Allgemeines**
 
@@ -1292,7 +1292,7 @@ Sind im Gebäudebestand Renovierungen durchgeführt worden, so können die Ausle
 
 Wird keine neue detaillierte Planung durchgeführt, so können bei Beibehaltung der Heizflächen in Abhängigkeit von alter und neuer Heizlast (siehe 4.2), die Auslegungstemperaturen nach Tabelle 7 überschlägig angepasst werden. Bei Zwischenwerten ist die nächsthöhere Temperaturpaarung zu wählen.
 
-### Tabelle 7 --- Heizlastverhältnisse und Auslegungstemperaturen
+**Tabelle 7 --- Heizlastverhältnisse und Auslegungstemperaturen**
 
   -----------------------------------------------------------------------------------------------
   Alte Auslegungstemperaturen      /                                                
@@ -1318,7 +1318,7 @@ Bei Brennwertkesseln sind die Rücklauftemperaturen für die Berechnung der Wirk
 
 Für alle NT- und Brennwertkessel ist der Bereitschaftsverlust auf die mittlere Heizkreistemperatur zu beziehen.
 
-## 5.4 Nennleistung des Wärmeerzeugers
+**5.4Nennleistung des Wärmeerzeugers**
 
 **5.4.1Allgemeines**
 
@@ -1338,7 +1338,7 @@ Dabei ist
 
 *P* die größtmögliche Leistung mit Vorrang, in kW.
 
-### Tabelle 8 --- Zuschlagsfaktor
+**Tabelle 8 --- Zuschlagsfaktor**
 
   -----------------------------------------------------------------------
                                              Zuschlagsfaktor *f*
@@ -1462,15 +1462,15 @@ Der Energiebedarf von Komponenten (z. B. für Umwälzpumpen) darf jährlich ermi
 
 Wenn der Energiebedarf in der Zone monatlich zu bilanzieren ist, sind die Jahreswerte nach Gleichung (33) umzurechnen.
 
-# 6 Ermittlung der Energieaufwendungen
+**6Ermittlung der Energieaufwendungen**
 
-## 6.1 Allgemeines
+**6.1Allgemeines**
 
 Als Eingangsgröße für die weitere Ermittlung der Kennwerte des Heizsystems ist der Nutzwärmebedarf aus 4.2 zu verwenden.
 
 Liegt ein zusätzlicher Bedarf aus einem anderen Teil der Reihe DIN/TS 18599 (z. B. für RLT-Anlage, siehe DIN/TS 18599-7) vor, so ist dieser zusätzlich zu berücksichtigen. Dabei ist die gewünschte Temperatur im Vergleich zum konventionellen Heizsystem, sofern sie höher liegt, gegebenenfalls zu berücksichtigen. Die verschiedenen Prozessbereiche sind entsprechend ihrer Nutzung wie beim Heizsystem zu berechnen.
 
-## 6.2 Wärmeübergabe
+**6.2Wärmeübergabe**
 
 **6.2.1Allgemeines**
 
@@ -1556,7 +1556,7 @@ In diesem Abschnitt nicht erfasste anlagentechnische Lösungen sind 6.5 zu ent
 
 Tabelle 9 listet informativ externe Produktnormen für hier verwendete Kennwerte auf. Die veröffentlichten Fassungen der zitierten Normen wurden z. T. vor Bearbeitung dieses Dokuments erstellt. In einigen Fällen behandeln die veröffentlichten Fassungen der zitierten Normen noch nicht die hier genannten Kennwerte.
 
-### Tabelle 9 --- Verknüpfung zwischen den Kennwerten und den Produktnormen in DIN EN 15316-2
+**Tabelle 9 --- Verknüpfung zwischen den Kennwerten und den Produktnormen in DIN EN 15316-2**
 
   --------------------------------------------------------------------------------------------------------------
   Produkt                                                          Norm                         Größe/Kennwert
@@ -1584,7 +1584,7 @@ Tabelle 9 listet informativ externe Produktnormen für hier verwendete Kennwert
 
 Tabelle 10 enthält die Vorgabewerte für die Temperaturschwankung durch Nichtvorhandensein/Vorhandensein und ggf. Güte des hydraulischen Abgleichs. Hierbei wird unterschieden hinsichtlich der Art des Verteilsystems (Zwei- oder Einrohrnetz) und der Art des Abgleichs bzw. der verwendeten Abgleichsysteme. Für dezentrale Systeme ohne Hydrauliknetz ist  gleich 0.
 
-### Tabelle 10 --- Temperaturschwankungen bei der Wärmeübergabe in Hinblick auf den hydraulischen Abgleich in K
+**Tabelle 10 --- Temperaturschwankungen bei der Wärmeübergabe in Hinblick auf den hydraulischen Abgleich in K**
 
   -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   Verteilsystem                                                                          Art des Abgleichs                                                                                                                                                                Temperaturschwankung   
@@ -1634,7 +1634,7 @@ Im Falle der Verwendung von Produktdaten für Regelungssysteme ist für  der C
 
 Für andere als die o. g. Wärmeübergabesysteme werden Festlegungen zum Einfluss der Raumtemperaturregelung und/oder Raumautomation in den nachfolgenden Abschnitten zum jeweiligen Übergabesystem getroffen.
 
-### Tabelle 11 --- Temperaturschwankungen der Raumtemperaturregelung für freie Heizflächen nach Tabelle 14, bauteilintegrierte Heizflächen nach Tabelle 15 und Hallenheizsysteme nach Tabelle 19
+**Tabelle 11 --- Temperaturschwankungen der Raumtemperaturregelung für freie Heizflächen nach Tabelle 14, bauteilintegrierte Heizflächen nach Tabelle 15 und Hallenheizsysteme nach Tabelle 19**
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------+---------------------------------------+------------------------------------------------+-----------------------------------+------------------------------+-------------------------+---------------------------------------------+
 | Art der Wärmeverteilung                                                                                                                                                                                                                                                                                        | Raumtemperaturregelung                                 | Kombinierbarkeit mit Übergabesystemen |                                                |                                   | Temperaturschwankung         |                         | Einzelraumregelung i. S. d. Raumautomationb |
@@ -1668,7 +1668,7 @@ Für andere als die o. g. Wärmeübergabesysteme werden Festlegungen zum Einflus
 | dZ. B. Anwesenheitsmanagement, adaptive Regelung                                                                                                                                                                                                                                                               |                                                        |                                       |                                                |                                   |                              |                         |                                             |
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------+---------------------------------------+------------------------------------------------+-----------------------------------+------------------------------+-------------------------+---------------------------------------------+
 
-### Tabelle 12 --- Temperaturschwankung Raumautomation für freie Heizflächen nach Tabelle 14, bauteilintegrierte Heizflächen nach Tabelle 15 und Hallenheizsysteme nach Tabelle 19
+**Tabelle 12 --- Temperaturschwankung Raumautomation für freie Heizflächen nach Tabelle 14, bauteilintegrierte Heizflächen nach Tabelle 15 und Hallenheizsysteme nach Tabelle 19**
 
   ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   Raumtemperaturregelung                                                                                                                                         (Raum-)Individuelle Zeitsteuerung der Raumtemperaturregelung                                   Temperaturschwankung
@@ -1694,7 +1694,7 @@ Für andere als die o. g. Wärmeübergabesysteme werden Festlegungen zum Einflus
 
 Tabelle 13 zeigt eine Klassifizierung von Reglern in Bezug auf DIN EN 15232-1:2017-12.
 
-### Tabelle 13 --- Klassifizierung der Regler in Bezug auf DIN EN 15232-1:2017-12
+**Tabelle 13 --- Klassifizierung der Regler in Bezug auf DIN EN 15232-1:2017-12**
 
   -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   DIN EN 15316-2 (siehe Tabelle 11)                                                      BACS-Funktion nach DIN EN 15232-1:2017-12   Bezeichner
@@ -1732,7 +1732,7 @@ In Tabelle 14 sind die Temperaturschwankungen zur Berücksichtigung der Luftte
 
 Die Temperaturschwankung der Lufttemperaturschichtung  ist zur Verwendung in Gleichung (37) als Mittelwert aus dem spezifischen Kennwert des Übergabesystems  und seiner Anordnung im Raum  zu berechnen:
 
-### Tabelle 14 --- Temperaturschwankungen des Wärmeübergabesystems bei freien Heizflächen (Heizkörper); lichte Raumhöhe ≤ 4 m
+**Tabelle 14 --- Temperaturschwankungen des Wärmeübergabesystems bei freien Heizflächen (Heizkörper); lichte Raumhöhe ≤ 4 m**
 
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------+-------------------------------------------+---------------------------------+--------------------------------------+---------------------------+---+--------------------------------------+
 | Technisches System/Einflussparameter                                                                                                                                                                                                                                                                                                                  |                                                               |                                           |                                 | Temperaturschwankung                 |                           |   |                                      |
@@ -1804,7 +1804,7 @@ Dieses Dokument unterscheidet zwischen
 
 In Tabelle 15 werden die Temperaturschwankungen  zur Berücksichtigung der Lufttemperaturschichtung, zusätzlicher Wärmeverluste über Außenbauteile  und der Strahlungswirkung  für Heizungsanlagen mit bauteilintegrierten Heizflächen (Flächenheizungen) bei lichter Raumhöhe ≤ 4 m angegeben. Die Temperaturschwankung der zusätzlichen Wärmeverluste über Außenbauteile  ist zur Verwendung in Gleichung (37) als Mittelwert aus dem spezifischen Kennwert des Übergabesystems  und seiner Wärmedämmung nach außen  zu berechnen:
 
-### Tabelle 15 --- Temperaturschwankungen für Heizungsanlagen mit bauteilintegrierten Heizflächen (wasserführende oder elektrische Flächenheizungen); lichte Raumhöhe ≤ 4 m
+**Tabelle 15 --- Temperaturschwankungen für Heizungsanlagen mit bauteilintegrierten Heizflächen (wasserführende oder elektrische Flächenheizungen); lichte Raumhöhe ≤ 4 m**
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------+--------------------------------+--------------------------------------+----------+-------------------------------------+--------------------------------------+
 | Technisches System/Einflussparameter                                                                                                                                                                                                                                                                                             |                                                                   |                                | Temperaturschwankung                 |          |                                     |                                      |
@@ -1866,7 +1866,7 @@ Dieses Dokument unterscheidet zwischen
 
 Tabelle 16 enthält die Vorgabewerte der kombinierten Temperaturschwankung zur gemeinsamen Berücksichtigung der Lufttemperaturschichtung, Raumtemperaturregelung und systembedingten Wärmeverluste über Außenbauteile  +  + , der Temperaturschwankung durch Strahlungswirkung  und Raumautomation  für thermisch aktivierte Bauteile (TABS) bei Raumhöhen ≤ 4 m. Als Unterscheidungskriterium wird hierbei die Betriebsweise bezüglich der am TABS anliegenden Vorlauftemperatur (konstant oder geregelt) herangezogen.
 
-### Tabelle 16 --- Temperaturschwankungen für Heizungsanlagen mit thermisch aktivierten Bauteilen (TABS, wasserführend oder elektrisch) bei lichten Raumhöhen ≤ 4 m
+**Tabelle 16 --- Temperaturschwankungen für Heizungsanlagen mit thermisch aktivierten Bauteilen (TABS, wasserführend oder elektrisch) bei lichten Raumhöhen ≤ 4 m**
 
   ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   Einflussparameter                                                                                                                                                      Temperaturschwankung         
@@ -1898,7 +1898,7 @@ Der Hilfsenergieaufwand für die Luftheizungen i. S. v. DIN/TS 18599-6 wird in
 
 Bei Einsatz in hohen Räumen (*h* \> 4 m  Hallen) sind Temperaturschwankungen nach 6.2.2.4.8 heranzuziehen.
 
-### Tabelle 17 --- Temperaturschwankung der Zuluftnachheizung in Nichtwohngebäuden bei Raumhöhen ≤ 4 m
+**Tabelle 17 --- Temperaturschwankung der Zuluftnachheizung in Nichtwohngebäuden bei Raumhöhen ≤ 4 m**
 
   -----------------------------------------------------------------------------------------------------------------
   Regelgröße des Zusatzheizgeräts                                         Temperaturschwankung                  
@@ -1924,7 +1924,7 @@ Tabelle 18 enthält die Vorgabewerte der Temperaturschwankung für freistehende
 
 Im Fall von Gebläsen i. S. v. Tabelle 21 (z. B. Elektro-Gebläsekonvektor oder Speicherheizung mit Gebläse) ist deren Hilfsenergiebedarf nach 6.2.3 zu berücksichtigen.
 
-### Tabelle 18 --- Temperaturschwankung für dezentrale elektrische Heizungen bei Raumhöhen ≤ 4 m
+**Tabelle 18 --- Temperaturschwankung für dezentrale elektrische Heizungen bei Raumhöhen ≤ 4 m**
 
   --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   Art der Elektroheizung                                                                                     Raumtemperatur- und ggf. Laderegelung                                                                                            Temperaturschwankung                   
@@ -1990,7 +1990,7 @@ Die Temperaturschwankung für systembedingte Wärmeverluste über Außenbauteile
 
 Der Hilfsenergiebedarf des Wärmeübergabesystems bei zentralen Hallenheizsystemen bzw. des dezentralen Hallenheizsystems ist nach 6.2.3.2/6.2.3.3 zu ermitteln.
 
-### Tabelle 19 --- Vorgabewerte des Lufttemperaturgradienten, der Temperaturschwankung(en) und Standardwerte des Strahlungsfaktors für Wärmeübergabesysteme bei Raumhöhen \> 4 m (Hallenheizsysteme; Bezugsbedingung : Deckenhöhe 10 m)
+**Tabelle 19 --- Vorgabewerte des Lufttemperaturgradienten, der Temperaturschwankung(en) und Standardwerte des Strahlungsfaktors für Wärmeübergabesysteme bei Raumhöhen \> 4 m (Hallenheizsysteme; Bezugsbedingung : Deckenhöhe 10 m)**
 
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------+------------------------------------------------------------+------------------------+----------------------+-------------------------------+-------------------------+
 | Technisches System/Einflussparametera                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |                                                                      |                                                            | Lufttemperaturgradient | Temperaturschwankung |                               | Strahlungsfaktorb       |
@@ -2116,7 +2116,7 @@ Werden RLT-Heizregister oder Absorptionskältemaschinen versorgt, so sind die en
 
 Die Betriebsdauer des Ventilators/Gebläses bzw. der Pumpe wird der Betriebszeit der Heizung gleichgesetzt.
 
-### Tabelle 20 --- Standardwerte für den Hilfsenergieaufwand zur Regelung
+**Tabelle 20 --- Standardwerte für den Hilfsenergieaufwand zur Regelung**
 
   ----------------------------------------------------------------------------------------
   Regelung/Stellantrieb                                                     Leistung *P*
@@ -2134,7 +2134,7 @@ Die Betriebsdauer des Ventilators/Gebläses bzw. der Pumpe wird der Betriebszeit
   Elektrische/Elektronische Regelung mit Expansionsventil VRF-Gerät         15
   ----------------------------------------------------------------------------------------
 
-### Tabelle 21 --- Standardwerte für den Hilfsenergieaufwand von Gebläsen zur Luftförderung in Räumen mit *h* ≤ 4 m
+**Tabelle 21 --- Standardwerte für den Hilfsenergieaufwand von Gebläsen zur Luftförderung in Räumen mit *h* ≤ 4 m**
 
   ------------------------------------------------------------------------------------------------
   Übergabesystem                                                                    Leistung *P*
@@ -2166,7 +2166,7 @@ W der monatliche Hilfsenergieaufwand für den Betrieb des dezentralen Wärmeerz
 
 *Q* die monatliche Erzeugernutzwärmeabgabe nach 4.3.3, in kWh.
 
-### Tabelle 22 --- Hilfsenergiefaktoren dezentraler Hallenheizsysteme
+**Tabelle 22 --- Hilfsenergiefaktoren dezentraler Hallenheizsysteme**
 
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------+-------------------------------------------------------------------------------------+--------------------+
 | Wärmeerzeugung und -übergabe (dezentrale Systeme)                                                                                                                                                                                                                                                     |                                                                      |                                                                                     | Hilfsenergiefaktor |
@@ -2216,7 +2216,7 @@ Dabei ist
 
 *Q* der monatliche Nutzwärmebedarf (siehe 4.2), in kWh.
 
-### Tabelle 23 --- Hilfsenergiefaktoren der Gebläse bei (Hallen-)Luftheizungen mit zentraler Wärmeerzeugung
+**Tabelle 23 --- Hilfsenergiefaktoren der Gebläse bei (Hallen-)Luftheizungen mit zentraler Wärmeerzeugung**
 
   ----------------------------------------------------------------------------------------------------------------------------------------------
   Konkretisierung Lufterhitzer in Übereinstimmung mit Tabelle 19        Motor Systemgebläse Lufterhitzer   Hilfsenergiefaktor *f*   
@@ -2232,7 +2232,7 @@ Dabei ist
                                                                         Geregelter EC-Motor                0,005                    0,007
   ----------------------------------------------------------------------------------------------------------------------------------------------
 
-## 6.3 Verteilung der Wärme *Q* --- Zentrale Warmwasserheizungs-Rohrnetze
+**6.3Verteilung der Wärme *Q* --- Zentrale Warmwasserheizungs-Rohrnetze**
 
 **6.3.1Wärmeverlust zentraler Warmwasserheizungs-Rohrnetze**
 
@@ -2280,7 +2280,7 @@ Es wird davon ausgegangen, dass ein durchschnittliches Rohrnetz aus drei untersc
 
 Bei Fußbodenheizungen entfällt der Bereich A, wenn sich alle Heizkreise innerhalb einer Zone gleicher Nutzung befinden.
 
-### Tabelle 24 --- Umgebungstemperatur für Heizungskomponenten
+**Tabelle 24 --- Umgebungstemperatur für Heizungskomponenten**
 
   ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   Kenngröße                                                                                       Symbol   Einheit   Bereich V                                              Bereich S                    Bereich A
@@ -2294,7 +2294,7 @@ Bei Fußbodenheizungen entfällt der Bereich A, wenn sich alle Heizkreise innerh
 
 Für die Standardwerte nach Tabelle 26 wird in die folgenden Gebäudegruppen nach Tabelle 25 differenziert:
 
-### Tabelle 25 --- Gruppenzugehörigkeiten bei Heizungsnetzen
+**Tabelle 25 --- Gruppenzugehörigkeiten bei Heizungsnetzen**
 
   -------------------------------------------------------------------------------------------------------------------------------------------------------
   Gebäudegruppe Heizung   Nutzungen
@@ -2328,11 +2328,11 @@ Leitungslänge für Warmwasserheizungs-Rohrnetze (siehe Bild 4).
 
 *L*Anbindeleitungen, Absperrbare Leitungen im beheizten Bereich, Verbindung zwischen den zirkulierenden Leitungsabschnitten und den Heizkörpern
 
-### Bild 4 --- Bezeichnung der Leitungen für Warmwasserheizungs-Rohrnetze
+**Bild 4 --- Bezeichnung der Leitungen für Warmwasserheizungs-Rohrnetze**
 
 Eine genauere Beschreibung der Lage der drei Rohrabschnitte ist in Anhang D angegeben.
 
-### Tabelle 26 --- Leitungslängen
+**Tabelle 26 --- Leitungslängen**
 
 <table>
 <colgroup>
@@ -2691,7 +2691,7 @@ Alternativ darf die Verteilung für das gesamte Gebäude gemeinsam berechnet wer
 
 Für die Annahmen für Wärmedurchgangszahlen siehe Tabelle 27.
 
-### Tabelle 27 --- Annahmen für Wärmedurchgangszahlen *U* in W/(m · K)
+**Tabelle 27 --- Annahmen für Wärmedurchgangszahlen *U* in W/(m · K)**
 
   --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   Baualtersklasse                                                                                                                                                             Verteilung   Leitungen außerhalb der thermischen Hülle           Leitungen innerhalb der thermischen Hülle   
@@ -2801,7 +2801,7 @@ Dabei ist
 
 ANMERKUNG: Sofern kein projektspezifischer Wert vorliegt (z. B. aus Rohrnetzplanung oder Überschlag anhand Leitungswegen), kann der *L* nach Gleichung (60) auf Basis der Gebäudegeometrie geschätzt werden.
 
-### Tabelle 28 --- Vorgabewerte des Differenzdrucks bei fehlenden Produktkennwerten
+**Tabelle 28 --- Vorgabewerte des Differenzdrucks bei fehlenden Produktkennwerten**
 
   ----------------------------------------------------------------------------------------------------------------------------------
   Bauteil                                                                                                           Differenzdruck
@@ -2883,7 +2883,7 @@ Der Überdimensionierungsfaktor *b* wird wie folgt bestimmt:
 
 --bei Pumpen, die wegen des fehlenden hydraulischen Abgleichs auf eine höhere Förderhöhe eingestellt sind, ist *b* = 2.
 
-### Tabelle 29 --- Konstanten *C*, *C* zur Berechnung der Aufwandszahl von Heizungspumpen
+**Tabelle 29 --- Konstanten *C*, *C* zur Berechnung der Aufwandszahl von Heizungspumpen**
 
   -----------------------------------------------------------------------
   Pumpenregelung                              C             C
@@ -2941,7 +2941,7 @@ Dabei ist
 
 Der minimale Volumenstrom ist aus den Erfordernissen des Wärmeerzeugers bzw. aus der Überdrucksicherung des Verbraucherkreises abzuleiten. Liegen keine Werte vor, kann der minimale Volumenstrom vereinfacht mit 0,02 l/kWh (max. Leistung des Wärmeerzeugers) angenommen werden.
 
-## 6.4 Speicher
+**6.4Speicher**
 
 **6.4.1Wärmeverlust**
 
@@ -3011,7 +3011,7 @@ Dabei ist
 
 *A* Nettogrundfläche des Versorgungsbereiches, in m.
 
-## 6.5 Wärmeerzeuger
+**6.5Wärmeerzeuger**
 
 **6.5.1Allgemeines**
 
@@ -3103,7 +3103,7 @@ Dabei ist
 
 Mit der Umrechnung nach Gleichung (80) ergibt sich die mittlere solare Einstrahlung auf die Referenzorientierung Süden und Referenzneigung 45° der Kollektorfläche (siehe Tabelle 31).
 
-### Tabelle 30 --- Mittlere stündliche solare Einstrahlung auf horizontale Kollektorflächen im Tagesverlauf für Referenzstandort Potsdam
+**Tabelle 30 --- Mittlere stündliche solare Einstrahlung auf horizontale Kollektorflächen im Tagesverlauf für Referenzstandort Potsdam**
 
   -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   Mittlere stündliche solare Einstrahlung auf horizontale Kollektorflächen  in Wh/(m · h)                                                                                                                                             
@@ -3137,7 +3137,7 @@ Mit der Umrechnung nach Gleichung (80) ergibt sich die mittlere solare Einstra
   Dezember                                                                                  0,0         0,0    0,0     0,0     0,0     10,0    37,8    70,0    86,8    88,6    68,0    37,4    11,1    0,0     0,0     0,0     0,0    0,0
   -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-### Tabelle 31 --- Mittlere stündliche solare Einstrahlung im Tagesverlauf auf eine südorientierte Kollektorfläche mit der Neigung 45° für Referenzstandort Potsdam
+**Tabelle 31 --- Mittlere stündliche solare Einstrahlung im Tagesverlauf auf eine südorientierte Kollektorfläche mit der Neigung 45° für Referenzstandort Potsdam**
 
   ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   Mittlere stündliche solare Einstrahlung auf Kollektorfläche  in Wh/(m · h), Südorientierung, Neigung 45°                                                                                                                                             
@@ -3179,7 +3179,7 @@ Dabei ist
 
  Umrechnungsfaktor für die mittlere solare Einstrahlung auf beliebig orientierte Flächen.
 
-### Tabelle 32 --- Umrechnungsfaktoren *f* für die mittlere stündliche solare Einstrahlung auf beliebig orientierte Flächen für Referenzstandort Potsdam
+**Tabelle 32 --- Umrechnungsfaktoren *f* für die mittlere stündliche solare Einstrahlung auf beliebig orientierte Flächen für Referenzstandort Potsdam**
 
   -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   Referenzstandort Potsdam   Umrechnung mittlere solare Einstrahlung *f* (Orientierung/Neigung)                                                                                
@@ -3275,7 +3275,7 @@ In Stunden ohne Einstrahlung ist der Kollektorwirkungsgrad 
 
 Die Temperaturdifferenz zwischen mittlerer Kollektortemperatur und Außenlufttemperatur werden nach Tabelle 33 angesetzt.
 
-### Tabelle 33 --- Mittlere monatliche Temperaturdifferenz zwischen mittlerer Kollektortemperatur und Außentemperatur
+**Tabelle 33 --- Mittlere monatliche Temperaturdifferenz zwischen mittlerer Kollektortemperatur und Außentemperatur**
 
   ----------------------------------------------------------------------------------------------------------------------------------------------------
   Monat       Temperaturdifferenz zwischen mittlerer Kollektortemperatur und Außentemperatur                                                    
@@ -3393,7 +3393,7 @@ mit
 
 Dabei sind die Koeffizienten *a*, *b*, *a*, *b* folgendermaßen festgelegt (siehe Tabelle 34):
 
-### Tabelle 34 --- Temperaturkorrekturkoeffizienten für Kollektor- und Speichergröße
+**Tabelle 34 --- Temperaturkorrekturkoeffizienten für Kollektor- und Speichergröße**
 
   -----------------------------------------------------------------------------
   Koeffizienten für Korrekturfaktoren                        
@@ -3527,7 +3527,7 @@ Das Wärmepumpenkennfeld beinhaltet die Abhängigkeit der Heizleistung, der Leis
 
 Das Wärmepumpenkennfeld wird entweder durch Standardwerte oder durch Produktkennwerte nach DIN EN 14825 vorgegeben. Zur Berechnung des Wärmepumpenkennfeldes sind alle Daten nach Tabelle 35 notwendig und bereitzustellen. Die Vorgehensweise bei Verwendung von Produktkennwerten und die Standardwerte sind in Abschnitt B.1 zu finden.
 
-### Tabelle 35 --- Allgemeiner Datensatz nach DIN EN 14825
+**Tabelle 35 --- Allgemeiner Datensatz nach DIN EN 14825**
 
   ------------------------------------------------------------------------
   Prüfpunkt                                         *COP*         
@@ -3561,7 +3561,7 @@ Das Wärmepumpenkennfeld wird entweder durch Standardwerte oder durch Produktken
 
 Analog zu den elektrischen Wärmepumpen steigen auch bei geregelten gasmotorischen Wärmepumpen die Leistungszahlen im Teillastbetrieb. Zur Berücksichtigung dieses Effektes sind die Leistungszahlen nach Tabelle 36 zu ermitteln:
 
-### Tabelle 36 --- Relative Leistung der Gasmotorwärmepumpe in Abhängigkeit von der Temperaturklasse
+**Tabelle 36 --- Relative Leistung der Gasmotorwärmepumpe in Abhängigkeit von der Temperaturklasse**
 
   ------------------------------------------------------------------------------------------------------------------------------------------------------------
   Prüfpunkt (Temperaturklasse)                                                                                      relative Leistung der Gasmotorwärmepumpe
@@ -3805,7 +3805,7 @@ Dabei ist
 
  die Auslegungsrücklauftemperatur des Wärmeerzeugers, in °C.
 
-### Tabelle 37 --- Korrekturfaktor *f* für unterschiedliche Temperaturdifferenzen bei Messung und Betrieb der Wärmepumpe
+**Tabelle 37 --- Korrekturfaktor *f* für unterschiedliche Temperaturdifferenzen bei Messung und Betrieb der Wärmepumpe**
 
   ---------------------------------------------------------------------------------------------------------------------------------------------------------
   Betrieb   *f*                                                                                                                                     
@@ -3881,7 +3881,7 @@ Bei direktkondensierenden Systemen entfällt der Index mTn, es wird nur nTn für
 
 ![Bild 5: Abhängigkeit der Leistungszahl vom Belastungsgrad bei regelbaren Wärmepumpen für eine bestimmte Quellen- und Senkentemperatur](sources/images/media/image3.gif){width="6.25in" height="3.25in"}
 
-### Bild 5 --- Abhängigkeit der Leistungszahl vom Belastungsgrad bei regelbaren Wärmepumpen für eine bestimmte Quellen- und Senkentemperatur
+**Bild 5 --- Abhängigkeit der Leistungszahl vom Belastungsgrad bei regelbaren Wärmepumpen für eine bestimmte Quellen- und Senkentemperatur**
 
 Dabei ist
 
@@ -3937,7 +3937,7 @@ Die Vorgehensweise zur Ermittlung der Häufigkeiten in 1-K-BINs, der zugehörige
 
 Die (gerundeten) Stundenhäufigkeiten der Außentemperaturen für mittlere Verhältnisse in Deutschland (Standard: TRY 04 von 2010) werden in Tabelle 38 als Standardwerte angegeben. Für andere Standorte können die entsprechenden Test-Referenzjahre oder äquivalente Wetterdatensätze herangezogen und nach dem in Abschnitt B.3 beschriebenen Verfahren aufbereitet werden. Es ist bei dem Verfahren nicht notwendig Rundungen der Zahlen vorzunehmen.
 
-### Tabelle 38 --- Standardwerte für die Stundenhäufigkeit der Außentemperatur für das TRY 04
+**Tabelle 38 --- Standardwerte für die Stundenhäufigkeit der Außentemperatur für das TRY 04**
 
   ------------------------------------------------------------------------------------------------------------------------------------
   Außentemperatur °C   Stundenhäufigkeit der Außentemperatur                                                                     
@@ -4061,7 +4061,7 @@ Für Sole/DX/Wasser-Wasser-Wärmepumpen wird in der Prüfnorm DIN EN 14825 jew
 
 Tabelle 39 enthält die Standardwerte für die monatliche Stundensumme und die Gradtagstunden in den einzelnen Temperaturklassen für eine Heizgrenze von 15 °C, aufgeteilt auf die Prüfpunkte nach DIN EN 14825.
 
-### Tabelle 39 --- Standardwerte für die monatliche Stundensumme und die Gradtagstunden in den einzelnen Temperaturklassen für eine Heizgrenze von 15 °C, aufgeteilt auf die Prüfpunkte nach DIN EN 14825
+**Tabelle 39 --- Standardwerte für die monatliche Stundensumme und die Gradtagstunden in den einzelnen Temperaturklassen für eine Heizgrenze von 15 °C, aufgeteilt auf die Prüfpunkte nach DIN EN 14825**
 
   ---------------------------------------------------------------------------------------------------------------------------------------------------------------
   Temperaturklasse                                     w−7                                                 w2           w7             w20          Monatssumme
@@ -4101,7 +4101,7 @@ Tabelle 39 enthält die Standardwerte für die monatliche Stundensumme und die 
   aDas Temperatur-BIN 15 °C wird hälftig aufgeteilt.                                                                                                
   ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-### Tabelle 40 --- Mittlere Quellentemperatur für Erdreich, Grundwasser und erneuerbar regenerierte Eisspeicher und kalte Wärmenetze
+**Tabelle 40 --- Mittlere Quellentemperatur für Erdreich, Grundwasser und erneuerbar regenerierte Eisspeicher und kalte Wärmenetze**
 
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------+-----------------------------+--------------+--------------+-----------------------+-------------------+
 | Monat                                                                                                                                                                                                                                           | Mittlere Außentemperatur | Mittlere Quellentemperatura |              |              |                       |                   |
@@ -4233,7 +4233,7 @@ Zusätzlich zu dieser Betriebsweise ist die zur maximalen Vorlauftemperatur äqu
 
 ![Bild 6: Klasseneinteilung und Anteile für Wärmepumpe und zweiten Wärmeerzeuger (Nachheizung) bei Alternativbetrieb](sources/images/media/image4.gif){width="6.191666666666666in" height="3.5416666666666665in"}
 
-### Bild 6 --- Klasseneinteilung und Anteile für Wärmepumpe und zweiten Wärmeerzeuger (Nachheizung) bei Alternativbetrieb
+**Bild 6 --- Klasseneinteilung und Anteile für Wärmepumpe und zweiten Wärmeerzeuger (Nachheizung) bei Alternativbetrieb**
 
 Dabei ist
 
@@ -4283,7 +4283,7 @@ Für die bivalent parallele Betriebsweise wird ein Hilfswert eingeführt, da ein
 
 ![Bild 7: Klasseneinteilung und Anteile für Wärmepumpe und zweiten Wärmeerzeuger (Nachheizung) bei Parallelbetrieb](sources/images/media/image5.gif){width="6.191666666666666in" height="3.5416666666666665in"}
 
-### Bild 7 --- Klasseneinteilung und Anteile für Wärmepumpe und zweiten Wärmeerzeuger (Nachheizung) bei Parallelbetrieb
+**Bild 7 --- Klasseneinteilung und Anteile für Wärmepumpe und zweiten Wärmeerzeuger (Nachheizung) bei Parallelbetrieb**
 
 Dabei ist
 
@@ -4331,7 +4331,7 @@ Bild 8 stellt die Summenhäufigkeit der Außenlufttemperatur in Klassen mit den
 
 ![Bild 8: Klasseneinteilung und Anteile für Wärmepumpe und zweiten Wärmeerzeuger (Nachheizung) bei Teilparallelbetrieb](sources/images/media/image6.gif){width="6.191666666666666in" height="3.525in"}
 
-### Bild 8 --- Klasseneinteilung und Anteile für Wärmepumpe und zweiten Wärmeerzeuger (Nachheizung) bei Teilparallelbetrieb
+**Bild 8 --- Klasseneinteilung und Anteile für Wärmepumpe und zweiten Wärmeerzeuger (Nachheizung) bei Teilparallelbetrieb**
 
 Der Deckungsanteil des zweiten Wärmeerzeugers setzt sich aus zwei Bestandteilen (parallel und alternativ) zusammen, die getrennt ermittelt werden.
 
@@ -4499,7 +4499,7 @@ Die Laufzeit der Wärmepumpe zur Raumheizung wird durch verschiedene Einflüsse 
 
 ![Bild 9: Abhängigkeit der Laufzeit für den Einzelbetrieb Raumheizung von anderen Betriebszuständen](sources/images/media/image7.gif){width="4.675in" height="2.45in"}
 
-### Bild 9 --- Abhängigkeit der Laufzeit für den Einzelbetrieb Raumheizung von anderen Betriebszuständen
+**Bild 9 --- Abhängigkeit der Laufzeit für den Einzelbetrieb Raumheizung von anderen Betriebszuständen**
 
 **Reduzierung der Erzeugernutzwärmeabgabe der Wärmepumpe durch maximale Vorlauftemperatur**
 
@@ -4975,11 +4975,11 @@ Wird Abwärme direkt aus der Raumkühlung für die Gebäudebeheizung oder Trinkw
 
 ![Bild 10: Schematisches Schaltbild für Anwendung bei Heizung/Trinkwassererwärmung innerhalb Bilanzrahmen](sources/images/media/image8.gif){width="6.175in" height="3.975in"}
 
-### Bild 10 --- Schematisches Schaltbild für Anwendung bei Heizung/Trinkwassererwärmung innerhalb Bilanzrahmen
+**Bild 10 --- Schematisches Schaltbild für Anwendung bei Heizung/Trinkwassererwärmung innerhalb Bilanzrahmen**
 
 ![Bild 11: Schematisches Schaltbild für Anwendung bei Heizung/Wassererwärmung außerhalb Bilanzrahmen](sources/images/media/image9.gif){width="6.166666666666667in" height="4.375in"}
 
-### Bild 11 --- Schematisches Schaltbild für Anwendung bei Heizung/Wassererwärmung außerhalb Bilanzrahmen
+**Bild 11 --- Schematisches Schaltbild für Anwendung bei Heizung/Wassererwärmung außerhalb Bilanzrahmen**
 
 **Wärmebilanz**
 
@@ -5059,7 +5059,7 @@ BEISPIEL 2: Nutzungszeit 11 h von 07:00 Uhr bis 18:00 Uhr  Betriebszeit 13 h 
 
 ANMERKUNG: Erfolgt die Kältenutzung für die Kühlung mehrerer Zonen mit unterschiedlichen Nutzungsprofilen, kann der Faktor *f* für die Gesamtdauer der täglichen Nutzungszeiten für alle gekühlten Zonen während der täglichen Betriebsstunden Warmwasserbereitung/Heizung in der Zone j bestimmt werden.
 
-### Tabelle 41 --- Wärmepumpe mit Kühlung als Wärmequelle --- Standardwerte für Faktor zeitliche Nutzbarkeit *f*
+**Tabelle 41 --- Wärmepumpe mit Kühlung als Wärmequelle --- Standardwerte für Faktor zeitliche Nutzbarkeit *f***
 
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------+---------------------------------------+-----------------+--------------------------+------------------+------------------+---------------------------------------------+
 | Faktor zeitliche Nutzbarkeit *f*                                                                                                                                                                                                                                              |                                             | Kühlung                               |                 |                          |                  |                  |                                             |
@@ -5299,7 +5299,7 @@ Dabei ist
 
 *f* der Korrekturfaktor zur Berücksichtigung einer von 55 °C abweichenden Auslegungsvorlauftemperatur nach Tabelle 43; bei einer projektspezifischen Auslegungsvorlauftemperatur von 55 °C gilt *f* = 1.
 
-### Tabelle 42 --- Deckungsanteil der Wärmepumpe bei einer Auslegungsvorlauftemperatur von 55 °C (Zwischenwerte sind linear zu interpolieren)
+**Tabelle 42 --- Deckungsanteil der Wärmepumpe bei einer Auslegungsvorlauftemperatur von 55 °C (Zwischenwerte sind linear zu interpolieren)**
 
 +------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------+------+------------+------+------+
 | Leistungsanteil der Wärmepumpe a                                                                                                   | Deckungsanteil                             |      |            |      |      |
@@ -5333,7 +5333,7 @@ Dabei ist
 | c*f* ist der Korrekturfaktor des Warmwasseranteils an der Erzeugernutzwärmeabgabe nach Tabelle 44.                                 |                                            |      |            |      |      |
 +------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------+------+------------+------+------+
 
-### Tabelle 43 --- Korrekturfaktor für eine von 55 °C abweichende Auslegungsvorlauftemperatur (Zwischenwerte sind linear zu interpolieren)
+**Tabelle 43 --- Korrekturfaktor für eine von 55 °C abweichende Auslegungsvorlauftemperatur (Zwischenwerte sind linear zu interpolieren)**
 
 +------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------+------+------+---+------+------+------+------+
 | Leistungsanteil der Wärmepumpe a                                                                                                   | Korrekturfaktor *f*                        |      |      |   |      |      |      |      |
@@ -5371,7 +5371,7 @@ Dabei ist
 | b*f* ist das Verhältnis der Energieträgerkennwerte, die der gewählten Optimierungsstrategie zugrunde liegen, nach Gleichung (199). |                                            |      |      |   |      |      |      |      |
 +------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------+------+------+---+------+------+------+------+
 
-### Tabelle 44 --- Korrekturfaktor für den Warmwasseranteil der Erzeugernutzwärmeabgabe (Zwischenwerte sind linear zu interpolieren)
+**Tabelle 44 --- Korrekturfaktor für den Warmwasseranteil der Erzeugernutzwärmeabgabe (Zwischenwerte sind linear zu interpolieren)**
 
   -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   Trinkwarmwasseranteil a                                                                                                                          Korrekturfaktor *f*
@@ -5675,7 +5675,7 @@ Dabei ist
 
 Weichen bei Heizkesseln die mittleren Betriebstemperaturen  (bei Brennwertgeräten die mittleren Rücklauftemperaturen ) von den Prüftemperaturen nach Tabelle 45 ab, sind Anpassungen der Wirkungsgrade an die geänderten Temperaturbedingungen durchzuführen. Die Prüftemperaturen  sind in Tabelle 45 angegeben.
 
-### Tabelle 45 --- Heizkesseltemperaturen
+**Tabelle 45 --- Heizkesseltemperaturen**
 
   ------------------------------------------------------------------------------------------------------------------------------------------------------------
   Heizkesseltyp                                                                                                       (Nennlastfall)         (Teillastfall)
@@ -5707,7 +5707,7 @@ Für Brennwertkessel wird anstelle der mittleren Heizkesseltemperatur  die mit
 
 *K* und *L* nach Tabelle 46.
 
-### Tabelle 46 --- Temperaturkorrekturfaktoren
+**Tabelle 46 --- Temperaturkorrekturfaktoren**
 
   -------------------------------------------------------------------------------
   Heizkesseltyp                                         Faktor *K*   Faktor *L*
@@ -5827,7 +5827,7 @@ Der Sauerstoffgehalt des Abgases sowie die Differenz zwischen Abgas- und Verbren
 
 Die Abgasverluste für flüssige und gasförmige Brennstoffe werden nach der 1. BImSchV ermittelt.
 
-### Tabelle 47 --- Brennstoffkonstante für Abgasmessung in Abhängigkeit der Siegerfaktoren
+**Tabelle 47 --- Brennstoffkonstante für Abgasmessung in Abhängigkeit der Siegerfaktoren**
 
   -------------------------------------------------------------------------
   Brennstoffe    Erdgas   Flüssiggas    Heizöl EL   Schweröl    Stadtgas
@@ -5841,7 +5841,7 @@ Die daraus gebildeten arithmetischen Mittelwerte sind in Gleichung (234) zur E
 
 Die Koeffizienten für Festbrennstoffe sind nach Tabelle 48, Tabelle 49 und Tabelle 50 in Abhängigkeit des Wassergehaltes zu bestimmen.
 
-### Tabelle 48 --- Koeffizienten für Biomasse
+**Tabelle 48 --- Koeffizienten für Biomasse**
 
   ----------------------------------------------------------------------------
   Wassergehalt     0 %       10 %      20 %      30 %      40 %      50 %
@@ -5851,7 +5851,7 @@ Die Koeffizienten für Festbrennstoffe sind nach Tabelle 48, Tabelle 49 und 
   c                0,0083    0,0107    0,0125    0,0149    0,0183    0,0235
   ----------------------------------------------------------------------------
 
-### Tabelle 49 --- Koeffizienten für Braunkohle
+**Tabelle 49 --- Koeffizienten für Braunkohle**
 
   -------------------------------------------------------------------------
   Wassergehalt       0 %        10 %       20 %       30 %       40 %
@@ -5861,7 +5861,7 @@ Die Koeffizienten für Festbrennstoffe sind nach Tabelle 48, Tabelle 49 und 
   c                  0,0073     0,0084     0,0097     0,0115     0,0140
   -------------------------------------------------------------------------
 
-### Tabelle 50 --- Koeffizienten für Steinkohle und Koks
+**Tabelle 50 --- Koeffizienten für Steinkohle und Koks**
 
   -------------------------------------------------------------------------
   Wassergehalt       0 %        5 %        10 %       15 %       20 %
@@ -5873,7 +5873,7 @@ Die Koeffizienten für Festbrennstoffe sind nach Tabelle 48, Tabelle 49 und 
 
 Wenn für den eingesetzten Brennstoff keine Angabe über den Wassergehalt vorliegt, darf dieser mit den Faktoren nach Tabelle 51 berechnet werden.
 
-### Tabelle 51 --- Berechnungsfaktoren für handelsübliche Brennstoffe
+**Tabelle 51 --- Berechnungsfaktoren für handelsübliche Brennstoffe**
 
   -----------------------------------------------------------------------
   Brennstoff                 Wassergehalt         c           c
@@ -5935,13 +5935,13 @@ Y in W/(m · K)
 
 X in °C
 
-### Bild 12 --- Gesamt-Wärmeübergangszahl  durch Strahlung und freie Konvektion an horizontalen und vertikalen Flächen bei einer Mindest-Umgebungstemperatur  = 20 °C in Abhängigkeit von der mittleren Oberflächentemperatur 
+**Bild 12 --- Gesamt-Wärmeübergangszahl  durch Strahlung und freie Konvektion an horizontalen und vertikalen Flächen bei einer Mindest-Umgebungstemperatur  = 20 °C in Abhängigkeit von der mittleren Oberflächentemperatur **
 
 **6.5.4.3.6.3Stillstandsverluste durch das Abgassystem**
 
 Die Verluste durch das Abgassystem bei Brennerstillstand werden mit den Standardwerten nach Tabelle 52 bestimmt.
 
-### Tabelle 52 --- Standardwerte für den Abgasverlust bei Brennerstillstand
+**Tabelle 52 --- Standardwerte für den Abgasverlust bei Brennerstillstand**
 
   --------------------------------------------------------------------------------------
   Heizkessel/Brenner                                                               *f*
@@ -5993,7 +5993,7 @@ Die Verbrennungslufttemperatur  entspricht für raumluftabhängige Kessel der 
 
 Die Sättigungsfeuchte der Luft *m* und des Abgases *m* ist entsprechend  (Verbrennungslufttemperatur) und  (Abgastemperatur) zu bestimmen und als Anteil der Feuchte der trockenen Luft oder des trockenen Abgases in kg/m (im Normzustand) anzugeben. Die entsprechenden Daten können der nachstehenden Tabelle 53 entnommen werden. Für Zwischentemperaturen ist lineare Interpolation bzw. Polynominterpolation anzuwenden.
 
-### Tabelle 53 --- Sättigungsfeuchte in Abhängigkeit von der Temperatur
+**Tabelle 53 --- Sättigungsfeuchte in Abhängigkeit von der Temperatur**
 
   ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   **Temperatur** ( oder ) in °C                                                                                                 0         10        20        30        40        50       60       70
@@ -6037,7 +6037,7 @@ Dabei ist
 
 Brennstoff-Vorgabewerte zur Berechnung der Rückgewinnung der Kondensationswärme sind in Tabelle 54 angegeben.
 
-### Tabelle 54 --- Brennstoff-Vorgabewerte zur Berechnung der Rückgewinnung der Kondensationswärme
+**Tabelle 54 --- Brennstoff-Vorgabewerte zur Berechnung der Rückgewinnung der Kondensationswärme**
 
   ----------------------------------------------------------------------------------------------------------------------------------------
   Eigenschaft                               Symbol   Einheit           Brennstoff                                            
@@ -6059,7 +6059,7 @@ Brennstoff-Vorgabewerte zur Berechnung der Rückgewinnung der Kondensationswärm
 
 In Tabelle 55 ist der Vorgabewerte zur Berechnung von *Q* angegeben.
 
-### Tabelle 55 --- Vorgabewerte zur Berechnung von *Q*
+**Tabelle 55 --- Vorgabewerte zur Berechnung von *Q***
 
   ----------------------------------------------------------------------------------------------------------
   Beschreibung                                                   Symbol   Einheit   Fall              Wert
@@ -6141,7 +6141,7 @@ Kesselwirkungsgrade bei Nennlast und Teillast (bis Nennleistung 400 kW, bei höh
 
 Für die Wirkungsgradfaktoren siehe Tabelle 56.
 
-### Tabelle 56 --- Wirkungsgradfaktoren
+**Tabelle 56 --- Wirkungsgradfaktoren**
 
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------+------------+------------+------------+------------+
 | Heizkesseltyp                                                                                                                                                                                    | Baujahr       | Faktor *A* | Faktor *B* | Faktor *C* | Faktor *D* |
@@ -6231,7 +6231,7 @@ Bereitschaftswärmeverlust *q* des Heizkessels als Funktion von der Nennleistu
 
 Für die Bereitschaftswärmefaktoren siehe Tabelle 57.
 
-### Tabelle 57 --- Bereitschaftswärmefaktoren
+**Tabelle 57 --- Bereitschaftswärmefaktoren**
 
 +------------------------------------------------------------------------------------------------------------------------+---------------+------------+------------+
 | Heizkesseltyp                                                                                                          | Baujahr       | Faktor *E* | Faktor *F* |
@@ -6293,7 +6293,7 @@ Für die Bereitschaftswärmefaktoren siehe Tabelle 57.
 
 Elektrische Leistungsaufnahme *P* des Heizkessels als Funktion von der Nennleistung *P* des Kessels und der in Tabelle 58 angegebenen Hilfsenergiefaktoren, in kW:
 
-### Tabelle 58 --- Hilfsenergiefaktoren
+**Tabelle 58 --- Hilfsenergiefaktoren**
 
 +---------------------------------------------------------------------------------------+-------------------------------+------------+------------+------------+
 | Heizkesseltyp                                                                         | Elektrische Leistungsaufnahme | Faktor *G* | Faktor *H* | Faktor *n* |
@@ -6465,7 +6465,7 @@ Dabei ist
 
 Der heizwertbezogene Erzeugerwirkungsgrad für dezentrale Hallenheizsysteme mit direkter Abgasführung ist nach Tabelle 59 zu wählen. Für dezentrale Luftheizungen können alternativ produktspezifische Kennwerte nach DIN EN 13842 oder DIN EN 17082 eingesetzt werden.
 
-### Tabelle 59 --- Erzeugerwirkungsgrade dezentraler Hallenheizungen mit direkter Abgasabfuhr
+**Tabelle 59 --- Erzeugerwirkungsgrade dezentraler Hallenheizungen mit direkter Abgasabfuhr**
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------+---------------------+-------------------+-------+
 | Wärmeerzeugersystem                                                                                                                                                                                                                                                                                                                                | Abgassystem                           |                     | Leistungsregelung | c     |
@@ -6517,7 +6517,7 @@ Dabei ist
 
 *A* die Nettogrundfläche, in m.
 
-### Tabelle 60 --- Flächenbezogene Übergabeverluste einer Einzelfeuerstätte mit direkter Wärmeabgabe
+**Tabelle 60 --- Flächenbezogene Übergabeverluste einer Einzelfeuerstätte mit direkter Wärmeabgabe**
 
   ---------------------------------------------------------------------------------------
   Gebäudetyp                                                       Übergabeverluste *q*
@@ -6529,7 +6529,7 @@ Dabei ist
 
 Liegen keine Planungswerte vor, so kann für die Berechnung des Endenergiebedarfs der dezentralen Einzelfeuerstätte der Deckungsanteil der Einzelfeuerstätte an dem Erzeugernutzwärmebedarf nach Tabelle 61 angenommen werden.
 
-### Tabelle 61 --- Standardwert für die Berechnung des Endenergiebedarfs einer dezentralen Einzelfeuerstätte
+**Tabelle 61 --- Standardwert für die Berechnung des Endenergiebedarfs einer dezentralen Einzelfeuerstätte**
 
   -----------------------------------------------------------------------
   Parameter                                                       Wert
@@ -6570,7 +6570,7 @@ Dabei ist
 
 Liegen keine Planungswerte vor, so können für die Berechnung des Endenergiebedarfs der hydraulisch eingebundenen Einzelfeuerstätte die folgenden Werte nach Tabelle 62 angenommen werden.
 
-### Tabelle 62 --- Standardwerte für die Berechnung des Endenergiebedarfs einer hydraulisch eingebundenen Einzelfeuerstätte
+**Tabelle 62 --- Standardwerte für die Berechnung des Endenergiebedarfs einer hydraulisch eingebundenen Einzelfeuerstätte**
 
   ---------------------------------------------------------------------------------------------------------------------------
   Parameter                                                 Wert                              
@@ -6630,7 +6630,7 @@ Liegen Messwerte für mehr als zwei Heiznetztemperaturpaarungen vor, sind die de
 
 Mit dem Index i werden die im Rahmen der Prüfung vorausgesetzten Heiznetztemperaturpaarungen angegeben.
 
-### Tabelle 63 --- Prüfbedingungen und ermittelte thermische Nutzungsgrade als Produktwerte der Gaswärmepumpe
+**Tabelle 63 --- Prüfbedingungen und ermittelte thermische Nutzungsgrade als Produktwerte der Gaswärmepumpe**
 
   --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   Messung des thermischen Nutzungsgrades für   Vorlauftemperatur des Heizmediums   Rücklauftemperatur des Heizmediums   Mittlere Temperatur des Heizmediums   Thermischer Nutzungsgrad Raumheizung
@@ -6694,7 +6694,7 @@ Aufgrund von unterschiedlichen Betriebscharakteristika wird im Folgenden zwische
 
 Die Nutzungsgrade für die 6 Lastpunkte werden entsprechend den in der Tabelle 64 ausgewiesenen Gleichungen unter Hinzuziehung der Koeffizienten aus Tabelle 65 ermittelt. Die Koeffizienten werden dabei in Abhängigkeit vom Verhältnis des Wärmepumpenmoduls zur Nennleistung der Adsorptions-GWP gewählt.
 
-### Tabelle 64 --- Nutzungsgrad der Gaswärmepumpe in Abhängigkeit vom Belastungsgrad
+**Tabelle 64 --- Nutzungsgrad der Gaswärmepumpe in Abhängigkeit vom Belastungsgrad**
 
   -----------------------------------------------------------------------
   Belastungsgrad    Nutzungsgrad der Adsorptions-Gaswärmepumpe 
@@ -6712,7 +6712,7 @@ Die Nutzungsgrade für die 6 Lastpunkte werden entsprechend den in der Tabelle 
   1,0               
   -----------------------------------------------------------------------
 
-### Tabelle 65 --- Koeffizienten zur Berechnung des Nutzungsgrades in Abhängigkeit vom Verhältnis des Wärmepumpenmoduls zur Nennleistung der Adsorptions-GWP
+**Tabelle 65 --- Koeffizienten zur Berechnung des Nutzungsgrades in Abhängigkeit vom Verhältnis des Wärmepumpenmoduls zur Nennleistung der Adsorptions-GWP**
 
   -----------------------------------------------------------------------------------------------
   Verhältnis des Wärmepumpenmoduls zur Nennleistung   Koeffizienten                        
@@ -6760,7 +6760,7 @@ Die Nutzungsgrade für die 6 Lastpunkte werden entsprechend den in der Tabelle 
 
 In Tabelle 66 wird der Nutzungsgrad der Gaswärmepumpe in Abhängigkeit vom Belastungsgrad angegeben.
 
-### Tabelle 66 --- Nutzungsgrad der Gaswärmepumpe in Abhängigkeit vom Belastungsgrad
+**Tabelle 66 --- Nutzungsgrad der Gaswärmepumpe in Abhängigkeit vom Belastungsgrad**
 
   -----------------------------------------------------------------------------------------------------
   Belastungsgrad    Quellentemperatur  in °C              Nutzungsgrad der Absorptions-Gaswärmepumpe 
@@ -6782,7 +6782,7 @@ In Tabelle 66 wird der Nutzungsgrad der Gaswärmepumpe in Abhängigkeit vom Be
 
 Für die Koeffizienten zur Berechnung des Nutzungsgrades in Abhängigkeit von der Wärmequelle der Absorptions-GWP siehe Tabelle 67.
 
-### Tabelle 67 --- Koeffizienten zur Berechnung des Nutzungsgrades in Abhängigkeit von der Wärmequelle der Absorptions-GWP
+**Tabelle 67 --- Koeffizienten zur Berechnung des Nutzungsgrades in Abhängigkeit von der Wärmequelle der Absorptions-GWP**
 
   ---------------------------------------------------------------------------------
   Wärmequelle                    Koeffizienten                               
@@ -6882,7 +6882,7 @@ Für Auslegungstemperaturen der Gaswärmepumpe, die unterhalb der während der P
 
 Liegen keine Produktkennwerte vor, so können für die Berechnung des Endenergiebedarfes der Sorptions-Gaswärmepumpe *Q* und des Hilfsenergieaufwandes für die Raumheizung *W* die folgenden Werte nach Tabelle 68 angenommen werden.
 
-### Tabelle 68 --- Standardwerte zur Bewertung der Gaswärmepumpe in Abhängigkeit von Auslegungstemperaturen
+**Tabelle 68 --- Standardwerte zur Bewertung der Gaswärmepumpe in Abhängigkeit von Auslegungstemperaturen**
 
 +--------------------------------------------------------------+--------------------+-------------------------+--------------+--------------+--------------+
 | **Untere Modulationsgrenze der Gaswärmepumpe** *P*           |                    |                         |              |              |              |
@@ -7016,7 +7016,7 @@ Die Gleichungen sind Zahlenwertgleichungen. Wenn die Nennleistung *P* = *P* 
 
 Steht die Hausübergabestation innerhalb der thermischen Hülle, dann entspricht der interne Wärmeeintrag *Q* dem Wärmeverlust *Q*
 
-### Tabelle 69 --- Primärenergiefaktor *D* in Abhängigkeit von der Stationsart/Primärtemperatur der Fernwärme-Hausstation und Dämmklassenkoeffizient *B* in Abhängigkeit von der Stationsart/Primärtemperatur und Dämmklasse
+**Tabelle 69 --- Primärenergiefaktor *D* in Abhängigkeit von der Stationsart/Primärtemperatur der Fernwärme-Hausstation und Dämmklassenkoeffizient *B* in Abhängigkeit von der Stationsart/Primärtemperatur und Dämmklasse**
 
   -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   Art der Station/Medium                         Primärtemperatur (Auslegung)   Primärtemperaturfaktor   Koeffizient *B* in Abhängigkeit von der Dämmklasse (Sekundär-/Primärseite) nach DIN EN 12828               
@@ -7042,7 +7042,7 @@ Der Hilfsenergieaufwand der Fernwärme-Hausstation wird vernachlässigt. Wenn di
 
 Die dezentrale Kraft-Wärme-Kopplung wird in DIN/TS 18599-9 behandelt.
 
-## 6.6 Wohnungsstationen
+**6.6Wohnungsstationen**
 
 **6.6.1Allgemeines**
 
@@ -7086,7 +7086,7 @@ Die Bewertung der zentralen Wärmeerzeugung beim Einsatz von Wohnungsstationen z
 
 Bei einem direkt angeschlossenem Heizkreis ist kein Hilfsenergieaufwand erforderlich (*Q* = 0 kWh je Monat. Bei sekundärseitig gemischten Heizkreisen ist der elektrische Energieaufwand der Pumpen nach 6.3.2 zu berücksichtigen. Für die Regelung des Heizkreises auf der Sekundärseite mit Hilfsenergieaufwand ist dieser nach 6.2.3.1 zu bestimmen.
 
-# Anhang A (normativ)Erforderliche Energieaufnahme zur Deckung des Heizwärmebedarfs
+**Anhang A (normativ)Erforderliche Energieaufnahme zur Deckung des Heizwärmebedarfs**
 
 **A.1Elektrisch betriebene Wärmepumpen**
 
@@ -7140,7 +7140,7 @@ Dabei ist
 
 Zurückgewonnene thermische Energieanteile der Hilfssysteme werden nicht berücksichtigt, *k* = 0.
 
-# Anhang B (normativ)Berechnungen zu Wärmepumpen
+**Anhang B (normativ)Berechnungen zu Wärmepumpen**
 
 **B.1Daten des Wärmepumpenkennfeldes**
 
@@ -8332,7 +8332,7 @@ Dabei ist
 
  korrigierte Teillast-Leistungszahl bei minimaler Kompressordrehzahl in der Temperaturklasse i.
 
-# Anhang C (normativ)Korrekturfaktoren und Leistungszahlen
+**Anhang C (normativ)Korrekturfaktoren und Leistungszahlen**
 
 **C.1Standardwerte der Leistung und Leistungszahl für gasmotorangetriebene Wärmepumpen**
 
@@ -8452,7 +8452,7 @@ Der Lastfaktor wird nach Gleichung (163) berechnet. In Tabelle C.2 sind die 
   Zwischenwerte sind zu interpolieren.                                                                                                         
   ---------------------------------------------------------------------------------------------------------------------------------------------------
 
-# Anhang D (normativ)Netztypen in Heizungsverteilsystemen für die Bestimmung der Leitungslängen
+**Anhang D (normativ)Netztypen in Heizungsverteilsystemen für die Bestimmung der Leitungslängen**
 
 Für die Netztypen in Heizungsverteilsystemen für die Bestimmung der Leitungslängen siehe Tabelle D.1.
 
@@ -8544,7 +8544,7 @@ In Tabelle D.2 ist zur Übersicht die Gruppenzugehörigkeit für die Heiznetze
   Produktion, Werkhalle, Werkstatt                                                      5                                                                                2                     8
   ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# Anhang E (informativ)Gekoppelte Betrachtung wärmephysiologischer und energetischer Kennwerte
+**Anhang E (informativ)Gekoppelte Betrachtung wärmephysiologischer und energetischer Kennwerte**
 
 **E.1Allgemeines**
 
@@ -8714,7 +8714,7 @@ Für Vergleichsbetrachtungen in der Energieberatung zur Ermittlung von Einsparpo
   TRV defekt     0,80                                       Ungeregelt, zentrale Vorlauftemperatur
   ------------------------------------------------------------------------------------------------------
 
-# Anhang F (normativ)Exzentrische Rohrdämmung
+**Anhang F (normativ)Exzentrische Rohrdämmung**
 
 **F.1Anforderungen an exzentrische Rohrschläuche**
 
@@ -8934,7 +8934,7 @@ a)unbeheizter Raum:  = 10 °C, *R* = 0,13 (m · K)/W
 
 b)beheizter Raum:  = 20 °C, *R* = 0,13 (m · K)/W
 
-# Anhang G (normativ)Wärmeverschiebung --- Betriebsoptimierung von Wärmepumpen
+**Anhang G (normativ)Wärmeverschiebung --- Betriebsoptimierung von Wärmepumpen**
 
 Wird die durch die Wärmeverschiebung aus der Kälteerzeugung oder der Raumkühlung zurückgewonnene nutzbare Wärme als Wärmequelle für eine Wärmepumpe genutzt, kann die Leistungszahl der Wärmepumpe sinngemäß nach dem in Abschnitt B.7 beschriebenen Ansatz unter Berücksichtigung der veränderten Quellentemperatur korrigiert werden:
 
@@ -8968,7 +8968,7 @@ Dabei ist
 |       | --10 °C mit Einsatz einer W/W-Wärmepumpe mit Standardwerten nach B.1.3.1, sofern 15 °C nicht verfügbar sind.                                                                                              |
 +-------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-# Anhang H (normativ)Festlegungen zur Berechnung bei kombinierter Wärmeerzeugung
+**Anhang H (normativ)Festlegungen zur Berechnung bei kombinierter Wärmeerzeugung**
 
 **H.1Allgemeines**
 
@@ -9054,7 +9054,7 @@ d)Berechnung der Erzeugernutzwärmeabgabe der Abluft-Zuluft-/Wasser-Wärmepumpe 
 
 e)Bei Abluft-Zuluft-/Wasser-Wärmepumpen mit einer zusätzlichen separaten Warmwasserheizung wird in DIN/TS 18599-6 die Erzeugernutzwärmeabgabe der Abluft-Zuluft-/Wasser-Wärmepumpe ermittelt. Ein verbleibender Restwärmebedarf geht in die weitere Berechnung nach diesem Dokument ein.
 
-# Literaturhinweise
+**Literaturhinweise**
 
 DIN 277, *Grundflächen und Rauminhalte im Hochbau*
 

@@ -22,7 +22,7 @@ DIN-Normenausschuss Bauwesen (NABau) • DIN-Normenausschuss Heiz- und Raumluftt
 
 Alleinverkauf durch DIN Media GmbH, 10772 Berlin
 
-# Vorwort
+**Vorwort**
 
 Dieses Dokument wurde vom Gemeinschaftsarbeitsausschuss NA 005-12-01 GA „Gemeinschaftsarbeitsausschuss NABau/FNL/NHRS: Energetische Bewertung von Gebäuden (SpA CEN/TC 371, CEN/TC 371/WG 1, CEN/TC 371/WG 2, CEN/TC 371/WG 3, CEN/TC 371/WG 4, CEN/TC 371/WG 5, ISO/TC 163/WG 4 und ISO/TC 163/SC 2/WG 15)" erarbeitet. Der Inhalt wurde vom DIN-Normenausschuss Bauwesen (NABau) als Hauptträger erarbeitet und wird vom DIN-Normenausschuss Heiz- und Raumlufttechnik sowie deren Sicherheit (NHRS) als Mitträger getragen.
 
@@ -72,7 +72,7 @@ Die Reihe DIN/TS 18599 ist dazu geeignet, den langfristigen Energiebedarf für
 
 Aktuelle Informationen zu diesem Dokument können über die Internetseiten von DIN (www.din.de) durch eine Suche nach der Dokumentennummer aufgerufen werden.
 
-# Änderungen
+**Änderungen**
 
 Gegenüber DIN V 18599-2:2018-09 wurden folgende Änderungen vorgenommen:
 
@@ -100,21 +100,21 @@ k)neu aufgenommene Kennwerte von Gläsern und Sonnenschutzvorrichtungen für Sys
 
 l)neu aufgenommener Abschnitt F.2 zur Bewertung der energetischen Qualität von Fenstern bzw. Verglasungen.
 
-# Frühere Ausgaben
+**Frühere Ausgaben**
 
 DIN V 18599-2: 2005-07, 2007-02, 2011-12, 2016-10, 2018-09
 
 DIN V 18599-100: 2009-10
 
-# Einleitung
+**Einleitung**
 
 Die nach der Reihe DIN/TS 18599 durchgeführte Energiebilanz folgt einem integralen Ansatz, d. h., es erfolgt eine gemeinschaftliche Bewertung des Baukörpers, der Nutzung und der Anlagentechnik unter Berücksichtigung der gegenseitigen Wechselwirkungen. Zur Verbesserung der Übersichtlichkeit besteht die Reihe DIN/TS 18599 aus mehreren Teilen, die einzelne Themenschwerpunkte behandeln. Einen Überblick über die Inhalte der einzelnen Teile gibt Bild 1.
 
 ![Bild 1: Übersicht über die Teile der Reihe DIN/TS 18599](sources/images/media/image1.gif){width="6.3in" height="4.658333333333333in"}
 
-### Bild 1 --- Übersicht über die Teile der Reihe DIN/TS 18599
+**Bild 1 --- Übersicht über die Teile der Reihe DIN/TS 18599**
 
-# 1 Anwendungsbereich
+**1Anwendungsbereich**
 
 Die Reihe DIN/TS 18599 stellt ein Verfahren zur Durchführung der Gesamtenergiebilanz von Gebäuden bereit. Der aufgezeigte Algorithmus ist anwendbar für die energetische Bilanzierung von:
 
@@ -158,9 +158,9 @@ Bild 2 zeigt schematisch den inhaltlichen Umfang des vorliegenden Dokuments. Ei
 
 ![Bild 2: Inhalt und Umfang von DIN/TS 18599-2](sources/images/media/image2.gif){width="6.3in" height="4.73125in"}
 
-### Bild 2 --- Inhalt und Umfang von DIN/TS 18599-2
+**Bild 2 --- Inhalt und Umfang von DIN/TS 18599-2**
 
-# 2 Normative Verweisungen
+**2Normative Verweisungen**
 
 Die folgenden Dokumente werden im Text in solcher Weise in Bezug genommen, dass einige Teile davon oder ihr gesamter Inhalt Anforderungen des vorliegenden Dokuments darstellen. Bei datierten Verweisungen gilt nur die in Bezug genommene Ausgabe. Bei undatierten Verweisungen gilt die letzte Ausgabe des in Bezug genommenen Dokuments (einschließlich aller Änderungen).
 
@@ -224,9 +224,9 @@ DIN EN ISO 52016-1, *Energetische Bewertung von Gebäuden --- Energiebedarf fü
 
 VDI 2078, *Berechnung der thermischen Lasten und Raumtemperaturen (Auslegung Kühllast und Jahressimulation)*
 
-# 3 Begriffe, Symbole und Einheiten
+**3Begriffe, Symbole und Einheiten**
 
-## 3.1 Begriffe
+**3.1Begriffe**
 
 Für die Anwendung dieses Dokuments gelten die Begriffe nach DIN EN ISO 52016-1, DIN EN ISO 6946, DIN EN ISO 7345 und DIN EN ISO 9288 und die folgenden Begriffe.
 
@@ -236,13 +236,13 @@ DIN und DKE stellen terminologische Datenbanken für die Verwendung in der Normu
 
 --DKE-IEV: verfügbar unter https://www.dke.de/DKE-IEV
 
-### 3.1.1
+**3.1.1**
 
 **wirksame Wärmekapazität**
 
 Teilbetrag der Wärmekapazität einer Gebäudezone, der einen Einfluss auf den Heizwärmebedarf und auf die sommerliche Raumkonditionierung hat
 
-### 3.1.2
+**3.1.2**
 
 **Wärmetransferkoeffizient für Transmission**
 
@@ -250,7 +250,7 @@ Wärmedurchgang je Zeiteinheit durch ein Bauteil, bezogen auf die Temperaturdiff
 
 Anmerkung 1 zum Begriff: Kehrwert des thermischen Gesamtwiderstandes des Bauteils.
 
-### 3.1.3
+**3.1.3**
 
 **Wärmetransferkoeffizient für Lüftung**
 
@@ -258,7 +258,7 @@ Wärmeaustausch durch einen Luftvolumenstrom je Zeiteinheit, bezogen auf die Tem
 
 Anmerkung 1 zum Begriff: Wärmeleistung eines Luftvolumenstroms, bezogen auf die Temperaturdifferenz.
 
-### 3.1.4
+**3.1.4**
 
 **Produktwert**
 
@@ -272,13 +272,13 @@ herstellerspezifischer Wert auf der Grundlage
 
 der für dieses Rechenverfahren geeignet ist.
 
-### 3.1.5
+**3.1.5**
 
 **Standardwert**
 
 Wert, der für den Berechnungsgang verwendet werden kann, sofern kein für das Rechenverfahren geeigneter Produktwert verfügbar ist
 
-### 3.1.6
+**3.1.6**
 
 **Wärmesenke**
 
@@ -288,7 +288,7 @@ Wärmemenge, die der Gebäudezone entzogen wird
 
 Anmerkung 1 zum Begriff: Nicht einbezogen ist die geregelte Abfuhr von Wärme über das Kühlsystem, d. h. der Kühlbedarf.
 
-### 3.1.7
+**3.1.7**
 
 **Wärmequelle**
 
@@ -298,11 +298,11 @@ Wärmemengen mit Temperaturen über der Innentemperatur, die der Gebäudezone zu
 
 Anmerkung 1 zum Begriff: Nicht einbezogen sind die Wärmeeinträge, die geregelt über die Anlage (Heizung, Lüftung) zugeführt werden, um die Innentemperatur aufrechtzuerhalten.
 
-## 3.2 Symbole, Einheiten und Indizes
+**3.2Symbole, Einheiten und Indizes**
 
 Für die Anwendung dieses Dokuments gelten die Symbole, Einheiten und Indizes nach Tabelle 1 und Tabelle 2
 
-### Tabelle 1 --- Symbole, Einheiten
+**Tabelle 1 --- Symbole, Einheiten**
 
   --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   Symbol   Bedeutung                                                                                                                                                                                                                                                Übliche Einheit
@@ -492,7 +492,7 @@ Für die Anwendung dieses Dokuments gelten die Symbole, Einheiten und Indizes na
            Rohdichte                                                                                                                   (bulk) density                                                                                                               kg/m
   --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-### Tabelle 2 --- Indizes
+**Tabelle 2 --- Indizes**
 
   -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   Index      Bedeutung                                                                                       
@@ -648,9 +648,9 @@ Für die Anwendung dieses Dokuments gelten die Symbole, Einheiten und Indizes na
 
 ANMERKUNG: In Tabelle 1 und Tabelle 2 werden europäisch genormte Symbole und Indizes verwendet.
 
-# 4 Verknüpfung der Teile der Reihe DIN/TS 18599
+**4Verknüpfung der Teile der Reihe DIN/TS 18599**
 
-## 4.1 Allgemeines
+**4.1Allgemeines**
 
 Die folgenden zwei untergeordneten Abschnitte
 
@@ -660,11 +660,11 @@ Die folgenden zwei untergeordneten Abschnitte
 
 In 4.4 wird kurz erläutert, wie für verschiedene Anlagensysteme die Ausgangsgrößen dieses Dokuments zu verwenden sind.
 
-## 4.2 Eingangsgrößen aus anderen Teilen der Reihe DIN/TS 18599
+**4.2Eingangsgrößen aus anderen Teilen der Reihe DIN/TS 18599**
 
 Die in Tabelle 3 angegebenen Eingangsgrößen aus den Teilen der Reihe DIN/TS 18599 werden für die Bilanz des Endenergie- und Primärenergiebedarfs benötigt (geordnet nach Quelle).
 
-### Tabelle 3 --- Eingangsgrößen aus anderen Teilen der Reihe DIN/TS 18599
+**Tabelle 3 --- Eingangsgrößen aus anderen Teilen der Reihe DIN/TS 18599**
 
   ----------------------------------------------------------------------------------------------------
   Bedeutung                                                                 Symbol   Quelle
@@ -768,11 +768,11 @@ Die in Tabelle 3 angegebenen Eingangsgrößen aus den Teilen der Reihe DIN/TS
   Mindestauslastung zur Berechnung der Kühlzeit                                      DIN/TS 18599-7
   ----------------------------------------------------------------------------------------------------
 
-## 4.3 Ausgangsgrößen für andere Teile der Reihe DIN/TS 18599
+**4.3Ausgangsgrößen für andere Teile der Reihe DIN/TS 18599**
 
 Für andere Teile der Reihe DIN/TS 18599 werden die in Tabelle 4 aufgeführten Ausgangsgrößen bereitgestellt.
 
-### Tabelle 4 --- Ausgangsgrößen für andere Teile der Reihe DIN/TS 18599
+**Tabelle 4 --- Ausgangsgrößen für andere Teile der Reihe DIN/TS 18599**
 
   --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   Bedeutung                                                                                   Symbol   nach       Bezug
@@ -798,7 +798,7 @@ Für andere Teile der Reihe DIN/TS 18599 werden die in Tabelle 4 aufgeführt
   Bilanzinnentemperatur für den Heizwärmebedarf                                                        6.1.2      DIN/TS 18599-5
   --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-## 4.4 Ermittlung des Endenergiebedarfs für verschiedene Anlagensysteme nach der Reihe DIN/TS 18599
+**4.4Ermittlung des Endenergiebedarfs für verschiedene Anlagensysteme nach der Reihe DIN/TS 18599**
 
 Wärmequellen durch das Heiz- und Kühlsystem sind in Abhängigkeit von der Auslastung zu bestimmen. Hierzu sind der Heizwärme- und Kühlbedarf in einer ersten überschlägigen Bilanzierung der Wärmequellen und -senken ohne diese Wärmequellen zu bestimmen. Anschließend ist mit den ermittelten Wärmequellen und -senken der Heiz- und Kühlsysteme die endgültige Bilanzierung durchzuführen.
 
@@ -826,9 +826,9 @@ Der nach diesem Dokument bilanzierte Nutzwärme- und Nutzkältebedarf in der Geb
 
 Die in Anhang B und Anhang C berechnete maximale Heizlast und maximale Kühllast dienen zur Berechnung der Auslastung der Heiz- und Kühlsysteme.
 
-# 5 Monatsbilanzverfahren
+**5Monatsbilanzverfahren**
 
-## 5.1 Grundlagen des Bilanzverfahrens
+**5.1Grundlagen des Bilanzverfahrens**
 
 **5.1.1Bilanzgrenzen und Berechnungszeitraum**
 
@@ -878,7 +878,7 @@ Das Prinzip der Ermittlung des Heizwärme- und Kühlbedarfs einer Gebäudezone i
 
 ![Bild 3: Prinzip der Ermittlung des Heizwärme- und Kühlbedarfs einer Gebäudezone](sources/images/media/image3.gif){width="4.716666666666667in" height="3.091666666666667in"}
 
-### Bild 3 --- Prinzip der Ermittlung des Heizwärme- und Kühlbedarfs einer Gebäudezone
+**Bild 3 --- Prinzip der Ermittlung des Heizwärme- und Kühlbedarfs einer Gebäudezone**
 
 **5.1.4Einflussgrößen auf Wärmequellen und Wärmesenken**
 
@@ -890,7 +890,7 @@ Neben der Bauweise des Gebäudes hängen Heizwärme- und Kühlbedarf einer Gebä
 
 --Innentemperaturen und Luftaustausch durch Fenster hängen vom Verhalten des Nutzers ab, so dass für energetische Vergleichsberechnungen (z. B. öffentlich-rechtlicher Nachweis) ein standardisiertes Nutzerverhalten angenommen werden muss. Für sonstige Berechnungen (z. B. Energieberatungen) können auch auf die jeweiligen Bedingungen angepasste Werte angesetzt werden.
 
-## 5.2 Bilanzgleichungen für den Heizwärme- und den Kühlbedarf der Gebäudezone
+**5.2Bilanzgleichungen für den Heizwärme- und den Kühlbedarf der Gebäudezone**
 
 **5.2.1Allgemeines**
 
@@ -1022,7 +1022,7 @@ Dabei ist
 
 *Q* der Kühlbedarf eines Monats.
 
-## 5.3 Wärmesenken
+**5.3Wärmesenken**
 
 **5.3.1Allgemeines**
 
@@ -1158,7 +1158,7 @@ Die Wärmeübertragung wird nur im Heizwärmebedarf berücksichtigt. Es gilt:
 
 *Q* = 0.
 
-## 5.4 Wärmequellen
+**5.4Wärmequellen**
 
 **5.4.1Allgemeines**
 
@@ -1326,7 +1326,7 @@ Bei der überschlägigen Bilanzierung (siehe DIN/TS 18599-1) ist *Q* zu null 
 
 Für Wohngebäude kann ein Gesamtwert für die internen Wärmequellen *Q*, *Q*, *Q* und *Q* veranschlagt werden (siehe DIN/TS 18599-10). Die Wärmeeinträge durch Verteilleitungen und Luftkanäle *Q* sind auch für Wohngebäude getrennt zu ermitteln.
 
-## 5.5 Ausnutzung der Wärmequellen
+**5.5Ausnutzung der Wärmequellen**
 
 **5.5.1Allgemeines**
 
@@ -1364,9 +1364,9 @@ ANMERKUNG: a und  sind Konstanten (siehe 6.7.3).
 
 In Fällen mit hohen mechanischen Luftwechseln ist der Ausnutzungsgrad gleich 1 zu setzen (siehe 6.7.3).
 
-# 6 Bestimmung der Einzelgrößen für das Monatsbilanzverfahren
+**6Bestimmung der Einzelgrößen für das Monatsbilanzverfahren**
 
-## 6.1 Anzusetzende Raumtemperaturen
+**6.1Anzusetzende Raumtemperaturen**
 
 **6.1.1Allgemeines**
 
@@ -1572,7 +1572,7 @@ Die Temperatur  nach Gleichung (40) kann für alle Bauteilflächen, die nich
 
 --Erdreich.
 
-### Tabelle 5 --- Berechnungswerte der Temperatur-Korrekturfaktoren von Bauteilen (ohne unteren Gebäudeabschluss)
+**Tabelle 5 --- Berechnungswerte der Temperatur-Korrekturfaktoren von Bauteilen (ohne unteren Gebäudeabschluss)**
 
   -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   Zeile   Wärmestrom nach außen über                                                                                                                 *F*   Temperatur-Korrekturfaktor
@@ -1596,7 +1596,7 @@ Die Temperatur  nach Gleichung (40) kann für alle Bauteilflächen, die nich
   7       --- Wärmeschutzglas.                                                                                                                       *F*   0,5
   -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-### Tabelle 6 --- Berechnungswerte der Temperatur-Korrekturfaktoren von Bauteilen des unteren Gebäudeabschlusses
+**Tabelle 6 --- Berechnungswerte der Temperatur-Korrekturfaktoren von Bauteilen des unteren Gebäudeabschlusses**
 
 <table>
 <colgroup>
@@ -2254,7 +2254,7 @@ Dabei ist
 
  die Bilanz-Innentemperatur der angrenzenden Gebäudezone für den Kühlfall nach 6.1.3.
 
-## 6.2 Transmissionswärmesenken/-quellen
+**6.2Transmissionswärmesenken/-quellen**
 
 **6.2.1Direkte Transmission nach außen**
 
@@ -2296,7 +2296,7 @@ Dabei ist
 
 Der Korrekturfaktor f ist in Tabelle 7 aufgenommen. Für in der Tabelle nicht enthaltene Neigungen wird der Korrekturfaktor über Interpolation ermittelt.
 
-### Tabelle 7 --- Korrekturfaktor f
+**Tabelle 7 --- Korrekturfaktor f**
 
   ------------------------------------------------------------------------------------------------------------------------------------------
   Neigung                                                                         *f*                                   
@@ -2498,7 +2498,7 @@ Werden in Gleichung (47) auch Außenbauteile einbezogen, bei denen der Wärmeb
 
 Wärmebrücken bei Bauteilen, die an Zonen mit unterschiedlich vorgegebener Innentemperaturgrenzen (siehe 6.2.3), brauchen nicht berücksichtigt werden.
 
-## 6.3 Lüftungswärmesenken/-quellen
+**6.3Lüftungswärmesenken/-quellen**
 
 **6.3.1Infiltration**
 
@@ -2576,7 +2576,7 @@ Dabei ist
 
 *V* das Nettoraumvolumen.
 
-### Tabelle 8 --- *n*- und *q*-Bemessungswerte (Standardwerte für ungeprüfte Gebäude)
+**Tabelle 8 --- *n*- und *q*-Bemessungswerte (Standardwerte für ungeprüfte Gebäude)**
 
 +------------------------------------------------------------------------+---------------------------------------------+----------------------------------------------+
 | Kategorien zur pauschalen Einschätzung der Gebäudedichtheit            | Gebäude mit einem Nettoraumvolumen ≤ 1500 m | Gebäude mit einem Nettoraumvolumen \> 1500 m |
@@ -3028,7 +3028,7 @@ Dabei ist
 
 In anderen Fällen muss der Abluftwechsel nach baulichen und lüftungstechnischen Gesichtspunkten vorgegeben werden.
 
-## 6.4 Strahlungswärmequellen und -senken
+**6.4Strahlungswärmequellen und -senken**
 
 **6.4.1Wärmequellen durch solare Einstrahlung durch transparente Flächen**
 
@@ -3104,7 +3104,7 @@ Die Standardwerte für den Gesamtenergiedurchlassgrad in Tabelle 9, Tabelle 10
 
 Angaben zu Wärmedurchgangskoeffizienten und Gesamtenergiedurchlassgraden für Dachoberlichter sind in DIN/TS 18599-4:2025-10, Tabelle 17, aufgenommen.
 
-### Tabelle 9 --- Standardwerte für die Kennwerte von Gläsern und Sonnenschutzvorrichtungen außen- und innenliegend
+**Tabelle 9 --- Standardwerte für die Kennwerte von Gläsern und Sonnenschutzvorrichtungen außen- und innenliegend**
 
 <table>
 <colgroup>
@@ -3641,7 +3641,7 @@ Angaben zu Wärmedurchgangskoeffizienten und Gesamtenergiedurchlassgraden für D
 </tbody>
 </table>
 
-### Tabelle 10 --- Standardwerte für die Kennwerte von Gläsern und Sonnenschutzvorrichtungen im Scheibenzwischenraum des Mehrscheibenisolierglases
+**Tabelle 10 --- Standardwerte für die Kennwerte von Gläsern und Sonnenschutzvorrichtungen im Scheibenzwischenraum des Mehrscheibenisolierglases**
 
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------+------+------+------------------------------------------------------------------------+------------+----------------+------------+------------+
 | Glastyp                                                                                                                                                                         | Kennwerte, ohne Sonnenschutzvorrichtung |      |      | Kennwerte mit Sonnenschutzvorrichtung im Scheibenzwischenraum des MIGa |            |                |            |            |
@@ -3671,7 +3671,7 @@ Angaben zu Wärmedurchgangskoeffizienten und Gesamtenergiedurchlassgraden für D
 | cBemessungswert in W/(m · K) nach DIN 4108-4 (einschließlich Korrekturwert von 0,1 W/(m · K)). Der Einfluss des *U*-Wertes auf die *g*-Werte ist von untergeordneter Bedeutung. |                                         |      |      |                                                                        |            |                |            |            |
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------+------+------+------------------------------------------------------------------------+------------+----------------+------------+------------+
 
-### Tabelle 11 --- Standardwerte für die Kennwerte von Gläsern und Sonnenschutzvorrichtungen im Scheibenzwischenraum eines Kasten- oder Verbundfensters
+**Tabelle 11 --- Standardwerte für die Kennwerte von Gläsern und Sonnenschutzvorrichtungen im Scheibenzwischenraum eines Kasten- oder Verbundfensters**
 
 <table>
 <colgroup>
@@ -3869,7 +3869,7 @@ Dabei ist
 
 *t* die Dauer des Berechnungszeitraums (*t* = 24 h).
 
-### Tabelle 12 --- Standardwerte für den Strahlungsabsorptionsgrad verschiedener Oberflächen im energetisch wirksamen Spektrum des Sonnenlichts
+**Tabelle 12 --- Standardwerte für den Strahlungsabsorptionsgrad verschiedener Oberflächen im energetisch wirksamen Spektrum des Sonnenlichts**
 
   -----------------------------------------------------------------------
   Oberfläche                              Strahlungsabsorptionsgrad
@@ -3951,7 +3951,7 @@ In Bild 4 sind die für Glasvorbauten zu berücksichtigenden Größen schemati
 
 ![Bild 4: Schematische Darstellung der für Glasvorbauten zu berücksichtigenden Größen](sources/images/media/image4.gif){width="5.116666666666666in" height="4.458333333333333in"}
 
-### Bild 4 --- Schematische Darstellung der für Glasvorbauten zu berücksichtigenden Größen
+**Bild 4 --- Schematische Darstellung der für Glasvorbauten zu berücksichtigenden Größen**
 
 Bauliche Verschattung und Sonnenschutzmaßnahmen sind jeweils auf das betrachtete Bauteil zu beziehen, d. h.:
 
@@ -4031,7 +4031,7 @@ Sofern der Durchflussbeiwert (*c*) der Zu-/oder Abluftöffnung einer Konstruktio
 
 --falls keine genauen Maße bekannt sind, ist der transparente Anteil *F* = 0,95 zu setzen.
 
-## 6.5 Interne Wärme- und Kältequellen
+**6.5Interne Wärme- und Kältequellen**
 
 **6.5.1Interne Wärmequellen in Wohngebäuden**
 
@@ -4113,7 +4113,7 @@ ANMERKUNG: Detaillierte Definition von , siehe VDI 2078.
 
 2Abluft
 
-### Bild 5 --- Beispiel zu den zwei Typen von Abluftleuchten; Beispiel a) Absaugung über Deckenhohlraum
+**Bild 5 --- Beispiel zu den zwei Typen von Abluftleuchten; Beispiel a) Absaugung über Deckenhohlraum**
 
 ![Bild 6: Beispiel zu den zwei Typen von Abluftleuchten; Beispiel b) Absaugung über angeschlossene Luftleitung](sources/images/media/image6.gif){width="2.216666666666667in" height="1.6333333333333333in"}
 
@@ -4125,9 +4125,9 @@ ANMERKUNG: Detaillierte Definition von , siehe VDI 2078.
 
 3Leuchtstofflampe
 
-### Bild 6 --- Beispiel zu den zwei Typen von Abluftleuchten; Beispiel b) Absaugung über angeschlossene Luftleitung
+**Bild 6 --- Beispiel zu den zwei Typen von Abluftleuchten; Beispiel b) Absaugung über angeschlossene Luftleitung**
 
-### Tabelle 13 --- Standardwerte für Raumbelastungsgrade  bei Abluftleuchten in Deckensystemen
+**Tabelle 13 --- Standardwerte für Raumbelastungsgrade  bei Abluftleuchten in Deckensystemen**
 
   --------------------------------------------------------------------------------------
   Luftdurchsatz, bezogen auf die Leuchtenanschlussleistung   0,2    0,3    0,5    1,0
@@ -4185,7 +4185,7 @@ und
 
 ANMERKUNG: Die Wärmequellen und -senken aus den Verteilleitungen eines Gebäudes können pauschal auf die Gebäudezonen aufgeteilt sein; dies ist in den entsprechenden Teilen der Reihe DIN/TS 18599 geregelt.
 
-## 6.6 Übertrag gespeicherter Wärme zwischen Nutzungs- und Nichtnutzungstagen
+**6.6Übertrag gespeicherter Wärme zwischen Nutzungs- und Nichtnutzungstagen**
 
 Die am Wochenende oder bei Ferienbetrieb aus den Bauteilen entspeicherte und an Nutzungstagen gespeicherte Wärmemenge ist
 
@@ -4233,7 +4233,7 @@ Für Nichtnutzungstage gilt *Q* = 0 (siehe auch 5.2.4 und 5.3.6).
 
 In der Kühlbedarfsbilanz gilt *Q* = 0 für Nutzungs- und Nichtnutzungstage (siehe auch 5.2.4 und 5.3.6).
 
-## 6.7 Ausnutzungsgrad für Wärmequellen
+**6.7Ausnutzungsgrad für Wärmequellen**
 
 **6.7.1Wirksame Wärmekapazität**
 
@@ -4365,7 +4365,7 @@ Dabei ist
 
 *c* ist zu 0,34 Wh/(m · K) zu setzen.
 
-# Anhang A (normativ)Verschattungsfaktoren und bewegliche Sonnenschutzvorrichtungen
+**Anhang A (normativ)Verschattungsfaktoren und bewegliche Sonnenschutzvorrichtungen**
 
 **A.1Allgemeines**
 
@@ -4765,7 +4765,7 @@ Für die angegebene Himmelsrichtung ist eine Abweichung der Senkrechten auf die 
   0°            Sommer       0,89                                                           
   ------------------------------------------------------------------------------------------------
 
-# Anhang B (normativ)Maximale Heizlast in der Gebäudezone
+**Anhang B (normativ)Maximale Heizlast in der Gebäudezone**
 
 **B.1Allgemeines**
 
@@ -4867,7 +4867,7 @@ Ohne mechanische Lüftungsanlage gilt .
 
 ANMERKUNG: Die Ermittlung der erforderlichen Heizlast einer mechanischen Lüftungsanlage zur Aufbereitung der mechanischen Zuluft vom Außenluftzustand auf den Zuluftzustand ist in DIN/TS 18599-3 beschrieben.
 
-# Anhang C (normativ)Maximale Kühllast in der Gebäudezone
+**Anhang C (normativ)Maximale Kühllast in der Gebäudezone**
 
 **C.1Allgemeines**
 
@@ -5209,7 +5209,7 @@ Ohne mechanische Lüftungsanlage gilt .
 
 ANMERKUNG: Die Ermittlung der erforderlichen Kühllast einer mechanischen Lüftungsanlage zur Aufbereitung der mechanischen Zuluft vom Außenluftzustand auf den Zuluftzustand ist in DIN/TS 18599-3 beschrieben.
 
-# Anhang D (normativ)Berechnung der monatlichen Heiz- und Kühlzeit
+**Anhang D (normativ)Berechnung der monatlichen Heiz- und Kühlzeit**
 
 **D.1Allgemeines**
 
@@ -5295,7 +5295,7 @@ Dabei ist
 
 ANMERKUNG: In der Regel ist die Betriebszeit der Kühlanlage gleich der Betriebszeit der Lüftungsanlage. Falls die Kühlung innerhalb der Gebäudezone auch außerhalb der Betriebszeit der Lüftungsanlage in Betrieb ist, z. B. bei Bauteilkühlung, ist für *t* = 24 h anzusetzen.
 
-# Anhang E (normativ)Standardwerte für Volumenströme raumlufttechnischer Anlagen
+**Anhang E (normativ)Standardwerte für Volumenströme raumlufttechnischer Anlagen**
 
 **E.1Allgemeines**
 
@@ -5325,7 +5325,7 @@ Yflächenbezogene maximale Kühlleistung Volumenstrom  in 
 
 **Bild E.1 --- Zusammenhang zwischen maximaler Kühllast und zulässigem Volumenstrom, abhängig vom Klimasystem**
 
-# Anhang F (normativ)Spezifischer Wärmetransferkoeffizient für Transmission und Bilanzkennwert zur Bewertung der energetischen Qualität transparenter Bauteile
+**Anhang F (normativ)Spezifischer Wärmetransferkoeffizient für Transmission und Bilanzkennwert zur Bewertung der energetischen Qualität transparenter Bauteile**
 
 **F.1Spezifischer Wärmetransferkoeffizient für Transmission**
 
@@ -5451,7 +5451,7 @@ Die Koeffizienten *a* und *b* zur Gleichung (F.2) werden für Einfamilienh
   aDie Werte gelten für die angegebene Orientierung +/−45°. In Grenzfällen ist der niedrigere S-Wert zu verwenden.                                              
   ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# Anhang G (informativ)Berechnung des Wärmedurchgangskoeffizienten für transparente Bauteile mit äußeren und inneren Abschlüssen
+**Anhang G (informativ)Berechnung des Wärmedurchgangskoeffizienten für transparente Bauteile mit äußeren und inneren Abschlüssen**
 
 **G.1Effektiver Wärmedurchgangskoeffizient eines transparenten Bauteils**
 
@@ -5579,7 +5579,7 @@ Für die vorgenannten Szenarien erfolgt die Angabe der *f*-Werte in Tabelle G.
   Jahr          0,39                                                  0,39   0,40   0,40   0,39   0,39   0,40   0,40   0,39   0,40   0,39   0,41   0,39   0,39   0,42
   ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# Anhang H (normativ)Berechnung eines projektbezogenen Wärmebrückenzuschlags *U*
+**Anhang H (normativ)Berechnung eines projektbezogenen Wärmebrückenzuschlags *U***
 
 In Fällen, in denen kein pauschaler Wärmebrückenzuschlag in Ansatz gebracht werden soll, kann ein projektbezogener Wärmebrückenzuschlag *U* wie folgt ermittelt werden:
 
@@ -5675,7 +5675,7 @@ Der projektbezogene Wärmebrückenzuschlag *U* ist auf drei wertanzeigende Ste
   **Projektbezogener Wärmebrückenzuschlag** *U* **\[W/(mK)\]**                                                                                                                          
   -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# Anhang I (normativ)Fallunterscheidung für die Ermittlung des längenbezogenen Wärmedurchgangskoeffizienten
+**Anhang I (normativ)Fallunterscheidung für die Ermittlung des längenbezogenen Wärmedurchgangskoeffizienten**
 
 Bei der Berechnung des -Wertes sind grundsätzlich vier Fälle zu unterscheiden. Nachdem der Wert als Wärmestrom je laufenden Meter Wärmebrücke bei 1 K Temperaturdifferenz angegeben wird, ist für die jeweilige Randbedingung nicht die Temperatur als solches von Bedeutung, sondern jeweils das Verhältnis zueinander. Tabelle I.1 stellt die möglichen Kombinationen dar und gibt die Rechenregeln für die Berechnung des temperaturbewerteten längenbezogenen Wärmedurchgangskoeffizienten  an. Zusätzlich erfolgt, sofern möglich, die Angabe der Rechenregeln, wenn keine Temperaturbewertung () erfolgen soll.
 
@@ -5719,7 +5719,7 @@ Bei der Berechnung des -Wertes sind grundsätzlich vier Fälle zu unterscheiden
 | *U*, *U* Wärmedurchgangskoeffizienten.                                                                            |                                                                                                                   |
 +-------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------+
 
-# Literaturhinweise
+**Literaturhinweise**
 
 \[1\]Räumlich und zeitlich eingeschränkte Beheizung; *Loga, Kahlert, Laidig, Lude; Institut Wohnen und Umwelt; Dezember 1999*
 

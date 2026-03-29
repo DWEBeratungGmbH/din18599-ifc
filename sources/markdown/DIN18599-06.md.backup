@@ -22,7 +22,7 @@ DIN-Normenausschuss Bauwesen (NABau) • DIN-Normenausschuss Heiz- und Raumluftt
 
 Alleinverkauf durch DIN Media GmbH, 10772 Berlin
 
-# Vorwort
+**Vorwort**
 
 Dieses Dokument wurde vom zuständigen Gemeinschaftsarbeitsausschuss NA 005-12-01 GA „Gemeinschaftsarbeitsausschuss NABau/FNL/NHRS: Energetische Bewertung von Gebäuden (SpA CEN/TC 371, CEN/TC 371/WG 1, CEN/TC 371/WG 2, CEN/TC 371/WG 3, CEN/TC 371/WG 4, CEN/TC 371/WG 5, ISO/TC 163/WG 4 und ISO/TC 163/SC 2/WG 15)" erarbeitet. Der Inhalt wurde vom DIN-Normenausschuss Bauwesen (NABau) als Hauptträger erarbeitet und wird vom DIN-Normenausschuss Heiz- und Raumlufttechnik sowie deren Sicherheit (NHRS) als Mitträger getragen.
 
@@ -72,7 +72,7 @@ Die Reihe DIN/TS 18599 ist geeignet, den langfristigen Energiebedarf für Geb�
 
 Aktuelle Informationen zu diesem Dokument können über die Internetseiten von DIN (www.din.de) durch eine Suche nach der Dokumentennummer aufgerufen werden.
 
-# Änderungen
+**Änderungen**
 
 Gegenüber DIN V 18599-6:2018-09 wurden folgende Änderungen vorgenommen:
 
@@ -90,21 +90,21 @@ f)Aktualisierung der Kennwerte für Ventilatorleistung;
 
 g)Aktualisierung der Kennwerte für Bedarfsführung.
 
-# Frühere Ausgaben
+**Frühere Ausgaben**
 
 DIN V 18599-6: 2005-07, 2007-02, 2011-12, 2016-10, 2018-09
 
 DIN V 18599-100: 2009-10
 
-# Einleitung
+**Einleitung**
 
 Die nach der Reihe DIN/TS 18599 durchgeführte Energiebilanz folgt einem integralen Ansatz, d. h., es erfolgt eine gemeinschaftliche Bewertung des Baukörpers, der Nutzung und der Anlagentechnik unter Berücksichtigung der gegenseitigen Wechselwirkungen. Zur Verbesserung der Übersichtlichkeit besteht die Reihe DIN/TS 18599 aus mehreren Teilen, die einzelne Themenschwerpunkte behandeln. Einen Überblick über die Inhalte der einzelnen Teile gibt Bild 1.
 
 ![Bild 1: Übersicht über die Teile von DIN/TS 18599](sources/images/media/image1.gif){width="6.3in" height="4.658333333333333in"}
 
-### Bild 1 --- Übersicht über die Teile von DIN/TS 18599
+**Bild 1 --- Übersicht über die Teile von DIN/TS 18599**
 
-# 1 Anwendungsbereich
+**1Anwendungsbereich**
 
 Die Reihe DIN/TS 18599 stellt ein Verfahren zur Durchführung der Gesamtenergiebilanz von Gebäuden bereit. Der aufgezeigte Algorithmus ist anwendbar für die energetische Bilanzierung von:
 
@@ -142,11 +142,11 @@ Bild 2 zeigt schematisch den inhaltlichen Umfang des vorliegenden Dokuments. Ei
 
 ![Bild 2: Inhalt und Umfang von DIN/TS 18599-6](sources/images/media/image2.gif){width="6.25in" height="4.708333333333333in"}
 
-### Bild 2 --- Inhalt und Umfang von DIN/TS 18599-6
+**Bild 2 --- Inhalt und Umfang von DIN/TS 18599-6**
 
 Nicht Bestandteil von DIN/TS 18599-6 ist die Beschreibung von Systemen zur Klimatisierung mit Be- und/oder Entfeuchtung im Wohnungsbau sowie von Lüftungssystemen in Nichtwohngebäuden. Solche Systeme sind in DIN/TS 18599-7 für Nichtwohngebäude beschrieben.
 
-# 2 Normative Verweisungen
+**2Normative Verweisungen**
 
 Die folgenden Dokumente werden im Text in solcher Weise in Bezug genommen, dass einige Teile davon oder ihr gesamter Inhalt Anforderungen des vorliegenden Dokuments darstellen. Bei datierten Verweisungen gilt nur die in Bezug genommene Ausgabe. Bei undatierten Verweisungen gilt die letzte Ausgabe des in Bezug genommenen Dokuments (einschließlich aller Änderungen).
 
@@ -186,9 +186,9 @@ VDI 4640 Blatt 4, *Thermische Nutzung des Untergrundes --- Direkte Nutzungen*1
 
 1)Zu beziehen bei: DIN Media Verlag GmbH, 10772 Berlin.
 
-# 3 Begriffe, Symbole, Einheiten und Indizes
+**3Begriffe, Symbole, Einheiten und Indizes**
 
-## 3.1 Begriffe
+**3.1Begriffe**
 
 Für die Anwendung dieses Dokuments gelten die folgenden Begriffe.
 
@@ -198,13 +198,13 @@ DIN und DKE stellen terminologische Datenbanken für die Verwendung in der Normu
 
 --DKE-IEV: verfügbar unter https://www.dke.de/DKE-IEV
 
-### 3.1.1
+**3.1.1**
 
 **Primärenergiebedarf**
 
 berechnete Energiemenge, die zusätzlich zum Energieinhalt des notwendigen Brennstoffs und der Hilfsenergien für die Anlagentechnik auch die Energiemengen einbezieht, die durch vorgelagerte Prozessketten außerhalb des Gebäudes bei der Gewinnung, Umwandlung und Verteilung der jeweils eingesetzten Brennstoffe entstehen
 
-### 3.1.2
+**3.1.2**
 
 **Endenergiebedarf**
 
@@ -212,13 +212,13 @@ berechnete Energiemenge, die der Anlagentechnik (Heizungsanlage, Raumlufttechnis
 
 Anmerkung 1 zum Begriff: Diese Energiemenge bezieht den für den Betrieb der Anlagentechnik benötigten Hilfsenergieaufwand ein. Der Endenergiebedarf wird an der „Schnittstelle" Gebäudehülle übergeben und stellt somit die Energiemenge dar, die der Verbraucher für eine bestimmungsgemäße Nutzung unter normativen Randbedingungen benötigt. Der Endenergiebedarf wird vor diesem Hintergrund nach verwendeten Energieträgern angegeben.
 
-### 3.1.3
+**3.1.3**
 
 **Nutzenergiebedarf**
 
 Oberbegriff für Nutzwärmebedarf, Nutzkältebedarf, Nutzenergiebedarf für Trinkwarmwasser, Beleuchtung, Befeuchtung
 
-### 3.1.4
+**3.1.4**
 
 **Nutzwärmebedarf**
 
@@ -228,7 +228,7 @@ rechnerisch ermittelter Energiebedarf, der zur Aufrechterhaltung der festgelegte
 
 Anmerkung 1 zum Begriff: Siehe DIN/TS 18599-1.
 
-### 3.1.5
+**3.1.5**
 
 **Nutzkältebedarf**
 
@@ -236,13 +236,13 @@ Anmerkung 1 zum Begriff: Siehe DIN/TS 18599-1.
 
 rechnerisch ermittelter Energiebedarf, der zur Aufrechterhaltung der festgelegten thermischen Raumkonditionen innerhalb einer Gebäudezone benötigt wird, in Zeiten, in denen die Wärmequellen eine höhere Energiemenge anbieten als benötigt wird
 
-### 3.1.6
+**3.1.6**
 
 **Nutzenergiebedarf für Trinkwarmwasser**
 
 rechnerisch ermittelter Energiebedarf, der sich ergibt, wenn die Gebäudezone mit der im Nutzungsprofil festgelegten Menge an Trinkwarmwasser entsprechender Zulauftemperatur versorgt wird
 
-### 3.1.7
+**3.1.7**
 
 **Zone**
 
@@ -252,7 +252,7 @@ Anmerkung 1 zum Begriff: Eine Zone fasst den Grundflächenanteil bzw. Bereich ei
 
 Anmerkung 2 zum Begriff: Die Nutzungsrandbedingungen sind in DIN/TS 18599-10 zusammengestellt.
 
-### 3.1.8
+**3.1.8**
 
 **Versorgungsbereich**
 
@@ -262,7 +262,7 @@ Anmerkung 1 zum Begriff: Ein Versorgungsbereich (Heizung, Warmwasser, Lüftung, 
 
 Anmerkung 2 zum Begriff: Entsprechend den Rechenregeln der einzelnen Bilanzteile kann es erforderlich sein, den Energiebedarf für einen Versorgungsbereich zu ermitteln. Die für den Versorgungsbereich ermittelten Energiekennwerte werden nach DIN/TS 18599-1 auf die Zonen des Gebäudes aufgeteilt.
 
-### 3.1.9
+**3.1.9**
 
 **technisches Gewerk**
 
@@ -272,7 +272,7 @@ Anmerkung 1 zum Begriff: Dieses Dokument erfasst die Gewerke Lüftung, Kühlung 
 
 Anmerkung 2 zum Begriff: Das Gewerk „Trinkwassererwärmung" umfasst beispielsweise sowohl die zentralen als auch die dezentralen Versorgungssysteme. Jedes technische Gewerk erhält in der Bilanz entsprechende Bilanzanteile.
 
-### 3.1.10
+**3.1.10**
 
 **Nettogrundfläche**
 
@@ -282,7 +282,7 @@ im konditionierten Gebäudevolumen zur Verfügung stehende nutzbare Fläche
 
 Anmerkung 1 zum Begriff: Als Bezugsfläche wird die Nettogrundfläche (*A*) verwendet.
 
-### 3.1.11
+**3.1.11**
 
 **Bruttovolumen**
 
@@ -296,7 +296,7 @@ Anmerkung 1 zum Begriff: Dieses Volumen schließt mindestens alle Räume des Geb
 
 Anmerkung 2 zum Begriff: Regeln zur Bestimmung des Bruttovolumens sind in DIN/TS 18599-1 beschrieben.
 
-### 3.1.12
+**3.1.12**
 
 **Nettoraumvolumen**
 
@@ -312,7 +312,7 @@ Anmerkung 1 zum Begriff: Das Nettoraumvolumen bestimmt sich anhand der inneren A
 
 Anmerkung 2 zum Begriff: Das Nettoraumvolumen wird aus der entsprechenden Nettogrundfläche durch Multiplikation mit der lichten Raumhöhe ermittelt. Die lichte Geschosshöhe ist die Höhendifferenz zwischen der Oberkante des Fußbodens bis zur Unterkante der Geschossdecke bzw. einer abgehängten Decke. Vereinfacht, d. h., wenn z. B. kein inneres Aufmaß gemacht wird, wird es aus dem Bruttovolumen (externes Volumen) mit *V* = 0,8 · *V* bestimmt.
 
-### 3.1.13
+**3.1.13**
 
 **Bilanzinnentemperatur**
 
@@ -320,7 +320,7 @@ mittlere Innentemperatur eines Gebäudes bzw. einer Zone unter Berücksichtigung
 
 Anmerkung 1 zum Begriff: In der Regel werden unterschiedliche Werte für den Heiz- und Kühlbetrieb angesetzt.
 
-### 3.1.14
+**3.1.14**
 
 **Luftvolumen**
 
@@ -330,13 +330,13 @@ Volumen einer thermisch konditionierten Zone, das dem Luftaustausch unterliegt
 
 Anmerkung 1 zum Begriff: Das Volumen wird aus Innenmaßen ermittelt und schließt so das Volumen der Gebäudekonstruktion aus.
 
-### 3.1.15
+**3.1.15**
 
 **Luftwechsel**
 
 Luftvolumenstrom je Volumeneinheit
 
-### 3.1.16
+**3.1.16**
 
 **Verluste der Anlagentechnik**
 
@@ -346,7 +346,7 @@ Anmerkung 1 zum Begriff: Die Verluste der Anlagentechnik treten bei der Übergab
 
 Anmerkung 2 zum Begriff: Die Verluste der Anlagentechnik zählen, sofern sie im konditionierten Raum auftreten, zu den Wärmequellen oder Wärmesenken.
 
-### 3.1.17
+**3.1.17**
 
 **erneuerbare Energie**
 
@@ -354,7 +354,7 @@ Energie aus Quellen, die nicht im Laufe der Existenz der Menschheit verbraucht w
 
 Anmerkung 1 zum Begriff: Erneuerbare Energie umfasst Solarenergie (thermisch, photovoltaisch, beleuchtungstechnisch), Wind-, Wasser- und Biomasseenergie.
 
-### 3.1.18
+**3.1.18**
 
 **Bilanzzeitraum**
 
@@ -362,7 +362,7 @@ Zeitspanne für die Bilanzierung der relevanten Energieströme für ein Gebäude
 
 Anmerkung 1 zum Begriff: Zur Berechnung des End- und Primärenergiebedarfs ist der Bilanzzeitraum ein Jahr, bei der Berechnung von Teilenergiekennwerten kann er einen Monat oder einen Tag umfassen.
 
-### 3.1.19
+**3.1.19**
 
 **Hilfsenergieaufwand**
 
@@ -370,7 +370,7 @@ Energie, die von Heizungs-, Kühl-, Trinkwarmwasser-, Raumluft- (einschließlich
 
 Anmerkung 1 zum Begriff: Dies schließt Energie für Pumpen, Ventilatoren, Regelung, Elektronik usw., nicht aber die umgewandelte Energie, ein.
 
-### 3.1.20
+**3.1.20**
 
 **Energieinhalt**
 
@@ -378,7 +378,7 @@ Wärmemenge, die bei einer vollen Verbrennung unter einem konstanten Druck von 1
 
 Anmerkung 1 zum Begriff: Der Brennwert enthält die bei der Wasserdampfkondensation entstehende Wärmemenge. Der Heizwert umfasst diese latente Wärme nicht.
 
-### 3.1.21
+**3.1.21**
 
 **Wohnungslüftungsanlage**
 
@@ -390,7 +390,7 @@ Anmerkung 1 zum Begriff: Zuluft- und/oder Abluftanlagen werden als dezentrale Ge
 
 Anmerkung 2 zum Begriff: Für ventilatorgestützte Systeme der Wohnungslüftung ist deren Auslegung und bestimmungsgemäßer Betrieb nach den anerkannten Regeln der Technik vorausgesetzt. Diesbezügliche gesonderte Hinweise (z. B. hinsichtlich der Planung und Bemessung der Wohnungslüftungsanlagen) können DIN 1946-6 entnommen werden.
 
-### 3.1.22
+**3.1.22**
 
 **Luftheizungsanlage**
 
@@ -398,7 +398,7 @@ Heizsysteme, bei denen die Wärmezufuhr in die Zone vollständig durch Luft als 
 
 Anmerkung 1 zum Begriff: Luftheizungsanlagen beinhalten mindestens einen Wärmeerzeuger (z. B. eine Abluft-Wärmepumpe). Zusätzlich kann ein Wärmeübertrager zur Wärmerückgewinnung vorhanden sein. Luftheizungsanlagen können mit Außenluft, mit Außen- und Umluftanteil und nur mit Umluft gefahren werden.
 
-### 3.1.23
+**3.1.23**
 
 **Übergabe**
 
@@ -410,13 +410,13 @@ Anmerkung 1 zum Begriff: Siehe DIN/TS 18599-10.
 
 Anmerkung 2 zum Begriff: Anforderungen betreffen insbesondere den Komfort.
 
-### 3.1.24
+**3.1.24**
 
 **Verteilung**
 
 Prozessbereich der Anlagentechnik, in dem die benötigte Energiemenge von der Erzeugung zum Wärmeübergabesystem transportiert wird
 
-### 3.1.25
+**3.1.25**
 
 **Speicherung**
 
@@ -424,13 +424,13 @@ Prozessbereich der Anlagentechnik, in dem in einem Medium enthaltene Wärme gesp
 
 Anmerkung 1 zum Begriff: Bei Wohnungslüftungs- bzw. Luftheizungssystemen kann dies ein Pufferspeicher in Kombination mit einer Abluft-Wasser-Wärmepumpe sein.
 
-### 3.1.26
+**3.1.26**
 
 **Erzeugung**
 
 Prozessbereich der Anlagentechnik, in dem die Wärmemenge bereitgestellt wird, die für die Systeme benötigt wird
 
-### 3.1.27
+**3.1.27**
 
 **Betriebszeit eines Wohnungslüftungssystems**
 
@@ -444,7 +444,7 @@ Anmerkung 3 zum Begriff: Bei ganzjährigem Betrieb ist das Wohnungslüftungssyst
 
 Anmerkung 4 zum Begriff: Beim Heizperiodenbetrieb wird das Wohnungslüftungssystem in den Sommermonaten Juni --- August abgeschaltet. Die Betriebszeit wird standardmäßig für die Monate September bis Mai ermittelt, d. h., das Wohnungslüftungssystem ist an allen Tagen dieser Monate in Betrieb (nachfolgend Heizmonatsverfahren genannt).
 
-### 3.1.28
+**3.1.28**
 
 **Produktwert**
 
@@ -456,13 +456,13 @@ herstellerspezifischer Wert auf der Grundlage
 
 --eines bauaufsichtlichen Verwendbarkeitsnachweises, der für dieses Rechenverfahren geeignet ist
 
-### 3.1.29
+**3.1.29**
 
 **Standardwert**
 
 Wert, der für den Berechnungsgang verwendet werden kann, sofern kein für das Rechenverfahren geeigneter Produktwert verfügbar ist
 
-### 3.1.30
+**3.1.30**
 
 **Teillüftung**
 
@@ -476,13 +476,13 @@ Anmerkung 1 zum Begriff: Typische Beispiele für Teillüftung sind:
 
 Anmerkung 2 zum Begriff: Auch bei Teillüftung ist für ventilatorgestützte Systeme der Wohnungslüftung deren Auslegung und bestimmungsgemäßer Betrieb nach den anerkannten Regeln der Technik vorausgesetzt. Diesbezügliche gesonderte Hinweise (z. B. hinsichtlich der Planung und Bemessung der Wohnungslüftungsanlagen) können DIN 1946-6 entnommen werden.
 
-## 3.2 Symbole, Einheiten, Indizes
+**3.2Symbole, Einheiten, Indizes**
 
 Wichtige, für die Gesamtbilanz nach der Reihe DIN/TS 18599 allgemein gültige Symbole sind in Tabelle 1 zusammengestellt.
 
 Tabelle 2 gibt bilanzübergreifende Indizes an.
 
-### Tabelle 1 --- Symbole und Einheiten
+**Tabelle 1 --- Symbole und Einheiten**
 
   --------------------------------------------------------------------------------------------------------------
   Symbol   Bedeutung                                                                               Einheit
@@ -564,7 +564,7 @@ Tabelle 2 gibt bilanzübergreifende Indizes an.
            Verhältnis                                   ratio                                      ---
   --------------------------------------------------------------------------------------------------------------
 
-### Tabelle 2 --- Indizes
+**Tabelle 2 --- Indizes**
 
   ------------------------------------------------------------------------------------------------------
   Index       Bedeutung                                     
@@ -708,7 +708,7 @@ Tabelle 2 gibt bilanzübergreifende Indizes an.
   TTC         Zeit Zapfzyklus                               time for taping cycle
   ------------------------------------------------------------------------------------------------------
 
-## 3.3 Abkürzungen
+**3.3Abkürzungen**
 
 In diesem Dokument angewendete Abkürzungen:
 
@@ -742,11 +742,11 @@ Die Systematik der Indizierung und der Bezeichnung für die bilanzierten Energie
 
 ![Bild 3: Schema der Indizierung](sources/images/media/image3.gif){width="5.95in" height="4.341666666666667in"}
 
-### Bild 3 --- Schema der Indizierung
+**Bild 3 --- Schema der Indizierung**
 
-# 4 Verknüpfung der Teile der Reihe DIN/TS 18599
+**4Verknüpfung der Teile der Reihe DIN/TS 18599**
 
-## 4.1 Allgemeines
+**4.1Allgemeines**
 
 Unterabschnitt 4.2 und Unterabschnitt 4.3
 
@@ -758,11 +758,11 @@ Auf eine vertiefende Erläuterung der Größen sowie die Angabe von Gründen fü
 
 In 4.4 wird das Berechnungsverfahren für dieses Dokument erläutert.
 
-## 4.2 Eingangsgrößen aus anderen Teilen der Reihe DIN/TS 18599
+**4.2Eingangsgrößen aus anderen Teilen der Reihe DIN/TS 18599**
 
 Die in Tabelle 3 angegebenen Eingangsgrößen aus den Teilen der Reihe DIN/TS 18599 werden für die Bilanz des Endenergie- und Primärenergiebedarfs benötigt (geordnet nach Teil der Reihe DIN/TS 18599).
 
-### Tabelle 3 --- Eingangsgrößen aus anderen Teilen der Reihe DIN/TS 18599
+**Tabelle 3 --- Eingangsgrößen aus anderen Teilen der Reihe DIN/TS 18599**
 
   --------------------------------------------------------------------------------
   Bedeutung                                             Symbol   Referenz
@@ -796,11 +796,11 @@ Die in Tabelle 3 angegebenen Eingangsgrößen aus den Teilen der Reihe DIN/TS
   Anzahl der Stunden eines Tages                        *t*      DIN/TS 18599-10
   --------------------------------------------------------------------------------
 
-## 4.3 Ausgangsgrößen für andere Teile der Reihe DIN/TS 18599
+**4.3Ausgangsgrößen für andere Teile der Reihe DIN/TS 18599**
 
 Für andere Teile der Reihe DIN/TS 18599 werden die in Tabelle 4 aufgeführten Ausgangsgrößen bereitgestellt.
 
-### Tabelle 4 --- Ausgangsgrößen für andere Teile der Reihe DIN/TS 18599
+**Tabelle 4 --- Ausgangsgrößen für andere Teile der Reihe DIN/TS 18599**
 
   ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   Bedeutung                                                                                                                                         Symbol   Nach                       Referenz
@@ -858,7 +858,7 @@ Für andere Teile der Reihe DIN/TS 18599 werden die in Tabelle 4 aufgeführt
 
 Die Ergebnisse der Berechnung der Erzeuger werden nach Tabelle 5 zur Gesamtbilanzierung an DIN/TS 18599-1 übergeben. Unabhängig von den innerhalb des vorliegenden Dokuments verwendeten Symbole und Indizes werden dokumentübergreifend für die Gesamtbilanz in Teil 1 zur Kennzeichnung benutzt: „g" (Erzeugerverlust), „f,prod" (produzierter oder nutzbar gemachter Endenergiebedarf), „f,in" (von außen zugeführter Endenergiebedarf) und „f,out" (nach außen abgeführter Endenergiebedarf). Zur weiteren Erläuterung der Begriffe siehe DIN/TS 18599-1.
 
-### Tabelle 5 --- Ausgangsgrößen für die Wärme- und Kälteerzeugung nach DIN/TS 18599-1
+**Tabelle 5 --- Ausgangsgrößen für die Wärme- und Kälteerzeugung nach DIN/TS 18599-1**
 
 +---------------------------------------------------+---------------------------------------------------------------------------+-------------------------+----------------------------------------+------------------------------------+--------------------------------------------------+
 | Unterabschnitt                                    | Technologie/Erzeuger                                                      | Erzeugerverlust         | von außen zugeführter Endenergiebedarf | nutzbar gemachter Endenergiebedarf | nach außerhalb bereitgestellter Endenergiebedarf |
@@ -886,7 +886,7 @@ Die Ergebnisse der Berechnung der Erzeuger werden nach Tabelle 5 zur Gesamtbil
 |  \[siehe Gleichung (8)\]                          |                                                                           |                         |                                        |                                    |                                                  |
 +---------------------------------------------------+---------------------------------------------------------------------------+-------------------------+----------------------------------------+------------------------------------+--------------------------------------------------+
 
-## 4.4 Berechnungsverfahren
+**4.4Berechnungsverfahren**
 
 **4.4.1Allgemeines**
 
@@ -894,7 +894,7 @@ Ventilatorgestützte Systeme der Wohnungslüftung werden nach DIN 1946-6 einge
 
 ![Bild 4: Systemübersicht zur Wohnungslüftung nach DIN 1946-6](sources/images/media/image4.gif){width="6.3in" height="2.5930555555555554in"}
 
-### Bild 4 --- Systemübersicht zur Wohnungslüftung nach DIN 1946-6
+**Bild 4 --- Systemübersicht zur Wohnungslüftung nach DIN 1946-6**
 
 Die Verknüpfung der Wohnungslüftungsanlage bzw. Luftheizungsanlage mit anderen Systemen, wie Heizungssysteme nach DIN/TS 18599-5 oder Warmwassersysteme nach DIN/TS 18599-8, wird entsprechend berücksichtigt und kann berechnet werden.
 
@@ -902,7 +902,7 @@ Wohnungskühlsysteme nach diesem Dokument werden entsprechend Bild 5 eingeteil
 
 ![Bild 5: Systemübersicht zur Wohnungskühlung nach DIN/TS 18599-6](sources/images/media/image5.gif){width="6.3in" height="3.7430555555555554in"}
 
-### Bild 5 --- Systemübersicht zur Wohnungskühlung nach DIN/TS 18599-6
+**Bild 5 --- Systemübersicht zur Wohnungskühlung nach DIN/TS 18599-6**
 
 Liegen Systeme zur Wohnungslüftung, zur Luftheizung und zur Wohnungskühlung vor, die in diesem Dokument nicht dargestellt sind, so darf deren Bewertung nach anderen, physikalisch begründeten Algorithmen unter sinngemäßer Anwendung dieses Dokumentes vorgenommen werden.
 
@@ -1174,9 +1174,9 @@ c)Die Trinkwassererwärmung wird nach DIN/TS 18599-8 ermittelt (wie bei System
 
 Nicht Bestandteil dieses Dokumentes ist die Beschreibung von Systemen zur Klimatisierung mit Be- und/oder Entfeuchtung im Wohnungsbau sowie von Lüftungssystemen in Nichtwohngebäuden. Solche Systeme sind in DIN/TS 18599-7 für Nichtwohngebäude beschrieben.
 
-# 5 Nutzwärmebedarf
+**5Nutzwärmebedarf**
 
-## 5.1 Allgemeines
+**5.1Allgemeines**
 
 In diesem Abschnitt werden die Kennwerte festgelegt, die nach dem Berechnungsverfahren (siehe Abschnitt 4) für Wohnungslüftungsanlagen und Luftheizungsanlagen zur Bestimmung des Nutzwärmebedarfs *Q* nach DIN/TS 18599-2 erforderlich sind.
 
@@ -1184,7 +1184,7 @@ Um die Lüftungswärmesenken durch ventilatorgestützte Lüftungsanlagen *Q* n
 
 Die Wärmeaufnahme des Luftsystems durch Wärmerückgewinnung aus Abluft und durch regenerative Luftvorwärmung *Q* wird für Wohnungslüftungsanlagen und Luftheizungsanlagen nach 9.5 bestimmt.
 
-## 5.2 Zulufttemperatur 
+**5.2Zulufttemperatur **
 
 **5.2.1Abluftsysteme**
 
@@ -1346,7 +1346,7 @@ Dabei ist
 
 Für allgemeine Randbedingungen zur Bestimmung des Gesamt-Temperaturänderungsgrades siehe Tabelle 6.
 
-### Tabelle 6 --- Allgemeine Randbedingungen zur Bestimmung des Gesamt-Temperaturänderungsgrades 
+**Tabelle 6 --- Allgemeine Randbedingungen zur Bestimmung des Gesamt-Temperaturänderungsgrades **
 
 +---------------------------------------------------------------------------------------------------------------------+-----------+--------+---------+-------+
 | Kennwerte                                                                                                           |           | Symbol | Einheit | Wert  |
@@ -1404,7 +1404,7 @@ Werden Abluft-Zuluft-Wärmeübertrager in Kombination mit Abluft-Wärmepumpen ei
 
 Prüfwert des Temperaturänderungsgrades der Wärmerückgewinnung im Lüftungsgerät mit Abluft-Zuluft-Wärmeübertrager, siehe Tabelle 7.
 
-### Tabelle 7 --- Standardwerte für die Prüfwerte des Temperaturänderungsgrades 
+**Tabelle 7 --- Standardwerte für die Prüfwerte des Temperaturänderungsgrades **
 
   ------------------------------------------------------------------------
   Anlagenbaujahr                  ab 2016   ab 2000 bis 2015    bis 1999
@@ -1430,7 +1430,7 @@ bis 2015 errichtete Anlagen:
 
 Wenn ein Standardwert zur Berechnung eingesetzt wird, muss der Produktwert des eingebauten Abluft-Zuluft-Wärmeübertragers mindestens diesem Standardwert entsprechen.
 
-### Tabelle 8 --- Standardwerte für monatliche Zulufttemperaturen und monatsmittlere Erhöhung der Zulufttemperaturen durch regenerative Luftvorwärmung, Lüftungsanlagen errichtet nach 1999 --- Standardwerte für TRY 04:2010
+**Tabelle 8 --- Standardwerte für monatliche Zulufttemperaturen und monatsmittlere Erhöhung der Zulufttemperaturen durch regenerative Luftvorwärmung, Lüftungsanlagen errichtet nach 1999 --- Standardwerte für TRY 04:2010**
 
 <table style="width:100%;">
 <colgroup>
@@ -1622,7 +1622,7 @@ Luftheizungsanlagen werden nach dem Berechnungsverfahren (siehe Abschnitt 4) al
 
 Die Berechnung der Zulufttemperatur  erfolgt abhängig vom Vorhandensein eines Wärmeübertragers entsprechend 5.2.2.
 
-## 5.3 Mittlerer Anlagenluftwechsel *n*
+**5.3Mittlerer Anlagenluftwechsel *n***
 
 **5.3.1Abluftsysteme**
 
@@ -1690,7 +1690,7 @@ Dabei ist
 
 *d* die Betriebstage in Ventilatorstufe *i* des Wohnungslüftungssystems *j* je Monat (siehe Tabelle 9 ), in d/mth.
 
-### Tabelle 9 --- Allgemeine Randbedingungen zur Bestimmung der Betriebszeit *t*
+**Tabelle 9 --- Allgemeine Randbedingungen zur Bestimmung der Betriebszeit *t***
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------+--------+---------+---------------+
 | Kennwerte                                                                                                                                                                  |                       | Symbol | Einheit | Wert          |
@@ -1784,9 +1784,9 @@ ANMERKUNG 3: Kontinuierliche Regelung der Ventilatordrehzahl und von zwei Luftv
 
 --*d* = d für Monate nach Tabelle 9 nach gewählter Betriebsart.
 
-# 6 Übergabe
+**6Übergabe**
 
-## 6.1 Allgemeines
+**6.1Allgemeines**
 
 In diesem Abschnitt werden die Kennwerte festgelegt, die nach dem Berechnungsverfahren (siehe Abschnitt 4) für Lüftungsanlagen, Luftheizungsanlagen und Kühlsystemen für Wohngebäude zur Bestimmung der Verluste der Wärmeübergabe erforderlich sind.
 
@@ -1794,7 +1794,7 @@ Die Wärmeverluste für die Übergabe *Q* werden bei der Bestimmung der Erzeug
 
 Der Hilfsenergieaufwand für die Übergabe *W* wird bei der Bestimmung der Endenergiebedarfe aller Hilfsenergien *W* nach DIN/TS 18599-1 angerechnet.
 
-## 6.2 Wärmeverluste Lüftung *Q*
+**6.2Wärmeverluste Lüftung *Q***
 
 Die Berechnung der Wärmeverluste für die Übergabe *Q* erfolgt monatlich nach Gleichung (22).
 
@@ -1836,7 +1836,7 @@ Dabei ist
 
 --Betrieb intermittierend:  = −0,3 K.
 
-### Tabelle 10 --- Temperaturschwankung  durch die Wärmeübergabe mit luftbasierten Systemen bei Wohnnutzung
+**Tabelle 10 --- Temperaturschwankung  durch die Wärmeübergabe mit luftbasierten Systemen bei Wohnnutzung**
 
 +-----------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----+
 | System                                                                | Art der Temperaturregelung                                                                                                                                                     |     |
@@ -1882,7 +1882,7 @@ Abluftsysteme sowie Zu- und Abluftsysteme ohne Nacherwärmung (ohne WRG oder nur
 
 -- = 0 K (Betrieb durchgehend)
 
-## 6.3 Hilfsenergieaufwand Lüftung *W*
+**6.3Hilfsenergieaufwand Lüftung *W***
 
 In Gleichung (26) wird für Wohnungslüftungsanlagen und Luftheizungsanlagen der Hilfsenergieaufwand berechnet, der zur Verbesserung der Wärmeübertragungsprozesse dient und nicht in Abschnitt 7 und Abschnitt 9 erfasst wird.
 
@@ -1896,7 +1896,7 @@ Dabei ist
 
 Tabelle 11 enthält Standardwerte für die Nennleistung des Reglers *P* in Abhängigkeit vom Reglertyp.
 
-### Tabelle 11 --- Nennleistung des Reglers *P* für die Übergabe der Wärme im Raum
+**Tabelle 11 --- Nennleistung des Reglers *P* für die Übergabe der Wärme im Raum**
 
   ------------------------------------------------------------------------
   Reglertyp                                     Symbol    Einheit   Wert
@@ -1920,7 +1920,7 @@ Dabei ist
 
 Abluftsysteme ohne Bedarfsregelung sowie Zu- und Abluftsysteme ohne Einzelraum- oder Zonenregelung weisen keinen Hilfsenergieaufwand für die Übergabe auf (*W* = 0).
 
-## 6.4 Wärmeverluste Kühlung *Q*
+**6.4Wärmeverluste Kühlung *Q***
 
 Die Berechnung der Wärmeverluste Kühlung der Übergabe *Q* erfolgt monatlich nach Gleichung (28):
 
@@ -1946,7 +1946,7 @@ Dabei ist
 
 *Q* die Wärmeverluste Kühlung der Übergabe (im Monat) nach Gleichung (28), in kWh.
 
-### Tabelle 12 --- Standardwerte für Nutzungsgrade  und  zur Bestimmung der Wärmeverluste Kühlung *Q*
+**Tabelle 12 --- Standardwerte für Nutzungsgrade  und  zur Bestimmung der Wärmeverluste Kühlung *Q***
 
 +-----------------------------------------------------------------------------------------------------------------------------------+------+------+
 | Kältesystem                                                                                                                       |      |      |
@@ -1972,7 +1972,7 @@ Dabei ist
 | bLiegen EU-Richtlinien oder Leitfäden zur Bemessung der Systeme vor, können die Faktoren auf Basis der Bemessung bestimmt werden. |      |      |
 +-----------------------------------------------------------------------------------------------------------------------------------+------+------+
 
-## 6.5 Hilfsenergieaufwand Kühlung *W*
+**6.5Hilfsenergieaufwand Kühlung *W***
 
 Werden für die Wohnungskühlung Sekundärluftventilatoren (z. B. in Fan Coils) eingesetzt, wird der im Raum entstehende Hilfsenergieaufwand (Übergabe) nach Gleichung (30) berechnet. Der angegebene Kennwert bezieht sich auf Geräte mit mehrstufiger Drehzahlregelung (Basis 1000 Betriebsstunden je 500 Vollbenutzungsstunden).
 
@@ -1994,9 +1994,9 @@ Dabei ist
 
 *W* der monatliche Hilfsenergieaufwand der Übergabe Kühlung nach Gleichung (30), in kWh.
 
-# 7 Verteilung
+**7Verteilung**
 
-## 7.1 Allgemeines
+**7.1Allgemeines**
 
 Abschnitt 7 legt Kennwerte, die nach dem Berechnungsverfahren (siehe Abschnitt 4) für Lüftungsanlagen, Luftheizungsanlagen und Kühlsystemen für Wohngebäude zur Bestimmung der Verluste der Wärmeverteilung erforderlich sind, fest.
 
@@ -2004,7 +2004,7 @@ Die Wärmeverluste für die Verteilung *Q* werden bei der Bestimmung der Erzeu
 
 Der Hilfsenergieaufwand für die Verteilung *W* wird bei der Bestimmung der Endenergiebedarfe aller Hilfsenergien *W* nach DIN/TS 18599-1 angerechnet.
 
-## 7.2 Wärmeverluste Lüftung *Q* und ungeregelte Wärmeeinträge Lüftung *Q*
+**7.2Wärmeverluste Lüftung *Q* und ungeregelte Wärmeeinträge Lüftung *Q***
 
 Die Verteilung der warmen Zuluft und das Abführen der Abluft sind mit einem Wärmeverlust im Luftleitungsnetz verbunden. In diesem Unterabschnitt werden die Wärmeverluste erfasst, die
 
@@ -2088,7 +2088,7 @@ Dabei ist
 
 *Q* die Wärmeverluste des Abschnitts *k* des Luftleitungssystems (im Monat) \[siehe Gleichung (32)\], in kWh.
 
-### Tabelle 13 --- Randbedingungen 1 für die Standardwerte zur Bestimmung der Wärmeverluste *Q*
+**Tabelle 13 --- Randbedingungen 1 für die Standardwerte zur Bestimmung der Wärmeverluste *Q***
 
 +--------------------------------------------------------------------------------------------------------------------------------------------------+--------+---------+---------------------------------------+
 | Kennwerte                                                                                                                                        | Symbol | Einheit | Wert                                  |
@@ -2124,7 +2124,7 @@ Dabei ist
 | cAlternativ kann die Berechnung der mittleren Umgebungstemperatur nach DIN/TS 18599-2 als Funktion von  erfolgen.                                |        |         |                                       |
 +--------------------------------------------------------------------------------------------------------------------------------------------------+--------+---------+---------------------------------------+
 
-### Tabelle 14 --- Randbedingungen 2 für die Standardwerte zur Bestimmung der Wärmeverluste *Q*
+**Tabelle 14 --- Randbedingungen 2 für die Standardwerte zur Bestimmung der Wärmeverluste *Q***
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+-----------+---------------------------------------------------------------------+---------------------------------+------------------+-------------+
 | Kenngröße                                                                                                                                                                                                                                                            | Symbol | Einheit   | Bereich V/Bereich Sd                                                |                                 |                  | Bereich Ad  |
@@ -2166,7 +2166,7 @@ Dabei ist
 | eDie berechnete Länge *L* der Luftleitung gilt für den Fall, dass jedem Lüftungsgerät ein vertikaler Lüftungsstrang zugeordnet ist. Bei mehr als einem vertikalen Lüftungsstrang je Lüftungsgerät ist eine detaillierte Berechnung nach Gleichung (32) erforderlich. |        |           |                                                                     |                                 |                  |             |
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+-----------+---------------------------------------------------------------------+---------------------------------+------------------+-------------+
 
-## 7.3 Hilfsenergieaufwand Lüftung *W*
+**7.3Hilfsenergieaufwand Lüftung *W***
 
 Der Hilfsenergieaufwand der Ventilatoren zum Transport der Luft durch das Lüftungsnetz kann sowohl separat (*W*) oder auch zusammen mit dem Hilfsenergieaufwand des Wohnungslüftungsgerätes *W* berücksichtigt werden, wenn der Ventilator fester Bestandteil des Lüftungsgerätes ist und dort energetisch berücksichtigt wird (siehe 9.3).
 
@@ -2192,7 +2192,7 @@ Dabei ist
 
 Für separat betriebene Ventilatoren können die Standardwerte nach Tabelle 20 und Tabelle 21 unter Umrechnung auf die Nennleistung der Ventilatoren nach Gleichung (55) angesetzt werden.
 
-## 7.4 Wärmeverluste Kühlung *Q* und ungeregelte Wärmeeinträge Kühlung *Q*
+**7.4Wärmeverluste Kühlung *Q* und ungeregelte Wärmeeinträge Kühlung *Q***
 
 Die Berechnung der Wärmeverluste Kühlung für die Verteilung *Q* erfolgt monatlich nach Gleichung (40):
 
@@ -2248,7 +2248,7 @@ Dabei ist
 
 -- −  = 10 K.
 
-### Tabelle 15 --- Standardwerte für Nutzungsgrad  zur Bestimmung der Wärmeverluste Kühlung *Q*
+**Tabelle 15 --- Standardwerte für Nutzungsgrad  zur Bestimmung der Wärmeverluste Kühlung *Q***
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
 | Kältesystem                                                                                                                                                                                                                                               |       |
@@ -2276,7 +2276,7 @@ Die Wärmeverluste *Q* der Luftleitungsabschnitte *j* werden den Zonen *i*�
 
 Für die ungeregelten Wärmeeinträge Kühlung der Verteilung *Q* gilt vereinfachend: *Q* = 0.
 
-## 7.5 Hilfsenergieaufwand Kühlung *W*
+**7.5Hilfsenergieaufwand Kühlung *W***
 
 Der Hilfsenergieaufwand der Ventilatoren bzw. Pumpen zum Transport des Kälteträgers (Luft, Wasser oder Kältemittel) durch das Kälteverteilnetz kann sowohl separat (*W*) oder auch zusammen mit dem Hilfsenergieaufwand des Kühlgerätes bzw. der Kältemaschine *W* berücksichtigt werden, wenn Ventilatoren bzw. Pumpen fester Bestandteil des Kühlgerätes bzw. der Kältemaschine sind und dort energetisch berücksichtigt werden (siehe 9.3).
 
@@ -2320,9 +2320,9 @@ Dabei ist
 
 Für separat betriebene Ventilatoren können die Standardwerte nach Tabelle 20 und nach Tabelle 21 unter Umrechnung auf die Nennleistung der Ventilatoren nach Gleichung (55) angesetzt werden.
 
-# 8 Speicherung
+**8Speicherung**
 
-## 8.1 Allgemeines
+**8.1Allgemeines**
 
 Abschnitt 8 legt Kennwerte, die nach dem Berechnungsverfahren (siehe Abschnitt 4) für Lüftungsanlagen, Luftheizungsanlagen und Kühlsystemen für Wohngebäude zur Bestimmung der Verluste der Wärmespeicherung erforderlich sind, fest.
 
@@ -2330,29 +2330,29 @@ Die Wärmeverluste für die Speicherung *Q* werden bei der Bestimmung der Erze
 
 Der Hilfsenergieaufwand für die Speicherung *W* wird bei der Bestimmung der Endenergiebedarfe aller Hilfsenergien *W* nach DIN/TS 18599-1 angerechnet.
 
-## 8.2 Wärmeverluste Lüftung und ungeregelte Wärmeeinträge Lüftung
+**8.2Wärmeverluste Lüftung und ungeregelte Wärmeeinträge Lüftung**
 
 Wird in einem Wohnungslüftungsgerät in Verbindung mit einer Abluft-Wasser-Wärmepumpe ein Speicher eingesetzt, werden die Wärmeverluste und die ungeregelten Wärmeeinträge der Speicherung nach DIN/TS 18599-5 (für Pufferspeicher) bzw. nach DIN/TS 18599-8 (für Trinkwarmwasserspeicher) bilanziert.
 
-## 8.3 Hilfsenergieaufwand Lüftung
+**8.3Hilfsenergieaufwand Lüftung**
 
 Wenn zum Betrieb des Speichers eine separate Umwälzpumpe erforderlich ist und die Wärmeübertragung nicht über Direktkondensation erfolgt, wird der Hilfsenergieaufwand nach DIN/TS 18599-5 bilanziert.
 
-## 8.4 Wärmeverluste Kühlung *Q* und ungeregelte Wärmeeinträge Kühlung *Q*
+**8.4Wärmeverluste Kühlung *Q* und ungeregelte Wärmeeinträge Kühlung *Q***
 
 Der Einsatz von Kaltwasserspeicher in Wohnungskühlsystemen ist keine Standardlösung. Im Rahmen dieses Dokuments wird deshalb im Regelfall davon ausgegangen, dass die Wohnungskühlung ohne Kaltwasserspeicher erfolgt. Damit gilt für die Wärmeverluste Kühlung und für die ungeregelten Wärmeeinträge Kühlung:
 
 Müssen Kaltwasserspeicher in Wohnungskühlungssystemen im Rahmen von DIN/TS 18599 energetisch bilanziert werden, so darf deren Bewertung nach physikalisch begründeten Algorithmen unter sinngemäßer Anwendung dieses Dokumentes vorgenommen werden.
 
-## 8.5 Hilfsenergieaufwand Kühlung *W*
+**8.5Hilfsenergieaufwand Kühlung *W***
 
 Im Rahmen dieses Dokuments wird im Regelfall davon ausgegangen, dass die Wohnungskühlung ohne Kaltwasserspeicher erfolgt. Damit gilt für den Hilfsenergieaufwand Kühlung:
 
 Müssen Kaltwasserspeicher in Wohnungskühlungssystemen im Rahmen von DIN/TS 18599 energetisch bilanziert werden, so darf deren Bewertung nach physikalisch begründeten Algorithmen unter sinngemäßer Anwendung dieses Dokumentes vorgenommen werden.
 
-# 9 Erzeugung
+**9Erzeugung**
 
-## 9.1 Allgemeines
+**9.1Allgemeines**
 
 Abschnitt 9 legt die Kennwerte, die nach dem Berechnungsverfahren (siehe Abschnitt 4) für Lüftungsanlagen, Luftheizungsanlagen und Kühlsystemen für Wohngebäude zur Bestimmung der Aufwand der Wärme- bzw. Kälteerzeugung und, daraus resultierend, zur Berechnung der Endenergiebedarfe sowie zur Ermittlung der Erzeugernutzwärme- bzw. -kälteabgabe erforderlich sind, fest.
 
@@ -2382,7 +2382,7 @@ b)Wärmeverluste Kühlung bei Erzeugung
 
 ermittelt.
 
-## 9.2 Wärmeverluste *Q* und ungeregelte Wärmeeinträge *Q*
+**9.2Wärmeverluste *Q* und ungeregelte Wärmeeinträge *Q***
 
 Die Wärmeverluste bei der Erzeugung *Q* werden für die einzelnen Komponenten einer Wohnungslüftungsanlage bzw. Luftheizungsanlage berechnet und zur Bestimmung des Endenergiebedarfs an DIN/TS 18599-1 übergeben.
 
@@ -2432,7 +2432,7 @@ Dabei ist
 
 Für die unterschiedlichen Lüftungssysteme ergeben sich die nach Tabelle 16 dargestellten Randbedingungen.
 
-### Tabelle 16 --- Allgemeine Randbedingungen zur Bestimmung der Wärmeverluste der Erzeugung *Q* in Abhängigkeit vom Lüftungssystem
+**Tabelle 16 --- Allgemeine Randbedingungen zur Bestimmung der Wärmeverluste der Erzeugung *Q* in Abhängigkeit vom Lüftungssystem**
 
   -------------------------------------------------------------------------------------------------------
   Lüftungssystem                                        nach    Wärmebedarf Erzeugung, *Q*
@@ -2484,7 +2484,7 @@ Dabei ist
 
  die Wärmeverluste des Heizregisters (im Monat) nach Gleichung (49), in kWh.
 
-### Tabelle 17 --- Standardwerte für Wärmeverlustfaktor *f* in Abhängigkeit von den Lüftungskomponenten und dem Aufstellungsort
+**Tabelle 17 --- Standardwerte für Wärmeverlustfaktor *f* in Abhängigkeit von den Lüftungskomponenten und dem Aufstellungsort**
 
   -----------------------------------------------------------------------
   Lüftungskomponente                             Wärmeverlustfaktor
@@ -2516,7 +2516,7 @@ Dabei ist
   Nachheizregister wasserführend                 
   -----------------------------------------------------------------------
 
-## 9.3 Hilfsenergieaufwand *W*
+**9.3Hilfsenergieaufwand *W***
 
 Der Hilfsenergieaufwand für die Wärmeerzeugung *W* umfasst bei Wohnungslüftungsanlagen und Luftheizungsanlagen den Hilfsenergieaufwand der Ventilatoren und der Regelung sowie gegebenenfalls den Hilfsenergieaufwand zur Luftvorwärmung im Abtaubetrieb und zur Nachheizung der Zuluft. Die eindeutige Trennung von Hilfsenergieaufwand und Wärmeverlusten muss beachtet werden. Der monatliche Hilfsenergieaufwand für die Wärmeerzeugung wird nach Gleichung (52) bestimmt.
 
@@ -2710,7 +2710,7 @@ Bei Luftheizungsanlagen erfolgt die Nachheizung der Zuluft zur vollständigen De
 
 --Nachheizregister wasserführend: *W* = *f* (Pumpe) (Berechnung nach DIN/TS 18599-5).
 
-### Tabelle 18 --- Gradtagszahl der Luftvorwärmung *F* (im Monat), in Kh, in Abhängigkeit vom Einschaltpunkt des Frostschutzbetriebes --- Standardwerte für TRY 04: 2010
+**Tabelle 18 --- Gradtagszahl der Luftvorwärmung *F* (im Monat), in Kh, in Abhängigkeit vom Einschaltpunkt des Frostschutzbetriebes --- Standardwerte für TRY 04: 2010**
 
   -------------------------------------------------------------------------------------------------------
   Monat                Jan     Feb     Mrz     Apr    Mai   Jun   Jul   Aug   Sep   Okt   Nov     Dez
@@ -2748,7 +2748,7 @@ Dabei ist
 
 Für die unterschiedlichen Lüftungssysteme ergeben sich die nach Tabelle 19 dargestellten Randbedingungen.
 
-### Tabelle 19 --- Allgemeine Randbedingungen zur Bestimmung des Hilfsenergieaufwands der Erzeugung *W* in Abhängigkeit vom Lüftungssystem
+**Tabelle 19 --- Allgemeine Randbedingungen zur Bestimmung des Hilfsenergieaufwands der Erzeugung *W* in Abhängigkeit vom Lüftungssystem**
 
   ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   Lüftungssystem                        nach Abschnitt   Hilfsenergieaufwand Erzeugung kWh je Monat                                                                       
@@ -2814,7 +2814,7 @@ ANMERKUNG 4: Kontinuierliche Regelung der Ventilatordrehzahl und von zwei Luftv
 
 --*F* = f (e ≥ −6 °C) (nach Tabelle 18, letzte Zeile).
 
-### Tabelle 20 --- Standardwerte für die volumenstrombezogene Leistungsaufnahme der Ventilatoren SPI für ab 2016 errichtete Anlagen
+**Tabelle 20 --- Standardwerte für die volumenstrombezogene Leistungsaufnahme der Ventilatoren SPI für ab 2016 errichtete Anlagen**
 
   -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   Wohnungslüftungsanlage                                                                                                                                                                                                                                Volumenstrombezogene Leistungsaufnahme der Ventilatoren SPI
@@ -2854,7 +2854,7 @@ ANMERKUNG 4: Kontinuierliche Regelung der Ventilatordrehzahl und von zwei Luftv
   ANMERKUNG: Standardwerte für die volumenstrombezogene Leistungsaufnahme der Ventilatoren *SPI* einschließlich Regelung, Druckverluste des angeschlossenen Kanalnetzes bei zentralen Systemen *p* ≤ 50 Pa, Anlagenauslegung nach Regeln der Technik.   
   -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-### Tabelle 21 --- Standardwerte für die volumenstrombezogene Leistungsaufnahme der Ventilatoren SPI für bis 2015 errichtete Anlagen
+**Tabelle 21 --- Standardwerte für die volumenstrombezogene Leistungsaufnahme der Ventilatoren SPI für bis 2015 errichtete Anlagen**
 
   ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   Wohnungslüftungsanlage                                                                                                                                                                                                                                 Volumenstrombezogene Leistungs-aufnahme der Ventilatoren SPI   
@@ -2898,7 +2898,7 @@ ANMERKUNG 4: Kontinuierliche Regelung der Ventilatordrehzahl und von zwei Luftv
 
 Bei Wohnungslüftungsanlagen, die bis 1999 (mit AC-Ventilatoren) bzw. bis 2004 (mit DC-/EC-Ventilatoren) errichtet worden sind, ist die volumenstrombezogene Leistungsaufnahme der Ventilatoren SPI gegenüber Tabelle 21 um 0,1 W/(m/h) zu erhöhen.
 
-## 9.4 Erzeugernutzwärmeabgabe *Q\**
+**9.4Erzeugernutzwärmeabgabe *Q\****
 
 **9.4.1Allgemeines**
 
@@ -2992,7 +2992,7 @@ Stehen mehrere Prüfpunkte bei unterschiedlichen senkenseitigen Temperaturen zur
 
 Ist nur ein Prüfpunkt für die senkenseitige Temperatur verfügbar (z. B. nach DIN EN 16147 oder nach DIN EN 16573), erfolgt die Korrektur der Leistungszahl über die exergetische Effizienz nach DIN/TS 18599-5:2025-10, Anhang B auf die mittlere monatliche senkenseitige Temperatur. Bei wasserbasierten Heizungssystemen muss eine Mindesttemperaturdifferenz zwischen der Senken- und Quellentemperatur von mindestens 20 K eingehalten und ggf. auf 20 K begrenzt werden. Die spezifische Leistungsaufnahme wird bei nur einem Prüfpunkt nicht korrigiert.
 
-### Tabelle 22 --- Korrekturfaktoren für Temperaturabweichungen *f*
+**Tabelle 22 --- Korrekturfaktoren für Temperaturabweichungen *f***
 
   -----------------------------------------------------------------------------------------------------------------------------------------
                              Symbol   Einheit   Wert bei nationaler Zulassung nach DIBt   Wert bei Prüfung nach DIN EN 14511 (alle Teile)
@@ -3078,7 +3078,7 @@ Eine detaillierte Beschreibung dieses Bin-Verfahrens enthält DIN/TS 18599-5:20
 
 Erfolgt die Prüfung der Wärmepumpe mit abweichenden Messpunkten, müssen die monatlichen Betriebszeiten entsprechend angepasst werden.
 
-### Tabelle 23 --- Maximale monatliche Betriebszeiten *t* der Abluft- Wärmepumpe in den Temperaturklassen *i*3 (im Monat) für Messwerte nach nationaler Zulassung in h/mth --- Standardwerte für TRY 04:2010
+**Tabelle 23 --- Maximale monatliche Betriebszeiten *t* der Abluft- Wärmepumpe in den Temperaturklassen *i*3 (im Monat) für Messwerte nach nationaler Zulassung in h/mth --- Standardwerte für TRY 04:2010**
 
 <table>
 <colgroup>
@@ -3188,7 +3188,7 @@ Erfolgt die Prüfung der Wärmepumpe mit abweichenden Messpunkten, müssen die m
 </tbody>
 </table>
 
-### Tabelle 24 --- Maximale monatliche Betriebszeiten *t* der Abluft-Wärmepumpe in den Temperaturklassen *i*4 (im Monat) für Messwerte nach DIN EN 14511 (alle Teile) in h/mth --- Standardwerte für TRY 04:2010
+**Tabelle 24 --- Maximale monatliche Betriebszeiten *t* der Abluft-Wärmepumpe in den Temperaturklassen *i*4 (im Monat) für Messwerte nach DIN EN 14511 (alle Teile) in h/mth --- Standardwerte für TRY 04:2010**
 
 <table>
 <colgroup>
@@ -3298,7 +3298,7 @@ Erfolgt die Prüfung der Wärmepumpe mit abweichenden Messpunkten, müssen die m
 </tbody>
 </table>
 
-### Tabelle 25 --- Gradtagsstunden der Abluft-Zuluft- und der Abluft-Zuluft/Wasser-Wärmepumpe in den Temperaturklassen *i*5 (im Monat) für Messwerte nach nationaler Zulassung in Kh --- Standardwerte für TRY 04:2010
+**Tabelle 25 --- Gradtagsstunden der Abluft-Zuluft- und der Abluft-Zuluft/Wasser-Wärmepumpe in den Temperaturklassen *i*5 (im Monat) für Messwerte nach nationaler Zulassung in Kh --- Standardwerte für TRY 04:2010**
 
 <table>
 <colgroup>
@@ -3388,7 +3388,7 @@ Erfolgt die Prüfung der Wärmepumpe mit abweichenden Messpunkten, müssen die m
 </tbody>
 </table>
 
-### Tabelle 26 --- Gradtagsstunden der Abluft-Zuluft- und der Abluft-Zuluft/Wasser-Wärmepumpe in den Temperaturklassen *i*6 (im Monat) für Messwerte nach DIN EN 14511 (alle Teile) in Kh --- Standardwerte für TRY 04:2010
+**Tabelle 26 --- Gradtagsstunden der Abluft-Zuluft- und der Abluft-Zuluft/Wasser-Wärmepumpe in den Temperaturklassen *i*6 (im Monat) für Messwerte nach DIN EN 14511 (alle Teile) in Kh --- Standardwerte für TRY 04:2010**
 
 <table>
 <colgroup>
@@ -3507,7 +3507,7 @@ Ist die zu leistende Erzeugernutzwärmeabgabe  kleiner als die minimal lieferb
 
 Ausgehend von den beschriebenen Fallunterscheidungen in Tabelle 27 werden der Betriebsfall für den Monat und die Temperaturklassen *i*, die zugehörige Heizleistung und die Laufzeit ermittelt.
 
-### Tabelle 27 --- Betriebsfälle Wärmepumpe
+**Tabelle 27 --- Betriebsfälle Wärmepumpe**
 
   -----------------------------------------------------------------------
   Betriebsfall                         Fallunterscheidung
@@ -3773,7 +3773,7 @@ Standardwerte nach nationaler Zulassung:
 
 Tabelle 28 enthält Standardwerte für Abluft-Wasser-Wärmepumpen mit vorgeschaltetem Wärmeübertrager nach nationaler Zulassung.
 
-### Tabelle 28 --- Standardwerte für Abluft-Wasser-Wärmepumpen mit vorgeschaltetem Wärmeübertrager nach nationaler Zulassung
+**Tabelle 28 --- Standardwerte für Abluft-Wasser-Wärmepumpen mit vorgeschaltetem Wärmeübertrager nach nationaler Zulassung**
 
   --------------------------------------------------------------------------------------------------------------------------------------------------
   Kennwerte Wärmepumpe                                       Zu-/Abluftsystem (mit Wärmeübertrager mit Temperaturänderungsgrad  = 60 %)   
@@ -3827,7 +3827,7 @@ Standardwerte nach nationaler Zulassung:
 
 Tabelle 29 enthält Standardwerte für Abluft-Zuluft-Wärmepumpen ohne vorgeschalteten Wärmeübertrager nach nationaler Zulassung.
 
-### Tabelle 29 --- Standardwerte für Abluft-Zuluft-Wärmepumpen ohne vorgeschalteten Wärmeübertrager nach nationaler Zulassung
+**Tabelle 29 --- Standardwerte für Abluft-Zuluft-Wärmepumpen ohne vorgeschalteten Wärmeübertrager nach nationaler Zulassung**
 
   ---------------------------------------------------------------------------------------------------
   Prüfpunkte     Zu-/Abluftsystem (ohne Wärmeübertrager)         
@@ -3889,7 +3889,7 @@ Standardwerte nach nationaler Zulassung:
 
 Tabelle 30 enthält Standardwerte für Abluft-Zuluft-Wärmepumpen mit vorgeschaltetem Wärmeübertrager nach nationaler Zulassung.
 
-### Tabelle 30 --- Standardwerte für Abluft-Zuluft-Wärmepumpen mit vorgeschaltetem Wärmeübertrager nach nationaler Zulassung
+**Tabelle 30 --- Standardwerte für Abluft-Zuluft-Wärmepumpen mit vorgeschaltetem Wärmeübertrager nach nationaler Zulassung**
 
   --------------------------------------------------------------------------------------------------------------------------------
   Prüfpunkte     Zu-/Abluftsystem (mit Wärmeübertrager mit Temperaturänderungsgrad  = 60 %)   
@@ -4141,7 +4141,7 @@ b)Abluft-Zuluft-Wärmepumpe:
 
 --monatliche Wärmeverluste der Speicherung Wohnungslüftung: *Q* = 0 kWh
 
-## 9.5 Wärmeaufnahme durch Wärmerückgewinnung und regenerative Luftvorwärmung *Q*
+**9.5Wärmeaufnahme durch Wärmerückgewinnung und regenerative Luftvorwärmung *Q***
 
 **9.5.1Allgemeines**
 
@@ -4215,7 +4215,7 @@ Beinhaltet die Luftheizungsanlage Abluft-Wärmepumpen, erfolgt die Ermittlung de
 
 Bei Luftheizungen ohne Abluft-Wärmepumpe gilt *Q* = 0.
 
-## 9.6 Wärmeverluste Kühlung *Q* und ungeregelte Wärmeeinträge Kühlung *Q*
+**9.6Wärmeverluste Kühlung *Q* und ungeregelte Wärmeeinträge Kühlung *Q***
 
 Die Wärmeverluste Kühlung bei der Erzeugung *Q* werden bei der aktiven Kühlung für Kältemaschinen berechnet und zur Bestimmung des Endenergiebedarfs an DIN/TS 18599-1 übergeben.
 
@@ -4241,7 +4241,7 @@ Bei Systemen ohne aktive Kühlung entstehen keine Wärmeverluste der Erzeugung (
 
 Systemunabhängig gilt für die ungeregelten Wärmeeinträge Kühlung bei der Erzeugung *Q* vereinfachend: *Q* = 0.
 
-### Tabelle 31 --- Standardwerte zur Bestimmung des Wärmeverlustfaktors Kühlung *f* in Abhängigkeit von den Lüftungskomponenten und dem Aufstellungsort
+**Tabelle 31 --- Standardwerte zur Bestimmung des Wärmeverlustfaktors Kühlung *f* in Abhängigkeit von den Lüftungskomponenten und dem Aufstellungsort**
 
   ------------------------------------------------------------------------------------------------
   Kälteerzeugung                                                  Wärmeverlustfaktor Kühlung *f*
@@ -4259,7 +4259,7 @@ Systemunabhängig gilt für die ungeregelten Wärmeeinträge Kühlung bei der Er
   aGilt auch für Abluft-Zuluft-Wärmepumpen in Lüftungssystemen.   
   ------------------------------------------------------------------------------------------------
 
-## 9.7 Hilfsenergieaufwand Kühlung *W*
+**9.7Hilfsenergieaufwand Kühlung *W***
 
 Der Hilfsenergieaufwand für die Kälteerzeugung *W* umfasst den Hilfsenergieaufwand der Ventilatoren bzw. der Pumpen sowie der Regelung. Die eindeutige Trennung von Hilfsenergieaufwand und Wärme muss beachtet werden. Der monatliche Hilfsenergieaufwand für die Kälteerzeugung wird nach Gleichung (146) bestimmt.
 
@@ -4361,7 +4361,7 @@ Dabei ist
 
 Tabelle 32 enthält Standardwerte zur Bestimmung der bezogenen Leistungsaufnahme *p* für Absorptions- und Adsorptions-KM.
 
-### Tabelle 32 --- Standardwerte zur Bestimmung der bezogenen Leistungsaufnahme *p* für Absorptions- und Adsorptions-KM
+**Tabelle 32 --- Standardwerte zur Bestimmung der bezogenen Leistungsaufnahme *p* für Absorptions- und Adsorptions-KM**
 
   --------------------------------------------------------------------------
   Anlagensystem                             bezogene Leistungsaufnahme *p*
@@ -4375,7 +4375,7 @@ Tabelle 32 enthält Standardwerte zur Bestimmung der bezogenen Leistungsaufnahm
   Adsorptions-KM mit HO-Silikagel-Zeolith   0
   --------------------------------------------------------------------------
 
-## 9.8 Erzeugernutzkälteabgabe *Q*
+**9.8Erzeugernutzkälteabgabe *Q***
 
 Die monatliche Erzeugernutzkälteabgabe des Wohnungskühlsystems *Q* wird abhängig vom Kühlsystem und unter Beachtung von Teilkühl- und Ankühleffekten nach Gleichung (153) ermittelt. Für die Wohnungskühlung kommen dabei im Standardfall Heizungs- oder Lüftungssysteme mit Kühloption zum Einsatz.
 
@@ -4435,7 +4435,7 @@ Eine aktive Kühlung mit einer Sole-Wasser-Wärmepumpe oder mit einer Wasser-Was
 
 Der Ankühlfaktor durch Leistungsbegrenzung bei der Kälteübergabe und -verteilung *f* kann bei bekannter Auslegung in Abhängigkeit von der flächenspezifischen Kühlleistung auch nach Anhang B (siehe Bild B.1, Bild B.2, Bild B.3 und Bild B.4) bestimmt werden.
 
-### Tabelle 33 --- Standardwerte zur Bestimmung des Ankühlfaktors durch Leistungsbegrenzung bei der Kälteerzeugung *f* in Abhängigkeit von Gebäudetyp und Wärmeschutz
+**Tabelle 33 --- Standardwerte zur Bestimmung des Ankühlfaktors durch Leistungsbegrenzung bei der Kälteerzeugung *f* in Abhängigkeit von Gebäudetyp und Wärmeschutz**
 
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------+-----------------------+----------------------------+-----------------------+
 | Kälteerzeugung                                                                                                                                                                                               | Ankühlfaktor Kälteerzeugung *f* |                       |                            |                       |
@@ -4503,7 +4503,7 @@ Der Ankühlfaktor durch Leistungsbegrenzung bei der Kälteübergabe und -verteil
 | eIm Kühlbetrieb Anlagenluftwechsel durchgängig *n* = 0,4 h.                                                                                                                                                  |                                 |                       |                            |                       |
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------+-----------------------+----------------------------+-----------------------+
 
-### Tabelle 34 --- Standardwerte zur Bestimmung des Ankühlfaktors durch Leistungsbegrenzung bei der Kälteübergabe und -verteilung *f* in Abhängigkeit von Gebäudetyp und Wärmeschutz
+**Tabelle 34 --- Standardwerte zur Bestimmung des Ankühlfaktors durch Leistungsbegrenzung bei der Kälteübergabe und -verteilung *f* in Abhängigkeit von Gebäudetyp und Wärmeschutz**
 
   -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   Kälteübergabe und -verteilung                                                                                                                                                            Ankühlfaktor Kälteübergabe und --verteilung                                                        
@@ -4543,7 +4543,7 @@ Dabei ist
 
 *Q* die monatliche Erzeugernutzkälteabgabe nach Gleichung (153), in kWh.
 
-## 9.9 Endenergiebedarf Kälteerzeugung
+**9.9Endenergiebedarf Kälteerzeugung**
 
 **9.9.1Von außen zugeführter Endenergiebedarf für Kompressionskältemaschinen**
 
@@ -4565,7 +4565,7 @@ Dabei ist
 
 Die Nennkälteleistungszahlen *EER* können für luftgekühlte Kompressions-Kältemaschinen und luftgekühlte Kompressions-Wärmepumpen im Kältemaschinenbetrieb in Abhängigkeit von der Kältemaschine und von den Systemtemperaturen des Kühlsystems im Raum nach Tabelle 37 und für Raumklimasysteme nach Tabelle 38 bestimmt werden. Der Baujahrfaktor *f* kann Tabelle 37 entnommen werden. Die Teillastfaktoren *PLV* können in Abhängigkeit vom Kühlsystem und von der Art der Regelung nach Tabelle 38 bzw. für Außenluft-Wasser-Wärmepumpen im Kältemaschinenbetrieb bei bekannter Auslegung in Abhängigkeit von der flächenspezifischen Kühlleistung nach Anhang B (siehe Bild B.5 und Bild B.6) bestimmt werden.
 
-### Tabelle 35 --- Standardwerte zur Bestimmung der Nennkälteleistungszahl *EER* für luftgekühlte Kompressions-Kältemaschinen und luftgekühlte Kompressions-Wärmepumpen (Kolben- und Scrollverdichter 10 kW bis 1500 kW)
+**Tabelle 35 --- Standardwerte zur Bestimmung der Nennkälteleistungszahl *EER* für luftgekühlte Kompressions-Kältemaschinen und luftgekühlte Kompressions-Wärmepumpen (Kolben- und Scrollverdichter 10 kW bis 1500 kW)**
 
 +----------------------------------------------------------------------------------------------------------+------------------------------+------------------------+
 | Anlagensystem                                                                                            | Vorlauftemperatur Kühlsystem | Nennkälteleistungszahl |
@@ -4587,7 +4587,7 @@ Die Nennkälteleistungszahlen *EER* können für luftgekühlte Kompressions-K�
 | bZuluftaustrittstemperatur.                                                                              |                              |                        |
 +----------------------------------------------------------------------------------------------------------+------------------------------+------------------------+
 
-### Tabelle 36 --- Standardwerte zur Bestimmung der Nennkälteleistungszahl *EER* für Raumklimasysteme (luftgekühlt) nach DIN/TS 18599-7
+**Tabelle 36 --- Standardwerte zur Bestimmung der Nennkälteleistungszahl *EER* für Raumklimasysteme (luftgekühlt) nach DIN/TS 18599-7**
 
 +-----------------------------------------------------------+----------+------------------------------+--------------------------------------------------------+
 | Anlagensystem                                             | Baujahr  | Nennkälteleistungszahl *EER* | Art der Teillastregelunga                              |
@@ -4619,7 +4619,7 @@ Die Nennkälteleistungszahlen *EER* können für luftgekühlte Kompressions-K�
 | asiehe DIN/TS 18599-7:2025-10, Tabelle 24 und Tabelle 26. |          |                              |                                                        |
 +-----------------------------------------------------------+----------+------------------------------+--------------------------------------------------------+
 
-### Tabelle 37 --- Baujahrfaktor für Kälteerzeuger zur Bestimmung der Nennkälteleistungszahl *EER*
+**Tabelle 37 --- Baujahrfaktor für Kälteerzeuger zur Bestimmung der Nennkälteleistungszahl *EER***
 
 +------------------------------------------------------------------------------------------+------------------------------------------------------------------+-------------------+
 | Baujahr des Kälteerzeugers                                                               |                                                                  | Baujahrfaktor *f* |
@@ -4655,7 +4655,7 @@ Gemäß der Verordnung (EU) Nr. 626/2011 unterliegen Raumklimageräte ≤ 12 kW 
 
 Liegen diese Werte aus dem Energielabelling gemäß Verordnung (EU) Nr. 626/2011nicht vor, müssen im Rahmen des Kennwertverfahrens nach der Reihe DIN/TS 18599 für die Nennkälteleistungszahl *EER* und den Teillastfaktor *PLV* die Werte nach Tabelle 36 und nach Tabelle 38 angewendet werden.
 
-### Tabelle 38 --- Standardwerte zur Bestimmung des Teillastfaktors *PLV* für luftgekühlte Kompressions-Kältemaschinen und für luftgekühlte Kompressions-Wärmepumpen in Abhängigkeit von Gebäudetyp und Wärmeschutz
+**Tabelle 38 --- Standardwerte zur Bestimmung des Teillastfaktors *PLV* für luftgekühlte Kompressions-Kältemaschinen und für luftgekühlte Kompressions-Wärmepumpen in Abhängigkeit von Gebäudetyp und Wärmeschutz**
 
   ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   Anlagensystem                                                                                                                                                                                                                                                                                                                     Teillastfaktor Kälteerzeugung *PLV*                                                        
@@ -4709,7 +4709,7 @@ Dabei ist
 
 Das Nennwärmeverhältnis  kann in Abhängigkeit von der Kältemaschine bzw. der Stoffpaarung, von den Heizmedientemperaturen und von den Systemtemperaturen des Kühlsystems im Raum nach Tabelle 39 bestimmt werden. Die Teillastfaktoren *PLV* können in Abhängigkeit vom Kühlsystem bzw. bei bekannter Auslegung in Abhängigkeit von der flächenspezifischen Kühlleistung nach Anhang B (siehe Bild B.5 und Bild B.6) bzw. nach Tabelle 40 bestimmt werden.
 
-### Tabelle 39 --- Standardwerte zur Bestimmung des Nennwärmeverhältnis  für Absorptions- und Adsorptions-Kältemaschinen (bis 200 kW) nach DIN/TS 18599-7
+**Tabelle 39 --- Standardwerte zur Bestimmung des Nennwärmeverhältnis  für Absorptions- und Adsorptions-Kältemaschinen (bis 200 kW) nach DIN/TS 18599-7**
 
   -----------------------------------------------------------------------------------------------------------------------------------------------------------------
   Heizmedientemperatur Vor-/Rücklauf   Kaltwasseraustrittstempereratur   Kühlwasserein-/austrittstemperatur   Nennwärmeverhältnis            
@@ -4755,7 +4755,7 @@ Das Nennwärmeverhältnis  kann in Abhängigkeit von der Kältemaschine bzw. d
                                                                          40/45                                0,60                   0,45    0,34
   -----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-### Tabelle 40 --- Standardwerte zur Bestimmung des Teillastfaktors *PLV* für Absorptions-Kältemaschinen in Abhängigkeit von Gebäudetyp und Wärmeschutz nach DIN/TS 18599-7
+**Tabelle 40 --- Standardwerte zur Bestimmung des Teillastfaktors *PLV* für Absorptions-Kältemaschinen in Abhängigkeit von Gebäudetyp und Wärmeschutz nach DIN/TS 18599-7**
 
   ---------------------------------------------------------------------------------------------------------------------------------------------------
   Aktive Kälteerzeugung            Teillastfaktor Kälteerzeugung *PLV*                                                        
@@ -4787,7 +4787,7 @@ Dabei ist
 
 *Q* der jährlich von außen zugeführte Endenergiebedarf der Kälteerzeugung nach Gleichung (158) für Kompressionskältemaschinen (elektrisch) und nach Gleichung (159) für Ab-/Adsorptionskältemaschinen (thermisch), in kWh/a.
 
-# Anhang A (normativ)Lüftungssysteme
+**Anhang A (normativ)Lüftungssysteme**
 
 **A.1Abluftsysteme**
 
@@ -5283,7 +5283,7 @@ Dabei ist
 
 **Bild B.6 --- Teillastfaktor *PLV* --- Außenluft-Wasser-Wärmepumpe im aktiven Kältemaschinenbetrieb --- MFH**
 
-# Literaturhinweise
+**Literaturhinweise**
 
 DIN 4719, *Lüftung von Wohnungen --- Anforderungen, Leistungsprüfungen und Kennzeichnung von Lüftungsgeräten*
 

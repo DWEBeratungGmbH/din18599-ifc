@@ -22,7 +22,7 @@ DIN-Normenausschuss Bauwesen (NABau) • DIN-Normenausschuss Heiz- und Raumluftt
 
 Alleinverkauf durch DIN Media GmbH, 10772 Berlin
 
-# Vorwort
+**Vorwort**
 
 Dieses Dokument wurde vom Gemeinschaftsarbeitsausschuss NA 005-12-01 GA „Gemeinschaftsarbeitsausschuss NABau/FNL/NHRS: Energetische Bewertung von Gebäuden (SpA CEN/TC 371, CEN/TC 371/WG 1, CEN/TC 371/WG 2, CEN/TC 371/WG 3, CEN/TC 371/WG 4, CEN/TC 371/WG 5, ISO/TC 163/WG 4 und ISO/TC 163/SC 2/WG 15)" erarbeitet. Der Inhalt wurde vom DIN-Normenausschuss Bauwesen (NABau) als Hauptträger erarbeitet und wird vom DIN-Normenausschuss Heiz- und Raumlufttechnik sowie deren Sicherheit (NHRS) als Mitträger getragen.
 
@@ -72,7 +72,7 @@ Die Reihe DIN/TS 18599 ist dazu geeignet, den langfristigen Energiebedarf für G
 
 Aktuelle Informationen zu diesem Dokument können über die Internetseiten von DIN (www.din.de) durch eine Suche nach der Dokumentennummer aufgerufen werden.
 
-# Änderungen
+**Änderungen**
 
 Gegenüber DIN V 18599-9:2018-09 wurden folgende Änderungen vorgenommen:
 
@@ -86,7 +86,7 @@ d)Fortschreibung der Standardwerte für PV-Peakleistungskoeffizienten Anhang B;
 
 e)Überarbeitung in redaktioneller Hinsicht.
 
-# Frühere Ausgaben
+**Frühere Ausgaben**
 
 DIN V 18599-9: 2005-07, 2007-02, 2011-12, 2016-10, 2018-09
 
@@ -94,15 +94,15 @@ DIN V 18599-100: 2009-10
 
 DIN V 18599-9 Berichtigung 1: 2013-05
 
-# Einleitung
+**Einleitung**
 
 Die nach der Reihe DIN/TS 18599 durchgeführte Energiebilanz folgt einem integralen Ansatz, d. h., es erfolgt eine gemeinschaftliche Bewertung des Baukörpers, der Nutzung und der Anlagentechnik unter Berücksichtigung der gegenseitigen Wechselwirkungen. Zur Verbesserung der Übersichtlichkeit besteht die Reihe DIN/TS 18599 aus mehreren Teilen, die einzelne Themenschwerpunkte behandeln. Einen Überblick über die Inhalte der einzelnen Teile gibt Bild 1.
 
 ![Bild 1: Übersicht über die Teile der Reihe DIN/TS 18599](sources/images/media/image1.gif){width="6.3in" height="4.658333333333333in"}
 
-### Bild 1 --- Übersicht über die Teile der Reihe DIN/TS 18599
+**Bild 1 --- Übersicht über die Teile der Reihe DIN/TS 18599**
 
-# 1 Anwendungsbereich
+**1Anwendungsbereich**
 
 Die Reihe DIN/TS 18599 stellt ein Verfahren zur Durchführung der Gesamtenergiebilanz von Gebäuden bereit. Der aufgezeigte Algorithmus ist anwendbar für die energetische Bilanzierung von:
 
@@ -152,9 +152,9 @@ Bild 2 zeigt schematisch den inhaltlichen Umfang des vorliegenden Dokuments. Ei
 
 ![Bild 2: Inhalt und Umfang von DIN/TS 18599-9 (schematisch)](sources/images/media/image2.gif){width="6.3in" height="4.741666666666666in"}
 
-### Bild 2 --- Inhalt und Umfang von DIN/TS 18599-9 (schematisch)
+**Bild 2 --- Inhalt und Umfang von DIN/TS 18599-9 (schematisch)**
 
-# 2 Normative Verweisungen
+**2Normative Verweisungen**
 
 Die folgenden Dokumente werden im Text in solcher Weise in Bezug genommen, dass einige Teile davon oder ihr gesamter Inhalt Anforderungen des vorliegenden Dokuments darstellen. Bei datierten Verweisungen gilt nur die in Bezug genommene Ausgabe. Bei undatierten Verweisungen gilt die letzte Ausgabe des in Bezug genommenen Dokuments (einschließlich aller Änderungen).
 
@@ -170,9 +170,9 @@ DIN EN 61829 (VDE 0126-24), *Photovoltaische (PV) Modulgruppen --- Messen der S
 
 DIN EN 50465 (VDE 0130-310), *Gasgeräte --- Geräte zur Kraft-Wärme-Kopplung mit einer Nennwärmebelastung kleiner oder gleich 70 kW*
 
-# 3 Begriffe, Symbole, Einheiten und Indizes
+**3Begriffe, Symbole, Einheiten und Indizes**
 
-## 3.1 Begriffe
+**3.1Begriffe**
 
 Für die Anwendung dieses Dokuments gelten die folgenden Begriffe.
 
@@ -182,7 +182,7 @@ DIN und DKE stellen terminologische Datenbanken für die Verwendung in der Normu
 
 --DKE-IEV: verfügbar unter https://www.dke.de/DKE-IEV
 
-### 3.1.1
+**3.1.1**
 
 **Kraft-Wärme-Kopplung**
 
@@ -196,25 +196,25 @@ en
 
 CHP
 
-### 3.1.2
+**3.1.2**
 
 **Stromkennzahl**
 
 Verhältnis der Nettostromerzeugung zur Nettowärmeerzeugung eines KWK-Prozesses
 
-### 3.1.3
+**3.1.3**
 
 **Brennstoffzellenheizgerät**
 
 Gerät, das eine Brennstoffzelle sowie einen zusätzlichen Wärmeerzeuger (Spitzenlastkessel, -brenner) enthält
 
-### 3.1.4
+**3.1.4**
 
 **Brennstoffzelle**
 
 KWK-Gerät zur chemischen Umwandlung der Brennstoffenergie in Strom und Wärme
 
-### 3.1.5
+**3.1.5**
 
 **PV-Generator**
 
@@ -222,7 +222,7 @@ Generator, der den photovoltaischen Effekt nutzt, um Sonnenlicht in Elektrizitä
 
 \[QUELLE: DIN CLC/TS 61836 (VDE V 0126-7):2010-04, 3.3.56, modifiziert, „elektrische Energie" in „Elektrizität" geändert\]
 
-### 3.1.6
+**3.1.6**
 
 **gebäudeintegriertes Photovoltaiksystem**
 
@@ -230,19 +230,19 @@ BIPV, en: building-integrated photovoltaics
 
 Photovoltaiksystem, das in die Gebäudehülle integriert ist und damit einen Teil der Gebäudehülle bildet, und neben der Stromerzeugung mindestens eine weitere Funktion der Gebäudehülle übernimmt
 
-### 3.1.7
+**3.1.7**
 
 **additives Photovoltaiksystem**
 
 Photovoltaiksystem, bei dem PV-Module an oder auf einem Bauteil der Gebäudehülle montiert sind und neben der Funktion der Stromerzeugung keine zusätzliche Funktion der Gebäudehülle übernimmt
 
-### 3.1.8
+**3.1.8**
 
 **erzeugte elektrische Nettoenergie**
 
 gesamte vom Photovoltaikgenerator erzeugte Energie abzüglich des gesamten Hilfsenergieaufwandes innerhalb der Grenzen des betreffenden Teilsystems
 
-### 3.1.9
+**3.1.9**
 
 **Peakleistung**
 
@@ -250,13 +250,13 @@ elektrische Leistung eines Photovoltaiksystems bei Normprüfbedingungen
 
 Anmerkung 1 zum Begriff: Nach DIN EN 60904-3 (VDE 0126-4-3) sind diese Normprüfbedingungen (auch *Standard-Testbedingungen* (*STC,* en: *Standard Test Conditions*): Solarbestrahlungsstärke 1000 W/m, AM 1.5, Modultemperatur 25 °C),
 
-### 3.1.10
+**3.1.10**
 
 **vor Ort erzeugte erneuerbare Energie**
 
 Energie, die unter Nutzung erneuerbarer Energiequellen von direkt mit dem Gebäude verbundenen Anlagen der technischen Gebäudeausrüstung erzeugt wird
 
-### 3.1.11
+**3.1.11**
 
 **erneuerbare Energie**
 
@@ -264,7 +264,7 @@ Energie aus einer Quelle, deren Vorrat sich durch die Entnahme nicht verringert
 
 Anmerkung 1 zum Begriff: (Thermische und photovoltaische) Solarenergie, Wind, Wasserkraft, regenerative Biomasse.
 
-### 3.1.12
+**3.1.12**
 
 **Solarbestrahlungsstärke**
 
@@ -276,7 +276,7 @@ Anmerkung 2 zum Begriff: Der Bezugswert der Solarbestrahlungsstärke ist 1 kW/m.
 
 Anmerkung 3 zum Begriff: Siehe auch DIN EN ISO 9488.
 
-### 3.1.13
+**3.1.13**
 
 **solare Bestrahlungsenergie**
 
@@ -286,19 +286,19 @@ Anmerkung 1 zum Begriff: Die Bestrahlungsenergie wird üblicherweise in Megajoul
 
 Anmerkung 2 zum Begriff: Siehe auch DIN EN ISO 9488.
 
-### 3.1.14
+**3.1.14**
 
 **Nennkapazität der Batterie**
 
 höchste Energiemenge, die einer Batterie mit dem Nennstrom entnommen werden kann
 
-### 3.1.15
+**3.1.15**
 
 **Nutzkapazität der Batterie**
 
 Teil der Nennkapazität, der tatsächlich nach Einrechnung der maximalen Entladetiefe für eine Anwendung im Betrieb zur Verfügung steht
 
-### 3.1.16
+**3.1.16**
 
 **maximale Entladetiefe**
 
@@ -308,7 +308,7 @@ en
 
 **depth of discharge**
 
-### 3.1.17
+**3.1.17**
 
 **Systemwirkungsgrad der Batterie**
 
@@ -316,23 +316,23 @@ gibt an, welcher Anteil der der Batterie zugeführten Energiemenge wieder entnom
 
 Anmerkung 1 zum Begriff: Energieverbrauch z. B. durch Selbstentladung
 
-### 3.1.18
+**3.1.18**
 
 **Entladezeit der Batterie**
 
 Dauer, innerhalb der die Nutzkapazität der Batterie --- ausgehend von einem vollgeladenen Zustand --- entnommen wird
 
-### 3.1.19
+**3.1.19**
 
 **flächenbezogener Anwendungsstrombedarf**
 
 allgemeiner Strombedarf eines Gebäudes zur Nutzanwendung, bezogen auf die Bezugsfläche
 
-## 3.2 Symbole, Einheiten und Indizes
+**3.2Symbole, Einheiten und Indizes**
 
 Für die Anwendung dieses Dokuments gelten die Symbole und Einheiten nach Tabelle 1. Für Indizes gilt Tabelle 2.
 
-### Tabelle 1 --- Symbole
+**Tabelle 1 --- Symbole**
 
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------+------------------------------------------------------------------+-----------------+
 | Symbol                                                                                                                                                                                                                                                                   | Bedeutung                                                         |                                                                  | Übliche Einheit |
@@ -416,9 +416,9 @@ Für die Anwendung dieses Dokuments gelten die Symbole und Einheiten nach Tabel
 | aBei allen zeitabhängigen Größen (d. h. für Zeitspannen sowie für Luftwechselraten) darf anstelle von Sekunden (s) die Einheit Stunden (h) verwendet werden; in diesem Falle ist jedoch Wattstunde (Wh) anstelle von Joule (J) als Einheit für die Energie zu verwenden. |                                                                   |                                                                  |                 |
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------+------------------------------------------------------------------+-----------------+
 
-## 3.3 Indizes
+**3.3Indizes**
 
-### Tabelle 2 --- Indizes
+**Tabelle 2 --- Indizes**
 
   ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   Index                            Bedeutung                                                                     
@@ -574,17 +574,17 @@ Für die Anwendung dieses Dokuments gelten die Symbole und Einheiten nach Tabel
   Hp                               Wärmepumpe (elektrisch)                                                       heat pump (electric)
   ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-## 3.4 Systematik der Indizierung
+**3.4Systematik der Indizierung**
 
 Die Indizierung der Kennwerte der Anlagentechnik wird nach Bild 3 durchgeführt. Die Varianten der Anlagensysteme, Verfahrensschritte und Energiearten sind hierin ebenfalls aufgeführt.
 
 ![Bild 3: Schema der Indizierung](sources/images/media/image3.gif){width="4.583333333333333in" height="3.35in"}
 
-### Bild 3 --- Schema der Indizierung
+**Bild 3 --- Schema der Indizierung**
 
-# 4 Verknüpfung der Teile der Reihe DIN/TS 18599
+**4Verknüpfung der Teile der Reihe DIN/TS 18599**
 
-## 4.1 Allgemeines
+**4.1Allgemeines**
 
 4.2 und 4.3
 
@@ -596,11 +596,11 @@ Auf eine vertiefende Erläuterung der Größen sowie die Angabe von Gründen fü
 
 Dieses Dokument dient der Berechnung der Verluste und des Hilfsenergieaufwands der Wärmeerzeugung für die weitere Bilanzierung nach DIN/TS 18599-1 und der erzeugten elektrischen Energie.
 
-## 4.2 Eingangsgrößen aus anderen Teilen der Reihe DIN/TS 18599
+**4.2Eingangsgrößen aus anderen Teilen der Reihe DIN/TS 18599**
 
 Tabelle 3 zeigt die Eingangsgrößen aus anderen Teilen und Tabelle 4 die Ausgangsgrößen für andere Teile der Reihe DIN/TS 18599.
 
-### Tabelle 3 --- Eingangsgrößen aus anderen Teilen der Reihe DIN/TS 18599
+**Tabelle 3 --- Eingangsgrößen aus anderen Teilen der Reihe DIN/TS 18599**
 
   --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   Bedeutung                                                                                                                                               Symbol    Quelle
@@ -662,9 +662,9 @@ Tabelle 3 zeigt die Eingangsgrößen aus anderen Teilen und Tabelle 4 die Aus
   Hilfsenergieaufwand des Wärmeerzeugers (wird aus den Monatswerten *W* in DIN/TS 18599-5 und *W* in DIN/TS 18599-8 als Jahresenergiekennwert gebildet)   *W*       DIN/TS 18599-5; DIN/TS 18599-8
   --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-## 4.3 Ausgangsgrößen für andere Teile der Reihe DIN/TS 18599
+**4.3Ausgangsgrößen für andere Teile der Reihe DIN/TS 18599**
 
-### Tabelle 4 --- Ausgangsgrößen für andere Teile der Reihe DIN/TS 18599
+**Tabelle 4 --- Ausgangsgrößen für andere Teile der Reihe DIN/TS 18599**
 
   ----------------------------------------------------------------------------------------------------------------------------------------
   Bedeutung                                                               Symbol   nach Unterabschnitt dieses Dokuments   Bezug
@@ -696,9 +696,9 @@ Tabelle 3 zeigt die Eingangsgrößen aus anderen Teilen und Tabelle 4 die Aus
   Hilfsenergieaufwand für Photovoltaik                                    *W*      7.6                                    DIN/TS 18599-1
   ----------------------------------------------------------------------------------------------------------------------------------------
 
-# 5 Berechnungen von KWK-Systemen
+**5Berechnungen von KWK-Systemen**
 
-## 5.1 Allgemeines
+**5.1Allgemeines**
 
 **5.1.1Bilanzierung**
 
@@ -724,7 +724,7 @@ Das beschriebene Verfahren ist nur bei einer wärmegeführten Betriebsweise anzu
 
 *Q*Jährliche Erzeugernutzwärmeabgabe des Gesamtsystems aus KWK und Wärmeerzeuger
 
-### Bild 4 --- Bilanzgrößen bei Wärmeerzeugungsanlagen mit KWK
+**Bild 4 --- Bilanzgrößen bei Wärmeerzeugungsanlagen mit KWK**
 
 Ausgangsbasis aller Betrachtungen ist die jährlich von der Wärmeerzeugungsanlage bereitzustellende Wärmemenge *Q*. Die in Bild 4 dargestellten Energieströme dürfen auf zwei unterschiedliche Arten als Endergebnis dargestellt und in den Berechnungen nach DIN/TS 18599-1 verwendet werden:
 
@@ -802,7 +802,7 @@ Dabei ist
 
 Für nicht gebäudeintegrierte KWK-Systeme, bei denen zwischen der Erzeugungsanlage und dem Wärmeverteilungssystem des Gebäudes zusätzliche Leitungsabschnitte bestehen, muss in den folgenden Gleichungen in 5.2 und 5.3. die Erzeugernutzwärmeabgabe der Heizzentrale  statt der Erzeugernutzwärmeabgabe an das Gebäude *Q* eingesetzt werden.
 
-## 5.2 Motorische KWK-Systeme
+**5.2Motorische KWK-Systeme**
 
 **5.2.1Deckungsanteile für Mikro-KWK**
 
@@ -826,7 +826,7 @@ Gleichung (8) ist nur für Mikro-KWK unter folgenden Randbedingungen anwendbar.
 
 Tabelle 5 zeigt den Gültigkeitsbereich für die Berechnung von Mikro-KWK-Systemen.
 
-### Tabelle 5 --- Gültigkeitsbereich für die Berechnung von Mikro-KWK-Systemen
+**Tabelle 5 --- Gültigkeitsbereich für die Berechnung von Mikro-KWK-Systemen**
 
   --------------------------------------------------------------------------------------------------------------------------
   Größe/Wert                                    Gültigkeitsbereich
@@ -944,7 +944,7 @@ Dabei ist
 
 Liegen keine Informationen aus Planungsunterlagen oder Prospektwerte vor, muss mit folgenden systemspezifischen Standardwerten aus Tabelle 6 berechnet werden:
 
-### Tabelle 6 --- Standardwerte
+**Tabelle 6 --- Standardwerte**
 
 +-------------------------------------------------------------------------------------+-----------------------------------------------------------------------------+-----------------------------------------------------------------+------------------------------------------+--------------+
 | System                                                                              | Mikro-KWK (*P* ≤ 20 kW) und Pufferspeicher mit einem Volumen von min. 0,3 m |                                                                 | Sonstige KWK (*P* \> 20 kW bis 17000 kW) |              |
@@ -1040,7 +1040,7 @@ Das Verfahren liefert folgende Übergabegrößen für die Berechnungen nach DIN/
 
 --der Primärenergiefaktor *f* nach Gleichung (21) oder nach Gleichung (22) zur primärenergetischen Bewertung des Endenergiebedarfs (siehe 4.3).
 
-## 5.3 KWK-Systeme mit Brennstoffzellen
+**5.3KWK-Systeme mit Brennstoffzellen**
 
 **5.3.1Allgemeines**
 
@@ -1048,7 +1048,7 @@ Bei Brennstoffzellen (BZ) im kleinen Leistungsbereich ist je nach Gerätekonfigu
 
 ![Bild 5: Schematischer Ablaufplan der Berechnung für Brennstoffzellen](sources/images/media/image5.gif){width="4.0in" height="5.95in"}
 
-### Bild 5 --- Schematischer Ablaufplan der Berechnung für Brennstoffzellen
+**Bild 5 --- Schematischer Ablaufplan der Berechnung für Brennstoffzellen**
 
 **5.3.2Wirkungsgrade, Leistungen**
 
@@ -1056,7 +1056,7 @@ Bei Brennstoffzellen (BZ) im kleinen Leistungsbereich ist je nach Gerätekonfigu
 
 Die Eingangsgrößen für die energetische Bewertung der Brennstoffzellen bilden die in Tabelle 7 aufgeführten Kennwerte.
 
-### Tabelle 7 --- Eingangsgrößen --- Brennstoffzellen-Kennwerte
+**Tabelle 7 --- Eingangsgrößen --- Brennstoffzellen-Kennwerte**
 
   ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   Symbol   Bedeutung                                                                                                                                                         Quelle
@@ -1076,7 +1076,7 @@ Dabei entspricht der Gesamtwirkungsgrad der Brennstoffzelle der Summe aus dem th
 
 Falls die Brennstoffzelle modulieren kann, sind zusätzlich die Eingangsgrößen nach Tabelle 8 erforderlich.
 
-### Tabelle 8 --- Eingangsgrößen --- Kennwerte für modulierende Brennstoffzellen
+**Tabelle 8 --- Eingangsgrößen --- Kennwerte für modulierende Brennstoffzellen**
 
   ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   Symbol   Bedeutung                                                                                                                                                    Quelle
@@ -1092,7 +1092,7 @@ Falls die Brennstoffzelle modulieren kann, sind zusätzlich die Eingangsgrößen
 
 Zusätzlich sind (falls vorgesehen) konstruktionsbedingte Abschaltkriterien (z. B. Grenztemperatur) entsprechend Tabelle 9 zu nennen. Für Brennstoffzellen, bei denen der taktende Betrieb konstruktionsbedingt zu vermeiden bzw. zu begrenzen ist, wird die zulässige thermische Mindestleistung angegeben. Wird der Wert dauerhaft unterschritten, erfolgt eine durchgängige Betriebsunterbrechung in den Sommermonaten.
 
-### Tabelle 9 --- Eingangsgrößen --- zusätzliche Kennwerte
+**Tabelle 9 --- Eingangsgrößen --- zusätzliche Kennwerte**
 
   ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   Symbol   Bedeutung                                                                                                                    Quelle
@@ -1110,7 +1110,7 @@ Die Eingangsgrößen des Bewertungsverfahrens müssen vornehmlich den Produktunt
 
 Liegen die Kennwerte zu Beginn der Nutzungsdauer vor, werden die über die Nutzungsdauer gemittelten Kennwerte mithilfe der in Tabelle 10 genannten Koeffizienten in Abhängigkeit vom Brennstoffzellentyp wie folgt bestimmt.
 
-### Tabelle 10 --- Koeffizienten zur Berechnung der über die Nutzungsdauer gemittelten Kennwerte1
+**Tabelle 10 --- Koeffizienten zur Berechnung der über die Nutzungsdauer gemittelten Kennwerte1**
 
   ----------------------------------------------------------------------------------------------
                          Elektrischer Wirkungsgrad   Gesamtwirkungsgrad   Elektrische Leistung
@@ -1232,7 +1232,7 @@ Dabei ist
 
 *d* die maximal mögliche kontinuierliche Betriebszeit der Brennstoffzelle innerhalb 24 h, in h
 
-### Tabelle 11 --- Koeffizienten zur Berücksichtigung der Rücklauftemperaturabhängigkeit des Brennstoffzellendeckungsanteils
+**Tabelle 11 --- Koeffizienten zur Berücksichtigung der Rücklauftemperaturabhängigkeit des Brennstoffzellendeckungsanteils**
 
   -----------------------------------------------------------------------------------------------------
   Relative Leistung im Warmwasserbetrieb   *d*        *e*      *f*       *g*        *h*       *i*
@@ -1254,7 +1254,7 @@ Dabei ist
 
 Der Korrekturfaktor *f* wird dabei in Abhängigkeit von der Differenz zwischen der Rücklauftemperatur im Auslegungszustand  und der konstruktionsbedingten Grenztemperatur der Brennstoffzelle  entsprechend Tabelle 12 angenommen.
 
-### Tabelle 12 --- Korrekturfaktor zum konstruktionsbedingten Verhalten bei Überschreitung der Grenztemperatur
+**Tabelle 12 --- Korrekturfaktor zum konstruktionsbedingten Verhalten bei Überschreitung der Grenztemperatur**
 
   ----------------------------------------------------------------------------------------------------------------------------------
   Konstruktionsbedingtes Verhalten der Brennstoffzelle bezüglich Grenztemperatur   Grenztemperaturüberschreitung   Korrekturfaktor
@@ -1308,7 +1308,7 @@ Dabei ist
 
 *P* die mittlere Leistung für Trinkwarmwasser (*P* = *Q*/8760), in kW.
 
-### Tabelle 13 --- Jährliche rechnerische Betriebstage Heizung in Abhängigkeit von der spezifischen Erzeugernutzwärmeabgabe an das Heizsystem
+**Tabelle 13 --- Jährliche rechnerische Betriebstage Heizung in Abhängigkeit von der spezifischen Erzeugernutzwärmeabgabe an das Heizsystem**
 
   --------------------------------------------------------------------------------------------------------
   Jährliche rechnerische Betriebstage Heizung                                       
@@ -1324,7 +1324,7 @@ Die spezifische Erzeugernutzwärmeabgabe an das Heizsystem wird bezogen auf die 
 
 Der hier beschriebene Ansatz zur Berechnung des Deckungsanteils einer Brennstoffzelle und der darauf aufbauenden Berechnungen gilt nur für Brennstoffzellen im kleinen Leistungsbereich in Wohngebäuden (siehe Tabelle 14). Für Nichtwohngebäude kann die Berechnungshilfe der *Initiative Brennstoffzelle* (*IBZ*) herangezogen werden (zum Zeitpunkt des Aufrufs verfügbar unter: https://gas.info/verband-zukunft-gas/initiative-brennstoffzelle).
 
-### Tabelle 14 --- Gültigkeitsbereich für die Berechnung von Brennstoffzellen
+**Tabelle 14 --- Gültigkeitsbereich für die Berechnung von Brennstoffzellen**
 
   -----------------------------------------------------------------------
   Größe/Wert                 Gültigkeitsbereich
@@ -1454,7 +1454,7 @@ Dabei ist
 
 *P* die über die Nutzungsdauer gemittelte thermische Leistung der Brennstoffzelle nach Gleichung (33), in kW.
 
-### Tabelle 15 --- Koeffizienten zur Berechnung der mittleren jährlichen thermischen Leistung einer Brennstoffzelle
+**Tabelle 15 --- Koeffizienten zur Berechnung der mittleren jährlichen thermischen Leistung einer Brennstoffzelle**
 
   -----------------------------------------------------------------------------
                     *l*         *m*         *n*         *o*         *p*
@@ -1589,19 +1589,19 @@ Liegen für den Spitzenlastwärmeerzeuger keine Produktkennwerte vor, so kann de
 
 Wenn zur Berechnung der Standardwert für Nutzungsgrad des Wärmeerzeugers angewandt wird, muss der Produktkennwert des eingebauten Wärmeerzeugers mindestens den Standardwert aufweisen.
 
-# 6 Wind-Energie-Anlagen
+**6Wind-Energie-Anlagen**
 
-## 6.1 Mittlere monatliche Windgeschwindigkeit *v*
+**6.1Mittlere monatliche Windgeschwindigkeit *v***
 
 Angaben zu mittleren monatlichen durchschnittlichen Windgeschwindigkeiten in m/s einer Referenzhöhe von 10 m in verschiedenen Teilen Deutschlands --- durch den Deutschen Wetterdienst, sofern nicht durch Erfassung der örtlichen Verhältnisse ermittelt.
 
 Bei der Realisierung einer WEA wird unbedingt empfohlen, Windmessungen vor Ort durchzuführen. Nur durch Aufnahme der örtlichen Verhältnisse sind die Umfeldeinflüsse einigermaßen abzuschätzen, da insbesondere bei geringen Höhen unter 20 m erhebliche Einflüsse auf die Effizienz der Anlage bestehen.
 
-## 6.2 Festlegung der WEA und Nabenhöhe
+**6.2Festlegung der WEA und Nabenhöhe**
 
 Wenn nichts Näheres bekannt ist, kann für eine grobe Auswahl aus den angegebenen Kategorien gewählt werden. Dabei sollte eine möglichst hohe Nabenhöhe *h* vorgesehen werden. Hierbei wird der in der Höhe zunehmende Wind besser nutzbar. Dabei ist allerdings zu berücksichtigen, dass die Anforderung an die Stabilität der Gesamtkonstruktion mit der Höhe ebenfalls steigt. Tabelle 16 zeigt die Daten üblicher Windenergieanlagen.
 
-### Tabelle 16 --- Daten üblicher Windenergieanlagen
+**Tabelle 16 --- Daten üblicher Windenergieanlagen**
 
   -------------------------------------------------------------------------------
   Kategorie   Rotorfläche   WEA-Leistung   Rotordurchmesser   Übliche Nabenhöhe
@@ -1617,7 +1617,7 @@ Wenn nichts Näheres bekannt ist, kann für eine grobe Auswahl aus den angegeben
   Mikro       ≤ 3,5         bis 1          ≤ 2,1              6 bis 20
   -------------------------------------------------------------------------------
 
-## 6.3 Bestimmung der Windleistung im jeweiligen Monat
+**6.3Bestimmung der Windleistung im jeweiligen Monat**
 
 Die Umrechnung der mittleren monatlichen Windgeschwindigkeit von der Referenzgeschwindigkeit auf andere Nabenhöhen erfolgt nach Gleichung (56):
 
@@ -1663,7 +1663,7 @@ Dabei ist
 
 *v* die mittlere Windgeschwindigkeit einer Windgeschwindigkeitsklasse, in m/s.
 
-## 6.4 Bestimmung der Leistung der WEA
+**6.4Bestimmung der Leistung der WEA**
 
 Die Leistung der WEA in der jeweiligen Windgeschwindigkeitsklasse ergibt sich dann zu
 
@@ -1675,7 +1675,7 @@ Dabei ist
 
 Der Faktor 0,2 ist ein mittlerer Leistungsbeiwert, der sich auf das gesamte Windgeschwindigkeitsspektrum bezieht und kann genommen werden, sofern keine detaillierten Angaben zur WEA in Form der Produkt-Leistungskurve zur Verfügung stehen.
 
-## 6.5 Mittlere monatliche Betriebszeit *t* in h/mth
+**6.5Mittlere monatliche Betriebszeit *t* in h/mth**
 
 Wind-Energie-Anlagen benötigen
 
@@ -1705,7 +1705,7 @@ Dabei ist
 
 *v* die monatliche mittlere Windgeschwindigkeit in Nabenhöhe, in m/s.
 
-## 6.6 Bestimmung des monatlichen Ertrags
+**6.6Bestimmung des monatlichen Ertrags**
 
 Damit ergibt sich für den monatlichen Ertrag
 
@@ -1717,9 +1717,9 @@ Dabei ist
 
 *t* die mittlere Häufigkeitsdauer in der jeweiligen Windgeschwindigkeitsklasse n, im Monat in h.
 
-# 7 Photovoltaik-Systeme
+**7Photovoltaik-Systeme**
 
-## 7.1 Bestimmung des elektrischen Endenergiebedarfs
+**7.1Bestimmung des elektrischen Endenergiebedarfs**
 
 **7.1.1Allgemeines**
 
@@ -1777,7 +1777,7 @@ Aus der Energiebilanz nach DIN/TS 18599-5 und nach DIN/TS 18599-8 werden die End
 
 benötigt. Sie werden im Rahmen der vorliegenden PV-Bilanz nach diesen drei Systemen zu *Q*, *Q* und *Q* zusammengefasst.
 
-## 7.2 Erzeugte elektrische Energie durch das Photovoltaiksystem
+**7.2Erzeugte elektrische Energie durch das Photovoltaiksystem**
 
 **7.2.1Allgemeines**
 
@@ -1859,7 +1859,7 @@ PV-Module weisen im realen Betrieb i. d. R. einen geringeren Ertrag auf als im R
 
 Eine zweckmäßige Unterscheidung kann nach dem Belüftungsgrad der Photovoltaikmodule getroffen werden, welcher von der Montageart der Module abhängt. Standardwerte für den Systemleistungsfaktor *f* sind in, Tabelle B.1 angegeben.
 
-## 7.3 Speicherkapazität der Batterie
+**7.3Speicherkapazität der Batterie**
 
 Sofern die Photovoltaikanlage über eine Batterie verfügt, wird der Wert ihrer Nutzkapazität *C* (in kWh) benötigt. Ist sie aus Herstellerdaten nicht bekannt, kann sie nach Gleichung (73) aus der Nennkapazität der Batterie ermittelt werden:
 
@@ -1879,7 +1879,7 @@ Dabei ist
 
 *Q* der jährlich summierte Elektroenergiebedarf des Gebäudes, in kWh, nach Gleichung (64).
 
-## 7.4 Energiebilanz der selbst genutzten und in das öffentliche Netz zurück gespeisten Elektroenergie sowie des zusätzlichen Netzbezugs
+**7.4Energiebilanz der selbst genutzten und in das öffentliche Netz zurück gespeisten Elektroenergie sowie des zusätzlichen Netzbezugs**
 
 **7.4.1Allgemeines**
 
@@ -2053,7 +2053,7 @@ Dabei ist
 
 *f* der Korrekturfaktor für Batteriespeicher, nach Gleichung (85).
 
-## 7.5 Energiebilanz für Systeme ohne Eigennutzung des PV-Stroms
+**7.5Energiebilanz für Systeme ohne Eigennutzung des PV-Stroms**
 
 Sofern der erzeugte PV-Strom nicht selbst genutzt wird, sondern vollständig in das öffentliche Netz zurückgespeist wird, gilt statt Gleichung (78) die nachfolgende Gleichung (89):
 
@@ -2065,11 +2065,11 @@ Dabei ist
 
 Sofern die detaillierte Energiebilanzierung der selbst genutzten Anteile nach 7.4 nicht möglich ist, weil z. B. Bilanzranddaten fehlen, stellt Gleichung (89) den Standardansatz dar. Dies ist beispielsweise bei Nichtwohnbauten der Fall, da keine Standardwerte für den Anwendungsstrombedarf *q* verfügbar sind.
 
-## 7.6 Hilfsenergieaufwand
+**7.6Hilfsenergieaufwand**
 
 Der Hilfsenergieaufwand *W* wird durch ausschließliche Anwendung der erzeugten Nettoleistung (gesamte erzeugte Leistung abzüglich der gesamten Hilfsenergieaufwandes innerhalb der Systemgrenzen des betreffenden Teilsystems) berücksichtigt.
 
-# Anhang A (informativ)Berechnungsbeispiele KWK-Anlagen
+**Anhang A (informativ)Berechnungsbeispiele KWK-Anlagen**
 
 **A.1Allgemeines**
 
@@ -2583,7 +2583,7 @@ Der Primärenergiefaktor für o. g. Endenergiebedarf wird nach Gleichung (53) 
 
   -----------------------------------------------------------------------
 
-# Anhang B (normativ)Standardwerte für Photovoltaik-Systeme
+**Anhang B (normativ)Standardwerte für Photovoltaik-Systeme**
 
 **B.1PV-Module**
 
@@ -2675,7 +2675,7 @@ Der Primärenergiefaktor für o. g. Endenergiebedarf wird nach Gleichung (53) 
                                                                                                                                                                    Kopplung der Regelung des Trinkwarmwasserspeichers an die PV-Anlage auf Basis eines gebäudeinternen Energiemanagements (Trinkwarmwasserspeicher wird vorzugsweise über PV-Anlage betrieben).   14
   --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# Literaturhinweise
+**Literaturhinweise**
 
 DIN CLC/TS 61836 (VDE V 0126-7):2010-04, *Photovoltaische Solarenergiesysteme --- Begriffe, Definitionen und Symbole (IEC/TS 61836:2007); Deutsche Fassung CLC/TS 61836:2009*
 

@@ -20,7 +20,7 @@ DIN-Normenausschuss Bauwesen (NABau) • DIN-Normenausschuss Heiz- und Raumluftt
 
 Alleinverkauf durch DIN Media GmbH, 10772 Berlin
 
-# Vorwort
+**Vorwort**
 
 Dieses Dokument wurde vom Gemeinschaftsarbeitsausschuss NA 005-12-01 GA „Gemeinschaftsarbeitsausschuss NABau/FNL/NHRS: Energetische Bewertung von Gebäuden (SpA CEN/TC 371, CEN/TC 371/WG 1, CEN/TC 371/WG 2, CEN/TC 371/WG 3, CEN/TC 371/WG 4, CEN/TC 371/WG 5, ISO/TC 163/WG 4 und ISO/TC 163/SC 2/WG 15)" erarbeitet. Der Inhalt wurde vom DIN-Normenausschuss Bauwesen (NABau) als Hauptträger erarbeitet und wird von den DIN-Normenausschüssen Lichttechnik (FNL) und Heiz- und Raumlufttechnik sowie deren Sicherheit (NHRS) als Mitträger getragen.
 
@@ -74,7 +74,7 @@ Die Reihe DIN/TS 18599 ist dazu geeignet, den langfristigen Energiebedarf für
 
 Aktuelle Informationen zu diesem Dokument können über die Internetseiten von DIN (www.din.de) durch eine Suche nach der Dokumentennummer aufgerufen werden.
 
-# Änderungen
+**Änderungen**
 
 Gegenüber DIN V 18599-4:2018-09 wurden folgende Änderungen vorgenommen:
 
@@ -96,19 +96,19 @@ h)Anhaltswerte für Lichttransmissionsgrade in Tabelle A.1 und Tabelle A.2 in Ab
 
 i)Aktualisierung der Beispiele in Anhang B bzgl. überarbeitetes Tabellenverfahren, LED Leuchtenkennwerten und Wartungswerten der Beleuchtungsstärke.
 
-# Frühere Ausgaben
+**Frühere Ausgaben**
 
 DIN V 18599-4: 2005-07, 2007-02, 2011-12, 2016-10, 2018-09
 
 DIN V 18599-100: 2009-10
 
-# Einleitung
+**Einleitung**
 
 Die nach der Reihe DIN/TS 18599 durchgeführte Energiebilanz folgt einem integralen Ansatz, d. h., es erfolgt eine gemeinschaftliche Bewertung des Baukörpers, der Nutzung und der Anlagentechnik unter Berücksichtigung der gegenseitigen Wechselwirkungen. Zur Verbesserung der Übersichtlichkeit besteht die Reihe DIN/TS 18599 aus mehreren Teilen, die einzelne Themenschwerpunkte behandeln. Einen Überblick über die Inhalte der einzelnen Teile gibt Bild 1.
 
 ![Bild 1: Übersicht über die Teile der DIN/TS 18599](sources/images/media/image1.gif){width="6.3in" height="4.658333333333333in"}
 
-### Bild 1 --- Übersicht über die Teile der DIN/TS 18599
+**Bild 1 --- Übersicht über die Teile der DIN/TS 18599**
 
 # 1 Anwendungsbereich
 
@@ -146,7 +146,7 @@ Bild 2 zeigt schematisch den inhaltlichen Umfang dieses Dokuments.
 
 ![Bild 2: Inhalt und Umfang von DIN/TS 18599-4 (schematisch)](sources/images/media/image2.gif){width="4.716666666666667in" height="3.55in"}
 
-### Bild 2 --- Inhalt und Umfang von DIN/TS 18599-4 (schematisch)
+**Bild 2 --- Inhalt und Umfang von DIN/TS 18599-4 (schematisch)**
 
 # 2 Normative Verweisungen
 
@@ -200,7 +200,7 @@ Anmerkung 1 zum Begriff: Siehe auch DIN EN 12464-1.
 
 Anmerkung 2 zum Begriff: Es handelt sich um die mittlere Beleuchtungsstärke zu dem Zeitpunkt, an dem spätestens eine Wartung durchzuführen ist.
 
-### 3.1.3
+**3.1.3**
 
 **Lichtstrom**
 
@@ -210,7 +210,7 @@ Anmerkung 1 zum Begriff: Einheit: Lumen (lm).
 
 \[QUELLE: CIE 17.4:1987, 845-01-25\]
 
-### 3.1.4
+**3.1.4**
 
 **Belichtung**
 
@@ -220,7 +220,7 @@ Anmerkung 1 zum Begriff: Einheit: Luxstunden (lx h).
 
 \[QUELLE: CIE 17.4:1987, 845-01-25\]
 
-### 3.1.5
+**3.1.5**
 
 **Tageslichtquotient**
 
@@ -230,13 +230,13 @@ Anmerkung 1 zum Begriff: Die Anteile des direkten Sonnenlichtes an beiden Beleuc
 
 \[QUELLE: CIE 17.4:1987, 845-09-97\]
 
-### 3.1.6
+**3.1.6**
 
 **Pendellänge**
 
 Differenz aus Deckenhöhe und Höhe der Leuchtebene, d. h. der Ebene, die durch die Lichtschwerpunkte der Leuchten aufgespannt wird
 
-### 3.1.7
+**3.1.7**
 
 **Lichtreflexionsgrad**
 
@@ -244,7 +244,7 @@ Verhältnis des von einer Fläche reflektierten Lichtstroms zum auffallenden Lic
 
 \[QUELLE: CIE 17.4:1987, 845-04-5\]
 
-### 3.1.8
+**3.1.8**
 
 **Lichttransmissionsgrad**
 
@@ -252,7 +252,7 @@ Verhältnis des durch einen Körper transmittierten Lichtstroms zum auffallenden
 
 Anmerkung 1 zum Begriff: Siehe auch CIE 17.4:1987, 845-04-59.
 
-### 3.1.9
+**3.1.9**
 
 **Lampe**
 
@@ -260,7 +260,7 @@ Quelle zur Erzeugung optischer Strahlung, im Allgemeinen im sichtbaren Bereich
 
 Anmerkung 1 zum Begriff: Siehe auch CIE 17.4:1987, 845-08-34.
 
-### 3.1.10
+**3.1.10**
 
 **Leuchte**
 
@@ -268,7 +268,7 @@ Gerät, durch welches das von einer oder mehreren Lampen erzeugte Licht verteilt
 
 Anmerkung 1 zum Begriff: Siehe auch CIE 17.4:1987, 845-10-01.
 
-### 3.1.11
+**3.1.11**
 
 **Vorschaltgerät**
 
@@ -276,7 +276,7 @@ Vorrichtung, die zwischen dem Versorgungsstromkreis und einer oder mehreren Entl
 
 Anmerkung 1 zum Begriff: Siehe auch CIE 17.4:1987, 845-08-34.
 
-### 3.1.12
+**3.1.12**
 
 **Dachoberlicht**
 
@@ -284,7 +284,7 @@ Tageslichtöffnung in der Decke eines Raumes
 
 Anmerkung 1 zum Begriff: Z. B. Lichtkuppeln in unterschiedlichen Formen, verschiedene Dachlichtbänder, Shed-Lichtbänder, Dachlaternen.
 
-### 3.1.13
+**3.1.13**
 
 **Kontrollsystem**
 
@@ -296,7 +296,7 @@ elektronische Systeme, die zur Steuerung und Regelung eingesetzt werden von
 
 und zur Erfassung der Präsenz
 
-### 3.1.14
+**3.1.14**
 
 **elektrische Bewertungsleistung Kunstlicht**
 
@@ -304,7 +304,7 @@ gesamte elektrische Anschlussleistung der Beleuchtungsanlage im Berechnungsberei
 
 Anmerkung 1 zum Begriff: Ermittelt ausschließlich zum Zwecke der Bestimmung des Endenergiebedarfs der Beleuchtung in dem hier beschriebenen Verfahren. Die elektrische Bewertungsleistung kann sich von der elektrischen Anschlussleitung zum Zwecke der Auslegung der Elektroinstallation unterscheiden.
 
-### 3.1.15
+**3.1.15**
 
 **Verbauung**
 
@@ -314,7 +314,7 @@ Anmerkung 1 zum Begriff: Eigenverbauung wie andere Bauteile des Gebäudes gelten
 
 BEISPIEL: Lichthindernisse können unter anderem Gebäude und Berge sein.
 
-### 3.1.16
+**3.1.16**
 
 **Sehaufgabe**
 
@@ -322,7 +322,7 @@ sehrelevante Elemente der auszuführenden Arbeit
 
 Anmerkung 1 zum Begriff: Siehe auch DIN EN 12464-1.
 
-### 3.1.17
+**3.1.17**
 
 **Bereich der Sehaufgabe**
 
@@ -332,7 +332,7 @@ Anmerkung 1 zum Begriff: Ist die Größe und/oder Lage des Bereiches der Sehaufg
 
 Anmerkung 2 zum Begriff: Siehe auch DIN EN 12464-1.
 
-### 3.1.18
+**3.1.18**
 
 **Produktwert**
 
@@ -346,13 +346,13 @@ herstellerspezifischer Wert auf der Grundlage
 
 der für dieses Rechenverfahren geeignet ist
 
-### 3.1.19
+**3.1.19**
 
 **Standardwert**
 
 Wert, der für den Berechnungsgang verwendet werden kann, sofern kein für das Rechenverfahren geeigneter Produktwert verfügbar ist
 
-### 3.1.20
+**3.1.20**
 
 **Aufwandszahl für Beleuchtungszwecke**
 
@@ -360,11 +360,11 @@ Wert, der für den Berechnungsgang verwendet werden kann, sofern kein für das R
 
 Quotient aus der Endenergie für Beleuchtung und Nutzenergie für Beleuchtung
 
-## 3.2 Symbole, Einheiten und Indizes
+**3.2Symbole, Einheiten und Indizes**
 
 Die verwendeten Symbole sind in Tabelle 1 aufgeführt.
 
-### Tabelle 1 --- Symbole
+**Tabelle 1 --- Symbole**
 
   ------------------------------------------------------------------------------------------------------------------------------------------
   Symbol     Bedeutung                                                                                                     übliche Einheit
@@ -428,7 +428,7 @@ Die verwendeten Symbole sind in Tabelle 1 aufgeführt.
 
 Die verwendeten Indizes sind in Tabelle 2 aufgeführt.
 
-### Tabelle 2 --- Indizes
+**Tabelle 2 --- Indizes**
 
   ----------------------------------------------------------------------------------------
   Symbol        Bedeutung                      
@@ -532,9 +532,9 @@ KVG Vorschaltgeräte konventioneller Bauart
 
 VVG Verlustarme Vorschaltgeräte
 
-# 4 Verknüpfung der Teile der Reihe DIN/TS 18599
+**4Verknüpfung der Teile der Reihe DIN/TS 18599**
 
-## 4.1 Allgemeines
+**4.1Allgemeines**
 
 Die folgenden zwei Unterabschnitte 4.2 und 4.3
 
@@ -542,11 +542,11 @@ Die folgenden zwei Unterabschnitte 4.2 und 4.3
 
 --geben einen Überblick zur Verwendung hier berechneter Bilanzanteile in anderen Teilen der Reihe DIN/TS 18599.
 
-## 4.2 Eingangsgrößen aus anderen Teilen der Reihe DIN/TS 18599
+**4.2Eingangsgrößen aus anderen Teilen der Reihe DIN/TS 18599**
 
 Aus den Teilen der Reihe DIN/TS 18599 werden die Eingangsgrößen aus Tabelle 3 benötigt:
 
-### Tabelle 3 --- Eingangsgrößen aus anderen Teilen der Reihe DIN/TS 18599
+**Tabelle 3 --- Eingangsgrößen aus anderen Teilen der Reihe DIN/TS 18599**
 
   --------------------------------------------------------------------------------------------------------------
   Bedeutung                                                                 Symbol   Quelle DIN/TS 18599, Teil
@@ -572,11 +572,11 @@ Aus den Teilen der Reihe DIN/TS 18599 werden die Eingangsgrößen aus Tabelle
   Verschmutzungsfaktor                                                      *k*      10
   --------------------------------------------------------------------------------------------------------------
 
-## 4.3 Ausgangsgrößen für andere Teile der Reihe DIN/TS 18599
+**4.3Ausgangsgrößen für andere Teile der Reihe DIN/TS 18599**
 
 Die Ausgangsgrößen aus Tabelle 4 werden in den aufgeführten Teilen der Reihe DIN/TS 18599 verwendet.
 
-### Tabelle 4 --- Ausgangsgrößen für andere Teile der Reihe DIN/TS 18599
+**Tabelle 4 --- Ausgangsgrößen für andere Teile der Reihe DIN/TS 18599**
 
 +-------------------------------------+---------------------------+-------------------------------+
 | Bedeutung                           | Symbol                    | Verwendung DIN/TS 18599, Teil |
@@ -592,9 +592,9 @@ Die Ausgangsgrößen aus Tabelle 4 werden in den aufgeführten Teilen der Rei
 |                                     | (hier mit *Q* bezeichnet) |                               |
 +-------------------------------------+---------------------------+-------------------------------+
 
-# 5 Bewertungsverfahren
+**5Bewertungsverfahren**
 
-## 5.1 Bilanzierungsansatz
+**5.1Bilanzierungsansatz**
 
 Der Endenergiebedarf für Beleuchtungszwecke ist über die *N* Zonen des Gebäudes, die sich jeweils in *J* Berechnungsbereiche untergliedern können, zu ermitteln:
 
@@ -654,9 +654,9 @@ Der Ablauf der einzelnen Verfahrensschritte ist schematisch in Bild 3 dargeste
 
 ![Bild 3: Ablaufdiagramm zur Ermittlung des Energiebedarfs für Beleuchtung](sources/images/media/image3.gif){width="4.158333333333333in" height="3.625in"}
 
-### Bild 3 --- Ablaufdiagramm zur Ermittlung des Energiebedarfs für Beleuchtung
+**Bild 3 --- Ablaufdiagramm zur Ermittlung des Energiebedarfs für Beleuchtung**
 
-## 5.2 Unterteilung der Gebäudezone
+**5.2Unterteilung der Gebäudezone**
 
 **5.2.1Unterteilung in Berechnungsbereiche**
 
@@ -746,11 +746,11 @@ In Zweifelsfällen, ob eine Öffnung als Fenster oder als Dachoberlicht zu bewer
 
 Bei Vorliegen einer Fachplanung oder einer Bewertung im Bestand gilt Folgendes: Beim Fehlen der Möglichkeit, die Leuchten im Tageslichtbereich separat von den Leuchten im nicht durch Tageslicht versorgten Bereich zu regeln, ist *C* mit 0 (siehe 5.5.1) anzusetzen.
 
-## 5.3 Betriebszeiten
+**5.3Betriebszeiten**
 
 Die Zeitintervalle, während der die Berechnungsbereiche einer Zone genutzt werden, unterteilen sich in Intervalle *t*, zu denen Tageslicht zur Verfügung steht, und Intervalle *t*, in denen kein Tageslicht zur Verfügung steht. Es gilt *t* = *t* + *t*. Die Tagzeit liegt dabei im Zeitintervall von Sonnenaufgang bis Sonnenuntergang. Jährliche Tageslicht- und Nachtstunden sind in Abhängigkeit der jeweiligen Nutzungsprofile in DIN/TS 18599-10 enthalten. Für Betriebszeiten außerhalb der tabellierten Fälle sind die Werte separat zu ermitteln.
 
-## 5.4 Kunstlicht
+**5.4Kunstlicht**
 
 **5.4.1Allgemeines**
 
@@ -772,7 +772,7 @@ Anhang B enthält eine Sammlung von 14 Beispielen für die elektrische Bewertun
 
 Nach Tabelle 5 werden drei Beleuchtungsarten unterschieden, die zu unterschiedlichen elektrischen Bewertungsleistungen führen. Die Tabellenwerte geben Rechenwerte *p* für die spezifische elektrische Bewertungsleistung, bezogen auf die Nettogrundfläche und den Wartungswert der Beleuchtungsstärke , auf der Nutzebene, vor. Die Werte gelten für stabförmige Leuchtstofflampen mit elektronischen Vorschaltgeräten (EVG).
 
-### Tabelle 5 --- Rechenwerte der spezifischen elektrischen Bewertungsleistung *p*, bezogen auf die Grundfläche je lx Wartungswert der Beleuchtungsstärke auf der Nutzebene für Leuchten mit stabförmigen Leuchtstofflampen und elektronischen Vorschaltgeräten (EVG)
+**Tabelle 5 --- Rechenwerte der spezifischen elektrischen Bewertungsleistung *p*, bezogen auf die Grundfläche je lx Wartungswert der Beleuchtungsstärke auf der Nutzebene für Leuchten mit stabförmigen Leuchtstofflampen und elektronischen Vorschaltgeräten (EVG)**
 
   ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   Beleuchtungsart                                               Spezifische elektrische Bewertungsleistung *p*                                                                                   
@@ -806,7 +806,7 @@ Ergibt sich bei der Ermittlung des Raumindex ein kleinerer Wert als 0,6, so ist 
 
 ![Bild 4: Schematische Darstellung zur Bestimmung der Höhe h′R](sources/images/media/image4.gif){width="2.3833333333333333in" height="2.25in"}
 
-### Bild 4 --- Schematische Darstellung zur Bestimmung der Höhe *h*′
+**Bild 4 --- Schematische Darstellung zur Bestimmung der Höhe *h*′**
 
 Mit *p* kann die spezifische elektrische Bewertungsleistung  nach Gleichung (11) ermittelt werden:
 
@@ -856,7 +856,7 @@ Eine entsprechend installierte Beleuchtungsanlage, welche die höheren Beleuchtu
 
 Für andere Führungsgrößenprofile kann *k* bestimmt werden als Quotient der Tagessumme (Summenbildung über Beginn bis Ende Nutzung) der Leistungsaufnahme bei den bereitzustellenden Beleuchtungsstärken. Farbtemperaturen, Beleuchtungsarten zur Tagessumme einer konventionellen Installation mit *k* = 1. Dies entspricht im Allgemeinen der Tagessumme der Leistungsaufnahmen bei  zur Tagessumme der Leistungsaufnahme bei .
 
-### Tabelle 6 --- Anpassungsfaktor *k* für unterschiedliche Lampentypen, bezogen auf Tabelle 1
+**Tabelle 6 --- Anpassungsfaktor *k* für unterschiedliche Lampentypen, bezogen auf Tabelle 1**
 
   ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   Lampenart                                                                                                                                                                                   Faktor *k*                     
@@ -904,7 +904,7 @@ Für andere Führungsgrößenprofile kann *k* bestimmt werden als Quotient der
 
 ANMERKUNG: Aufgrund der Konstruktionsweise von LED-Ersatzlampen haben diese eine zum Teil erheblich abweichende Lichtstärkeverteilung von den Lampen, die sie ersetzen. Sie sind daher nicht ideal auf die Leuchtenreflektoren oder andere optische Systeme abgestimmt, in die sie eingesetzt werden. Hierdurch können sich erhebliche Abweichungen der Lichtstärkeverteilungen der mit Substitutionsprodukten betriebenen Leuchten gegenüber der ursprünglichen Planung und Auslegung ergeben. Durch die thermischen Betriebsbedingungen in der Leuchte können die technischen Werte von LED-Ersatzlampen bezüglich Lichtstrom und Lebensdauer erheblich von ihren Datenblattangaben abweichen. Damit könnten die Anforderungen an die Beleuchtung (z. B. Arbeitsstättenregel, DIN EN 12464-1) nicht (mehr) erfüllt werden.
 
-### Tabelle 7 --- Anpassungsfaktor k zur Berücksichtigung dynamischer Beleuchtungskonzepte
+**Tabelle 7 --- Anpassungsfaktor k zur Berücksichtigung dynamischer Beleuchtungskonzepte**
 
   --------------------------------------------------------------------------
   Regelschema und zugeordnete Nutzungen nach Teil 10            Faktor *k*
@@ -954,7 +954,7 @@ Die Werte beziehen sich auf die Standardlichtreflexionsgradkombination der Raumb
 
 Bei LED-Beleuchtungssystemen sind Lampe, Betriebsgerät und Leuchte häufig fest zu einer Einheit verbunden, so dass eine separate Ermittlung der Systemlichtausbeute  und des Leuchtenbetriebswirkungsgrades  nicht mehr möglich ist. Daher kann entsprechend den Herstellerangaben die Gesamtlichtausbeute der Leuchte  (Verhältnis des von der Leuchte abgegeben Lichtstroms zu der aufgenommenen elektrischen Leistung) angesetzt werden.  ·  in Gleichung (16) wird durch  ersetzt.
 
-### Tabelle 8 --- Raumwirkungsgrade  als Funktion der Beleuchtungsart und des Raumindex
+**Tabelle 8 --- Raumwirkungsgrade  als Funktion der Beleuchtungsart und des Raumindex**
 
   -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   Beleuchtungsart                                               Relativer unterer halbräumlicher Lichtstrom der Leuchte    Raumwirkungsgrad                                                            
@@ -998,7 +998,7 @@ Dabei ist
 
 In Tabelle 9 wird der Faktor *k* zur Ermittlung der Systemleistung aus der Leistungsaufnahme der Lampe angegeben. Die Faktoren beziehen sich auf mittlere Lampenleistungen im Leistungsbereich.
 
-### Tabelle 9 --- Faktor *k* zur Ermittlung der Systemleistung aus der Leistungsaufnahme der Lampe
+**Tabelle 9 --- Faktor *k* zur Ermittlung der Systemleistung aus der Leistungsaufnahme der Lampe**
 
   ------------------------------------------------------------------------------------------------------------------
   Lampenart                                                                                             Faktor *k*
@@ -1102,7 +1102,7 @@ Bei der Beleuchtung mit Lichtkuppel und Lichtbändern wird der Quotient *h*/*b*
 
 --Relativer Anteil an der Gesamtbetriebszeit, während der Sonnen- und/oder Blendschutz nicht aktiviert ist *(t*): Tabelle 23.
 
-# Literaturhinweise
+**Literaturhinweise**
 
 \[1\]Rattunde, R.: Optimierung der Tageslichtbeleuchtung großer Räume durch Oberlichter unter Berücksichtigung des zur Verfügung stehenden Tageslichts, Dissertation TU Berlin, 1980
 

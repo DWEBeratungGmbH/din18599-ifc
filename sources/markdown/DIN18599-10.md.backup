@@ -22,7 +22,7 @@ DIN-Normenausschuss Bauwesen (NABau) • DIN-Normenausschuss Heiz- und Raumluftt
 
 Alleinverkauf durch DIN Media GmbH, 10772 Berlin
 
-# Vorwort
+**Vorwort**
 
 Dieses Dokument wurde vom Gemeinschaftsarbeitsausschuss NA 005-12-01 GA „Gemeinschaftsarbeitsausschuss NABau/FNL/NHRS: Energetische Bewertung von Gebäuden (SpA CEN/TC 371, CEN/TC 371/WG 1, CEN/TC 371/WG 2, CEN/TC 371/WG 3, CEN/TC 371/WG 4, CEN/TC 371/WG 5, ISO/TC 163/WG 4 und ISO/TC 163/SC 2/WG 15)" erarbeitet. Der Inhalt wurde vom DIN-Normenausschuss Bauwesen (NABau) als Hauptträger erarbeitet und wird vom DIN-Normenausschuss Heiz- und Raumlufttechnik sowie deren Sicherheit (NHRS) als Mitträger getragen.
 
@@ -72,7 +72,7 @@ Die Reihe DIN/TS 18599 ist dazu geeignet, den langfristigen Energiebedarf für
 
 Aktuelle Informationen zu diesem Dokument können über die Internetseiten von DIN (www.din.de) durch eine Suche nach der Dokumentennummer aufgerufen werden.
 
-# Änderungen
+**Änderungen**
 
 Gegenüber DIN V 18599-10:2018-09 wurden folgende Änderungen vorgenommen:
 
@@ -92,21 +92,21 @@ g)Überarbeitung der Richtwerte des Nutzenergiebedarfs Trinkwarmwasser für Nich
 
 h)neu aufgenommene Tabelle 9 (Abschnitt 6) mit Richtwerten für die Gebäudeautomation bei Nichtwohngebäuden.
 
-# Frühere Ausgaben
+**Frühere Ausgaben**
 
 DIN V 18599-10: 2005-07, 2007-02, 2011-12, 2016-10, 2018-09
 
 DIN V 18599-100: 2009-10
 
-# Einleitung
+**Einleitung**
 
 Die nach der Reihe DIN/TS 18599 durchgeführte Energiebilanz folgt einem integralen Ansatz, d. h., es erfolgt eine gemeinschaftliche Bewertung des Baukörpers, der Nutzung und der Anlagentechnik unter Berücksichtigung der gegenseitigen Wechselwirkungen. Zur Verbesserung der Übersichtlichkeit besteht die Reihe DIN/TS 18599 aus mehreren Teilen, die einzelne Themenschwerpunkte behandeln. Einen Überblick über die Inhalte der einzelnen Teile gibt Bild 1.
 
 ![Bild 1: Übersicht über die Teile der Reihe DIN/TS 18599](sources/images/media/image1.gif){width="6.3in" height="4.658333333333333in"}
 
-### Bild 1 --- Übersicht über die Teile der Reihe DIN/TS 18599
+**Bild 1 --- Übersicht über die Teile der Reihe DIN/TS 18599**
 
-# 1 Anwendungsbereich
+**1Anwendungsbereich**
 
 Die Reihe DIN/TS 18599 stellt ein Verfahren zur Durchführung der Gesamtenergiebilanz von Gebäuden bereit. Der aufgezeigte Algorithmus ist anwendbar für die energetische Bilanzierung von:
 
@@ -146,9 +146,9 @@ Bild 2 zeigt schematisch den inhaltlichen Umfang des vorliegenden Dokuments. Ei
 
 ![Bild 2: Inhalt und Umfang von DIN/TS 18599-10 (schematisch)](sources/images/media/image2.gif){width="6.3in" height="4.666666666666667in"}
 
-### Bild 2 --- Inhalt und Umfang von DIN/TS 18599-10 (schematisch)
+**Bild 2 --- Inhalt und Umfang von DIN/TS 18599-10 (schematisch)**
 
-# 2 Normative Verweisungen
+**2Normative Verweisungen**
 
 Die folgenden Dokumente werden im Text in solcher Weise in Bezug genommen, dass einige Teile davon oder ihr gesamter Inhalt Anforderungen des vorliegenden Dokuments darstellen. Bei datierten Verweisungen gilt nur die in Bezug genommene Ausgabe. Bei undatierten Verweisungen gilt die letzte Ausgabe des in Bezug genommenen Dokuments (einschließlich aller Änderungen).
 
@@ -176,9 +176,9 @@ DIN/TS 18599-9, *Energetische Bewertung von Gebäuden --- Berechnung des Nutz-,
 
 DIN/TS 18599-11, *Energetische Bewertung von Gebäuden --- Berechnung des Nutz-, End- und Primärenergiebedarfs für Heizung, Kühlung, Lüftung, Trinkwarmwasser und Beleuchtung --- Teil 11: Gebäudeautomation*
 
-# 3 Begriffe, Symbole und Einheiten
+**3Begriffe, Symbole und Einheiten**
 
-## 3.1 Begriffe
+**3.1Begriffe**
 
 Für die Anwendung dieses Dokuments gelten die Begriffe nach DIN/TS 18599-1, DIN/TS 18599-2, DIN/TS 18599-3, DIN/TS 18599-4, DIN/TS 18599-5, DIN/TS 18599-6, DIN/TS 18599-7, DIN/TS 18599-8, DIN/TS 18599-9 und DIN/TS 18599-11.
 
@@ -188,11 +188,11 @@ DIN und DKE stellen terminologische Datenbanken für die Verwendung in der Normu
 
 --DKE-IEV: verfügbar unter https://www.dke.de/DKE-IEV
 
-## 3.2 Symbole, Einheiten, Indizes
+**3.2Symbole, Einheiten, Indizes**
 
 Die in diesem Dokument verwendeten Symbole sind in Tabelle 1 zusammengestellt. Tabelle 2 gibt Indizes an.
 
-### Tabelle 1 --- Symbole
+**Tabelle 1 --- Symbole**
 
   -----------------------------------------------------------------------------------------------------------------------------------------------------------
   Symbol   Bedeutung                                                                                                                        Übliche Einheit
@@ -244,7 +244,7 @@ Die in diesem Dokument verwendeten Symbole sind in Tabelle 1 zusammengestellt.
            Stundenwinkel                                                     hour angle                                                     °
   -----------------------------------------------------------------------------------------------------------------------------------------------------------
 
-### Tabelle 2 --- Indizes
+**Tabelle 2 --- Indizes**
 
   ------------------------------------------------------------------------------------------------------------
   Index             Bedeutung                               
@@ -354,9 +354,9 @@ Die in diesem Dokument verwendeten Symbole sind in Tabelle 1 zusammengestellt.
   WE                Wohneinheit                             living unit
   ------------------------------------------------------------------------------------------------------------
 
-# 4 Verknüpfung der Teile der Reihe DIN/TS 18599
+**4Verknüpfung der Teile der Reihe DIN/TS 18599**
 
-## 4.1 Allgemeines
+**4.1Allgemeines**
 
 Die folgenden Unterabschnitte 4.2 und 4.3
 
@@ -366,11 +366,11 @@ Die folgenden Unterabschnitte 4.2 und 4.3
 
 Auf eine vertiefende Erläuterung der Größen sowie die Angabe von Gründen für die Datenübergabe wird der Übersichtlichkeit halber verzichtet.
 
-## 4.2 Eingangsgrößen aus anderen Teilen der Reihe DIN/TS 18599
+**4.2Eingangsgrößen aus anderen Teilen der Reihe DIN/TS 18599**
 
 Die in Tabelle 3 angegebenen Eingangsgrößen werden aus den Teilen der Reihe DIN/TS 18599 benötigt.
 
-### Tabelle 3 --- Eingangsgrößen aus anderen Teilen der Reihe DIN/TS 18599
+**Tabelle 3 --- Eingangsgrößen aus anderen Teilen der Reihe DIN/TS 18599**
 
   ------------------------------------------------------------------------
   Bedeutung                                     Symbol   Quelle
@@ -379,11 +379,11 @@ Die in Tabelle 3 angegebenen Eingangsgrößen werden aus den Teilen der Reihe
 
   ------------------------------------------------------------------------
 
-## 4.3 Ausgangsgrößen für andere Teile der Reihe DIN/TS 18599
+**4.3Ausgangsgrößen für andere Teile der Reihe DIN/TS 18599**
 
 Die in Tabelle 4 angegebenen Ausgangsgrößen werden in den jeweils genannten Teilen der Reihe DIN/TS 18599 benötigt.
 
-### Tabelle 4 --- Ausgangsgrößen für andere Teile der Reihe DIN/TS 18599
+**Tabelle 4 --- Ausgangsgrößen für andere Teile der Reihe DIN/TS 18599**
 
   -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   Bedeutung                                                                                                                                                           Symbol         nach Abschnitt dieses Dokuments   Bezug
@@ -491,13 +491,13 @@ Die in Tabelle 4 angegebenen Ausgangsgrößen werden in den jeweils genannten 
   tägliche Stundenzahl mit relevanter solarer Einstrahlung                                                                                                            *t*            7.1                               DIN/TS 18599-9
   -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# 5 Nutzungsrandbedingungen Wohngebäude
+**5Nutzungsrandbedingungen Wohngebäude**
 
 In Tabelle 5 sind Richtwerte der Nutzungsrandbedingungen für die energetische Bewertung von Wohngebäuden aufgeführt. Hinweise für abweichende Randbedingungen und Betriebsweisen sind in DIN/TS 18599-2, DIN/TS 18599-5, DIN/TS 18599-6 und DIN/TS 18599-8 aufgeführt. Für Wohnnutzungen in Nichtwohngebäuden gelten sinngemäß (Einfamilienhaus (EFH) bzw. Mehrfamilienhaus (MFH)) die in Tabelle 5 aufgeführten Nutzungsrandbedingungen.
 
 Bei der Angabe von Berechnungsergebnissen nach den Festlegungen der Reihe DIN/TS 18599 sind die verwendeten Randbedingungen zu dokumentieren.
 
-### Tabelle 5 --- Richtwerte der Nutzungsrandbedingungen für die Berechnung des Energiebedarfs von Wohngebäuden
+**Tabelle 5 --- Richtwerte der Nutzungsrandbedingungen für die Berechnung des Energiebedarfs von Wohngebäuden**
 
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------+-----+--------+-------------+
 | Kenngröße                                                                                                                                                                                                                                                                                                                                                                                                                                            | Randbedingungen                                                      |     |        |             |
@@ -565,7 +565,7 @@ Bei der Angabe von Berechnungsergebnissen nach den Festlegungen der Reihe DIN/T
 | gDie Gebäudeautomationsgrade A bis D sind in DIN/TS 18599-11 definiert.                                                                                                                                                                                                                                                                                                                                                                              |                                                                      |     |        |             |
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------+-----+--------+-------------+
 
-# 6 Nutzungsrandbedingungen Nichtwohngebäude
+**6Nutzungsrandbedingungen Nichtwohngebäude**
 
 Die Richtwerte der Nutzungsrandbedingungen für Nichtwohngebäude sind unterteilt in die Kategorien Nutzungs- und Betriebszeiten, Beleuchtung, Raumklima sowie Wärmequellen in Tabelle 6 und Tabelle 7 für 43 Nutzungen aufgeführt.
 
@@ -663,7 +663,7 @@ h)**Anwendungsstrombedarf**
 
 --Der Anwendungsstrombedarf beschreibt die über die Hilfsenergieaufwände und Endenergiebedarfe für die Heizung, Trinkwassererwärmung, Kühlung, Lüftung bzw. Raumlufttechnik, Trinkwassererwärmung und Beleuchtung vorhandenen Stromaufwände im Nichtwohnbau. Beispielhafte Anwendungsfälle sind der Strombedarf von Unterhaltungselektronik, Kommunikationsanlagen, Bürogeräten, Aufzugsanlagen. Derzeit können keine Standardwerte für den Nichtwohnbau angegeben werden.
 
-### Tabelle 6 --- Richtwerte der Nutzungsrandbedingungen für Nichtwohngebäude --- Nutzungs- und Betriebszeiten, Beleuchtung
+**Tabelle 6 --- Richtwerte der Nutzungsrandbedingungen für Nichtwohngebäude --- Nutzungs- und Betriebszeiten, Beleuchtung**
 
 <table>
 <colgroup>
@@ -1647,7 +1647,7 @@ h)**Anwendungsstrombedarf**
 </tbody>
 </table>
 
-### Tabelle 7 --- Richtwerte der Nutzungsrandbedingungen für Nichtwohngebäude --- Raumklima, Wärmequellen
+**Tabelle 7 --- Richtwerte der Nutzungsrandbedingungen für Nichtwohngebäude --- Raumklima, Wärmequellen**
 
 <table>
 <colgroup>
@@ -2443,7 +2443,7 @@ h)**Anwendungsstrombedarf**
 </tbody>
 </table>
 
-### Tabelle 8 --- Richtwerte der Nutzungsrandbedingungen für alle Nutzungen nach Tabelle 6 und Tabelle 7
+**Tabelle 8 --- Richtwerte der Nutzungsrandbedingungen für alle Nutzungen nach Tabelle 6 und Tabelle 7**
 
   -----------------------------------------------------------------------
   Abminderungsfaktor infolge von Verschmutzung *F*                  0,9
@@ -2454,7 +2454,7 @@ h)**Anwendungsstrombedarf**
 
 Die Randbedingungen sind nur dann anzusetzen, wenn eine entsprechende Konditionierung durch ein technisches Gewerk vorgesehen ist.
 
-### Tabelle 9 --- Richtwerte für die Gebäudeautomation bei Nichtwohngebäuden
+**Tabelle 9 --- Richtwerte für die Gebäudeautomation bei Nichtwohngebäuden**
 
   ---------------------------------------------------------------------------------------------------------------------------------------------------
   Nr.   Bezeichnung                                                                                    Automationsgrad                       Werte
@@ -2634,7 +2634,7 @@ Die Randbedingungen sind nur dann anzusetzen, wenn eine entsprechende Konditioni
                                                                                                        1                 1   1,35    1,35    *f*
   ---------------------------------------------------------------------------------------------------------------------------------------------------
 
-### Tabelle 10 --- Richtwerte des täglichen Nutzenergiebedarfs Trinkwarmwasser für Nichtwohngebäude
+**Tabelle 10 --- Richtwerte des täglichen Nutzenergiebedarfs Trinkwarmwasser für Nichtwohngebäude**
 
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------+--------------------------------------------------+----------+--------------------------------------------+-------------+-------------------------+-------------------------------------------------------+
 | Nr.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | Gebäudenutzung                      | Kennwerte mit Flächenbezug *q*                   |          | Kennwerte ohne Flächenbezugab *q*          |             | Anzahl Spitzenzapfungen | im Kennwert berücksichtigte Anwendungen               |
@@ -2708,13 +2708,13 @@ Die Randbedingungen sind nur dann anzusetzen, wenn eine entsprechende Konditioni
 | cFlächenbezug ist die Nettogrundfläche *A* der Zone, deren Nutzung den Bedarf an Trinkwarmwasser verursacht.                                                                                                                                                                                                                                                                                                                                                                         |                                     |                                                  |          |                                            |             |                         |                                                       |
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------+--------------------------------------------------+----------+--------------------------------------------+-------------+-------------------------+-------------------------------------------------------+
 
-# 7 Klimadaten
+**7Klimadaten**
 
-## 7.1 Referenzklima --- Monatswerte
+**7.1Referenzklima --- Monatswerte**
 
 Die Werte der solaren Einstrahlung, der Außenlufttemperatur und der Windgeschwindigkeit für einzelne Monate und das Jahr können Anhang E entnommen werden. Als Referenzklima für Deutschland gilt der Referenzort Potsdam (Region 4). Für die Anzahl der Tage je Monat und die Zeiten mit relevanter solarer Einstrahlung sind die Werte in Tabelle 11 zu verwenden.
 
-### Tabelle 11 --- Anzahl der Tage je Monat und Zeit mit solarer Einstrahlung
+**Tabelle 11 --- Anzahl der Tage je Monat und Zeit mit solarer Einstrahlung**
 
 <table style="width:100%;">
 <colgroup>
@@ -2790,11 +2790,11 @@ Die Werte der solaren Einstrahlung, der Außenlufttemperatur und der Windgeschwi
 
 Es wird (bei dieser Betrachtung) von einer Anzahl von 24 h je Tag ausgegangen.
 
-## 7.2 Referenzklima --- Auslegungswerte
+**7.2Referenzklima --- Auslegungswerte**
 
 Für die Berechnung der maximal erforderlichen Heiz- und Kühlleistung zur Auslegung der Gebäudetechnik sind in Tabelle 12 die Werte der solaren Einstrahlung und der Außentemperaturen aufgeführt.
 
-### Tabelle 12 --- Werte der solaren Einstrahlung und der Außentemperaturen zur Berechnung der erforderlichen Heiz- und Kühlleistungen für das Referenzklima Deutschland
+**Tabelle 12 --- Werte der solaren Einstrahlung und der Außentemperaturen zur Berechnung der erforderlichen Heiz- und Kühlleistungen für das Referenzklima Deutschland**
 
 +-----------------------------------------------------------------------------------------------------------------------------------------+-----------------+---------------------------------------------+--------+--------+
 | Referenzklima Deutschland                                                                                                               |                 | Maximale stündliche solare Einstrahlung *I* |        |        |
@@ -2832,7 +2832,7 @@ Für die Berechnung der maximal erforderlichen Heiz- und Kühlleistung zur Ausle
 | aFür Neigungswinkel von 0° bis 60° sind die Werte der Neigung 0°, für größere Neigungswinkel sind die Werte der Neigung 90° anzusetzen. |                 |                                             |        |        |
 +-----------------------------------------------------------------------------------------------------------------------------------------+-----------------+---------------------------------------------+--------+--------+
 
-# Anhang A (informativ)Ausführliche Nutzungsprofile für Nichtwohngebäude
+**Anhang A (informativ)Ausführliche Nutzungsprofile für Nichtwohngebäude**
 
 **A.1Allgemeines**
 
@@ -2924,7 +2924,7 @@ Dem Anwender dieses Formblattes ist unbeschadet der Rechte von DIN an der Gesamt
   **Erläuterungen:**                                                                    
   -------------------------------------------------------------------------------------------
 
-# Anhang D (informativ)Erstellung eines Nutzungsprofils am Beispiel einer Fertigungshalle
+**Anhang D (informativ)Erstellung eines Nutzungsprofils am Beispiel einer Fertigungshalle**
 
 **D.1Ansatz**
 
@@ -2970,7 +2970,7 @@ Der Raumindex *k* wird mit DIN/TS 18599-4:2025-10, Gleichung (10), bestimmt. 
 
 Die relative Abwesenheit und der Minderungsfaktor Gebäudebetriebszeit werden ausgehend von einer insgesamt einstündigen Pausenzeit ebenfalls aus dem Nutzungsprofil Nr. 22 mit Werten für *C* von 0,1 und für *F* von 0,9 übernommen. Weiterhin wird der Anpassungsfaktor Beleuchtung vertikaler Flächen *k* mit dem Wert 1 übernommen.
 
-# Anhang F (informativ)Bestimmung von relativen Abwesenheiten
+**Anhang F (informativ)Bestimmung von relativen Abwesenheiten**
 
 Die relativen Abwesenheiten *C* (für Beleuchtung) und *c* (für RLT-Anlagen) werden in diesem Dokument nutzungsspezifisch vorgegeben. Für ein beliebiges Anwesenheitsprofil können die relativen Abwesenheiten wie folgt berechnet werden:
 
@@ -2986,7 +2986,7 @@ Dabei ist
 
 *a* der Anteil der je Stunde anwesender Personen.
 
-# Literaturhinweise
+**Literaturhinweise**
 
 \[1\]Hörner, M., Siering, K. und Knissel, J.: Methodik zur Erfassung, Beurteilung und Optimierung des Elektrizitätsbedarfs von Gebäuden --- Modul 1.2 Standardnutzungen (Version 1.0); Institut Wohnen und Umwelt, Darmstadt 2005
 

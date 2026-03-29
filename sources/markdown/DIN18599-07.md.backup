@@ -22,7 +22,7 @@ DIN-Normenausschuss Bauwesen (NABau) • DIN-Normenausschuss Heiz- und Raumluftt
 
 Alleinverkauf durch DIN Media GmbH, 10772 Berlin
 
-# Vorwort
+**Vorwort**
 
 Dieses Dokument wurde vom Gemeinschaftsarbeitsausschuss NA 005-12-01 GA „Gemeinschaftsarbeitsausschuss NABau/FNL/NHRS: Energetische Bewertung von Gebäuden (SpA CEN/TC 371, CEN/TC 371/WG 1, CEN/TC 371/WG 2, CEN/TC 371/WG 3, CEN/TC 371/WG 4, CEN/TC 371/WG 5, ISO/TC 163/WG 4 und ISO/TC 163/SC 2/WG 15)" erarbeitet. Der Inhalt wurde vom DIN-Normenausschuss Bauwesen (NABau) als Hauptträger erarbeitet und wird vom DIN-Normenausschüssen Heiz- und Raumlufttechnik sowie deren Sicherheit (NHRS) als Mitträger getragen.
 
@@ -146,7 +146,7 @@ Die elektrische Endenergie der Rückkühlung  wird als Jahressumme an DIN/TS 
 
 Zur energetischen Bewertung des Gesamtkühlsystems, bestehend aus Kälteerzeugung, -verteilung und -übergabe, sind folgende Bedarfsanteile bei indirekten Systemen zu berücksichtigen (siehe Tabelle 33). Soweit nicht anders angegeben, werden die aufgeführten Bedarfsanteile in diesem Dokument berechnet.
 
-### Tabelle 33 --- Bedarfsanteile zur energetischen Bewertung indirekter Systeme (Wasserkühlmaschinen)
+**Tabelle 33 --- Bedarfsanteile zur energetischen Bewertung indirekter Systeme (Wasserkühlmaschinen)**
 
 +-----------------------+--------------------------------+----------------------------+------------------+-----------------+-------------------------+------------------------+
 | Indirekte Systeme     |                                | Kompressionskältemaschinen |                  |                 | Sorptionskältemaschinen |                        |
@@ -172,7 +172,7 @@ Zur energetischen Bewertung des Gesamtkühlsystems, bestehend aus Kälteerzeugun
 
 Bei direkten Systemen sind zur energetischen Bewertung des Gesamtkühlsystems aus Kälteerzeugung und -verteilung folgende Bedarfsanteile zu berücksichtigen (siehe Tabelle 34).
 
-### Tabelle 34 --- Bedarfsanteile zur energetischen Bewertung direkter Systeme (Direktverdampferanlagen)
+**Tabelle 34 --- Bedarfsanteile zur energetischen Bewertung direkter Systeme (Direktverdampferanlagen)**
 
   ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   Direkte Systeme                                                Kompressionskältemaschinen                                                                                      
@@ -192,7 +192,7 @@ Bei direkten Systemen sind zur energetischen Bewertung des Gesamtkühlsystems au
   Übergabe                     Übergabe (nur bei Raum-kühlung)   (siehe 6.3)                                                                                                     
   ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-## 7.2 Freie Kühlung
+**7.2Freie Kühlung**
 
 **7.2.1Allgemeines**
 
@@ -236,7 +236,7 @@ Dabei ist
 
 *PLV* der mittlere jährliche Teillastfaktor des Kälteerzeugers nach Anhang A.
 
-### Tabelle 35 --- Freikühlfaktor für Rückkühlwerke im Alternativbetrieb
+**Tabelle 35 --- Freikühlfaktor für Rückkühlwerke im Alternativbetrieb**
 
 +-------------+-----------------------------------------+------------+--------------------------------------+------+------------------------+---------+
 | Nutzungsart |                                         | Temperatur | Freikühlfaktor *f* Alternativbetrieb |      |                        |         |
@@ -316,7 +316,7 @@ Dabei ist
 |             |                                         | 14/18      | 1,00                                 | 1,00 | 1,00                   | 1,00    |
 +-------------+-----------------------------------------+------------+--------------------------------------+------+------------------------+---------+
 
-### Tabelle 36 --- Freikühlfaktor für Rückkühlwerke im Parallelbetrieb
+**Tabelle 36 --- Freikühlfaktor für Rückkühlwerke im Parallelbetrieb**
 
 +-------------+-----------------------------------------+------------+------------------------------------+------+------------------------+---------+
 | Nutzungsart |                                         | Temperatur | Freikühlfaktor *f* Parallelbetrieb |      |                        |         |
@@ -416,7 +416,7 @@ Dabei ist
 
 Für Freikühlfaktor für luftgekühlte Kältemaschinen mit integrierten Freikühlregistern siehe Tabelle 37.
 
-### Tabelle 37 --- Freikühlfaktor für luftgekühlte Kältemaschinen mit integrierten Freikühlregistern
+**Tabelle 37 --- Freikühlfaktor für luftgekühlte Kältemaschinen mit integrierten Freikühlregistern**
 
 +-------------+-----------------------------------------+------------+----------------------------+-------+-------+
 | Nutzungsart |                                         | Temperatur | Freikühlfaktor *f*         |       |       |
@@ -494,7 +494,7 @@ Für Freikühlfaktor für luftgekühlte Kältemaschinen mit integrierten Freikü
 | 31, 41      | Sporthalle, Logistikhalle               |            |                            |       |       |
 +-------------+-----------------------------------------+------------+----------------------------+-------+-------+
 
-## 7.3 Geothermische Kühlung
+**7.3Geothermische Kühlung**
 
 **7.3.1Allgemeines**
 
@@ -556,7 +556,7 @@ Dabei ist
 
  die Quellentemperatur des Grundwassers, in °C.
 
-### Tabelle 38 --- Kälteleistungszahl von Grundwassernutzungsanlagen *EER* (Grundwassertemperatur 12 °C, Auslegungsförderhöhe der Pumpen 400 kPa)
+**Tabelle 38 --- Kälteleistungszahl von Grundwassernutzungsanlagen *EER* (Grundwassertemperatur 12 °C, Auslegungsförderhöhe der Pumpen 400 kPa)**
 
   ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   Temperaturspreizung im Wärmesenkenkreisa                                                         Grundwassernutzungs-anlagen mit Standardpumpen   Grundwassernutzungsanlagen mit Hocheffizienzpumpen
@@ -602,7 +602,7 @@ Dabei ist
 
 Die Kennzahl ist entsprechend der Sondentiefe und Sondenanzahl zu interpolieren.
 
-### Tabelle 39 --- Standardwerte für die Kälteleistungszahl *EER* (Sondeneintrittstemperatur 18 °C)
+**Tabelle 39 --- Standardwerte für die Kälteleistungszahl *EER* (Sondeneintrittstemperatur 18 °C)**
 
 +---------------------+--------------------------------------+-------+--------------------+--------+--------+--------+--------+--------+
 | Pumpen              | Boden                                | Sonde | *EER* in Bohrtiefe |        |        |        |        |        |
@@ -646,7 +646,7 @@ Die Kennzahl ist entsprechend der Sondentiefe und Sondenanzahl zu interpolieren.
 |                     |                                      | 2U    | 84                 | 120    | 123    | 179    | 143    | 214    |
 +---------------------+--------------------------------------+-------+--------------------+--------+--------+--------+--------+--------+
 
-### Tabelle 40 --- Spez. Entzugsleistung *q* für Erdsonden bei einer Sondeneintrittstemperatur 18 °C
+**Tabelle 40 --- Spez. Entzugsleistung *q* für Erdsonden bei einer Sondeneintrittstemperatur 18 °C**
 
   ----------------------------------------------------------------------------------------------------------------------------------------------
   Boden                               Sonde   Spezifische Entzugsleistung je Sonde und lfd. Meter                                       
@@ -676,7 +676,7 @@ Die Kennzahl ist entsprechend der Sondentiefe und Sondenanzahl zu interpolieren.
                                       2U      23,9                                                  21,5     20,7     18,7     17,8     16,0
   ----------------------------------------------------------------------------------------------------------------------------------------------
 
-## 7.4 Endenergie für die Dampfversorgung
+**7.4Endenergie für die Dampfversorgung**
 
 Feste Faktoren für die Erzeugung in Abhängigkeit des Dampfbefeuchtungsystems, die folgende Faktoren beinhalten sollten, sind
 
@@ -692,7 +692,7 @@ Dabei ist
 
 *Q* die Erzeugerwärmeabgabe Dampf nach Gleichung (25).
 
-### Tabelle 41 --- Endenergiefaktoren für die Dampferzeugung
+**Tabelle 41 --- Endenergiefaktoren für die Dampferzeugung**
 
   --------------------------------------------------------------------------------------
   Art der Dampfbefeuchtung                                        Endenergiefaktor *f*
@@ -710,7 +710,7 @@ Dabei ist
 
 Das beschriebene Verfahren kann auch für die Bewertung des Nutzenergiebedarfs einer thermischen Kälteerzeugung (Dampf) verwendet werden.
 
-## 7.5 Mehrerzeugeranlagen
+**7.5Mehrerzeugeranlagen**
 
 Werden mehrere Kälteerzeuger in einem gemeinsamen Kälteversorgungsbereich parallel oder in Sequenz betrieben, dann berechnet sich die resultierende Jahreskälteleistungszahl wie folgt:
 
@@ -728,7 +728,7 @@ Dabei ist
 
 Die Werte  und sind abhängig von der Teillastregelung, der Folgeschaltung und der Nutzung. Sofern keine detaillierten Kennzahlen vorliegen, sind vereinfacht die Werte nach Tabelle 42 zu verwenden. Die angegebenen Werte gelten für Kältemaschinen gleicher Teillastregelart. Bei unterschiedlichen Bauarten können näherungsweise leistungsgewichtete Mittelwerte verwendet werden.
 
-### Tabelle 42 --- Standardwerte für Mehrerzeugeranlagen
+**Tabelle 42 --- Standardwerte für Mehrerzeugeranlagen**
 
 +---------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------+--------------------+----------+----------+------------+
 | Teillastregelart:                                                                                       |                                                                                            | 3, 4, C, F, I, IIa | 5, 6, 7a | 1, A, Bb | 2, 8, D, E |
@@ -754,7 +754,7 @@ Die Werte  und sind abhängig von der Teillastregelung, der Folgeschaltung un
 | cBei gleicher Leistung aller Einzelerzeuger gilt *f* = 1.                                               |                                                                                            |                    |          |          |            |
 +---------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------+--------------------+----------+----------+------------+
 
-## 7.6 Kältespeicherung
+**7.6Kältespeicherung**
 
 Kältespeicher beeinflussen die Effizienz der Kälteerzeuger in Abhängigkeit der Erzeuger und der Speicherbetriebsweise. Die in Tabelle 43 aufgeführten Speicherfaktoren berücksichtigen die folgenden Faktoren:
 
@@ -772,7 +772,7 @@ Dabei ist
 
  der Standardwert für Speicherfaktoren nach Tabelle 43.
 
-### Tabelle 43 --- Standardwerte für Speicherfaktoren bei Kälteerzeugung mit Kompressionskälteerzeugern
+**Tabelle 43 --- Standardwerte für Speicherfaktoren bei Kälteerzeugung mit Kompressionskälteerzeugern**
 
   ----------------------------------------------------------------------------------------------------------------------------------------------------
                                                              Speicherfaktor *f*                                                           
@@ -792,9 +792,9 @@ Dabei ist
   kein Speicher                                              1,00                                                                         
   ----------------------------------------------------------------------------------------------------------------------------------------------------
 
-# 8 Endenergien und Regenerativanteile
+**8Endenergien und Regenerativanteile**
 
-## 8.1 Endenergien für Kälteerzeuger
+**8.1Endenergien für Kälteerzeuger**
 
 **8.1.1Allgemeines**
 
@@ -816,7 +816,7 @@ Die Wärmeenergien *Q* werden aus dem Nutzenergiebedarf *Q* bei Temperaturen
 
 Primärenergetisch wird dieser Dampf wie Fernwärme behandelt (siehe DIN/TS 18599-1).
 
-## 8.2 Regenerative Energien bei der Kälteerzeugung
+**8.2Regenerative Energien bei der Kälteerzeugung**
 
 **8.2.1Allgemeines**
 
@@ -918,13 +918,13 @@ Dabei ist
 
  der  Endenergiebedarf für die Grundwassernutzungsanlage, in kWh (7.3.2).
 
-## 8.3 Dampferzeuger für Befeuchtung
+**8.3Dampferzeuger für Befeuchtung**
 
 Der Gesamtenergiebedarf für die Dampferzeugung *Q* berechnet sich aus der Summe der jeweiligen Einzelsysteme *Q*.
 
 Primärenergetisch wird die Fremddampferzeugung wie Fernwärme behandelt (siehe DIN/TS 18599-1).
 
-## 8.4 Hilfsenergien für Raumlufttechnik und Klimakälte (Strom)
+**8.4Hilfsenergien für Raumlufttechnik und Klimakälte (Strom)**
 
 **8.4.1Allgemeines**
 
@@ -948,7 +948,7 @@ Dabei ist
 
 wird im Kurzverfahren Dampf nicht berücksichtigt.
 
-## 8.5 Wärmeverschiebung
+**8.5Wärmeverschiebung**
 
 **8.5.1Grundlagen**
 
@@ -982,11 +982,11 @@ Wird die Abwärme aus der Rückkühlung einer Kältemaschine für die Gebäudebe
 
 ![Bild 11: Schematisches Schaltbild für Anwendung bei Raumkühlung innerhalb Bilanzrahmen](sources/images/media/image1.gif){width="3.5416666666666665in" height="2.408333333333333in"}
 
-### Bild 11 --- Schematisches Schaltbild für Anwendung bei Raumkühlung innerhalb Bilanzrahmen
+**Bild 11 --- Schematisches Schaltbild für Anwendung bei Raumkühlung innerhalb Bilanzrahmen**
 
 ![Bild 12: Schematisches Schaltbild für Anwendung bei Kühlung (z. B. Lebensmittel) außerhalb Bilanzrahmen](sources/images/media/image2.gif){width="3.566666666666667in" height="2.45in"}
 
-### Bild 12 --- Schematisches Schaltbild für Anwendung bei Kühlung (z. B. Lebensmittel) außerhalb Bilanzrahmen
+**Bild 12 --- Schematisches Schaltbild für Anwendung bei Kühlung (z. B. Lebensmittel) außerhalb Bilanzrahmen**
 
 **8.5.2.2Wärmebilanz**
 
@@ -1088,7 +1088,7 @@ BEISPIEL 2: Nutzungszeit 11 h von 7:00 bis 18:00 Uhr  Betriebszeit 13 h von 6
 
 ANMERKUNG 1: Erfolgt die Wärmenutzung für die Beheizung mehrerer Zonen mit unterschiedlichen Nutzungsprofilen, kann der Faktor *f* für die Gesamtdauer der täglichen Betriebsstunden für alle beheizten Zonen während der täglichen Betriebsstunden Kühlung in der gekühlten Zone j bestimmt werden.
 
-### Tabelle 44 --- ---Abwärmenutzung für Heizung --- Standardwerte für Faktor zeitliche Nutzbarkeit *f*
+**Tabelle 44 --- ---Abwärmenutzung für Heizung --- Standardwerte für Faktor zeitliche Nutzbarkeit *f***
 
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+---------------------------+-----------------+--------------------------+------------------+------------------+---------------------------------------------+
 | Faktor zeitliche Nutzbarkeit Heizung *f*                                                                                                                                                                                                                                                        |                   | Heizung                   |                 |                          |                  |                  |                                             |
@@ -1196,7 +1196,7 @@ BEISPIEL 4: Nutzungszeit 11 h von 7:00 bis 18:00 Uhr  Betriebszeit 13 h von 6
 
 ANMERKUNG 2: Erfolgt die Wärmenutzung für die Warmwasserbereitung mehrerer Zonen mit unterschiedlichen Nutzungsprofilen, kann der Faktor *f* für die Gesamtdauer der täglichen Nutzungszeiten für alle warmwasserversorgten Zonen während der täglichen Betriebsstunden Kühlung in der gekühlten Zone j bestimmt werden.
 
-### Tabelle 45 --- Abwärmenutzung für Warmwasserbereitung --- Standardwerte für Faktor zeitliche Nutzbarkeit *f*
+**Tabelle 45 --- Abwärmenutzung für Warmwasserbereitung --- Standardwerte für Faktor zeitliche Nutzbarkeit *f***
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+---------------------+-------------------+--------------------------+------------------+------------------+---------------------------------------------+
 | Faktor zeitliche Nutzbarkeit *f*                                                                                                                                                                                                                                                                          |                   | Warmwasserbereitung |                   |                          |                  |                  |                                             |
@@ -1462,15 +1462,15 @@ Wird mit einer Kältemaschine bzw. Wärmepumpe parallel geheizt und gekühlt, k�
 
 ![Bild 13: Schematisches Schaltbild für Anwendung eines 4-Leiter-Systems](sources/images/media/image3.gif){width="4.458333333333333in" height="3.025in"}
 
-### Bild 13 --- Schematisches Schaltbild für Anwendung eines 4-Leiter-Systems
+**Bild 13 --- Schematisches Schaltbild für Anwendung eines 4-Leiter-Systems**
 
 ![Bild 14: Schematisches Schaltbild für Anwendung eines VRF-Systems bei überwiegendem Heizbetrieb](sources/images/media/image4.gif){width="5.558333333333334in" height="3.5833333333333335in"}
 
-### Bild 14 --- Schematisches Schaltbild für Anwendung eines VRF-Systems bei überwiegendem Heizbetrieb
+**Bild 14 --- Schematisches Schaltbild für Anwendung eines VRF-Systems bei überwiegendem Heizbetrieb**
 
 ![Bild 15: Schematisches Schaltbild für Anwendung eines VRF-Systems bei überwiegendem Kühlbetrieb](sources/images/media/image5.gif){width="5.575in" height="3.5833333333333335in"}
 
-### Bild 15 --- Schematisches Schaltbild für Anwendung eines VRF-Systems bei überwiegendem Kühlbetrieb
+**Bild 15 --- Schematisches Schaltbild für Anwendung eines VRF-Systems bei überwiegendem Kühlbetrieb**
 
 **8.5.3.2Wärmebilanz**
 
@@ -1598,11 +1598,11 @@ Für VRF-Systeme gilt:
 
 Wird mit einer Kältemaschine bzw. Wärmepumpe parallel geheizt und gekühlt, wird die benötigte Hilfsenergie bereits komplett heizungs- und kühlungsseitig (z. B. bei VRF-System für elektrische Regelung mit Expansionsventil je Innengerät nach DIN/TS 18599-5:2025-10) berücksichtigt. Durch die Verteilung bei der Wärmeverschiebung entsteht kein zusätzlicher Hilfsenergiebedarf (*W* = 0).
 
-# 9 Kennwerte und Teilkennwerte
+**9Kennwerte und Teilkennwerte**
 
 Teilkennwerte für die Gewerke Außenluftaufbereitung und Kälteerzeugung nach Anhang G geben dem Anwender eine bessere Übersicht über die Zwischenergebnisse der Berechnung und helfen, mögliche Verbesserungspotenziale zu erkennen. Diese Werte können auch bei späteren energetischen Inspektionen als Vergleichswerte dienen.
 
-# Anhang A (normativ)Kennwerte für Kälteerzeugung
+**Anhang A (normativ)Kennwerte für Kälteerzeugung**
 
 **A.1Allgemeines**
 
@@ -4850,7 +4850,7 @@ Tabelle A.3 bis Tabelle A.36 zeigen die Teillastkennwerte für verschiedene Nut
                                                                                                                             WRG: Wärme und Feuchte   0,71               ---                       ---
   --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# Anhang B (normativ)Verfahren zur Ermittlung der Teillastfaktoren Kälteerzeugung
+**Anhang B (normativ)Verfahren zur Ermittlung der Teillastfaktoren Kälteerzeugung**
 
 **B.1Allgemeines**
 
@@ -5192,7 +5192,7 @@ Dabei ist
 
 Die Betriebszeit der Rückkühlung *t* kann bei energetischen Detailuntersuchungen von der Betriebszeit nach Gleichung (74) abweichen. Sie ist dann aus der Summe Teillastbedarfswerte *s* aller Teillaststufen *k* nach Gleichung (B.24) zu ermitteln:
 
-# Anhang C (normativ)Wärmequellen und Wärmesenken
+**Anhang C (normativ)Wärmequellen und Wärmesenken**
 
 **C.1Allgemeines**
 
@@ -5226,7 +5226,7 @@ Die Kaltwasserverteilung ist grundsätzlich kleiner Raumtemperatur.
 
 Kühlwasserverteilung der Kälteanlagen ist üblicherweise nicht im konditionierten Bereich.
 
-# Anhang D (normativ)Kurzverfahren zur Berechnung des elektrischen Energieaufwands der Kühl- und Kaltwasserverteilung
+**Anhang D (normativ)Kurzverfahren zur Berechnung des elektrischen Energieaufwands der Kühl- und Kaltwasserverteilung**
 
 **D.1Allgemeines**
 
@@ -5402,7 +5402,7 @@ Für Richtwerte für Nutzungszeiten siehe Tabelle D.2.
 
 Die Berechnung der monatlichen Werte erfolgt aus den jährlichen Energiewerten proportional den anteiligen Kühlenergiebedarfswerten in den jeweiligen Verteilkreisen.
 
-# Anhang E (informativ)Abschätzung der Wärmerückgewinnung
+**Anhang E (informativ)Abschätzung der Wärmerückgewinnung**
 
 **E.1Abschätzung der Wärmerückgewinnung für Bestandsanlagen**
 
@@ -5500,7 +5500,7 @@ Die Strömungsgeschwindigkeit ist aus dem Nennluftvolumenstrom und dem gemessene
 
 Die Bautiefe bezieht sich auf die Länge der Lamellen in Strömungsrichtung. Bei geteilter Ausführung des Wärmeübertragers ist die Summe zu ermitteln.
 
-# Anhang F (informativ)Außenluftvolumenstrom und spezifische Leistungsaufnahme der Ventilatoren bei Bestandsanlagen
+**Anhang F (informativ)Außenluftvolumenstrom und spezifische Leistungsaufnahme der Ventilatoren bei Bestandsanlagen**
 
 **F.1Bewertung des Energiebedarfs**
 
@@ -5526,7 +5526,7 @@ ANMERKUNG: Hinweise können z. B. VDMA 24186, AMEV Wartung 2006 und FGK Status-
 
 Liegen keine Daten in der Dokumentation vor, dann können die Angaben auf dem Typschild des Ventilators verwendet werden.
 
-# Anhang G (normativ)Teilkennwerte
+**Anhang G (normativ)Teilkennwerte**
 
 **G.1Allgemeines**
 
@@ -5600,7 +5600,7 @@ Dabei ist
 
  Kühlleistung im jeweiligen Verteilkreis in kW (siehe D.3).
 
-# Anhang H (informativ)Wärmeverschiebung --- Betriebsoptimierung für Kältemaschinen mit Abwärmenutzung
+**Anhang H (informativ)Wärmeverschiebung --- Betriebsoptimierung für Kältemaschinen mit Abwärmenutzung**
 
 **H.1Grundlagen**
 
@@ -5698,7 +5698,7 @@ Dabei ist
 
 *Q* Endenergiebedarf Kompressionskältemaschine mit Betriebsoptimierung im Monat i, in kWh/mth.
 
-# Literaturhinweise
+**Literaturhinweise**
 
 DIN/TS 18599-4, *Energetische Bewertung von Gebäuden --- Berechnung des Nutz-*, *End- und Primärenergiebedarfs für Heizung*, *Kühlung*, *Lüftung*, *Trinkwarmwasser und Beleuchtung --- Teil 4: Nutz- und Endenergiebedarf für Beleuchtung*
 

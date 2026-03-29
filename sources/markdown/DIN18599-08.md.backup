@@ -22,7 +22,7 @@ DIN-Normenausschuss Bauwesen (NABau) • DIN-Normenausschuss Heiz- und Raumluftt
 
 Alleinverkauf durch DIN Media GmbH, 10772 Berlin, kundenservice@dinmedia.de
 
-# Vorwort
+**Vorwort**
 
 Dieses Dokument wurde vom zuständigen Gemeinschaftsarbeitsausschuss NA 005-12-01 GA „Gemeinschaftsarbeitsausschuss NABau/NHRS: Energetische Bewertung von Gebäuden (SpA CEN/TC 371, CEN/TC 371/WG 1, ISO/TC 163/WG 3, ISO/TC 163/WG 4 und ISO/TC 163/SC 2/WG 15)" erarbeitet. Der Inhalt wurde vom DIN-Normenausschuss Bauwesen (NABau) als Hauptträger erarbeitet und wird vom DIN-Normenausschuss Heiz- und Raumlufttechnik sowie deren Sicherheit (NHRS) als Mitträger getragen.
 
@@ -72,7 +72,7 @@ Die Reihe DIN/TS 18599 ist geeignet, den langfristigen Energiebedarf für Geb�
 
 Aktuelle Informationen zu diesem Dokument können über die Internetseiten von DIN (www.din.de) durch eine Suche nach der Dokumentennummer aufgerufen werden.
 
-# Änderungen
+**Änderungen**
 
 Gegenüber DIN V 18599-8:2018-09 wurden folgende Änderungen vorgenommen:
 
@@ -88,7 +88,7 @@ e)Vorgaben zur Schätzung der Leitungslängen dezentraler Warmwassernetze korrig
 
 f)redaktionelle Anpassungen.
 
-# Frühere Ausgaben
+**Frühere Ausgaben**
 
 DIN V 18599-8: 2005-07, 2007-02, 2011-12, 2016-10, 2018-09
 
@@ -96,15 +96,15 @@ DIN V 18599-100: 2009-10
 
 DIN V 18599-8 Berichtigung 1: 2013-05
 
-# Einleitung
+**Einleitung**
 
 Die nach der Reihe DIN/TS 18599 durchgeführte Energiebilanz folgt einem integralen Ansatz, d. h., es erfolgt eine gemeinschaftliche Bewertung des Baukörpers, der Nutzung und der Anlagentechnik unter Berücksichtigung der gegenseitigen Wechselwirkungen. Zur Verbesserung der Übersichtlichkeit besteht die Reihe DIN/TS 18599 aus mehreren Teilen, die einzelne Themenschwerpunkte behandeln. Einen Überblick über die Inhalte der einzelnen Teile gibt Bild 1.
 
 ![Bild 1: Übersicht über die Teile von DIN/TS 18599](sources/images/media/image1.gif){width="6.3in" height="4.658333333333333in"}
 
-### Bild 1 --- Übersicht über die Teile von DIN/TS 18599
+**Bild 1 --- Übersicht über die Teile von DIN/TS 18599**
 
-# 1 Anwendungsbereich
+**1Anwendungsbereich**
 
 Die Reihe DIN/TS 18599 stellt ein Verfahren zur Durchführung der Gesamtenergiebilanz von Gebäuden bereit. Der aufgezeigte Algorithmus ist anwendbar für die energetische Bilanzierung von:
 
@@ -146,9 +146,9 @@ Bild 2 zeigt schematisch den inhaltlichen Umfang des vorliegenden Dokuments. Ei
 
 ![Bild 2: Inhalt und Umfang von DIN/TS 18599-8 (schematisch)](sources/images/media/image2.gif){width="6.3in" height="4.741666666666666in"}
 
-### Bild 2 --- Inhalt und Umfang von DIN/TS 18599-8 (schematisch)
+**Bild 2 --- Inhalt und Umfang von DIN/TS 18599-8 (schematisch)**
 
-# 2 Normative Verweisungen
+**2Normative Verweisungen**
 
 Die folgenden Dokumente werden im Text in solcher Weise in Bezug genommen, dass einige Teile davon oder ihr gesamter Inhalt Anforderungen des vorliegenden Dokuments darstellen. Bei datierten Verweisungen gilt nur die in Bezug genommene Ausgabe. Bei undatierten Verweisungen gilt die letzte Ausgabe des in Bezug genommenen Dokuments (einschließlich aller Änderungen).
 
@@ -200,9 +200,9 @@ VDI 4650 Blatt 2, *Kurzverfahren zur Berechnung der Jahresheizzahl und des Jahr
 
 DVGW W 551, *Trinkwassererwärmungs- und Trinkwasserleitungsanlagen --- Technische Maßnahmen zur Verminderung des Legionellenwachstums --- Planung, Errichtung, Betrieb und Sanierung von Trinkwasser-Installationen*
 
-# 3 Begriffe, Symbole, Einheiten und Indizes
+**3Begriffe, Symbole, Einheiten und Indizes**
 
-## 3.1 Begriffe
+**3.1Begriffe**
 
 Für die Anwendung dieses Dokuments gelten die Begriffe nach DIN/TS 18599-1 und die folgenden Begriffe.
 
@@ -212,7 +212,7 @@ DIN und DKE stellen terminologische Datenbanken für die Verwendung in der Normu
 
 --DKE-IEV: verfügbar unter https://www.dke.de/DKE-IEV
 
-### 3.1.1
+**3.1.1**
 
 **Aufwandszahl**
 
@@ -220,13 +220,13 @@ Faktor, welcher den Aufwand eines Prozesses gegenüber dessen Nutzen beschreibt
 
 Anmerkung 1 zum Begriff: Basis der Betrachtung sind Energiemengen, wobei die Aufwandszahl selbst einheitenlos ist (Aufwand bezogen auf Nutzen). Prozesse sind die Übergabe/Regelung, die Verteilung, die Speicherung, die Erzeugung von Energiemengen.
 
-### 3.1.2
+**3.1.2**
 
 **Bereitschaftsverlust**
 
 relativ zur Feuerungsleistung angegebene Wärmeleistung, die erforderlich ist, um den Wärmeerzeuger auf einer bestimmten Temperatur zu halten, wenn keine Heizleistung abgenommen wird
 
-### 3.1.3
+**3.1.3**
 
 **dezentrale Trinkwassererwärmungsanlage**
 
@@ -234,7 +234,7 @@ System, bei dem die Wärme zur Trinkwassererwärmung in einem Gerät erzeugt und
 
 Anmerkung 1 zum Begriff: Als dezentrale Trinkwassererwärmungsanlage gilt auch die Versorgung von zwei Räumen durch ein Gerät über eine gemeinsame Installationswand.
 
-### 3.1.4
+**3.1.4**
 
 **Endenergiebedarf**
 
@@ -242,25 +242,25 @@ berechnete Energiemenge, die der Anlagentechnik (Heizungsanlage) zur Verfügung 
 
 Anmerkung 1 zum Begriff: Diese Energiemenge bezieht den für den Betrieb der Anlagentechnik benötigten Hilfsenergieaufwand ein. Der Endenergiebedarf wird an der „Schnittstelle" Gebäudehülle übergeben und stellt somit die Energiemenge dar, die der Verbraucher für eine bestimmungsgemäße Nutzung unter normativen Randbedingungen benötigt. Der Endenergiebedarf wird vor diesem Hintergrund nach verwendeten Energieträgern angegeben.
 
-### 3.1.5
+**3.1.5**
 
 **Erzeugung**
 
 Prozessbereich der Anlagentechnik im Gebäude, in dem die Wärmemenge bereitgestellt wird, die für die Systeme benötigt wird
 
-### 3.1.6
+**3.1.6**
 
 **Feuerungsleistung**
 
 Leistung, die der Feuerung des Heizkessels mit dem Brennstoff zugeführt wird, wobei der Heizwert *H* zugrunde gelegt wird
 
-### 3.1.7
+**3.1.7**
 
 **Heizleistung**
 
 je Zeiteinheit an den Wärmeträger Wasser nutzbar abgegebene Wärmemenge
 
-### 3.1.8
+**3.1.8**
 
 **Hilfsenergieaufwand**
 
@@ -268,7 +268,7 @@ elektrische Energie, die von Trinkwarmwassersystemen zusätzlich für Hilfseinri
 
 Anmerkung 1 zum Begriff: Hilfseinrichtungen sind beispielsweise Pumpen, Ventilatoren, Stellantriebe, Steuer-/Regeleinrichtungen und elektronische Komponenten.
 
-### 3.1.9
+**3.1.9**
 
 **Konditionierung**
 
@@ -276,7 +276,7 @@ Ausbildung bestimmter Bedingungen in Räumen durch Heizung, Kühlung, Be- und En
 
 Anmerkung 1 zum Begriff: Die Konditionierung hat das Ziel, die Nutzungsanforderungen an Innentemperatur, Frischluft, Licht, Luftfeuchte und/oder Trinkwarmwasser zu erfüllen.
 
-### 3.1.10
+**3.1.10**
 
 **konditionierter Raum**
 
@@ -284,13 +284,13 @@ Raum und/oder Raumgruppe, die auf eine bestimmte Solltemperatur beheizt und/oder
 
 Anmerkung 1 zum Begriff: Zonen sind konditionierte Räume und weisen mindestens eine Art der Konditionierung auf. Räume ohne Konditionierung werden als „nicht konditionierte Räume" bezeichnet.
 
-### 3.1.11
+**3.1.11**
 
 **Lastfaktor**
 
 Verhältnis zwischen der Laufzeit des Verdichters und der Gesamteinschaltzeit des Erzeugers (Bereitschaft und Betrieb)
 
-### 3.1.12
+**3.1.12**
 
 **Leistungszahl**
 
@@ -298,7 +298,7 @@ Verhältnis zwischen der Laufzeit des Verdichters und der Gesamteinschaltzeit de
 
 Verhältnis der Heizungsleistung zur effektiven Eingangsleistung der Einheit
 
-### 3.1.13
+**3.1.13**
 
 **Nennleistung**
 
@@ -308,13 +308,13 @@ Anmerkung 1 zum Begriff: Bei Kesseln: die vom Hersteller für den Wärmeerzeuger
 
 Anmerkung 2 zum Begriff: Bei Pumpen: die elektrische Leistungsaufnahme bei Nennspannung unter bestimmungsgemäßen Betriebsbedingungen und maximaler Last.
 
-### 3.1.14
+**3.1.14**
 
 **Nutzenergiebedarf für Trinkwarmwasser**
 
 rechnerisch ermittelter Energiebedarf, der sich ergibt, wenn die Gebäudezone mit der im Nutzungsprofil festgelegten Menge an Trinkwarmwasser entsprechender Zulauftemperatur versorgt wird
 
-### 3.1.15
+**3.1.15**
 
 **Produktwert**
 
@@ -328,19 +328,19 @@ herstellerspezifischer Wert auf der Grundlage
 
 der für dieses Rechenverfahren geeignet ist
 
-### 3.1.16
+**3.1.16**
 
 **Speicherung**
 
 Prozessbereich der Anlagentechnik, in dem in einem Medium enthaltene Wärme gespeichert wird
 
-### 3.1.17
+**3.1.17**
 
 **Standardwert**
 
 Wert, der für den Berechnungsgang verwendet werden kann, sofern kein für das Rechenverfahren geeigneter Produktwert verfügbar ist
 
-### 3.1.18
+**3.1.18**
 
 **Übergabe**
 
@@ -350,7 +350,7 @@ Anmerkung 1 zum Begriff: Siehe auch DIN/TS 18599-10.
 
 Anmerkung 2 zum Begriff: Beispielsweise kann Nutzwärme an einen zu beheizenden Raum übergeben werden.
 
-### 3.1.19
+**3.1.19**
 
 **Verluste der Anlagentechnik**
 
@@ -358,7 +358,7 @@ Verluste (Wärmeabgabe, Kälteabgabe) in den technischen Prozessschritten zwisch
 
 Anmerkung 1 zum Begriff: Die Verluste der Anlagentechnik zählen, sofern sie im konditionierten Raum auftreten, zu den ungeregelten Wärmequellen oder Wärmesenken.
 
-### 3.1.20
+**3.1.20**
 
 **Verteilung**
 
@@ -408,7 +408,7 @@ Maße in Millimeter
 |                                                                                                                       | Konzentrische Rohrdämmung:  = 0,035 W/(m · K)                               |                                                                                                                      | Trittschalldämmung (oberhalb der Schicht mit der Rohrdämmung)  = 0,045 W/(m · K) |
 +-----------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
 
-# Literaturhinweise
+**Literaturhinweise**
 
 DIN 277-1, *Grundflächen und Rauminhalte im Bauwesen --- Teil 1: Hochbau*
 

@@ -22,7 +22,7 @@ DIN-Normenausschuss Bauwesen (NABau) • DIN-Normenausschuss Heiz- und Raumluftt
 
 Alleinverkauf durch DIN Media GmbH, 10772 Berlin
 
-# Vorwort
+**Vorwort**
 
 Dieses Dokument wurde vom Gemeinschaftsarbeitsausschuss NA 005-12-01 GA „Gemeinschaftsarbeitsausschuss NABau/FNL/NHRS: Energetische Bewertung von Gebäuden (SpA CEN/TC 371, CEN/TC 371/WG 1, CEN/TC 371/WG 2, CEN/TC 371/WG 3, CEN/TC 371/WG 4, CEN/TC 371/WG 5, ISO/TC 163/WG 4 und ISO/TC 163/SC 2/WG 15)" erarbeitet. Der Inhalt wurde vom DIN-Normenausschuss Bauwesen (NABau) als Hauptträger erarbeitet und wird vom DIN-Normenausschuss Heiz- und Raumlufttechnik sowie deren Sicherheit (NHRS) als Mitträger getragen.
 
@@ -72,7 +72,7 @@ Die Reihe DIN/TS 18599 ist dazu geeignet, den langfristigen Energiebedarf für
 
 Aktuelle Informationen zu diesem Dokument können über die Internetseiten von DIN (www.din.de) durch eine Suche nach der Dokumentennummer aufgerufen werden.
 
-# Änderungen
+**Änderungen**
 
 Gegenüber DIN V 18599-3:2018-09 wurden folgende Änderungen vorgenommen:
 
@@ -90,21 +90,21 @@ f)Überarbeitungen in Abschnitt 6;
 
 g)Änderungen in Unterabschnitt 7.5.
 
-# Frühere Ausgaben
+**Frühere Ausgaben**
 
 DIN V 18599-3: 2005-07, 2007-02, 2011-12, 2016-10, 2018-09
 
 DIN V 18599-100: 2009-10
 
-# Einleitung
+**Einleitung**
 
 Die nach der Reihe DIN/TS 18599 durchgeführte Energiebilanz folgt einem integralen Ansatz, d. h., es erfolgt eine gemeinschaftliche Bewertung des Baukörpers, der Nutzung und der Anlagentechnik unter Berücksichtigung der gegenseitigen Wechselwirkungen. Zur Verbesserung der Übersichtlichkeit besteht die Reihe DIN/TS 18599 aus mehreren Teilen, die einzelne Themenschwerpunkte behandeln. Einen Überblick über die Inhalte der einzelnen Teile gibt Bild 1.
 
 ![Bild 1: Übersicht über die Teile der DIN/TS 18599](sources/images/media/image1.gif){width="6.3in" height="4.658333333333333in"}
 
-### Bild 1 --- Übersicht über die Teile der DIN/TS 18599
+**Bild 1 --- Übersicht über die Teile der DIN/TS 18599**
 
-# 1 Anwendungsbereich
+**1Anwendungsbereich**
 
 Die Reihe DIN/TS 18599 stellt ein Verfahren zur Durchführung der Gesamtenergiebilanz von Gebäuden bereit. Der aufgezeigte Algorithmus ist anwendbar für die energetische Bilanzierung von:
 
@@ -140,9 +140,9 @@ Bild 2 zeigt schematisch den inhaltlichen Umfang des vorliegenden Dokuments. Ei
 
 ![Bild 2: Inhalt und Umfang von DIN/TS 18599-3](sources/images/media/image2.gif){width="5.975in" height="4.5in"}
 
-### Bild 2 --- Inhalt und Umfang von DIN/TS 18599-3
+**Bild 2 --- Inhalt und Umfang von DIN/TS 18599-3**
 
-# 2 Normative Verweisungen
+**2Normative Verweisungen**
 
 Die folgenden Dokumente werden im Text in solcher Weise in Bezug genommen, dass einige Teile davon oder ihr gesamter Inhalt Anforderungen des vorliegenden Dokuments darstellen. Bei datierten Verweisungen gilt nur die in Bezug genommene Ausgabe. Bei undatierten Verweisungen gilt die letzte Ausgabe des in Bezug genommenen Dokuments (einschließlich aller Änderungen).
 
@@ -164,9 +164,9 @@ DIN EN ISO 9288, *Wärmeschutz --- Wärmeübertragung durch Strahlung --- Physi
 
 DIN EN ISO 52016-1, *Energetische Bewertung von Gebäuden --- Energiebedarf für Heizung und Kühlung, Innentemperaturen sowie fühlbare und latente Heizlasten --- Teil 1: Berechnungsverfahren*
 
-# 3 Begriffe, Symbole und Einheiten
+**3Begriffe, Symbole und Einheiten**
 
-## 3.1 Begriffe
+**3.1Begriffe**
 
 Für die Anwendung dieses Dokuments gelten die Begriffe nach DIN EN ISO 52016-1, DIN EN ISO 6946, DIN EN ISO 7345, DIN EN ISO 9288 und die folgenden Begriffe.
 
@@ -176,7 +176,7 @@ DIN und DKE stellen terminologische Datenbanken für die Verwendung in der Normu
 
 --DKE-IEV: verfügbar unter https://www.dke.de/DKE-IEV
 
-### 3.1.1
+**3.1.1**
 
 **Zone**
 
@@ -186,7 +186,7 @@ Anmerkung 1 zum Begriff: Eine Zone fasst den Grundflächenanteil bzw. Bereich ei
 
 Anmerkung 2 zum Begriff: Die Nutzungsrandbedingungen sind in DIN/TS 18599-10 zusammengestellt.
 
-### 3.1.2
+**3.1.2**
 
 **Nutzwärmebedarf**
 
@@ -196,7 +196,7 @@ rechnerisch ermittelter Wärmebedarf, der zur Aufrechterhaltung der festgelegten
 
 Anmerkung 1 zum Begriff: Bei Gebäudezonen mit mechanischer Lüftung ist der Wärmebedarf zur Vorerwärmung der Zuluft nicht enthalten. Der Kälte- oder Wärmeeintrag der mechanischen Lüftung ist für die Grundluftmenge in der Bilanzierung mit Zulufttemperatur berücksichtigt.
 
-### 3.1.3
+**3.1.3**
 
 **Nutzkältebedarf**
 
@@ -206,7 +206,7 @@ rechnerisch ermittelter Kühlbedarf, der zur Aufrechterhaltung der festgelegten 
 
 Anmerkung 1 zum Begriff: Bei Gebäudezonen mit mechanischer Lüftung ist der Kältebedarf zur Vorkühlung der Zuluft nicht enthalten. Der Kälteeintrag der mechanischen Lüftung ist für die Grundluftmenge in der Bilanzierung mit Zulufttemperatur berücksichtigt.
 
-### 3.1.4
+**3.1.4**
 
 **Wärmesenke**
 
@@ -214,7 +214,7 @@ Wärmemenge, die der Gebäudezone entzogen wird
 
 Anmerkung 1 zum Begriff: Nicht einbezogen ist die geregelte Abfuhr von Wärme über das Kühlsystem, d. h. der Kühlbedarf.
 
-### 3.1.5
+**3.1.5**
 
 **Wärmequelle**
 
@@ -222,19 +222,19 @@ Wärmemenge mit Temperaturen über der Innentemperatur, die der Gebäudezone zug
 
 Anmerkung 1 zum Begriff: Nicht einbezogen sind die Wärmeeinträge, die geregelt über die Anlage (Heizung, Lüftung) zugeführt werden, um die Innentemperatur aufrechtzuerhalten.
 
-### 3.1.6
+**3.1.6**
 
 **Endenergiebedarf für die Luftförderung**
 
 rechnerischer Elektroenergiebedarf des Systems Ventilator --- Kraftübertragungsvorrichtung --- Motor, der zum Transport eines Luftvolumenstromes innerhalb des Berechnungszeitraumes erforderlich ist
 
-### 3.1.7
+**3.1.7**
 
 **Nutzenergiebedarf der thermischen Luftaufbereitung**
 
 rechnerischer Energiebedarf in Form von Wärme, Kälte und Wärme zur Dampferzeugung, der für das Erwärmen, Kühlen, Befeuchten und Entfeuchten von Luft notwendig ist, um eine thermodynamische Zustandsänderung vom Außenluftzustand zu einem vorgegebenen Zuluftzustand unter Berücksichtigung der Komponentenreihung, der grundsätzlichen Betriebsführung und der Energierückgewinnung herbeizuführen
 
-### 3.1.8
+**3.1.8**
 
 **raumlufttechnische Anlage**
 
@@ -242,43 +242,43 @@ RLT
 
 lufttechnische Anlage mit maschineller Luftförderung zur Erfüllung einer raumlufttechnischen Aufgabe
 
-### 3.1.9
+**3.1.9**
 
 **Komponente**
 
 Apparat zur Energie- und/oder Stoffübertragung an die Luft innerhalb einer raumlufttechnischen Anlage
 
-### 3.1.10
+**3.1.10**
 
 **Außenluftzustand**
 
 thermodynamischer Zustand feuchter Luft in der Außenumgebung einer RLT-Anlage
 
-### 3.1.11
+**3.1.11**
 
 **Abluftzustand**
 
 thermodynamischer Zustand von durch eine RLT-Anlage geförderter Luft bei Austritt aus dem Versorgungsbereich eines Gebäudes
 
-### 3.1.12
+**3.1.12**
 
 **Zuluftzustand**
 
 thermodynamischer Zustand von durch eine RLT-Anlage geförderter feuchter Luft bei Eintritt in den Versorgungsbereich eines Gebäudes
 
-### 3.1.13
+**3.1.13**
 
 **monatlicher mittlerer Zuluftvolumenstrom**
 
 Luftvolumenstrom, der von einer RLT-Anlage als monatlicher Mittelwert während der Anlagenbetriebszeit gefördert und thermodynamisch behandelt wird
 
-### 3.1.14
+**3.1.14**
 
 **monatlicher Bilanz-Zuluftvolumenstrom**
 
 mittlerer Luftvolumenstrom während der monatlichen Betriebszeit der RLT-Anlage, der einer Gebäudezone unabhängig von den sensiblen Heiz- und Kühllasten zugeführt wird
 
-### 3.1.15
+**3.1.15**
 
 **Temperaturänderungsgrad der Komponente Wärmerückgewinner**
 
@@ -286,7 +286,7 @@ Verhältnis der Lufttemperaturen eines Wärmerückgewinnungssystems für den Bet
 
 Anmerkung 1 zum Begriff: Die Ermittlung des Verhältnisses der Lufttemperaturen eines Wärmerückgewinnungssystems für den Betriebsfall ohne Kondensation mit Bezug auf die Zuluftseite erfolgt nach DIN EN 308.
 
-### 3.1.16
+**3.1.16**
 
 **Feuchteänderungsgrad der Komponente Wärmerückgewinner**
 
@@ -294,13 +294,13 @@ Verhältnis der absoluten Luftfeuchten eines Wärmerückgewinnungssystems mit Be
 
 Anmerkung 1 zum Begriff: Die Ermittlung der absoluten Luftfeuchten eines Wärmerückgewinnungssystems mit Bezug auf die Zuluftseite erfolgt nach DIN EN 308.
 
-### 3.1.17
+**3.1.17**
 
 **Wärmerückgewinnungsgrad**
 
 Oberbegriff für den Temperaturänderungsgrad und/oder den Feuchteänderungsgrad der Komponente Wärmerückgewinner mit Bezug auf die Zuluftseite
 
-### 3.1.18
+**3.1.18**
 
 **Produktwert**
 
@@ -314,17 +314,17 @@ herstellerspezifischer Wert auf der Grundlage
 
 der für dieses Rechenverfahren geeignet ist
 
-### 3.1.19
+**3.1.19**
 
 **Standardwert**
 
 Wert, der für den Berechnungsgang verwendet werden kann, sofern kein für das Rechenverfahren geeigneter Produktwert verfügbar ist
 
-## 3.2 Symbole, Einheiten und Indizes
+**3.2Symbole, Einheiten und Indizes**
 
 Für die Anwendung dieses Dokumentes gelten die Symbole und Einheiten nach Tabelle 1, für Indizes nach Tabelle 2.
 
-### Tabelle 1 --- Symbole und Einheiten
+**Tabelle 1 --- Symbole und Einheiten**
 
   --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   Symbol   Bedeutung                                                                                                                                                                                                                                                                                                               Übliche Einheit
@@ -540,7 +540,7 @@ Für die Anwendung dieses Dokumentes gelten die Symbole und Einheiten nach Tabe
            Wärmeverhältnis einer sorptionsgestützten RLT-Anlage                                                                                                   heat ratio of a sorption-based air conditioning system                                                                                                           ---
   --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-### Tabelle 2 --- Indizes
+**Tabelle 2 --- Indizes**
 
   ---------------------------------------------------------------------------------------------------------------------------------------------
   Index   Bedeutung                                                       
@@ -632,9 +632,9 @@ BNB Bewertungssystem Nachhaltiges Bauen
 
 QS Qualitätssicherung
 
-# 4 Verknüpfung der Teile der Reihe DIN/TS 18599
+**4Verknüpfung der Teile der Reihe DIN/TS 18599**
 
-## 4.1 Allgemeines
+**4.1Allgemeines**
 
 Die folgenden Abschnitte (4.2 und 4.3)
 
@@ -644,11 +644,11 @@ Die folgenden Abschnitte (4.2 und 4.3)
 
 In 4.4 wird kurz erläutert, wie für verschiedene Anlagensysteme die Ausgangsgrößen dieses Dokuments zu verwenden sind.
 
-## 4.2 Eingangsgrößen aus anderen Teilen der Reihe DIN/TS 18599
+**4.2Eingangsgrößen aus anderen Teilen der Reihe DIN/TS 18599**
 
 Tabelle 3 enthält die Eingangsgrößen aus anderen Teilen der Reihe DIN/TS 18599.
 
-### Tabelle 3 --- Eingangsgrößen aus anderen Teilen der Reihe DIN/TS 18599
+**Tabelle 3 --- Eingangsgrößen aus anderen Teilen der Reihe DIN/TS 18599**
 
   -------------------------------------------------------------------------------------------
   Bedeutung                                                        Symbol   Quelle
@@ -670,11 +670,11 @@ Tabelle 3 enthält die Eingangsgrößen aus anderen Teilen der Reihe DIN/TS 18
   Anzahl der Tage des Monats                                       *d*      DIN/TS 18599-10
   -------------------------------------------------------------------------------------------
 
-## 4.3 Ausgangsgrößen für andere Teile der Reihe DIN/TS 18599
+**4.3Ausgangsgrößen für andere Teile der Reihe DIN/TS 18599**
 
 Für Ausgangsgrößen für andere Teile der Reihe DIN/TS 18599 siehe Tabelle 4. Der Index „mth" wird in DIN/TS 18599-3 abweichend zu anderen Normenteilen ergänzend verwendet, um den Bezug zur monatlichen Bilanzierung zu verdeutlichen.
 
-### Tabelle 4 --- Ausgangsgrößen für andere Teile der Reihe DIN/TS 18599
+**Tabelle 4 --- Ausgangsgrößen für andere Teile der Reihe DIN/TS 18599**
 
   --------------------------------------------------------------------------------------------------------------------------------------------------------------------
   Bedeutung                                                                                                                  Symbol   Verwendung in
@@ -708,7 +708,7 @@ Für Ausgangsgrößen für andere Teile der Reihe DIN/TS 18599 siehe Tabelle 
   Zulufttemperatur-Sollwert für den Auslegungsfall Winter                                                                             DIN/TS 18599-2
   --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-## 4.4 Berechnungsverfahren
+**4.4Berechnungsverfahren**
 
 **4.4.1Allgemeines**
 
@@ -784,9 +784,9 @@ a)eine ungünstigere Anlagenkombination nach Abschnitt 7 zu wählen,
 
 b)die Nutzenergiebedarfswerte für die thermische Luftaufbereitung im Stundenschrittverfahren direkt zu berechnen. Die Verwendung von in Abschnitt 7 aufgeführten Umrechnungs- und Korrekturfaktoren ist nicht zulässig. Das Stundenschrittverfahren muss den Berechnungsgrundlagen und Randbedingungen nach Anhang C folgen. Die Ergebnisse sind gesondert zu kennzeichnen. Die Grundlagen und Randbedingungen der Modellbildung sind gesondert zu dokumentieren.
 
-# 5 Zuordnung von Bilanzgrößen
+**5Zuordnung von Bilanzgrößen**
 
-## 5.1 Allgemeines
+**5.1Allgemeines**
 
 Für die energetische Gebäudebilanzierung müssen vorab festgelegt sein:
 
@@ -802,7 +802,7 @@ Der Anlagenbetrieb kann auch außerhalb der Nutzungstage der Gebäudezone, z. B.
 
 Für die Berechnung des Nutzenergiebedarfs zur Erwärmung, Kühlung, Be- und Entfeuchtung der Luft muss der mittlere monatliche Zuluftvolumenstrom  bekannt sein.
 
-## 5.2 Zuluftvolumenstrom von Anlagen mit konstantem Volumenstrom
+**5.2Zuluftvolumenstrom von Anlagen mit konstantem Volumenstrom**
 
 Die Bestimmung der Volumenströme muss nach den Anforderungen an die Raumluftqualität und nicht nach den thermischen Lasten erfolgen.
 
@@ -818,7 +818,7 @@ Dabei ist
 
  der Auslegungsvolumenstrom der Anlage, in m/h.
 
-## 5.3 Zuluftvolumenstrom von Anlagen mit zeit- oder nutzungsabhängiger Steuerung/Regelung des Volumenstroms
+**5.3Zuluftvolumenstrom von Anlagen mit zeit- oder nutzungsabhängiger Steuerung/Regelung des Volumenstroms**
 
 Beispiele für die Steuerung nach tageszeitlichen bzw. nutzungsabhängigen Ereignissen, die regelmäßig über den Berechnungszeitraum verteilt sind, sind:
 
@@ -842,7 +842,7 @@ d die monatliche Betriebstagezahl der Anlage, in d;
 
 *j* die Laufvariable zur Kennzeichnung des Teillastfalles.
 
-## 5.4 Zuluftvolumenstrom von Anlagen mit konstantem Volumenstrom und vollständiger Deckung der Kühllast
+**5.4Zuluftvolumenstrom von Anlagen mit konstantem Volumenstrom und vollständiger Deckung der Kühllast**
 
 Bei Konstant-Volumenstromanlagen, die vollständig die Kühlung einer Gebäudezone übernehmen, kann der erforderliche Bilanzvolumenstrom aus der abzudeckenden maximalen Kühlleistung der Gebäudezone (siehe auch DIN/TS 18599-2) ermittelt werden:
 
@@ -860,7 +860,7 @@ Dabei ist
 
 Dabei kann *c*  = 0,34 Wh/(m · K) gesetzt werden.
 
-## 5.5 Zuluftvolumenstrom von Anlagen mit kühllastabhängiger Regelung des Volumenstroms
+**5.5Zuluftvolumenstrom von Anlagen mit kühllastabhängiger Regelung des Volumenstroms**
 
 Erfolgt die Regelung der Volumenströme nach den Kühllasten des Raumes bzw. der Gebäudezone, unterliegt die Verteilung der Teillastvolumenströme nicht nur nutzungs-, sondern auch witterungsabhängigen Gesetzmäßigkeiten.
 
@@ -918,7 +918,7 @@ Für die Ermittlung der maximalen Heizleistung einer Gebäudezone nach DIN/TS 1
 
 Liegen im Versorgungsbereich der betrachten RLT-Anlage mehrere Zonen, die nach DIN/TS 18599-2 separat bilanziert werden, sind die in 4.4.2 aufgeführten Berechnungsschritte für jede Zone getrennt vorzunehmen. In einem zweiten Schritt sind die Zonenergebnisse aufzuaddieren.
 
-## 5.6 Zuluftvolumenstrom bei bedarfsabhängiger Lüftung
+**5.6Zuluftvolumenstrom bei bedarfsabhängiger Lüftung**
 
 Bei Vorliegen einer bedarfsabhängigen Luftvolumenstromregelung nach DIN/TS 18599-7:2025-10, 5.8.1 gilt:
 
@@ -930,7 +930,7 @@ In diesem Fall reagiert die Volumenstromregelung auf die Präsenz und/oder die R
 
 Bei der Bestimmung des Auslegungsvolumenstroms  bleibt der Einfluss der bedarfsabhängigen Luftvolumenstromregelung unberücksichtigt.
 
-## 5.7 Mittlere monatliche Zulufttemperaturen
+**5.7Mittlere monatliche Zulufttemperaturen**
 
 Die monatlichen Zulufttemperaturen sind für die energetische Bilanzierung des Gebäudes nach DIN/TS 18599-2 erforderliche Eingangsgrößen.
 
@@ -938,7 +938,7 @@ Bei raumlufttechnischen Anlagen mit Heiz- und Kühlfunktion entsprechen die mitt
 
 Bei Anlagen ohne Kühlfunktion kann der Zulufttemperatur-Sollwert im Sommer nicht konstant gehalten werden. Die mittlere monatliche Zulufttemperatur wird in diesem Fall durch die Außenlufttemperatur, die Wärmeabgabe des Ventilators und das Wärmerückgewinnungssystem beeinflusst. Im Falle höherer Außenlufttemperaturen wird die Leistung von Wärmerückgewinner und Lufterhitzer gedrosselt. Die mittlere monatliche Zulufttemperatur ergibt sich nach Tabelle 5.
 
-### Tabelle 5 --- Mittlere monatliche Zulufttemperatur für Anlagen ohne Kühlfunktion
+**Tabelle 5 --- Mittlere monatliche Zulufttemperatur für Anlagen ohne Kühlfunktion**
 
   ---------------------------------------------------------------------------------------------------------------------------------------------------------------
   Betriebszeit   Zulufttemperatur-Sollwert   Mittlere monatliche Zulufttemperatur                                                                          
@@ -970,7 +970,7 @@ Bei Anlagen ohne Kühlfunktion kann der Zulufttemperatur-Sollwert im Sommer nich
 
 Für Anlagen ohne Nachheiz- und Kühlfunktion hängt die Zulufttemperatur von der Wärmerückgewinnung ab. Unter der Voraussetzung, dass in diesem Fall der Wärmerückgewinner ungeregelt ist, ergeben sich mittlere monatliche Zulufttemperaturen nach Tabelle 6.
 
-### Tabelle 6 --- Mittlere monatliche Zulufttemperatur für Anlagen ohne Nachheiz- und Kühlfunktion
+**Tabelle 6 --- Mittlere monatliche Zulufttemperatur für Anlagen ohne Nachheiz- und Kühlfunktion**
 
   ---------------------------------------------------------------------------------------------------------------------------------------------------
   Betriebs-zeit   Rückwärmzahl   Mittlere monatliche Zulufttemperatur                                                                          
@@ -1004,9 +1004,9 @@ Die Wärmeabgabe des Zuluftventilators an den Luftvolumenstrom ist in der Zuluft
 
 Für tägliche Anlagenbetriebszeiten zwischen 12 h und 24 h ergibt sich die mittlere monatliche Zulufttemperatur aus der linearen Interpolation zwischen den Tabellenwerten nach Tabelle 5 und Tabelle 6. Für tägliche Betriebszeiten \< 12 h sind die Werte für *t*= 12 h zu verwenden.
 
-# 6 Berechnung des Endenergiebedarfs für die Luftförderung
+**6Berechnung des Endenergiebedarfs für die Luftförderung**
 
-## 6.1 Anlagen mit konstantem Volumenstrom
+**6.1Anlagen mit konstantem Volumenstrom**
 
 Die elektrische Leistung eines Ventilators errechnet sich grundsätzlich nach Gleichung (11) und Gleichung (12).
 
@@ -1050,7 +1050,7 @@ Dabei ist
 
 *f* Faktor für die Berücksichtigung von Qualitätssicherungsverfahren nach 7.5.
 
-## 6.2 Anlagen mit variablem Volumenstrom
+**6.2Anlagen mit variablem Volumenstrom**
 
 **6.2.1Grundlagen der Berechnung**
 
@@ -1066,7 +1066,7 @@ Die Lage der Teilabschnitte wird durch die Position des Kanaldruckfühlers besti
 
 ![Bild 3: Teilabschnitte mit konstanten und veränderlichen Widerständen eines Zuluftkanalnetzes](sources/images/media/image3.gif){width="3.7583333333333333in" height="3.0833333333333335in"}
 
-### Bild 3 --- Teilabschnitte mit konstanten und veränderlichen Widerständen eines Zuluftkanalnetzes
+**Bild 3 --- Teilabschnitte mit konstanten und veränderlichen Widerständen eines Zuluftkanalnetzes**
 
 Als Planungsgrößen müssen bekannt sein:
 
@@ -1182,15 +1182,15 @@ Dabei ist
 
 *f* Faktor für die Berücksichtigung von Qualitätssicherungsverfahren nach 7.5.
 
-# 7 Berechnung des Nutzenergiebedarfs für das Heizen, Kühlen, Befeuchten und Entfeuchten
+**7Berechnung des Nutzenergiebedarfs für das Heizen, Kühlen, Befeuchten und Entfeuchten**
 
-## 7.1 Allgemeines
+**7.1Allgemeines**
 
 Die Berechnung des Nutzenergiebedarfs erfolgt durch die Umrechnung und Denormierung spezifischer Kennwerte des monatlichen Nutzenergiebedarfs (Monatsverfahren).
 
 Für die Berechnung müssen vorab die Bilanzgrößen nach Abschnitt 5 festgelegt sein.
 
-## 7.2 Auswahl eines Anlagentyps
+**7.2Auswahl eines Anlagentyps**
 
 Raumlufttechnische Anlagen nach diesem Dokument werden für die Berechnung nach folgenden energetischen Klassifizierungsmerkmalen unterschieden.
 
@@ -1256,7 +1256,7 @@ Indizes:
                                                    st    Dampf
   ------------------------------------------------------------------------
 
-### Tabelle 7 --- Variantennummern der RLT-Anlagen in Bezug auf die Energiekennwerte nach Anhang A
+**Tabelle 7 --- Variantennummern der RLT-Anlagen in Bezug auf die Energiekennwerte nach Anhang A**
 
   ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   Varianten-Nr.   Feuchteanforderung                                  Befeuchter-Typ                                                        WRG-Typ                                   Wärmerückgewinnungsgrad                 
@@ -1382,7 +1382,7 @@ Indizes:
   59                                                  x                                                                   x                                       x                                                           x
   ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-## 7.3 Umrechnung der Energiebedarfskennwerte für frei wählbare Betriebszeiten und Zulufttemperaturen
+**7.3Umrechnung der Energiebedarfskennwerte für frei wählbare Betriebszeiten und Zulufttemperaturen**
 
 Die Energiekennwerte in Tabelle A.1 bis Tabelle A.13 beziehen sich auf eine konstante Lufttemperatur am Austritt des Lüftungszentralgerätes von 18 °C. Die Berücksichtigung der Wärmefreisetzung aus der Luftförderung ist in den Energiekennwerten nach Tabelle A.1 bis Tabelle A.13 pauschal enthalten. Abweichende Ventilatorleistungen werden durch eine korrigierte Zulufttemperatur  bewertet. Innerhalb des festgelegten Bereiches:
 
@@ -1478,7 +1478,7 @@ Die Korrekturfaktoren *f* nach Bild 4 sind für eine symmetrische Lage der t
 
 ![Bild 4: Korrekturfaktoren für die tägliche Anlagenbetriebszeit](sources/images/media/image4.gif){width="6.241666666666666in" height="4.058333333333334in"}
 
-### Bild 4 --- Korrekturfaktoren für die tägliche Anlagenbetriebszeit
+**Bild 4 --- Korrekturfaktoren für die tägliche Anlagenbetriebszeit**
 
 Die Korrekturfaktoren *f* können mit Gleichung (38) bis Gleichung (41) im Intervall 8 h ≤ *t* ≤ 24 h berechnet werden:
 
@@ -1488,7 +1488,7 @@ bei Feuchteanforderungen mit Toleranzbereich:
 
 mit folgendem Definitionsbereich: 8 h ≤ *t* ≤ 24 h.
 
-## 7.4 Umrechnung der Energiebedarfskennwerte für frei wählbare Wärmerückgewinnungsgrade
+**7.4Umrechnung der Energiebedarfskennwerte für frei wählbare Wärmerückgewinnungsgrade**
 
 Wird der Wärmerückgewinnungsgrad  zwischen den Stützstellen nach 7.2 von 0 %, 45 %, 60 %, 75 % und 85 % frei gewählt, ist eine Interpolation zulässig.
 
@@ -1498,7 +1498,7 @@ Anschließend sind die Energiekennwerte *q* für Wärme, Kälte und Dampf zwis
 
 Höhere Wärmerückgewinnungsgrade als 85 % werden wie 85 % bewertet.
 
-## 7.5 Denormierung der Energiekennwerte
+**7.5Denormierung der Energiekennwerte**
 
 Die Energiekennwerte wurden im Basisfall für den Zuluftvolumenstrom von 1 m/h ermittelt. Die Denormierung zum Nutzenergiebedarf erfolgt mit dem Zuluftvolumenstrom nach Gleichung (43) bis Gleichung (45).
 
@@ -1520,7 +1520,7 @@ Dabei ist
 
 *f* = 0,9 bei Anwendung eines anerkannten Qualitätssicherungsverfahrens für Planung, Installation und Betrieb. Beispiele: UBA-Qualitätssiegel Raumlufttechnik als dreistufiges Verfahren oder vollständige systematische/geordnete Inbetriebnahme nach DGNB/BNB in Verbindung mit QS in Planung und Installation.
 
-## 7.6 Klimaprozesse mit alternativer Kälteerzeugung
+**7.6Klimaprozesse mit alternativer Kälteerzeugung**
 
 **7.6.1Allgemeines**
 
@@ -1566,7 +1566,7 @@ Beim sorptionsgestützten Prozess kann den Nutzenergiebedarf Kälte durch die Ko
 
 Bei hohen Kühlleistungen kann eine (reduzierte) trockene Kühlung erforderlich sein. Tabelle 8 zeigt die Anlagenkombinationen, bei denen ein Nachkühler zum Erreichen der Zuluft-Sollzustände notwendig ist.
 
-### Tabelle 8 --- Varianten der sorptionsgestützten Klimatisierung mit Nachkühlung (x)
+**Tabelle 8 --- Varianten der sorptionsgestützten Klimatisierung mit Nachkühlung (x)**
 
   ---------------------------------------------------------------------------------------------------
   Feuchteanforderung                          Zuluft-Solltemperatur                           
@@ -1614,7 +1614,7 @@ Dabei ist
 
 Nutzenergiebedarf für die Dampfbefeuchtung *Q* kann nicht entstehen und wird Null gesetzt.
 
-### Tabelle 9 --- Wärmeverhältnis  einer sorptionsgestützten Klimaanlage
+**Tabelle 9 --- Wärmeverhältnis  einer sorptionsgestützten Klimaanlage**
 
   ------------------------------------------------------------------------------------------------------
   Feuchteanforderung   Zulufttemperatur der RLT-Anlage am Eintritt einer Gebäudezone   Wärmeverhältnis
@@ -1644,19 +1644,19 @@ d)Temperaturänderungsgrad bzw. Wärmerückgewinnungsgrad:  bzw*. * = 75 %.
 
 Das Verfahren kann als Jahres- oder Monatsverfahren angewendet werden.
 
-# 8 Maximale Leistungen
+**8Maximale Leistungen**
 
-## 8.1 Allgemeines
+**8.1Allgemeines**
 
 Die Berechnung der maximalen Leistung dient zur Bestimmung der Anlagenauslastung bei der anlagentechnischen Bewertung in DIN/TS 18599-7. Die fachtechnische Anlagenplanung und -bemessung kann dadurch nicht beeinflusst oder ersetzt werden.
 
 Dimensionierungszuschläge aus Gründen der Reservevorhaltung oder Redundanz bleiben unberücksichtigt.
 
-## 8.2 Dimensionierungsgrößen für den Außenluft- und Abluftzustand
+**8.2Dimensionierungsgrößen für den Außenluft- und Abluftzustand**
 
 Die extremen Außenluftzustände für die überschlägige Dimensionierung sind Tabelle 10 zu entnehmen. Tabelle 11 führt die Abluftzustände auf, die dem Kennwertverfahren zugrunde lagen.
 
-### Tabelle 10 --- Bemessungsgrößen für den Außenluftzustand
+**Tabelle 10 --- Bemessungsgrößen für den Außenluftzustand**
 
   ------------------------------------------------------------------------
   Jahreszeit       Symbol       Einheit     Bemessungsgröße
@@ -1674,7 +1674,7 @@ Die extremen Außenluftzustände für die überschlägige Dimensionierung sind 
                    *h*          kJ/kg       63,0
   ------------------------------------------------------------------------
 
-### Tabelle 11 --- Bemessungsgrößen für den Zonenabluftzustand
+**Tabelle 11 --- Bemessungsgrößen für den Zonenabluftzustand**
 
   --------------------------------------------------------------------------------------------------------------------------
   Jahreszeit                                       Feuchteanforderung                   Symbol   Einheit   Bemessungsgröße
@@ -1744,7 +1744,7 @@ In Tabelle 10 und Tabelle 11 ist
 
 Die Zeile „Sommer, bei indirekter Verdunstungskühlung" in Tabelle 11 berücksichtigt die Zustandsänderung durch den abluftseitigen Verdunstungsbefeuchter.
 
-## 8.3 Ermittlung der Zuluftenthalpie
+**8.3Ermittlung der Zuluftenthalpie**
 
 **8.3.1Allgemeines**
 
@@ -1802,7 +1802,7 @@ Dabei ist
 
 *x* der Wasserdampfgehalt (absolute Luftfeuchte), in kg/kg.
 
-## 8.4 Maximale Heizleistung
+**8.4Maximale Heizleistung**
 
 Zur Ermittlung der maximalen Heizleistung ist zunächst die Leistungsminderung durch die Wärmerückgewinnung (WRG) zu bestimmen.
 
@@ -1846,7 +1846,7 @@ Ergeben Gleichung (70) bis Gleichung (71) *P* \< 0, dann gilt *P* = 0.
 
 Für sorptionsgestützte RLT-Anlagen ist zusätzlich 8.7 zu beachten.
 
-## 8.5 Maximale Kühlleistung
+**8.5Maximale Kühlleistung**
 
 Zur Ermittlung der maximalen Kühlleistung ist zunächst die Leistungsminderung durch die Wäremrückgewinnung (WRG) zu bestimmen. Bei Anlagen mit indirekter Verdunstungskühlung sind die Abluftzustände „Sommer, bei indirekter Verdunstungskühlung" nach Tabelle 11 anzusetzen. Dabei gilt:
 
@@ -1878,7 +1878,7 @@ Dabei ist
 
 Für sorptionsgestützte RLT-Anlagen gilt 8.7.
 
-## 8.6 Maximale Dampfleistung
+**8.6Maximale Dampfleistung**
 
 Zur Ermittlung der maximalen Dampfleistung ist zunächst die Leistungsminderung durch die Wärmerückgewinnung (WRG) zu bestimmen. Dabei gilt:
 
@@ -1904,7 +1904,7 @@ Dabei ist
 
 *x* der Wasserdampfgehalt (absolute Luftfeuchte), in kg/kg.
 
-## 8.7 Auslegungsleistungen bei sorptionsgestützten RLT-Anlagen
+**8.7Auslegungsleistungen bei sorptionsgestützten RLT-Anlagen**
 
 Bei sorptionsgestützten RLT-Anlagen ergibt sich die Auslegungsleistung Sommer durch Multiplikation des Auslegungsvolumenstroms mit der spezifischen Leistung nach Tabelle 12.
 
@@ -1922,7 +1922,7 @@ Dabei ist
 
 Der Heizleistungsbedarf einer sorptionsgestützten RLT-Anlage ist als Maximum aus dem Ergebnis der Winterfall- und Sommerfallberechnung zu bestimmen. Die Berechnung des Winterfalls erfolgt nach 8.4 unter Berücksichtigung der Festlegungen in 7.6.3.
 
-### Tabelle 12 --- Spezifische Komponentenleistungen sorptionsgestützter RLT-Anlagen --- Sommerfall
+**Tabelle 12 --- Spezifische Komponentenleistungen sorptionsgestützter RLT-Anlagen --- Sommerfall**
 
   ----------------------------------------------------------------------------------------------------
   Feuchteanforderungen                  Maximale Auslegungsleistung Sommerfall   
@@ -1950,7 +1950,7 @@ Der Heizleistungsbedarf einer sorptionsgestützten RLT-Anlage ist als Maximum au
                                    22   ---                                      8,3
   ----------------------------------------------------------------------------------------------------
 
-# Anhang A (normativ)Energiekennwerte für die thermische Luftaufbereitung
+**Anhang A (normativ)Energiekennwerte für die thermische Luftaufbereitung**
 
 In Tabelle A.1 werden die spezifischen Energiekennwerte für das Gesamtjahr, in Tabelle A.2 bis Tabelle A.13 die spezifischen Energiekennwerte für die Monate Januar bis Dezember aufgeführt.
 
@@ -3880,7 +3880,7 @@ In Tabelle A.1 werden die spezifischen Energiekennwerte für das Gesamtjahr, i
                                    22 °C   0,00       0,00        0,00   0,00   0,00   0,00   0,00   0,00   0,00
   ---------------------------------------------------------------------------------------------------------------------
 
-# Anhang B (normativ)Nutzungszeiten von Komponenten
+**Anhang B (normativ)Nutzungszeiten von Komponenten**
 
 Die Nutzungszeiten von Einzelkomponenten des Systems zur thermischen Luftaufbereitung sind zur Bewertung des anlagentechnischen Energieaufwandes nach DIN/TS 18599-7 zu verwenden.
 
@@ -4224,7 +4224,7 @@ Die jährliche Komponentenlaufzeit *t* errechnet sich nach Gleichung (B.6), d
                          22 °C   0,93       0,00     1,00   0,19                0,64               0,19
   -------------------------------------------------------------------------------------------------------------------
 
-# Anhang C (normativ)Verfahren und Randbedingungen für die Ermittlung des Nutzenergiebedarfs der thermischen Luftaufbereitung
+**Anhang C (normativ)Verfahren und Randbedingungen für die Ermittlung des Nutzenergiebedarfs der thermischen Luftaufbereitung**
 
 **C.1Allgemeines**
 
@@ -4362,7 +4362,7 @@ Dabei ist
 
  die Differenz.
 
-# Anhang D (informativ)Anlagenschemen
+**Anhang D (informativ)Anlagenschemen**
 
 Die in Tabelle D.1 aufgeführten Anlagenschemen dienen zur Vereinfachung der Zuordnung einer Anlagenschaltung zur Varianten-Nr. nach 7.2 bzw. nach Anhang A und Anhang B.
 
@@ -4508,7 +4508,7 @@ Die in Tabelle D.1 aufgeführten Anlagenschemen dienen zur Vereinfachung der Z
 | ![d1cb5d9d.gfo-d-14](sources/images/media/image18.gif){width="3.4583333333333335in" height="0.7916666666666666in"} | sorptionsgestützte RLT-Anlage                                                                                                                                                                     |
 +--------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-# Literaturhinweise
+**Literaturhinweise**
 
 DIN/TS 18599-1, *Energetische Bewertung von Gebäuden --- Berechnung des Nutz-, End- und Primärenergiebedarfs für Heizung, Kühlung, Lüftung, Trinkwarmwasser und Beleuchtung --- Teil 1: Allgemeine Bilanzierungsverfahren, Begriffe, Zonierung und Bewertung der Energieträger*
 
