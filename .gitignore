@@ -32,3 +32,9 @@ Thumbs.db
 catalog-private/
 *.xlsx
 din18599_katalog.*
+
+# DIN 18599 Quellen (urheberrechtlich geschützt - NICHT veröffentlichen!)
+sources/docx/
+sources/markdown/
+sources/images/
+.temp/
