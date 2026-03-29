@@ -301,6 +301,79 @@
 
 ---
 
+### **KATEGORIE 17: GEBÄUDEAUTOMATION (BACS)** ⚠️ **KRITISCH!**
+
+| # | Feld | Beschreibung | LOD 100 | LOD 200 | LOD 300 | Quelle |
+|---|------|--------------|---------|---------|---------|--------|
+| 17.1 | `automation.installed` | Gebäudeautomation vorhanden? | Optional | ✅ | ✅ | - |
+| 17.2 | `automation.bacs_class` | BACS-Klasse (A-D) | Optional | Optional | ✅ | DIN EN 15232 |
+| 17.3 | `automation.efficiency_factor_heating` | Effizienzfaktor Heizung [-] | Optional | Optional | ✅ | DIN 18599-11 |
+| 17.4 | `automation.efficiency_factor_cooling` | Effizienzfaktor Kühlung [-] | Optional | Optional | ✅ | DIN 18599-11 |
+| 17.5 | `automation.efficiency_factor_ventilation` | Effizienzfaktor Lüftung [-] | Optional | Optional | ✅ | DIN 18599-11 |
+| 17.6 | `automation.efficiency_factor_lighting` | Effizienzfaktor Beleuchtung [-] | Optional | Optional | ✅ | DIN 18599-11 |
+| 17.7 | `automation.building_management_system` | Gebäudeleittechnik (GLT) vorhanden? | Optional | Optional | ✅ | - |
+| 17.8 | `automation.room_automation` | Raumautomation-Stufe | Optional | Optional | ✅ | - |
+| 17.9 | `automation.sensors.temperature` | Temperatursensoren vorhanden? | Optional | Optional | ✅ | - |
+| 17.10 | `automation.sensors.co2` | CO₂-Sensoren vorhanden? | Optional | Optional | ✅ | - |
+| 17.11 | `automation.sensors.presence` | Präsenzsensoren vorhanden? | Optional | Optional | ✅ | - |
+| 17.12 | `automation.actuators.valves` | Regelventile vorhanden? | Optional | Optional | ✅ | - |
+| 17.13 | `automation.actuators.dampers` | Regelklappen vorhanden? | Optional | Optional | ✅ | - |
+| 17.14 | `automation.control_quality` | Regelungsqualität | Optional | Optional | ✅ | - |
+
+**BACS-Klasse Enum (DIN EN 15232):**
+- `D` - Nicht energieeffizient (manuell)
+- `C` - Standard (einfache Automation)
+- `B` - Fortgeschritten (erweiterte Automation)
+- `A` - Hocheffizient (optimierte Automation)
+
+**Hinweis:** Gebäudeautomation nach DIN 18599-11 ist kritisch für:
+- Effizienzfaktoren (Reduktion Energiebedarf)
+- Primärenergie-Reduktion
+- KfW-Effizienzhaus-Nachweis
+- GEG-Anforderungen §71a (Nichtwohngebäude)
+
+---
+
+### **KATEGORIE 18: PRIMÄRENERGIEFAKTOREN** ⚠️ **KRITISCH!**
+
+| # | Feld | Beschreibung | LOD 100 | LOD 200 | LOD 300 | Quelle |
+|---|------|--------------|---------|---------|---------|--------|
+| 18.1 | `primary_energy.source` | Quelle der Faktoren | ✅ | ✅ | ✅ | - |
+| 18.2 | `primary_energy.reference_year` | Referenzjahr | ✅ | ✅ | ✅ | - |
+| 18.3 | `primary_energy.factors.electricity` | fp Strom [-] | ✅ | ✅ | ✅ | GEG/BEG |
+| 18.4 | `primary_energy.factors.natural_gas` | fp Erdgas [-] | ✅ | ✅ | ✅ | GEG/BEG |
+| 18.5 | `primary_energy.factors.oil` | fp Heizöl [-] | Optional | ✅ | ✅ | GEG/BEG |
+| 18.6 | `primary_energy.factors.district_heating` | fp Fernwärme [-] | Optional | ✅ | ✅ | GEG/BEG |
+| 18.7 | `primary_energy.factors.wood_pellets` | fp Holzpellets [-] | Optional | Optional | ✅ | GEG/BEG |
+| 18.8 | `primary_energy.factors.wood_logs` | fp Scheitholz [-] | Optional | Optional | ✅ | GEG/BEG |
+| 18.9 | `primary_energy.factors.renewable_share` | EE-Anteil Strom [-] | Optional | Optional | ✅ | - |
+| 18.10 | `primary_energy.factors.grid_mix` | Strommix (Bundesmix/regional) | Optional | Optional | ✅ | - |
+| 18.11 | `primary_energy.co2_factors.electricity` | CO₂-Faktor Strom [kg/kWh] | Optional | ✅ | ✅ | UBA |
+| 18.12 | `primary_energy.co2_factors.natural_gas` | CO₂-Faktor Erdgas [kg/kWh] | Optional | ✅ | ✅ | UBA |
+| 18.13 | `primary_energy.co2_factors.oil` | CO₂-Faktor Heizöl [kg/kWh] | Optional | ✅ | ✅ | UBA |
+
+**Quelle Enum:**
+- `GEG_2024` - Gebäudeenergiegesetz 2024 (Anlage 4)
+- `BEG_2024` - Bundesförderung effiziente Gebäude
+- `CUSTOM` - Benutzerdefiniert
+- `DIN_18599` - DIN 18599 Standardwerte
+
+**Standardwerte GEG 2024 (Anlage 4):**
+- Strom (Netzstrom): fp = 1.8
+- Erdgas: fp = 1.1
+- Heizöl: fp = 1.1
+- Fernwärme: fp = 0.0 bis 1.3 (je nach Erzeugung)
+- Holzpellets: fp = 0.2
+- Umweltwärme (Wärmepumpe): fp = 0.0
+
+**Hinweis:** Primärenergiefaktoren sind kritisch für:
+- Energieausweis (Primärenergiebedarf)
+- GEG-Grenzwerte (Effizienzhaus-Niveau)
+- KfW-Förderung
+- CO₂-Bilanzierung
+
+---
+
 ## 🎯 LOD-DEFINITION DURCH VOLLSTÄNDIGKEIT
 
 ### **LOD 100: Energieausweis-Daten + Verbrauch**
