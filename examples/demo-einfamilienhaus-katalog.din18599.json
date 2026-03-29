@@ -1,0 +1,381 @@
+{
+  "schema_info": {
+    "url": "https://din18599-ifc.de/schema/v2.1",
+    "version": "2.1.0"
+  },
+  
+  "meta": {
+    "project_name": "Einfamilienhaus Musterstraße 1 - Sanierung mit Katalog",
+    "project_id": "EFH_MUSTER_2026",
+    "created": "2026-03-29",
+    "author": "DWE Beratung GmbH",
+    "ifc_file_ref": "einfamilienhaus.ifc",
+    "ifc_guid_building": "2Uj8Lq3Vr9QxPkXr4bN8FD",
+    "lod": "300",
+    "description": "Bestandsaufnahme + Sanierungsvarianten mit Katalog-Referenzen"
+  },
+  
+  "input": {
+    "building": {
+      "type": "residential",
+      "construction_year": 1978,
+      "renovation_year": null,
+      "heated_area": 145.5,
+      "heated_volume": 436.5,
+      "building_envelope_area": 385.2
+    },
+    
+    "zones": [
+      {
+        "id": "zone_eg",
+        "name": "Erdgeschoss Wohnbereich",
+        "usage_profile_ref": "PROFILE_RES_EFH",
+        "area": 72.5,
+        "volume": 217.5,
+        "height": 3.0,
+        "conditioned": true,
+        "ifc_space_guids": ["3Vk9Mr4Ws0RyQlYs5cO9GE", "4Wl0Ns5Xt1SzRmZt6dP0HF"]
+      },
+      {
+        "id": "zone_og",
+        "name": "Obergeschoss Schlafbereich",
+        "usage_profile_ref": "PROFILE_RES_EFH",
+        "area": 73.0,
+        "volume": 219.0,
+        "height": 3.0,
+        "conditioned": true,
+        "ifc_space_guids": ["5Xm1Ot6Yu2TzSnAu7eQ1IG"]
+      }
+    ],
+    
+    "elements": [
+      {
+        "id": "wall_ext_sued",
+        "ifc_guid": "6Yn2Pu7Zv3U0ToB v8fR2JH",
+        "type": "wall",
+        "name": "Außenwand Süd",
+        "construction_ref": "WALL_EXT_BRICK_UNINSULATED",
+        "area": 45.2,
+        "orientation": 180,
+        "inclination": 90,
+        "boundary_condition": "exterior",
+        "adjacent_zone_id": "zone_eg"
+      },
+      {
+        "id": "wall_ext_nord",
+        "ifc_guid": "7Zo3Qv8Aw4V1UpCw9gS3KI",
+        "type": "wall",
+        "name": "Außenwand Nord",
+        "construction_ref": "WALL_EXT_BRICK_UNINSULATED",
+        "area": 42.8,
+        "orientation": 0,
+        "inclination": 90,
+        "boundary_condition": "exterior",
+        "adjacent_zone_id": "zone_eg"
+      },
+      {
+        "id": "wall_ext_ost",
+        "ifc_guid": "8Ap4Rw9Bx5W2VqDx0hT4LJ",
+        "type": "wall",
+        "name": "Außenwand Ost",
+        "construction_ref": "WALL_EXT_BRICK_UNINSULATED",
+        "area": 38.5,
+        "orientation": 90,
+        "inclination": 90,
+        "boundary_condition": "exterior",
+        "adjacent_zone_id": "zone_eg"
+      },
+      {
+        "id": "wall_ext_west",
+        "ifc_guid": "9Bq5Sx0Cy6X3WrEy1iU5MK",
+        "type": "wall",
+        "name": "Außenwand West",
+        "construction_ref": "WALL_EXT_BRICK_UNINSULATED",
+        "area": 41.2,
+        "orientation": 270,
+        "inclination": 90,
+        "boundary_condition": "exterior",
+        "adjacent_zone_id": "zone_og"
+      },
+      {
+        "id": "roof_sued",
+        "ifc_guid": "0Cr6Ty1Dz7Y4XsFz2jV6NL",
+        "type": "roof",
+        "name": "Dach Süd",
+        "construction_ref": "ROOF_PITCHED_UNINSULATED",
+        "area": 52.5,
+        "orientation": 180,
+        "inclination": 35,
+        "boundary_condition": "exterior",
+        "adjacent_zone_id": "zone_og"
+      },
+      {
+        "id": "roof_nord",
+        "ifc_guid": "1Ds7Uz2E08Z5YtG03kW7OM",
+        "type": "roof",
+        "name": "Dach Nord",
+        "construction_ref": "ROOF_PITCHED_UNINSULATED",
+        "area": 52.5,
+        "orientation": 0,
+        "inclination": 35,
+        "boundary_condition": "exterior",
+        "adjacent_zone_id": "zone_og"
+      },
+      {
+        "id": "floor_basement",
+        "ifc_guid": "2Et8V03F19A6ZuH14lX8PN",
+        "type": "floor",
+        "name": "Kellerdecke",
+        "construction_ref": "FLOOR_BASEMENT_UNINSULATED",
+        "area": 72.5,
+        "orientation": 0,
+        "inclination": 0,
+        "boundary_condition": "ground",
+        "adjacent_zone_id": "zone_eg"
+      },
+      {
+        "id": "window_sued_01",
+        "ifc_guid": "3Fu9W14G20B7AvI25mY9QO",
+        "type": "window",
+        "name": "Fenster Süd Wohnzimmer",
+        "construction_ref": "WINDOW_DOUBLE_GLAZING",
+        "area": 4.2,
+        "orientation": 180,
+        "inclination": 90,
+        "boundary_condition": "exterior",
+        "adjacent_zone_id": "zone_eg",
+        "shading_factor": 0.7
+      },
+      {
+        "id": "window_sued_02",
+        "ifc_guid": "4Gv0X25H31C8BwJ36nZ0RP",
+        "type": "window",
+        "name": "Fenster Süd Küche",
+        "construction_ref": "WINDOW_DOUBLE_GLAZING",
+        "area": 2.8,
+        "orientation": 180,
+        "inclination": 90,
+        "boundary_condition": "exterior",
+        "adjacent_zone_id": "zone_eg",
+        "shading_factor": 0.7
+      },
+      {
+        "id": "window_ost_01",
+        "ifc_guid": "5Hw1Y36I42D9CxK47o01SQ",
+        "type": "window",
+        "name": "Fenster Ost Schlafzimmer",
+        "construction_ref": "WINDOW_DOUBLE_GLAZING",
+        "area": 3.5,
+        "orientation": 90,
+        "inclination": 90,
+        "boundary_condition": "exterior",
+        "adjacent_zone_id": "zone_og",
+        "shading_factor": 0.9
+      }
+    ],
+    
+    "systems": {
+      "heating": [
+        {
+          "id": "heating_gas_boiler",
+          "type": "gas_boiler",
+          "name": "Gaskessel Altbestand",
+          "fuel": "natural_gas",
+          "efficiency": 0.85,
+          "installation_year": 1995,
+          "power_nominal": 18.0,
+          "zone_ids": ["zone_eg", "zone_og"]
+        }
+      ]
+    }
+  },
+  
+  "scenarios": [
+    {
+      "id": "scenario_sanierung_stufe1",
+      "name": "Sanierung Stufe 1: WDVS + Fenster",
+      "description": "Außenwände WDVS 16cm, Fenster Dreifachverglasung",
+      "priority": 1,
+      "timeline": 2026,
+      "funding": "BEG_EM",
+      
+      "delta": {
+        "elements": [
+          {
+            "id": "wall_ext_sued",
+            "construction_ref": "WALL_EXT_BRICK_WDVS_160"
+          },
+          {
+            "id": "wall_ext_nord",
+            "construction_ref": "WALL_EXT_BRICK_WDVS_160"
+          },
+          {
+            "id": "wall_ext_ost",
+            "construction_ref": "WALL_EXT_BRICK_WDVS_160"
+          },
+          {
+            "id": "wall_ext_west",
+            "construction_ref": "WALL_EXT_BRICK_WDVS_160"
+          },
+          {
+            "id": "window_sued_01",
+            "construction_ref": "WINDOW_TRIPLE_GLAZING"
+          },
+          {
+            "id": "window_sued_02",
+            "construction_ref": "WINDOW_TRIPLE_GLAZING"
+          },
+          {
+            "id": "window_ost_01",
+            "construction_ref": "WINDOW_TRIPLE_GLAZING"
+          }
+        ]
+      }
+    },
+    {
+      "id": "scenario_sanierung_stufe2",
+      "name": "Sanierung Stufe 2: + Dach + Kellerdecke",
+      "description": "Zusätzlich: Dach Aufsparren 24cm, Kellerdecke 10cm",
+      "priority": 2,
+      "timeline": 2028,
+      "funding": "BEG_EM",
+      
+      "delta": {
+        "elements": [
+          {
+            "id": "wall_ext_sued",
+            "construction_ref": "WALL_EXT_BRICK_WDVS_200"
+          },
+          {
+            "id": "wall_ext_nord",
+            "construction_ref": "WALL_EXT_BRICK_WDVS_200"
+          },
+          {
+            "id": "wall_ext_ost",
+            "construction_ref": "WALL_EXT_BRICK_WDVS_200"
+          },
+          {
+            "id": "wall_ext_west",
+            "construction_ref": "WALL_EXT_BRICK_WDVS_200"
+          },
+          {
+            "id": "roof_sued",
+            "construction_ref": "ROOF_PITCHED_FULL_INSULATION_240"
+          },
+          {
+            "id": "roof_nord",
+            "construction_ref": "ROOF_PITCHED_FULL_INSULATION_240"
+          },
+          {
+            "id": "floor_basement",
+            "construction_ref": "FLOOR_BASEMENT_INSULATED_100"
+          },
+          {
+            "id": "window_sued_01",
+            "construction_ref": "WINDOW_TRIPLE_GLAZING"
+          },
+          {
+            "id": "window_sued_02",
+            "construction_ref": "WINDOW_TRIPLE_GLAZING"
+          },
+          {
+            "id": "window_ost_01",
+            "construction_ref": "WINDOW_TRIPLE_GLAZING"
+          }
+        ],
+        "systems": {
+          "heating": [
+            {
+              "id": "heating_heat_pump",
+              "type": "air_water_heat_pump",
+              "name": "Luft-Wasser-Wärmepumpe",
+              "cop": 3.5,
+              "installation_year": 2028,
+              "power_nominal": 8.0,
+              "zone_ids": ["zone_eg", "zone_og"]
+            }
+          ]
+        }
+      }
+    }
+  ],
+  
+  "output": {
+    "base": {
+      "final_energy": {
+        "heating": 185.5,
+        "hot_water": 18.2,
+        "total": 203.7
+      },
+      "primary_energy": {
+        "total": 224.1,
+        "factor_heating": 1.1
+      },
+      "co2_emissions": {
+        "total": 45.8
+      },
+      "building_performance": {
+        "u_value_avg": 1.45,
+        "heating_demand_kwh_m2a": 127.5
+      }
+    },
+    "scenario_sanierung_stufe1": {
+      "final_energy": {
+        "heating": 98.2,
+        "hot_water": 18.2,
+        "total": 116.4
+      },
+      "primary_energy": {
+        "total": 128.0,
+        "factor_heating": 1.1
+      },
+      "co2_emissions": {
+        "total": 26.2
+      },
+      "building_performance": {
+        "u_value_avg": 0.42,
+        "heating_demand_kwh_m2a": 67.5
+      },
+      "savings": {
+        "final_energy_percent": 42.8,
+        "co2_percent": 42.8,
+        "cost_annual_euro": 870
+      }
+    },
+    "scenario_sanierung_stufe2": {
+      "final_energy": {
+        "heating": 52.8,
+        "hot_water": 12.5,
+        "total": 65.3
+      },
+      "primary_energy": {
+        "total": 130.6,
+        "factor_heating": 2.0
+      },
+      "co2_emissions": {
+        "total": 13.1
+      },
+      "building_performance": {
+        "u_value_avg": 0.18,
+        "heating_demand_kwh_m2a": 36.3
+      },
+      "savings": {
+        "final_energy_percent": 67.9,
+        "co2_percent": 71.4,
+        "cost_annual_euro": 1380
+      }
+    },
+    
+    "meta": {
+      "calculation_date": "2026-03-29",
+      "software": "DIN 18599 Reference Implementation",
+      "software_version": "1.0.0",
+      "norm_version": "DIN/TS 18599:2018-09",
+      "climate_location": "TRY_2015_DE_04",
+      "primary_energy_factors": {
+        "natural_gas": 1.1,
+        "electricity": 2.0
+      }
+    }
+  }
+}

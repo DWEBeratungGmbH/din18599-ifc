@@ -1,0 +1,339 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DIN 18599 IFC Sidecar - Schema v2.1 Catalog Extensions",
+  "description": "Katalog-Referenz-Erweiterungen für Schema v2.1",
+  "version": "2.1.0",
+  
+  "definitions": {
+    "usage_profile_ref": {
+      "type": "string",
+      "enum": [
+        "PROFILE_RES_EFH",
+        "PROFILE_RES_MFH",
+        "PROFILE_NWG_01",
+        "PROFILE_NWG_02",
+        "PROFILE_NWG_03",
+        "PROFILE_NWG_04",
+        "PROFILE_NWG_05",
+        "PROFILE_NWG_06",
+        "PROFILE_NWG_07",
+        "PROFILE_NWG_08",
+        "PROFILE_NWG_09",
+        "PROFILE_NWG_10",
+        "PROFILE_NWG_11",
+        "PROFILE_NWG_12",
+        "PROFILE_NWG_13",
+        "PROFILE_NWG_14",
+        "PROFILE_NWG_15",
+        "PROFILE_NWG_16",
+        "PROFILE_NWG_17",
+        "PROFILE_NWG_18",
+        "PROFILE_NWG_19",
+        "PROFILE_NWG_20",
+        "PROFILE_NWG_21",
+        "PROFILE_NWG_22",
+        "PROFILE_NWG_23",
+        "PROFILE_NWG_24",
+        "PROFILE_NWG_25",
+        "PROFILE_NWG_26",
+        "PROFILE_NWG_27",
+        "PROFILE_NWG_28",
+        "PROFILE_NWG_29",
+        "PROFILE_NWG_30",
+        "PROFILE_NWG_31",
+        "PROFILE_NWG_32",
+        "PROFILE_NWG_33",
+        "PROFILE_NWG_34",
+        "PROFILE_NWG_35",
+        "PROFILE_NWG_36",
+        "PROFILE_NWG_37",
+        "PROFILE_NWG_38",
+        "PROFILE_NWG_39",
+        "PROFILE_NWG_40",
+        "PROFILE_NWG_41",
+        "PROFILE_NWG_42",
+        "PROFILE_NWG_43"
+      ],
+      "description": "Referenz auf Nutzungsprofil aus catalog/din18599_usage_profiles.json"
+    },
+    
+    "construction_ref": {
+      "type": "string",
+      "pattern": "^(WALL|ROOF|FLOOR|WINDOW)_[A-Z_0-9]+$",
+      "description": "Referenz auf Schichtaufbau aus catalog/constructions.json",
+      "examples": [
+        "WALL_EXT_BRICK_WDVS_160",
+        "ROOF_PITCHED_FULL_INSULATION_240",
+        "FLOOR_GROUND_SLAB_PERIMETER_120",
+        "WINDOW_TRIPLE_GLAZING"
+      ]
+    },
+    
+    "material_ref": {
+      "type": "string",
+      "pattern": "^MAT_[A-Z_0-9]+$",
+      "description": "Referenz auf Material aus catalog/materials.json",
+      "examples": [
+        "MAT_EPS_032",
+        "MAT_BRICK_PERFORATED",
+        "MAT_MINERAL_WOOL_035",
+        "MAT_CONCRETE_NORMAL"
+      ]
+    },
+    
+    "zone_with_catalog": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Eindeutige Zone-ID"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name der Zone"
+        },
+        "usage_profile_ref": {
+          "$ref": "#/definitions/usage_profile_ref",
+          "description": "Katalog-Referenz auf Nutzungsprofil (empfohlen)"
+        },
+        "usage_profile_custom": {
+          "type": "object",
+          "description": "Custom Nutzungsprofil (nur wenn nicht im Katalog)",
+          "properties": {
+            "theta_i_h_soll": {"type": "number"},
+            "theta_i_c_soll": {"type": "number"},
+            "q_I": {"type": "number"},
+            "n_nutz": {"type": "number"}
+          }
+        },
+        "area": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Nettogrundfläche [m²]"
+        },
+        "volume": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Nettoraumvolumen [m³]"
+        }
+      },
+      "required": ["id", "area"],
+      "oneOf": [
+        {"required": ["usage_profile_ref"]},
+        {"required": ["usage_profile_custom"]}
+      ],
+      "description": "Zone mit Katalog-Referenz oder Custom-Profil"
+    },
+    
+    "element_with_catalog": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Eindeutige Element-ID"
+        },
+        "ifc_guid": {
+          "type": "string",
+          "pattern": "^[0-9A-Za-z_$]{22}$",
+          "description": "IFC GUID (required in v2.1)"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["wall", "roof", "floor", "window", "door"],
+          "description": "Element-Typ"
+        },
+        "construction_ref": {
+          "$ref": "#/definitions/construction_ref",
+          "description": "Katalog-Referenz auf Schichtaufbau (empfohlen)"
+        },
+        "construction_custom": {
+          "type": "object",
+          "description": "Custom Schichtaufbau (nur wenn nicht im Katalog)",
+          "properties": {
+            "u_value": {
+              "type": "number",
+              "minimum": 0,
+              "description": "U-Wert [W/(m²K)]"
+            },
+            "layers": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "material_ref": {"$ref": "#/definitions/material_ref"},
+                  "thickness": {"type": "number", "minimum": 0}
+                },
+                "required": ["material_ref", "thickness"]
+              }
+            }
+          }
+        },
+        "area": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Fläche [m²]"
+        },
+        "orientation": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 360,
+          "description": "Orientierung [°] (0=N, 90=O, 180=S, 270=W)"
+        }
+      },
+      "required": ["id", "ifc_guid", "type", "area"],
+      "oneOf": [
+        {"required": ["construction_ref"]},
+        {"required": ["construction_custom"]}
+      ],
+      "description": "Bauteil mit Katalog-Referenz oder Custom-Konstruktion"
+    },
+    
+    "catalog_override": {
+      "type": "object",
+      "description": "Override-Mechanismus: Katalog-Werte können überschrieben werden",
+      "properties": {
+        "catalog_ref": {
+          "type": "string",
+          "description": "Referenz auf Katalog-Eintrag"
+        },
+        "overrides": {
+          "type": "object",
+          "description": "Überschriebene Werte (haben Vorrang vor Katalog)",
+          "additionalProperties": true
+        }
+      },
+      "required": ["catalog_ref"],
+      "examples": [
+        {
+          "catalog_ref": "WALL_EXT_BRICK_WDVS_160",
+          "overrides": {
+            "u_value": 0.19,
+            "note": "U-Wert angepasst wegen Wärmebrücken"
+          }
+        }
+      ]
+    }
+  },
+  
+  "catalog_integration_rules": {
+    "description": "Regeln für Katalog-Integration in Schema v2.1",
+    "rules": [
+      {
+        "rule": "usage_profile_ref vs usage_profile_custom",
+        "description": "Entweder Katalog-Referenz ODER Custom-Profil, nicht beides",
+        "validation": "oneOf constraint"
+      },
+      {
+        "rule": "construction_ref vs construction_custom",
+        "description": "Entweder Katalog-Referenz ODER Custom-Konstruktion, nicht beides",
+        "validation": "oneOf constraint"
+      },
+      {
+        "rule": "Override-Mechanismus",
+        "description": "Katalog-Werte können durch 'overrides' überschrieben werden",
+        "priority": "overrides > catalog > defaults"
+      },
+      {
+        "rule": "Validierung",
+        "description": "Katalog-Referenzen müssen in entsprechenden Katalog-Dateien existieren",
+        "implementation": "External validation required"
+      },
+      {
+        "rule": "Migration v2.0 → v2.1",
+        "description": "Alte 'usage_profile' Strings werden zu 'usage_profile_ref' Enums",
+        "breaking_change": true
+      }
+    ]
+  },
+  
+  "migration_guide": {
+    "from_version": "2.0.0",
+    "to_version": "2.1.0",
+    "breaking_changes": [
+      {
+        "field": "zones[].usage_profile",
+        "old": "\"17\" (string)",
+        "new": "\"PROFILE_NWG_17\" (enum)",
+        "migration": "Map number to PROFILE_NWG_XX format"
+      },
+      {
+        "field": "elements[].ifc_guid",
+        "old": "optional",
+        "new": "required",
+        "migration": "Add IFC GUID or generate placeholder"
+      }
+    ],
+    "new_features": [
+      {
+        "feature": "usage_profile_ref",
+        "description": "Enum-validierte Nutzungsprofile (45 Profile)"
+      },
+      {
+        "feature": "construction_ref",
+        "description": "Referenz auf Schichtaufbau-Katalog (24 Konstruktionen)"
+      },
+      {
+        "feature": "material_ref",
+        "description": "Referenz auf Material-Katalog (52 Materialien)"
+      },
+      {
+        "feature": "catalog_override",
+        "description": "Override-Mechanismus für Katalog-Werte"
+      }
+    ]
+  },
+  
+  "usage_examples": {
+    "zone_with_catalog_ref": {
+      "id": "zone_eg_wohnen",
+      "name": "EG Wohnen",
+      "usage_profile_ref": "PROFILE_RES_EFH",
+      "area": 45.5,
+      "volume": 113.75
+    },
+    
+    "zone_with_custom_profile": {
+      "id": "zone_buero",
+      "name": "Büro Spezial",
+      "usage_profile_custom": {
+        "theta_i_h_soll": 22,
+        "theta_i_c_soll": 24,
+        "q_I": 8.0,
+        "n_nutz": 0.5
+      },
+      "area": 25.0,
+      "volume": 75.0
+    },
+    
+    "element_with_catalog_ref": {
+      "id": "wall_ext_sued",
+      "ifc_guid": "2Uj8Lq3Vr9QxPkXr4bN8FD",
+      "type": "wall",
+      "construction_ref": "WALL_EXT_BRICK_WDVS_160",
+      "area": 35.2,
+      "orientation": 180
+    },
+    
+    "element_with_override": {
+      "id": "wall_ext_nord",
+      "ifc_guid": "3Vk9Mr4Ws0RyQlYs5cO9GE",
+      "type": "wall",
+      "construction_ref": "WALL_EXT_BRICK_WDVS_160",
+      "overrides": {
+        "u_value": 0.19,
+        "note": "U-Wert angepasst wegen Wärmebrücken"
+      },
+      "area": 28.5,
+      "orientation": 0
+    },
+    
+    "window_with_catalog_ref": {
+      "id": "window_sued_01",
+      "ifc_guid": "4Wl0Ns5Xt1SzRmZt6dP0HF",
+      "type": "window",
+      "construction_ref": "WINDOW_TRIPLE_GLAZING",
+      "area": 2.4,
+      "orientation": 180
+    }
+  }
+}
