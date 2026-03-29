@@ -1,7 +1,7 @@
 # DIN 18599 IFC Sidecar - Roadmap 2026
 
-**Version:** 2.1  
-**Stand:** 28. März 2026  
+**Version:** 2.2  
+**Stand:** 29. März 2026  
 **Projekt:** Open Source Standard für energetische Gebäudeakte
 
 ---
@@ -11,7 +11,7 @@
 **Vision:** Software-neutraler Datenstandard für die energetische Gebäudeakte, der Geometrie (IFC), Physik (Sidecar) und Berechnung (Software) entkoppelt.
 
 **Hauptziele 2026:**
-1. **Schema v2.1:** Robustes, interoperables Datenformat (Q2)
+1. **Schema v2.1:** Norm-konforme, robuste Datenstruktur (Q2) ✅ **IN ARBEIT**
 2. **Viewer-MVP:** Professioneller 3D-Viewer + Energiedaten (Q2)
 3. **Community:** Erste externe Contributors, Präsentationen (Q3-Q4)
 
@@ -19,7 +19,36 @@
 
 ---
 
-## ✅ Status Quo (März 2026)
+## ✅ Status Quo (29. März 2026)
+
+### 🎉 **DURCHBRUCH: DIN 18599 Registries komplett!**
+
+**Heute erreicht (29. März 2026):**
+- ✅ **DIN 18599 Registries auf 100%**
+  - 222 Begriffe (Glossar komplett)
+  - 562 Symbole (alle Formelzeichen)
+  - 735 Indizes (alle Indizes)
+  - 45 Nutzungsprofile (Wohn + Nichtwohn)
+  - **= 1564 Einträge total**
+
+- ✅ **Katalog-System komplett**
+  - 52 Materialien (λ, ρ, c, μ nach DIN 4108-4)
+  - 24 Schichtaufbauten (U-Werte 0.14-5.8 W/(m²K))
+  - 45 Nutzungsprofile (Enum-validiert)
+
+- ✅ **Schema v2.1 Extensions**
+  - Katalog-Referenzen (usage_profile_ref, construction_ref, material_ref)
+  - Override-Mechanismus
+  - Migration Guide v2.0 → v2.1
+
+- ✅ **Demo-Projekt**
+  - Einfamilienhaus mit 2 Sanierungsszenarien
+  - Katalog-Referenzen demonstriert
+  - Energiebilanzen (Bestand: 203.7 kWh/a → Stufe 2: 65.3 kWh/a, -68%)
+
+- ✅ **Dokumentation**
+  - CATALOG_GUIDE.md (409 Zeilen)
+  - Brainstorm: Sidecar-Struktur an DIN 18599 anlehnen
 
 ### v2.0.0 - Production Ready (27. März 2026)
 
@@ -84,19 +113,86 @@
 
 ---
 
-## 📅 Roadmap Q2 2026 (April - Mai)
+## 🎯 **ENTSCHEIDUNGEN: Schema v2.1 Neustrukturierung (29. März 2026)**
 
-### **Phase 1: Schema v2.1 - Kritische Fixes** (2 Wochen, 1.-14. April)
+### **Brainstorm-Ergebnisse:**
 
-**Ziel:** Interoperabilität sicherstellen, kritische Schema-Lücken schließen
+**1. Envelope-Struktur: Hybrid (Opak/Transparent + Bauteilspezifisch)**
+- ✅ Trennung opak/transparent (DIN 18599-2 konform)
+- ✅ Bauteilspezifische Parameter (walls, roofs, floors, windows)
+- ✅ Flexibel für Wohn- und Nichtwohngebäude
 
-#### Woche 1 (1.-7. April): Brainstorm & Konzept
+**2. Systems-Struktur: Detailliert (Erzeugung/Verteilung/Übergabe/Regelung)**
+- ✅ DIN 18599-5 Systematik 1:1 abbilden
+- ✅ Aufwandszahlen berechenbar (e_g, e_d, e_ce)
+- ✅ Optimierungspotenziale erkennbar
 
-**Brainstorm-Sessions:**
-- [ ] **Session 1:** Schema-Constraints Review (2h)
-  - Required-Felder definieren (ifc_guid vs. id)
-  - uniqueItems-Strategie
-  - additionalProperties-Policy
+**3. Breaking Changes: Maximal**
+- ✅ Komplette Neustrukturierung für v2.1
+- ✅ Migration-Script v2.0 → v2.1
+- ✅ Jetzt oder nie - langfristige Vorteile
+
+**4. Priorität: Norm-Konformität + Usability**
+- ✅ Nah an der Norm bleiben (Zertifizierung, Validierung)
+- ✅ Usability durch Katalog-System (einfache Nutzung)
+
+### **Neue Schema v2.1 Struktur:**
+
+```json
+{
+  "input": {
+    "building": {
+      "zones": [...],
+      "climate": {...}
+    },
+    "envelope": {
+      "opaque_elements": {
+        "walls_external": [...],
+        "walls_internal": [...],
+        "roofs": [...],
+        "floors_ground": [...],
+        "floors_basement_ceiling": [...]
+      },
+      "transparent_elements": {
+        "windows": [...],
+        "doors": [...]
+      },
+      "thermal_bridges": {...}
+    },
+    "systems": {
+      "heating": {
+        "generation": {...},
+        "distribution": {...},
+        "emission": {...},
+        "control": {...}
+      },
+      "ventilation": {...},
+      "cooling": {...},
+      "lighting": {...},
+      "dhw": {...}
+    },
+    "electricity": {...},
+    "automation": {...}
+  }
+}
+```
+
+---
+
+## 📅 Roadmap Q2 2026 (April - Mai) - AKTUALISIERT
+
+### **Phase 1: Schema v2.1 - Norm-konforme Neustrukturierung** (2 Wochen, 1.-14. April)
+
+**Ziel:** Maximale Norm-Konformität bei guter Usability
+
+#### Woche 1 (1.-7. April): Schema-Konzept & Struktur
+
+**Aufgaben:**
+- [x] **Brainstorm:** Sidecar-Struktur an DIN 18599 anlehnen (29.03. ✅)
+- [ ] **Schema v2.1 Konzept:** Vollständige Struktur-Definition
+  - Envelope: opaque/transparent + bauteilspezifisch
+  - Systems: generation/distribution/emission/control
+  - Alle DIN 18599 Parameter aus Registries
 
 - [ ] **Session 2:** Delta-Merge-Algorithmus (2h)
   - Merge-Semantik formal spezifizieren
