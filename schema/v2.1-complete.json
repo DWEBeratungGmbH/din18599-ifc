@@ -1,0 +1,680 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://din18599-ifc.de/schema/v2.1/complete",
+  "title": "DIN 18599 IFC Sidecar v2.1 - Complete Schema",
+  "description": "Vollständiges Schema für energetische Gebäudedaten nach DIN 18599 mit Input (Definition), Output (Snapshot) und Scenarios (Varianten)",
+  "version": "2.1.0",
+  "type": "object",
+  "required": ["schema_info", "meta", "input"],
+  
+  "properties": {
+    "schema_info": {
+      "type": "object",
+      "description": "Schema-Metadaten",
+      "required": ["url", "version"],
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "const": "https://din18599-ifc.de/schema/v2.1/complete"
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^2\\.1\\.\\d+$",
+          "description": "Schema-Version (Semantic Versioning)"
+        }
+      }
+    },
+    
+    "meta": {
+      "type": "object",
+      "description": "Projekt-Metadaten und Versionierung",
+      "required": ["project_name", "created"],
+      "properties": {
+        "project_name": {
+          "type": "string",
+          "description": "Projektname"
+        },
+        "project_id": {
+          "type": "string",
+          "description": "Eindeutige Projekt-ID (UUID)"
+        },
+        "created": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Erstellungsdatum (ISO 8601)"
+        },
+        "last_modified": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Letzte Änderung (ISO 8601)"
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^\\d+\\.\\d+\\.\\d+$",
+          "description": "Datei-Version (Semantic Versioning)"
+        },
+        "version_history": {
+          "type": "array",
+          "description": "Versionshistorie",
+          "items": {
+            "type": "object",
+            "required": ["version", "date", "changes"],
+            "properties": {
+              "version": {"type": "string"},
+              "date": {"type": "string", "format": "date-time"},
+              "changes": {"type": "string"},
+              "author": {"type": "string"}
+            }
+          }
+        },
+        "ifc_file_ref": {
+          "type": "string",
+          "description": "Referenz zur IFC-Datei (Dateiname oder URI)"
+        },
+        "lod": {
+          "type": "string",
+          "enum": ["100", "200", "300", "400", "500"],
+          "description": "Level of Detail (LOD) der Eingabedaten"
+        }
+      }
+    },
+    
+    "input": {
+      "type": "object",
+      "description": "Eingabedaten (Definition) - Source of Truth für Berechnung",
+      "required": ["building"],
+      "properties": {
+        "building": {
+          "$ref": "#/definitions/building"
+        },
+        "envelope": {
+          "$ref": "#/definitions/envelope"
+        },
+        "systems": {
+          "$ref": "#/definitions/systems"
+        },
+        "electricity": {
+          "$ref": "#/definitions/electricity"
+        },
+        "automation": {
+          "$ref": "#/definitions/automation"
+        },
+        "primary_energy": {
+          "$ref": "#/definitions/primary_energy_factors"
+        },
+        "climate": {
+          "$ref": "#/definitions/climate"
+        }
+      }
+    },
+    
+    "scenarios": {
+      "type": "array",
+      "description": "Szenarien/Varianten (Delta-Modell)",
+      "items": {
+        "$ref": "#/definitions/scenario"
+      }
+    },
+    
+    "output": {
+      "type": "object",
+      "description": "Berechnungsergebnisse (Snapshots) - OPTIONAL, von externer Software",
+      "properties": {
+        "base": {
+          "$ref": "#/definitions/output_snapshot",
+          "description": "Berechnung des Ist-Zustands (Base Input)"
+        }
+      },
+      "patternProperties": {
+        "^scenario_": {
+          "$ref": "#/definitions/output_snapshot",
+          "description": "Berechnung eines Szenarios (Base + Delta)"
+        }
+      }
+    }
+  },
+  
+  "definitions": {
+    "building": {
+      "type": "object",
+      "description": "Gebäude-Stammdaten",
+      "required": ["address", "construction_year", "heated_area"],
+      "properties": {
+        "address": {
+          "type": "object",
+          "required": ["zip", "city"],
+          "properties": {
+            "street": {"type": "string"},
+            "zip": {"type": "string"},
+            "city": {"type": "string"},
+            "country": {"type": "string", "default": "DE"}
+          }
+        },
+        "construction_year": {
+          "type": "integer",
+          "minimum": 1800,
+          "maximum": 2100
+        },
+        "renovation_year": {
+          "type": "integer",
+          "minimum": 1800,
+          "maximum": 2100
+        },
+        "type": {
+          "type": "string",
+          "enum": ["residential", "non_residential", "mixed"]
+        },
+        "subtype": {
+          "type": "string",
+          "description": "Gebäudeuntertyp (z.B. EFH, MFH, Büro)"
+        },
+        "heated_area": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Beheizte Fläche [m²]"
+        },
+        "gross_floor_area": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Brutto-Grundfläche [m²]"
+        },
+        "heated_volume": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Beheiztes Volumen [m³]"
+        },
+        "av_ratio": {
+          "type": "number",
+          "minimum": 0,
+          "description": "A/V-Verhältnis [-]"
+        },
+        "zones": {
+          "type": "array",
+          "items": {"$ref": "#/definitions/zone"}
+        }
+      }
+    },
+    
+    "zone": {
+      "type": "object",
+      "required": ["id", "usage_profile_ref", "area"],
+      "properties": {
+        "id": {"type": "string"},
+        "name": {"type": "string"},
+        "usage_profile_ref": {
+          "type": "string",
+          "description": "Referenz zu Nutzungsprofil (z.B. PROFILE_RES_EFH)"
+        },
+        "area": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Zonenfläche [m²]"
+        },
+        "volume": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Zonenvolumen [m³]"
+        },
+        "height": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Raumhöhe [m]"
+        },
+        "setpoint_heating_c": {
+          "type": "number",
+          "description": "Solltemperatur Heizung [°C]"
+        },
+        "setpoint_cooling_c": {
+          "type": "number",
+          "description": "Solltemperatur Kühlung [°C]"
+        },
+        "air_change_rate_h": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Luftwechselrate [1/h]"
+        },
+        "conditioned": {
+          "type": "boolean",
+          "description": "Konditioniert (beheizt/gekühlt)?"
+        }
+      }
+    },
+    
+    "envelope": {
+      "type": "object",
+      "description": "Gebäudehülle",
+      "properties": {
+        "opaque_elements": {
+          "type": "object",
+          "properties": {
+            "walls_external": {
+              "type": "array",
+              "items": {"$ref": "#/definitions/opaque_element"}
+            },
+            "walls_internal": {
+              "type": "array",
+              "items": {"$ref": "#/definitions/opaque_element"}
+            },
+            "roofs": {
+              "type": "array",
+              "items": {"$ref": "#/definitions/opaque_element"}
+            },
+            "floors": {
+              "type": "array",
+              "items": {"$ref": "#/definitions/opaque_element"}
+            }
+          }
+        },
+        "transparent_elements": {
+          "type": "object",
+          "properties": {
+            "windows": {
+              "type": "array",
+              "items": {"$ref": "#/definitions/transparent_element"}
+            },
+            "doors": {
+              "type": "array",
+              "items": {"$ref": "#/definitions/transparent_element"}
+            }
+          }
+        },
+        "thermal_bridges": {
+          "type": "object",
+          "properties": {
+            "method": {
+              "type": "string",
+              "enum": ["NONE", "SIMPLIFIED", "DETAILED"]
+            },
+            "delta_u_wb": {
+              "type": "number",
+              "description": "Wärmebrückenzuschlag ΔU_WB [W/(m²K)]"
+            },
+            "linear_bridges": {
+              "type": "array",
+              "items": {"$ref": "#/definitions/linear_thermal_bridge"}
+            }
+          }
+        }
+      }
+    },
+    
+    "opaque_element": {
+      "type": "object",
+      "required": ["id", "area"],
+      "properties": {
+        "id": {"type": "string"},
+        "ifc_guid": {"type": "string"},
+        "construction_ref": {
+          "type": "string",
+          "description": "Referenz zu Konstruktion aus Katalog"
+        },
+        "u_value": {
+          "type": "number",
+          "minimum": 0,
+          "description": "U-Wert [W/(m²K)]"
+        },
+        "area": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Fläche [m²]"
+        },
+        "orientation": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 360,
+          "description": "Orientierung [°] (0=N, 90=O, 180=S, 270=W)"
+        },
+        "inclination": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 90,
+          "description": "Neigung [°] (0=horizontal, 90=vertikal)"
+        }
+      }
+    },
+    
+    "transparent_element": {
+      "type": "object",
+      "required": ["id", "area"],
+      "properties": {
+        "id": {"type": "string"},
+        "ifc_guid": {"type": "string"},
+        "construction_ref": {"type": "string"},
+        "u_value": {
+          "type": "number",
+          "minimum": 0,
+          "description": "U-Wert [W/(m²K)]"
+        },
+        "g_value": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "g-Wert (Gesamtenergiedurchlassgrad) [-]"
+        },
+        "area": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Fläche [m²]"
+        },
+        "orientation": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 360
+        },
+        "shading_factor_f_sh": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Verschattungsfaktor F_sh [-]"
+        }
+      }
+    },
+    
+    "linear_thermal_bridge": {
+      "type": "object",
+      "properties": {
+        "id": {"type": "string"},
+        "type": {"type": "string"},
+        "psi_value": {
+          "type": "number",
+          "description": "Psi-Wert [W/(mK)]"
+        },
+        "length": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Länge [m]"
+        }
+      }
+    },
+    
+    "systems": {
+      "type": "object",
+      "description": "Technische Systeme",
+      "properties": {
+        "heating": {"$ref": "#/definitions/heating_system"},
+        "ventilation": {"$ref": "#/definitions/ventilation_system"},
+        "cooling": {"$ref": "#/definitions/cooling_system"},
+        "lighting": {"$ref": "#/definitions/lighting_system"},
+        "dhw": {"$ref": "#/definitions/dhw_system"}
+      }
+    },
+    
+    "heating_system": {
+      "type": "object",
+      "properties": {
+        "generation": {
+          "type": "object",
+          "properties": {
+            "type": {"type": "string"},
+            "installation_year": {"type": "integer"},
+            "nominal_power_kw": {"type": "number", "minimum": 0},
+            "efficiency": {"type": "number", "minimum": 0, "maximum": 1}
+          }
+        },
+        "distribution": {
+          "type": "object",
+          "properties": {
+            "type": {"type": "string"},
+            "insulation_standard": {"type": "string"}
+          }
+        },
+        "emission": {
+          "type": "object",
+          "properties": {
+            "type": {"type": "string"}
+          }
+        },
+        "control": {
+          "type": "object",
+          "properties": {
+            "type": {"type": "string"},
+            "efficiency_factor": {"type": "number", "minimum": 0, "maximum": 1}
+          }
+        }
+      }
+    },
+    
+    "ventilation_system": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["natural", "mechanical_exhaust", "mechanical_supply_exhaust", "hybrid", "demand_controlled"]
+        },
+        "n50_value": {
+          "type": "number",
+          "minimum": 0,
+          "description": "n₅₀-Wert aus Blower-Door [1/h]"
+        },
+        "heat_recovery": {"type": "boolean"},
+        "heat_recovery_efficiency": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "air_flow_rate_m3h": {"type": "number", "minimum": 0}
+      }
+    },
+    
+    "cooling_system": {
+      "type": "object",
+      "properties": {
+        "installed": {"type": "boolean"},
+        "type": {"type": "string"},
+        "nominal_power_kw": {"type": "number", "minimum": 0},
+        "eer": {"type": "number", "minimum": 0}
+      }
+    },
+    
+    "lighting_system": {
+      "type": "object",
+      "properties": {
+        "applicable": {"type": "boolean"},
+        "installed_power_w_m2": {"type": "number", "minimum": 0},
+        "control_type": {"type": "string"}
+      }
+    },
+    
+    "dhw_system": {
+      "type": "object",
+      "properties": {
+        "type": {"type": "string"},
+        "storage_volume_l": {"type": "number", "minimum": 0},
+        "circulation": {"type": "boolean"}
+      }
+    },
+    
+    "electricity": {
+      "type": "object",
+      "properties": {
+        "pv": {
+          "type": "object",
+          "properties": {
+            "installed": {"type": "boolean"},
+            "peak_power_kwp": {"type": "number", "minimum": 0},
+            "area_m2": {"type": "number", "minimum": 0},
+            "orientation": {"type": "number", "minimum": 0, "maximum": 360},
+            "inclination": {"type": "number", "minimum": 0, "maximum": 90}
+          }
+        }
+      }
+    },
+    
+    "automation": {
+      "type": "object",
+      "description": "Gebäudeautomation (BACS) nach DIN 18599-11",
+      "properties": {
+        "installed": {"type": "boolean"},
+        "bacs_class": {
+          "type": "string",
+          "enum": ["A", "B", "C", "D"],
+          "description": "BACS-Klasse nach DIN EN 15232"
+        },
+        "efficiency_factor_heating": {"type": "number", "minimum": 0, "maximum": 1},
+        "efficiency_factor_cooling": {"type": "number", "minimum": 0, "maximum": 1},
+        "efficiency_factor_ventilation": {"type": "number", "minimum": 0, "maximum": 1},
+        "efficiency_factor_lighting": {"type": "number", "minimum": 0, "maximum": 1}
+      }
+    },
+    
+    "primary_energy_factors": {
+      "type": "object",
+      "description": "Primärenergiefaktoren (Randbedingungen)",
+      "required": ["source"],
+      "properties": {
+        "source": {
+          "type": "string",
+          "enum": ["GEG_2024", "BEG_2024", "DIN_18599", "CUSTOM"]
+        },
+        "reference_year": {"type": "integer"},
+        "factors": {
+          "type": "object",
+          "properties": {
+            "electricity": {"type": "number", "minimum": 0},
+            "natural_gas": {"type": "number", "minimum": 0},
+            "oil": {"type": "number", "minimum": 0},
+            "district_heating": {"type": "number", "minimum": 0},
+            "wood_pellets": {"type": "number", "minimum": 0}
+          }
+        },
+        "co2_factors": {
+          "type": "object",
+          "properties": {
+            "electricity": {"type": "number", "minimum": 0, "description": "[kg/kWh]"},
+            "natural_gas": {"type": "number", "minimum": 0},
+            "oil": {"type": "number", "minimum": 0}
+          }
+        }
+      }
+    },
+    
+    "climate": {
+      "type": "object",
+      "properties": {
+        "try_region": {"type": "string"},
+        "heating_degree_days": {"type": "number", "minimum": 0}
+      }
+    },
+    
+    "scenario": {
+      "type": "object",
+      "required": ["id", "name", "delta"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$"
+        },
+        "name": {"type": "string"},
+        "description": {"type": "string"},
+        "priority": {"type": "integer", "minimum": 1},
+        "timeline": {"type": "integer"},
+        "delta": {
+          "type": "object",
+          "description": "Änderungen gegenüber Base Input (Delta-Modell)",
+          "properties": {
+            "elements": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["id"],
+                "properties": {
+                  "id": {"type": "string"},
+                  "construction_ref": {"type": "string"},
+                  "u_value": {"type": "number"}
+                }
+              }
+            },
+            "systems": {"type": "object"}
+          }
+        }
+      }
+    },
+    
+    "output_snapshot": {
+      "type": "object",
+      "description": "Berechnungsergebnisse (Snapshot) nach DIN 18599 Beiblatt 3",
+      "properties": {
+        "meta": {
+          "type": "object",
+          "required": ["calculation_date", "input_hash"],
+          "properties": {
+            "calculated_by": {"type": "string"},
+            "calculation_date": {"type": "string", "format": "date-time"},
+            "software": {"type": "string"},
+            "software_version": {"type": "string"},
+            "input_hash": {
+              "type": "string",
+              "description": "SHA-256 Hash des Inputs (für Validierung)"
+            },
+            "valid": {
+              "type": "boolean",
+              "description": "Ist Output noch aktuell? (Hash-Vergleich)"
+            }
+          }
+        },
+        "useful_energy": {
+          "type": "object",
+          "description": "8.1 Nutzenergiebedarf",
+          "properties": {
+            "per_zone": {"type": "array"},
+            "total": {"type": "object"}
+          }
+        },
+        "final_energy": {
+          "type": "object",
+          "description": "8.2 Endenergiebedarf",
+          "properties": {
+            "reference_system": {
+              "type": "string",
+              "enum": ["gross_calorific_value", "net_calorific_value"]
+            },
+            "by_carrier": {"type": "object"},
+            "by_zone_and_application": {"type": "object"}
+          }
+        },
+        "primary_energy": {
+          "type": "object",
+          "description": "8.3 Primärenergiebedarf",
+          "properties": {
+            "reference_system": {
+              "type": "string",
+              "enum": ["non_renewable", "renewable", "total"]
+            },
+            "by_carrier": {"type": "object"},
+            "by_zone_and_application": {"type": "object"}
+          }
+        },
+        "co2_emissions": {
+          "type": "object",
+          "description": "8.4 CO₂-Emissionen",
+          "properties": {
+            "by_carrier": {"type": "object"},
+            "by_zone_and_application": {"type": "object"}
+          }
+        },
+        "specific_values": {
+          "type": "object",
+          "description": "Spezifische Kennwerte (flächenbezogen)",
+          "properties": {
+            "reference_area": {"type": "number"},
+            "useful_energy": {"type": "object"},
+            "final_energy": {"type": "object"},
+            "primary_energy": {"type": "object"},
+            "co2_emissions": {"type": "object"}
+          }
+        },
+        "savings": {
+          "type": "object",
+          "description": "Einsparungen gegenüber Base (nur bei Szenarien)",
+          "properties": {
+            "final_energy_percent": {"type": "number"},
+            "primary_energy_percent": {"type": "number"},
+            "co2_percent": {"type": "number"},
+            "cost_annual_euro": {"type": "number"}
+          }
+        }
+      }
+    }
+  }
+}
