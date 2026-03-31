@@ -310,17 +310,43 @@ Kamera: Zoom auf Wall (optional)
 
 ---
 
-## 🎨 UI/UX-Design
+## �️ Basis-Entscheidung: Editor-Framework
 
-### **Technologie-Stack:**
+**Perplexity-Review #2 (31. März 2026):**
+
+| Option | Basis | Größtes Risiko | Deadline-Impact | Empfehlung |
+|--------|-------|----------------|-----------------|------------|
+| **A: Pascal Editor** | React Three Fiber + WebGPU | WebGPU experimentell, massiver Anpassungsaufwand | 🔴 Kritisch | ❌ Nicht empfohlen |
+| **B: FloorspaceJS (NREL)** | Speziell für BEM, NREL-proven | Nur simple geometry, kein IFC-native | 🟡 Mittel | ✅ **EMPFOHLEN** |
+| **C: xeokit SDK** | BIM/IFC-Viewer | Zu viewer-lastig, kein Edit | 🔴 Hoch | ⚠️ Nur als Ergänzung |
+| **D: Eigener Viewer** | Three.js (bereits vorhanden) | Viel Eigenarbeit | 🟠 Mittel | ⚠️ Fallback |
+
+### **Entscheidung: 2-Wochen PoC vor endgültiger Wahl!**
+
+**Woche 0 (PoC):**
+1. FloorspaceJS lokal aufsetzen
+2. Unser Demo-JSON laden
+3. 1 Material + 1 Profil integrieren
+4. Edit + Export testen
+→ Wenn funktioniert: FloorspaceJS als Basis
+→ Wenn nicht: Hybrid (Eigener Viewer + xeokit)
+
+---
+
+## �🎨 UI/UX-Design
+
+### **Technologie-Stack (aktualisiert nach Perplexity-Review):**
 
 | Komponente | Technologie | Warum? |
 |------------|-------------|--------|
 | **Framework** | React + TypeScript | Modern, typsicher, große Community |
-| **3D-Rendering** | Three.js | Bereits implementiert, performant |
+| **3D-Rendering** | React Three Fiber + Drei | Empfohlen von Perplexity (50% weniger Code als Three.js raw) |
+| **3D-State** | R3F State (integriert) | Perfektes State-Management für 3D |
+| **Inspector** | shadcn/ui + **Leva** | Leva = schneller Inspector für 3D-Props |
 | **UI-Library** | shadcn/ui + Tailwind | Modern, customizable, DWEapp-Style |
 | **State Management** | Zustand | Einfach, performant |
-| **Routing** | React Router | Standard |
+| **IFC-Parser** | **web-ifc** ⭐ NEU! | IFC/DIN 18599 JSON-Parsing |
+| **Schema-Validation** | **Zod/Valibot** ⭐ NEU! | DIN 18599 semantische Validierung |
 | **Build** | Vite | Schnell, modern |
 
 ### **Design-System:**
@@ -537,7 +563,49 @@ Kamera: Zoom auf Wall (optional)
 
 ---
 
-## 📊 Erfolgs-Kriterien
+## ⚠️ KRITISCHE LÜCKEN (Perplexity-Review #2)
+
+### **Was wir vergessen hatten:**
+
+#### **🔴 IFC-Parser fehlt!**
+- **Problem:** Kein nativer DIN 18599/IFC-Support in Pascal, FloorspaceJS oder xeokit
+- **Lösung:** `web-ifc` oder `three-ifc.js` als Dependency einplanen
+- **Aufwand:** +1 Woche
+- **Aktion:** Sofort als Dependency deklarieren
+
+#### **🔴 DSGVO/Datenschutz nicht berücksichtigt!**
+- **Problem:** Gebäude-Daten enthalten personenbezogene Daten (Adresse, Eigentümer)
+- **Lösung:** Lokale Verarbeitung (kein Server-Upload), Privacy-by-Design
+- **Aktion:** Datenschutzkonzept erstellen (vor Berlin-Präsentation!)
+
+#### **🟠 Normen-Compliance / Schema-Validierung fehlt**
+- **Problem:** Keine semantische Validierung (ungültige U-Werte, falsche Profile)
+- **Lösung:** Zod/Valibot Schema-Validator (basierend auf Schema v2.1)
+- **Aktion:** Validator in Woche 2 einbauen
+
+#### **🟠 Lizenz-Review nötig!**
+- **Problem:** FloorspaceJS = US-Regierungsrechte (NREL), Attribution Pflicht; Pascal = CLA prüfen
+- **Lösung:** Lizenz-Review vor Fork/Integration
+- **Aktion:** Vor Start prüfen!
+
+#### **🟡 WebGPU Risiko (bei Pascal)**
+- **Problem:** Pascal nutzt WebGPU → experimentell, nicht überall unterstützt (Edge/Safari)
+- **Lösung:** WebGL-Fallback oder FloorspaceJS nutzen (kein WebGPU)
+- **Aktion:** Kein Pascal ohne WebGL-Fallback!
+
+#### **🟡 Offline/PWA nicht geplant**
+- **Problem:** Energieberater arbeiten oft vor Ort ohne Internet
+- **Lösung:** PWA (Service Worker) für Offline-Funktionalität
+- **Aktion:** Nach MVP einplanen (Q3 2026)
+
+#### **� Accessibility (WCAG) vergessen**
+- **Problem:** Professionelles Beratungstool muss barrierefrei sein
+- **Lösung:** WCAG 2.1 AA, Tastaturnavigation, Screenreader
+- **Aktion:** Von Anfang an einplanen (Tailwind macht das einfacher)
+
+---
+
+## �📊 Erfolgs-Kriterien
 
 ### **Viewer-MVP ist erfolgreich, wenn:**
 
@@ -548,6 +616,17 @@ Kamera: Zoom auf Wall (optional)
 5. ✅ Szenario-Wechsel funktioniert
 6. ✅ Live-Demo läuft flüssig (5 Min ohne Fehler)
 7. ✅ Browser-kompatibel (Chrome, Firefox, Safari)
+
+---
+
+## 📋 Kritischste Entscheidungen JETZT (vor Implementierung)
+
+1. **✅ Format-Fix:** JSON-Schema v2.1 finalisieren (DIN 18599 Elemente) → ERLEDIGT!
+2. **⏳ 2-Wochen PoC:** FloorspaceJS + 1 Material + 1 Profil testen
+3. **⏳ Lizenz-Review:** NREL/FloorspaceJS Rechte prüfen
+4. **⏳ IFC-Parser:** web-ifc als Dependency deklarieren
+5. **⏳ DSGVO-Konzept:** Privacy-by-Design dokumentieren
+6. **⏳ WebGL-Fallback:** Falls Pascal → WebGL als Fallback für Safari/Edge
 
 ---
 
