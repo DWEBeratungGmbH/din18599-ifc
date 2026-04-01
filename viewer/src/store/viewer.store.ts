@@ -408,6 +408,7 @@ interface ViewerState {
   // UI State
   selectedId: string | null
   hoveredId: string | null
+  buildingDataModalOpen: boolean
   
   // Editor State
   editMode: boolean
@@ -418,6 +419,8 @@ interface ViewerState {
   setHoveredId: (id: string | null) => void
   switchScenario: (id: string) => void
   toggleEditMode: () => void
+  openBuildingDataModal: () => void
+  closeBuildingDataModal: () => void
   
   // Computed
   getCurrentData: () => DIN18599Data | null
@@ -429,6 +432,7 @@ export const useViewerStore = create<ViewerState>((set, get) => ({
   activeScenario: 'base',
   selectedId: null,
   hoveredId: null,
+  buildingDataModalOpen: false,
   editMode: false,
   
   // Actions
@@ -437,6 +441,8 @@ export const useViewerStore = create<ViewerState>((set, get) => ({
   setHoveredId: (id) => set({ hoveredId: id }),
   switchScenario: (id) => set({ activeScenario: id }),
   toggleEditMode: () => set((state) => ({ editMode: !state.editMode })),
+  openBuildingDataModal: () => set({ buildingDataModalOpen: true }),
+  closeBuildingDataModal: () => set({ buildingDataModalOpen: false }),
   
   // Computed
   getCurrentData: () => {

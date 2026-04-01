@@ -6,9 +6,10 @@ import { Roof } from './components/Roof'
 import { Floor } from './components/Floor'
 import { Window } from './components/Window'
 import { ScenarioSwitcher } from './components/ScenarioSwitcher'
+import { BuildingDataModal } from './components/BuildingDataModal/BuildingDataModal'
 
 function App() {
-  const { project, loadProject, selectedId, selectElement } = useViewerStore()
+  const { project, loadProject, selectedId, selectElement, openBuildingDataModal } = useViewerStore()
 
   // Berechne Netto-Wandflächen (Brutto - Fenster)
   const getNetWallArea = (wall: any) => {
@@ -50,6 +51,23 @@ function App() {
           🏢 DIN 18599 Viewer
         </h1>
         <div style={{ marginLeft: 'auto', display: 'flex', gap: '10px' }}>
+          {project && (
+            <button 
+              onClick={openBuildingDataModal}
+              style={{
+                padding: '8px 16px',
+                background: '#14b8a6',
+                color: 'white',
+                border: 'none',
+                borderRadius: '6px',
+                cursor: 'pointer',
+                fontSize: '14px',
+                fontWeight: 500
+              }}
+            >
+              📊 Gebäudedaten
+            </button>
+          )}
           <button 
             onClick={handleLoadDemo}
             style={{
@@ -543,6 +561,9 @@ function App() {
           </>
         )}
       </div>
+
+      {/* Building Data Modal */}
+      <BuildingDataModal />
     </div>
   )
 }
