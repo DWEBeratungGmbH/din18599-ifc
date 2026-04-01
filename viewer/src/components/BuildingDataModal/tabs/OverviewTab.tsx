@@ -115,16 +115,18 @@ export function OverviewTab() {
             Klimadaten & Norm
           </h3>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '14px' }}>
-            {building?.location && (
-              <div>
-                <div style={{ fontSize: '12px', color: '#64748b', marginBottom: '4px' }}>Standort</div>
-                <div style={{ fontWeight: 600 }}>{building.location}</div>
-              </div>
-            )}
-            {building?.climate_zone && (
+            {building?.location && typeof building.location === 'object' && 'climate_zone' in building.location && (
               <div>
                 <div style={{ fontSize: '12px', color: '#64748b', marginBottom: '4px' }}>Klimazone</div>
-                <div style={{ fontWeight: 600 }}>{building.climate_zone}</div>
+                <div style={{ fontWeight: 600 }}>{building.location.climate_zone}</div>
+              </div>
+            )}
+            {building?.location && typeof building.location === 'object' && 'latitude' in building.location && (
+              <div>
+                <div style={{ fontSize: '12px', color: '#64748b', marginBottom: '4px' }}>Koordinaten</div>
+                <div style={{ fontWeight: 600 }}>
+                  {building.location.latitude.toFixed(2)}°N, {building.location.longitude.toFixed(2)}°E
+                </div>
               </div>
             )}
             <div>

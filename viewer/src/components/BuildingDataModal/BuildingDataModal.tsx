@@ -5,12 +5,11 @@ import { BuildingDataTabs } from './BuildingDataTabs'
 import { OverviewTab } from './tabs/OverviewTab'
 import { ZonesTab } from './tabs/ZonesTab'
 import { EnvelopeTab } from './tabs/EnvelopeTab'
-import { OpeningsTab } from './tabs/OpeningsTab'
 import { SystemsTab } from './tabs/SystemsTab'
 import { BuildingElementsTab } from './tabs/BuildingElementsTab'
 import './BuildingDataModal.css'
 
-export type TabId = 'overview' | 'zones' | 'envelope' | 'openings' | 'systems' | 'building-elements'
+export type TabId = 'overview' | 'zones' | 'envelope' | 'systems' | 'building-elements'
 
 export function BuildingDataModal() {
   const isOpen = useViewerStore((state) => state.buildingDataModalOpen)
@@ -57,7 +56,6 @@ export function BuildingDataModal() {
           {activeTab === 'overview' && <OverviewTab />}
           {activeTab === 'zones' && <ZonesTab />}
           {activeTab === 'envelope' && <EnvelopeTab />}
-          {activeTab === 'openings' && <OpeningsTab />}
           {activeTab === 'systems' && <SystemsTab />}
           {activeTab === 'building-elements' && <BuildingElementsTab />}
         </div>

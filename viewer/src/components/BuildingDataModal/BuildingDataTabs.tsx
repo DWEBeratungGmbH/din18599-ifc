@@ -24,9 +24,9 @@ export function BuildingDataTabs({ activeTab, onTabChange }: BuildingDataTabsPro
     { id: 'envelope', label: 'Gebäudehülle', icon: '🧱', count: 
       (project.input.envelope?.walls_external?.length || 0) + 
       (project.input.envelope?.roofs?.length || 0) + 
-      (project.input.envelope?.floors?.length || 0)
+      (project.input.envelope?.floors?.length || 0) +
+      (project.input.envelope?.openings?.length || 0)
     },
-    { id: 'openings', label: 'Öffnungen', icon: '🪟', count: project.input.envelope?.openings?.length },
     { id: 'systems', label: 'Anlagentechnik', icon: '🔧' },
     { id: 'building-elements', label: 'BuildingElements', icon: '🏗️', count: project.input.building_elements?.length }
   ]
