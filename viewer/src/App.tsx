@@ -5,6 +5,7 @@ import { Wall } from './components/Wall'
 import { Roof } from './components/Roof'
 import { Floor } from './components/Floor'
 import { Window } from './components/Window'
+import { ScenarioSwitcher } from './components/ScenarioSwitcher'
 
 function App() {
   const { project, loadProject, selectedId, selectElement } = useViewerStore()
@@ -302,6 +303,9 @@ function App() {
             {/* Camera Controls */}
             <OrbitControls makeDefault />
           </Canvas>
+
+          {/* Szenario-Switcher (oben mittig) */}
+          <ScenarioSwitcher />
 
           {/* Inspector Panel (rechts) */}
           <div style={{
