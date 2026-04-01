@@ -69,7 +69,7 @@ export function UploadWizard({ onSidecarGenerated, onClose }: UploadWizardProps)
       const formData = new FormData()
       formData.append('ifc_file', file)
 
-      const response = await fetch('http://localhost:8000/parse-ifc', {
+      const response = await fetch('http://localhost:8001/parse-ifc', {
         method: 'POST',
         body: formData,
       })
@@ -107,7 +107,7 @@ export function UploadWizard({ onSidecarGenerated, onClose }: UploadWizardProps)
         formData.append('ifc_file', ifcFile)
       }
 
-      const response = await fetch('http://localhost:8000/parse-evebi', {
+      const response = await fetch('http://localhost:8001/parse-evebi', {
         method: 'POST',
         body: formData,
       })
@@ -140,7 +140,7 @@ export function UploadWizard({ onSidecarGenerated, onClose }: UploadWizardProps)
       formData.append('ifc_file', ifcFile)
       formData.append('evebi_file', evebiFile)
 
-      const response = await fetch('http://localhost:8000/generate-sidecar', {
+      const response = await fetch('http://localhost:8001/generate-sidecar', {
         method: 'POST',
         body: formData,
       })
