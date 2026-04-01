@@ -255,16 +255,32 @@ def _extract_constructions(eing: ET.Element) -> List[EVEBIConstruction]:
     
     for item in items:
         guid = item.get('GUID', '')
-        name = item.findtext('.//name', 'Unbekannte Konstruktion')
         
-        # U-Wert
-        u_elem = item.find('.//U')
+        # Name aus Attribut 'man' (nicht als Text!)
+        name_elem = item.find('name')
+        name = 'Unbekannte Konstruktion'
+        if name_elem is not None:
+            name = name_elem.get('man', name_elem.get('calc', name_elem.text or name))
+        
+        # U-Wert aus UWertStandard oder U-Element
         u_value = 0.0
-        if u_elem is not None:
+        
+        # Versuch 1: UWertStandard (direktes Element)
+        u_standard = item.findtext('UWertStandard')
+        if u_standard:
             try:
-                u_value = float(u_elem.get('man', u_elem.get('calc', '0')))
+                u_value = float(u_standard)
             except (ValueError, TypeError):
-                u_value = 0.0
+                pass
+        
+        # Versuch 2: U-Element mit Attributen
+        if u_value == 0.0:
+            u_elem = item.find('U')
+            if u_elem is not None:
+                try:
+                    u_value = float(u_elem.get('man', u_elem.get('calc', '0')))
+                except (ValueError, TypeError):
+                    pass
         
         constructions.append(EVEBIConstruction(
             guid=guid,
