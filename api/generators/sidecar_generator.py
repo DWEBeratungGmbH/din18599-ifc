@@ -621,8 +621,12 @@ class SidecarGenerator:
                             "lambda_w_mk": layer.get("lambda") or 0.04  # Default wenn null
                         })
                     
-                    # U-Wert aus IFC (kann null sein)
-                    u_value = ifc_layer.get("u_value_calculated") or 0.0
+                    # U-Wert aus IFC oder berechnen
+                    u_value = ifc_layer.get("u_value_calculated")
+                    
+                    # Wenn kein U-Wert vorhanden, aus Schichten berechnen oder Default nutzen
+                    if not u_value or u_value == 0:
+                        u_value = self._calculate_u_value_from_layers(sidecar_layers, structure_type)
                     
                     sidecar_structures.append({
                         "id": layer_id,  # Nutze IFC Layer ID direkt
@@ -635,6 +639,50 @@ class SidecarGenerator:
                     })
         
         return sidecar_structures
+    
+    def _calculate_u_value_from_layers(
+        self,
+        layers: List[Dict[str, Any]],
+        structure_type: str
+    ) -> float:
+        """
+        Berechnet U-Wert aus Schichtaufbau oder nutzt realistische Defaults
+        
+        U-Wert Berechnung: U = 1 / (Rsi + Sum(d/lambda) + Rse)
+        - Rsi (innen): 0.13 m²K/W
+        - Rse (außen): 0.04 m²K/W
+        - d: Dicke in m
+        - lambda: Wärmeleitfähigkeit in W/mK
+        """
+        if not layers or len(layers) == 0:
+            # Keine Schichten - nutze Defaults basierend auf Typ
+            defaults = {
+                "WALL": 0.24,      # Typische Außenwand (EnEV 2014)
+                "ROOF": 0.20,      # Typisches Dach
+                "FLOOR": 0.30,     # Typischer Boden
+                "WINDOW": 1.30,    # Typisches Fenster
+                "DOOR": 1.80       # Typische Tür
+            }
+            return defaults.get(structure_type, 0.50)
+        
+        # Berechne R-Wert aus Schichten
+        r_total = 0.13 + 0.04  # Rsi + Rse
+        
+        for layer in layers:
+            thickness_m = layer.get("thickness_mm", 0) / 1000.0  # mm -> m
+            lambda_val = layer.get("lambda_w_mk", 0.04)
+            
+            if thickness_m > 0 and lambda_val > 0:
+                r_layer = thickness_m / lambda_val
+                r_total += r_layer
+        
+        # U = 1/R
+        if r_total > 0:
+            u_value = 1.0 / r_total
+            return round(u_value, 4)
+        
+        # Fallback
+        return 0.50
     
     def _map_zones(self, zones: List[EVEBIZone]) -> List[Dict[str, Any]]:
         """Mappt EVEBI-Zonen zu Sidecar JSON"""
@@ -727,7 +775,21 @@ class SidecarGenerator:
                 if not layer_structure_ref and guid_prefix in ifc_layers_by_guid:
                     ifc_layer = ifc_layers_by_guid[guid_prefix]
                     layer_structure_ref = ifc_layer.get("id")  # Nutze IFC Layer ID direkt
-                    u_value = ifc_layer.get("u_value_calculated") or 0.0
+                    
+                    # U-Wert berechnen wenn nicht vorhanden
+                    u_value = ifc_layer.get("u_value_calculated")
+                    if not u_value or u_value == 0:
+                        # Berechne aus Layers
+                        layers = ifc_layer.get("layers", [])
+                        sidecar_layers = []
+                        for layer in layers:
+                            sidecar_layers.append({
+                                "material_name": layer.get("material_name", "Unbekannt"),
+                                "thickness_mm": layer.get("thickness", 0) * 1000,
+                                "lambda_w_mk": layer.get("lambda") or 0.04
+                            })
+                        structure_type = self._detect_structure_type(ifc_layer.get("type", ifc_elem.name))
+                        u_value = self._calculate_u_value_from_layers(sidecar_layers, structure_type)
                 
                 element = {
                     "ifc_guid": ifc_elem.guid,
