@@ -418,9 +418,12 @@ interface ViewerState {
   setHoveredId: (id: string | null) => void
   switchScenario: (id: string) => void
   toggleEditMode: () => void
+  
+  // Computed
+  getCurrentData: () => DIN18599Data | null
 }
 
-export const useViewerStore = create<ViewerState>((set) => ({
+export const useViewerStore = create<ViewerState>((set, get) => ({
   // Initial State
   project: null,
   activeScenario: 'base',
@@ -434,4 +437,23 @@ export const useViewerStore = create<ViewerState>((set) => ({
   setHoveredId: (id) => set({ hoveredId: id }),
   switchScenario: (id) => set({ activeScenario: id }),
   toggleEditMode: () => set((state) => ({ editMode: !state.editMode })),
+  
+  // Computed
+  getCurrentData: () => {
+    const state = get()
+    if (!state.project) return null
+    
+    // Base Szenario
+    if (state.activeScenario === 'base') {
+      return state.project
+    }
+    
+    // Szenario anwenden
+    const scenario = state.project.scenarios?.find(s => s.id === state.activeScenario)
+    if (!scenario) return state.project
+    
+    // Delta-Merge wird später mit applyScenario() implementiert
+    // Für jetzt: Base-Daten zurückgeben
+    return state.project
+  },
 }))
