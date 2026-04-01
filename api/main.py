@@ -135,11 +135,17 @@ async def parse_evebi_endpoint(
         try:
             # EVEBI parsen
             evebi_data = parse_evea(str(evebi_path))
-            evebi_dict = evebi_data_to_dict(evebi_data)
             
+            # Frontend erwartet nur Anzahlen, nicht vollständige Daten
             return {
                 "success": True,
-                "evebi_data": evebi_dict
+                "evebi_data": {
+                    "project_name": evebi_data.project_name,
+                    "materials": len(evebi_data.materials),
+                    "constructions": len(evebi_data.constructions),
+                    "elements": len(evebi_data.elements),
+                    "zones": len(evebi_data.zones)
+                }
             }
             
         except Exception as e:
