@@ -98,6 +98,9 @@ class SidecarGenerator:
         evebi_elements = self._prepare_evebi_elements(evebi_data)
         evebi_zones = self._prepare_evebi_zones(evebi_data)
         
+        # IFC Material-Layers extrahieren (Fallback wenn EVEBI leer)
+        ifc_material_layers = ifc_data.get("material_layers", [])
+        
         # IFC + EVEBI Matching
         matched_elements = self._match_elements(ifc_elements, evebi_elements)
         
@@ -116,14 +119,14 @@ class SidecarGenerator:
                 "climate_location": self._generate_climate_location(),
                 "zones": self._map_zones(evebi_zones),
                 "materials": self._map_materials(evebi_materials),
-                "layer_structures": self._map_layer_structures(evebi_constructions),
+                "layer_structures": self._map_layer_structures(evebi_constructions, ifc_material_layers),
                 "elements": [],
                 "windows": []
             }
         }
         
-        # Bauteile + Fenster mappen
-        elements, windows = self._map_elements(matched_elements)
+        # Bauteile + Fenster mappen (mit IFC Material-Layers)
+        elements, windows = self._map_elements(matched_elements, ifc_material_layers)
         sidecar["input"]["elements"] = elements
         sidecar["input"]["windows"] = windows
         
@@ -567,24 +570,69 @@ class SidecarGenerator:
     
     def _map_layer_structures(
         self,
-        constructions: List[EVEBIConstruction]
+        constructions: List[EVEBIConstruction],
+        ifc_material_layers: List[Dict[str, Any]] = None
     ) -> List[Dict[str, Any]]:
-        """Mappt EVEBI-Konstruktionen zu Sidecar JSON"""
+        """
+        Mappt EVEBI-Konstruktionen + IFC Material-Layers zu Sidecar JSON
+        
+        Strategie:
+        1. EVEBI-Konstruktionen (mit U-Werten, aber ohne Layers)
+        2. IFC Material-Layers (mit vollständigen Schichtaufbauten)
+        """
         sidecar_structures = []
         
+        # 1. EVEBI-Konstruktionen
         for konstr in constructions:
-            # Typ aus Name ableiten
             structure_type = self._detect_structure_type(konstr.name)
             
             sidecar_structures.append({
                 "id": f"LS-{konstr.guid[:8]}",
                 "name": konstr.name,
                 "type": structure_type,
-                "layers": [],  # Leer, da EVEBI keine Schichten hat
+                "layers": [],  # EVEBI hat keine Schichten
                 "calculated_values": {
                     "u_value_w_m2k": konstr.u_value
                 }
             })
+        
+        # 2. IFC Material-Layers (Fallback wenn EVEBI leer oder als Ergänzung)
+        if ifc_material_layers:
+            for ifc_layer in ifc_material_layers:
+                # IFC Layer Format: {"id": "LS-1ybs9cI0", "name": "Wand - 001", "layers": [...]}
+                layer_id = ifc_layer.get("id", "")
+                name = ifc_layer.get("name", "Unbekannt")
+                
+                # Prüfe ob bereits in EVEBI vorhanden (Name-Match)
+                exists = any(s["name"] == name for s in sidecar_structures)
+                
+                if not exists:
+                    # IFC-Layer hinzufügen
+                    structure_type = self._detect_structure_type(ifc_layer.get("type", name))
+                    layers = ifc_layer.get("layers", [])
+                    
+                    # Layers konvertieren
+                    sidecar_layers = []
+                    for layer in layers:
+                        # IFC Layer Format: {"material_name": "...", "thickness": 0.24, "lambda": null}
+                        sidecar_layers.append({
+                            "material_name": layer.get("material_name", "Unbekannt"),
+                            "thickness_mm": layer.get("thickness", 0) * 1000,  # m -> mm
+                            "lambda_w_mk": layer.get("lambda") or 0.04  # Default wenn null
+                        })
+                    
+                    # U-Wert aus IFC (kann null sein)
+                    u_value = ifc_layer.get("u_value_calculated") or 0.0
+                    
+                    sidecar_structures.append({
+                        "id": layer_id,  # Nutze IFC Layer ID direkt
+                        "name": name,
+                        "type": structure_type,
+                        "layers": sidecar_layers,
+                        "calculated_values": {
+                            "u_value_w_m2k": u_value
+                        }
+                    })
         
         return sidecar_structures
     
@@ -614,16 +662,33 @@ class SidecarGenerator:
     
     def _map_elements(
         self,
-        matches: List[Dict[str, Any]]
+        matches: List[Dict[str, Any]],
+        ifc_material_layers: List[Dict[str, Any]] = None
     ) -> tuple[List[Dict[str, Any]], List[Dict[str, Any]]]:
         """
         Mappt gematchte Elemente zu Sidecar JSON
+        
+        Args:
+            matches: IFC-EVEBI Matches
+            ifc_material_layers: IFC Material-Layers für Fallback
         
         Returns:
             (elements, windows)
         """
         sidecar_elements = []
         sidecar_windows = []
+        
+        # IFC Material-Layers Index erstellen (Name -> Layer)
+        # IFC Material-Layers haben format: {"id": "LS-1ybs9cI0", "name": "Wand - 001", ...}
+        # Die ID enthält die ersten 8 Zeichen der Element-GUID
+        ifc_layers_by_guid = {}
+        if ifc_material_layers:
+            for layer in ifc_material_layers:
+                # Extrahiere GUID aus ID (Format: "LS-1ybs9cI0")
+                layer_id = layer.get("id", "")
+                if layer_id.startswith("LS-"):
+                    guid_prefix = layer_id[3:]  # "1ybs9cI0"
+                    ifc_layers_by_guid[guid_prefix] = layer
         
         for match in matches:
             ifc_elem = match["ifc"]
@@ -648,11 +713,27 @@ class SidecarGenerator:
                 sidecar_windows.append(window)
             else:
                 # Opakes Bauteil
+                # Layer-Structure-Ref ermitteln (EVEBI oder IFC)
+                layer_structure_ref = None
+                u_value = 0
+                
+                # Versuch 1: EVEBI Konstruktions-Ref
+                if evebi_elem and evebi_elem.construction_ref:
+                    layer_structure_ref = f"LS-{evebi_elem.construction_ref[:8]}"
+                    u_value = evebi_elem.u_value
+                
+                # Versuch 2: IFC Material-Layer (Match via GUID-Präfix)
+                guid_prefix = ifc_elem.guid[:8] if len(ifc_elem.guid) >= 8 else ifc_elem.guid
+                if not layer_structure_ref and guid_prefix in ifc_layers_by_guid:
+                    ifc_layer = ifc_layers_by_guid[guid_prefix]
+                    layer_structure_ref = ifc_layer.get("id")  # Nutze IFC Layer ID direkt
+                    u_value = ifc_layer.get("u_value_calculated") or 0.0
+                
                 element = {
                     "ifc_guid": ifc_elem.guid,
                     "boundary_condition": self._detect_boundary_condition(evebi_elem.name if evebi_elem else ifc_elem.name),
-                    "layer_structure_ref": f"LS-{evebi_elem.construction_ref[:8]}" if (evebi_elem and evebi_elem.construction_ref) else None,
-                    "u_value_undisturbed": evebi_elem.u_value if evebi_elem else 0,
+                    "layer_structure_ref": layer_structure_ref,
+                    "u_value_undisturbed": u_value,
                     "thermal_bridge_delta_u": 0.02,  # Default
                     "thermal_bridge_type": "SIMPLIFIED",
                     "orientation": (evebi_elem.orientation if evebi_elem else 0) or 0,
