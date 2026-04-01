@@ -1,11 +1,14 @@
 """
-IFC Parser
-Parst IFC-Dateien und extrahiert Geometrie-Informationen
+IFC Parser für DIN18599 Sidecar Generator
+
+Extrahiert Geometrie und Bauteil-Informationen aus IFC-Dateien.
 """
 
 import ifcopenshell
 import ifcopenshell.geom
-from typing import List, Optional, Tuple
+from dataclasses import dataclass
+from typing import List, Optional, Dict, Any, Tuple
+from .ifc_material_extractor import extract_material_layers, layer_structure_to_dict
 from dataclasses import dataclass, field
 import math
 
@@ -31,12 +34,14 @@ class IFCGeometry:
     project_name: str
     site_name: Optional[str] = None
     building_name: Optional[str] = None
+    building_guid: Optional[str] = None
     walls: List[IFCElement] = field(default_factory=list)
     roofs: List[IFCElement] = field(default_factory=list)
     slabs: List[IFCElement] = field(default_factory=list)
     windows: List[IFCElement] = field(default_factory=list)
     doors: List[IFCElement] = field(default_factory=list)
     all_elements: List[IFCElement] = field(default_factory=list)
+    material_layers: List[Dict[str, Any]] = field(default_factory=list)  # ← NEU!
 
 
 def parse_ifc(ifc_file_path: str) -> IFCGeometry:
@@ -109,6 +114,36 @@ def parse_ifc(ifc_file_path: str) -> IFCGeometry:
         if element:
             geometry.doors.append(element)
             geometry.all_elements.append(element)
+    
+    # Material-Layers extrahieren (NEU!)
+    print(f"\n🔍 Extrahiere Material-Schichtaufbauten...")
+    layer_structures_map = {}  # GUID → LayerStructure
+    
+    for ifc_element in geometry.all_elements:
+        # Finde IFC-Element anhand GUID
+        ifc_elem = None
+        for elem_type in ['IfcWall', 'IfcRoof', 'IfcSlab', 'IfcWindow', 'IfcDoor']:
+            for elem in ifc_file.by_type(elem_type):
+                if elem.GlobalId == ifc_element.guid:
+                    ifc_elem = elem
+                    break
+            if ifc_elem:
+                break
+        
+        if not ifc_elem:
+            continue
+        
+        # Material-Layers extrahieren
+        layer_structure = extract_material_layers(ifc_elem, ifc_file)
+        if layer_structure:
+            layer_structures_map[ifc_element.guid] = layer_structure
+            geometry.material_layers.append(layer_structure_to_dict(layer_structure))
+    
+    print(f"   ✅ {len(geometry.material_layers)} Schichtaufbauten extrahiert")
+    
+    # Building GUID
+    if building:
+        geometry.building_guid = building.GlobalId
     
     return geometry
 
@@ -316,10 +351,12 @@ def _extract_posno(ifc_element) -> Optional[str]:
 def ifc_geometry_to_dict(ifc_geometry: IFCGeometry) -> dict:
     """
     Konvertiert IFCGeometry in Dictionary-Format für Sidecar Generator
+    Inkludiert vollständige Material-Schichtaufbauten (NEU!)
     """
     return {
         "project_name": ifc_geometry.project_name,
-        "building_guid": ifc_geometry.building_name or "UNKNOWN",
+        "building_guid": ifc_geometry.building_guid or "UNKNOWN",
+        "material_layers": ifc_geometry.material_layers,  # ← NEU!
         "walls": [
             {
                 "guid": elem.guid,
