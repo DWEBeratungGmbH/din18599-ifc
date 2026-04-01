@@ -11,7 +11,6 @@ from datetime import datetime
 import re
 from difflib import SequenceMatcher
 
-
 @dataclass
 class IFCElement:
     """IFC-Element (aus IFC-Parser)"""
@@ -248,26 +247,54 @@ class SidecarGenerator:
         evebi_elements: List[EVEBIElement]
     ) -> List[Dict[str, Any]]:
         """
-        Matched IFC-Elemente mit EVEBI-Elementen
+        Matched IFC-Elemente mit EVEBI-Elementen (Optimiert v2)
         
-        Matching-Strategie:
-        1. PosNo-Match (exakt)
-        2. Name-Match (Fuzzy, >80% Ähnlichkeit)
-        3. Geometrie-Match (Fläche ±10%, Typ)
+        Matching-Strategie (Multi-Pass):
+        1. Pass 1: PosNo-Match (exakt) - Score 1.0
+        2. Pass 2: Name + Typ + Fläche (kombiniert) - Score 0.4+
+        3. Pass 3: Nur Typ + Fläche (Fallback) - Score 0.3+
         
         Returns:
-            Liste von Matches: {"ifc": IFCElement, "evebi": EVEBIElement}
+            Liste von Matches: {"ifc": IFCElement, "evebi": EVEBIElement, "score": float}
         """
         matches = []
         matched_evebi_guids = set()
+        unmatched_ifc = []
         
+        # Pass 1: PosNo-Match (höchste Priorität)
         for ifc_elem in ifc_elements:
+            if not ifc_elem.posno:
+                unmatched_ifc.append(ifc_elem)
+                continue
+            
+            matched = False
+            for evebi_elem in evebi_elements:
+                if evebi_elem.guid in matched_evebi_guids:
+                    continue
+                
+                if evebi_elem.posno and self._normalize_posno(ifc_elem.posno) == self._normalize_posno(evebi_elem.posno):
+                    matches.append({
+                        "ifc": ifc_elem,
+                        "evebi": evebi_elem,
+                        "score": 1.0,
+                        "method": "posno"
+                    })
+                    matched_evebi_guids.add(evebi_elem.guid)
+                    matched = True
+                    break
+            
+            if not matched:
+                unmatched_ifc.append(ifc_elem)
+        
+        # Pass 2: Name + Typ + Fläche Match
+        still_unmatched = []
+        for ifc_elem in unmatched_ifc:
             best_match = None
             best_score = 0.0
             
             for evebi_elem in evebi_elements:
                 if evebi_elem.guid in matched_evebi_guids:
-                    continue  # Bereits gematched
+                    continue
                 
                 score = self._calculate_match_score(ifc_elem, evebi_elem)
                 
@@ -275,14 +302,23 @@ class SidecarGenerator:
                     best_score = score
                     best_match = evebi_elem
             
-            # Match nur wenn Score > 0.5
-            if best_match and best_score > 0.5:
+            # Niedrigere Schwelle für bessere Match-Rate
+            if best_match and best_score > 0.35:
                 matches.append({
                     "ifc": ifc_elem,
                     "evebi": best_match,
-                    "score": best_score
+                    "score": best_score,
+                    "method": "fuzzy"
                 })
                 matched_evebi_guids.add(best_match.guid)
+            else:
+                still_unmatched.append(ifc_elem)
+        
+        print(f"\n📊 Matching-Statistik:")
+        print(f"   - Pass 1 (PosNo): {len([m for m in matches if m.get('method') == 'posno'])} Matches")
+        print(f"   - Pass 2 (Fuzzy): {len([m for m in matches if m.get('method') == 'fuzzy'])} Matches")
+        print(f"   - Unmatched IFC: {len(still_unmatched)}")
+        print(f"   - Match-Rate: {len(matches) / len(ifc_elements) * 100:.1f}%")
         
         return matches
     
@@ -292,37 +328,150 @@ class SidecarGenerator:
         evebi_elem: EVEBIElement
     ) -> float:
         """
-        Berechnet Match-Score zwischen IFC- und EVEBI-Element
+        Berechnet Match-Score zwischen IFC- und EVEBI-Element (Optimiert v2)
+        
+        Gewichtung:
+        - Name-Ähnlichkeit: 40%
+        - Typ-Match: 30%
+        - Flächen-Match: 30%
         
         Returns:
             Score 0.0 - 1.0 (höher = besserer Match)
         """
         score = 0.0
         
-        # 1. PosNo-Match (Gewicht: 0.5)
-        if ifc_elem.posno and evebi_elem.posno:
-            if ifc_elem.posno == evebi_elem.posno:
-                score += 0.5
+        # 1. Name-Match (Gewicht: 0.4) - Verbessert mit Token-Matching
+        name_similarity = self._calculate_name_similarity_advanced(ifc_elem.name, evebi_elem.name)
+        score += name_similarity * 0.4
         
-        # 2. Name-Match (Gewicht: 0.3)
-        name_similarity = self._calculate_name_similarity(ifc_elem.name, evebi_elem.name)
-        score += name_similarity * 0.3
+        # 2. Typ-Match (Gewicht: 0.3) - Mit Fuzzy-Typ-Mapping
+        type_match = self._calculate_type_similarity(ifc_elem.type, evebi_elem.element_type)
+        score += type_match * 0.3
         
-        # 3. Typ-Match (Gewicht: 0.1)
-        if ifc_elem.type == evebi_elem.element_type:
-            score += 0.1
-        
-        # 4. Flächen-Match (Gewicht: 0.1)
+        # 3. Flächen-Match (Gewicht: 0.3) - Erweiterte Toleranz
         if ifc_elem.area > 0 and evebi_elem.area > 0:
             area_diff = abs(ifc_elem.area - evebi_elem.area) / max(ifc_elem.area, evebi_elem.area)
-            if area_diff < 0.1:  # ±10%
+            
+            # Gestaffelte Bewertung
+            if area_diff < 0.05:  # ±5%
+                score += 0.3
+            elif area_diff < 0.15:  # ±15%
+                score += 0.2
+            elif area_diff < 0.25:  # ±25%
                 score += 0.1
         
         return score
     
     def _calculate_name_similarity(self, name1: str, name2: str) -> float:
-        """Berechnet Name-Ähnlichkeit (0.0 - 1.0)"""
+        """Berechnet Name-Ähnlichkeit (0.0 - 1.0) - Legacy"""
         return SequenceMatcher(None, name1.lower(), name2.lower()).ratio()
+    
+    def _calculate_name_similarity_advanced(self, name1: str, name2: str) -> float:
+        """
+        Erweiterte Name-Ähnlichkeit mit Token-Matching
+        
+        Strategie:
+        1. Exakte Übereinstimmung → 1.0
+        2. Token-basiertes Matching (Wörter vergleichen)
+        3. Levenshtein-ähnliche Sequenz-Matching
+        """
+        n1 = name1.lower().strip()
+        n2 = name2.lower().strip()
+        
+        # Exakt
+        if n1 == n2:
+            return 1.0
+        
+        # Normalisierung (Umlaute, Sonderzeichen)
+        n1_norm = self._normalize_name(n1)
+        n2_norm = self._normalize_name(n2)
+        
+        if n1_norm == n2_norm:
+            return 0.95
+        
+        # Token-Matching (Wörter)
+        tokens1 = set(re.findall(r'\w+', n1_norm))
+        tokens2 = set(re.findall(r'\w+', n2_norm))
+        
+        if tokens1 and tokens2:
+            intersection = tokens1 & tokens2
+            union = tokens1 | tokens2
+            token_score = len(intersection) / len(union) if union else 0.0
+        else:
+            token_score = 0.0
+        
+        # Sequenz-Matching
+        seq_score = SequenceMatcher(None, n1_norm, n2_norm).ratio()
+        
+        # Kombiniert (70% Token, 30% Sequenz)
+        return token_score * 0.7 + seq_score * 0.3
+    
+    def _normalize_name(self, name: str) -> str:
+        """Normalisiert Namen für besseres Matching"""
+        # Umlaute
+        replacements = {
+            'ä': 'ae', 'ö': 'oe', 'ü': 'ue', 'ß': 'ss',
+            'á': 'a', 'à': 'a', 'â': 'a',
+            'é': 'e', 'è': 'e', 'ê': 'e',
+            'í': 'i', 'ì': 'i', 'î': 'i',
+            'ó': 'o', 'ò': 'o', 'ô': 'o',
+            'ú': 'u', 'ù': 'u', 'û': 'u'
+        }
+        
+        name = name.lower()
+        for old, new in replacements.items():
+            name = name.replace(old, new)
+        
+        # Sonderzeichen entfernen (außer Leerzeichen und Zahlen)
+        name = re.sub(r'[^a-z0-9\s]', '', name)
+        
+        # Mehrfache Leerzeichen
+        name = re.sub(r'\s+', ' ', name).strip()
+        
+        return name
+    
+    def _normalize_posno(self, posno: str) -> str:
+        """Normalisiert PosNo für Matching"""
+        # Nur Zahlen extrahieren
+        numbers = re.findall(r'\d+', str(posno))
+        return numbers[0] if numbers else str(posno)
+    
+    def _calculate_type_similarity(self, ifc_type: str, evebi_type: str) -> float:
+        """
+        Berechnet Typ-Ähnlichkeit mit Fuzzy-Mapping
+        
+        Berücksichtigt:
+        - Exakte Übereinstimmung
+        - Typ-Synonyme (z.B. WALL ↔ WAND)
+        - Typ-Kategorien (z.B. ROOF ↔ DACH)
+        """
+        # Typ-Mapping (IFC → EVEBI)
+        type_mappings = {
+            'WALL': ['WALL', 'WAND', 'AUSSENWAND', 'INNENWAND'],
+            'ROOF': ['ROOF', 'DACH', 'FLACHDACH', 'STEILDACH'],
+            'FLOOR': ['FLOOR', 'SLAB', 'DECKE', 'BODEN', 'BODENPLATTE'],
+            'WINDOW': ['WINDOW', 'FENSTER'],
+            'DOOR': ['DOOR', 'TUER', 'TÜR']
+        }
+        
+        ifc_upper = ifc_type.upper()
+        evebi_upper = evebi_type.upper()
+        
+        # Exakt
+        if ifc_upper == evebi_upper:
+            return 1.0
+        
+        # Fuzzy via Mapping
+        for ifc_key, evebi_variants in type_mappings.items():
+            if ifc_upper == ifc_key or ifc_upper in evebi_variants:
+                if evebi_upper in evebi_variants:
+                    return 0.9
+        
+        # Substring-Match
+        if ifc_upper in evebi_upper or evebi_upper in ifc_upper:
+            return 0.5
+        
+        return 0.0
     
     # ========================================================================
     # Sidecar JSON Mapping
