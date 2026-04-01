@@ -8,11 +8,11 @@ export function SystemsTab() {
 
   const systems = project.input.systems
 
-  // Gruppierung nach Typ
-  const heating = systems.filter(s => ['gas_boiler', 'oil_boiler', 'heat_pump', 'district_heating'].includes(s.type))
-  const ventilation = systems.filter(s => ['ventilation', 'heat_recovery'].includes(s.type))
-  const dhw = systems.filter(s => ['dhw_storage', 'dhw_circulation'].includes(s.type))
-  const cooling = systems.filter(s => ['cooling', 'chiller'].includes(s.type))
+  // Systems ist ein Objekt mit heating, cooling, ventilation, dhw, etc.
+  const heating = systems.heating || []
+  const ventilation = systems.ventilation || []
+  const dhw = systems.dhw || []
+  const cooling = systems.cooling || []
 
   const getSystemTypeLabel = (type: string) => {
     const map: Record<string, string> = {
@@ -189,7 +189,7 @@ export function SystemsTab() {
       )}
 
       {/* Keine Systeme */}
-      {systems.length === 0 && (
+      {heating.length === 0 && ventilation.length === 0 && dhw.length === 0 && cooling.length === 0 && (
         <div style={{ 
           textAlign: 'center', 
           padding: '40px', 

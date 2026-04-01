@@ -1,0 +1,634 @@
+﻿Dokumentation DIN V 18599 Ergebnisse zu Projekt DIN18599Test GEG-Nach-/Ausweise
+Norm-Ausgabe: DIN V 18599:2018-09
+
+
+I. Auswertung Gebäudeaufteilung nach DIN V 18599-1
+=================================================================================================================
+Klimazone: 4 (Nordostdeutsches Tiefland (Standardregion), Potsdam)
+Anzahl der ausgewerteten Zonen: 1
+Rechenwerte (kann von tatsächlichen Gegebenheiten abweichen)
+ 
+  Zone                                              Zone 1
+    Nutzung gem. DIN V 18599-10                     Wohnnutzung
+    Fläche (Nettogrundfläche)                            217,6 m²
+    Geschosshöhe                                          2,54 m
+    Nettoraumvolumen                                     433,9 m³
+    Raumhöhe                                              2,19 m
+    Personen                                                 4 Personen
+    Solltemperatur Heizfall                           20,0 °C
+    Solltemperatur Kühlfall                              -
+    Temperaturtoleranz (min/max)                      20,0/- °C
+ 
+    weitere Nutzungsparameter s. beim jeweiligen Abschnitt (Warmwasser, Nutzungszeit etc.)
+
+
+II. Auswertung Gebäude nach DIN V 18599-2
+=================================================================================================================
+  Zone Zone 1
+  -----------
+    wirksame Speicherfähigkeit (c_wirk)                  10,88 kWh/K vereinfacht nach DIN V 18599-2:2018 Gl. 135-137
+    Auskühlkonstante (tau) Betriebszeit                   46,8 h
+    Auskühlkonstante (tau) Wochenendzeit                  58,6 h
+    Infiltration, Bemessungswert (n_50)                    4,0 1/h
+    Wärmetransferkoeffizient für Lüftung (H_V)           102,7 W/K
+    Wärmetransferkoeffizient für Transmission (H_T)      145,5 W/K
+      nach Außen (H_T,D)                                  62,2 W/K
+      zum Unbeheizten (H_T,u)                             28,3 W/K
+      zum Erdreich (H_T,s)                                13,2 W/K
+      zu anderen Zonen (H_T,iz)                            0,0 W/K
+      nach Außen (H_T,WB)                                 41,8 W/K
+    Solltemperatur Heizfall (θ_i,soll)                    20,0 °C
+ 
+    Alle Werte bezogene auf:                             197,8 m²
+    Wärmesenken (Q_sink)                                19.570 kWh/a       98,9 kWh/(m²a)
+    Wärmequellen (Q_source)                              8.745 kWh/a       44,2 kWh/(m²a)
+    Heizbedarf (Q_h,b)                                  12.304 kWh/a       62,2 kWh/(m²a)
+    Kühlbedarf (Q_c,b)                                       0 kWh/a        0,0 kWh/(m²a)
+    Nutzenergiebedarf Warmwasser (Q_w,b)                 1.849 kWh/a        9,4 kWh/(m²a)
+    Nutzenergiebedarf Luftaufbereitung (Q_rlt,b)             0 kWh/a        0,0 kWh/(m²a)
+    max. Heizleistung (Q̇_h,max)                            5,8 kW        0,03 kW/m²
+    max. Heizleistung (Q̇_h,max,res)                        5,8 kW        0,03 kW/m²
+    max. Kühlleistung (Q̇_c,max)                            1,6 kW        0,01 kW/m²
+ 
+  Heizfall
+  1. Wärmesenken
+                                                  Jan     Feb     Mär     Apr     Mai     Jun     Jul     Aug     Sep     Okt     Nov     Dez    Jahr
+     Bilanzinnentemperatur (ϑ_i,nutz)   [°C]     18,4    18,4    18,7    19,1    19,5    19,7    19,9    19,9    19,5    19,1    18,6    18,4    19,1
+     Bilanzinnentemperatur (ϑ_i,we)     [°C]     15,6    15,6    15,7    16,7    18,2    19,0    19,7    19,6    18,3    16,8    15,7    15,6    17,2
+     Heizzeit (t_h,nutz)                 [h]    744,0   672,0   744,0   720,0   744,0   192,6     0,0     0,0   720,0   744,0   720,0   744,0    6745
+     Heizzeit (t_h,we)                   [h]      0,0     0,0     0,0     0,0     0,0     0,0     0,0     0,0     0,0     0,0     0,0     0,0       0
+     Wärmeübertrag für WE (ΔQ_C,b,we)  [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+     Übertragsenke (ΔQ_C,sink,nutz)    [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+     Koeff. Infiltr. (H_V,inf,nutz)    [W/K]     41,3    41,3    41,3    41,3    41,3    41,3    41,3    41,3    41,3    41,3    41,3    41,3
+     Koeff. Fensterl. (H_V,win,nutz)   [W/K]     51,6    53,8    60,6    71,7    83,7    90,1    95,7    94,8    84,2    72,4    59,2    51,3
+     Koeff. mech. L. (H_V,mech,nutz)   [W/K]      0,0     0,0     0,0     0,0     0,0     0,0     0,0     0,0     0,0     0,0     0,0     0,0
+ 
+     Wärmesenken Nutzungszeit (Q_sink) [kWh]     2892    2505    2406    1720    1019     566     181     252     956    1739    2421    2913   19570
+       Transmission (Q_T,sink)         [kWh]     1673    1437    1345     919     519     281      88     123     485     923    1353    1682   10828
+       Lüftung (Q_V,sink)              [kWh]     1199    1055    1058     801     501     285      93     129     470     810    1049    1203    8654
+         Infiltration (Q_V,inf)        [kWh]      533     458     429     293     165      90      28      39     155     294     431     536    3453
+         Fensterlüftung (Q_V,win)      [kWh]      666     596     630     508     335     195      65      90     315     516     618     666    5201
+         mech. Lüftung (Q_V,mech)      [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+       solar (Q_S,sink)                [kWh]       20      13       3       0       0       0       0       0       1       5      19      28      88
+       intern (Q_I,sink)               [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+         Kälteeinträge (Q_I,sink,c)    [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+ 
+     Wärmesenken WE (Q_sink)           [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+       Transmission (Q_T,sink)         [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+       Lüftung (Q_V,sink)              [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+         Infiltration (Q_V,inf)        [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+         Fensterlüftung (Q_V,win)      [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+       intern (Q_I,sink)               [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+ 
+  2. Wärmequellen
+                                                  Jan     Feb     Mär     Apr     Mai     Jun     Jul     Aug     Sep     Okt     Nov     Dez    Jahr
+     Ausnutzungsgrad Nutz                [-]     1,00    1,00    0,99    0,97    0,87    0,66    0,24    0,37    0,91    0,98    1,00    1,00    0,83
+     Ausnutzungsgrad WE                  [-]     0,00    0,00    0,00    0,00    0,00    0,00    0,00    0,00    0,00    0,00    0,00    0,00    0,00
+ 
+     Wärmequellen Nutzungszeit (Q_sour [kWh]      721     657     778     841     828     778     749     677     660     687     665     704    8745
+       Transmission (Q_T,source)       [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+       Lüftung (Q_V,source)            [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+         Infiltration (Q_V,inf)        [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+         Fensterlüftung (Q_V,win)      [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+         mech. Lüftung (Q_V,mech)      [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+       solar (Q_S,source)              [kWh]       47      58     155     311     366     386     363     291     201     124      44      26    2370
+         transparente Bauteile         [kWh]       43      56     131     242     287     303     290     230     163     105      44      26    1919
+         opake Bauteile                [kWh]        4       2      24      69      79      83      74      60      38      19       0       0     452
+         transp. Wärmedämmung          [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+       intern (Q_I,source)             [kWh]      675     599     623     530     462     392     386     386     459     563     621     678    6375
+         Licht                         [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+         Personen                      [kWh]      304     274     304     294     304     294     304     304     294     304     294     304    3574
+         Geräte                        [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+         Waren                         [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+         ungeregelte Einträge          [kWh]      371     325     320     236     159      98      82      83     165     260     327     375    2801
+           Heizung                     [kWh]      282     244     231     153      74      17       0       0      83     173     241     285    1783
+           Trinkwarmwasser             [kWh]       89      81      88      84      84      81      82      83      82      86      86      89    1015
+           Wohnungslüftung             [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+ 
+     Wärmequellen WE (Q_source)        [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+       Transmission (Q_T,source)       [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+       Lüftung (Q_V,source)            [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+         Infiltration (Q_V,inf)        [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+         Fensterlüftung (Q_V,win)      [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+       solar (Q_S,source)              [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+       intern (Q_I,source)             [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+         ungeregelte Einträge          [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+           Heizung                     [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+ 
+     Heizbedarf (Q_h,b,nutz)           [kWh]     2173    1851    1635     906     299      56       0       0     353    1062    1759    2211   12304
+     Heizbedarf (Q_h,b,we)             [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+ 
+ 
+  Kühlfall
+  1. Wärmesenken
+                                                  Jan     Feb     Mär     Apr     Mai     Jun     Jul     Aug     Sep     Okt     Nov     Dez    Jahr
+     Bilanzinnentemperatur (ϑ_i,nutz)   [°C]     35,0    35,0    35,0    35,0    35,0    35,0    35,0    35,0    35,0    35,0    35,0    35,0    35,0
+     Bilanzinnentemperatur (ϑ_i,we)     [°C]     35,0    35,0    35,0    35,0    35,0    35,0    35,0    35,0    35,0    35,0    35,0    35,0    35,0
+     Heizzeit (t_h,nutz)                 [h]      0,0     0,0     0,0     0,0     0,0     0,0     0,0     0,0     0,0     0,0     0,0     0,0       0
+     Heizzeit (t_h,we)                   [h]      0,0     0,0     0,0     0,0     0,0     0,0     0,0     0,0     0,0     0,0     0,0     0,0       0
+     Wärmeübertrag für WE (ΔQ_C,b,we)  [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+     Übertragsenke (ΔQ_C,sink,nutz)    [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+     Koeff. Infiltr. (H_V,inf,nutz)    [W/K]     41,3    41,3    41,3    41,3    41,3    41,3    41,3    41,3    41,3    41,3    41,3    41,3
+     Koeff. Fensterl. (H_V,win,nutz)   [W/K]     51,6    53,8    60,6    71,7    83,7    90,1    95,7    94,8    84,2    72,4    59,2    51,3
+     Koeff. mech. L. (H_V,mech,nutz)   [W/K]      0,0     0,0     0,0     0,0     0,0     0,0     0,0     0,0     0,0     0,0     0,0     0,0
+ 
+     Wärmesenken Nutzungszeit (Q_sink) [kWh]       20      13       3       0       0       0       0       0       1       5      19      28      88
+       Transmission (Q_T,sink)         [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+       Lüftung (Q_V,sink)              [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+         Infiltration (Q_V,inf)        [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+         Fensterlüftung (Q_V,win)      [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+         mech. Lüftung (Q_V,mech)      [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+       solar (Q_S,sink)                [kWh]       20      13       3       0       0       0       0       0       1       5      19      28      88
+       intern (Q_I,sink)               [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+         Kälteeinträge (Q_I,sink,c)    [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+ 
+     Wärmesenken WE (Q_sink)           [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+       Transmission (Q_T,sink)         [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+       Lüftung (Q_V,sink)              [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+         Infiltration (Q_V,inf)        [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+         Fensterlüftung (Q_V,win)      [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+       intern (Q_I,sink)               [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+ 
+ 
+  2. Wärmequellen
+                                                  Jan     Feb     Mär     Apr     Mai     Jun     Jul     Aug     Sep     Okt     Nov     Dez    Jahr
+     Ausnutzungsgrad Nutz                [-]     0,03    0,02    0,00    0,00    0,00    0,00    0,00    0,00    0,00    0,01    0,03    0,04    0,01
+     Ausnutzungsgrad WE                  [-]     0,00    0,00    0,00    0,00    0,00    0,00    0,00    0,00    0,00    0,00    0,00    0,00    0,00
+ 
+     Wärmequellen Nutzungszeit (Q_sour [kWh]      721     657     778     841     828     778     749     677     660     687     665     704    8745
+       Transmission (Q_T,source)       [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+       Lüftung (Q_V,source)            [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+         Infiltration (Q_V,inf)        [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+         Fensterlüftung (Q_V,win)      [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+         mech. Lüftung (Q_V,mech)      [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+       solar (Q_S,source)              [kWh]       47      58     155     311     366     386     363     291     201     124      44      26    2370
+         transparente Bauteile         [kWh]       43      56     131     242     287     303     290     230     163     105      44      26    1919
+         opake Bauteile                [kWh]        4       2      24      69      79      83      74      60      38      19       0       0     452
+         transp. Wärmedämmung          [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+       intern (Q_I,source)             [kWh]      675     599     623     530     462     392     386     386     459     563     621     678    6375
+         Licht, Personen, Geräte       [kWh]      304     274     304     294     304     294     304     304     294     304     294     304    3574
+         ungeregelte Einträge          [kWh]      371     325     320     236     159      98      82      83     165     260     327     375    2801
+           Heizung                     [kWh]      282     244     231     153      74      17       0       0      83     173     241     285    1783
+           Trinkwarmwasser             [kWh]       89      81      88      84      84      81      82      83      82      86      86      89    1015
+           Wohnungslüftung             [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+ 
+     Wärmequellen WE (Q_source)        [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+       Transmission (Q_T,source)       [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+       Lüftung (Q_V,source)            [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+         Infiltration (Q_V,inf)        [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+         Fensterlüftung (Q_V,win)      [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+       solar (Q_S,source)              [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+       intern (Q_I,source)             [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+         ungeregelte Einträge          [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+           Heizung                     [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+ 
+     Kühlbedarf (Q_c,b,nutz)           [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+     Kühlbedarf (Q_c,b,we)             [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+ 
+ 
+  Bauteile, die die Zone begrenzen:
+    Name                                  A[m²]  U[W/(m²K)]  HT[W/K]   Fx[]   g[]  QT[kWh/a] angrenzender Bereich
+    -------------------------------------------------------------------------------------------------------------
+    Boden nach außen                      80,00     0,165   13,170   0,80            1.549 Erdreich
+    Dach N                                16,67     0,133    2,213   1,00              324 außen
+    Dach O                                 1,09     0,133    0,145   1,00               21 außen
+    Dach O                                17,69     0,133    2,348   1,00              344 außen
+    Dach S                                24,19     0,133    3,211   1,00              471 außen
+    Dach W                                17,69     0,133    2,348   1,00              344 außen
+    Dach W                                 1,09     0,133    0,145   1,00               21 außen
+    Decke zu Dachraum                     17,94     0,157    2,815   0,80              338 unbeheizter Raum
+    Außenwand N                           60,58     0,189   11,463   1,00            1.464 außen
+    Außenwand O                           50,42     0,189    9,540   1,00            1.219 außen
+    Außenwand S                           53,24     0,189   10,074   1,00            1.287 außen
+    Außenwand W                           50,42     0,189    9,540   1,00            1.219 außen
+    Zwischenwand                           9,95     2,421   24,093   0,50            1.090 unbeheizter Raum
+    Fenster in Außenwand N                 7,23     0,726    5,250   1,00  0,50        499 außen
+    Fenster in Außenwand O                 3,10     0,726    2,251   1,00  0,50        214 außen
+    Fenster in Außenwand W                 3,10     0,726    2,251   1,00  0,50        214 außen
+    Tür in Außenwand N                     1,78     0,800    1,424   1,00  0,00        134 außen
+    Tür in Zwischenwand                    1,78     0,800    1,424   0,50  0,00         74 unbeheizter Raum
+ 
+    Wärmebrückenverlust (mittl.Zuschl.)  417,96 m²  0,100 W/(m²K)  41,796 W/K
+ 
+ 
+  Solare Gewinne durch transparente Bauteile:
+    Name                               Ori.   A[m²]     F_F[]     F_S[]     F_V[]       g[]   Q_s[kWh/a]
+    -------------------------------------------------------------------------------------------------------------
+    Fenster in Außenwand N               N      7,2      0,70      0,90      1,00      0,50         748
+    Fenster in Außenwand O               O      3,1      0,70      0,90      1,00      0,50         621
+    Fenster in Außenwand W               W      3,1      0,70      0,90      1,00      0,50         550
+    Tür in Außenwand N                   N      1,8      0,00      0,90      1,00      0,00           1
+    Tür in Zwischenwand                  S      1,8      0,00      0,90      1,00      0,00           0
+    Tür in Zwischenwand                  N      3,6      0,00      0,90      1,00      0,00           0
+    Tür in Zwischenwand                  N      3,6      0,00      0,90      1,00      0,00           0
+    Ori: Orientierung; A: Gesamtfläche; F_F: Glasanteil; F_S: Verschattungs/Verbauungsfaktor; F_V: Verschmutzungsfaktor
+ 
+ 
+  Zusammenfassung Gebäudehülle
+  ============================
+ 
+    gesamtes Gebäude                   Fläche[m²]                            Transmission[kWh/a]
+    -------------------------------------------------------------------------------------------------------------
+    Hüllflache                                418                                         10.828
+ 
+    gruppiert nach Zonen               Fläche[m²]                            Transmission[kWh/a]
+    -------------------------------------------------------------------------------------------------------------
+    Zone 1                                    418                                         10.828
+ 
+    gruppiert nach Bauteilkategorie    Fläche[m²]   mittl.U-Wert[W/(m²K)]    Transmission[kWh/a]
+    -------------------------------------------------------------------------------------------------------------
+    Keller                                     80                    0,16                  1.549
+    Dach                                       96                    0,14                  1.864
+    Wand                                      225                    0,29                  6.279
+    Fenster                                    17                    0,74                  1.136
+ 
+    gruppiert nach Übergang            Fläche[m²]   mittl.U-Wert[W/(m²K)]   
+    -------------------------------------------------------------------------------------------------------------
+    oben Außenluft (Dächer)                    78                    0,13
+    oben Unbeheizt (ob. Geschossdecke)         18                    0,16
+    oben transparent (DFF, Lichtkuppel)         0                    0,00
+    seitl. opak Außenluft (Außenwände)        215                    0,19
+    seitl. opak Unbeheizt (Abseiten)           10                    2,42
+    seitl. opak Erdreich (Kellerwände)          0                    0,00
+    seitl. transparent (Fenster)               13                    0,73
+    Außentüren (und Tore)                       4                    0,73
+    unten Erdreich (Böden)                     80                    0,16
+    unten Unbeheizt (Kellerdecken)              0                    0,00
+    unten Außenluft (Überbauten)                0                    0,00
+ 
+ 
+  weitere Kenngrößen:
+    Heizbedarf vor 1.Iteration (Q_h_b,vor)              14.724 kWh/a       67,7 kWh/m²
+    Kühlbedarf vor 1.Iteration (Q_c_b,vor)                   0 kWh/a        0,0 kWh/m²
+
+
+III. Auswertung Belüftung nach DIN V 18599-2/3
+=================================================================================================================
+                                                  Jan     Feb     Mär     Apr     Mai     Jun     Jul     Aug     Sep     Okt     Nov     Dez    Jahr
+ 
+Zone Zone 1 (natürliche Grundlüftung)
+     Zulufttemperatur                   [°C]      1,0     1,9     4,7     9,2    14,1    16,7    19,0    18,6    14,3     9,5     4,1     0,9     9,5
+ 
+
+
+IV. Auswertung Beleuchtung nach DIN V 18599-4
+=================================================================================================================
+Beleuchtung wird nicht bei Wohngebäuden ausgewertet.
+
+
+V. Auswertung Beheizung nach DIN V 18599-5
+=================================================================================================================
+
+
+Bereich: zentrale Wärmeversorgung
+---------------------------------
+  versorgte Zone(n): Zone 1
+  Nachtbetrieb: abgeschaltet
+  
+  1. Heizkreis/Wärmeübergabe: Heizkörper
+
+     versorgt Zone(n): Zone 1
+     Temperaturschwankung (Δϑ_str)                        0,50 K
+     Temperaturschwankung (Δϑ_ctr)                        1,20 K
+     Temperaturschwankung (Δϑ_emb)                        0,00 K
+     Temperaturschwankung (Δϑ_rad)                        0,00 K
+     Temperaturschwankung (Δϑ_im)                         0,00 K
+     Temperaturschwankung (Δϑ_hydr)                       0,60 K
+     Temperaturschwankung (Δϑ_roomaut)                    0,00 K
+     Temperaturschwankung (Δϑ_ce)                         2,30 K
+
+     Horizontal-Leitung             Horizontal-Leitung außen        86,8 m   0,200 W/(mK)        2.235 kWh/a
+     Steigstrang                    Steigstrang innen               14,2 m   0,255 W/(mK)          369 kWh/a  Zone: Zone 1
+     Stich-/Anbindeleitung          Stich-/Anbindeleitung innen     54,4 m   0,255 W/(mK)        1.414 kWh/a  Zone: Zone 1
+
+     maximale Rohrleitungslänge (L_max)                   79,5 m
+     Volumenstrom Auslegungspunkt (V_x)                   0,34 m³/h
+     Differenzdruck Auslegungspunkt (Δp)                 12,34 kPa
+     hydr.Leistung d. Pumpe Auslegungspunkt(P_hydr)          1 W
+
+                                                  Jan     Feb     Mär     Apr     Mai     Jun     Jul     Aug     Sep     Okt     Nov     Dez    Jahr
+     Wärmebedarf (Q_h,b)           [kWh/mth]     2173    1851    1635     906     299      56       0       0     353    1062    1759    2211   12304
+     Belastung Übergabe (ß_h,ce)         [-]     0,50    0,48    0,38    0,22    0,07    0,05    0,00    0,00    0,08    0,25    0,42    0,51    0,25
+     Verluste Abgabe ges (Q_h,ce)  [kWh/mth]      288     258     269     212     128      43       0       0     156     255     279     291    2178
+     Verluste Abgabe Zonen
+        Zone 1 (1)                     [kWh]      288     258     269     212     128      43       0       0     156     255     279     291    2178
+     Belastung Verteilung (ß_h,d)        [-]     0,61    0,57    0,47    0,28    0,10    0,09    0,00    0,00    0,13    0,32    0,52    0,62    0,31
+     Belastung Verteilung (ß_h,hydr)     [-]     0,61    0,57    0,47    0,28    0,10    0,09    0,00    0,00    0,13    0,32    0,52    0,62    0,31
+     Heizmedientemp. (θ_HK,av,d)        [°C]     48,9    47,8    43,7    36,1    27,5    26,9    20,0    20,0    28,8    37,9    45,6    49,3    36,0
+     Verluste Verteilung (Q_h,d)   [kWh/mth]      610     532     512     358     207      29       0       0     223     401     530     617    4018
+     Einträge Verteilung (Q_I,h,d) [kWh/mth]      282     244     231     153      74      17       0       0      83     173     241     285    1783
+     Nutzwärmeabgabe (Q_h,outg)    [kWh/mth]     3071    2640    2417    1475     633     127       0       0     732    1718    2569    3119   18500
+  
+  Betriebstage (d_h,rB)                [d/M]       31      28      31      30      31       8       0       0      30      31      30      31     281
+  rechn. Laufzeit (t_h,rL)             [h/M]      527     476     527     510     527     136       0       0     510     527     510     527    4777
+  Vorlauftemperatur (θ_VL,av,g)         [°C]     58,5    57,1    52,1    42,5    31,4    29,4    20,0    20,0    33,1    44,7    54,5    59,0    41,9
+ 
+  Wärmebedarf (Q_h,b)              [kWh/mth]     2173    1851    1635     906     299      56       0       0     353    1062    1759    2211   12304
+  Übergabeverluste (Q_h,ce)        [kWh/mth]      288     258     269     212     128      43       0       0     156     255     279     291    2178
+  Verteilverluste (Q_h,d)          [kWh/mth]      610     532     512     358     207      29       0       0     223     401     530     617    4018
+  Speicherverluste (Q_h,s)         [kWh/mth]        0       0       0       0       0       0       0       0       0       0       0       0       0
+  Nutzwärmeabgabe (Q_h,outg)       [kWh/mth]     3071    2640    2417    1475     633     127       0       0     732    1718    2569    3119   18500
+ 
+  Hilfsen. Überg. (Q_h,ce,aux)     [kWh/mth]        0       0       0       0       0       0       0       0       0       0       0       0       0
+  Hilfsen. Verteil. (Q_h,d,aux)    [kWh/mth]        8       7       8       7       7       2       0       0       7       8       8       8      71
+  Hilfsen. Speich. (Q_h,s,aux)     [kWh/mth]        0       0       0       0       0       0       0       0       0       0       0       0       0
+ 
+  1. Erzeuger: Gas-Niedertemperaturkessel
+                                                  Jan     Feb     Mär     Apr     Mai     Jun     Jul     Aug     Sep     Okt     Nov     Dez    Jahr
+     tägl. Verlust (Q_h,gen,ls,day)  [kWh/d]     27,8    26,6    22,7    16,1     7,1     5,3     5,3     5,3     8,3    17,5    24,6    28,1    16,2
+     Verlustlst., Volllast (P_gen,P [kW/mth]     2,59    2,58    2,56    2,51    2,46    2,45    2,40    2,40    2,46    2,52    2,57    2,59    30,1
+     Verlustlst., Teillast (P_gen,P [kW/mth]     1,01    1,01    1,00    0,99    0,97    0,97    0,95    0,95    0,97    0,99    1,01    1,01    11,8
+     Verlustlst., Stillstand (P_gen [kW/mth]     0,12    0,12    0,10    0,08    0,05    0,02    0,00    0,00    0,06    0,09    0,11    0,12     0,9
+     Belastungsgrad (ß_h,g,i)            [-]     0,61    0,58    0,48    0,30    0,13    0,10    0,00    0,00    0,15    0,34    0,53    0,62    0,32
+ 
+     Nutzwärmeabgabe(Q_h,outg)     [kWh/mth]     3071    2640    2417    1475     633     127       0       0     732    1718    2569    3119   18500
+     Erzeugerverluste (Q_h,g)      [kWh/mth]      860     745     705     483     219      42       0       0     250     543     737     872    5458
+     Endenergieaufnahme (Q_h,f)    [kWh/mth]     4049    3487    3215    2017     878     174       0       0    1012    2329    3404    4111   24676
+     Hilfsenergie (Q_h,g,aux)      [kWh/mth]       46      40      38      25      17      12      11      11      18      29      40      47     334
+     Vollbenutzungsstunden (Vbh)         [h]    307,1   264,0   241,7   147,5    63,3    12,7     0,0     0,0    73,2   171,8   256,9   311,9    1850
+ 
+     Gas-Niedertemperaturkessel pro Jahr:
+     Vollbenutzungsstunden (Vbh)                     1.850 h
+     Nutzungsgrad (η)                                 0,75 -
+    Wärmeleistung gerechnet mit                           10,0 kW
+    el. Leistungsaufnahme Stillstand (P_aux,P0)               15 W
+    el. Leistungsaufnahme Teillast (P_aux,Pint)               45 W
+    el. Leistungsaufnahme Volllast (P_aux,Pn)                136 W
+    Hilfsenergieeinsatz (Q_h,g,aux)                        334 kWh/a
+    zugeführte Endenergie (Q_h,f,in)                    24.676 kWh/a
+    nutzbar gemachte Endenergie (Q_h,f,prod)                 0 kWh/a
+    bereitgestellte Endenergie (Q_h,f,out)                   0 kWh/a
+    gesamte Endenergie (Q_h,f,ges)                      24.676 kWh/a
+    Deckungsanteil Nutzwärmeabgabe                         100 %
+ 
+  Gesamt pro Jahr:
+    Wärmebedarf für Heizung (Q_h,b)                     12.304 kWh
+    Übergabeverluste (Q_h,ce)                            2.178 kWh
+    Verteilungsverluste (Q_h,d)                          4.018 kWh
+    Speicherverluste (Q_h,s)                                 0 kWh
+    Erzeugernutzwärmeabgabe (Q_h,outg)                  18.500 kWh
+    Erzeugerverluste (Q_h,g)                             5.458 kWh
+    Hilfsenergie der Übergabe (Q_h,ce,aux)                   0 kWh
+    Hilfsenergie der Verteilung (Q_h,d,aux)                 71 kWh
+    Hilfsenergie der Speicherung (Q_h,s,aux)                 0 kWh
+    Hilfsenergie der Erzeugung (Q_h,g,aux)                 334 kWh
+    Hilfsenergie (Q_h,aux)                                 405 kWh
+ 
+
+
+VI. Auswertung Wohnungslüftung nach DIN V 18599-6
+=================================================================================================================
+
+Bereich: Fensterlüftung
+-----------------------
+  freie Lüftung: hier keine weitere Auswertung
+  versorgte Zone(n): Zone 1
+ 
+
+
+VIa. Auswertung Wohnungskühlung nach DIN V 18599-6
+=================================================================================================================
+Im vorliegenden Objekt wird kein Wohnungskühlsystem eingesetzt.
+
+
+VII. Auswertung Raumlufttechnik nach DIN V 18599-7
+=================================================================================================================
+Raumlufttechnik wird nicht bei Wohngebäuden ausgewertet.
+
+
+VIIa. Auswertung Kältebereitstellung nach DIN V 18599-7
+=================================================================================================================
+Kältebereitstellung wird nicht bei Wohngebäuden ausgewertet.
+
+
+VIII. Auswertung Trinkwasserbereitungssysteme nach DIN V 18599-8
+=================================================================================================================
+
+Bereich: zentrale Warmwasserversorgung
+--------------------------------------
+  versorgte Zone(n): Zone 1
+
+    1. Horizontal-Leitung (V)                  22,3 m   0,200 W/(mK)        283 kWh/a 
+    2. Steigstrang (S)                          8,4 m   0,255 W/(mK)        129 kWh/a Zone: Zone 1
+    3. Stich-/Anbindeleitung (SL)              19,6 m   0,255 W/(mK)        602 kWh/a Zone: Zone 1
+
+                                                  Jan     Feb     Mär     Apr     Mai     Jun     Jul     Aug     Sep     Okt     Nov     Dez    Jahr
+     Wärmebedarf (Q_w,b)           [kWh/mth]      157     142     157     152     157     152     157     157     152     157     152     157    1849
+     Verteilverluste (Q_w,d)       [kWh/mth]       89      81      88      84      84      81      82      83      82      86      86      89    1015
+     Speicherverluste (Q_w,s)      [kWh/mth]        0       0       0       0       0       0       0       0       0       0       0       0       0
+     Nutzwärmeabgabe (Q_w,outg)    [kWh/mth]      247     222     245     236     241     233     240     240     234     243     238     247    2864
+
+     Hilfsen. Verteilung (Q_w,d,au [kWh/mth]        0       0       0       0       0       0       0       0       0       0       0       0       0
+     Hilfsen. Speicherung (Q_w,s,a [kWh/mth]        0       0       0       0       0       0       0       0       0       0       0       0       0
+ 
+     ungeregelte Wärmeeinträge (Q_ [kWh/mth]       89      81      88      84      84      81      82      83      82      86      86      89    1015
+     hydr. Energiebed. (W_w,d,hydr [kWh/mth]        0       0       0       0       0       0       0       0       0       0       0       0       0
+ 
+  1. Erzeuger: Gas-Niedertemperaturkessel (Kombibereiter)
+                                                  Jan     Feb     Mär     Apr     Mai     Jun     Jul     Aug     Sep     Okt     Nov     Dez    Jahr
+     Nutzwärmeabgabe (Q_w,outg)    [kWh/mth]      247     222     245     236     241     233     240     240     234     243     238     247    2864
+     Erzeugerverluste (Q_w,g)      [kWh/mth]        2       2       2       2       2      30      42      42       2       2       2       2     132
+     Endenergieaufnahme (Q_w,f)    [kWh/mth]      249     224     247     238     244     263     281     281     236     245     240     249    2996
+     Hilfsenergie (Q_w,g,aux)      [kWh/mth]        3       3       3       3       3      11      14      14       3       3       3       3      68
+
+     Gas-Niedertemperaturkessel (Kombibereiter) pro Jahr:
+    Nutzwärmeabgabe des Erzeugers (Q_w,outg)             2.864 kWh/a
+    Erzeugerverluste (Q_w,g)                               132 kWh/a
+    zugeführte Endenergie (Q_w,f,in)                     2.996 kWh/a
+    nutzbar gemachte Endenergie (Q_w,f,prod)                 0 kWh/a
+    bereitgestellte Endenergie (Q_w,f,out)                   0 kWh/a
+    gesamte Endenergie (Q_w,f,ges)                       2.996 kWh/a
+    Deckungsanteil Nutzwärmeabgabe                         100 %
+    Hilfsenergie des Erzeugers (Q_w,g,aux)                  68 kWh/a
+
+  Gesamt pro Jahr:
+    Wärmebedarf für Trinkwasser (Q_w,b)                  1.849 kWh/a
+    Übergabeverluste (Q_w,ce)                                0 kWh/a
+    Hilfsenergie der Übertragung (Q_w,ce,aux)                0 kWh/a
+    Verteilungsverluste (Q_w,d)                          1.015 kWh/a
+      Verluste der V-Leitung (Q_d[V])                      283 kWh
+      Verluste der S-Leitung (Q_d[S])                      129 kWh
+      Verluste der SL-Leitung (Q_d[SL])                    602 kWh
+    Aufwandszahl Zirkulationspumpe (e_w,d,aux)            0,00 -
+    Differenzdruck im Auslegungspunkt (Δp)                0,00 kPa
+    Volumenstrom im Auslegungspunkt (V̇)                  0,000 m³/h
+    maximale Zirkulationsleitungslänge (L_max)            0,00 m
+    hydraulische Leistung der Pumpe (P_hydr)                 0 W
+    tägl. Laufzeit der Zirkulationspumpe (z)               0,0 h/d
+    Hilfsenergie der Verteilung (Q_w,d,aux)                  0 kWh/a
+    Wärmeertrag Verteilung (Q_i,w,d)                     1.015 kWh/a
+    Speichervolumen (V_S)                                    0 l
+    Speicherverluste (Q_w,s)                                 0 kWh/a
+    Hilfsenergie Speicher (Q_w,s,aux)                        0 kWh/a
+    Wärmeertrag Speicher (Q_i,w,s)                           0 kWh/a
+    Bereitschaftswärmeverl. des Sp. (q_B,s)                0,0 kWh/d
+    Erzeugernutzwärmeabgabe (Q_w,outg)                   2.864 kWh/a
+    Hilfsenergie (Q_w,aux)                                  68 kWh/a
+    Gutschrift für Heizung (Q_i,w,s + Q_i,w,d)           1.015 kWh/a
+ 
+
+
+IX. Auswertung Stromerzeugung nach DIN V 18599-9
+=================================================================================================================
+nachrichtlich: Stromanrechnung für GEG-/EE-/BEG-Erfüllung erfolgt ggf. unabhängig von diesen Ergebnissen
+
+                                                  Jan     Feb     Mär     Apr     Mai     Jun     Jul     Aug     Sep     Okt     Nov     Dez    Jahr
+  Ertrag Photovoltaikanlage        [kWh/mth]      126     112     274     458     482     479     429     427     342     263      94      64    3551
+  Nutzerstrombedarf                [kWh/mth]      425     384     425     411     425     411     425     425     411     425     411     425    5003
+  Strombedarf der Gebäudetechnik   [kWh/mth]       58      51      49      36      28      24      25      25      28      40      51      59     473
+  Gesamtstrombedarf                [kWh/mth]      483     434     474     447     453     435     450     450     439     465     462     484    5476
+  nutzbarer PV-Strom (o. Batterie) [kWh/mth]       56     101     164     199     234     234     240     216     172     132      71      44    1864
+  nutzbarer PV-Strom (m. Batterie) [kWh/mth]       98     176     284     346     406     406     416     374     298     228     124      77    3234
+  Batterieverluste                 [kWh/mth]        5       8      13      16      19      19      19      17      14      11       6       4     151
+  Bezug aus dem Netz               [kWh/mth]      390     267     203     117      66      48      53      93     155     247     344     410    2393
+  Einspeisung ins Netz             [kWh/mth]       28     -64     -10     112      76      73      12      53      44      35     -29     -13     317
+
+      Jahreswerte:
+      nutzbarer PV-Strom (Q_f_nutz_PV)    3234 kWh       16,3 kWh/(m²a)
+      Batterieverluste (Q_Batt_loss)       151 kWh        0,8 kWh/(m²a)
+      Import von Strom (Q_f_in_Strom)     2393 kWh       12,1 kWh/(m²a)
+      Export von PV-Strom (Q_f_out_PV)     317 kWh        1,6 kWh/(m²a)
+
+  Verwendung der Photovoltaik-Anlage: Photovoltaikanlage
+  ------------------------------------------------------
+                                                  Jan     Feb     Mär     Apr     Mai     Jun     Jul     Aug     Sep     Okt     Nov     Dez    Jahr
+       Einstrahlung                   [W/m²]       57      56     124     214     218     224     194     193     160     119      44      29    1632
+       Ertrag                      [kWh/mth]      126     112     274     458     482     479     429     427     342     263      94      64    3551
+       Überschuss (Einspeisung)    [kWh/mth]       68      61     225     422     454     455     404     402     314     223      43       6    3078
+
+    Jahreswerte               [h/a]:
+      Gutschrift (Bilanzierung)        473 kWh    0,28 €/kWh          132 €
+      Eigennutzung                       0 kWh    0,28 €/kWh            0 €
+      Überschuss (Einspeisung)       3.078 kWh    0,08 €/kWh          240 €
+      Gesamtertrag                   3.551 kWh                        277 €
+
+    Anlagenkennwerte:
+      Anlagenfläche                   24,2 m²
+      Orientierung                       0 °
+      vertikale Neigung                 38 °
+      Lage der Anlage           Aufdach
+      Art der Solarzellen       monokristallines Silizium
+      Systemleistungsfaktor           0,75
+      Spitzenleistung                  4,4 kWpeak
+      Kapazität der Batterie           4,8 kWh
+
+
+
+X. Ergebnisse der Primärenergiebilanz (Zusammenfassung)
+=================================================================================================================
+  Zone Zone 1
+  -----------
+  Heizbilanz:
+                                                  Jan     Feb     Mär     Apr     Mai     Jun     Jul     Aug     Sep     Okt     Nov     Dez    Jahr
+     Heizbedarf Zone Nutz          [kWh/mth]     2173    1851    1635     906     299      56       0       0     353    1062    1759    2211   12304
+     Heizgutschrift TW Nutz            [kWh]       89      81      88      84      84      81      82      83      82      86      86      89    1015
+     Heizgutschrift/Reg.RLT Nu.    [kWh/mth]        0       0       0       0       0       0       0       0       0       0       0       0       0
+     Heizgutschrift Luftf. Nutz    [kWh/mth]        0       0       0       0       0       0       0       0       0       0       0       0       0
+     Heizbedarf Zone WE            [kWh/mth]        0       0       0       0       0       0       0       0       0       0       0       0       0
+     Endenergie Heizen (o.Hilfsenerg.) [kWh]     4049    3487    3215    2017     878     174       0       0    1012    2329    3404    4111   24676
+     Beleuchtungs-Endenergie           [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+ 
+  Aufteilung der Energien nach Zonen
+  ----------------------------------
+  Endenergie [kWh] je Zone                   Heizen  Warmwasser    Belüften      Kühlen       Dampf       Licht
+    Zone 1                                    24676        2996           0           0           0           0
+
+  Primärenergie [kWh] je Zone                Heizen  Warmwasser    Belüften      Kühlen       Dampf       Licht
+    Zone 1                                    24454        2969           0           0           0           0
+
+  Hilfsenergie [kWh] je Zone                 Heizen  Warmwasser    Belüften      Kühlen       Dampf       Licht
+    Zone 1                                      405          68           0           0           0           0
+
+  Energieträgerverwendung
+  -----------------------
+  Die bezogenen Werte beziehen sich auf die thermisch konditionierte Fläche von 198 m².
+    Energieträger                                   Erdgas
+      Primärenergiefaktor                                1,100 -
+      CO₂-Faktor                                           240 g/kWh
+    Heizwerte:
+      Endenergiebedarf                                  24.930 kWh/a      126,0 kWh/(m²a)
+      Endenergiebedarf für Raumwärmeerzeugung           22.231 kWh/a      112,4 kWh/(m²a)
+      Endenergiebedarf für Trinkwassererwärmung          2.699 kWh/a       13,6 kWh/(m²a)
+      Endenergiebedarf für Luftaufbereitung                  0 kWh/a        0,0 kWh/(m²a)
+      Endenergiebedarf für Kälteerzeugung                    0 kWh/a        0,0 kWh/(m²a)
+    Brennwerte:
+      Endenergiebedarf                                  27.673 kWh/a      139,9 kWh/(m²a)
+      Endenergiebedarf für Raumwärmeerzeugung           24.676 kWh/a      124,8 kWh/(m²a)
+      Endenergiebedarf für Trinkwassererwärmung          2.996 kWh/a       15,1 kWh/(m²a)
+      Endenergiebedarf für Luftaufbereitung                  0 kWh/a        0,0 kWh/(m²a)
+      Endenergiebedarf für Kälteerzeugung                    0 kWh/a        0,0 kWh/(m²a)
+      Endenergie (physikal. Einheit)                27.700 kWh(Hs)
+      Primärenergiebedarf                               27.423 kWh/a      138,6 kWh/(m²a)
+      CO₂-Emission                                       5.983 kg/a       30,2 kg/(m²a)
+ 
+    Energieträger                                   WP-Strom
+      Primärenergiefaktor                                1,800 -
+      CO₂-Faktor                                           560 g/kWh
+      Endenergiebedarf                                       0 kWh/a        0,0 kWh/(m²a)
+      Endenergiebedarf für Raumwärmeerzeugung                0 kWh/a        0,0 kWh/(m²a)
+      Endenergiebedarf für Trinkwassererwärmung              0 kWh/a        0,0 kWh/(m²a)
+      Endenergiebedarf für Luftaufbereitung                  0 kWh/a        0,0 kWh/(m²a)
+      Endenergiebedarf für Kälteerzeugung                    0 kWh/a        0,0 kWh/(m²a)
+      Endenergiebedarf für Hilfsgeräte          ist im Endenergiebedarf des jeweiligen Bereiches enthalten
+      Endenergie (physikal. Einheit)                     0 kWh
+      Primärenergiebedarf                                    0 kWh/a        0,0 kWh/(m²a)
+      CO₂-Emission                                           0 kg/a        0,0 kg/(m²a)
+ 
+    Monatswerte (fossil: Heizwerte)
+                                                  Jan     Feb     Mär     Apr     Mai     Jun     Jul     Aug     Sep     Okt     Nov     Dez    Jahr
+       Erdgas                          [kWh]     3872    3343    3120    2031    1010     394     253     253    1124    2319    3283    3928   24930
+       WP-Strom                        [kWh]        0       0       0       0       0       0       0       0       0       0       0       0       0
+  Gesamtbedarf
+  ------------
+      Endenergie (Brennwert)                        27.673 kWh      139,9 kWh/(m²a)
+      Endenergie (Heizwert)                         24.930 kWh      126,0 kWh/(m²a)
+      Primärenergiebedarf                           27.423 kWh      138,6 kWh/(m²a)
+      CO₂-Emission                                   5.983 kg        30,2 kg/(m²a)
+
+
+Xa. GEG Anforderungen
+=================================================================================================================
+  Bei der Ermittlung der Endenergie wurde der im Objekt erzeugte selbstgenutzte Strom in Höhe von 473 kWh berücksichtigt.
+  Endenergiebedarf Ist-Zustand (Q_f,ist) (Heizwert)                         24.930 kWh      127,7 kWh/(m²a) *
+  Primärenergiebedarf Ist-Zustand (Q_p,ist)                                 27.423 kWh      140,4 kWh/(m²a) *
+  max. zulässiger Primärenergiebedarf (GEG) (Q_p,max)                        9.369 kWh       48,0 kWh/(m²a) *
+  tatsächlicher spezifischer Transmissionswärmeverlust (HT´)                  0,31 W/(m²K)
+  max. zulässiger spezifischer Transmissionswärmeverlust (HT´)                0,34 W/(m²K)
+  Treibhausgasemissionen im Betrieb                                         30,638 kg/m²a CO₂-Äquivalent
+
+  *  Flächenbezug in Abhängigkeit der GEG-Randbedingungen
+ 
+  Anforderung ist nicht erfüllt
+
+  Grundgrößen für die Bewertung nach GEG / EnEV:
+      Gebäude-Nutzfläche - gem. GEG (A_N)                             195 m² (beh.Wohnfl.   198 m²)
+      wärmeübertragende Umfassungsfläche nach außen (A)               418 m²
+      äußeres Gebäudevolumen (V_e)                                     610 m³
+      Oberflächen/Volumen-Verhältnis (A/V_e)                          0,68
+      HT´_ref (pauschal, für KfW-Effizienzhaus)                     0,343 W/(m²K)
+      Anzahl Vollgeschosse                                                     2 Vollgeschosse
+      durchschnittl. Geschosshöhe                                           2,83 m
+
+
+XI. BEG - Bundesförderung für effiziente Gebäude (Zusammenfassung)
+=================================================================================================================
+
+  Energetische Kennwerte
+  ----------------------
+      Erreichter Effizienzhausstandard                                   Kein Effzienzhaus
+      Jahresprimärenergiebedarf Q_P                                       140,43 kWh/(m²a)
+      Jahresprimärenergiebedarf Referenzgebäude Q_P,ref                    87,24 kWh/(m²a)
+      Jahresprimärenergiebedarf Anforderung Q_P,max (gem. GEG 2020)        47,98 kWh/(m²a)
+      Transmissionswärmeverlust H'_T                                        0,310 W/(m²K)
+      Transmissionswärmeverlust Referenzgebäude H'_T,ref                    0,343 W/(m²K)
+      Transmissionswärmeverlust Anforderung H'_T,max (gem. GEG 2020)        0,343 W/(m²K)
+      Anteil solarthermische Heizungsunterstützung                          0,0 %
+      Anteil erneuerbare Energien für Wärme- und Kälteversorgung            2,2 %
+        - Eigene Erzeugung und Nutzung von Strom                            2,2 %
+
+  Einsparungen
+  ------------
+      Primärenergiebedarf                                              -18.054 kWh/Jahr
+      Endenergiebedarf                                                 -16.643 kWh/Jahr
+      CO₂-Emissionen                                                    -3.878 kg/Jahr
+

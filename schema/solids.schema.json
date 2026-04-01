@@ -1,0 +1,355 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://din18599-ifc.org/schema/solids.json",
+  "title": "DIN 18599 Sidecar - Solid Geometry Definitions",
+  "description": "Parametric solid geometry for building elements (v2.1)",
+  "version": "2.1.0",
+  
+  "definitions": {
+    "solidBase": {
+      "type": "object",
+      "required": ["id", "type", "dimensions"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for this solid"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["BOX", "TRIANGULAR_PRISM", "TRAPEZOIDAL_PRISM", "PYRAMID_ROOF"],
+          "description": "Solid type"
+        },
+        "dimensions": {
+          "description": "Type-specific dimensions (see solid definitions)"
+        },
+        "origin": {
+          "type": "array",
+          "items": {"type": "number"},
+          "minItems": 3,
+          "maxItems": 3,
+          "default": [0, 0, 0],
+          "description": "Origin point [X, Y, Z] in meters"
+        },
+        "parent_ref": {
+          "type": "string",
+          "description": "Reference to parent solid ID for hierarchical positioning"
+        },
+        "offset": {
+          "type": "array",
+          "items": {"type": "number"},
+          "minItems": 3,
+          "maxItems": 3,
+          "default": [0, 0, 0],
+          "description": "Offset [X, Y, Z] relative to parent in meters"
+        },
+        "rotation": {
+          "type": "number",
+          "default": 0,
+          "description": "Rotation around Z-axis in degrees (0-360)"
+        },
+        "description": {
+          "type": "string",
+          "description": "Human-readable description"
+        }
+      }
+    },
+    
+    "boxDimensions": {
+      "type": "object",
+      "required": ["length", "width", "height"],
+      "properties": {
+        "length": {
+          "type": "number",
+          "minimum": 0.01,
+          "description": "Length along X-axis (East-West) in meters"
+        },
+        "width": {
+          "type": "number",
+          "minimum": 0.01,
+          "description": "Width along Y-axis (North-South) in meters"
+        },
+        "height": {
+          "type": "number",
+          "minimum": 0.01,
+          "description": "Height along Z-axis (vertical) in meters"
+        }
+      },
+      "additionalProperties": false
+    },
+    
+    "triangularPrismDimensions": {
+      "type": "object",
+      "required": ["length", "width"],
+      "properties": {
+        "length": {
+          "type": "number",
+          "minimum": 0.01,
+          "description": "Length along X-axis (roof length) in meters"
+        },
+        "width": {
+          "type": "number",
+          "minimum": 0.01,
+          "description": "Width along Y-axis (base of triangle) in meters"
+        },
+        "height": {
+          "type": "number",
+          "minimum": 0.01,
+          "description": "Height along Z-axis (ridge height) in meters. Required if slope not given."
+        },
+        "slope": {
+          "type": "number",
+          "minimum": 0.1,
+          "maximum": 89.9,
+          "description": "Roof slope in degrees. Alternative to height. If both given, height takes precedence."
+        },
+        "ridge_direction": {
+          "type": "string",
+          "enum": ["X", "Y"],
+          "default": "X",
+          "description": "Direction of the ridge: X (parallel to X-axis) or Y (parallel to Y-axis)"
+        },
+        "ridge_offset": {
+          "type": "number",
+          "default": 0,
+          "description": "Offset of ridge from center in meters. Positive = towards +Y, negative = towards -Y. Creates asymmetric roof."
+        }
+      },
+      "additionalProperties": false,
+      "oneOf": [
+        {"required": ["height"]},
+        {"required": ["slope"]}
+      ]
+    },
+    
+    "trapezoidalPrismDimensions": {
+      "type": "object",
+      "required": ["length", "width", "height_low"],
+      "properties": {
+        "length": {
+          "type": "number",
+          "minimum": 0.01,
+          "description": "Length along X-axis in meters"
+        },
+        "width": {
+          "type": "number",
+          "minimum": 0.01,
+          "description": "Width along Y-axis in meters"
+        },
+        "height_low": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Height at low side in meters"
+        },
+        "height_high": {
+          "type": "number",
+          "minimum": 0.01,
+          "description": "Height at high side in meters. Required if slope not given."
+        },
+        "slope": {
+          "type": "number",
+          "minimum": 0.1,
+          "maximum": 89.9,
+          "description": "Roof slope in degrees. Alternative to height_high."
+        },
+        "slope_direction": {
+          "type": "string",
+          "enum": ["N", "S", "E", "W"],
+          "default": "S",
+          "description": "Direction of slope: N (towards North), S (towards South), E (towards East), W (towards West)"
+        }
+      },
+      "additionalProperties": false,
+      "oneOf": [
+        {"required": ["height_high"]},
+        {"required": ["slope"]}
+      ]
+    },
+    
+    "pyramidRoofDimensions": {
+      "type": "object",
+      "required": ["base_length", "base_width"],
+      "properties": {
+        "base_length": {
+          "type": "number",
+          "minimum": 0.01,
+          "description": "Base length along X-axis in meters"
+        },
+        "base_width": {
+          "type": "number",
+          "minimum": 0.01,
+          "description": "Base width along Y-axis in meters"
+        },
+        "height": {
+          "type": "number",
+          "minimum": 0.01,
+          "description": "Height of apex in meters. Required if slope not given."
+        },
+        "slope": {
+          "type": "number",
+          "minimum": 0.1,
+          "maximum": 89.9,
+          "description": "Roof slope in degrees. Alternative to height."
+        },
+        "apex_offset": {
+          "type": "array",
+          "items": {"type": "number"},
+          "minItems": 2,
+          "maxItems": 2,
+          "description": "Offset of apex from center [X, Y] in meters. For hip roof (Walmdach), use offset to create ridge line."
+        }
+      },
+      "additionalProperties": false,
+      "oneOf": [
+        {"required": ["height"]},
+        {"required": ["slope"]}
+      ]
+    },
+    
+    "boxSolid": {
+      "allOf": [
+        {"$ref": "#/definitions/solidBase"},
+        {
+          "properties": {
+            "type": {"const": "BOX"},
+            "dimensions": {"$ref": "#/definitions/boxDimensions"}
+          }
+        }
+      ]
+    },
+    
+    "triangularPrismSolid": {
+      "allOf": [
+        {"$ref": "#/definitions/solidBase"},
+        {
+          "properties": {
+            "type": {"const": "TRIANGULAR_PRISM"},
+            "dimensions": {"$ref": "#/definitions/triangularPrismDimensions"}
+          }
+        }
+      ]
+    },
+    
+    "trapezoidalPrismSolid": {
+      "allOf": [
+        {"$ref": "#/definitions/solidBase"},
+        {
+          "properties": {
+            "type": {"const": "TRAPEZOIDAL_PRISM"},
+            "dimensions": {"$ref": "#/definitions/trapezoidalPrismDimensions"}
+          }
+        }
+      ]
+    },
+    
+    "pyramidRoofSolid": {
+      "allOf": [
+        {"$ref": "#/definitions/solidBase"},
+        {
+          "properties": {
+            "type": {"const": "PYRAMID_ROOF"},
+            "dimensions": {"$ref": "#/definitions/pyramidRoofDimensions"}
+          }
+        }
+      ]
+    },
+    
+    "solid": {
+      "oneOf": [
+        {"$ref": "#/definitions/boxSolid"},
+        {"$ref": "#/definitions/triangularPrismSolid"},
+        {"$ref": "#/definitions/trapezoidalPrismSolid"},
+        {"$ref": "#/definitions/pyramidRoofSolid"}
+      ]
+    },
+    
+    "geometrySection": {
+      "type": "object",
+      "properties": {
+        "coordinate_system": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "PROJECT_NORTH",
+              "description": "Coordinate system type"
+            },
+            "x_axis": {
+              "type": "string",
+              "default": "EAST (Project)",
+              "description": "X-axis direction in project north system"
+            },
+            "y_axis": {
+              "type": "string",
+              "default": "NORTH (Project)",
+              "description": "Y-axis direction in project north system"
+            },
+            "z_axis": {
+              "type": "string",
+              "default": "UP",
+              "description": "Z-axis direction (always up)"
+            },
+            "unit": {
+              "type": "string",
+              "enum": ["METER", "MILLIMETER"],
+              "default": "METER",
+              "description": "Unit of measurement"
+            }
+          }
+        },
+        "solids": {
+          "type": "array",
+          "items": {"$ref": "#/definitions/solid"},
+          "description": "Array of solid geometry definitions"
+        }
+      },
+      "required": ["solids"]
+    },
+    
+    "siteSection": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string",
+          "description": "Site address"
+        },
+        "latitude": {
+          "type": "number",
+          "minimum": -90,
+          "maximum": 90,
+          "description": "Geographic latitude in decimal degrees"
+        },
+        "longitude": {
+          "type": "number",
+          "minimum": -180,
+          "maximum": 180,
+          "description": "Geographic longitude in decimal degrees"
+        },
+        "true_north_offset": {
+          "type": "number",
+          "default": 0,
+          "description": "Rotation from Project North to True North in degrees. Positive = clockwise."
+        },
+        "description": {
+          "type": "string",
+          "description": "Site description"
+        }
+      }
+    },
+    
+    "faceReference": {
+      "type": "object",
+      "required": ["solid_ref", "face_index"],
+      "properties": {
+        "solid_ref": {
+          "type": "string",
+          "description": "Reference to solid ID"
+        },
+        "face_index": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Face index (0-based) within the solid"
+        }
+      }
+    }
+  }
+}

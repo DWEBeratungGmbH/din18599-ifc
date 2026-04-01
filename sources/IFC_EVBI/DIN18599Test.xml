@@ -1,0 +1,1556 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<Root Version="3">
+	<Creator Product="CASCADOS_V12" Version="12.1.1381.0" Manufacturer=""/>
+	<Project UID="{E96331D2-64BC-44CA-87BB-DEC9FF591F53}" Name="C:\Users\SebastianMöhrer\OneDrive - DWE Beratung GmbH\Archiv\Desktop\DIN18599Test.cad" Description="DIN18599Test.cad">
+		<UValueGroups>
+			<UValueGroup UID="{1EAFC7A3-8C90-4EE6-B165-A5CE24639D15}" Name="" Description="Standard U-Werte">
+				<UValueDefinition UID="{76729BE7-00A2-4420-8326-0F52982D323B}" Name="" Description="Dach" Uvalue="0.000000"/>
+				<UValueDefinition UID="{76729BEC-00A2-4420-8326-0F52982D323B}" Name="" Description="Zwischendecke" Uvalue="0.000000"/>
+				<UValueDefinition UID="{76729BEF-00A2-4420-8326-0F52982D323B}" Name="" Description="Boden nach außen (auf Erdreich)" Uvalue="0.000000"/>
+				<UValueDefinition UID="{76729BF1-00A2-4420-8326-0F52982D323B}" Name="" Description="Zwischenwand" Uvalue="0.000000"/>
+				<UValueDefinition UID="{76729BF2-00A2-4420-8326-0F52982D323B}" Name="" Description="Außenwand (Luft)" Uvalue="0.000000"/>
+				<UValueDefinition UID="{76729BF4-00A2-4420-8326-0F52982D323B}" Name="" Description="Tür" Uvalue="0.000000"/>
+				<UValueDefinition UID="{76729BF5-00A2-4420-8326-0F52982D323B}" Name="" Description="Fenster" Uvalue="0.000000"/>
+				<UValueDefinition UID="{76729BF7-00A2-4420-8326-0F52982D323B}" Name="" Description="Wand zu Raum ohne Zone (unbeheizt)" Uvalue="0.000000"/>
+				<UValueDefinition UID="{76729BF8-00A2-4420-8326-0F52982D323B}" Name="" Description="Decke zu Dachraum (gedämmt)" Uvalue="0.000000"/>
+			</UValueGroup>
+		</UValueGroups>
+		<Buildings>
+			<Building UID="{1B9BA34A-FCD2-4F03-BA77-E0AC7F26D70C}" Name="" Description="&lt;Standard&gt;" Code="" Nr="0">
+				<Geometry LG="19.715" BG="4.820" Volume="649.640014648" Floorheight="2.279" Floorcount="3">
+					<Polygon>
+						<Point X="-14.350" Y="-4.658"/>
+						<Point X="-14.350" Y="-10.000"/>
+						<Point X="-14.350" Y="-13.715"/>
+						<Point X="-10.305" Y="-13.715"/>
+						<Point X="-10.305" Y="-10.000"/>
+						<Point X="-9.263" Y="-10.000"/>
+						<Point X="-4.350" Y="-10.000"/>
+						<Point X="-4.350" Y="-4.658"/>
+						<Point X="-4.350" Y="-2.000"/>
+						<Point X="-14.350" Y="-2.000"/>
+					</Polygon>
+					<Segmentation>
+						<Segment IsHole="0" Shape="0" ShapeName="Rectangle" Width="11.715" Height="4.045" Area="47.389507" MeanHeight="4.045">
+							<Point X="-14.350" Y="-2.000"/>
+							<Point X="-14.350" Y="-13.715"/>
+							<Point X="-10.305" Y="-13.715"/>
+							<Point X="-10.305" Y="-2.000"/>
+						</Segment>
+						<Segment IsHole="0" Shape="0" ShapeName="Rectangle" Width="5.955" Height="8.000" Area="47.639156" MeanHeight="8.000">
+							<Point X="-4.350" Y="-2.000"/>
+							<Point X="-10.305" Y="-2.000"/>
+							<Point X="-10.305" Y="-10.000"/>
+							<Point X="-4.350" Y="-10.000"/>
+						</Segment>
+					</Segmentation>
+					<Rectification>
+						<Rectangle IsHole="0" Width="11.715" Height="4.045" Area="47.389507">
+							<Point X="-14.350" Y="-2.000"/>
+							<Point X="-14.350" Y="-13.715"/>
+							<Point X="-10.305" Y="-13.715"/>
+							<Point X="-10.305" Y="-2.000"/>
+						</Rectangle>
+						<Rectangle IsHole="0" Width="5.955" Height="8.000" Area="47.639156">
+							<Point X="-4.350" Y="-2.000"/>
+							<Point X="-10.305" Y="-2.000"/>
+							<Point X="-10.305" Y="-10.000"/>
+							<Point X="-4.350" Y="-10.000"/>
+						</Rectangle>
+					</Rectification>
+				</Geometry>
+				<Floors>
+					<Floor UID="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Name="" Description="Erdgeschoss" Code="" Level="EG" Nr="2" ConstructionalHeight="2.900" Bruttogrundflaeche="95.028664" Nettogrundflaeche="74.910995" Bruttovolumen="273.204284668" Luftvolumen="184.252349854" Perimeter="43.431">
+						<Niveaus DUBm1="-0.200" UKRDm1="-0.200" OKRD0="-0.200" OKFF0="0.000" DUB="2.500" UKRD="2.500" OKRD="2.700" OKFF="2.750"/>
+						<Geometry LG="19.715" BG="4.820" Volume="271.393218994" Floorheight="2.856">
+							<Polygon>
+								<Point X="-14.350" Y="-4.658"/>
+								<Point X="-14.350" Y="-10.000"/>
+								<Point X="-14.350" Y="-13.715"/>
+								<Point X="-10.305" Y="-13.715"/>
+								<Point X="-10.305" Y="-10.000"/>
+								<Point X="-9.263" Y="-10.000"/>
+								<Point X="-4.350" Y="-10.000"/>
+								<Point X="-4.350" Y="-4.658"/>
+								<Point X="-4.350" Y="-2.000"/>
+								<Point X="-14.350" Y="-2.000"/>
+							</Polygon>
+							<Segmentation>
+								<Segment IsHole="0" Shape="0" ShapeName="Rectangle" Width="11.715" Height="4.045" Area="47.389507" MeanHeight="4.045">
+									<Point X="-14.350" Y="-2.000"/>
+									<Point X="-14.350" Y="-13.715"/>
+									<Point X="-10.305" Y="-13.715"/>
+									<Point X="-10.305" Y="-2.000"/>
+								</Segment>
+								<Segment IsHole="0" Shape="0" ShapeName="Rectangle" Width="5.955" Height="8.000" Area="47.639156" MeanHeight="8.000">
+									<Point X="-4.350" Y="-2.000"/>
+									<Point X="-10.305" Y="-2.000"/>
+									<Point X="-10.305" Y="-10.000"/>
+									<Point X="-4.350" Y="-10.000"/>
+								</Segment>
+							</Segmentation>
+							<Rectification>
+								<Rectangle IsHole="0" Width="11.715" Height="4.045" Area="47.389507">
+									<Point X="-14.350" Y="-2.000"/>
+									<Point X="-14.350" Y="-13.715"/>
+									<Point X="-10.305" Y="-13.715"/>
+									<Point X="-10.305" Y="-2.000"/>
+								</Rectangle>
+								<Rectangle IsHole="0" Width="5.955" Height="8.000" Area="47.639156">
+									<Point X="-4.350" Y="-2.000"/>
+									<Point X="-10.305" Y="-2.000"/>
+									<Point X="-10.305" Y="-10.000"/>
+									<Point X="-4.350" Y="-10.000"/>
+								</Rectangle>
+							</Rectification>
+						</Geometry>
+					</Floor>
+					<Floor UID="{52FD6C8A-404F-4E93-A26D-336A75A225B7}" Name="" Description="Obergeschoss" Code="" Level="OG" Nr="3" ConstructionalHeight="2.800" Bruttogrundflaeche="80.000000" Nettogrundflaeche="66.896698" Bruttovolumen="223.999969482" Luftvolumen="157.818817139" Perimeter="36.000">
+						<Niveaus DUBm1="2.500" UKRDm1="2.500" OKRD0="2.700" OKFF0="2.750" DUB="5.250" UKRD="5.250" OKRD="5.500" OKFF="5.550"/>
+						<Geometry LG="10.000" BG="8.000" Volume="224.000000000" Floorheight="2.800">
+							<Polygon>
+								<Point X="-14.350" Y="-4.658"/>
+								<Point X="-14.350" Y="-10.000"/>
+								<Point X="-10.305" Y="-10.000"/>
+								<Point X="-9.263" Y="-10.000"/>
+								<Point X="-4.350" Y="-10.000"/>
+								<Point X="-4.350" Y="-4.658"/>
+								<Point X="-4.350" Y="-2.000"/>
+								<Point X="-14.350" Y="-2.000"/>
+							</Polygon>
+							<Segmentation>
+								<Segment IsHole="0" Shape="0" ShapeName="Rectangle" Width="8.000" Height="10.000" Area="80.000000" MeanHeight="10.000">
+									<Point X="-4.350" Y="-10.000"/>
+									<Point X="-4.350" Y="-2.000"/>
+									<Point X="-14.350" Y="-2.000"/>
+									<Point X="-14.350" Y="-10.000"/>
+								</Segment>
+							</Segmentation>
+							<Rectification>
+								<Rectangle IsHole="0" Width="8.000" Height="10.000" Area="80.000000">
+									<Point X="-4.350" Y="-10.000"/>
+									<Point X="-4.350" Y="-2.000"/>
+									<Point X="-14.350" Y="-2.000"/>
+									<Point X="-14.350" Y="-10.000"/>
+								</Rectangle>
+							</Rectification>
+						</Geometry>
+					</Floor>
+					<Floor UID="{38535808-0D26-4FBF-AD12-D84173C8F4A9}" Name="" Description="Dachgeschoss" Code="" Level="DG" Nr="4" ConstructionalHeight="2.800" Bruttogrundflaeche="80.000000" Nettogrundflaeche="66.896698" Bruttovolumen="164.557983398" Luftvolumen="116.340469360" Perimeter="36.000">
+						<Niveaus DUBm1="5.250" UKRDm1="5.250" OKRD0="5.500" OKFF0="5.550" DUB="8.050" UKRD="8.050" OKRD="8.300" OKFF="8.300"/>
+						<Geometry LG="10.000" BG="8.000" Volume="154.246795654" Floorheight="1.928">
+							<Polygon>
+								<Point X="-4.350" Y="-2.000"/>
+								<Point X="-14.350" Y="-2.000"/>
+								<Point X="-14.350" Y="-10.000"/>
+								<Point X="-10.125" Y="-10.000"/>
+								<Point X="-4.350" Y="-10.000"/>
+							</Polygon>
+							<Segmentation>
+								<Segment IsHole="0" Shape="0" ShapeName="Rectangle" Width="8.000" Height="10.000" Area="80.000000" MeanHeight="10.000">
+									<Point X="-14.350" Y="-2.000"/>
+									<Point X="-14.350" Y="-10.000"/>
+									<Point X="-4.350" Y="-10.000"/>
+									<Point X="-4.350" Y="-2.000"/>
+								</Segment>
+							</Segmentation>
+							<Rectification>
+								<Rectangle IsHole="0" Width="8.000" Height="10.000" Area="80.000000">
+									<Point X="-14.350" Y="-2.000"/>
+									<Point X="-14.350" Y="-10.000"/>
+									<Point X="-4.350" Y="-10.000"/>
+									<Point X="-4.350" Y="-2.000"/>
+								</Rectangle>
+							</Rectification>
+						</Geometry>
+					</Floor>
+				</Floors>
+				<Rooms>
+					<Room UID="{9F5CD939-1EC9-444C-98BE-ED1136CA655B}" Name="" Description="Raum 3" Nr="3" Nutzungsart="0" BEZR="" Beheizt="1" Bruttogrundflaeche="26.243589" Nettogrundflaeche="21.527597" Bruttovolumen="76.106414795" Luftvolumen="53.734848022" RefZone="{8E9A610F-0C6A-4A17-8D2E-C54168E3263D}" RefFloor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Color="#e9e8e6" Preview="room0.jpg">
+						<Formulas Nettogrundflaeche="4.460*4.890 - 0.015 * (4.460 + 4.890 + 4.460 + 4.890)" Luftvolumen="2.500*4.460*4.890 - 0.015 * (12.934 + 13.202 + 12.042 + 14.180)"/>
+						<Polygon>
+							<Point X="-4.715" Y="-9.635"/>
+							<Point X="-4.715" Y="-4.745"/>
+							<Point X="-9.175" Y="-4.745"/>
+							<Point X="-9.175" Y="-9.635"/>
+						</Polygon>
+						<DIN277 NGF="21.527597" NGFlow="0.000000" NGFhigh="21.527597" NRI="53.734848022" iNFA="0" iUSA="0"/>
+						<Faces>
+							<Face GUID="{353ADB93-76EB-4B56-9C16-1D7FA77BC000}" refNum="9" Count="1" Area="26.243589" Neigungswinkel="0.00" RefUvalue="{76729BEF-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Floor" Orientation="H" OrientationAngle="0.00" Opposite="Erdreich" Code="KE" OnGround="1" CadElem="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Room="{9F5CD939-1EC9-444C-98BE-ED1136CA655B}">
+								<Geometry>
+									<Polygon>
+										<Point X="-4.350" Y="-10.000" Z="0.050"/>
+										<Point X="-9.263" Y="-10.000" Z="0.050"/>
+										<Point X="-9.263" Y="-4.658" Z="0.050"/>
+										<Point X="-4.350" Y="-4.658" Z="0.050"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{E838F6BF-2104-4568-BC9F-7EB78730C609}" Count="1" Area="26.243589" Neigungswinkel="0.00" RefUvalue="{76729BEC-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Ceiling" Orientation="H" OrientationAngle="0.00" Opposite="Raum" RefOppositeZone="{8E9A610F-0C6A-4A17-8D2E-C54168E3263D}" Code="DI" CadElem="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Room="{9F5CD939-1EC9-444C-98BE-ED1136CA655B}" OppositeRoom="{66FDF1BF-AA8D-40EB-9A6A-C1558FDBA161}">
+								<Geometry>
+									<Polygon>
+										<Point X="-4.350" Y="-4.658" Z="2.700"/>
+										<Point X="-9.263" Y="-4.658" Z="2.700"/>
+										<Point X="-9.263" Y="-10.000" Z="2.700"/>
+										<Point X="-4.350" Y="-10.000" Z="2.700"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{22E46E17-ED84-4A16-9698-15035DCA8EE9}" Count="1" Area="14.246253" Neigungswinkel="90.00" RefUvalue="{76729BF1-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Wall" Orientation="N" OrientationAngle="-0.00" Opposite="Raum" RefOppositeZone="{8E9A610F-0C6A-4A17-8D2E-C54168E3263D}" Code="WI" PosNo="005" CadElem="{D084258A-D690-4932-BF53-BB725A8420DB}" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Room="{9F5CD939-1EC9-444C-98BE-ED1136CA655B}" OppositeRoom="{5FD68739-E6B8-4656-9233-58DA16D899FC}">
+								<Geometry>
+									<Polygon>
+										<Point X="-4.350" Y="-4.658" Z="-0.200"/>
+										<Point X="-7.008" Y="-4.658" Z="-0.200"/>
+										<Point X="-8.587" Y="-4.658" Z="-0.200"/>
+										<Point X="-9.263" Y="-4.658" Z="-0.200"/>
+										<Point X="-9.263" Y="-4.658" Z="2.700"/>
+										<Point X="-8.587" Y="-4.658" Z="2.700"/>
+										<Point X="-7.008" Y="-4.658" Z="2.700"/>
+										<Point X="-4.350" Y="-4.658" Z="2.700"/>
+									</Polygon>
+								</Geometry>
+								<Elements>
+									<Element Count="1" UID="{4A92B511-665D-4D4F-98C7-CCF954790076}" Name="" Description="Tür" Area="1.778850" RefUvalue="{76729BF4-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Door" Code="TI" Opposite="Raum" PosNo="002" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" dbID="" constrName="" Width="0.885" Height="2.010" BRH="0.000">
+										<Geometry>
+											<Polygon>
+												<Point X="-6.465" Y="-4.658" Z="0.000"/>
+												<Point X="-7.350" Y="-4.658" Z="0.000"/>
+												<Point X="-7.350" Y="-4.658" Z="2.010"/>
+												<Point X="-6.465" Y="-4.658" Z="2.010"/>
+											</Polygon>
+										</Geometry>
+									</Element>
+								</Elements>
+							</Face>
+							<Face GUID="{35E7881E-2998-42BB-B2C4-7E873F0C5DDA}" Count="1" Area="15.492396" Neigungswinkel="90.00" RefUvalue="{76729BF1-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Wall" Orientation="W" OrientationAngle="270.00" Opposite="Raum" RefOppositeZone="{8E9A610F-0C6A-4A17-8D2E-C54168E3263D}" Code="WI" PosNo="006" CadElem="{C66FC365-EC0C-4F0D-8A79-E2203FD6EF81}" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Room="{9F5CD939-1EC9-444C-98BE-ED1136CA655B}" OppositeRoom="{E805D3A3-4C33-4CFA-A9A8-C588CBAFDD04}">
+								<Geometry>
+									<Polygon>
+										<Point X="-9.263" Y="-4.658" Z="-0.200"/>
+										<Point X="-9.263" Y="-5.061" Z="-0.200"/>
+										<Point X="-9.263" Y="-10.000" Z="-0.200"/>
+										<Point X="-9.263" Y="-10.000" Z="2.700"/>
+										<Point X="-9.263" Y="-5.061" Z="2.700"/>
+										<Point X="-9.263" Y="-4.658" Z="2.700"/>
+									</Polygon>
+								</Geometry>
+								<Elements>
+									<Element Count="1" UID="{9EAA0C2E-76C7-4C1F-BA87-743711916A69}" Name="" Description="Tür" Area="1.778850" RefUvalue="{76729BF4-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Door" Code="TI" Opposite="Raum" PosNo="003" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" dbID="" constrName="" Width="0.885" Height="2.010" BRH="0.000">
+										<Geometry>
+											<Polygon>
+												<Point X="-9.263" Y="-6.461" Z="0.000"/>
+												<Point X="-9.263" Y="-7.346" Z="0.000"/>
+												<Point X="-9.263" Y="-7.346" Z="2.010"/>
+												<Point X="-9.263" Y="-6.461" Z="2.010"/>
+											</Polygon>
+										</Geometry>
+									</Element>
+								</Elements>
+							</Face>
+							<Face GUID="{CCBB3EEB-ADCD-4AA6-8EE6-91558078CFC5}" refNum="10" Count="1" Area="14.246253" Neigungswinkel="90.00" RefUvalue="{76729BF2-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Wall" Orientation="S" OrientationAngle="180.00" Opposite="Aussenluft" Code="WA" PosNo="001" CadElem="{7C976266-4806-40E2-B4F7-8B7990E1625A}" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Room="{9F5CD939-1EC9-444C-98BE-ED1136CA655B}">
+								<Geometry>
+									<Polygon>
+										<Point X="-9.263" Y="-10.000" Z="-0.200"/>
+										<Point X="-4.350" Y="-10.000" Z="-0.200"/>
+										<Point X="-4.350" Y="-10.000" Z="2.700"/>
+										<Point X="-9.263" Y="-10.000" Z="2.700"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{D5649106-AA17-459C-9548-DD40DC825B8D}" refNum="11" Count="1" Area="15.492396" Neigungswinkel="90.00" RefUvalue="{76729BF2-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Wall" Orientation="E" OrientationAngle="90.00" Opposite="Aussenluft" Code="WA" PosNo="002" CadElem="{3AD90DF3-7AE7-451A-B395-C5F55C23B27D}" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Room="{9F5CD939-1EC9-444C-98BE-ED1136CA655B}">
+								<Geometry>
+									<Polygon>
+										<Point X="-4.350" Y="-10.000" Z="-0.200"/>
+										<Point X="-4.350" Y="-4.658" Z="-0.200"/>
+										<Point X="-4.350" Y="-4.658" Z="2.700"/>
+										<Point X="-4.350" Y="-10.000" Z="2.700"/>
+									</Polygon>
+								</Geometry>
+								<Elements>
+									<Element Count="1" UID="{80B89E13-4437-48BE-9091-2F29F948B0F0}" Name="" Description="Fenster" Area="1.545300" RefUvalue="{76729BF5-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Window" Code="FA" Opposite="Aussenluft" PosNo="002" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" dbID="" constrName="" Width="1.010" Height="1.530" BRH="0.730">
+										<Geometry>
+											<Polygon>
+												<Point X="-4.350" Y="-6.505" Z="0.730"/>
+												<Point X="-4.350" Y="-5.495" Z="0.730"/>
+												<Point X="-4.350" Y="-5.495" Z="2.260"/>
+												<Point X="-4.350" Y="-6.505" Z="2.260"/>
+											</Polygon>
+										</Geometry>
+									</Element>
+								</Elements>
+							</Face>
+						</Faces>
+					</Room>
+					<Room UID="{E805D3A3-4C33-4CFA-A9A8-C588CBAFDD04}" Name="" Description="Raum 1" Nr="1" Nutzungsart="0" BEZR="" Beheizt="1" Bruttogrundflaeche="27.178469" Nettogrundflaeche="22.378040" Bruttovolumen="78.817558289" Luftvolumen="55.859378815" RefZone="{8E9A610F-0C6A-4A17-8D2E-C54168E3263D}" RefFloor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Color="#e9e8e6" Preview="room1.jpg">
+						<Formulas Nettogrundflaeche="4.635*4.890 - 0.015 * (4.635 + 4.890 + 4.635 + 4.890)" Luftvolumen="2.500*4.635*4.890 - 0.015 * (13.442 + 14.180 + 12.514 + 13.202)"/>
+						<Polygon>
+							<Point X="-9.350" Y="-9.635"/>
+							<Point X="-9.350" Y="-4.745"/>
+							<Point X="-13.985" Y="-4.745"/>
+							<Point X="-13.985" Y="-9.635"/>
+						</Polygon>
+						<DIN277 NGF="22.378040" NGFlow="0.000000" NGFhigh="22.378040" NRI="55.859378815" iNFA="0" iUSA="0"/>
+						<Faces>
+							<Face GUID="{119AFCAC-29FE-4FD1-99E8-332AAC32CE74}" refNum="1" Count="1" Area="27.178469" Neigungswinkel="0.00" RefUvalue="{76729BEF-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Floor" Orientation="H" OrientationAngle="0.00" Opposite="Erdreich" Code="KE" OnGround="1" CadElem="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Room="{E805D3A3-4C33-4CFA-A9A8-C588CBAFDD04}">
+								<Geometry>
+									<Polygon>
+										<Point X="-9.263" Y="-10.000" Z="0.050"/>
+										<Point X="-10.305" Y="-10.000" Z="0.050"/>
+										<Point X="-14.350" Y="-10.000" Z="0.050"/>
+										<Point X="-14.350" Y="-4.658" Z="0.050"/>
+										<Point X="-9.263" Y="-4.658" Z="0.050"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{8B036BED-3DA2-4F7D-95A2-6AC2743C0794}" Count="1" Area="27.178469" Neigungswinkel="0.00" RefUvalue="{76729BEC-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Ceiling" Orientation="H" OrientationAngle="0.00" Opposite="Raum" RefOppositeZone="{8E9A610F-0C6A-4A17-8D2E-C54168E3263D}" Code="DI" CadElem="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Room="{E805D3A3-4C33-4CFA-A9A8-C588CBAFDD04}" OppositeRoom="{66FDF1BF-AA8D-40EB-9A6A-C1558FDBA161}">
+								<Geometry>
+									<Polygon>
+										<Point X="-9.263" Y="-4.658" Z="2.700"/>
+										<Point X="-14.350" Y="-4.658" Z="2.700"/>
+										<Point X="-14.350" Y="-10.000" Z="2.700"/>
+										<Point X="-10.305" Y="-10.000" Z="2.700"/>
+										<Point X="-9.263" Y="-10.000" Z="2.700"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{3D98CA59-4247-4399-BE37-66CF867BB401}" Count="1" Area="14.753749" Neigungswinkel="90.00" RefUvalue="{76729BF1-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Wall" Orientation="N" OrientationAngle="-0.00" Opposite="Raum" RefOppositeZone="{8E9A610F-0C6A-4A17-8D2E-C54168E3263D}" Code="WI" PosNo="005" CadElem="{D084258A-D690-4932-BF53-BB725A8420DB}" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Room="{E805D3A3-4C33-4CFA-A9A8-C588CBAFDD04}" OppositeRoom="{5FD68739-E6B8-4656-9233-58DA16D899FC}">
+								<Geometry>
+									<Polygon>
+										<Point X="-9.263" Y="-4.658" Z="-0.200"/>
+										<Point X="-10.016" Y="-4.658" Z="-0.200"/>
+										<Point X="-14.350" Y="-4.658" Z="-0.200"/>
+										<Point X="-14.350" Y="-4.658" Z="2.700"/>
+										<Point X="-10.016" Y="-4.658" Z="2.700"/>
+										<Point X="-9.263" Y="-4.658" Z="2.700"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{2819422A-7650-404A-BCE8-C355A4FE3E9C}" refNum="2" Count="1" Area="15.492396" Neigungswinkel="90.00" RefUvalue="{76729BF2-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Wall" Orientation="W" OrientationAngle="270.00" Opposite="Aussenluft" Code="WA" PosNo="004" CadElem="{674608B0-833B-4E79-8AF1-7F3F2B5C796A}" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Room="{E805D3A3-4C33-4CFA-A9A8-C588CBAFDD04}">
+								<Geometry>
+									<Polygon>
+										<Point X="-14.350" Y="-4.658" Z="-0.200"/>
+										<Point X="-14.350" Y="-10.000" Z="-0.200"/>
+										<Point X="-14.350" Y="-10.000" Z="2.700"/>
+										<Point X="-14.350" Y="-4.658" Z="2.700"/>
+									</Polygon>
+								</Geometry>
+								<Elements>
+									<Element Count="1" UID="{607F926D-F155-473F-A389-9C9ABB4518A5}" Name="" Description="Fenster" Area="1.545300" RefUvalue="{76729BF5-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Window" Code="FA" Opposite="Aussenluft" PosNo="001" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" dbID="" constrName="" Width="1.010" Height="1.530" BRH="0.730">
+										<Geometry>
+											<Polygon>
+												<Point X="-14.350" Y="-5.511" Z="0.730"/>
+												<Point X="-14.350" Y="-6.521" Z="0.730"/>
+												<Point X="-14.350" Y="-6.521" Z="2.260"/>
+												<Point X="-14.350" Y="-5.511" Z="2.260"/>
+											</Polygon>
+										</Geometry>
+									</Element>
+								</Elements>
+							</Face>
+							<Face GUID="{3340C8F3-93C9-46EE-8904-52873EC5D7E5}" refNum="3" Count="1" Area="11.730807" Neigungswinkel="90.00" RefUvalue="{76729BF1-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Wall" Orientation="S" OrientationAngle="180.00" Opposite="Raum" Code="WI" PosNo="001" CadElem="{7C976266-4806-40E2-B4F7-8B7990E1625A}" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Room="{E805D3A3-4C33-4CFA-A9A8-C588CBAFDD04}" OppositeRoom="{39943391-7280-40BD-BE67-96BFCBA04D6C}">
+								<Geometry>
+									<Polygon>
+										<Point X="-14.350" Y="-10.000" Z="-0.200"/>
+										<Point X="-10.305" Y="-10.000" Z="-0.200"/>
+										<Point X="-10.305" Y="-10.000" Z="2.700"/>
+										<Point X="-14.350" Y="-10.000" Z="2.700"/>
+									</Polygon>
+								</Geometry>
+								<Elements>
+									<Element Count="1" UID="{D1199B12-9334-41B5-863A-F90461D2F62F}" Name="" Description="Tür" Area="1.778850" RefUvalue="{76729BF4-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Door" Code="TI" Opposite="Raum" PosNo="004" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" dbID="" constrName="" Width="0.885" Height="2.010" BRH="0.000">
+										<Geometry>
+											<Polygon>
+												<Point X="-12.350" Y="-10.000" Z="0.000"/>
+												<Point X="-11.465" Y="-10.000" Z="0.000"/>
+												<Point X="-11.465" Y="-10.000" Z="2.010"/>
+												<Point X="-12.350" Y="-10.000" Z="2.010"/>
+											</Polygon>
+										</Geometry>
+									</Element>
+								</Elements>
+							</Face>
+							<Face GUID="{3E2F1D12-3615-4C3A-9119-4CCCA88C1D36}" refNum="4" Count="1" Area="3.022942" Neigungswinkel="90.00" RefUvalue="{76729BF2-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Wall" Orientation="S" OrientationAngle="180.00" Opposite="Aussenluft" Code="WA" PosNo="001" CadElem="{7C976266-4806-40E2-B4F7-8B7990E1625A}" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Room="{E805D3A3-4C33-4CFA-A9A8-C588CBAFDD04}">
+								<Geometry>
+									<Polygon>
+										<Point X="-10.305" Y="-10.000" Z="-0.200"/>
+										<Point X="-9.263" Y="-10.000" Z="-0.200"/>
+										<Point X="-9.263" Y="-10.000" Z="2.700"/>
+										<Point X="-10.305" Y="-10.000" Z="2.700"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{35E7881E-2998-42BB-B2C4-7E873F0C5DDA}" Count="1" Area="15.492396" Neigungswinkel="90.00" RefUvalue="{76729BF1-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Wall" Orientation="E" OrientationAngle="90.00" Opposite="Raum" RefOppositeZone="{8E9A610F-0C6A-4A17-8D2E-C54168E3263D}" Code="WI" PosNo="006" CadElem="{C66FC365-EC0C-4F0D-8A79-E2203FD6EF81}" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Room="{E805D3A3-4C33-4CFA-A9A8-C588CBAFDD04}" OppositeRoom="{9F5CD939-1EC9-444C-98BE-ED1136CA655B}">
+								<Geometry>
+									<Polygon>
+										<Point X="-9.263" Y="-10.000" Z="-0.200"/>
+										<Point X="-9.263" Y="-5.061" Z="-0.200"/>
+										<Point X="-9.263" Y="-4.658" Z="-0.200"/>
+										<Point X="-9.263" Y="-4.658" Z="2.700"/>
+										<Point X="-9.263" Y="-5.061" Z="2.700"/>
+										<Point X="-9.263" Y="-10.000" Z="2.700"/>
+									</Polygon>
+								</Geometry>
+								<Elements>
+									<Element Count="1" UID="{9EAA0C2E-76C7-4C1F-BA87-743711916A69}" Name="" Description="Tür" Area="1.778850" RefUvalue="{76729BF4-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Door" Code="TI" Opposite="Raum" PosNo="003" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" dbID="" constrName="" Width="0.885" Height="2.010" BRH="0.000">
+										<Geometry>
+											<Polygon>
+												<Point X="-9.263" Y="-7.346" Z="0.000"/>
+												<Point X="-9.263" Y="-6.461" Z="0.000"/>
+												<Point X="-9.263" Y="-6.461" Z="2.010"/>
+												<Point X="-9.263" Y="-7.346" Z="2.010"/>
+											</Polygon>
+										</Geometry>
+									</Element>
+								</Elements>
+							</Face>
+						</Faces>
+					</Room>
+					<Room UID="{5FD68739-E6B8-4656-9233-58DA16D899FC}" Name="" Description="Raum 2" Nr="2" Nutzungsart="0" BEZR="" Beheizt="1" Bruttogrundflaeche="26.577946" Nettogrundflaeche="20.098818" Bruttovolumen="77.076042175" Luftvolumen="50.137153625" RefZone="{8E9A610F-0C6A-4A17-8D2E-C54168E3263D}" RefFloor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Color="#e9e8e6" Preview="room2.jpg">
+						<Formulas Nettogrundflaeche="2.205*9.270 - 0.015 * (2.205 + 9.270 + 2.205 + 9.270)" Luftvolumen="2.500*2.205*9.270 - 0.015 * (6.395 + 26.883 + 6.395 + 25.029)"/>
+						<Polygon>
+							<Point X="-13.985" Y="-4.570"/>
+							<Point X="-4.715" Y="-4.570"/>
+							<Point X="-4.715" Y="-2.365"/>
+							<Point X="-13.985" Y="-2.365"/>
+						</Polygon>
+						<DIN277 NGF="20.098818" NGFlow="0.000000" NGFhigh="20.098818" NRI="50.137153625" iNFA="0" iUSA="0"/>
+						<Faces>
+							<Face GUID="{2803AF60-155C-4A25-8F91-ED7664838DA0}" refNum="5" Count="1" Area="26.577946" Neigungswinkel="0.00" RefUvalue="{76729BEF-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Floor" Orientation="H" OrientationAngle="0.00" Opposite="Erdreich" Code="KE" OnGround="1" CadElem="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Room="{5FD68739-E6B8-4656-9233-58DA16D899FC}">
+								<Geometry>
+									<Polygon>
+										<Point X="-14.350" Y="-2.000" Z="0.050"/>
+										<Point X="-4.350" Y="-2.000" Z="0.050"/>
+										<Point X="-4.350" Y="-4.658" Z="0.050"/>
+										<Point X="-9.263" Y="-4.658" Z="0.050"/>
+										<Point X="-14.350" Y="-4.658" Z="0.050"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{0E4ACC82-76BE-4F23-B2FE-8CE1DB6204BE}" Count="1" Area="26.577946" Neigungswinkel="0.00" RefUvalue="{76729BEC-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Ceiling" Orientation="H" OrientationAngle="0.00" Opposite="Raum" RefOppositeZone="{8E9A610F-0C6A-4A17-8D2E-C54168E3263D}" Code="DI" CadElem="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Room="{5FD68739-E6B8-4656-9233-58DA16D899FC}" OppositeRoom="{66FDF1BF-AA8D-40EB-9A6A-C1558FDBA161}">
+								<Geometry>
+									<Polygon>
+										<Point X="-14.350" Y="-4.658" Z="2.700"/>
+										<Point X="-9.263" Y="-4.658" Z="2.700"/>
+										<Point X="-4.350" Y="-4.658" Z="2.700"/>
+										<Point X="-4.350" Y="-2.000" Z="2.700"/>
+										<Point X="-14.350" Y="-2.000" Z="2.700"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{3D98CA59-4247-4399-BE37-66CF867BB401}" Count="1" Area="14.753749" Neigungswinkel="90.00" RefUvalue="{76729BF1-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Wall" Orientation="S" OrientationAngle="180.00" Opposite="Raum" RefOppositeZone="{8E9A610F-0C6A-4A17-8D2E-C54168E3263D}" Code="WI" PosNo="005" CadElem="{D084258A-D690-4932-BF53-BB725A8420DB}" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Room="{5FD68739-E6B8-4656-9233-58DA16D899FC}" OppositeRoom="{E805D3A3-4C33-4CFA-A9A8-C588CBAFDD04}">
+								<Geometry>
+									<Polygon>
+										<Point X="-14.350" Y="-4.658" Z="-0.200"/>
+										<Point X="-10.016" Y="-4.658" Z="-0.200"/>
+										<Point X="-9.263" Y="-4.658" Z="-0.200"/>
+										<Point X="-9.263" Y="-4.658" Z="2.700"/>
+										<Point X="-10.016" Y="-4.658" Z="2.700"/>
+										<Point X="-14.350" Y="-4.658" Z="2.700"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{22E46E17-ED84-4A16-9698-15035DCA8EE9}" Count="1" Area="14.246253" Neigungswinkel="90.00" RefUvalue="{76729BF1-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Wall" Orientation="S" OrientationAngle="180.00" Opposite="Raum" RefOppositeZone="{8E9A610F-0C6A-4A17-8D2E-C54168E3263D}" Code="WI" PosNo="005" CadElem="{D084258A-D690-4932-BF53-BB725A8420DB}" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Room="{5FD68739-E6B8-4656-9233-58DA16D899FC}" OppositeRoom="{9F5CD939-1EC9-444C-98BE-ED1136CA655B}">
+								<Geometry>
+									<Polygon>
+										<Point X="-9.263" Y="-4.658" Z="-0.200"/>
+										<Point X="-8.587" Y="-4.658" Z="-0.200"/>
+										<Point X="-7.008" Y="-4.658" Z="-0.200"/>
+										<Point X="-4.350" Y="-4.658" Z="-0.200"/>
+										<Point X="-4.350" Y="-4.658" Z="2.700"/>
+										<Point X="-7.008" Y="-4.658" Z="2.700"/>
+										<Point X="-8.587" Y="-4.658" Z="2.700"/>
+										<Point X="-9.263" Y="-4.658" Z="2.700"/>
+									</Polygon>
+								</Geometry>
+								<Elements>
+									<Element Count="1" UID="{4A92B511-665D-4D4F-98C7-CCF954790076}" Name="" Description="Tür" Area="1.778850" RefUvalue="{76729BF4-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Door" Code="TI" Opposite="Raum" PosNo="002" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" dbID="" constrName="" Width="0.885" Height="2.010" BRH="0.000">
+										<Geometry>
+											<Polygon>
+												<Point X="-7.350" Y="-4.658" Z="0.000"/>
+												<Point X="-6.465" Y="-4.658" Z="0.000"/>
+												<Point X="-6.465" Y="-4.658" Z="2.010"/>
+												<Point X="-7.350" Y="-4.658" Z="2.010"/>
+											</Polygon>
+										</Geometry>
+									</Element>
+								</Elements>
+							</Face>
+							<Face GUID="{601D40DC-840D-4464-B0F3-879402C0BD8A}" refNum="6" Count="1" Area="7.707604" Neigungswinkel="90.00" RefUvalue="{76729BF2-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Wall" Orientation="E" OrientationAngle="90.00" Opposite="Aussenluft" Code="WA" PosNo="002" CadElem="{3AD90DF3-7AE7-451A-B395-C5F55C23B27D}" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Room="{5FD68739-E6B8-4656-9233-58DA16D899FC}">
+								<Geometry>
+									<Polygon>
+										<Point X="-4.350" Y="-4.658" Z="-0.200"/>
+										<Point X="-4.350" Y="-2.000" Z="-0.200"/>
+										<Point X="-4.350" Y="-2.000" Z="2.700"/>
+										<Point X="-4.350" Y="-4.658" Z="2.700"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{0618F966-72F9-43F3-8655-2A3DFCDCDEC8}" refNum="7" Count="1" Area="28.999998" Neigungswinkel="90.00" RefUvalue="{76729BF2-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Wall" Orientation="N" OrientationAngle="-0.00" Opposite="Aussenluft" Code="WA" PosNo="003" CadElem="{E32F8A6A-0B73-480E-B535-AAB24752A544}" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Room="{5FD68739-E6B8-4656-9233-58DA16D899FC}">
+								<Geometry>
+									<Polygon>
+										<Point X="-4.350" Y="-2.000" Z="-0.200"/>
+										<Point X="-14.350" Y="-2.000" Z="-0.200"/>
+										<Point X="-14.350" Y="-2.000" Z="2.700"/>
+										<Point X="-4.350" Y="-2.000" Z="2.700"/>
+									</Polygon>
+								</Geometry>
+								<Elements>
+									<Element Count="1" UID="{7BA76F36-EC9D-4E3F-8045-2E037C91D7D7}" Name="" Description="Fenster" Area="1.545301" RefUvalue="{76729BF5-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Window" Code="FA" Opposite="Aussenluft" PosNo="003" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" dbID="" constrName="" Width="1.010" Height="1.530" BRH="0.730">
+										<Geometry>
+											<Polygon>
+												<Point X="-11.350" Y="-2.000" Z="0.730"/>
+												<Point X="-12.360" Y="-2.000" Z="0.730"/>
+												<Point X="-12.360" Y="-2.000" Z="2.260"/>
+												<Point X="-11.350" Y="-2.000" Z="2.260"/>
+											</Polygon>
+										</Geometry>
+									</Element>
+									<Element Count="1" UID="{F65416B1-F1D5-4160-8E4C-292EFC55012D}" Name="" Description="Fenster" Area="1.545300" RefUvalue="{76729BF5-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Window" Code="FA" Opposite="Aussenluft" PosNo="004" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" dbID="" constrName="" Width="1.010" Height="1.530" BRH="0.730">
+										<Geometry>
+											<Polygon>
+												<Point X="-6.350" Y="-2.000" Z="0.730"/>
+												<Point X="-7.360" Y="-2.000" Z="0.730"/>
+												<Point X="-7.360" Y="-2.000" Z="2.260"/>
+												<Point X="-6.350" Y="-2.000" Z="2.260"/>
+											</Polygon>
+										</Geometry>
+									</Element>
+									<Element Count="1" UID="{27D7DFC6-172F-46D5-8844-9233D0964289}" Name="" Description="Tür" Area="1.778850" RefUvalue="{76729BF4-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Door" Code="TA" Opposite="Aussenluft" PosNo="001" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" dbID="" constrName="" Width="0.885" Height="2.010" BRH="0.000">
+										<Geometry>
+											<Polygon>
+												<Point X="-8.982" Y="-2.000" Z="0.000"/>
+												<Point X="-9.867" Y="-2.000" Z="0.000"/>
+												<Point X="-9.867" Y="-2.000" Z="2.010"/>
+												<Point X="-8.982" Y="-2.000" Z="2.010"/>
+											</Polygon>
+										</Geometry>
+									</Element>
+								</Elements>
+							</Face>
+							<Face GUID="{A795B26A-6039-418C-BC62-70B38C760CC4}" refNum="8" Count="1" Area="7.707605" Neigungswinkel="90.00" RefUvalue="{76729BF2-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Wall" Orientation="W" OrientationAngle="270.00" Opposite="Aussenluft" Code="WA" PosNo="004" CadElem="{674608B0-833B-4E79-8AF1-7F3F2B5C796A}" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Room="{5FD68739-E6B8-4656-9233-58DA16D899FC}">
+								<Geometry>
+									<Polygon>
+										<Point X="-14.350" Y="-2.000" Z="-0.200"/>
+										<Point X="-14.350" Y="-4.658" Z="-0.200"/>
+										<Point X="-14.350" Y="-4.658" Z="2.700"/>
+										<Point X="-14.350" Y="-2.000" Z="2.700"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+						</Faces>
+					</Room>
+					<Room UID="{A127854B-FAC0-4237-BD9B-35F103A71B66}" Name="" Description="Raum 6" Nr="6" Nutzungsart="0" BEZR="" Beheizt="1" Bruttogrundflaeche="80.000000" Nettogrundflaeche="66.896698" Bruttovolumen="154.246795654" Luftvolumen="116.340469360" RefZone="{8E9A610F-0C6A-4A17-8D2E-C54168E3263D}" RefFloor="{38535808-0D26-4FBF-AD12-D84173C8F4A9}" Floor="{38535808-0D26-4FBF-AD12-D84173C8F4A9}" Color="#e9e8e6" Preview="room3.jpg">
+						<Formulas Nettogrundflaeche="7.270*9.270 - 0.015 * (9.270 + 7.270 + 9.270 + 7.270)" Luftvolumen="2.500*2.863*4.863 + 1.514*(7.270 + 2.863)/2*2.204 + 1.550*(9.270 + 4.863)/2*2.204 + 1.550*(9.270 + 4.863)/2*2.204 + 1.514*(7.270 + 2.863)/2*2.204 - 0.015 * (10.031 + 7.867 + 10.031 + 7.867)"/>
+						<Polygon>
+							<Point X="-4.715" Y="-9.635"/>
+							<Point X="-4.715" Y="-2.365"/>
+							<Point X="-13.985" Y="-2.365"/>
+							<Point X="-13.985" Y="-9.635"/>
+						</Polygon>
+						<DIN277 NGF="66.896698" NGFlow="26.647039" NGFhigh="40.249660" NRI="116.340469360" iNFA="0" iUSA="0"/>
+						<Faces>
+							<Face GUID="{26381D35-0116-4E38-97DE-3F9F3C693BA9}" Count="1" Area="80.000000" Neigungswinkel="0.00" RefUvalue="{76729BEC-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Ceiling" Orientation="H" OrientationAngle="0.00" Opposite="Raum" RefOppositeZone="{8E9A610F-0C6A-4A17-8D2E-C54168E3263D}" Code="DI" CadElem="{52FD6C8A-404F-4E93-A26D-336A75A225B7}" Floor="{38535808-0D26-4FBF-AD12-D84173C8F4A9}" Room="{A127854B-FAC0-4237-BD9B-35F103A71B66}" OppositeRoom="{66FDF1BF-AA8D-40EB-9A6A-C1558FDBA161}">
+								<Geometry>
+									<Polygon>
+										<Point X="-4.350" Y="-10.000" Z="5.500"/>
+										<Point X="-10.125" Y="-10.000" Z="5.500"/>
+										<Point X="-14.350" Y="-10.000" Z="5.500"/>
+										<Point X="-14.350" Y="-2.000" Z="5.500"/>
+										<Point X="-4.350" Y="-2.000" Z="5.500"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{073259C4-B255-455D-A5A6-3C4397046E07}" refNum="16" Count="1" Area="17.942764" Neigungswinkel="0.00" RefUvalue="{76729BF8-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Ceiling" Orientation="H" OrientationAngle="0.00" Opposite="Dachraum gedämmt" Code="DK" CadElem="{38535808-0D26-4FBF-AD12-D84173C8F4A9}" Floor="{38535808-0D26-4FBF-AD12-D84173C8F4A9}" Room="{A127854B-FAC0-4237-BD9B-35F103A71B66}">
+								<Geometry>
+									<Polygon>
+										<Point X="-11.786" Y="-7.436" Z="8.300"/>
+										<Point X="-6.914" Y="-7.436" Z="8.300"/>
+										<Point X="-6.914" Y="-4.564" Z="8.300"/>
+										<Point X="-8.430" Y="-4.564" Z="8.300"/>
+										<Point X="-8.430" Y="-2.300" Z="8.300"/>
+										<Point X="-10.174" Y="-2.300" Z="8.300"/>
+										<Point X="-10.174" Y="-4.564" Z="8.300"/>
+										<Point X="-11.786" Y="-4.564" Z="8.300"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{31A9FF52-C2FC-4F6B-B2CB-DEC9A6E73227}" refNum="17" Count="1" Area="17.686647" Neigungswinkel="38.00" RefUvalue="{76729BE7-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Roof" Orientation="W" OrientationAngle="270.00" Opposite="Aussenluft" Code="DA" PosNo="001" CadElem="{81D94CAA-7EBE-4EC9-A70D-B261199FBCF6}" Floor="{38535808-0D26-4FBF-AD12-D84173C8F4A9}" Room="{A127854B-FAC0-4237-BD9B-35F103A71B66}">
+								<Geometry>
+									<Polygon>
+										<Point X="-14.350" Y="-10.000" Z="6.297"/>
+										<Point X="-11.786" Y="-7.436" Z="8.300"/>
+										<Point X="-11.786" Y="-4.564" Z="8.300"/>
+										<Point X="-14.350" Y="-2.000" Z="6.297"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{FE4CFC86-FC73-4869-A99F-3C4B6243DCD1}" refNum="18" Count="1" Area="24.193609" Neigungswinkel="38.00" RefUvalue="{76729BE7-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Roof" Orientation="S" OrientationAngle="180.00" Opposite="Aussenluft" Code="DA" PosNo="001" CadElem="{81D94CAA-7EBE-4EC9-A70D-B261199FBCF6}" Floor="{38535808-0D26-4FBF-AD12-D84173C8F4A9}" Room="{A127854B-FAC0-4237-BD9B-35F103A71B66}">
+								<Geometry>
+									<Polygon>
+										<Point X="-11.786" Y="-7.436" Z="8.300"/>
+										<Point X="-14.350" Y="-10.000" Z="6.297"/>
+										<Point X="-4.350" Y="-10.000" Z="6.297"/>
+										<Point X="-6.914" Y="-7.436" Z="8.300"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{1207EC3A-FD73-4DDA-A2ED-087C2D675507}" refNum="19" Count="1" Area="7.073315" Neigungswinkel="38.00" RefUvalue="{76729BE7-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Roof" Orientation="N" OrientationAngle="-0.00" Opposite="Aussenluft" Code="DA" PosNo="001" CadElem="{81D94CAA-7EBE-4EC9-A70D-B261199FBCF6}" Floor="{38535808-0D26-4FBF-AD12-D84173C8F4A9}" Room="{A127854B-FAC0-4237-BD9B-35F103A71B66}">
+								<Geometry>
+									<Polygon>
+										<Point X="-14.350" Y="-2.000" Z="6.297"/>
+										<Point X="-11.786" Y="-4.564" Z="8.300"/>
+										<Point X="-10.174" Y="-4.564" Z="8.300"/>
+										<Point X="-10.637" Y="-4.287" Z="8.084"/>
+										<Point X="-10.967" Y="-4.090" Z="7.930"/>
+										<Point X="-10.967" Y="-2.000" Z="6.297"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{A937DBC7-3768-4764-9F49-04B499B8DDEA}" refNum="19" Count="1" Area="1.093281" Neigungswinkel="38.00" RefUvalue="{76729BE7-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Roof" Orientation="N" OrientationAngle="-0.00" Opposite="Aussenluft" Code="DA" PosNo="001" CadElem="{81D94CAA-7EBE-4EC9-A70D-B261199FBCF6}" Floor="{38535808-0D26-4FBF-AD12-D84173C8F4A9}" Room="{A127854B-FAC0-4237-BD9B-35F103A71B66}">
+								<Geometry>
+									<Polygon>
+										<Point X="-10.174" Y="-2.000" Z="6.297"/>
+										<Point X="-10.967" Y="-2.000" Z="6.297"/>
+										<Point X="-10.967" Y="-4.090" Z="7.930"/>
+										<Point X="-10.637" Y="-4.287" Z="8.084"/>
+										<Point X="-10.637" Y="-2.300" Z="6.532"/>
+										<Point X="-10.174" Y="-2.300" Z="6.532"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{1670A71B-1BDD-4C25-8D9B-5EA22B34DABA}" refNum="20" Count="1" Area="0.664687" Neigungswinkel="38.00" RefUvalue="{76729BE7-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Roof" Orientation="N" OrientationAngle="-0.00" Opposite="Aussenluft" Code="DA" PosNo="001" CadElem="{81D94CAA-7EBE-4EC9-A70D-B261199FBCF6}" Floor="{38535808-0D26-4FBF-AD12-D84173C8F4A9}" Room="{A127854B-FAC0-4237-BD9B-35F103A71B66}">
+								<Geometry>
+									<Polygon>
+										<Point X="-8.430" Y="-2.000" Z="6.297"/>
+										<Point X="-10.174" Y="-2.000" Z="6.297"/>
+										<Point X="-10.174" Y="-2.300" Z="6.532"/>
+										<Point X="-8.430" Y="-2.300" Z="6.532"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{39E0871B-ED06-4498-8D96-52EFEE867423}" refNum="20" Count="1" Area="1.093280" Neigungswinkel="38.00" RefUvalue="{76729BE7-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Roof" Orientation="N" OrientationAngle="-0.00" Opposite="Aussenluft" Code="DA" PosNo="001" CadElem="{81D94CAA-7EBE-4EC9-A70D-B261199FBCF6}" Floor="{38535808-0D26-4FBF-AD12-D84173C8F4A9}" Room="{A127854B-FAC0-4237-BD9B-35F103A71B66}">
+								<Geometry>
+									<Polygon>
+										<Point X="-7.636" Y="-2.000" Z="6.297"/>
+										<Point X="-8.430" Y="-2.000" Z="6.297"/>
+										<Point X="-8.430" Y="-2.300" Z="6.532"/>
+										<Point X="-7.966" Y="-2.300" Z="6.532"/>
+										<Point X="-7.966" Y="-4.287" Z="8.084"/>
+										<Point X="-7.636" Y="-4.090" Z="7.930"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{1F0AA66F-6F1F-4673-A888-5A711504A8EA}" refNum="21" Count="1" Area="6.758493" Neigungswinkel="38.00" RefUvalue="{76729BE7-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Roof" Orientation="N" OrientationAngle="-0.00" Opposite="Aussenluft" Code="DA" PosNo="001" CadElem="{81D94CAA-7EBE-4EC9-A70D-B261199FBCF6}" Floor="{38535808-0D26-4FBF-AD12-D84173C8F4A9}" Room="{A127854B-FAC0-4237-BD9B-35F103A71B66}">
+								<Geometry>
+									<Polygon>
+										<Point X="-4.350" Y="-2.000" Z="6.297"/>
+										<Point X="-7.636" Y="-2.000" Z="6.297"/>
+										<Point X="-7.636" Y="-4.090" Z="7.930"/>
+										<Point X="-7.966" Y="-4.287" Z="8.084"/>
+										<Point X="-8.430" Y="-4.564" Z="8.300"/>
+										<Point X="-6.914" Y="-4.564" Z="8.300"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{02DA135A-9CD1-4042-8005-AD008FBA1361}" refNum="22" Count="1" Area="1.087625" Neigungswinkel="25.00" RefUvalue="{76729BE7-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Roof" Orientation="W" OrientationAngle="270.00" Opposite="Aussenluft" Code="DA" CadElem="{0AD9106D-B564-4D2A-84B7-46850ED7F88F}" Floor="{38535808-0D26-4FBF-AD12-D84173C8F4A9}" Room="{A127854B-FAC0-4237-BD9B-35F103A71B66}">
+								<Geometry>
+									<Polygon>
+										<Point X="-10.637" Y="-4.287" Z="8.084"/>
+										<Point X="-10.174" Y="-4.564" Z="8.300"/>
+										<Point X="-10.174" Y="-2.300" Z="8.300"/>
+										<Point X="-10.637" Y="-2.300" Z="8.084"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{2D1C0267-85E4-44D7-83B1-4B4EBFC3635A}" refNum="23" Count="1" Area="1.087626" Neigungswinkel="25.00" RefUvalue="{76729BE7-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Roof" Orientation="E" OrientationAngle="90.00" Opposite="Aussenluft" Code="DA" CadElem="{0AD9106D-B564-4D2A-84B7-46850ED7F88F}" Floor="{38535808-0D26-4FBF-AD12-D84173C8F4A9}" Room="{A127854B-FAC0-4237-BD9B-35F103A71B66}">
+								<Geometry>
+									<Polygon>
+										<Point X="-7.966" Y="-2.300" Z="8.084"/>
+										<Point X="-8.430" Y="-2.300" Z="8.300"/>
+										<Point X="-8.430" Y="-4.564" Z="8.300"/>
+										<Point X="-7.966" Y="-4.287" Z="8.084"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{74135AD7-9B2B-426B-9AC5-EAAAC9D40DEE}" refNum="24" Count="1" Area="17.686646" Neigungswinkel="38.00" RefUvalue="{76729BE7-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Roof" Orientation="E" OrientationAngle="90.00" Opposite="Aussenluft" Code="DA" PosNo="001" CadElem="{81D94CAA-7EBE-4EC9-A70D-B261199FBCF6}" Floor="{38535808-0D26-4FBF-AD12-D84173C8F4A9}" Room="{A127854B-FAC0-4237-BD9B-35F103A71B66}">
+								<Geometry>
+									<Polygon>
+										<Point X="-4.350" Y="-2.000" Z="6.297"/>
+										<Point X="-6.914" Y="-4.564" Z="8.300"/>
+										<Point X="-6.914" Y="-7.436" Z="8.300"/>
+										<Point X="-4.350" Y="-10.000" Z="6.297"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{D48876B1-618F-459E-8C43-5F47A2DA89D2}" refNum="25" Count="1" Area="7.969570" Neigungswinkel="90.00" RefUvalue="{76729BF2-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Wall" Orientation="S" OrientationAngle="180.00" Opposite="Aussenluft" Code="WA" PosNo="001" CadElem="{D2D4BB25-988D-4A3A-B795-96F5C75AD632}" Floor="{38535808-0D26-4FBF-AD12-D84173C8F4A9}" Room="{A127854B-FAC0-4237-BD9B-35F103A71B66}">
+								<Geometry>
+									<Polygon>
+										<Point X="-14.350" Y="-10.000" Z="5.500"/>
+										<Point X="-4.350" Y="-10.000" Z="5.500"/>
+										<Point X="-4.350" Y="-10.000" Z="6.297"/>
+										<Point X="-14.350" Y="-10.000" Z="6.297"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{423A6483-A860-4C83-98E8-6EC332D68FC4}" refNum="26" Count="1" Area="6.375656" Neigungswinkel="90.00" RefUvalue="{76729BF2-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Wall" Orientation="E" OrientationAngle="90.00" Opposite="Aussenluft" Code="WA" PosNo="002" CadElem="{14E3F161-9BFB-45AF-B233-F8B71083E9ED}" Floor="{38535808-0D26-4FBF-AD12-D84173C8F4A9}" Room="{A127854B-FAC0-4237-BD9B-35F103A71B66}">
+								<Geometry>
+									<Polygon>
+										<Point X="-4.350" Y="-10.000" Z="5.500"/>
+										<Point X="-4.350" Y="-2.000" Z="5.500"/>
+										<Point X="-4.350" Y="-2.000" Z="6.297"/>
+										<Point X="-4.350" Y="-10.000" Z="6.297"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{F7685030-3334-4BC5-AEBE-B9C1C32A2402}" refNum="27" Count="1" Area="7.969569" Neigungswinkel="90.00" RefUvalue="{76729BF2-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Wall" Orientation="N" OrientationAngle="-0.00" Opposite="Aussenluft" Code="WA" PosNo="003" CadElem="{D7346A4A-1956-47A1-9773-773EC4298305}" Floor="{38535808-0D26-4FBF-AD12-D84173C8F4A9}" Room="{A127854B-FAC0-4237-BD9B-35F103A71B66}">
+								<Geometry>
+									<Polygon>
+										<Point X="-4.350" Y="-2.000" Z="5.500"/>
+										<Point X="-14.350" Y="-2.000" Z="5.500"/>
+										<Point X="-14.350" Y="-2.000" Z="6.297"/>
+										<Point X="-10.967" Y="-2.000" Z="6.297"/>
+										<Point X="-9.302" Y="-2.000" Z="6.297"/>
+										<Point X="-4.350" Y="-2.000" Z="6.297"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{46532C6D-D279-4AAF-8472-DF7A4CC50561}" refNum="28" Count="1" Area="6.375657" Neigungswinkel="90.00" RefUvalue="{76729BF2-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Wall" Orientation="W" OrientationAngle="270.00" Opposite="Aussenluft" Code="WA" PosNo="004" CadElem="{88274CD3-26C2-4412-A258-194AF3873085}" Floor="{38535808-0D26-4FBF-AD12-D84173C8F4A9}" Room="{A127854B-FAC0-4237-BD9B-35F103A71B66}">
+								<Geometry>
+									<Polygon>
+										<Point X="-14.350" Y="-2.000" Z="5.500"/>
+										<Point X="-14.350" Y="-10.000" Z="5.500"/>
+										<Point X="-14.350" Y="-10.000" Z="6.297"/>
+										<Point X="-14.350" Y="-2.000" Z="6.297"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{3587BD6B-A727-4945-804F-ECE23F0F04D3}" refNum="29" Count="1" Area="3.083694" Neigungswinkel="90.00" RefUvalue="{76729BF2-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Wall" Orientation="N" OrientationAngle="-0.00" Opposite="Aussenluft" Code="WA" CadElem="{D70CBFE8-163F-4998-85F5-DE74E2C65649}" Floor="{38535808-0D26-4FBF-AD12-D84173C8F4A9}" Room="{A127854B-FAC0-4237-BD9B-35F103A71B66}">
+								<Geometry>
+									<Polygon>
+										<Point X="-8.430" Y="-2.300" Z="6.532"/>
+										<Point X="-10.174" Y="-2.300" Z="6.532"/>
+										<Point X="-10.174" Y="-2.300" Z="8.300"/>
+										<Point X="-8.430" Y="-2.300" Z="8.300"/>
+									</Polygon>
+								</Geometry>
+								<Elements>
+									<Element Count="1" UID="{AAC0A396-955B-4D7F-B5B2-3E7C29F437F0}" Name="" Description="Fenster" Area="1.030200" RefUvalue="{76729BF5-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Window" Code="FG" Opposite="Aussenluft" PosNo="001" Floor="{38535808-0D26-4FBF-AD12-D84173C8F4A9}" dbID="" constrName="" Width="1.010" Height="1.020" BRH="1.380">
+										<Geometry>
+											<Polygon>
+												<Point X="-8.829" Y="-2.300" Z="6.930"/>
+												<Point X="-9.839" Y="-2.300" Z="6.930"/>
+												<Point X="-9.839" Y="-2.300" Z="7.950"/>
+												<Point X="-8.829" Y="-2.300" Z="7.950"/>
+											</Polygon>
+										</Geometry>
+									</Element>
+								</Elements>
+							</Face>
+							<Face GUID="{140C091F-1E82-4CC8-8739-AAD4F4CCEBBB}" refNum="30" Count="1" Area="1.541626" Neigungswinkel="90.00" RefUvalue="{76729BF2-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Wall" Orientation="W" OrientationAngle="270.00" Opposite="Aussenluft" Code="WA" CadElem="{875E7CB8-6314-4F81-8DA7-0102C2B27EF6}" Floor="{38535808-0D26-4FBF-AD12-D84173C8F4A9}" Room="{A127854B-FAC0-4237-BD9B-35F103A71B66}">
+								<Geometry>
+									<Polygon>
+										<Point X="-10.637" Y="-2.300" Z="8.084"/>
+										<Point X="-10.637" Y="-2.300" Z="6.532"/>
+										<Point X="-10.637" Y="-4.287" Z="8.084"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{6E8CE9E5-95AC-4391-89C7-28F3797AB4D2}" refNum="29" Count="1" Area="0.770131" Neigungswinkel="90.00" RefUvalue="{76729BF2-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Wall" Orientation="N" OrientationAngle="-0.00" Opposite="Aussenluft" Code="WA" CadElem="{D70CBFE8-163F-4998-85F5-DE74E2C65649}" Floor="{38535808-0D26-4FBF-AD12-D84173C8F4A9}" Room="{A127854B-FAC0-4237-BD9B-35F103A71B66}">
+								<Geometry>
+									<Polygon>
+										<Point X="-10.174" Y="-2.300" Z="8.300"/>
+										<Point X="-10.174" Y="-2.300" Z="6.532"/>
+										<Point X="-10.637" Y="-2.300" Z="6.532"/>
+										<Point X="-10.637" Y="-2.300" Z="8.084"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{028D2F70-E13D-479A-8D25-EAB73FD7A1EB}" refNum="29" Count="1" Area="0.770132" Neigungswinkel="90.00" RefUvalue="{76729BF2-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Wall" Orientation="N" OrientationAngle="-0.00" Opposite="Aussenluft" Code="WA" CadElem="{D70CBFE8-163F-4998-85F5-DE74E2C65649}" Floor="{38535808-0D26-4FBF-AD12-D84173C8F4A9}" Room="{A127854B-FAC0-4237-BD9B-35F103A71B66}">
+								<Geometry>
+									<Polygon>
+										<Point X="-7.966" Y="-2.300" Z="8.084"/>
+										<Point X="-7.966" Y="-2.300" Z="6.532"/>
+										<Point X="-8.430" Y="-2.300" Z="6.532"/>
+										<Point X="-8.430" Y="-2.300" Z="8.300"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{18240EA6-DF86-458E-8045-70A58D9DAD7E}" refNum="31" Count="1" Area="1.541625" Neigungswinkel="90.00" RefUvalue="{76729BF2-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Wall" Orientation="E" OrientationAngle="90.00" Opposite="Aussenluft" Code="WA" CadElem="{20996F20-1C98-4D1B-8F05-6A06CC02CA2F}" Floor="{38535808-0D26-4FBF-AD12-D84173C8F4A9}" Room="{A127854B-FAC0-4237-BD9B-35F103A71B66}">
+								<Geometry>
+									<Polygon>
+										<Point X="-7.966" Y="-4.287" Z="8.084"/>
+										<Point X="-7.966" Y="-2.300" Z="6.532"/>
+										<Point X="-7.966" Y="-2.300" Z="8.084"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+						</Faces>
+					</Room>
+					<Room UID="{39943391-7280-40BD-BE67-96BFCBA04D6C}" Name="" Description="Raum 5" Nr="5" Nutzungsart="0" BEZR="" Beheizt="0" Bruttogrundflaeche="0.000000" Nettogrundflaeche="10.906538" Bruttovolumen="0.000000000" Luftvolumen="24.520957947" RefFloor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Color="#e9e8e6" Preview="room4.jpg">
+						<Formulas Nettogrundflaeche="3.315*3.350 - 0.015 * (3.315 + 3.350 + 3.315 + 3.350)" Luftvolumen="2.500*0.572*3.315 + 2.205*2.778*3.315 - 0.015 * (9.614 + 8.908 + 7.671 + 8.908)"/>
+						<Polygon>
+							<Point X="-13.985" Y="-10.000"/>
+							<Point X="-13.985" Y="-13.350"/>
+							<Point X="-10.670" Y="-13.350"/>
+							<Point X="-10.670" Y="-10.000"/>
+						</Polygon>
+						<DIN277 NGF="10.906538" NGFlow="0.000000" NGFhigh="10.906538" NRI="24.520957947" iNFA="0" iUSA="0"/>
+						<Faces>
+							<Face GUID="{B609C706-9179-4F74-8BB6-BDAFAD59F55F}" Count="1" Area="15.028661" Neigungswinkel="0.00" RefUvalue="{76729BEF-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Floor" Orientation="H" OrientationAngle="0.00" Opposite="Erdreich" Code="KE" OnGround="1" CadElem="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Room="{39943391-7280-40BD-BE67-96BFCBA04D6C}">
+								<Geometry>
+									<Polygon>
+										<Point X="-10.305" Y="-10.000" Z="0.050"/>
+										<Point X="-10.305" Y="-13.715" Z="0.050"/>
+										<Point X="-14.350" Y="-13.715" Z="0.050"/>
+										<Point X="-14.350" Y="-10.000" Z="0.050"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{A4CC6836-E852-4CDB-9EF4-5FD69D69E1CD}" Count="1" Area="2.400358" Neigungswinkel="0.00" RefUvalue="{76729BF8-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Ceiling" Orientation="H" OrientationAngle="0.00" Opposite="Dachraum gedämmt" Code="DK" CadElem="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Room="{39943391-7280-40BD-BE67-96BFCBA04D6C}">
+								<Geometry>
+									<Polygon>
+										<Point X="-14.350" Y="-10.593" Z="2.700"/>
+										<Point X="-10.305" Y="-10.593" Z="2.700"/>
+										<Point X="-10.305" Y="-10.000" Z="2.700"/>
+										<Point X="-14.350" Y="-10.000" Z="2.700"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{417CD7D0-3E39-4FF3-A9FE-52BCDE3EC052}" Count="1" Area="12.910427" Neigungswinkel="12.00" RefUvalue="{76729BE7-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Roof" Orientation="S" OrientationAngle="180.00" Opposite="Aussenluft" Code="DA" PosNo="002" CadElem="{1B19E138-294C-4F73-B0C4-038EB0F138A6}" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Room="{39943391-7280-40BD-BE67-96BFCBA04D6C}">
+								<Geometry>
+									<Polygon>
+										<Point X="-10.305" Y="-10.593" Z="2.700"/>
+										<Point X="-14.350" Y="-10.593" Z="2.700"/>
+										<Point X="-14.350" Y="-13.715" Z="2.036"/>
+										<Point X="-10.305" Y="-13.715" Z="2.036"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{A545DFBE-FA5B-46A1-8A6E-D15F1751F4DE}" Count="1" Area="9.738486" Neigungswinkel="90.00" RefUvalue="{76729BF2-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Wall" Orientation="W" OrientationAngle="270.00" Opposite="Aussenluft" Code="WA" PosNo="009" CadElem="{409770D1-82C6-4847-802D-77388DBC90BE}" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Room="{39943391-7280-40BD-BE67-96BFCBA04D6C}">
+								<Geometry>
+									<Polygon>
+										<Point X="-14.350" Y="-10.000" Z="-0.200"/>
+										<Point X="-14.350" Y="-13.715" Z="-0.200"/>
+										<Point X="-14.350" Y="-13.715" Z="2.036"/>
+										<Point X="-14.350" Y="-10.593" Z="2.700"/>
+										<Point X="-14.350" Y="-10.000" Z="2.700"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{61D76A6B-BB75-44FB-B9A7-BB4AD6FB1168}" Count="1" Area="9.046578" Neigungswinkel="90.00" RefUvalue="{76729BF2-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Wall" Orientation="S" OrientationAngle="180.00" Opposite="Aussenluft" Code="WA" PosNo="008" CadElem="{EE1BF97D-DAE4-4FF3-89EB-7E944BA6B8A9}" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Room="{39943391-7280-40BD-BE67-96BFCBA04D6C}">
+								<Geometry>
+									<Polygon>
+										<Point X="-14.350" Y="-13.715" Z="-0.200"/>
+										<Point X="-10.305" Y="-13.715" Z="-0.200"/>
+										<Point X="-10.305" Y="-13.715" Z="2.036"/>
+										<Point X="-14.350" Y="-13.715" Z="2.036"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{DC57B02C-3C98-4848-A6F0-7D04822AAA5D}" Count="1" Area="9.738486" Neigungswinkel="90.00" RefUvalue="{76729BF2-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Wall" Orientation="E" OrientationAngle="90.00" Opposite="Aussenluft" Code="WA" PosNo="007" CadElem="{08D96212-43BD-4884-94A7-3EF6364200A8}" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Room="{39943391-7280-40BD-BE67-96BFCBA04D6C}">
+								<Geometry>
+									<Polygon>
+										<Point X="-10.305" Y="-13.715" Z="-0.200"/>
+										<Point X="-10.305" Y="-10.000" Z="-0.200"/>
+										<Point X="-10.305" Y="-10.000" Z="2.700"/>
+										<Point X="-10.305" Y="-10.593" Z="2.700"/>
+										<Point X="-10.305" Y="-13.715" Z="2.036"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{3340C8F3-93C9-46EE-8904-52873EC5D7E5}" Count="1" Area="11.730807" Neigungswinkel="90.00" RefUvalue="{76729BF1-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Wall" Orientation="N" OrientationAngle="-0.00" Opposite="Raum" RefOppositeZone="{8E9A610F-0C6A-4A17-8D2E-C54168E3263D}" Code="WI" PosNo="001" CadElem="{7C976266-4806-40E2-B4F7-8B7990E1625A}" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Room="{39943391-7280-40BD-BE67-96BFCBA04D6C}" OppositeRoom="{E805D3A3-4C33-4CFA-A9A8-C588CBAFDD04}">
+								<Geometry>
+									<Polygon>
+										<Point X="-10.305" Y="-10.000" Z="-0.200"/>
+										<Point X="-14.350" Y="-10.000" Z="-0.200"/>
+										<Point X="-14.350" Y="-10.000" Z="2.700"/>
+										<Point X="-10.305" Y="-10.000" Z="2.700"/>
+									</Polygon>
+								</Geometry>
+								<Elements>
+									<Element Count="1" UID="{D1199B12-9334-41B5-863A-F90461D2F62F}" Name="" Description="Tür" Area="1.778850" RefUvalue="{76729BF4-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Door" Code="TI" Opposite="Raum" PosNo="004" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" dbID="" constrName="" Width="0.885" Height="2.010" BRH="0.000">
+										<Geometry>
+											<Polygon>
+												<Point X="-11.465" Y="-10.000" Z="0.000"/>
+												<Point X="-12.350" Y="-10.000" Z="0.000"/>
+												<Point X="-12.350" Y="-10.000" Z="2.010"/>
+												<Point X="-11.465" Y="-10.000" Z="2.010"/>
+											</Polygon>
+										</Geometry>
+									</Element>
+								</Elements>
+							</Face>
+						</Faces>
+					</Room>
+					<Room UID="{66FDF1BF-AA8D-40EB-9A6A-C1558FDBA161}" Name="" Description="Raum 4" Nr="4" Nutzungsart="0" BEZR="" Beheizt="1" Bruttogrundflaeche="80.000000" Nettogrundflaeche="66.896698" Bruttovolumen="224.000000000" Luftvolumen="157.818817139" RefZone="{8E9A610F-0C6A-4A17-8D2E-C54168E3263D}" RefFloor="{52FD6C8A-404F-4E93-A26D-336A75A225B7}" Floor="{52FD6C8A-404F-4E93-A26D-336A75A225B7}" Color="#e9e8e6" Preview="room5.jpg">
+						<Formulas Nettogrundflaeche="7.270*9.270 - 0.015 * (9.270 + 7.270 + 9.270 + 7.270)" Luftvolumen="2.500*7.270*9.270 - 2.500*1.021*3.632 - 0.015 * (25.956 + 20.356 + 25.956 + 20.356)"/>
+						<Polygon>
+							<Point X="-4.715" Y="-2.365"/>
+							<Point X="-13.985" Y="-2.365"/>
+							<Point X="-13.985" Y="-9.635"/>
+							<Point X="-4.715" Y="-9.635"/>
+						</Polygon>
+						<DIN277 NGF="66.896698" NGFlow="0.000000" NGFhigh="66.896698" NRI="157.818817139" iNFA="0" iUSA="0"/>
+						<Faces>
+							<Face GUID="{0E4ACC82-76BE-4F23-B2FE-8CE1DB6204BE}" Count="1" Area="26.577946" Neigungswinkel="0.00" RefUvalue="{76729BEC-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Ceiling" Orientation="H" OrientationAngle="0.00" Opposite="Raum" RefOppositeZone="{8E9A610F-0C6A-4A17-8D2E-C54168E3263D}" Code="DI" CadElem="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Floor="{52FD6C8A-404F-4E93-A26D-336A75A225B7}" Room="{66FDF1BF-AA8D-40EB-9A6A-C1558FDBA161}" OppositeRoom="{5FD68739-E6B8-4656-9233-58DA16D899FC}">
+								<Geometry>
+									<Polygon>
+										<Point X="-4.350" Y="-4.658" Z="2.700"/>
+										<Point X="-9.263" Y="-4.658" Z="2.700"/>
+										<Point X="-14.350" Y="-4.658" Z="2.700"/>
+										<Point X="-14.350" Y="-2.000" Z="2.700"/>
+										<Point X="-4.350" Y="-2.000" Z="2.700"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{E838F6BF-2104-4568-BC9F-7EB78730C609}" Count="1" Area="26.243589" Neigungswinkel="0.00" RefUvalue="{76729BEC-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Ceiling" Orientation="H" OrientationAngle="0.00" Opposite="Raum" RefOppositeZone="{8E9A610F-0C6A-4A17-8D2E-C54168E3263D}" Code="DI" CadElem="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Floor="{52FD6C8A-404F-4E93-A26D-336A75A225B7}" Room="{66FDF1BF-AA8D-40EB-9A6A-C1558FDBA161}" OppositeRoom="{9F5CD939-1EC9-444C-98BE-ED1136CA655B}">
+								<Geometry>
+									<Polygon>
+										<Point X="-9.263" Y="-4.658" Z="2.700"/>
+										<Point X="-4.350" Y="-4.658" Z="2.700"/>
+										<Point X="-4.350" Y="-10.000" Z="2.700"/>
+										<Point X="-9.263" Y="-10.000" Z="2.700"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{8B036BED-3DA2-4F7D-95A2-6AC2743C0794}" Count="1" Area="27.178469" Neigungswinkel="0.00" RefUvalue="{76729BEC-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Ceiling" Orientation="H" OrientationAngle="0.00" Opposite="Raum" RefOppositeZone="{8E9A610F-0C6A-4A17-8D2E-C54168E3263D}" Code="DI" CadElem="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Floor="{52FD6C8A-404F-4E93-A26D-336A75A225B7}" Room="{66FDF1BF-AA8D-40EB-9A6A-C1558FDBA161}" OppositeRoom="{E805D3A3-4C33-4CFA-A9A8-C588CBAFDD04}">
+								<Geometry>
+									<Polygon>
+										<Point X="-9.263" Y="-4.658" Z="2.700"/>
+										<Point X="-9.263" Y="-10.000" Z="2.700"/>
+										<Point X="-10.305" Y="-10.000" Z="2.700"/>
+										<Point X="-14.350" Y="-10.000" Z="2.700"/>
+										<Point X="-14.350" Y="-4.658" Z="2.700"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{26381D35-0116-4E38-97DE-3F9F3C693BA9}" Count="1" Area="80.000000" Neigungswinkel="0.00" RefUvalue="{76729BEC-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Ceiling" Orientation="H" OrientationAngle="0.00" Opposite="Raum" RefOppositeZone="{8E9A610F-0C6A-4A17-8D2E-C54168E3263D}" Code="DI" CadElem="{52FD6C8A-404F-4E93-A26D-336A75A225B7}" Floor="{52FD6C8A-404F-4E93-A26D-336A75A225B7}" Room="{66FDF1BF-AA8D-40EB-9A6A-C1558FDBA161}" OppositeRoom="{A127854B-FAC0-4237-BD9B-35F103A71B66}">
+								<Geometry>
+									<Polygon>
+										<Point X="-4.350" Y="-2.000" Z="5.500"/>
+										<Point X="-14.350" Y="-2.000" Z="5.500"/>
+										<Point X="-14.350" Y="-4.658" Z="5.500"/>
+										<Point X="-14.350" Y="-10.000" Z="5.500"/>
+										<Point X="-10.305" Y="-10.000" Z="5.500"/>
+										<Point X="-10.125" Y="-10.000" Z="5.500"/>
+										<Point X="-9.263" Y="-10.000" Z="5.500"/>
+										<Point X="-4.350" Y="-10.000" Z="5.500"/>
+										<Point X="-4.350" Y="-4.658" Z="5.500"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{35C3D773-2EA3-4A95-9C69-5D8AD37D8BEB}" refNum="15" Count="1" Area="27.999996" Neigungswinkel="90.00" RefUvalue="{76729BF2-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Wall" Orientation="N" OrientationAngle="-0.00" Opposite="Aussenluft" Code="WA" PosNo="003" CadElem="{9FC1D91D-3BDA-4174-A4BC-B0539A772B13}" Floor="{52FD6C8A-404F-4E93-A26D-336A75A225B7}" Room="{66FDF1BF-AA8D-40EB-9A6A-C1558FDBA161}">
+								<Geometry>
+									<Polygon>
+										<Point X="-4.350" Y="-2.000" Z="2.700"/>
+										<Point X="-14.350" Y="-2.000" Z="2.700"/>
+										<Point X="-14.350" Y="-2.000" Z="5.500"/>
+										<Point X="-4.350" Y="-2.000" Z="5.500"/>
+									</Polygon>
+								</Geometry>
+								<Elements>
+									<Element Count="1" UID="{02060BFE-93F5-4705-A148-86EE97A337C0}" Name="" Description="Fenster" Area="1.545301" RefUvalue="{76729BF5-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Window" Code="FA" Opposite="Aussenluft" PosNo="003" Floor="{52FD6C8A-404F-4E93-A26D-336A75A225B7}" dbID="" constrName="" Width="1.010" Height="1.530" BRH="0.730">
+										<Geometry>
+											<Polygon>
+												<Point X="-11.350" Y="-2.000" Z="3.480"/>
+												<Point X="-12.360" Y="-2.000" Z="3.480"/>
+												<Point X="-12.360" Y="-2.000" Z="5.010"/>
+												<Point X="-11.350" Y="-2.000" Z="5.010"/>
+											</Polygon>
+										</Geometry>
+									</Element>
+									<Element Count="1" UID="{5D8829AB-45A5-4C11-8488-DD30BC035370}" Name="" Description="Fenster" Area="1.545300" RefUvalue="{76729BF5-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Window" Code="FA" Opposite="Aussenluft" PosNo="004" Floor="{52FD6C8A-404F-4E93-A26D-336A75A225B7}" dbID="" constrName="" Width="1.010" Height="1.530" BRH="0.730">
+										<Geometry>
+											<Polygon>
+												<Point X="-6.349" Y="-2.000" Z="3.480"/>
+												<Point X="-7.359" Y="-2.000" Z="3.480"/>
+												<Point X="-7.359" Y="-2.000" Z="5.010"/>
+												<Point X="-6.349" Y="-2.000" Z="5.010"/>
+											</Polygon>
+										</Geometry>
+									</Element>
+								</Elements>
+							</Face>
+							<Face GUID="{BCC3A3C4-A49E-4AED-92B1-25C281147342}" refNum="12" Count="1" Area="22.400002" Neigungswinkel="90.00" RefUvalue="{76729BF2-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Wall" Orientation="W" OrientationAngle="270.00" Opposite="Aussenluft" Code="WA" PosNo="004" CadElem="{6B4C9680-42E4-4E98-8F3D-A014B3408259}" Floor="{52FD6C8A-404F-4E93-A26D-336A75A225B7}" Room="{66FDF1BF-AA8D-40EB-9A6A-C1558FDBA161}">
+								<Geometry>
+									<Polygon>
+										<Point X="-14.350" Y="-2.000" Z="2.700"/>
+										<Point X="-14.350" Y="-4.658" Z="2.700"/>
+										<Point X="-14.350" Y="-10.000" Z="2.700"/>
+										<Point X="-14.350" Y="-10.000" Z="5.500"/>
+										<Point X="-14.350" Y="-4.658" Z="5.500"/>
+										<Point X="-14.350" Y="-2.000" Z="5.500"/>
+									</Polygon>
+								</Geometry>
+								<Elements>
+									<Element Count="1" UID="{CDDB5CA4-00A1-4D82-A54E-3D985CD264ED}" Name="" Description="Fenster" Area="1.545300" RefUvalue="{76729BF5-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Window" Code="FA" Opposite="Aussenluft" PosNo="001" Floor="{52FD6C8A-404F-4E93-A26D-336A75A225B7}" dbID="" constrName="" Width="1.010" Height="1.530" BRH="0.730">
+										<Geometry>
+											<Polygon>
+												<Point X="-14.350" Y="-5.569" Z="3.480"/>
+												<Point X="-14.350" Y="-6.579" Z="3.480"/>
+												<Point X="-14.350" Y="-6.579" Z="5.010"/>
+												<Point X="-14.350" Y="-5.569" Z="5.010"/>
+											</Polygon>
+										</Geometry>
+									</Element>
+								</Elements>
+							</Face>
+							<Face GUID="{CB1F20D2-EE06-4D1E-9F5D-0955FB649AC1}" refNum="14" Count="1" Area="22.399998" Neigungswinkel="90.00" RefUvalue="{76729BF2-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Wall" Orientation="E" OrientationAngle="90.00" Opposite="Aussenluft" Code="WA" PosNo="002" CadElem="{4A4F4709-2B30-4B25-8187-7945422082A7}" Floor="{52FD6C8A-404F-4E93-A26D-336A75A225B7}" Room="{66FDF1BF-AA8D-40EB-9A6A-C1558FDBA161}">
+								<Geometry>
+									<Polygon>
+										<Point X="-4.350" Y="-4.658" Z="2.700"/>
+										<Point X="-4.350" Y="-2.000" Z="2.700"/>
+										<Point X="-4.350" Y="-2.000" Z="5.500"/>
+										<Point X="-4.350" Y="-4.658" Z="5.500"/>
+										<Point X="-4.350" Y="-10.000" Z="5.500"/>
+										<Point X="-4.350" Y="-10.000" Z="2.700"/>
+									</Polygon>
+								</Geometry>
+								<Elements>
+									<Element Count="1" UID="{120DF125-FC35-4625-A350-2FC2E10EFD37}" Name="" Description="Fenster" Area="1.545300" RefUvalue="{76729BF5-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Window" Code="FA" Opposite="Aussenluft" PosNo="002" Floor="{52FD6C8A-404F-4E93-A26D-336A75A225B7}" dbID="" constrName="" Width="1.010" Height="1.530" BRH="0.730">
+										<Geometry>
+											<Polygon>
+												<Point X="-4.350" Y="-6.450" Z="3.480"/>
+												<Point X="-4.350" Y="-5.440" Z="3.480"/>
+												<Point X="-4.350" Y="-5.440" Z="5.010"/>
+												<Point X="-4.350" Y="-6.450" Z="5.010"/>
+											</Polygon>
+										</Geometry>
+									</Element>
+								</Elements>
+							</Face>
+							<Face GUID="{6D09F55F-7BAC-455F-810F-229DCA08D72D}" refNum="13" Count="1" Area="28.000000" Neigungswinkel="90.00" RefUvalue="{76729BF2-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Wall" Orientation="S" OrientationAngle="180.00" Opposite="Aussenluft" Code="WA" PosNo="001" CadElem="{71E9758A-A5DE-4E74-A1B0-5A4F076B960B}" Floor="{52FD6C8A-404F-4E93-A26D-336A75A225B7}" Room="{66FDF1BF-AA8D-40EB-9A6A-C1558FDBA161}">
+								<Geometry>
+									<Polygon>
+										<Point X="-14.350" Y="-10.000" Z="2.700"/>
+										<Point X="-10.305" Y="-10.000" Z="2.700"/>
+										<Point X="-9.263" Y="-10.000" Z="2.700"/>
+										<Point X="-4.350" Y="-10.000" Z="2.700"/>
+										<Point X="-4.350" Y="-10.000" Z="5.500"/>
+										<Point X="-9.263" Y="-10.000" Z="5.500"/>
+										<Point X="-10.305" Y="-10.000" Z="5.500"/>
+										<Point X="-14.350" Y="-10.000" Z="5.500"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+						</Faces>
+					</Room>
+				</Rooms>
+				<Zones>
+					<Zone UID="{8E9A610F-0C6A-4A17-8D2E-C54168E3263D}" Description="Zone 1" Bruttogrundflaeche="240.000000" Nettogrundflaeche="197.797852" Luftvolumen="433.890655518" Bruttovolumen="610.246826172" Floorheight="2.767" Floorcount="3" Color="#c3ffb3">
+						<Utilization Category="residential" FormOfUse="Wohngebäude Einfamilienhaus" Heating="1"/>
+						<Faces>
+							<Face GUID="{F710F069-31A6-4EFA-80B7-1F23719ED968}" refNum="1" Count="1" Area="27.178469" Neigungswinkel="0.00" RefUvalue="{76729BEF-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Floor" Orientation="H" OrientationAngle="0.00" Opposite="Erdreich" Code="KE" OnGround="1" CadElem="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Room="{E805D3A3-4C33-4CFA-A9A8-C588CBAFDD04}">
+								<Geometry>
+									<Polygon>
+										<Point X="-9.263" Y="-10.000" Z="0.050"/>
+										<Point X="-10.305" Y="-10.000" Z="0.050"/>
+										<Point X="-14.350" Y="-10.000" Z="0.050"/>
+										<Point X="-14.350" Y="-4.658" Z="0.050"/>
+										<Point X="-9.263" Y="-4.658" Z="0.050"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{0DD32AD7-FCFB-46A7-93AB-10664184D991}" refNum="2" Count="1" Area="15.492396" Neigungswinkel="90.00" RefUvalue="{76729BF2-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Wall" Orientation="W" OrientationAngle="270.00" Opposite="Aussenluft" Code="WA" PosNo="004" CadElem="{674608B0-833B-4E79-8AF1-7F3F2B5C796A}" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Room="{E805D3A3-4C33-4CFA-A9A8-C588CBAFDD04}">
+								<Geometry>
+									<Polygon>
+										<Point X="-14.350" Y="-4.658" Z="-0.200"/>
+										<Point X="-14.350" Y="-10.000" Z="-0.200"/>
+										<Point X="-14.350" Y="-10.000" Z="2.700"/>
+										<Point X="-14.350" Y="-4.658" Z="2.700"/>
+									</Polygon>
+								</Geometry>
+								<Elements>
+									<Element Count="1" UID="{607F926D-F155-473F-A389-9C9ABB4518A5}" Name="" Description="Fenster" Area="1.545300" RefUvalue="{76729BF5-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Window" Code="FA" Opposite="Aussenluft" PosNo="001" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" dbID="" constrName="" Width="1.010" Height="1.530" BRH="0.730">
+										<Geometry>
+											<Polygon>
+												<Point X="-14.350" Y="-5.511" Z="0.730"/>
+												<Point X="-14.350" Y="-6.521" Z="0.730"/>
+												<Point X="-14.350" Y="-6.521" Z="2.260"/>
+												<Point X="-14.350" Y="-5.511" Z="2.260"/>
+											</Polygon>
+										</Geometry>
+									</Element>
+								</Elements>
+							</Face>
+							<Face GUID="{3C3A9C55-91CE-40BC-BB53-8D4D9D84DF3F}" refNum="3" Count="1" Area="11.730807" Neigungswinkel="90.00" RefUvalue="{76729BF7-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Wall" Orientation="S" OrientationAngle="180.00" Opposite="Unbeheizt" Code="WN" PosNo="001" CadElem="{7C976266-4806-40E2-B4F7-8B7990E1625A}" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Room="{E805D3A3-4C33-4CFA-A9A8-C588CBAFDD04}">
+								<Geometry>
+									<Polygon>
+										<Point X="-14.350" Y="-10.000" Z="-0.200"/>
+										<Point X="-10.305" Y="-10.000" Z="-0.200"/>
+										<Point X="-10.305" Y="-10.000" Z="2.700"/>
+										<Point X="-14.350" Y="-10.000" Z="2.700"/>
+									</Polygon>
+								</Geometry>
+								<Elements>
+									<Element Count="1" UID="{D1199B12-9334-41B5-863A-F90461D2F62F}" Name="" Description="Tür" Area="1.778850" RefUvalue="{76729BF4-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Door" Code="TI" Opposite="Raum" PosNo="004" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" dbID="" constrName="" Width="0.885" Height="2.010" BRH="0.000">
+										<Geometry>
+											<Polygon>
+												<Point X="-12.350" Y="-10.000" Z="0.000"/>
+												<Point X="-11.465" Y="-10.000" Z="0.000"/>
+												<Point X="-11.465" Y="-10.000" Z="2.010"/>
+												<Point X="-12.350" Y="-10.000" Z="2.010"/>
+											</Polygon>
+										</Geometry>
+									</Element>
+								</Elements>
+							</Face>
+							<Face GUID="{916B9F3B-2276-44A8-BE9A-FC49F416D125}" refNum="4" Count="1" Area="3.022942" Neigungswinkel="90.00" RefUvalue="{76729BF2-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Wall" Orientation="S" OrientationAngle="180.00" Opposite="Aussenluft" Code="WA" PosNo="001" CadElem="{7C976266-4806-40E2-B4F7-8B7990E1625A}" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Room="{E805D3A3-4C33-4CFA-A9A8-C588CBAFDD04}">
+								<Geometry>
+									<Polygon>
+										<Point X="-10.305" Y="-10.000" Z="-0.200"/>
+										<Point X="-9.263" Y="-10.000" Z="-0.200"/>
+										<Point X="-9.263" Y="-10.000" Z="2.700"/>
+										<Point X="-10.305" Y="-10.000" Z="2.700"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{9198A0C7-C62E-422E-8A50-088559BA093F}" refNum="5" Count="1" Area="26.577946" Neigungswinkel="0.00" RefUvalue="{76729BEF-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Floor" Orientation="H" OrientationAngle="0.00" Opposite="Erdreich" Code="KE" OnGround="1" CadElem="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Room="{5FD68739-E6B8-4656-9233-58DA16D899FC}">
+								<Geometry>
+									<Polygon>
+										<Point X="-14.350" Y="-2.000" Z="0.050"/>
+										<Point X="-4.350" Y="-2.000" Z="0.050"/>
+										<Point X="-4.350" Y="-4.658" Z="0.050"/>
+										<Point X="-9.263" Y="-4.658" Z="0.050"/>
+										<Point X="-14.350" Y="-4.658" Z="0.050"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{8519F41D-D455-4512-9C86-D3CE2F7DA83E}" refNum="6" Count="1" Area="7.707604" Neigungswinkel="90.00" RefUvalue="{76729BF2-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Wall" Orientation="E" OrientationAngle="90.00" Opposite="Aussenluft" Code="WA" PosNo="002" CadElem="{3AD90DF3-7AE7-451A-B395-C5F55C23B27D}" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Room="{5FD68739-E6B8-4656-9233-58DA16D899FC}">
+								<Geometry>
+									<Polygon>
+										<Point X="-4.350" Y="-4.658" Z="-0.200"/>
+										<Point X="-4.350" Y="-2.000" Z="-0.200"/>
+										<Point X="-4.350" Y="-2.000" Z="2.700"/>
+										<Point X="-4.350" Y="-4.658" Z="2.700"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{19A2401E-E6C2-497B-88A8-29E6792E6034}" refNum="7" Count="1" Area="28.999998" Neigungswinkel="90.00" RefUvalue="{76729BF2-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Wall" Orientation="N" OrientationAngle="-0.00" Opposite="Aussenluft" Code="WA" PosNo="003" CadElem="{E32F8A6A-0B73-480E-B535-AAB24752A544}" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Room="{5FD68739-E6B8-4656-9233-58DA16D899FC}">
+								<Geometry>
+									<Polygon>
+										<Point X="-4.350" Y="-2.000" Z="-0.200"/>
+										<Point X="-14.350" Y="-2.000" Z="-0.200"/>
+										<Point X="-14.350" Y="-2.000" Z="2.700"/>
+										<Point X="-4.350" Y="-2.000" Z="2.700"/>
+									</Polygon>
+								</Geometry>
+								<Elements>
+									<Element Count="1" UID="{7BA76F36-EC9D-4E3F-8045-2E037C91D7D7}" Name="" Description="Fenster" Area="1.545301" RefUvalue="{76729BF5-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Window" Code="FA" Opposite="Aussenluft" PosNo="003" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" dbID="" constrName="" Width="1.010" Height="1.530" BRH="0.730">
+										<Geometry>
+											<Polygon>
+												<Point X="-11.350" Y="-2.000" Z="0.730"/>
+												<Point X="-12.360" Y="-2.000" Z="0.730"/>
+												<Point X="-12.360" Y="-2.000" Z="2.260"/>
+												<Point X="-11.350" Y="-2.000" Z="2.260"/>
+											</Polygon>
+										</Geometry>
+									</Element>
+									<Element Count="1" UID="{F65416B1-F1D5-4160-8E4C-292EFC55012D}" Name="" Description="Fenster" Area="1.545300" RefUvalue="{76729BF5-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Window" Code="FA" Opposite="Aussenluft" PosNo="004" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" dbID="" constrName="" Width="1.010" Height="1.530" BRH="0.730">
+										<Geometry>
+											<Polygon>
+												<Point X="-6.350" Y="-2.000" Z="0.730"/>
+												<Point X="-7.360" Y="-2.000" Z="0.730"/>
+												<Point X="-7.360" Y="-2.000" Z="2.260"/>
+												<Point X="-6.350" Y="-2.000" Z="2.260"/>
+											</Polygon>
+										</Geometry>
+									</Element>
+									<Element Count="1" UID="{27D7DFC6-172F-46D5-8844-9233D0964289}" Name="" Description="Tür" Area="1.778850" RefUvalue="{76729BF4-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Door" Code="TA" Opposite="Aussenluft" PosNo="001" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" dbID="" constrName="" Width="0.885" Height="2.010" BRH="0.000">
+										<Geometry>
+											<Polygon>
+												<Point X="-8.982" Y="-2.000" Z="0.000"/>
+												<Point X="-9.867" Y="-2.000" Z="0.000"/>
+												<Point X="-9.867" Y="-2.000" Z="2.010"/>
+												<Point X="-8.982" Y="-2.000" Z="2.010"/>
+											</Polygon>
+										</Geometry>
+									</Element>
+								</Elements>
+							</Face>
+							<Face GUID="{A3A3CFC4-0BEC-43ED-8E7D-55538001E979}" refNum="8" Count="1" Area="7.707605" Neigungswinkel="90.00" RefUvalue="{76729BF2-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Wall" Orientation="W" OrientationAngle="270.00" Opposite="Aussenluft" Code="WA" PosNo="004" CadElem="{674608B0-833B-4E79-8AF1-7F3F2B5C796A}" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Room="{5FD68739-E6B8-4656-9233-58DA16D899FC}">
+								<Geometry>
+									<Polygon>
+										<Point X="-14.350" Y="-2.000" Z="-0.200"/>
+										<Point X="-14.350" Y="-4.658" Z="-0.200"/>
+										<Point X="-14.350" Y="-4.658" Z="2.700"/>
+										<Point X="-14.350" Y="-2.000" Z="2.700"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{F0403FE9-7BCA-4D93-8C29-9F9A96A12282}" refNum="9" Count="1" Area="26.243589" Neigungswinkel="0.00" RefUvalue="{76729BEF-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Floor" Orientation="H" OrientationAngle="0.00" Opposite="Erdreich" Code="KE" OnGround="1" CadElem="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Room="{9F5CD939-1EC9-444C-98BE-ED1136CA655B}">
+								<Geometry>
+									<Polygon>
+										<Point X="-4.350" Y="-10.000" Z="0.050"/>
+										<Point X="-9.263" Y="-10.000" Z="0.050"/>
+										<Point X="-9.263" Y="-4.658" Z="0.050"/>
+										<Point X="-4.350" Y="-4.658" Z="0.050"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{7E880E18-8672-4ED0-AF63-6FEEB3E0C0AC}" refNum="10" Count="1" Area="14.246253" Neigungswinkel="90.00" RefUvalue="{76729BF2-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Wall" Orientation="S" OrientationAngle="180.00" Opposite="Aussenluft" Code="WA" PosNo="001" CadElem="{7C976266-4806-40E2-B4F7-8B7990E1625A}" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Room="{9F5CD939-1EC9-444C-98BE-ED1136CA655B}">
+								<Geometry>
+									<Polygon>
+										<Point X="-9.263" Y="-10.000" Z="-0.200"/>
+										<Point X="-4.350" Y="-10.000" Z="-0.200"/>
+										<Point X="-4.350" Y="-10.000" Z="2.700"/>
+										<Point X="-9.263" Y="-10.000" Z="2.700"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{CAEDF3AA-CE59-4F9A-BA90-E52E52D930DC}" refNum="11" Count="1" Area="15.492396" Neigungswinkel="90.00" RefUvalue="{76729BF2-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Wall" Orientation="E" OrientationAngle="90.00" Opposite="Aussenluft" Code="WA" PosNo="002" CadElem="{3AD90DF3-7AE7-451A-B395-C5F55C23B27D}" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Room="{9F5CD939-1EC9-444C-98BE-ED1136CA655B}">
+								<Geometry>
+									<Polygon>
+										<Point X="-4.350" Y="-10.000" Z="-0.200"/>
+										<Point X="-4.350" Y="-4.658" Z="-0.200"/>
+										<Point X="-4.350" Y="-4.658" Z="2.700"/>
+										<Point X="-4.350" Y="-10.000" Z="2.700"/>
+									</Polygon>
+								</Geometry>
+								<Elements>
+									<Element Count="1" UID="{80B89E13-4437-48BE-9091-2F29F948B0F0}" Name="" Description="Fenster" Area="1.545300" RefUvalue="{76729BF5-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Window" Code="FA" Opposite="Aussenluft" PosNo="002" Floor="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" dbID="" constrName="" Width="1.010" Height="1.530" BRH="0.730">
+										<Geometry>
+											<Polygon>
+												<Point X="-4.350" Y="-6.505" Z="0.730"/>
+												<Point X="-4.350" Y="-5.495" Z="0.730"/>
+												<Point X="-4.350" Y="-5.495" Z="2.260"/>
+												<Point X="-4.350" Y="-6.505" Z="2.260"/>
+											</Polygon>
+										</Geometry>
+									</Element>
+								</Elements>
+							</Face>
+							<Face GUID="{3A37594F-9EFF-472B-9C63-9EA167887E97}" refNum="12" Count="1" Area="22.400002" Neigungswinkel="90.00" RefUvalue="{76729BF2-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Wall" Orientation="W" OrientationAngle="270.00" Opposite="Aussenluft" Code="WA" PosNo="004" CadElem="{6B4C9680-42E4-4E98-8F3D-A014B3408259}" Floor="{52FD6C8A-404F-4E93-A26D-336A75A225B7}" Room="{66FDF1BF-AA8D-40EB-9A6A-C1558FDBA161}">
+								<Geometry>
+									<Polygon>
+										<Point X="-14.350" Y="-4.658" Z="2.700"/>
+										<Point X="-14.350" Y="-10.000" Z="2.700"/>
+										<Point X="-14.350" Y="-10.000" Z="5.500"/>
+										<Point X="-14.350" Y="-4.658" Z="5.500"/>
+										<Point X="-14.350" Y="-2.000" Z="5.500"/>
+										<Point X="-14.350" Y="-2.000" Z="2.700"/>
+									</Polygon>
+								</Geometry>
+								<Elements>
+									<Element Count="1" UID="{CDDB5CA4-00A1-4D82-A54E-3D985CD264ED}" Name="" Description="Fenster" Area="1.545300" RefUvalue="{76729BF5-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Window" Code="FA" Opposite="Aussenluft" PosNo="001" Floor="{52FD6C8A-404F-4E93-A26D-336A75A225B7}" dbID="" constrName="" Width="1.010" Height="1.530" BRH="0.730">
+										<Geometry>
+											<Polygon>
+												<Point X="-14.350" Y="-5.569" Z="3.480"/>
+												<Point X="-14.350" Y="-6.579" Z="3.480"/>
+												<Point X="-14.350" Y="-6.579" Z="5.010"/>
+												<Point X="-14.350" Y="-5.569" Z="5.010"/>
+											</Polygon>
+										</Geometry>
+									</Element>
+								</Elements>
+							</Face>
+							<Face GUID="{A19674FF-D948-4B44-A43D-2A8595EC596E}" refNum="13" Count="1" Area="28.000000" Neigungswinkel="90.00" RefUvalue="{76729BF2-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Wall" Orientation="S" OrientationAngle="180.00" Opposite="Aussenluft" Code="WA" PosNo="001" CadElem="{71E9758A-A5DE-4E74-A1B0-5A4F076B960B}" Floor="{52FD6C8A-404F-4E93-A26D-336A75A225B7}" Room="{66FDF1BF-AA8D-40EB-9A6A-C1558FDBA161}">
+								<Geometry>
+									<Polygon>
+										<Point X="-14.350" Y="-10.000" Z="2.700"/>
+										<Point X="-10.305" Y="-10.000" Z="2.700"/>
+										<Point X="-9.263" Y="-10.000" Z="2.700"/>
+										<Point X="-4.350" Y="-10.000" Z="2.700"/>
+										<Point X="-4.350" Y="-10.000" Z="5.500"/>
+										<Point X="-9.263" Y="-10.000" Z="5.500"/>
+										<Point X="-10.305" Y="-10.000" Z="5.500"/>
+										<Point X="-14.350" Y="-10.000" Z="5.500"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{459A17D0-EC44-470F-AB20-6BB4A639B966}" refNum="14" Count="1" Area="22.399998" Neigungswinkel="90.00" RefUvalue="{76729BF2-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Wall" Orientation="E" OrientationAngle="90.00" Opposite="Aussenluft" Code="WA" PosNo="002" CadElem="{4A4F4709-2B30-4B25-8187-7945422082A7}" Floor="{52FD6C8A-404F-4E93-A26D-336A75A225B7}" Room="{66FDF1BF-AA8D-40EB-9A6A-C1558FDBA161}">
+								<Geometry>
+									<Polygon>
+										<Point X="-4.350" Y="-10.000" Z="2.700"/>
+										<Point X="-4.350" Y="-4.658" Z="2.700"/>
+										<Point X="-4.350" Y="-2.000" Z="2.700"/>
+										<Point X="-4.350" Y="-2.000" Z="5.500"/>
+										<Point X="-4.350" Y="-4.658" Z="5.500"/>
+										<Point X="-4.350" Y="-10.000" Z="5.500"/>
+									</Polygon>
+								</Geometry>
+								<Elements>
+									<Element Count="1" UID="{120DF125-FC35-4625-A350-2FC2E10EFD37}" Name="" Description="Fenster" Area="1.545300" RefUvalue="{76729BF5-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Window" Code="FA" Opposite="Aussenluft" PosNo="002" Floor="{52FD6C8A-404F-4E93-A26D-336A75A225B7}" dbID="" constrName="" Width="1.010" Height="1.530" BRH="0.730">
+										<Geometry>
+											<Polygon>
+												<Point X="-4.350" Y="-6.450" Z="3.480"/>
+												<Point X="-4.350" Y="-5.440" Z="3.480"/>
+												<Point X="-4.350" Y="-5.440" Z="5.010"/>
+												<Point X="-4.350" Y="-6.450" Z="5.010"/>
+											</Polygon>
+										</Geometry>
+									</Element>
+								</Elements>
+							</Face>
+							<Face GUID="{33C2E25B-20AB-4231-BD51-D76780A4D130}" refNum="15" Count="1" Area="27.999996" Neigungswinkel="90.00" RefUvalue="{76729BF2-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Wall" Orientation="N" OrientationAngle="-0.00" Opposite="Aussenluft" Code="WA" PosNo="003" CadElem="{9FC1D91D-3BDA-4174-A4BC-B0539A772B13}" Floor="{52FD6C8A-404F-4E93-A26D-336A75A225B7}" Room="{66FDF1BF-AA8D-40EB-9A6A-C1558FDBA161}">
+								<Geometry>
+									<Polygon>
+										<Point X="-4.350" Y="-2.000" Z="2.700"/>
+										<Point X="-14.350" Y="-2.000" Z="2.700"/>
+										<Point X="-14.350" Y="-2.000" Z="5.500"/>
+										<Point X="-4.350" Y="-2.000" Z="5.500"/>
+									</Polygon>
+								</Geometry>
+								<Elements>
+									<Element Count="1" UID="{02060BFE-93F5-4705-A148-86EE97A337C0}" Name="" Description="Fenster" Area="1.545301" RefUvalue="{76729BF5-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Window" Code="FA" Opposite="Aussenluft" PosNo="003" Floor="{52FD6C8A-404F-4E93-A26D-336A75A225B7}" dbID="" constrName="" Width="1.010" Height="1.530" BRH="0.730">
+										<Geometry>
+											<Polygon>
+												<Point X="-11.350" Y="-2.000" Z="3.480"/>
+												<Point X="-12.360" Y="-2.000" Z="3.480"/>
+												<Point X="-12.360" Y="-2.000" Z="5.010"/>
+												<Point X="-11.350" Y="-2.000" Z="5.010"/>
+											</Polygon>
+										</Geometry>
+									</Element>
+									<Element Count="1" UID="{5D8829AB-45A5-4C11-8488-DD30BC035370}" Name="" Description="Fenster" Area="1.545300" RefUvalue="{76729BF5-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Window" Code="FA" Opposite="Aussenluft" PosNo="004" Floor="{52FD6C8A-404F-4E93-A26D-336A75A225B7}" dbID="" constrName="" Width="1.010" Height="1.530" BRH="0.730">
+										<Geometry>
+											<Polygon>
+												<Point X="-6.349" Y="-2.000" Z="3.480"/>
+												<Point X="-7.359" Y="-2.000" Z="3.480"/>
+												<Point X="-7.359" Y="-2.000" Z="5.010"/>
+												<Point X="-6.349" Y="-2.000" Z="5.010"/>
+											</Polygon>
+										</Geometry>
+									</Element>
+								</Elements>
+							</Face>
+							<Face GUID="{3E0E3A2D-C5FC-40D1-A7B5-283F74BD71C2}" refNum="16" Count="1" Area="17.942764" Neigungswinkel="0.00" RefUvalue="{76729BF8-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Ceiling" Orientation="H" OrientationAngle="0.00" Opposite="Dachraum gedämmt" Code="DK" CadElem="{38535808-0D26-4FBF-AD12-D84173C8F4A9}" Floor="{38535808-0D26-4FBF-AD12-D84173C8F4A9}" Room="{A127854B-FAC0-4237-BD9B-35F103A71B66}">
+								<Geometry>
+									<Polygon>
+										<Point X="-11.786" Y="-7.436" Z="8.300"/>
+										<Point X="-6.914" Y="-7.436" Z="8.300"/>
+										<Point X="-6.914" Y="-4.564" Z="8.300"/>
+										<Point X="-8.430" Y="-4.564" Z="8.300"/>
+										<Point X="-8.430" Y="-2.300" Z="8.300"/>
+										<Point X="-10.174" Y="-2.300" Z="8.300"/>
+										<Point X="-10.174" Y="-4.564" Z="8.300"/>
+										<Point X="-11.786" Y="-4.564" Z="8.300"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{24650C57-7F05-4EC9-ACCE-30935D210FC3}" refNum="17" Count="1" Area="17.686647" Neigungswinkel="38.00" RefUvalue="{76729BE7-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Roof" Orientation="W" OrientationAngle="270.00" Opposite="Aussenluft" Code="DA" PosNo="001" CadElem="{81D94CAA-7EBE-4EC9-A70D-B261199FBCF6}" Floor="{38535808-0D26-4FBF-AD12-D84173C8F4A9}" Room="{A127854B-FAC0-4237-BD9B-35F103A71B66}">
+								<Geometry>
+									<Polygon>
+										<Point X="-14.350" Y="-10.000" Z="6.297"/>
+										<Point X="-11.786" Y="-7.436" Z="8.300"/>
+										<Point X="-11.786" Y="-4.564" Z="8.300"/>
+										<Point X="-14.350" Y="-2.000" Z="6.297"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{F38AE7AE-24F7-4F74-9A18-1DB684EC2A87}" refNum="18" Count="1" Area="24.193609" Neigungswinkel="38.00" RefUvalue="{76729BE7-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Roof" Orientation="S" OrientationAngle="180.00" Opposite="Aussenluft" Code="DA" PosNo="001" CadElem="{81D94CAA-7EBE-4EC9-A70D-B261199FBCF6}" Floor="{38535808-0D26-4FBF-AD12-D84173C8F4A9}" Room="{A127854B-FAC0-4237-BD9B-35F103A71B66}">
+								<Geometry>
+									<Polygon>
+										<Point X="-11.786" Y="-7.436" Z="8.300"/>
+										<Point X="-14.350" Y="-10.000" Z="6.297"/>
+										<Point X="-4.350" Y="-10.000" Z="6.297"/>
+										<Point X="-6.914" Y="-7.436" Z="8.300"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{659D0C20-7AF3-4A27-BD64-8A818C52932C}" refNum="19" Count="1" Area="8.166596" Neigungswinkel="38.00" RefUvalue="{76729BE7-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Roof" Orientation="N" OrientationAngle="-0.00" Opposite="Aussenluft" Code="DA" PosNo="001" CadElem="{81D94CAA-7EBE-4EC9-A70D-B261199FBCF6}" Floor="{38535808-0D26-4FBF-AD12-D84173C8F4A9}" Room="{A127854B-FAC0-4237-BD9B-35F103A71B66}">
+								<Geometry>
+									<Polygon>
+										<Point X="-11.786" Y="-4.564" Z="8.300"/>
+										<Point X="-10.174" Y="-4.564" Z="8.300"/>
+										<Point X="-10.637" Y="-4.287" Z="8.084"/>
+										<Point X="-10.637" Y="-2.300" Z="6.532"/>
+										<Point X="-10.174" Y="-2.300" Z="6.532"/>
+										<Point X="-10.174" Y="-2.000" Z="6.297"/>
+										<Point X="-10.967" Y="-2.000" Z="6.297"/>
+										<Point X="-14.350" Y="-2.000" Z="6.297"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{B1B73FB2-1FC3-4EEF-B6B9-C952FD273AFE}" refNum="20" Count="1" Area="1.757967" Neigungswinkel="38.00" RefUvalue="{76729BE7-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Roof" Orientation="N" OrientationAngle="-0.00" Opposite="Aussenluft" Code="DA" PosNo="001" CadElem="{81D94CAA-7EBE-4EC9-A70D-B261199FBCF6}" Floor="{38535808-0D26-4FBF-AD12-D84173C8F4A9}" Room="{A127854B-FAC0-4237-BD9B-35F103A71B66}">
+								<Geometry>
+									<Polygon>
+										<Point X="-7.636" Y="-2.000" Z="6.297"/>
+										<Point X="-8.430" Y="-2.000" Z="6.297"/>
+										<Point X="-10.174" Y="-2.000" Z="6.297"/>
+										<Point X="-10.174" Y="-2.300" Z="6.532"/>
+										<Point X="-8.430" Y="-2.300" Z="6.532"/>
+										<Point X="-7.966" Y="-2.300" Z="6.532"/>
+										<Point X="-7.966" Y="-4.287" Z="8.084"/>
+										<Point X="-7.636" Y="-4.090" Z="7.930"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{6A123826-A699-4555-B905-A0D663FF0519}" refNum="21" Count="1" Area="6.758493" Neigungswinkel="38.00" RefUvalue="{76729BE7-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Roof" Orientation="N" OrientationAngle="-0.00" Opposite="Aussenluft" Code="DA" PosNo="001" CadElem="{81D94CAA-7EBE-4EC9-A70D-B261199FBCF6}" Floor="{38535808-0D26-4FBF-AD12-D84173C8F4A9}" Room="{A127854B-FAC0-4237-BD9B-35F103A71B66}">
+								<Geometry>
+									<Polygon>
+										<Point X="-4.350" Y="-2.000" Z="6.297"/>
+										<Point X="-7.636" Y="-2.000" Z="6.297"/>
+										<Point X="-7.636" Y="-4.090" Z="7.930"/>
+										<Point X="-7.966" Y="-4.287" Z="8.084"/>
+										<Point X="-8.430" Y="-4.564" Z="8.300"/>
+										<Point X="-6.914" Y="-4.564" Z="8.300"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{FA17665F-794D-4512-9088-6A6F161A707A}" refNum="22" Count="1" Area="1.087625" Neigungswinkel="25.00" RefUvalue="{76729BE7-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Roof" Orientation="W" OrientationAngle="270.00" Opposite="Aussenluft" Code="DA" CadElem="{0AD9106D-B564-4D2A-84B7-46850ED7F88F}" Floor="{38535808-0D26-4FBF-AD12-D84173C8F4A9}" Room="{A127854B-FAC0-4237-BD9B-35F103A71B66}">
+								<Geometry>
+									<Polygon>
+										<Point X="-10.637" Y="-4.287" Z="8.084"/>
+										<Point X="-10.174" Y="-4.564" Z="8.300"/>
+										<Point X="-10.174" Y="-2.300" Z="8.300"/>
+										<Point X="-10.637" Y="-2.300" Z="8.084"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{C013C173-2B66-4FE4-9913-F91EA8B7BB6F}" refNum="23" Count="1" Area="1.087626" Neigungswinkel="25.00" RefUvalue="{76729BE7-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Roof" Orientation="E" OrientationAngle="90.00" Opposite="Aussenluft" Code="DA" CadElem="{0AD9106D-B564-4D2A-84B7-46850ED7F88F}" Floor="{38535808-0D26-4FBF-AD12-D84173C8F4A9}" Room="{A127854B-FAC0-4237-BD9B-35F103A71B66}">
+								<Geometry>
+									<Polygon>
+										<Point X="-7.966" Y="-2.300" Z="8.084"/>
+										<Point X="-8.430" Y="-2.300" Z="8.300"/>
+										<Point X="-8.430" Y="-4.564" Z="8.300"/>
+										<Point X="-7.966" Y="-4.287" Z="8.084"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{05865D80-26A3-4E94-A609-10B9DB119B11}" refNum="24" Count="1" Area="17.686646" Neigungswinkel="38.00" RefUvalue="{76729BE7-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Roof" Orientation="E" OrientationAngle="90.00" Opposite="Aussenluft" Code="DA" PosNo="001" CadElem="{81D94CAA-7EBE-4EC9-A70D-B261199FBCF6}" Floor="{38535808-0D26-4FBF-AD12-D84173C8F4A9}" Room="{A127854B-FAC0-4237-BD9B-35F103A71B66}">
+								<Geometry>
+									<Polygon>
+										<Point X="-4.350" Y="-2.000" Z="6.297"/>
+										<Point X="-6.914" Y="-4.564" Z="8.300"/>
+										<Point X="-6.914" Y="-7.436" Z="8.300"/>
+										<Point X="-4.350" Y="-10.000" Z="6.297"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{91F63AD8-F96F-43A8-B699-173FE2E76DCF}" refNum="25" Count="1" Area="7.969570" Neigungswinkel="90.00" RefUvalue="{76729BF2-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Wall" Orientation="S" OrientationAngle="180.00" Opposite="Aussenluft" Code="WA" PosNo="001" CadElem="{D2D4BB25-988D-4A3A-B795-96F5C75AD632}" Floor="{38535808-0D26-4FBF-AD12-D84173C8F4A9}" Room="{A127854B-FAC0-4237-BD9B-35F103A71B66}">
+								<Geometry>
+									<Polygon>
+										<Point X="-14.350" Y="-10.000" Z="5.500"/>
+										<Point X="-4.350" Y="-10.000" Z="5.500"/>
+										<Point X="-4.350" Y="-10.000" Z="6.297"/>
+										<Point X="-14.350" Y="-10.000" Z="6.297"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{5C038069-1712-4414-BA3E-3481449DEB66}" refNum="26" Count="1" Area="6.375656" Neigungswinkel="90.00" RefUvalue="{76729BF2-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Wall" Orientation="E" OrientationAngle="90.00" Opposite="Aussenluft" Code="WA" PosNo="002" CadElem="{14E3F161-9BFB-45AF-B233-F8B71083E9ED}" Floor="{38535808-0D26-4FBF-AD12-D84173C8F4A9}" Room="{A127854B-FAC0-4237-BD9B-35F103A71B66}">
+								<Geometry>
+									<Polygon>
+										<Point X="-4.350" Y="-10.000" Z="5.500"/>
+										<Point X="-4.350" Y="-2.000" Z="5.500"/>
+										<Point X="-4.350" Y="-2.000" Z="6.297"/>
+										<Point X="-4.350" Y="-10.000" Z="6.297"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{EEB7EF4C-6358-45A1-9654-937D8014C144}" refNum="27" Count="1" Area="7.969569" Neigungswinkel="90.00" RefUvalue="{76729BF2-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Wall" Orientation="N" OrientationAngle="-0.00" Opposite="Aussenluft" Code="WA" PosNo="003" CadElem="{D7346A4A-1956-47A1-9773-773EC4298305}" Floor="{38535808-0D26-4FBF-AD12-D84173C8F4A9}" Room="{A127854B-FAC0-4237-BD9B-35F103A71B66}">
+								<Geometry>
+									<Polygon>
+										<Point X="-4.350" Y="-2.000" Z="5.500"/>
+										<Point X="-14.350" Y="-2.000" Z="5.500"/>
+										<Point X="-14.350" Y="-2.000" Z="6.297"/>
+										<Point X="-10.967" Y="-2.000" Z="6.297"/>
+										<Point X="-9.302" Y="-2.000" Z="6.297"/>
+										<Point X="-4.350" Y="-2.000" Z="6.297"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{13B03F08-9A70-4920-903D-301F97FBC2D2}" refNum="28" Count="1" Area="6.375657" Neigungswinkel="90.00" RefUvalue="{76729BF2-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Wall" Orientation="W" OrientationAngle="270.00" Opposite="Aussenluft" Code="WA" PosNo="004" CadElem="{88274CD3-26C2-4412-A258-194AF3873085}" Floor="{38535808-0D26-4FBF-AD12-D84173C8F4A9}" Room="{A127854B-FAC0-4237-BD9B-35F103A71B66}">
+								<Geometry>
+									<Polygon>
+										<Point X="-14.350" Y="-2.000" Z="5.500"/>
+										<Point X="-14.350" Y="-10.000" Z="5.500"/>
+										<Point X="-14.350" Y="-10.000" Z="6.297"/>
+										<Point X="-14.350" Y="-2.000" Z="6.297"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{452E8A3F-99F0-4C43-B678-53C128DA41F7}" refNum="29" Count="1" Area="4.623957" Neigungswinkel="90.00" RefUvalue="{76729BF2-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Wall" Orientation="N" OrientationAngle="-0.00" Opposite="Aussenluft" Code="WA" CadElem="{D70CBFE8-163F-4998-85F5-DE74E2C65649}" Floor="{38535808-0D26-4FBF-AD12-D84173C8F4A9}" Room="{A127854B-FAC0-4237-BD9B-35F103A71B66}">
+								<Geometry>
+									<Polygon>
+										<Point X="-7.966" Y="-2.300" Z="8.084"/>
+										<Point X="-7.966" Y="-2.300" Z="6.532"/>
+										<Point X="-8.430" Y="-2.300" Z="6.532"/>
+										<Point X="-10.174" Y="-2.300" Z="6.532"/>
+										<Point X="-10.637" Y="-2.300" Z="6.532"/>
+										<Point X="-10.637" Y="-2.300" Z="8.084"/>
+										<Point X="-10.174" Y="-2.300" Z="8.300"/>
+										<Point X="-8.430" Y="-2.300" Z="8.300"/>
+									</Polygon>
+								</Geometry>
+								<Elements>
+									<Element Count="1" UID="{AAC0A396-955B-4D7F-B5B2-3E7C29F437F0}" Name="" Description="Fenster" Area="1.030200" RefUvalue="{76729BF5-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Window" Code="FG" Opposite="Aussenluft" PosNo="001" Floor="{38535808-0D26-4FBF-AD12-D84173C8F4A9}" dbID="" constrName="" Width="1.010" Height="1.020" BRH="1.380">
+										<Geometry>
+											<Polygon>
+												<Point X="-8.829" Y="-2.300" Z="6.930"/>
+												<Point X="-9.839" Y="-2.300" Z="6.930"/>
+												<Point X="-9.839" Y="-2.300" Z="7.950"/>
+												<Point X="-8.829" Y="-2.300" Z="7.950"/>
+											</Polygon>
+										</Geometry>
+									</Element>
+								</Elements>
+							</Face>
+							<Face GUID="{CA0CF493-3C19-41AF-BC29-DC04F658DFEB}" refNum="30" Count="1" Area="1.541626" Neigungswinkel="90.00" RefUvalue="{76729BF2-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Wall" Orientation="W" OrientationAngle="270.00" Opposite="Aussenluft" Code="WA" CadElem="{875E7CB8-6314-4F81-8DA7-0102C2B27EF6}" Floor="{38535808-0D26-4FBF-AD12-D84173C8F4A9}" Room="{A127854B-FAC0-4237-BD9B-35F103A71B66}">
+								<Geometry>
+									<Polygon>
+										<Point X="-10.637" Y="-2.300" Z="8.084"/>
+										<Point X="-10.637" Y="-2.300" Z="6.532"/>
+										<Point X="-10.637" Y="-4.287" Z="8.084"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+							<Face GUID="{B2FB07B0-329B-460B-B05D-F9B46912F90A}" refNum="31" Count="1" Area="1.541625" Neigungswinkel="90.00" RefUvalue="{76729BF2-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" dbID="" constrName="" Type="Wall" Orientation="E" OrientationAngle="90.00" Opposite="Aussenluft" Code="WA" CadElem="{20996F20-1C98-4D1B-8F05-6A06CC02CA2F}" Floor="{38535808-0D26-4FBF-AD12-D84173C8F4A9}" Room="{A127854B-FAC0-4237-BD9B-35F103A71B66}">
+								<Geometry>
+									<Polygon>
+										<Point X="-7.966" Y="-4.287" Z="8.084"/>
+										<Point X="-7.966" Y="-2.300" Z="6.532"/>
+										<Point X="-7.966" Y="-2.300" Z="8.084"/>
+									</Polygon>
+								</Geometry>
+							</Face>
+						</Faces>
+						<BaseBorders>
+							<BaseBorder Length="5.342">
+								<Point X="-14.350" Y="-4.658" Z="-0.200"/>
+								<Point X="-14.350" Y="-10.000" Z="-0.200"/>
+								<Base RefUvalue="{76729BEF-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Floor" Opposite="Erdreich" Code="KE" OnGround="1" CadElem="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Room="{E805D3A3-4C33-4CFA-A9A8-C588CBAFDD04}"/>
+								<Border RefUvalue="{76729BF2-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Wall" Opposite="Aussenluft" Code="WA" PosNo="004" CadElem="{674608B0-833B-4E79-8AF1-7F3F2B5C796A}" Room="{E805D3A3-4C33-4CFA-A9A8-C588CBAFDD04}"/>
+							</BaseBorder>
+							<BaseBorder Length="1.042">
+								<Point X="-10.305" Y="-10.000" Z="-0.200"/>
+								<Point X="-9.263" Y="-10.000" Z="-0.200"/>
+								<Base RefUvalue="{76729BEF-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Floor" Opposite="Erdreich" Code="KE" OnGround="1" CadElem="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Room="{E805D3A3-4C33-4CFA-A9A8-C588CBAFDD04}"/>
+								<Border RefUvalue="{76729BF2-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Wall" Opposite="Aussenluft" Code="WA" PosNo="001" CadElem="{7C976266-4806-40E2-B4F7-8B7990E1625A}" Room="{E805D3A3-4C33-4CFA-A9A8-C588CBAFDD04}"/>
+							</BaseBorder>
+							<BaseBorder Length="2.658">
+								<Point X="-14.350" Y="-2.000" Z="-0.200"/>
+								<Point X="-14.350" Y="-4.658" Z="-0.200"/>
+								<Base RefUvalue="{76729BEF-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Floor" Opposite="Erdreich" Code="KE" OnGround="1" CadElem="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Room="{5FD68739-E6B8-4656-9233-58DA16D899FC}"/>
+								<Border RefUvalue="{76729BF2-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Wall" Opposite="Aussenluft" Code="WA" PosNo="004" CadElem="{674608B0-833B-4E79-8AF1-7F3F2B5C796A}" Room="{5FD68739-E6B8-4656-9233-58DA16D899FC}"/>
+							</BaseBorder>
+							<BaseBorder Length="2.658">
+								<Point X="-4.350" Y="-4.658" Z="-0.200"/>
+								<Point X="-4.350" Y="-2.000" Z="-0.200"/>
+								<Base RefUvalue="{76729BEF-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Floor" Opposite="Erdreich" Code="KE" OnGround="1" CadElem="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Room="{5FD68739-E6B8-4656-9233-58DA16D899FC}"/>
+								<Border RefUvalue="{76729BF2-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Wall" Opposite="Aussenluft" Code="WA" PosNo="002" CadElem="{3AD90DF3-7AE7-451A-B395-C5F55C23B27D}" Room="{5FD68739-E6B8-4656-9233-58DA16D899FC}"/>
+							</BaseBorder>
+							<BaseBorder Length="10.000">
+								<Point X="-4.350" Y="-2.000" Z="-0.200"/>
+								<Point X="-14.350" Y="-2.000" Z="-0.200"/>
+								<Base RefUvalue="{76729BEF-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Floor" Opposite="Erdreich" Code="KE" OnGround="1" CadElem="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Room="{5FD68739-E6B8-4656-9233-58DA16D899FC}"/>
+								<Border RefUvalue="{76729BF2-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Wall" Opposite="Aussenluft" Code="WA" PosNo="003" CadElem="{E32F8A6A-0B73-480E-B535-AAB24752A544}" Room="{5FD68739-E6B8-4656-9233-58DA16D899FC}"/>
+							</BaseBorder>
+							<BaseBorder Length="5.342">
+								<Point X="-4.350" Y="-10.000" Z="-0.200"/>
+								<Point X="-4.350" Y="-4.658" Z="-0.200"/>
+								<Base RefUvalue="{76729BEF-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Floor" Opposite="Erdreich" Code="KE" OnGround="1" CadElem="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Room="{9F5CD939-1EC9-444C-98BE-ED1136CA655B}"/>
+								<Border RefUvalue="{76729BF2-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Wall" Opposite="Aussenluft" Code="WA" PosNo="002" CadElem="{3AD90DF3-7AE7-451A-B395-C5F55C23B27D}" Room="{9F5CD939-1EC9-444C-98BE-ED1136CA655B}"/>
+							</BaseBorder>
+							<BaseBorder Length="4.912">
+								<Point X="-9.263" Y="-10.000" Z="-0.200"/>
+								<Point X="-4.350" Y="-10.000" Z="-0.200"/>
+								<Base RefUvalue="{76729BEF-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Floor" Opposite="Erdreich" Code="KE" OnGround="1" CadElem="{2F228CF6-6E46-4929-9791-B763DA4EBB3A}" Room="{9F5CD939-1EC9-444C-98BE-ED1136CA655B}"/>
+								<Border RefUvalue="{76729BF2-00A2-4420-8326-0F52982D323B}" Uvalue="0.000000" Type="Wall" Opposite="Aussenluft" Code="WA" PosNo="001" CadElem="{7C976266-4806-40E2-B4F7-8B7990E1625A}" Room="{9F5CD939-1EC9-444C-98BE-ED1136CA655B}"/>
+							</BaseBorder>
+						</BaseBorders>
+					</Zone>
+				</Zones>
+			</Building>
+		</Buildings>
+	</Project>
+</Root>

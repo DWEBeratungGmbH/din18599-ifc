@@ -8,7 +8,7 @@ import { Floor } from './components/Floor'
 import { Window } from './components/Window'
 import { ScenarioSwitcher } from './components/ScenarioSwitcher'
 import { BuildingDataModal } from './components/BuildingDataModal/BuildingDataModal'
-import { FileUpload } from './components/FileUpload'
+import { UploadWizard } from './components/UploadWizard'
 import { Download } from 'lucide-react'
 
 function App() {
@@ -175,7 +175,7 @@ function App() {
               maxHeight: '90vh',
               overflowY: 'auto'
             }}>
-              <FileUpload onSidecarGenerated={handleSidecarGenerated} />
+              <UploadWizard onSidecarGenerated={handleSidecarGenerated} onClose={() => setShowUpload(false)} />
               {project && (
                 <button
                   onClick={() => setShowUpload(false)}

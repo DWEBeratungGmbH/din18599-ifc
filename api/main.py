@@ -7,7 +7,10 @@ import tempfile
 import shutil
 from pathlib import Path
 from jsonschema import validate, ValidationError
-from parsers import parse_evea, parse_ifc, map_ifc_to_evebi, generate_sidecar
+
+# Neue Imports für Sidecar Generator v2
+from parsers.evebi_parser import parse_evea, evebi_data_to_dict
+from generators.sidecar_generator import SidecarGenerator
 
 app = FastAPI(
     title="DIN 18599 Sidecar API",
@@ -75,13 +78,98 @@ async def validate_json(file: UploadFile):
         )
 
 
+@app.post("/parse-ifc")
+async def parse_ifc_file(ifc_file: UploadFile = File(...)):
+    """
+    Parst IFC-Datei und gibt Vorschau zurück (Step 1)
+    """
+    if not ifc_file.filename.endswith('.ifc'):
+        raise HTTPException(status_code=400, detail="IFC-Datei muss .ifc Extension haben")
+    
+    with tempfile.TemporaryDirectory() as temp_dir:
+        temp_path = Path(temp_dir)
+        ifc_path = temp_path / ifc_file.filename
+        
+        with open(ifc_path, 'wb') as f:
+            shutil.copyfileobj(ifc_file.file, f)
+        
+        try:
+            ifc_geometry = parse_ifc(str(ifc_path))
+            
+            return {
+                "project_name": ifc_geometry.project_name,
+                "building_name": ifc_geometry.building_name,
+                "walls": len(ifc_geometry.walls),
+                "roofs": len(ifc_geometry.roofs),
+                "slabs": len(ifc_geometry.slabs),
+                "windows": len(ifc_geometry.windows),
+                "doors": len(ifc_geometry.doors),
+                "total_elements": len(ifc_geometry.all_elements)
+            }
+        except Exception as e:
+            raise HTTPException(status_code=500, detail=f"Fehler beim Parsen: {str(e)}")
+
+
+@app.post("/parse-evebi")
+async def parse_evebi_file(
+    evebi_file: UploadFile = File(...),
+    ifc_file: UploadFile = File(None)
+):
+    """
+    Parst EVEBI-Datei und gibt Vorschau + Mapping-Preview zurück (Step 2)
+    """
+    if not evebi_file.filename.endswith('.evea'):
+        raise HTTPException(status_code=400, detail="EVEBI-Datei muss .evea Extension haben")
+    
+    with tempfile.TemporaryDirectory() as temp_dir:
+        temp_path = Path(temp_dir)
+        
+        # EVEBI speichern
+        evebi_path = temp_path / evebi_file.filename
+        with open(evebi_path, 'wb') as f:
+            shutil.copyfileobj(evebi_file.file, f)
+        
+        try:
+            evebi_data = parse_evea(str(evebi_path))
+            
+            # Mapping Preview (wenn IFC vorhanden)
+            mapping_preview = None
+            if ifc_file:
+                ifc_path = temp_path / ifc_file.filename
+                with open(ifc_path, 'wb') as f:
+                    shutil.copyfileobj(ifc_file.file, f)
+                
+                ifc_geometry = parse_ifc(str(ifc_path))
+                mapping_result = map_ifc_to_evebi(ifc_geometry, evebi_data, strategy='auto')
+                
+                mapping_preview = {
+                    "total_ifc": mapping_result.stats['total_ifc'],
+                    "total_evebi": mapping_result.stats['total_evebi'],
+                    "potential_matches": mapping_result.stats['matched'],
+                    "match_rate": mapping_result.stats['match_rate']
+                }
+            
+            return {
+                "evebi_data": {
+                    "project_name": evebi_data.project_name,
+                    "materials": len(evebi_data.materials),
+                    "constructions": len(evebi_data.constructions),
+                    "elements": len(evebi_data.elements),
+                    "zones": len(evebi_data.zones)
+                },
+                "mapping_preview": mapping_preview
+            }
+        except Exception as e:
+            raise HTTPException(status_code=500, detail=f"Fehler beim Parsen: {str(e)}")
+
+
 @app.post("/process")
 async def process_files(
     ifc_file: UploadFile = File(...),
     evebi_file: UploadFile = File(...)
 ):
     """
-    Verarbeitet IFC + EVEBI Dateien und generiert Sidecar JSON
+    Verarbeitet IFC + EVEBI Dateien und generiert Sidecar JSON (Step 3)
     """
     # Validierung
     if not ifc_file.filename.endswith('.ifc'):
@@ -135,3 +223,101 @@ async def process_files(
             
         except Exception as e:
             raise HTTPException(status_code=500, detail=f"Fehler beim Verarbeiten: {str(e)}")
+
+
+@app.post("/generate-sidecar")
+async def generate_sidecar_json(
+    ifc_file: UploadFile = File(...),
+    evebi_file: UploadFile = File(...)
+):
+    """
+    Generiert DIN18599 Sidecar JSON aus IFC + EVEBI (Neue Version mit SidecarGenerator)
+    """
+    print("\n=== Sidecar Generator v2 ===")
+    
+    # Validierung
+    if not ifc_file.filename.endswith('.ifc'):
+        raise HTTPException(status_code=400, detail="IFC-Datei muss .ifc Extension haben")
+    
+    if not (evebi_file.filename.endswith('.evea') or evebi_file.filename.endswith('.evex')):
+        raise HTTPException(status_code=400, detail="EVEBI-Datei muss .evea oder .evex Extension haben")
+    
+    with tempfile.TemporaryDirectory() as temp_dir:
+        temp_path = Path(temp_dir)
+        
+        # IFC speichern
+        ifc_path = temp_path / ifc_file.filename
+        with open(ifc_path, 'wb') as f:
+            shutil.copyfileobj(ifc_file.file, f)
+        print(f"📂 IFC gespeichert: {ifc_path}")
+        
+        # EVEBI speichern
+        evebi_path = temp_path / evebi_file.filename
+        with open(evebi_path, 'wb') as f:
+            shutil.copyfileobj(evebi_file.file, f)
+        print(f"📂 EVEBI gespeichert: {evebi_path}")
+        
+        try:
+            # 1. EVEBI parsen
+            print("\n🔍 Parse EVEBI...")
+            evebi_data = parse_evea(str(evebi_path))
+            evebi_dict = evebi_data_to_dict(evebi_data)
+            
+            print(f"✅ EVEBI geparst:")
+            print(f"   - Projekt: {evebi_dict['project_name']}")
+            print(f"   - Materialien: {len(evebi_dict['materials'])}")
+            print(f"   - Konstruktionen: {len(evebi_dict['constructions'])}")
+            print(f"   - Bauteile: {len(evebi_dict['elements'])}")
+            print(f"   - Zonen: {len(evebi_dict['zones'])}")
+            
+            # 2. IFC parsen (vereinfacht - TODO: Echten IFC-Parser nutzen)
+            print("\n🔍 Parse IFC...")
+            # Für jetzt: Mock-Daten (später echten IFC-Parser integrieren)
+            ifc_dict = {
+                "project_name": evebi_dict['project_name'],
+                "building_guid": "MOCK-BUILDING-GUID",
+                "walls": [],
+                "roofs": [],
+                "floors": [],
+                "windows": [],
+                "doors": []
+            }
+            print(f"⚠️  IFC-Parser noch nicht integriert (Mock-Daten)")
+            
+            # 3. Sidecar generieren
+            print("\n🔨 Generiere Sidecar JSON...")
+            generator = SidecarGenerator()
+            sidecar = generator.generate(
+                ifc_data=ifc_dict,
+                evebi_data=evebi_dict,
+                project_name=evebi_dict['project_name'],
+                ifc_file_ref=ifc_file.filename
+            )
+            
+            print(f"✅ Sidecar generiert!")
+            print(f"   - Zonen: {len(sidecar['input']['zones'])}")
+            print(f"   - Materialien: {len(sidecar['input']['materials'])}")
+            print(f"   - Konstruktionen: {len(sidecar['input']['layer_structures'])}")
+            print(f"   - Bauteile: {len(sidecar['input']['elements'])}")
+            print(f"   - Fenster: {len(sidecar['input']['windows'])}")
+            
+            return {
+                "success": True,
+                "sidecar": sidecar,
+                "stats": {
+                    "evebi_elements": len(evebi_dict['elements']),
+                    "evebi_zones": len(evebi_dict['zones']),
+                    "sidecar_elements": len(sidecar['input']['elements']),
+                    "sidecar_windows": len(sidecar['input']['windows']),
+                    "sidecar_zones": len(sidecar['input']['zones'])
+                },
+                "warnings": [
+                    "IFC-Parser noch nicht integriert - keine IFC-EVEBI Verknüpfung"
+                ]
+            }
+            
+        except Exception as e:
+            import traceback
+            print(f"❌ Fehler: {e}")
+            print(traceback.format_exc())
+            raise HTTPException(status_code=500, detail=f"Fehler beim Generieren: {str(e)}")

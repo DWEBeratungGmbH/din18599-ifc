@@ -8,7 +8,14 @@
     "norm_version": "DIN V 18599:2018-09",
     "calculation_date": "2026-03-31T12:00:00Z",
     "created_by": "Demo User",
-    "last_modified": "2026-04-01T08:30:00Z"
+    "last_modified": "2026-04-01T08:30:00Z",
+    "site": {
+      "address": "Musterstraße 1, 45127 Essen",
+      "latitude": 51.45,
+      "longitude": 7.01,
+      "true_north_offset": 0,
+      "description": "Plannorden = Geografischer Norden"
+    }
   },
   "input": {
     "building": {
@@ -48,6 +55,41 @@
         "air_change_rate": 0.3
       }
     ],
+    "geometry": {
+      "coordinate_system": {
+        "type": "PROJECT_NORTH",
+        "x_axis": "EAST (Project)",
+        "y_axis": "NORTH (Project)",
+        "z_axis": "UP",
+        "unit": "METER"
+      },
+      "solids": [
+        {
+          "id": "eg_main",
+          "type": "BOX",
+          "dimensions": {
+            "length": 10.0,
+            "width": 8.0,
+            "height": 2.5
+          },
+          "origin": [0, 0, 0],
+          "description": "Erdgeschoss"
+        },
+        {
+          "id": "roof_main",
+          "type": "TRIANGULAR_PRISM",
+          "dimensions": {
+            "length": 10.0,
+            "width": 8.0,
+            "height": 3.0,
+            "ridge_direction": "X"
+          },
+          "parent_ref": "eg_main",
+          "offset": [0, 0, 2.5],
+          "description": "Satteldach 37° Neigung"
+        }
+      ]
+    },
     "envelope": {
       "walls_external": [
         {
@@ -55,9 +97,8 @@
           "ifc_guid": "3a8f9c2e-1234-5678-90ab-cdef12345678",
           "name": "Außenwand Süd",
           "boundary_condition": "EXTERNAL",
-          "orientation": 180.0,
-          "inclination": 90.0,
-          "area": 45.0,
+          "solid_ref": "eg_main",
+          "face_index": 0,
           "u_value_undisturbed": 1.2,
           "thermal_bridge_delta_u": 0.15,
           "thermal_bridge_type": "DEFAULT",
@@ -69,9 +110,8 @@
           "ifc_guid": "3a8f9c2e-1234-5678-90ab-cdef12345679",
           "name": "Außenwand Nord",
           "boundary_condition": "EXTERNAL",
-          "orientation": 0.0,
-          "inclination": 90.0,
-          "area": 45.0,
+          "solid_ref": "eg_main",
+          "face_index": 2,
           "u_value_undisturbed": 1.2,
           "thermal_bridge_delta_u": 0.15,
           "thermal_bridge_type": "DEFAULT",
@@ -83,8 +123,8 @@
           "ifc_guid": "3a8f9c2e-1234-5678-90ab-cdef1234567a",
           "name": "Außenwand Ost",
           "boundary_condition": "EXTERNAL",
-          "orientation": 90.0,
-          "area": 30.0,
+          "solid_ref": "eg_main",
+          "face_index": 1,
           "u_value_undisturbed": 1.2,
           "thermal_bridge_delta_u": 0.15,
           "construction_catalog_ref": "Mauerwerk_365mm_Baujahr_1978"
@@ -94,22 +134,60 @@
           "ifc_guid": "3a8f9c2e-1234-5678-90ab-cdef1234567b",
           "name": "Außenwand West",
           "boundary_condition": "EXTERNAL",
-          "orientation": 270.0,
-          "area": 30.0,
+          "solid_ref": "eg_main",
+          "face_index": 3,
           "u_value_undisturbed": 1.2,
           "thermal_bridge_delta_u": 0.15,
+          "construction_catalog_ref": "Mauerwerk_365mm_Baujahr_1978"
+        },
+        {
+          "id": "giebel_west",
+          "ifc_guid": "3a8f9c2e-1234-5678-90ab-cdef1234567e",
+          "name": "Giebelwand West",
+          "boundary_condition": "EXTERNAL",
+          "solid_ref": "roof_main",
+          "face_index": 2,
+          "u_value_undisturbed": 1.2,
+          "thermal_bridge_delta_u": 0.15,
+          "thermal_bridge_type": "DEFAULT",
+          "solar_absorption": 0.6,
+          "construction_catalog_ref": "Mauerwerk_365mm_Baujahr_1978"
+        },
+        {
+          "id": "giebel_ost",
+          "ifc_guid": "3a8f9c2e-1234-5678-90ab-cdef1234567f",
+          "name": "Giebelwand Ost",
+          "boundary_condition": "EXTERNAL",
+          "solid_ref": "roof_main",
+          "face_index": 3,
+          "u_value_undisturbed": 1.2,
+          "thermal_bridge_delta_u": 0.15,
+          "thermal_bridge_type": "DEFAULT",
+          "solar_absorption": 0.6,
           "construction_catalog_ref": "Mauerwerk_365mm_Baujahr_1978"
         }
       ],
       "roofs": [
         {
-          "id": "roof_main",
+          "id": "roof_sued",
           "ifc_guid": "3a8f9c2e-1234-5678-90ab-cdef1234567c",
-          "name": "Dach (Satteldach)",
+          "name": "Dachfläche Süd",
           "boundary_condition": "EXTERNAL",
-          "orientation": 180.0,
-          "inclination": 35.0,
-          "area": 85.0,
+          "solid_ref": "roof_main",
+          "face_index": 0,
+          "u_value_undisturbed": 0.8,
+          "thermal_bridge_delta_u": 0.05,
+          "thermal_bridge_type": "DEFAULT",
+          "solar_absorption": 0.6,
+          "construction_catalog_ref": "Dach_ungedaemmt_1978"
+        },
+        {
+          "id": "roof_nord",
+          "ifc_guid": "3a8f9c2e-1234-5678-90ab-cdef1234567d",
+          "name": "Dachfläche Nord",
+          "boundary_condition": "EXTERNAL",
+          "solid_ref": "roof_main",
+          "face_index": 1,
           "u_value_undisturbed": 0.8,
           "thermal_bridge_delta_u": 0.05,
           "thermal_bridge_type": "DEFAULT",
