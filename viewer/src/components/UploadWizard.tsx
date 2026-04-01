@@ -91,8 +91,8 @@ export function UploadWizard({ onSidecarGenerated, onClose }: UploadWizardProps)
 
   // Step 2: EVEBI Upload
   const handleEvebiUpload = async (file: File) => {
-    if (!file.name.endsWith('.evea')) {
-      setEvebiError('Datei muss .evea Extension haben')
+    if (!file.name.endsWith('.evea') && !file.name.endsWith('.evex')) {
+      setEvebiError('Datei muss .evea oder .evex Extension haben')
       return
     }
 
@@ -140,7 +140,7 @@ export function UploadWizard({ onSidecarGenerated, onClose }: UploadWizardProps)
       formData.append('ifc_file', ifcFile)
       formData.append('evebi_file', evebiFile)
 
-      const response = await fetch('http://localhost:8000/process', {
+      const response = await fetch('http://localhost:8000/generate-sidecar', {
         method: 'POST',
         body: formData,
       })
@@ -151,6 +151,9 @@ export function UploadWizard({ onSidecarGenerated, onClose }: UploadWizardProps)
       }
 
       const result = await response.json()
+      
+      console.log('✅ Sidecar generiert:', result)
+      console.log('📊 Stats:', result.stats)
       
       if (result.success) {
         onSidecarGenerated(result.sidecar)
