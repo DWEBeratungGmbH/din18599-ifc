@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { useViewerStore } from '../../../store/viewer.store'
 import { UValueIndicator } from '../shared/UValueIndicator'
 import { StatusBadge } from '../shared/StatusBadge'
@@ -83,9 +83,8 @@ export function EnvelopeTab() {
                   const hasOpenings = wallOpenings.length > 0
                   
                   return (
-                    <>
-                      <tr 
-                        key={wall.id}
+                    <React.Fragment key={wall.id}>
+                      <tr
                         style={{ 
                           borderBottom: !isExpanded && idx < walls.length - 1 ? '1px solid #e5e7eb' : 'none',
                           cursor: hasOpenings ? 'pointer' : 'default',
@@ -189,7 +188,7 @@ export function EnvelopeTab() {
                           </tr>
                         )
                       })}
-                    </>
+                    </React.Fragment>
                   )
                 })}
               </tbody>
