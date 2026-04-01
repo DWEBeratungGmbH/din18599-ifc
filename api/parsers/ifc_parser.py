@@ -122,6 +122,11 @@ def _extract_element(ifc_element, ifc_file, settings) -> Optional[IFCElement]:
         name = ifc_element.Name or f'{ifc_type} {guid[:8]}'
         tag = ifc_element.Tag if hasattr(ifc_element, 'Tag') else None
         
+        # PosNo aus Properties extrahieren (falls vorhanden)
+        posno = _extract_posno(ifc_element)
+        if posno:
+            tag = posno  # PosNo überschreibt Tag
+        
         # Geschoss ermitteln
         storey = None
         for rel in ifc_element.ContainedInStructure:
@@ -263,3 +268,120 @@ def _calculate_height(shape) -> Optional[float]:
         
     except Exception as e:
         return None
+
+
+def _extract_posno(ifc_element) -> Optional[str]:
+    """
+    Extrahiert PosNo aus IFC PropertySets
+    
+    Sucht nach:
+    - Property "PosNo"
+    - Property "Positionsnummer"
+    - Property "Position"
+    - Aus Name extrahiert (z.B. "Wand Pos 001")
+    """
+    try:
+        # 1. Aus PropertySets
+        if hasattr(ifc_element, 'IsDefinedBy'):
+            for definition in ifc_element.IsDefinedBy:
+                if definition.is_a('IfcRelDefinesByProperties'):
+                    property_set = definition.RelatingPropertyDefinition
+                    if property_set.is_a('IfcPropertySet'):
+                        for prop in property_set.HasProperties:
+                            if prop.is_a('IfcPropertySingleValue'):
+                                # PosNo, Positionsnummer, Position
+                                if prop.Name in ['PosNo', 'Positionsnummer', 'Position', 'Tag']:
+                                    if prop.NominalValue:
+                                        return str(prop.NominalValue.wrappedValue)
+        
+        # 2. Aus Name extrahiert (z.B. "Außenwand Pos 001")
+        if hasattr(ifc_element, 'Name') and ifc_element.Name:
+            name = ifc_element.Name
+            # Suche nach "Pos XXX" Pattern
+            import re
+            match = re.search(r'Pos\s*(\d+)', name, re.IGNORECASE)
+            if match:
+                return match.group(1)
+        
+        # 3. Aus Tag (falls vorhanden)
+        if hasattr(ifc_element, 'Tag') and ifc_element.Tag:
+            return ifc_element.Tag
+        
+        return None
+        
+    except Exception as e:
+        return None
+
+
+def ifc_geometry_to_dict(ifc_geometry: IFCGeometry) -> dict:
+    """
+    Konvertiert IFCGeometry in Dictionary-Format für Sidecar Generator
+    """
+    return {
+        "project_name": ifc_geometry.project_name,
+        "building_guid": ifc_geometry.building_name or "UNKNOWN",
+        "walls": [
+            {
+                "guid": elem.guid,
+                "name": elem.name,
+                "area": elem.area or 0.0,
+                "properties": {
+                    "PosNo": elem.tag,
+                    "Storey": elem.storey,
+                    "Orientation": elem.orientation,
+                    "Inclination": elem.inclination
+                }
+            }
+            for elem in ifc_geometry.walls
+        ],
+        "roofs": [
+            {
+                "guid": elem.guid,
+                "name": elem.name,
+                "area": elem.area or 0.0,
+                "properties": {
+                    "PosNo": elem.tag,
+                    "Storey": elem.storey,
+                    "Orientation": elem.orientation,
+                    "Inclination": elem.inclination
+                }
+            }
+            for elem in ifc_geometry.roofs
+        ],
+        "floors": [
+            {
+                "guid": elem.guid,
+                "name": elem.name,
+                "area": elem.area or 0.0,
+                "properties": {
+                    "PosNo": elem.tag,
+                    "Storey": elem.storey
+                }
+            }
+            for elem in ifc_geometry.slabs
+        ],
+        "windows": [
+            {
+                "guid": elem.guid,
+                "name": elem.name,
+                "area": elem.area or 0.0,
+                "properties": {
+                    "PosNo": elem.tag,
+                    "Storey": elem.storey
+                }
+            }
+            for elem in ifc_geometry.windows
+        ],
+        "doors": [
+            {
+                "guid": elem.guid,
+                "name": elem.name,
+                "area": elem.area or 0.0,
+                "properties": {
+                    "PosNo": elem.tag,
+                    "Storey": elem.storey
+                }
+            }
+            for elem in ifc_geometry.doors
+        ]
+    }

@@ -473,23 +473,92 @@ class SidecarGenerator:
     
     def _map_systems(self, systems_data: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
         """Mappt EVEBI-Heizungssysteme zu Sidecar JSON"""
-        # TODO: Implementierung für Heizung, Warmwasser, Lüftung
-        return []
+        sidecar_systems = []
+        
+        for system in systems_data:
+            # Typ-Mapping
+            system_type = self._map_heating_type(system.get('art', ''))
+            
+            # Energieträger ermitteln
+            energy_source = self._detect_energy_source(system.get('name', ''))
+            
+            sidecar_system = {
+                "id": f"SYS-{system.get('guid', '')[:8]}",
+                "type": system_type,
+                "name": system.get('name', 'Unbekanntes System'),
+                "energy_source": energy_source,
+                "year_built": system.get('year_built', 2020),
+                "operation_mode": "MONOVALENT"
+            }
+            
+            # Wärmepumpen-spezifisch
+            if "HEAT_PUMP" in system_type:
+                sidecar_system["heat_pump"] = {
+                    "cop_a2_w35": system.get('cop_a2_w35', 4.0),
+                    "cop_a7_w35": system.get('cop_a7_w35', 4.5),
+                    "refrigerant": "R290"
+                }
+            
+            sidecar_systems.append(sidecar_system)
+        
+        return sidecar_systems
     
     def _map_dhw(self, dhw_data: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
         """Mappt EVEBI-Warmwasser zu Sidecar JSON"""
-        # TODO: Implementierung
-        return []
+        sidecar_dhw = []
+        
+        for dhw in dhw_data:
+            dhw_type = self._map_dhw_type(dhw.get('art', ''))
+            
+            sidecar_dhw_entry = {
+                "type": dhw_type,
+                "storage_volume": dhw.get('storage_volume', 300),
+                "storage_loss_factor": 1.8,
+                "circulation": dhw.get('circulation', False),
+                "circulation_length": 15 if dhw.get('circulation', False) else 0,
+                "pipe_insulation": "100_PERCENT"
+            }
+            
+            sidecar_dhw.append(sidecar_dhw_entry)
+        
+        return sidecar_dhw
     
     def _map_ventilation(self, vent_data: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
         """Mappt EVEBI-Lüftung zu Sidecar JSON"""
-        # TODO: Implementierung
-        return []
+        sidecar_vent = []
+        
+        for vent in vent_data:
+            vent_type = self._map_ventilation_type(vent.get('art', ''))
+            has_wrg = vent.get('wrg', 0) > 0 and vent_type != "NATURAL"
+            
+            sidecar_vent_entry = {
+                "type": vent_type,
+                "heat_recovery": has_wrg,
+                "heat_recovery_efficiency": vent.get('wrg_grad', 0.0) if has_wrg else 0.0,
+                "volume_flow": vent.get('volume_flow', 250),
+                "spf_fan": 0.35
+            }
+            
+            sidecar_vent.append(sidecar_vent_entry)
+        
+        return sidecar_vent
     
     def _map_pv(self, pv_data: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
         """Mappt EVEBI-PV zu Sidecar JSON"""
-        # TODO: Implementierung
-        return []
+        sidecar_pv = []
+        
+        for pv in pv_data:
+            sidecar_pv_entry = {
+                "peak_power": pv.get('peak_power', 10.0),
+                "orientation": pv.get('orientation', 180),
+                "inclination": pv.get('inclination', 30),
+                "system_loss": 0.14,
+                "battery_capacity": pv.get('battery_capacity', 0.0)
+            }
+            
+            sidecar_pv.append(sidecar_pv_entry)
+        
+        return sidecar_pv
     
     # ========================================================================
     # Helper-Funktionen
@@ -520,3 +589,64 @@ class SidecarGenerator:
             return "INTERIOR"
         else:
             return "EXTERIOR"  # Default
+    
+    def _map_heating_type(self, art: str) -> str:
+        """Mappt EVEBI Heizungs-Art zu Sidecar System-Typ"""
+        art_upper = art.upper()
+        
+        if "WAERMEPUMPE" in art_upper or "WP" in art_upper:
+            if "LUFT" in art_upper:
+                return "HEAT_PUMP_AIR"
+            elif "SOLE" in art_upper or "ERDWAERME" in art_upper:
+                return "HEAT_PUMP_BRINE"
+            else:
+                return "HEAT_PUMP_AIR"  # Default
+        elif "FERNWAERME" in art_upper:
+            return "DISTRICT_HEATING"
+        elif "KESSEL" in art_upper or "BRENNWERT" in art_upper:
+            return "BOILER"
+        elif "OFEN" in art_upper:
+            return "STOVE"
+        else:
+            return "BOILER"  # Default
+    
+    def _detect_energy_source(self, name: str) -> str:
+        """Erkennt Energieträger aus System-Name"""
+        name_lower = name.lower()
+        
+        if "strom" in name_lower or "wp" in name_lower or "wärmepumpe" in name_lower:
+            return "ELECTRICITY"
+        elif "gas" in name_lower or "erdgas" in name_lower:
+            return "GAS"
+        elif "öl" in name_lower or "oel" in name_lower:
+            return "OIL"
+        elif "fernwärme" in name_lower or "fernwaerme" in name_lower:
+            return "DISTRICT_HEATING"
+        elif "holz" in name_lower or "pellet" in name_lower:
+            return "BIOMASS"
+        else:
+            return "GAS"  # Default
+    
+    def _map_dhw_type(self, art: str) -> str:
+        """Mappt EVEBI Warmwasser-Art zu Sidecar DHW-Typ"""
+        art_upper = art.upper()
+        
+        if "ZENTRAL" in art_upper or "HZG" in art_upper:
+            return "CENTRAL"
+        elif "DEZENTRAL" in art_upper:
+            return "DECENTRAL"
+        else:
+            return "CENTRAL"  # Default
+    
+    def _map_ventilation_type(self, art: str) -> str:
+        """Mappt EVEBI Lüftungs-Art zu Sidecar Ventilation-Typ"""
+        art_upper = art.upper()
+        
+        if "FREI" in art_upper or "FENSTER" in art_upper:
+            return "NATURAL"
+        elif "ZENTRAL" in art_upper or "RLT" in art_upper:
+            return "SUPPLY_EXHAUST"
+        elif "DEZENTRAL" in art_upper or "ABLUFT" in art_upper:
+            return "EXHAUST_ONLY"
+        else:
+            return "NATURAL"  # Default

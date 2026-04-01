@@ -10,6 +10,7 @@ from jsonschema import validate, ValidationError
 
 # Neue Imports für Sidecar Generator v2
 from parsers.evebi_parser import parse_evea, evebi_data_to_dict
+from parsers.ifc_parser import parse_ifc, ifc_geometry_to_dict
 from generators.sidecar_generator import SidecarGenerator
 
 app = FastAPI(
@@ -270,19 +271,18 @@ async def generate_sidecar_json(
             print(f"   - Bauteile: {len(evebi_dict['elements'])}")
             print(f"   - Zonen: {len(evebi_dict['zones'])}")
             
-            # 2. IFC parsen (vereinfacht - TODO: Echten IFC-Parser nutzen)
+            # 2. IFC parsen
             print("\n🔍 Parse IFC...")
-            # Für jetzt: Mock-Daten (später echten IFC-Parser integrieren)
-            ifc_dict = {
-                "project_name": evebi_dict['project_name'],
-                "building_guid": "MOCK-BUILDING-GUID",
-                "walls": [],
-                "roofs": [],
-                "floors": [],
-                "windows": [],
-                "doors": []
-            }
-            print(f"⚠️  IFC-Parser noch nicht integriert (Mock-Daten)")
+            ifc_geometry = parse_ifc(str(ifc_path))
+            ifc_dict = ifc_geometry_to_dict(ifc_geometry)
+            
+            print(f"✅ IFC geparst:")
+            print(f"   - Projekt: {ifc_dict['project_name']}")
+            print(f"   - Wände: {len(ifc_dict['walls'])}")
+            print(f"   - Dächer: {len(ifc_dict['roofs'])}")
+            print(f"   - Böden: {len(ifc_dict['floors'])}")
+            print(f"   - Fenster: {len(ifc_dict['windows'])}")
+            print(f"   - Türen: {len(ifc_dict['doors'])}")
             
             # 3. Sidecar generieren
             print("\n🔨 Generiere Sidecar JSON...")
@@ -301,19 +301,28 @@ async def generate_sidecar_json(
             print(f"   - Bauteile: {len(sidecar['input']['elements'])}")
             print(f"   - Fenster: {len(sidecar['input']['windows'])}")
             
+            # Stats berechnen
+            total_ifc = len(ifc_dict['walls']) + len(ifc_dict['roofs']) + len(ifc_dict['floors']) + len(ifc_dict['windows']) + len(ifc_dict['doors'])
+            total_sidecar = len(sidecar['input']['elements']) + len(sidecar['input']['windows'])
+            
+            warnings = []
+            if total_sidecar < total_ifc:
+                unmatched = total_ifc - total_sidecar
+                warnings.append(f"{unmatched} IFC-Elemente konnten nicht mit EVEBI-Daten gematcht werden")
+            
             return {
                 "success": True,
                 "sidecar": sidecar,
                 "stats": {
+                    "ifc_elements": total_ifc,
                     "evebi_elements": len(evebi_dict['elements']),
                     "evebi_zones": len(evebi_dict['zones']),
                     "sidecar_elements": len(sidecar['input']['elements']),
                     "sidecar_windows": len(sidecar['input']['windows']),
-                    "sidecar_zones": len(sidecar['input']['zones'])
+                    "sidecar_zones": len(sidecar['input']['zones']),
+                    "match_rate": round(total_sidecar / total_ifc * 100, 1) if total_ifc > 0 else 0
                 },
-                "warnings": [
-                    "IFC-Parser noch nicht integriert - keine IFC-EVEBI Verknüpfung"
-                ]
+                "warnings": warnings
             }
             
         except Exception as e:
