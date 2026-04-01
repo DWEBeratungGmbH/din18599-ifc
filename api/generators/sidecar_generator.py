@@ -314,11 +314,21 @@ class SidecarGenerator:
             else:
                 still_unmatched.append(ifc_elem)
         
+        # Ungematchte IFC-Elemente auch hinzufügen (wichtig für Fenster!)
+        for ifc_elem in still_unmatched:
+            matches.append({
+                "ifc": ifc_elem,
+                "evebi": None,  # Kein EVEBI-Match
+                "score": 0.0,
+                "method": "ifc_only"
+            })
+        
         print(f"\n📊 Matching-Statistik:")
         print(f"   - Pass 1 (PosNo): {len([m for m in matches if m.get('method') == 'posno'])} Matches")
         print(f"   - Pass 2 (Fuzzy): {len([m for m in matches if m.get('method') == 'fuzzy'])} Matches")
-        print(f"   - Unmatched IFC: {len(still_unmatched)}")
-        print(f"   - Match-Rate: {len(matches) / len(ifc_elements) * 100:.1f}%")
+        print(f"   - IFC-Only (unmatched): {len([m for m in matches if m.get('method') == 'ifc_only'])} Elemente")
+        print(f"   - Total Elemente: {len(matches)}")
+        print(f"   - Match-Rate: {len([m for m in matches if m['evebi']]) / len(ifc_elements) * 100:.1f}%")
         
         return matches
     
@@ -585,11 +595,14 @@ class SidecarGenerator:
             ifc_elem = match["ifc"]
             evebi_elem = match["evebi"]
             
-            if evebi_elem.element_type == "WINDOW":
-                # Fenster
+            # Prüfe ob IFC-Element ein Fenster ist (aus IFC-Typ)
+            is_window = ifc_elem.type.lower() in ["window", "ifcwindow"]
+            
+            if is_window:
+                # Fenster (aus IFC, mit oder ohne EVEBI-Match)
                 window = {
                     "ifc_guid": ifc_elem.guid,
-                    "u_value_glass": evebi_elem.u_value or 1.1,
+                    "u_value_glass": evebi_elem.u_value if evebi_elem else 1.1,
                     "u_value_frame": 1.3,  # Default
                     "psi_spacer": 0.03,  # Default
                     "g_value": 0.6,  # Default
@@ -603,13 +616,13 @@ class SidecarGenerator:
                 # Opakes Bauteil
                 element = {
                     "ifc_guid": ifc_elem.guid,
-                    "boundary_condition": self._detect_boundary_condition(evebi_elem.name),
-                    "layer_structure_ref": f"LS-{evebi_elem.construction_ref[:8]}" if evebi_elem.construction_ref else None,
-                    "u_value_undisturbed": evebi_elem.u_value,
+                    "boundary_condition": self._detect_boundary_condition(evebi_elem.name if evebi_elem else ifc_elem.name),
+                    "layer_structure_ref": f"LS-{evebi_elem.construction_ref[:8]}" if (evebi_elem and evebi_elem.construction_ref) else None,
+                    "u_value_undisturbed": evebi_elem.u_value if evebi_elem else 0,
                     "thermal_bridge_delta_u": 0.02,  # Default
                     "thermal_bridge_type": "SIMPLIFIED",
-                    "orientation": evebi_elem.orientation or 0,
-                    "inclination": evebi_elem.inclination or 90
+                    "orientation": (evebi_elem.orientation if evebi_elem else 0) or 0,
+                    "inclination": (evebi_elem.inclination if evebi_elem else 90) or 90
                 }
                 
                 # Solar Absorption (nur für Außenbauteile)
