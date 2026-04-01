@@ -791,6 +791,11 @@ class SidecarGenerator:
                         structure_type = self._detect_structure_type(ifc_layer.get("type", ifc_elem.name))
                         u_value = self._calculate_u_value_from_layers(sidecar_layers, structure_type)
                 
+                # Versuch 3: Fallback - Default U-Wert basierend auf Typ (für Dächer/Böden ohne Material-Layers)
+                if not layer_structure_ref or u_value == 0:
+                    # Nutze Default U-Werte
+                    u_value = self._calculate_u_value_from_layers([], ifc_elem.type)
+                
                 element = {
                     "ifc_guid": ifc_elem.guid,
                     "boundary_condition": self._detect_boundary_condition(evebi_elem.name if evebi_elem else ifc_elem.name),
