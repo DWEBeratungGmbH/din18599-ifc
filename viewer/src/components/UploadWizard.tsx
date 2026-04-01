@@ -61,6 +61,18 @@ export function UploadWizard({ onSidecarGenerated, onClose }: UploadWizardProps)
       return
     }
 
+    console.log('📁 IFC-Datei ausgewählt:', {
+      name: file.name,
+      size: file.size,
+      type: file.type,
+      lastModified: file.lastModified
+    })
+
+    if (file.size === 0) {
+      setIfcError('Datei ist leer (0 Bytes)')
+      return
+    }
+
     setIfcFile(file)
     setIfcLoading(true)
     setIfcError(null)
@@ -68,6 +80,8 @@ export function UploadWizard({ onSidecarGenerated, onClose }: UploadWizardProps)
     try {
       const formData = new FormData()
       formData.append('ifc_file', file)
+      
+      console.log('📤 FormData erstellt, sende Request...')
 
       const response = await fetch('http://localhost:8001/parse-ifc', {
         method: 'POST',
@@ -96,6 +110,18 @@ export function UploadWizard({ onSidecarGenerated, onClose }: UploadWizardProps)
       return
     }
 
+    console.log('📁 EVEBI-Datei ausgewählt:', {
+      name: file.name,
+      size: file.size,
+      type: file.type,
+      lastModified: file.lastModified
+    })
+
+    if (file.size === 0) {
+      setEvebiError('Datei ist leer (0 Bytes)')
+      return
+    }
+
     setEvebiFile(file)
     setEvebiLoading(true)
     setEvebiError(null)
@@ -105,6 +131,9 @@ export function UploadWizard({ onSidecarGenerated, onClose }: UploadWizardProps)
       formData.append('evebi_file', file)
       if (ifcFile) {
         formData.append('ifc_file', ifcFile)
+        console.log('📤 FormData mit IFC + EVEBI erstellt')
+      } else {
+        console.log('📤 FormData nur mit EVEBI erstellt')
       }
 
       const response = await fetch('http://localhost:8001/parse-evebi', {
