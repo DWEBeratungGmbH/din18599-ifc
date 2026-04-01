@@ -1,0 +1,359 @@
+{
+  "meta": {
+    "schema_version": "2.1",
+    "project_name": "EFH 1978 - Musterprojekt",
+    "project_id": "demo-efh-1978",
+    "software_name": "DIN18599 Viewer",
+    "software_version": "0.1.0",
+    "norm_version": "DIN V 18599:2018-09",
+    "calculation_date": "2026-03-31T12:00:00Z",
+    "created_by": "Demo User",
+    "last_modified": "2026-04-01T08:30:00Z"
+  },
+  "input": {
+    "building": {
+      "name": "Einfamilienhaus 1978",
+      "type": "residential",
+      "year_built": 1978,
+      "net_floor_area": 150.0,
+      "heated_volume": 450.0,
+      "location": {
+        "climate_zone": "TRY_12_Essen",
+        "altitude": 116.0,
+        "latitude": 51.45,
+        "longitude": 7.01
+      }
+    },
+    "zones": [
+      {
+        "id": "zone_wohnen",
+        "name": "Wohnbereich EG+OG",
+        "type": "LIVING",
+        "is_heated": true,
+        "area_an": 120.0,
+        "volume": 360.0,
+        "clear_height": 2.5,
+        "usage_profile": "DIN18599_Wohnen_MFH",
+        "internal_gains": 5.0,
+        "air_change_rate": 0.5
+      },
+      {
+        "id": "zone_keller",
+        "name": "Keller (unbeheizt)",
+        "type": "BASEMENT",
+        "is_heated": false,
+        "area_an": 30.0,
+        "volume": 90.0,
+        "clear_height": 2.3,
+        "air_change_rate": 0.3
+      }
+    ],
+    "envelope": {
+      "walls_external": [
+        {
+          "id": "wall_sued",
+          "ifc_guid": "3a8f9c2e-1234-5678-90ab-cdef12345678",
+          "name": "Außenwand Süd",
+          "boundary_condition": "EXTERNAL",
+          "orientation": 180.0,
+          "inclination": 90.0,
+          "area": 45.0,
+          "u_value_undisturbed": 1.2,
+          "thermal_bridge_delta_u": 0.15,
+          "thermal_bridge_type": "DEFAULT",
+          "solar_absorption": 0.6,
+          "construction_catalog_ref": "Mauerwerk_365mm_Baujahr_1978"
+        },
+        {
+          "id": "wall_nord",
+          "ifc_guid": "3a8f9c2e-1234-5678-90ab-cdef12345679",
+          "name": "Außenwand Nord",
+          "boundary_condition": "EXTERNAL",
+          "orientation": 0.0,
+          "inclination": 90.0,
+          "area": 45.0,
+          "u_value_undisturbed": 1.2,
+          "thermal_bridge_delta_u": 0.15,
+          "thermal_bridge_type": "DEFAULT",
+          "solar_absorption": 0.6,
+          "construction_catalog_ref": "Mauerwerk_365mm_Baujahr_1978"
+        },
+        {
+          "id": "wall_ost",
+          "ifc_guid": "3a8f9c2e-1234-5678-90ab-cdef1234567a",
+          "name": "Außenwand Ost",
+          "boundary_condition": "EXTERNAL",
+          "orientation": 90.0,
+          "area": 30.0,
+          "u_value_undisturbed": 1.2,
+          "thermal_bridge_delta_u": 0.15,
+          "construction_catalog_ref": "Mauerwerk_365mm_Baujahr_1978"
+        },
+        {
+          "id": "wall_west",
+          "ifc_guid": "3a8f9c2e-1234-5678-90ab-cdef1234567b",
+          "name": "Außenwand West",
+          "boundary_condition": "EXTERNAL",
+          "orientation": 270.0,
+          "area": 30.0,
+          "u_value_undisturbed": 1.2,
+          "thermal_bridge_delta_u": 0.15,
+          "construction_catalog_ref": "Mauerwerk_365mm_Baujahr_1978"
+        }
+      ],
+      "roofs": [
+        {
+          "id": "roof_main",
+          "ifc_guid": "3a8f9c2e-1234-5678-90ab-cdef1234567c",
+          "name": "Dach (Satteldach)",
+          "boundary_condition": "EXTERNAL",
+          "orientation": 180.0,
+          "inclination": 35.0,
+          "area": 85.0,
+          "u_value_undisturbed": 0.8,
+          "thermal_bridge_delta_u": 0.05,
+          "thermal_bridge_type": "DEFAULT",
+          "solar_absorption": 0.6,
+          "construction_catalog_ref": "Dach_ungedaemmt_1978"
+        }
+      ],
+      "floors": [
+        {
+          "id": "floor_keller",
+          "ifc_guid": "3a8f9c2e-1234-5678-90ab-cdef1234567d",
+          "name": "Kellerdecke",
+          "boundary_condition": "UNHEATED",
+          "area": 120.0,
+          "perimeter": 44.0,
+          "characteristic_dimension_b": 5.45,
+          "u_value_undisturbed": 1.0,
+          "thermal_bridge_delta_u": 0.1,
+          "construction_catalog_ref": "Kellerdecke_ungedaemmt"
+        }
+      ],
+      "openings": [
+        {
+          "id": "window_sued_1",
+          "type": "WINDOW",
+          "ifc_guid": "3a8f9c2e-1234-5678-90ab-cdef1234567e",
+          "name": "Fenster Süd (Wohnzimmer)",
+          "parent_element_id": "wall_sued",
+          "parent_element_type": "WALL_EXT",
+          "orientation": 180.0,
+          "area": 6.0,
+          "u_value_glass": 2.8,
+          "u_value_frame": 2.5,
+          "g_value": 0.75,
+          "frame_fraction": 0.3,
+          "psi_spacer": 0.08,
+          "shading_factor_fs": 0.9
+        },
+        {
+          "id": "window_nord_1",
+          "type": "WINDOW",
+          "ifc_guid": "3a8f9c2e-1234-5678-90ab-cdef1234567f",
+          "name": "Fenster Nord (Küche)",
+          "parent_element_id": "wall_nord",
+          "parent_element_type": "WALL_EXT",
+          "orientation": 0.0,
+          "area": 3.0,
+          "u_value_glass": 2.8,
+          "u_value_frame": 2.5,
+          "g_value": 0.75,
+          "frame_fraction": 0.3,
+          "psi_spacer": 0.08,
+          "shading_factor_fs": 0.95,
+          "solar_gain_factor": 0.5
+        }
+      ]
+    },
+    "systems": [
+      {
+        "id": "heater_main",
+        "type": "gas_boiler",
+        "name": "Gaskessel",
+        "year_built": 1995,
+        "nominal_power": 18.0,
+        "efficiency_nominal": 0.85
+      }
+    ],
+    "building_elements": [
+      {
+        "id": "stair_keller_eg",
+        "type": "STAIR",
+        "name": "Kellertreppe",
+        "source": "CORRECTION",
+        "geometry": {
+          "location": [0.5, 0.5, 0.0],
+          "dimensions": {
+            "width": 1.0,
+            "depth": 4.0,
+            "height": 2.5,
+            "area": 4.0,
+            "volume": 10.0
+          }
+        },
+        "affects_zones": [
+          {
+            "zone_id": "zone_wohnen",
+            "area_delta": -4.0,
+            "volume_delta": -10.0
+          }
+        ],
+        "affects_elements": [
+          {
+            "element_id": "floor_keller",
+            "element_type": "SLAB_FLR",
+            "area_delta": -4.0
+          }
+        ],
+        "thermal": {
+          "is_inside_envelope": false,
+          "boundary_condition": "UNHEATED",
+          "u_value": 0.25
+        },
+        "description": "Treppe von Keller zu EG",
+        "reason": "Treppe fehlt in IFC, manuell hinzugefügt. Unterseite gedämmt (thermische Grenze)."
+      }
+    ]
+  },
+  "output": {
+    "energy_balance": {
+      "final_energy_kwh_a": 28500,
+      "primary_energy_kwh_a": 32000,
+      "co2_emissions_kg_a": 6800
+    },
+    "indicators": {
+      "efficiency_class": "F",
+      "specific_primary_energy_kwh_m2a": 213.3
+    },
+    "sectors": {
+      "heating_kwh_a": 24000,
+      "cooling_kwh_a": 0,
+      "dhw_kwh_a": 3500,
+      "ventilation_kwh_a": 500,
+      "lighting_kwh_a": 500
+    }
+  },
+  "scenarios": [
+    {
+      "id": "sanierung_stufe1",
+      "name": "Sanierung Stufe 1: WDVS + Fenster",
+      "description": "Dämmung der Außenwände (WDVS 160mm) und Fenstertausch",
+      "measures": [
+        {
+          "id": "measure_wdvs",
+          "type": "INSULATION_FACADE",
+          "name": "WDVS 160mm EPS 035",
+          "description": "Wärmedämmverbundsystem 160mm, EPS 035, λ=0.035 W/(mK)",
+          "affected_elements": ["wall_sued", "wall_nord", "wall_ost", "wall_west"],
+          "cost_estimate": 18000,
+          "cost_annual_savings": 800,
+          "payback_period_years": 22.5,
+          "funding_eligible": true,
+          "funding_program": "BEG EM",
+          "funding_amount": 3600
+        },
+        {
+          "id": "measure_windows",
+          "type": "WINDOW_REPLACEMENT",
+          "name": "Dreifachverglasung",
+          "description": "Fenster mit Dreifachverglasung, Ug=1.0 W/(m²K)",
+          "affected_elements": ["window_sued_1", "window_nord_1"],
+          "cost_estimate": 8000,
+          "cost_annual_savings": 400,
+          "payback_period_years": 20.0,
+          "funding_eligible": true,
+          "funding_program": "BEG EM",
+          "funding_amount": 1600
+        }
+      ],
+      "delta": {
+        "input": {
+          "envelope": {
+            "walls_external": [
+              {
+                "id": "wall_sued",
+                "u_value_undisturbed": 0.21,
+                "thermal_bridge_delta_u": 0.05,
+                "thermal_bridge_type": "REDUCED",
+                "solar_absorption": 0.4,
+                "construction_catalog_ref": "WDVS_160mm_EPS_035"
+              },
+              {
+                "id": "wall_nord",
+                "u_value_undisturbed": 0.21,
+                "thermal_bridge_delta_u": 0.05,
+                "thermal_bridge_type": "REDUCED",
+                "solar_absorption": 0.4
+              },
+              {
+                "id": "wall_ost",
+                "u_value_undisturbed": 0.21,
+                "thermal_bridge_delta_u": 0.05,
+                "thermal_bridge_type": "REDUCED",
+                "solar_absorption": 0.4
+              },
+              {
+                "id": "wall_west",
+                "u_value_undisturbed": 0.21,
+                "thermal_bridge_delta_u": 0.05,
+                "thermal_bridge_type": "REDUCED",
+                "solar_absorption": 0.4
+              }
+            ],
+            "openings": [
+              {
+                "id": "window_sued_1",
+                "u_value_glass": 1.0,
+                "u_value_frame": 1.2,
+                "g_value": 0.6,
+                "psi_spacer": 0.04,
+                "shading_factor_fs": 0.9
+              },
+              {
+                "id": "window_nord_1",
+                "u_value_glass": 1.0,
+                "u_value_frame": 1.2,
+                "g_value": 0.6,
+                "psi_spacer": 0.04,
+                "shading_factor_fs": 0.95
+              }
+            ]
+          }
+        }
+      },
+      "output": {
+        "energy_balance": {
+          "final_energy_kwh_a": 12500,
+          "primary_energy_kwh_a": 14000,
+          "co2_emissions_kg_a": 2980,
+          "heating_demand_kwh_a": 9000,
+          "dhw_demand_kwh_a": 3000,
+          "ventilation_demand_kwh_a": 500
+        },
+        "indicators": {
+          "efficiency_class": "C",
+          "specific_final_energy": 83.3,
+          "specific_primary_energy": 93.3
+        },
+        "sectors": {
+          "heating": 9000,
+          "cooling": 0,
+          "dhw": 3000,
+          "ventilation": 500,
+          "lighting": 0
+        },
+        "savings": {
+          "final_energy_kwh_a": 16000,
+          "final_energy_percent": 56.1,
+          "primary_energy_kwh_a": 18000,
+          "primary_energy_percent": 56.3,
+          "co2_kg_a": 3820,
+          "co2_percent": 56.2,
+          "cost_annual_eur": 1600
+        }
+      }
+    }
+  ]
+}
