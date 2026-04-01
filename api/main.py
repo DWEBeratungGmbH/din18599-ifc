@@ -164,29 +164,21 @@ async def parse_evebi_file(
             raise HTTPException(status_code=500, detail=f"Fehler beim Parsen: {str(e)}")
 
 
-@app.post("/process")
-async def process_files(
-    ifc_file: UploadFile = File(...),
-    evebi_file: UploadFile = File(...)
+@app.post("/parse-evebi")
+async def parse_evebi_endpoint(
+    evebi_file: UploadFile = File(...),
+    ifc_file: UploadFile = File(None)
 ):
     """
-    Verarbeitet IFC + EVEBI Dateien und generiert Sidecar JSON (Step 3)
+    Parst EVEBI-Datei und gibt strukturierte Daten zurück
     """
     # Validierung
-    if not ifc_file.filename.endswith('.ifc'):
-        raise HTTPException(status_code=400, detail="IFC-Datei muss .ifc Extension haben")
-    
-    if not evebi_file.filename.endswith('.evea'):
-        raise HTTPException(status_code=400, detail="EVEBI-Datei muss .evea Extension haben")
+    if not (evebi_file.filename.endswith('.evea') or evebi_file.filename.endswith('.evex')):
+        raise HTTPException(status_code=400, detail="EVEBI-Datei muss .evea oder .evex Extension haben")
     
     # Temporäre Dateien erstellen
     with tempfile.TemporaryDirectory() as temp_dir:
         temp_path = Path(temp_dir)
-        
-        # IFC speichern
-        ifc_path = temp_path / ifc_file.filename
-        with open(ifc_path, 'wb') as f:
-            shutil.copyfileobj(ifc_file.file, f)
         
         # EVEBI speichern
         evebi_path = temp_path / evebi_file.filename
@@ -194,36 +186,19 @@ async def process_files(
             shutil.copyfileobj(evebi_file.file, f)
         
         try:
-            # 1. IFC parsen
-            ifc_geometry = parse_ifc(str(ifc_path))
-            
-            # 2. EVEBI parsen
+            # EVEBI parsen
             evebi_data = parse_evea(str(evebi_path))
-            
-            # 3. Mapping
-            mapping_result = map_ifc_to_evebi(ifc_geometry, evebi_data, strategy='auto')
-            
-            # 4. Sidecar generieren
-            sidecar = generate_sidecar(
-                ifc_geometry=ifc_geometry,
-                evebi_data=evebi_data,
-                mapping_result=mapping_result,
-                ifc_filename=ifc_file.filename,
-                evebi_filename=evebi_file.filename
-            )
+            evebi_dict = evebi_data_to_dict(evebi_data)
             
             return {
                 "success": True,
-                "sidecar": sidecar,
-                "stats": mapping_result.stats,
-                "warnings": [
-                    f"{len(mapping_result.unmatched_ifc)} IFC-Elemente nicht gemappt",
-                    f"{len(mapping_result.unmatched_evebi)} EVEBI-Elemente nicht gemappt"
-                ] if mapping_result.unmatched_ifc or mapping_result.unmatched_evebi else []
+                "evebi_data": evebi_dict
             }
             
         except Exception as e:
-            raise HTTPException(status_code=500, detail=f"Fehler beim Verarbeiten: {str(e)}")
+            import traceback
+            traceback.print_exc()
+            raise HTTPException(status_code=500, detail=f"Fehler beim Parsen: {str(e)}")
 
 
 @app.post("/generate-sidecar")
