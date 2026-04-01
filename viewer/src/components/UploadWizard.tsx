@@ -78,15 +78,28 @@ export function UploadWizard({ onSidecarGenerated, onClose }: UploadWizardProps)
     setIfcError(null)
 
     try {
-      const formData = new FormData()
-      formData.append('ifc_file', file)
+      // Workaround: Erstelle neues Blob aus File, um Browser-Serialisierungs-Probleme zu vermeiden
+      const blob = new Blob([file], { type: file.type || 'application/octet-stream' })
+      console.log('📦 Blob erstellt:', blob.size, 'bytes')
       
-      console.log('📤 FormData erstellt, sende Request...')
+      const formData = new FormData()
+      formData.append('ifc_file', blob, file.name)
+      
+      // Debug: Prüfe FormData
+      console.log('📤 FormData erstellt')
+      console.log('FormData entries:', Array.from(formData.entries()).map(([key, value]) => ({
+        key,
+        value: value instanceof Blob ? `Blob: ${value.size} bytes` : value
+      })))
+      
+      console.log('🚀 Sende Request...')
 
       const response = await fetch('http://localhost:8001/parse-ifc', {
         method: 'POST',
         body: formData,
       })
+      
+      console.log('✅ Response erhalten:', response.status)
 
       if (!response.ok) {
         const errorData = await response.json()
@@ -127,10 +140,16 @@ export function UploadWizard({ onSidecarGenerated, onClose }: UploadWizardProps)
     setEvebiError(null)
 
     try {
+      // Workaround: Erstelle neues Blob aus File
+      const evebiBlob = new Blob([file], { type: file.type || 'application/custom' })
+      console.log('📦 EVEBI Blob erstellt:', evebiBlob.size, 'bytes')
+      
       const formData = new FormData()
-      formData.append('evebi_file', file)
+      formData.append('evebi_file', evebiBlob, file.name)
+      
       if (ifcFile) {
-        formData.append('ifc_file', ifcFile)
+        const ifcBlob = new Blob([ifcFile], { type: ifcFile.type || 'application/octet-stream' })
+        formData.append('ifc_file', ifcBlob, ifcFile.name)
         console.log('📤 FormData mit IFC + EVEBI erstellt')
       } else {
         console.log('📤 FormData nur mit EVEBI erstellt')
