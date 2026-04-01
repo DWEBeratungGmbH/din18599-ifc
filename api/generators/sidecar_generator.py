@@ -158,6 +158,11 @@ class SidecarGenerator:
                     if "properties" in elem and "PosNo" in elem["properties"]:
                         posno = elem["properties"]["PosNo"]
                     
+                    # Falls keine PosNo in Properties, aus Namen extrahieren
+                    # Muster: "Wand - 001", "Fenster - 002", "Außenwand Pos 001"
+                    if not posno:
+                        posno = self._extract_posno_from_name(elem.get("name", ""))
+                    
                     elements.append(IFCElement(
                         guid=elem.get("guid", ""),
                         type=element_type.upper().rstrip("S"),  # "walls" -> "WALL"
@@ -167,6 +172,35 @@ class SidecarGenerator:
                     ))
         
         return elements
+    
+    def _extract_posno_from_name(self, name: str) -> Optional[str]:
+        """
+        Extrahiert PosNo aus Element-Namen
+        
+        Muster:
+        - "Wand - 001" -> "001"
+        - "Fenster - 002" -> "002"
+        - "Außenwand Pos 001" -> "001"
+        - "Tür in Zwischenwand Pos 002" -> "002"
+        """
+        import re
+        
+        # Muster 1: " - 001", " - 002" (IFC-Standard)
+        match = re.search(r'\s-\s(\d{3,})', name)
+        if match:
+            return match.group(1)
+        
+        # Muster 2: "Pos 001", "Pos 002" (EVEBI-Standard)
+        match = re.search(r'Pos\s+(\d{3,})', name, re.IGNORECASE)
+        if match:
+            return match.group(1)
+        
+        # Muster 3: Nur Zahl am Ende "001", "002"
+        match = re.search(r'\b(\d{3,})$', name)
+        if match:
+            return match.group(1)
+        
+        return None
     
     # ========================================================================
     # EVEBI-Daten Vorbereitung
