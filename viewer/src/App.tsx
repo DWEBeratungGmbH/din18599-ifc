@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls, Grid } from '@react-three/drei'
 import { useViewerStore } from './store/viewer.store'
@@ -7,9 +8,12 @@ import { Floor } from './components/Floor'
 import { Window } from './components/Window'
 import { ScenarioSwitcher } from './components/ScenarioSwitcher'
 import { BuildingDataModal } from './components/BuildingDataModal/BuildingDataModal'
+import { FileUpload } from './components/FileUpload'
+import { Download } from 'lucide-react'
 
 function App() {
   const { project, loadProject, selectedId, selectElement, openBuildingDataModal } = useViewerStore()
+  const [showUpload, setShowUpload] = useState(!project)
 
   // Berechne Netto-Wandflächen (Brutto - Fenster)
   const getNetWallArea = (wall: any) => {
@@ -29,10 +33,34 @@ function App() {
       if (!response.ok) throw new Error('Fehler beim Laden')
       const data = await response.json()
       loadProject(data)
+      setShowUpload(false)
     } catch (error) {
       console.error('Fehler beim Laden:', error)
       alert('Demo konnte nicht geladen werden')
     }
+  }
+
+  const handleSidecarGenerated = (sidecar: any) => {
+    loadProject(sidecar)
+    setShowUpload(false)
+  }
+
+  const handleDownloadJSON = () => {
+    if (!project) return
+    
+    const blob = new Blob([JSON.stringify(project, null, 2)], { type: 'application/json' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = `${project.meta.project_name || 'sidecar'}.din18599.json`
+    document.body.appendChild(a)
+    a.click()
+    document.body.removeChild(a)
+    URL.revokeObjectURL(url)
+  }
+
+  const handleNewUpload = () => {
+    setShowUpload(true)
   }
 
   return (
@@ -52,41 +80,124 @@ function App() {
         </h1>
         <div style={{ marginLeft: 'auto', display: 'flex', gap: '10px' }}>
           {project && (
+            <>
+              <button 
+                onClick={openBuildingDataModal}
+                style={{
+                  padding: '8px 16px',
+                  background: '#14b8a6',
+                  color: 'white',
+                  border: 'none',
+                  borderRadius: '6px',
+                  cursor: 'pointer',
+                  fontSize: '14px',
+                  fontWeight: 500
+                }}
+              >
+                📊 Gebäudedaten
+              </button>
+              <button 
+                onClick={handleDownloadJSON}
+                style={{
+                  padding: '8px 16px',
+                  background: '#10b981',
+                  color: 'white',
+                  border: 'none',
+                  borderRadius: '6px',
+                  cursor: 'pointer',
+                  fontSize: '14px',
+                  fontWeight: 500,
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '6px'
+                }}
+              >
+                <Download size={16} />
+                JSON Download
+              </button>
+              <button 
+                onClick={handleNewUpload}
+                style={{
+                  padding: '8px 16px',
+                  background: '#6366f1',
+                  color: 'white',
+                  border: 'none',
+                  borderRadius: '6px',
+                  cursor: 'pointer',
+                  fontSize: '14px'
+                }}
+              >
+                Neue Dateien
+              </button>
+            </>
+          )}
+          {!project && (
             <button 
-              onClick={openBuildingDataModal}
+              onClick={handleLoadDemo}
               style={{
                 padding: '8px 16px',
-                background: '#14b8a6',
+                background: '#3b82f6',
                 color: 'white',
                 border: 'none',
                 borderRadius: '6px',
                 cursor: 'pointer',
-                fontSize: '14px',
-                fontWeight: 500
+                fontSize: '14px'
               }}
             >
-              📊 Gebäudedaten
+              Demo laden
             </button>
           )}
-          <button 
-            onClick={handleLoadDemo}
-            style={{
-              padding: '8px 16px',
-              background: '#3b82f6',
-              color: 'white',
-              border: 'none',
-              borderRadius: '6px',
-              cursor: 'pointer',
-              fontSize: '14px'
-            }}
-          >
-            Demo laden
-          </button>
         </div>
       </div>
 
       {/* Main Content */}
       <div style={{ flex: 1, display: 'flex' }}>
+        {/* Upload Modal */}
+        {showUpload && (
+          <div style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: 'rgba(0, 0, 0, 0.5)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            zIndex: 1000
+          }}>
+            <div style={{
+              background: 'white',
+              borderRadius: '12px',
+              padding: '20px',
+              maxWidth: '800px',
+              width: '90%',
+              maxHeight: '90vh',
+              overflowY: 'auto'
+            }}>
+              <FileUpload onSidecarGenerated={handleSidecarGenerated} />
+              {project && (
+                <button
+                  onClick={() => setShowUpload(false)}
+                  style={{
+                    marginTop: '16px',
+                    width: '100%',
+                    padding: '12px',
+                    background: '#f3f4f6',
+                    border: 'none',
+                    borderRadius: '6px',
+                    cursor: 'pointer',
+                    fontSize: '14px',
+                    fontWeight: 500
+                  }}
+                >
+                  Abbrechen
+                </button>
+              )}
+            </div>
+          </div>
+        )}
+
         {/* Sidebar */}
         <div style={{
           width: '300px',

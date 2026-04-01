@@ -1,0 +1,6 @@
+# GitHub Linguist - Archiv ausblenden
+archive/** linguist-vendored
+archive/** linguist-documentation
+
+# Alte Pläne ausblenden
+.plans/ROADMAP_v2.1_old.md linguist-documentation

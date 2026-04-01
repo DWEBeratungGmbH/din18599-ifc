@@ -1,6 +1,6 @@
 # DIN 18599 IFC Sidecar - Roadmap 2026
 
-**Version:** 2.3  
+**Version:** 3.0  
 **Stand:** 1. April 2026  
 **Projekt:** Open Source Standard für energetische Gebäudeakte
 
@@ -11,404 +11,204 @@
 **Vision:** Software-neutraler Datenstandard für die energetische Gebäudeakte, der Geometrie (IFC), Physik (Sidecar) und Berechnung (Software) entkoppelt.
 
 **Hauptziele 2026:**
-1. **Schema v2.1:** Norm-konforme, robuste Datenstruktur (Q2) ✅ **ABGESCHLOSSEN**
-2. **Viewer-MVP:** Professioneller 3D-Viewer + Energiedaten (Q2) 🔄 **IN ARBEIT**
-3. **Community:** Erste externe Contributors, Präsentationen (Q3-Q4)
-
-**Deadline:** **Mai 2026** - MVP-Präsentation in Berlin
+1. ✅ **Schema v2.1:** Norm-konforme, robuste Datenstruktur (Q2) - **ABGESCHLOSSEN**
+2. 🚀 **Parser-System:** IFC + EVEBI → Sidecar Generator (Q2) - **NEU!**
+3. 🔄 **Viewer-MVP:** Professioneller 3D-Viewer + Upload/Download (Q2) - **IN ARBEIT**
+4. 📅 **Community:** Erste externe Contributors, Präsentationen (Q3-Q4)
 
 ---
 
 ## ✅ Status Quo (1. April 2026)
 
-### 🎉 **DURCHBRUCH: Schema v2.1 Final - Vollständig implementiert!**
+### 🎉 **DURCHBRUCH: IFC + EVEBI Parser-System implementiert!**
 
 **Heute erreicht (1. April 2026):**
-- ✅ **Schema v2.1 komplett implementiert**
-  - Parent-Child Beziehungen (parent_element_id, parent_element_type)
-  - Solargewinne (solar_absorption, shading_factor_fs)
-  - Wärmebrücken-Typ (DEFAULT | REDUCED | DETAILED)
-  - B' für Fx-Faktor (perimeter, characteristic_dimension_b)
-  - BuildingElement Add-On für LOD 300+ (Treppen, Gauben, Anbauten)
-  - Maßnahmen mit Kosten & Förderung
-  - Szenario-Output mit Einsparungen
 
-- ✅ **TypeScript Types vollständig** (410 Zeilen)
-  - Alle Interfaces für v2.1
-  - BuildingElement als Add-On
-  - Vollständige Type-Safety
+#### ✅ **Backend: Parser-System (Python + FastAPI)**
+- **EVEBI Parser** (`api/parsers/evebi_parser.py`) - 350+ Zeilen
+  - Parst `.evea` ZIP-Archive (EVEBI Projekt-Dateien)
+  - Extrahiert `projekt.xml` aus ZIP
+  - Liest U-Werte, Konstruktionen, Materialien, Bauteile
+  - Vollständige Dataclasses (EVEBIData, EVEBIElement, EVEBIConstruction)
 
-- ✅ **Demo-JSON erweitert** (360 Zeilen)
-  - Alle v2.1 Felder mit realistischen Werten
-  - BuildingElement: Kellertreppe als Beispiel
-  - Szenario mit vollständigem Output
-  - Kosten: 26.000 € | Förderung: 5.200 € | Einsparung: 1.600 €/a
+- **IFC Parser** (`api/parsers/ifc_parser.py`) - 280+ Zeilen
+  - Parst IFC-Dateien mit `ifcopenshell`
+  - Extrahiert Geometrie (Wände, Dächer, Böden, Fenster)
+  - Berechnet Flächen, Orientierung, Neigung
+  - IFC-GUID + PosNo (Tag) Extraktion
 
-- ✅ **Dokumentation**
-  - Schema v2.1 Final Specification (300+ Zeilen)
-  - Brainstorm-Dokument (379 Zeilen)
-  - Verbesserungen-Dokument (258 Zeilen)
+- **Mapping Engine** (`api/parsers/mapper.py`) - 200+ Zeilen
+  - 3 Mapping-Strategien:
+    1. **PosNo-basiert** (höchste Priorität, 100% Confidence)
+    2. **Name-basiert** (Fallback, Similarity-Score)
+    3. **Geometrie-basiert** (Fläche + Orientierung + Neigung)
+  - Confidence Scoring (0.0 - 1.0)
+  - Unmatched Elements Tracking
 
-- ✅ **Git Commit + Push**
-  - Commit: feat: DIN 18599 Schema v2.1
-  - 15 Dateien, 2847+ Zeilen Code
-  - GitHub: https://github.com/DWEBeratungGmbH/din18599-ifc
+- **Sidecar Generator** (`api/parsers/sidecar_generator.py`) - 150+ Zeilen
+  - Generiert DIN18599 Sidecar JSON v2.1
+  - Kombiniert IFC-Geometrie + EVEBI-Daten
+  - Vollständige Metadaten (Mapping Stats, Timestamps)
+  - Konstruktions-Details (Schichten, λ-Werte)
 
-### Status vor v2.1 (29. März 2026)
+- **FastAPI Endpoints** (`api/main.py`)
+  - `POST /process` - Upload IFC + EVEBI → Sidecar JSON
+  - CORS für Viewer (localhost:3002)
+  - Error Handling + Validation
+  - Temporäre Datei-Verarbeitung
 
-### 🎉 **DURCHBRUCH: DIN 18599 Registries komplett!**
+**Code-Statistik:**
+- **~1000 Zeilen Python** (Production-Ready)
+- **4 Parser-Module** (EVEBI, IFC, Mapper, Generator)
+- **Vollständige Type Hints** (Dataclasses)
 
-**Heute erreicht (29. März 2026):**
-- ✅ **DIN 18599 Registries auf 100%**
-  - 222 Begriffe (Glossar komplett)
-  - 562 Symbole (alle Formelzeichen)
-  - 735 Indizes (alle Indizes)
-  - 45 Nutzungsprofile (Wohn + Nichtwohn)
-  - **= 1564 Einträge total**
+#### ✅ **Frontend: Upload UI + Download (React + TypeScript)**
+- **Upload Komponente** (`viewer/src/components/FileUpload.tsx`) - 200+ Zeilen
+  - Drag & Drop für IFC + EVEBI `.evea`
+  - File Validation (.ifc, .evea Extensions)
+  - Progress Indicator (Loading State)
+  - Success/Error Messages
+  - Mapping Statistics Anzeige
 
-- ✅ **Katalog-System komplett**
-  - 52 Materialien (λ, ρ, c, μ nach DIN 4108-4)
-  - 24 Schichtaufbauten (U-Werte 0.14-5.8 W/(m²K))
-  - 45 Nutzungsprofile (Enum-validiert)
+- **App Integration** (`viewer/src/App.tsx`)
+  - Upload Modal (Overlay)
+  - Download Button (JSON Export)
+  - "Neue Dateien" Button
+  - State Management (showUpload)
 
-- ✅ **Schema v2.1 Extensions**
-  - Katalog-Referenzen (usage_profile_ref, construction_ref, material_ref)
-  - Override-Mechanismus
-  - Migration Guide v2.0 → v2.1
+**Features:**
+- ✅ IFC + EVEBI Upload
+- ✅ Automatische Verarbeitung (Backend)
+- ✅ Sidecar JSON Download
+- ✅ Mapping Statistics
+- ✅ Error Handling
 
-- ✅ **Demo-Projekt**
-  - Einfamilienhaus mit 2 Sanierungsszenarien
-  - Katalog-Referenzen demonstriert
-  - Energiebilanzen (Bestand: 203.7 kWh/a → Stufe 2: 65.3 kWh/a, -68%)
-
-- ✅ **Dokumentation**
-  - CATALOG_GUIDE.md (409 Zeilen)
-  - Brainstorm: Sidecar-Struktur an DIN 18599 anlehnen
-
-### v2.0.0 - Production Ready (27. März 2026)
-
-**Implementiert:**
-- ✅ JSON Schema Draft-07 mit Basis-Validierung
-- ✅ 5 Geometrie-Modi (Standalone, Simplified, IFC-Linked, Hierarchical, B-Rep)
-- ✅ B-Rep Geometrie-Modell (Vertices + Faces)
-- ✅ 3D-Viewer (Three.js, funktionsfähig)
-- ✅ Topologische Validierung
-- ✅ Delta-Modell für Varianten (Base + Scenarios)
-- ✅ Bundesanzeiger-Katalog (97 U-Werte)
-- ✅ Dokumentation (8 Dokumente)
-
-**Technologie:**
-- JSON Schema Draft-07
-- Three.js für 3D-Rendering
-- Apache License 2.0
-- GitHub: https://github.com/DWEBeratungGmbH/din18599-ifc
+#### ✅ **Dokumentation**
+- `.plans/evea-format-breakthrough.md` - EVEBI Format-Analyse
+- `.plans/use-case-final-correct.md` - Korrigierter Use-Case
+- `.plans/workflow-final-revised.md` - Workflow-Dokumentation
 
 ---
 
-## 🚨 Kritisches Feedback (Externe Review)
+## 🚀 **WORKFLOW: Upload → Process → Download**
 
-### Schwere: 🔴 Kritisch
-
-1. **Schema-Constraints zu permissiv**
-   - `elements[].ifc_guid` nicht required → Geometrie-Verankerung fehlt
-   - Kein `uniqueItems` auf Arrays → Duplikate möglich
-   - Kein `additionalProperties: false` → Beliebige Felder erlaubt
-
-2. **Delta-Merge-Semantik undefiniert**
-   - Keine formale Spezifikation, wie Base + Delta gemergt wird
-   - Merge-Key unklar (id? ifc_guid?)
-   - Verschiedene Implementierungen werden unterschiedlich mergen
-
-3. **`usage_profile` kein Enum**
-   - Freier String statt DIN 18599-10 Enum
-   - "17", "017", "Büro", 17 alle schema-konform
-   - Maschinelle Interpretation unmöglich
-
-4. **Primärenergiefaktoren fehlen**
-   - `output.primary_energy_kwh_a` ohne fp-Angaben
-   - Ergebnisse nicht reproduzierbar/auditierbar
-
-### Schwere: 🟠 Hoch
-
-5. **Fenster-Geometrie fehlt**
-   - Keine `orientation`, `inclination`, `area`
-   - Solarer Eintrag nicht berechenbar
-
-6. **System-Zonen-Zuordnung fehlt**
-   - Welches Heizungssystem versorgt welche Zone?
-
-7. **Doku ↔ Schema Inkonsistenz**
-   - PARAMETER_MATRIX.md vs. tatsächliches Schema
-
-### Schwere: 🟡 Mittel
-
-8. **Schema-URL nicht erreichbar**
-   - `din18599-ifc.de` nicht registriert
-   - Kein Online-Schema-Abruf möglich
-
----
-
-## 🎯 **ENTSCHEIDUNGEN: Schema v2.1 Neustrukturierung (29. März 2026)**
-
-### **Brainstorm-Ergebnisse:**
-
-**1. Envelope-Struktur: Hybrid (Opak/Transparent + Bauteilspezifisch)**
-- ✅ Trennung opak/transparent (DIN 18599-2 konform)
-- ✅ Bauteilspezifische Parameter (walls, roofs, floors, windows)
-- ✅ Flexibel für Wohn- und Nichtwohngebäude
-
-**2. Systems-Struktur: Detailliert (Erzeugung/Verteilung/Übergabe/Regelung)**
-- ✅ DIN 18599-5 Systematik 1:1 abbilden
-- ✅ Aufwandszahlen berechenbar (e_g, e_d, e_ce)
-- ✅ Optimierungspotenziale erkennbar
-
-**3. Breaking Changes: Maximal**
-- ✅ Komplette Neustrukturierung für v2.1
-- ✅ Migration-Script v2.0 → v2.1
-- ✅ Jetzt oder nie - langfristige Vorteile
-
-**4. Priorität: Norm-Konformität + Usability**
-- ✅ Nah an der Norm bleiben (Zertifizierung, Validierung)
-- ✅ Usability durch Katalog-System (einfache Nutzung)
-
-### **Neue Schema v2.1 Struktur:**
-
-```json
-{
-  "input": {
-    "building": {
-      "zones": [...],
-      "climate": {...}
-    },
-    "envelope": {
-      "opaque_elements": {
-        "walls_external": [...],
-        "walls_internal": [...],
-        "roofs": [...],
-        "floors_ground": [...],
-        "floors_basement_ceiling": [...]
-      },
-      "transparent_elements": {
-        "windows": [...],
-        "doors": [...]
-      },
-      "thermal_bridges": {...}
-    },
-    "systems": {
-      "heating": {
-        "generation": {...},
-        "distribution": {...},
-        "emission": {...},
-        "control": {...}
-      },
-      "ventilation": {...},
-      "cooling": {...},
-      "lighting": {...},
-      "dhw": {...}
-    },
-    "electricity": {...},
-    "automation": {...}
-  }
-}
+```
+┌─────────────────────────────────────────────────────────────┐
+│ 1. User öffnet Viewer (localhost:3002)                     │
+│    - Klickt "Neue Dateien"                                  │
+└─────────────────────────────────────────────────────────────┘
+                            │
+                            ▼
+┌─────────────────────────────────────────────────────────────┐
+│ 2. Upload IFC + EVEBI .evea                                 │
+│    - File Validation                                        │
+│    - FormData Upload zu Backend                            │
+└─────────────────────────────────────────────────────────────┘
+                            │
+                            ▼
+┌─────────────────────────────────────────────────────────────┐
+│ 3. Backend Processing (FastAPI)                            │
+│    ├─→ IFC Parser: Geometrie extrahieren                   │
+│    ├─→ EVEBI Parser: U-Werte, Konstruktionen extrahieren   │
+│    ├─→ Mapping Engine: IFC ↔ EVEBI verknüpfen             │
+│    └─→ Sidecar Generator: JSON generieren                  │
+└─────────────────────────────────────────────────────────────┘
+                            │
+                            ▼
+┌─────────────────────────────────────────────────────────────┐
+│ 4. Viewer Display                                           │
+│    - 3D-Modell (aus IFC)                                    │
+│    - Energetische Daten (aus EVEBI)                         │
+│    - Mapping Statistics                                     │
+└─────────────────────────────────────────────────────────────┘
+                            │
+                            ▼
+┌─────────────────────────────────────────────────────────────┐
+│ 5. Download                                                 │
+│    - Sidecar JSON (DIN18599 v2.1)                          │
+│    - IFC-Datei (optional)                                   │
+└─────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## 📅 Roadmap Q2 2026 (April - Mai) - AKTUALISIERT
+## 📅 Roadmap Q2 2026 (April - Mai)
 
-### **Phase 1: Schema v2.1 - Norm-konforme Neustrukturierung** (2 Wochen, 1.-14. April)
-
-**Ziel:** Maximale Norm-Konformität bei guter Usability
-
-#### ✅ Woche 1 (1. April): Schema v2.1 - ABGESCHLOSSEN
+### ✅ **Phase 1: Schema v2.1** (1.-7. April) - **ABGESCHLOSSEN**
 
 **Erreicht:**
-- [x] **Schema v2.1 Final** - Vollständig implementiert (1.04. ✅)
-  - Parent-Child Beziehungen (parent_element_id, parent_element_type)
-  - Solargewinne (solar_absorption, shading_factor_fs)
-  - Wärmebrücken-Typ (thermal_bridge_type)
-  - B' für Fx-Faktor (perimeter, characteristic_dimension_b)
-  - BuildingElement Add-On für LOD 300+
-  - Maßnahmen mit Kosten & Förderung
-  - Szenario-Output mit Einsparungen
+- [x] Schema v2.1 Final implementiert
+- [x] TypeScript Types (410 Zeilen)
+- [x] Demo-JSON (360 Zeilen)
+- [x] Dokumentation (3 Dokumente)
 
-- [x] **TypeScript Types** - 410 Zeilen (1.04. ✅)
-  - Vollständiges Type-System
-  - Alle v2.1 Interfaces
-  - BuildingElement als Add-On
+### 🚀 **Phase 2: Parser-System** (1. April) - **ABGESCHLOSSEN**
 
-- [x] **Demo-JSON** - 360 Zeilen (1.04. ✅)
-  - Alle v2.1 Felder
-  - BuildingElement: Kellertreppe
-  - Szenario mit Output & Einsparungen
-
-- [x] **Dokumentation** (1.04. ✅)
-  - Schema v2.1 Final Specification
-  - Brainstorm-Dokument
-  - Verbesserungen-Dokument
+**Erreicht:**
+- [x] EVEBI Parser (ZIP + XML)
+- [x] IFC Parser (ifcopenshell)
+- [x] Mapping Engine (3 Strategien)
+- [x] Sidecar Generator
+- [x] FastAPI Endpoints
+- [x] Upload UI + Download
 
 **Deliverables:**
-- ✅ `viewer/src/store/viewer.store.ts` - TypeScript Types
-- ✅ `viewer/public/demo/efh-demo.din18599.json` - Demo-JSON
-- ✅ `.plans/schema-v2.1-final.md` - Dokumentation
-- ✅ Git Commit + Push zu GitHub
+- ✅ `api/parsers/` - Vollständiges Parser-System
+- ✅ `viewer/src/components/FileUpload.tsx` - Upload UI
+- ✅ `api/main.py` - FastAPI Backend
 
-#### Woche 2 (2.-7. April): Viewer-Implementierung
+### 🔄 **Phase 3: Setup & Testing** (2.-7. April) - **IN ARBEIT**
 
 **Aufgaben:**
-- [ ] **BuildingElement Logik** (2h)
-  - `applyBuildingElements()` Funktion
-  - Zonen-Flächen/Volumen anpassen
-  - Bauteil-Flächen anpassen
-  - Komponenten zur Hülle hinzufügen
+- [ ] **Python Environment Setup** (1h)
+  - `sudo apt install python3.12-venv`
+  - `python3 -m venv venv`
+  - `pip install -r requirements.txt`
+  - `ifcopenshell` Installation
 
-- [ ] **Delta-Merge Funktion** (1h)
-  - `applyScenario()` implementieren
-  - Deep-Merge Logik
-  - Array-Merge by ID
+- [ ] **Backend Server starten** (15min)
+  - `uvicorn main:app --reload --port 8000`
+  - CORS-Test mit Viewer
 
-- [ ] **Viewer UI anpassen** (2h)
-  - Neue Felder im Inspector anzeigen
-  - Parent-Child Hierarchie in Sidebar
-  - BuildingElements anzeigen
+- [ ] **End-to-End Testing** (2h)
+  - Upload Real-World Dateien (IFC + EVEBI)
+  - Mapping-Qualität prüfen
+  - Sidecar JSON validieren
+  - Performance-Test (große Dateien)
 
-**Deliverables:**
-- `viewer/src/utils/buildingElements.ts` - Logik
-- `viewer/src/utils/scenarioMerge.ts` - Delta-Merge
-- Aktualisierte UI-Komponenten
-
----
-
-### **Phase 2: Szenario-Switcher & UI** (1 Woche, 8.-14. April)
-
-**Ziel:** Szenario-Vergleich UI für Berlin-Präsentation
-
-#### Woche 3 (8.-14. April): Szenario-Switcher
-
-**Implementierung:**
-- [ ] **Szenario-Switcher Komponente** (3h)
-  - Dropdown/Tabs für Szenarien
-  - Vergleichs-Tabelle (Vorher/Nachher)
-  - Maßnahmen-Liste mit Kosten
-  - Einsparungen anzeigen
-
-- [ ] **3D-Viewer Updates** (2h)
-  - Farbwechsel bei Szenario-Wechsel
-  - Animationen (optional)
-  - Performance-Optimierung
-
-- [ ] **Testing** (1h)
-  - Browser-Kompatibilität
-  - Mobile-Ansicht
-  - Demo-Durchlauf
+- [ ] **Dokumentation** (2h)
+  - README.md für Parser-System
+  - API-Dokumentation
+  - Setup-Guide (Quickstart)
+  - Beispiel-Workflow
 
 **Deliverables:**
-- Szenario-Switcher UI
-- Vergleichs-Tabelle
-- Funktionierende Demo
+- `api/README.md` - Parser-System Dokumentation
+- `docs/API.md` - API-Dokumentation
+- `docs/QUICKSTART.md` - Setup-Guide
 
----
+### 📅 **Phase 4: Viewer-Verbesserungen** (8.-14. April)
 
-### **Phase 3: Katalog-System** (2 Wochen, 15.-28. April)
+**Aufgaben:**
+- [ ] **3D-Viewer Integration** (3h)
+  - IFC-Datei im Viewer anzeigen
+  - IFC.js Integration
+  - Bauteil-Highlighting
 
-**Ziel:** Material-Katalog, Schichtaufbauten, Nutzungsprofile
+- [ ] **Daten-Anzeige** (2h)
+  - Bauteil-Details (U-Werte, Konstruktionen)
+  - Mapping-Confidence anzeigen
+  - Unmatched Elements Liste
 
-#### Woche 3 (15.-21. April): Katalog-Datenmodell
-
-**Brainstorm-Session:**
-- [ ] **Session 4:** Katalog-Struktur (2h)
-  - Material-Properties (λ, ρ, c, μ)
-  - Schichtaufbau-Modell (Layers)
-  - Nutzungsprofil-Details (DIN 18599-10)
-  - Randbedingungen (Klima, Standort)
-
-**Implementierung:**
-- [ ] Schema erweitern:
-  - `materials[]` Definition
-  - `layer_structures[]` Definition
-  - `usage_profiles[]` Definition (detailliert)
-  - `climate_location` Objekt
-
-- [ ] Katalog-Daten erstellen:
-  - 50+ Materialien (Dämmstoffe, Baustoffe)
-  - 20+ Schichtaufbauten (Wände, Dächer, Böden)
-  - 30+ Nutzungsprofile (DIN 18599-10)
+- [ ] **UI-Verbesserungen** (2h)
+  - Responsive Design
+  - Loading States
+  - Error Messages
 
 **Deliverables:**
-- `catalog/materials.json`
-- `catalog/constructions.json`
-- `catalog/usage_profiles.json`
-- `docs/CATALOG_GUIDE.md`
-
-#### Woche 4 (22.-28. April): Katalog-Referenzen
-
-**Implementierung:**
-- [ ] Referenz-Mechanismus:
-  - `elements[].construction_ref` → `layer_structures[].id`
-  - `zones[].usage_profile_ref` → `usage_profiles[].id`
-  - Override-Logik (catalog vs. custom values)
-
-- [ ] Demo-Projekt:
-  - Einfamilienhaus mit Katalog-Referenzen
-  - Sanierungsvarianten (WDVS, Fenster, Heizung)
-
-**Deliverables:**
-- `viewer/demo-catalog.din18599.json`
-- Katalog-Validierung im Schema
-
----
-
-### **Phase 3: Viewer-MVP** (2 Wochen, 29. April - 12. Mai)
-
-**Ziel:** Professioneller Viewer für Berlin-Präsentation
-
-#### Woche 5 (29. April - 5. Mai): Viewer UI
-
-**Brainstorm-Session:**
-- [ ] **Session 5:** Viewer-UX (1h)
-  - Layout (3D + Sidebar vs. Split-View)
-  - Navigation (Tree-View, Search)
-  - Highlighting-Strategie
-
-**Implementierung:**
-- [ ] UI-Komponenten:
-  - Layout: 3D-Viewer + Sidebar (responsive)
-  - Navigation: Tree-View (Zonen → Bauteile → Fenster)
-  - Info-Panels: Bauteil-Details, Katalog-Infos
-  - Highlighting: Klick → 3D-Highlight + Sidebar-Sync
-
-- [ ] Katalog-Integration:
-  - Katalog-Browser in Sidebar
-  - Material-Details anzeigen
-  - Schichtaufbau visualisieren
-
-**Deliverables:**
-- `viewer/index.html` (neuer Viewer mit UI)
-- `viewer/styles.css` (Tailwind oder Custom)
-- `viewer/app.js` (State Management)
-
-#### Woche 6 (6.-12. Mai): MVP-Finalisierung
-
-**Implementierung:**
-- [ ] Features:
-  - Statistiken (Gesamt-U-Wert, Fensterflächenanteil)
-  - Export (Screenshot, JSON-Download)
-  - Performance-Optimierung
-
-- [ ] Testing:
-  - Browser-Kompatibilität (Chrome, Firefox, Safari)
-  - Mobile-Ansicht (Tablet)
-  - Große Modelle (100+ Bauteile)
-
-- [ ] Präsentation:
-  - Demo-Slides (Konzept, Format, Viewer)
-  - Live-Demo-Script (5 Min Walkthrough)
-  - Backup-Video (falls Internet ausfällt)
-
-**Deliverables:**
-- Deployment (GitHub Pages: `din18599-ifc.github.io`)
-- Präsentations-Paket (Slides + Demo + Doku)
-- `docs/QUICKSTART_GUIDE.md`
+- Funktionierender 3D-Viewer
+- Vollständige Daten-Anzeige
+- Professionelle UI
 
 ---
 
@@ -416,175 +216,146 @@
 
 | Datum | Meilenstein | Deliverables | Status |
 |-------|-------------|--------------|--------|
-| **27. März** | v2.0 Release | B-Rep Geometrie, Basis-Schema | ✅ Fertig |
-| **1. April** | Schema v2.1 Final | TypeScript Types, Demo-JSON, Doku | ✅ **FERTIG** |
-| **7. April** | Viewer-Logik | applyBuildingElements, Delta-Merge | 🔄 Geplant |
-| **21. April** | Katalog-Daten | Materials, Constructions, Profiles | 🔄 Geplant |
-| **28. April** | Katalog-Integration | Demo mit Katalog-Referenzen | 🔄 Geplant |
-| **5. Mai** | Viewer-UI | Funktionierender Viewer mit UI | 🔄 Geplant |
-| **12. Mai** | MVP-Ready | Präsentations-Paket komplett | 🎯 Deadline |
-| **Mai (Berlin)** | **Präsentation** | Live-Demo vor Publikum | 🎤 Event |
-
----
-
-## 🧠 Brainstorm-Sessions (Übersicht)
-
-| Session | Thema | Dauer | Woche | Ziel |
-|---------|-------|-------|-------|------|
-| **#1** | Schema-Constraints Review | 2h | 1 | Required-Felder, uniqueItems, additionalProperties |
-| **#2** | Delta-Merge-Algorithmus | 2h | 1 | Formale Merge-Semantik spezifizieren |
-| **#3** | Katalog-Architektur | 2h | 1 | Material vs. Construction, Referenz-Mechanismus |
-| **#4** | Katalog-Struktur | 2h | 3 | Material-Properties, Schichtaufbau, Nutzungsprofile |
-| **#5** | Viewer-UX | 1h | 5 | Layout, Navigation, Highlighting |
-
-**Format:** Markdown-Notizen in `docs/brainstorms/YYYYMMDD_session_N.md`
+| **1. April** | Parser-System | EVEBI, IFC, Mapper, Generator | ✅ **FERTIG** |
+| **1. April** | Upload UI | FileUpload Komponente | ✅ **FERTIG** |
+| **7. April** | Setup & Testing | Python venv, E2E Tests, Doku | 🔄 In Arbeit |
+| **14. April** | Viewer-MVP | 3D-Viewer + Daten-Anzeige | 📅 Geplant |
+| **21. April** | Katalog-Integration | Material-Katalog im Viewer | 📅 Geplant |
+| **28. April** | Polishing | Performance, UX, Testing | 📅 Geplant |
+| **12. Mai** | **MVP-Ready** | Präsentations-Paket komplett | 🎯 Deadline |
 
 ---
 
 ## 🔧 Technologie-Stack
 
-### Schema & Validierung
-- **Format:** JSON Schema Draft-07
-- **Validierung:** ajv (JavaScript), jsonschema (Python)
-- **Versionierung:** Semantic Versioning (2.1.0)
+### Backend (Parser-System)
+- **Python 3.12** - Programmiersprache
+- **FastAPI** - Web Framework
+- **ifcopenshell 0.7.0** - IFC Parser
+- **zipfile** - EVEBI .evea Entpackung
+- **xml.etree.ElementTree** - XML Parsing
+- **Dataclasses** - Type Safety
 
-### Katalog
-- **Format:** JSON-Dateien (statisch)
-- **Struktur:** `catalog/*.json`
-- **Validierung:** JSON Schema
+### Frontend (Viewer)
+- **React 18** - UI Framework
+- **TypeScript** - Type Safety
+- **Vite** - Build Tool
+- **Three.js** - 3D-Rendering
+- **Lucide React** - Icons
 
-### Viewer
-- **Framework:** React + TypeScript (oder Vanilla JS)
-- **3D:** Three.js (bereits implementiert)
-- **UI:** Tailwind CSS + shadcn/ui (optional)
-- **State:** React Context oder Zustand
-- **Deployment:** GitHub Pages
+### Deployment
+- **Docker** - Containerization (optional)
+- **GitHub Pages** - Viewer Hosting
+- **Vercel/Netlify** - Backend Hosting (optional)
 
 ---
 
-## 📋 Schema v2.1 - Änderungen (Priorität)
+## 📋 Offene Punkte (Priorität)
 
-### 🔴 Kritisch (Must-Have für v2.1)
+### 🔴 Kritisch (Must-Have)
 
-1. **Required-Felder:**
-   - `elements[].ifc_guid` ODER `elements[].id`
-   - `windows[].ifc_guid` ODER `windows[].id`
-   - `zones[].id`
+1. **Python Environment Setup**
+   - `sudo apt install python3.12-venv`
+   - Virtual Environment erstellen
+   - Dependencies installieren
 
-2. **Enum-Constraints:**
-   - `usage_profile` → Enum mit allen DIN 18599-10 Codes
-   - `boundary_condition` → Präziseres Enum
+2. **ifcopenshell Installation**
+   - Kann komplex sein (C++ Dependencies)
+   - Alternative: Docker Container
 
-3. **Array-Constraints:**
-   - `uniqueItems: true` auf alle ID-Arrays
-   - `minItems: 1` wo sinnvoll
+3. **End-to-End Testing**
+   - Real-World IFC + EVEBI Dateien testen
+   - Mapping-Qualität validieren
+   - Edge Cases prüfen
 
-4. **Objekt-Constraints:**
-   - `additionalProperties: false` auf allen Definitionen
+### 🟠 Hoch (Should-Have)
 
-5. **Output-Erweiterung:**
-   - `output.meta.primary_energy_factors` (fp pro Energieträger)
+4. **Dokumentation**
+   - README.md für Parser-System
+   - API-Dokumentation (OpenAPI/Swagger)
+   - Setup-Guide (Quickstart)
 
-6. **Fenster-Geometrie:**
-   - `windows[].orientation` (0-360°)
-   - `windows[].inclination` (0-90°)
-   - `windows[].area` (m²)
+5. **Error Handling**
+   - Bessere Fehlermeldungen
+   - Logging (Python logging)
+   - Retry-Mechanismus
 
-7. **System-Zuordnung:**
-   - `systems[].zone_ids` (Array von Zone-IDs)
-
-### 🟠 Hoch (Should-Have für v2.1)
-
-8. **Katalog-Referenzen:**
-   - `elements[].construction_ref`
-   - `zones[].usage_profile_ref`
-
-9. **Material-Katalog:**
-   - `materials[]` Array mit λ, ρ, c, μ
-
-10. **Schichtaufbauten:**
-    - `layer_structures[]` mit Layers
-
-11. **Nutzungsprofile:**
-    - `usage_profiles[]` mit DIN 18599-10 Details
-
-12. **Klima-Daten:**
-    - `climate_location` Objekt (TRY, Gradtagszahlen)
+6. **Performance**
+   - Große IFC-Dateien (>100 MB)
+   - Streaming für große EVEBI-Archive
+   - Caching
 
 ### 🟡 Mittel (Nice-to-Have)
 
-13. **iSFP-Roadmap:**
-    - `scenarios[].priority` (1-3)
-    - `scenarios[].timeline` (Jahr)
-    - `scenarios[].funding` (BEG-Stufe)
+7. **IFC.js Integration**
+   - IFC-Datei im Viewer anzeigen
+   - 3D-Highlighting
+   - Bauteil-Selektion
 
-14. **HVAC-Details:**
-    - Übergabesystem (Heizkörper, FBH)
-    - Vollständige WP-Kennlinie
+8. **Mapping-Verbesserungen**
+   - Machine Learning für Geometrie-Matching
+   - Manuelle Korrektur-UI
+   - Confidence-Threshold konfigurierbar
 
-15. **QNG-Felder:**
-    - Nachhaltigkeits-Kennwerte
+9. **Export-Funktionen**
+   - IFC-Export (mit Sidecar-Daten)
+   - Excel-Export (Bauteil-Liste)
+   - PDF-Report
 
 ---
 
 ## 📚 Dokumentations-Roadmap
 
-### Neue Dokumente (April-Mai)
+### ✅ Abgeschlossen
+- ✅ `.plans/evea-format-breakthrough.md` - EVEBI Format-Analyse
+- ✅ `.plans/use-case-final-correct.md` - Use-Case Definition
+- ✅ `.plans/workflow-final-revised.md` - Workflow-Dokumentation
 
-1. **`docs/SCHEMA_V2.1_CONCEPT.md`** - Konzept für v2.1
-2. **`docs/MERGE_ALGORITHM.md`** - Formale Delta-Merge-Spezifikation
-3. **`docs/MIGRATION_GUIDE_v2.0_to_v2.1.md`** - Breaking Changes
-4. **`docs/CATALOG_GUIDE.md`** - Katalog-Nutzung
-5. **`docs/QUICKSTART_GUIDE.md`** - 5-Minuten-Einstieg
-6. **`docs/brainstorms/*.md`** - Session-Notizen
+### 🔄 In Arbeit
+- [ ] `api/README.md` - Parser-System Dokumentation
+- [ ] `docs/API.md` - API-Dokumentation (OpenAPI)
+- [ ] `docs/QUICKSTART.md` - Setup-Guide
 
-### Aktualisierungen
-
-- `README.md` - v2.1 Features
-- `CHANGELOG.md` - v2.1 Release Notes
-- `PARAMETER_MATRIX.md` - Schema-Sync
-- `FILE_FORMATS.md` - Katalog-Modus
+### 📅 Geplant
+- [ ] `docs/MAPPING_STRATEGIES.md` - Mapping-Algorithmen
+- [ ] `docs/EVEBI_FORMAT.md` - EVEBI Format-Spezifikation
+- [ ] `docs/TROUBLESHOOTING.md` - Häufige Probleme
 
 ---
 
 ## 🎤 Berlin-Präsentation (Mai 2026)
 
-### Agenda (10 Min)
+### Demo-Szenario (10 Min)
 
-1. **Problem** (2 Min)
-   - Proprietäre Formate, Vendor Lock-in
-   - Datenverlust bei Software-Wechsel
-
-2. **Lösung** (2 Min)
-   - IFC + DIN 18599 Sidecar
-   - GUID-basiertes Mapping
-   - Open Source, Apache 2.0
-
-3. **Live-Demo** (4 Min)
-   - JSON-Datei laden
-   - 3D-Modell zeigen (Rotation, Zoom)
-   - Auf Wand klicken → Katalog-Infos
-   - Sanierungsvariante wechseln
-   - Statistiken anzeigen
-
-4. **Ausblick** (1 Min)
-   - IFC Import (Q3)
-   - Community-Aufbau
-   - Konformitätsprüfung
-
-5. **Q&A** (5 Min)
-
-### Demo-Szenario
-
-**Projekt:** Einfamilienhaus (Baujahr 1980, unsaniert)
+**Projekt:** Einfamilienhaus (Real-World Beispiel)
 
 **Workflow:**
-1. Datei laden: `demo-catalog.din18599.json`
-2. 3D-Ansicht: Gebäude rotieren, Wände highlighten
-3. Bauteil-Info: Außenwand Süd → U=1.2 W/(m²K), ungedämmt
-4. Katalog öffnen: WDVS 20cm → U=0.24 W/(m²K)
-5. Variante wechseln: "Sanierung WDVS" → Wand wird grün
-6. Statistiken: Heizwärmebedarf -45%
+1. **Upload** (1 Min)
+   - IFC-Datei hochladen (aus Cascados)
+   - EVEBI .evea hochladen (aus EVEBI)
+   - "Sidecar generieren" klicken
+
+2. **Processing** (30 Sek)
+   - Backend parst beide Dateien
+   - Mapping via PosNo (100% Match)
+   - Sidecar JSON wird generiert
+
+3. **Viewer** (3 Min)
+   - 3D-Modell anzeigen
+   - Auf Wand klicken → U-Wert anzeigen
+   - Konstruktion anzeigen (Schichten, λ-Werte)
+   - Mapping Statistics
+
+4. **Download** (30 Sek)
+   - Sidecar JSON downloaden
+   - In anderer Software öffnen (z.B. Excel)
+
+5. **Ausblick** (2 Min)
+   - Open Source, Apache 2.0
+   - Community-Aufbau
+   - Weitere Parser (Hottgenroth, Dämmwerk)
+
+6. **Q&A** (3 Min)
 
 **Backup:** Video-Recording (falls Live-Demo fehlschlägt)
 
@@ -592,40 +363,41 @@
 
 ## 🚀 Roadmap Q3-Q4 2026 (Ausblick)
 
-### Q3 (Juli - September): IFC Integration
+### Q3 (Juli - September): Weitere Parser
 
-- **Phase 4:** IFC Import (web-ifc)
-- **Phase 5:** IFC Export (Roundtrip)
-- **Phase 6:** Editor-Prototyp (Pascal-inspiriert)
+- **Hottgenroth Parser** - EnEV/GEG Software
+- **Dämmwerk Parser** - U-Wert Berechnung
+- **ArchiPHYSIK Parser** - Passivhaus-Software
+- **IFC Export** - Roundtrip (Sidecar → IFC)
 
 ### Q4 (Oktober - Dezember): Community & Ecosystem
 
-- **Phase 7:** API + Python SDK
-- **Phase 8:** Website + Tutorials
-- **Phase 9:** v3.0 Release
+- **API + Python SDK** - Programmatischer Zugriff
+- **Website + Tutorials** - din18599-ifc.de
+- **v3.0 Release** - Community Release
+- **Externe Reviews** - Norm-Konformität
 
 **Meilensteine:**
-- **v2.5** (September) - IFC Integration
+- **v2.5** (September) - Weitere Parser
 - **v3.0** (Dezember) - Community Release
 
 ---
 
 ## ✅ Erfolgs-Kriterien (MVP Mai 2026)
 
-### Schema v2.1
-- [ ] Alle 🔴 kritischen Fixes implementiert
-- [ ] Migration Guide vorhanden
-- [ ] Externe Validierung (min. 1 Reviewer)
-
-### Katalog
-- [ ] 50+ Materialien
-- [ ] 20+ Schichtaufbauten
-- [ ] 30+ Nutzungsprofile (DIN 18599-10)
+### Parser-System
+- [x] EVEBI Parser funktioniert
+- [x] IFC Parser funktioniert
+- [x] Mapping Engine funktioniert
+- [x] Sidecar Generator funktioniert
+- [ ] End-to-End Tests bestanden
+- [ ] Dokumentation vollständig
 
 ### Viewer
-- [ ] 3D-Rendering funktioniert
-- [ ] Katalog-Infos anzeigbar
-- [ ] Highlighting (3D ↔ Daten)
+- [x] Upload UI funktioniert
+- [x] Download funktioniert
+- [ ] 3D-Viewer zeigt IFC an
+- [ ] Daten-Anzeige funktioniert
 - [ ] Browser-kompatibel (Chrome, Firefox, Safari)
 
 ### Präsentation
@@ -640,44 +412,62 @@
 
 | Metrik | Ziel Q2 | Ziel Q4 | Aktuell |
 |--------|---------|---------|---------|
-| **Schema-Version** | v2.1 | v3.0 | v2.0 |
-| **Katalog-Einträge** | 100+ | 500+ | 97 |
+| **Parser-Module** | 2+ | 5+ | 2 (EVEBI, IFC) |
+| **Code-Zeilen (Python)** | 1000+ | 3000+ | ~1000 |
+| **Mapping-Accuracy** | 80%+ | 95%+ | TBD |
 | **GitHub Stars** | 20+ | 100+ | 5 |
 | **Contributors** | 2+ | 10+ | 1 |
-| **Dokumentations-Seiten** | 12+ | 20+ | 8 |
-| **Externe Reviews** | 1+ | 5+ | 0 |
+| **Dokumentations-Seiten** | 15+ | 25+ | 12 |
 
 ---
 
-## 🤝 Nächste Schritte (1. April 2026)
+## 🤝 Nächste Schritte (2.-7. April)
 
-### ✅ Abgeschlossen (1. April)
-1. ✅ Schema v2.1 Final - Vollständig implementiert
-2. ✅ TypeScript Types erstellt (410 Zeilen)
-3. ✅ Demo-JSON erweitert (360 Zeilen)
-4. ✅ Dokumentation geschrieben (3 Dokumente)
-5. ✅ Git Commit + Push zu GitHub
+### 🔄 Aktuell (Priorität)
 
-### 🔄 Aktuell (2.-7. April)
-1. **BuildingElement Logik** implementieren
-2. **Delta-Merge Funktion** implementieren
-3. **Viewer UI** anpassen (neue Felder)
-4. **Szenario-Switcher** UI entwickeln
+1. **Python Environment Setup** (1h)
+   ```bash
+   sudo apt install python3.12-venv
+   cd /opt/din18599-ifc/api
+   python3 -m venv venv
+   source venv/bin/activate
+   pip install -r requirements.txt
+   ```
+
+2. **Backend Server starten** (15min)
+   ```bash
+   cd /opt/din18599-ifc/api
+   source venv/bin/activate
+   uvicorn main:app --reload --port 8000
+   ```
+
+3. **End-to-End Test** (2h)
+   - Upload `DIN18599TestIFCv2.ifc`
+   - Upload `DIN18599Test_260401.evea`
+   - Sidecar JSON validieren
+   - Mapping-Qualität prüfen
+
+4. **Dokumentation schreiben** (2h)
+   - `api/README.md` erstellen
+   - `docs/API.md` erstellen
+   - `docs/QUICKSTART.md` erstellen
 
 ### 📅 Nächste Woche (8.-14. April)
-5. Szenario-Vergleich UI
-6. Testing & Performance
-7. Demo-Präsentation vorbereiten
+
+5. 3D-Viewer Integration (IFC.js)
+6. Daten-Anzeige verbessern
+7. UI-Polishing
+8. Performance-Optimierung
 
 ---
 
 ## 📝 Offene Fragen
 
-1. **Domain registrieren?** `din18599-ifc.de` für Schema-Hosting?
-2. **Externe Reviewer?** Wer könnte Schema v2.1 reviewen?
-3. **Präsentations-Format?** Konferenz? Meetup? Webinar?
-4. **Katalog-Quellen?** Welche Datenbanken nutzen? (WECOBIS, ÖKOBAUDAT?)
-5. **UI-Framework?** React oder Vanilla JS für Viewer?
+1. **ifcopenshell Installation:** Docker Container verwenden?
+2. **Hosting:** Wo Backend hosten? (Vercel, Railway, Render?)
+3. **Domain:** `din18599-ifc.de` registrieren?
+4. **Weitere Parser:** Welche Software als nächstes? (Hottgenroth, Dämmwerk?)
+5. **Community:** Wie erste Contributors gewinnen?
 
 ---
 
@@ -687,5 +477,5 @@ Diese Roadmap ist ein **lebendiges Dokument** und wird nach jeder Phase aktualis
 
 **Feedback willkommen!** → GitHub Issues oder Discussions
 
-**Letzte Aktualisierung:** 1. April 2026  
-**Nächste Review:** 14. April 2026 (nach Viewer-MVP)
+**Letzte Aktualisierung:** 1. April 2026 (Parser-System implementiert)  
+**Nächste Review:** 7. April 2026 (nach Setup & Testing)
