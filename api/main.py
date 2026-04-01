@@ -112,59 +112,6 @@ async def parse_ifc_file(ifc_file: UploadFile = File(...)):
 
 
 @app.post("/parse-evebi")
-async def parse_evebi_file(
-    evebi_file: UploadFile = File(...),
-    ifc_file: UploadFile = File(None)
-):
-    """
-    Parst EVEBI-Datei und gibt Vorschau + Mapping-Preview zurück (Step 2)
-    """
-    if not evebi_file.filename.endswith('.evea'):
-        raise HTTPException(status_code=400, detail="EVEBI-Datei muss .evea Extension haben")
-    
-    with tempfile.TemporaryDirectory() as temp_dir:
-        temp_path = Path(temp_dir)
-        
-        # EVEBI speichern
-        evebi_path = temp_path / evebi_file.filename
-        with open(evebi_path, 'wb') as f:
-            shutil.copyfileobj(evebi_file.file, f)
-        
-        try:
-            evebi_data = parse_evea(str(evebi_path))
-            
-            # Mapping Preview (wenn IFC vorhanden)
-            mapping_preview = None
-            if ifc_file:
-                ifc_path = temp_path / ifc_file.filename
-                with open(ifc_path, 'wb') as f:
-                    shutil.copyfileobj(ifc_file.file, f)
-                
-                ifc_geometry = parse_ifc(str(ifc_path))
-                mapping_result = map_ifc_to_evebi(ifc_geometry, evebi_data, strategy='auto')
-                
-                mapping_preview = {
-                    "total_ifc": mapping_result.stats['total_ifc'],
-                    "total_evebi": mapping_result.stats['total_evebi'],
-                    "potential_matches": mapping_result.stats['matched'],
-                    "match_rate": mapping_result.stats['match_rate']
-                }
-            
-            return {
-                "evebi_data": {
-                    "project_name": evebi_data.project_name,
-                    "materials": len(evebi_data.materials),
-                    "constructions": len(evebi_data.constructions),
-                    "elements": len(evebi_data.elements),
-                    "zones": len(evebi_data.zones)
-                },
-                "mapping_preview": mapping_preview
-            }
-        except Exception as e:
-            raise HTTPException(status_code=500, detail=f"Fehler beim Parsen: {str(e)}")
-
-
-@app.post("/parse-evebi")
 async def parse_evebi_endpoint(
     evebi_file: UploadFile = File(...),
     ifc_file: UploadFile = File(None)
