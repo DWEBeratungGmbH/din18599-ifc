@@ -10,15 +10,7 @@ from typing import List, Dict, Any, Optional
 from datetime import datetime
 import re
 from difflib import SequenceMatcher
-
-@dataclass
-class IFCElement:
-    """IFC-Element (aus IFC-Parser)"""
-    guid: str
-    type: str
-    name: str
-    area: float
-    posno: Optional[str] = None
+from parsers.ifc_parser import IFCElement  # Importiere IFCElement aus ifc_parser
 
 
 @dataclass
@@ -323,7 +315,7 @@ class SidecarGenerator:
         
         # Pass 1: PosNo-Match (höchste Priorität)
         for ifc_elem in ifc_elements:
-            if not ifc_elem.posno:
+            if not ifc_elem.tag:
                 unmatched_ifc.append(ifc_elem)
                 continue
             
@@ -332,7 +324,7 @@ class SidecarGenerator:
                 if evebi_elem.guid in matched_evebi_guids:
                     continue
                 
-                if evebi_elem.posno and self._normalize_posno(ifc_elem.posno) == self._normalize_posno(evebi_elem.posno):
+                if evebi_elem.posno and self._normalize_posno(ifc_elem.tag) == self._normalize_posno(evebi_elem.posno):
                     matches.append({
                         "ifc": ifc_elem,
                         "evebi": evebi_elem,
