@@ -1,0 +1,348 @@
+{
+  "schema_info": {
+    "url": "https://din18599-ifc.de/schema/v2.2/complete",
+    "version": "2.2.0"
+  },
+  "meta": {
+    "project_name": "ifc silly sample scene - project",
+    "ifc_file_ref": "sources/IFC_EVBI/Building-Architecture.ifc",
+    "ifc_schema": "IFC4"
+  },
+  "input": {
+    "building": {
+      "name": "Single-family house",
+      "building_guid": "0c$N1CTon2BB2Sp89385G8",
+      "storeys": [
+        {
+          "id": "1Ano2ZUxnEIvVQ_beukl8b",
+          "name": "00 groundfloor",
+          "elevation": -1.8047785488306545e-12
+        }
+      ],
+      "zones": [
+        {
+          "id": "0xY$LvXaDEswJDk_VU74C_",
+          "ifc_guid": "0xY$LvXaDEswJDk_VU74C_",
+          "name": "living room",
+          "area": 18.5,
+          "volume": 40.7,
+          "height": 2.2,
+          "storey_ref": "1Ano2ZUxnEIvVQ_beukl8b",
+          "usage_profile_ref": null
+        },
+        {
+          "id": "18QhMtUIXBvQktPHXXxs7H",
+          "ifc_guid": "18QhMtUIXBvQktPHXXxs7H",
+          "name": "entry hall",
+          "area": 6.08,
+          "volume": 13.38,
+          "height": 2.2,
+          "storey_ref": "1Ano2ZUxnEIvVQ_beukl8b",
+          "usage_profile_ref": null
+        }
+      ]
+    },
+    "envelope": {
+      "walls": [
+        {
+          "id": "1AQAupaRP1txwK1AGiN61V",
+          "ifc_guid": "1AQAupaRP1txwK1AGiN61V",
+          "ifc_type": "IfcWall",
+          "predefined_type": null,
+          "name": "house - outer wall - house right front",
+          "area": 6.35,
+          "orientation": 270.0,
+          "inclination": 90.0,
+          "u_value": null,
+          "boundary_condition": "exterior",
+          "din_code": "WA",
+          "fx_factor": 1.0,
+          "zone_ref": "0xY$LvXaDEswJDk_VU74C_",
+          "storey_ref": "1Ano2ZUxnEIvVQ_beukl8b",
+          "construction_ref": null
+        },
+        {
+          "id": "3wdauVJT5Fx9drrREiDqA$",
+          "ifc_guid": "3wdauVJT5Fx9drrREiDqA$",
+          "ifc_type": "IfcWall",
+          "predefined_type": null,
+          "name": "house - outer wall - house right back",
+          "area": 8.93,
+          "orientation": 270.0,
+          "inclination": 90.0,
+          "u_value": null,
+          "boundary_condition": "exterior",
+          "din_code": "WA",
+          "fx_factor": 1.0,
+          "zone_ref": "0xY$LvXaDEswJDk_VU74C_",
+          "storey_ref": "1Ano2ZUxnEIvVQ_beukl8b",
+          "construction_ref": null
+        },
+        {
+          "id": "0OfZwWc8j9QP5uX8xPTxDH",
+          "ifc_guid": "0OfZwWc8j9QP5uX8xPTxDH",
+          "ifc_type": "IfcWall",
+          "predefined_type": null,
+          "name": "house - outer wall - house left",
+          "area": 21.15,
+          "orientation": 90.0,
+          "inclination": 90.0,
+          "u_value": null,
+          "boundary_condition": "exterior",
+          "din_code": "WA",
+          "fx_factor": 1.0,
+          "zone_ref": "0xY$LvXaDEswJDk_VU74C_",
+          "storey_ref": "1Ano2ZUxnEIvVQ_beukl8b",
+          "construction_ref": null
+        },
+        {
+          "id": "1uS5vfZPn9R8PlAaVd73on",
+          "ifc_guid": "1uS5vfZPn9R8PlAaVd73on",
+          "ifc_type": "IfcWall",
+          "predefined_type": null,
+          "name": "plumbing wall",
+          "area": 6.86,
+          "orientation": 270.0,
+          "inclination": 90.0,
+          "u_value": null,
+          "boundary_condition": "adjacent",
+          "din_code": "WZ",
+          "fx_factor": 0.0,
+          "zone_ref": "0xY$LvXaDEswJDk_VU74C_",
+          "storey_ref": "1Ano2ZUxnEIvVQ_beukl8b",
+          "construction_ref": null
+        }
+      ],
+      "roofs": [
+        {
+          "id": "2iPwJwpPDCSgMheXwk9cBT",
+          "ifc_guid": "2iPwJwpPDCSgMheXwk9cBT",
+          "ifc_type": "IfcRoof",
+          "predefined_type": null,
+          "name": "house - roof",
+          "area": null,
+          "orientation": null,
+          "inclination": null,
+          "u_value": null,
+          "boundary_condition": "exterior",
+          "din_code": "DA",
+          "fx_factor": 1.0,
+          "zone_ref": null,
+          "storey_ref": null,
+          "construction_ref": null
+        }
+      ],
+      "floors": [
+        {
+          "id": "3zR0BOEcLADRKln4HYporH",
+          "ifc_guid": "3zR0BOEcLADRKln4HYporH",
+          "ifc_type": "IfcSlab",
+          "predefined_type": null,
+          "name": "floor",
+          "area": 25.75,
+          "orientation": 180.0,
+          "inclination": 0.0,
+          "u_value": null,
+          "boundary_condition": "exterior",
+          "din_code": "BA",
+          "fx_factor": 1.0,
+          "zone_ref": "0xY$LvXaDEswJDk_VU74C_",
+          "storey_ref": "1Ano2ZUxnEIvVQ_beukl8b",
+          "construction_ref": null
+        },
+        {
+          "id": "0ZTBBPo6f6bxqV2K7Oelrq",
+          "ifc_guid": "0ZTBBPo6f6bxqV2K7Oelrq",
+          "ifc_type": "IfcSlab",
+          "predefined_type": null,
+          "name": "house - roof - slab left",
+          "area": 22.4,
+          "orientation": 90.0,
+          "inclination": 45.0,
+          "u_value": null,
+          "boundary_condition": "exterior",
+          "din_code": "BA",
+          "fx_factor": 1.0,
+          "zone_ref": null,
+          "storey_ref": null,
+          "construction_ref": null
+        },
+        {
+          "id": "12UVOn4wvAJPMUExKdZLb8",
+          "ifc_guid": "12UVOn4wvAJPMUExKdZLb8",
+          "ifc_type": "IfcSlab",
+          "predefined_type": null,
+          "name": "house - roof - slab right",
+          "area": 31.21,
+          "orientation": 270.0,
+          "inclination": 45.0,
+          "u_value": null,
+          "boundary_condition": "exterior",
+          "din_code": "BA",
+          "fx_factor": 1.0,
+          "zone_ref": null,
+          "storey_ref": null,
+          "construction_ref": null
+        }
+      ],
+      "windows": [],
+      "doors": []
+    },
+    "material_layers": [
+      {
+        "id": "LS-1AQAupaR",
+        "name": "house - outer wall - house right front",
+        "type": "WALL",
+        "layers": [
+          {
+            "position": 1,
+            "material_name": "stone_sand-lime",
+            "thickness": 0.24,
+            "lambda": null,
+            "density": null,
+            "specific_heat": null,
+            "ifc_material_guid": 271
+          }
+        ],
+        "total_thickness": 0.24,
+        "u_value_calculated": null,
+        "source": "ifc_material_layer_set",
+        "ifc_material_layer_set_guid": null,
+        "element_guid": "1AQAupaRP1txwK1AGiN61V"
+      },
+      {
+        "id": "LS-3wdauVJT",
+        "name": "house - outer wall - house right back",
+        "type": "WALL",
+        "layers": [
+          {
+            "position": 1,
+            "material_name": "stone_sand-lime",
+            "thickness": 0.24,
+            "lambda": null,
+            "density": null,
+            "specific_heat": null,
+            "ifc_material_guid": 271
+          }
+        ],
+        "total_thickness": 0.24,
+        "u_value_calculated": null,
+        "source": "ifc_material_layer_set",
+        "ifc_material_layer_set_guid": null,
+        "element_guid": "3wdauVJT5Fx9drrREiDqA$"
+      },
+      {
+        "id": "LS-0OfZwWc8",
+        "name": "house - outer wall - house left",
+        "type": "WALL",
+        "layers": [
+          {
+            "position": 1,
+            "material_name": "stone_sand-lime",
+            "thickness": 0.24,
+            "lambda": null,
+            "density": null,
+            "specific_heat": null,
+            "ifc_material_guid": 271
+          }
+        ],
+        "total_thickness": 0.24,
+        "u_value_calculated": null,
+        "source": "ifc_material_layer_set",
+        "ifc_material_layer_set_guid": null,
+        "element_guid": "0OfZwWc8j9QP5uX8xPTxDH"
+      },
+      {
+        "id": "LS-1uS5vfZP",
+        "name": "plumbing wall",
+        "type": "WALL",
+        "layers": [
+          {
+            "position": 1,
+            "material_name": "gypsum_fiber-board_panel",
+            "thickness": 0.24,
+            "lambda": null,
+            "density": null,
+            "specific_heat": null,
+            "ifc_material_guid": 362
+          }
+        ],
+        "total_thickness": 0.24,
+        "u_value_calculated": null,
+        "source": "ifc_material_layer_set",
+        "ifc_material_layer_set_guid": null,
+        "element_guid": "1uS5vfZPn9R8PlAaVd73on"
+      },
+      {
+        "id": "LS-3zR0BOEc",
+        "name": "floor",
+        "type": "SLAB",
+        "layers": [
+          {
+            "position": 1,
+            "material_name": "concrete_reinforced_in-situ",
+            "thickness": 0.24,
+            "lambda": null,
+            "density": null,
+            "specific_heat": null,
+            "ifc_material_guid": 62
+          }
+        ],
+        "total_thickness": 0.24,
+        "u_value_calculated": null,
+        "source": "ifc_material_layer_set",
+        "ifc_material_layer_set_guid": null,
+        "element_guid": "3zR0BOEcLADRKln4HYporH"
+      },
+      {
+        "id": "LS-0ZTBBPo6",
+        "name": "house - roof - slab left",
+        "type": "SLAB",
+        "layers": [
+          {
+            "position": 1,
+            "material_name": "composite_element_roof",
+            "thickness": 0.24,
+            "lambda": null,
+            "density": null,
+            "specific_heat": null,
+            "ifc_material_guid": 405
+          }
+        ],
+        "total_thickness": 0.24,
+        "u_value_calculated": null,
+        "source": "ifc_material_layer_set",
+        "ifc_material_layer_set_guid": null,
+        "element_guid": "0ZTBBPo6f6bxqV2K7Oelrq"
+      },
+      {
+        "id": "LS-12UVOn4w",
+        "name": "house - roof - slab right",
+        "type": "SLAB",
+        "layers": [
+          {
+            "position": 1,
+            "material_name": "composite_element_roof",
+            "thickness": 0.24,
+            "lambda": null,
+            "density": null,
+            "specific_heat": null,
+            "ifc_material_guid": 405
+          }
+        ],
+        "total_thickness": 0.24,
+        "u_value_calculated": null,
+        "source": "ifc_material_layer_set",
+        "ifc_material_layer_set_guid": null,
+        "element_guid": "12UVOn4wvAJPMUExKdZLb8"
+      }
+    ],
+    "climate": null
+  },
+  "warnings": [
+    "1 Elemente ohne Flächenberechnung",
+    "Keine IfcRelSpaceBoundary (zone_ref ist heuristisch)",
+    "Keine Bodenplatte (BASESLAB) gefunden"
+  ],
+  "errors": []
+}
