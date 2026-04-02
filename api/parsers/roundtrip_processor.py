@@ -560,14 +560,12 @@ def _extract_pv(eing) -> List[dict]:
             name_elem = item.find('name')
             name = name_elem.text if name_elem is not None and name_elem.text else 'Unbekannt'
             
-            # Nennleistung (lstPeak in kWp) - Wert ist in text!
+            # Nennleistung (lstPeak in kWp) - Wert ist direkt im text!
             peak_power = None
             lst_peak_elem = item.find('lstPeak')
-            if lst_peak_elem is not None:
+            if lst_peak_elem is not None and lst_peak_elem.text:
                 try:
-                    val = lst_peak_elem.get('man') or lst_peak_elem.get('calc') or lst_peak_elem.text
-                    if val:
-                        peak_power = float(val)
+                    peak_power = float(lst_peak_elem.text)
                 except (ValueError, TypeError):
                     peak_power = None
             
@@ -681,11 +679,15 @@ def process_roundtrip(ifc_path: str, evea_path: str, output_path: str = 'output_
     print('-' * 70)
     
     # Konstruktionen mit Schichten
+    # WICHTIG: Haupt-/Nebenkonstruktion getrennt halten für DIN 18599 U-Wert-Berechnung
     constructions = []
     for konstr in evebi_data.constructions:
         # Schichten in sequences[] Format konvertieren
+        # Jede Abfolge (85% Dämmung + 15% Sparren) wird als separate Sequenz abgebildet
         sequences = []
         if konstr.layers:
+            # TODO: Abfolgen aus EVEBI extrahieren (aktuell: alle Schichten in einer Sequenz)
+            # Für korrekte DIN 18599 Berechnung sollten Haupt-/Nebenkonstruktion getrennt sein
             sequences.append({
                 'share': 1.0,
                 'name': 'Hauptkonstruktion',
@@ -723,16 +725,26 @@ def process_roundtrip(ifc_path: str, evea_path: str, output_path: str = 'output_
             continue
         name_lower = konstr.name.lower()
         
+        # Wände
         if 'außenwand' in name_lower or 'aussenwand' in name_lower:
             din_to_konstr['WA'] = konstr
         elif 'zwischenwand' in name_lower:
             din_to_konstr['WZ'] = konstr
-        elif 'dach' in name_lower and 'decke' not in name_lower:
-            din_to_konstr['DA'] = konstr
-        elif 'zwischendecke' in name_lower:
-            din_to_konstr['DE'] = konstr
+        
+        # Dächer (priorisiere "Dach" ohne "Decke")
+        if 'dach' in name_lower:
+            if 'decke' not in name_lower:
+                din_to_konstr['DA'] = konstr  # "Dach"
+            elif 'DA' not in din_to_konstr:
+                din_to_konstr['DA'] = konstr  # Fallback: "Decke zu Dachraum"
+        
+        # Decken/Böden
+        if 'zwischendecke' in name_lower:
+            din_to_konstr['BZ'] = konstr  # BZ = Boden/Decke zu unbeheiztem Raum
+            din_to_konstr['DE'] = konstr  # DE = Decke
         elif 'boden' in name_lower and 'außen' in name_lower:
-            din_to_konstr['BO'] = konstr
+            din_to_konstr['BE'] = konstr  # BE = Boden nach außen
+            din_to_konstr['BO'] = konstr  # BO = Boden
     
     # Ergänze U-Werte in IFC-Bauteilen via DIN-Code
     u_value_count = 0
@@ -747,7 +759,7 @@ def process_roundtrip(ifc_path: str, evea_path: str, output_path: str = 'output_
                 u_value_count += 1
     
     for roof in sidecar['input']['envelope']['roofs']:
-        if roof['u_value'] == 0.0:
+        if not roof.get('u_value') or roof['u_value'] == 0.0:
             # Dächer haben meist keinen din_code, nutze DA als Default
             if 'DA' in din_to_konstr:
                 konstr = din_to_konstr['DA']
@@ -756,10 +768,11 @@ def process_roundtrip(ifc_path: str, evea_path: str, output_path: str = 'output_
                 u_value_count += 1
     
     for floor in sidecar['input']['envelope']['floors']:
-        if floor['u_value'] == 0.0:
-            # Deckenplatten sind meist Zwischendecken
-            if 'DE' in din_to_konstr:
-                konstr = din_to_konstr['DE']
+        if not floor.get('u_value') or floor['u_value'] == 0.0:
+            # Nutze din_code falls vorhanden
+            din_code = floor.get('din_code', 'DE')
+            if din_code in din_to_konstr:
+                konstr = din_to_konstr[din_code]
                 floor['u_value'] = round(konstr.u_value, 3)
                 floor['construction_ref'] = konstr.guid
                 u_value_count += 1
