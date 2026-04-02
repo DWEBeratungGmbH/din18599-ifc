@@ -769,6 +769,11 @@ class SidecarGenerator:
             
             if is_window:
                 # Fenster (aus IFC, mit oder ohne EVEBI-Match)
+                # U-Wert: EVEBI wenn vorhanden und >0, sonst Default 1.1
+                u_value_glass = 1.1  # Default
+                if evebi_elem and evebi_elem.u_value and evebi_elem.u_value > 0:
+                    u_value_glass = evebi_elem.u_value
+                
                 window = {
                     "id": ifc_elem.guid,
                     "ifc_guid": ifc_elem.guid,
@@ -777,7 +782,7 @@ class SidecarGenerator:
                     "type": "WINDOW",
                     "parent_element_id": ifc_elem.parent_element_guid,  # Parent-Wand GUID
                     "orientation": ifc_elem.orientation if ifc_elem.orientation is not None else 0,
-                    "u_value_glass": evebi_elem.u_value if evebi_elem else 1.1,
+                    "u_value_glass": u_value_glass,
                     "u_value_frame": 1.3,  # Default
                     "psi_spacer": 0.03,  # Default
                     "g_value": 0.6,  # Default

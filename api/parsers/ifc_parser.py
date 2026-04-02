@@ -184,6 +184,10 @@ def _extract_element(ifc_element, ifc_file, settings) -> Optional[IFCElement]:
             # Orientierung und Neigung berechnen
             orientation, inclination = _calculate_orientation_and_inclination(shape, ifc_type)
             
+            # Debug: Zeige berechnete Werte
+            if orientation is not None or inclination is not None:
+                print(f"  → {name}: orientation={orientation}°, inclination={inclination}°, area={area}")
+            
             # Höhe
             height = _calculate_height(shape)
             
@@ -284,9 +288,12 @@ def _calculate_orientation_and_inclination(shape, ifc_type: str) -> Tuple[Option
         if orientation < 0:
             orientation += 360
         
-        # Neigung: Winkel zur Horizontalen
-        # 0° = horizontal, 90° = vertikal
-        inclination = 90 - math.degrees(math.acos(abs(nz)))
+        # Neigung: Winkel zur Vertikalen
+        # 0° = horizontal (Dach/Boden), 90° = vertikal (Wand)
+        # nz ist die Z-Komponente der Normale
+        # Wenn nz=1 (zeigt nach oben) → horizontal (0°)
+        # Wenn nz=0 (horizontal) → vertikal (90°)
+        inclination = math.degrees(math.acos(abs(nz)))
         
         return round(orientation, 1), round(inclination, 1)
         
