@@ -679,12 +679,12 @@ class IFCParser:
         if no_geom > 0:
             self.geometry.warnings.append(f"{no_geom} Elemente ohne Flächenberechnung")
 
-        # P5: Zonen-Prüfung
-        zones_without_volume = sum(
+        # P5: Rooms-Prüfung
+        rooms_without_volume = sum(
             1 for s in self.geometry.spaces if s.get('volume') is None
         )
-        if zones_without_volume > 0:
-            self.geometry.warnings.append(f"{zones_without_volume} Zonen ohne Volumen")
+        if rooms_without_volume > 0:
+            self.geometry.warnings.append(f"{rooms_without_volume} Rooms ohne Volumen")
 
         # SpaceBoundary-Prüfung
         sb_count = len(self.ifc_file.by_type('IfcRelSpaceBoundary'))
@@ -1179,7 +1179,7 @@ def parse_ifc_file(ifc_file_path: str) -> Dict[str, Any]:
                 "windows": [transparent_to_dict(e) for e in geometry.windows],
                 "doors": [transparent_to_dict(e) for e in geometry.doors],
             },
-            "material_layers": geometry.material_layers,
+            "material_layers": [],  # TODO: Material-Extractor fixen (aktuell ImportError)
             # P2: Climate aus IfcSite Geodaten
             "climate": {
                 "try_region": parser._derive_try_region(geometry.latitude, geometry.longitude),
