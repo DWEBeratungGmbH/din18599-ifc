@@ -154,9 +154,18 @@ def parse_ifc(ifc_file_path: str) -> IFCGeometry:
 
 
 def _extract_element(ifc_element, ifc_file, settings) -> Optional[IFCElement]:
-    """Extrahiert Informationen aus einem IFC-Element"""
+    """
+    Extrahiert Informationen aus einem IFC-Element
+    
+    3-Schritt-Ansatz:
+    1. Basis-Infos (GUID, Name, Typ) - IMMER
+    2. Geometrie (area, orientation, inclination) - OPTIONAL
+    3. EVEBI ergänzt später fehlende Daten
+    """
     try:
-        # Basis-Informationen
+        # ========================================
+        # SCHRITT 1: Basis-Informationen (IMMER)
+        # ========================================
         guid = ifc_element.GlobalId
         ifc_type = ifc_element.is_a()
         name = ifc_element.Name or f'{ifc_type} {guid[:8]}'
@@ -174,7 +183,14 @@ def _extract_element(ifc_element, ifc_file, settings) -> Optional[IFCElement]:
                 storey = rel.RelatingStructure.Name
                 break
         
-        # Geometrie berechnen
+        # ========================================
+        # SCHRITT 2: Geometrie (OPTIONAL)
+        # ========================================
+        area = None
+        orientation = None
+        inclination = None
+        height = None
+        
         try:
             shape = ifcopenshell.geom.create_shape(settings, ifc_element)
             
@@ -184,19 +200,17 @@ def _extract_element(ifc_element, ifc_file, settings) -> Optional[IFCElement]:
             # Orientierung und Neigung berechnen
             orientation, inclination = _calculate_orientation_and_inclination(shape, ifc_type)
             
-            # Debug: Zeige berechnete Werte
-            if orientation is not None or inclination is not None:
-                print(f"  → {name}: orientation={orientation}°, inclination={inclination}°, area={area}")
-            
             # Höhe
             height = _calculate_height(shape)
             
+            # Debug: Zeige berechnete Werte
+            if orientation is not None or inclination is not None:
+                print(f"  ✅ {name}: orientation={orientation}°, inclination={inclination}°, area={area}")
+            
         except Exception as e:
-            # Wenn Geometrie-Berechnung fehlschlägt, trotzdem Element erstellen
-            area = None
-            orientation = None
-            inclination = None
-            height = None
+            # Geometrie fehlgeschlagen - Element wird trotzdem erstellt
+            # EVEBI kann später Geometrie-Daten ergänzen
+            print(f"  ⚠️  {name}: Keine Geometrie (wird aus EVEBI ergänzt)")
         
         return IFCElement(
             guid=guid,
