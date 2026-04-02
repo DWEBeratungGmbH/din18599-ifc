@@ -226,12 +226,17 @@ async def generate_sidecar_json(
             print(f"   - Zonen: {len(sidecar['input']['zones'])}")
             print(f"   - Materialien: {len(sidecar['input']['materials'])}")
             print(f"   - Konstruktionen: {len(sidecar['input']['layer_structures'])}")
-            print(f"   - Bauteile: {len(sidecar['input']['elements'])}")
-            print(f"   - Fenster: {len(sidecar['input']['windows'])}")
+            
+            # Envelope Stats
+            envelope = sidecar['input']['envelope']
+            print(f"   - Außenwände: {len(envelope['walls_external'])}")
+            print(f"   - Dächer: {len(envelope['roofs'])}")
+            print(f"   - Böden: {len(envelope['floors'])}")
+            print(f"   - Fenster: {len(envelope['openings'])}")
             
             # Stats berechnen
             total_ifc = len(ifc_dict['walls']) + len(ifc_dict['roofs']) + len(ifc_dict['floors']) + len(ifc_dict['windows']) + len(ifc_dict['doors'])
-            total_sidecar = len(sidecar['input']['elements']) + len(sidecar['input']['windows'])
+            total_sidecar = len(envelope['walls_external']) + len(envelope['roofs']) + len(envelope['floors']) + len(envelope['openings'])
             
             warnings = []
             if total_sidecar < total_ifc:
