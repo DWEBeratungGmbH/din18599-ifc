@@ -1,8 +1,10 @@
 """
-IFC Parser v3 - 8-Schritte-Pipeline für DIN18599 Sidecar Generator
+IFC Parser v3.2 - Schema v2.3 konform mit DIN 18599 Beiblatt 3
 
-Angepasst an Schema v2.2:
-P1: Output-Format → Schema v2.2 (envelope.walls/roofs/floors/windows/doors)
+8-Schritte-Pipeline: für DIN18599 Sidecar Generator
+
+Angepasst an Schema v2.3:
+P1: Output-Format → Schema v2.3 (envelope.walls/roofs/floors/windows/doors)
 P2: din_code ableiten (Bauteiltyp + boundary_condition + inclination)
 P3: boundary_condition ableiten (is_external + Z-Position + Storey-Name)
 P4: fx_factor ableiten (exterior=1.0, ground=0.6, unheated=0.8/0.5)
@@ -81,7 +83,7 @@ class IFCElement:
 
 @dataclass
 class IFCGeometry:
-    """Vollständige IFC-Geometrie für Schema v2.2"""
+    """Vollständige IFC-Geometrie für Schema v2.3"""
     schema: str = ""
     project_name: str = ""
     site_name: Optional[str] = None
@@ -710,11 +712,24 @@ class IFCParser:
                 # Wände: Wandfläche (berücksichtigt Dachschnitte)
                 if 'Wall' in ifc_type:
                     if 'NetSideArea' in pset_vals:
-                        return round(pset_vals['NetSideArea'], 2)
+                        area = pset_vals['NetSideArea']
+                        # V4: Plausibilitätsprüfung (analog zu B2 bei Spaces)
+                        if area > 200:
+                            logger.warning(f"Wand {ifc_elem.Name}: NetSideArea={area}m² unrealistisch, verworfen")
+                            return None
+                        return round(area, 2)
                     elif 'GrossSideArea' in pset_vals:
-                        return round(pset_vals['GrossSideArea'], 2)
+                        area = pset_vals['GrossSideArea']
+                        if area > 200:
+                            logger.warning(f"Wand {ifc_elem.Name}: GrossSideArea={area}m² unrealistisch, verworfen")
+                            return None
+                        return round(area, 2)
                     elif 'Wandfläche' in pset_vals:  # CASCADOS custom
-                        return round(pset_vals['Wandfläche'], 2)
+                        area = pset_vals['Wandfläche']
+                        if area > 200:
+                            logger.warning(f"Wand {ifc_elem.Name}: Wandfläche={area}m² unrealistisch, verworfen")
+                            return None
+                        return round(area, 2)
                 
                 # Slabs/Roofs: Nettofläche
                 elif 'Slab' in ifc_type or 'Roof' in ifc_type:
@@ -765,44 +780,45 @@ class IFCParser:
             return None
     
     def _derive_try_region(self, lat: Optional[float], lon: Optional[float]) -> Optional[str]:
-        """P2: Leite TRY-Region aus Koordinaten ab (vereinfacht)"""
+        """V1: Leite TRY-Region aus Koordinaten ab (alle 15 DWD-Stationen, Distanzberechnung)"""
         if lat is None or lon is None:
             return None
         
-        # Vereinfachte TRY-Zuordnung nach Bundesländern (grob)
-        # TRY-Regionen: 01-15 (DWD Testreferenzjahre)
+        # Alle 15 DWD Testreferenzjahr-Regionen mit Koordinaten
+        # Quelle: DWD TRY 2015
+        try_stations = [
+            ("01", 54.7, 9.1, "Bremerhaven"),
+            ("02", 53.6, 10.0, "Hamburg"),
+            ("03", 52.5, 13.4, "Potsdam"),
+            ("04", 51.3, 6.8, "Essen"),
+            ("05", 50.8, 6.1, "Aachen"),
+            ("06", 49.5, 8.5, "Bad Marienberg"),
+            ("07", 50.0, 8.6, "Frankfurt/Main"),
+            ("08", 49.9, 10.9, "Würzburg"),
+            ("09", 48.8, 9.2, "Stuttgart"),
+            ("10", 48.1, 11.6, "München"),
+            ("11", 47.8, 10.9, "Garmisch-Partenkirchen"),
+            ("12", 50.8, 12.9, "Chemnitz"),
+            ("13", 51.5, 11.9, "Halle"),
+            ("14", 52.1, 11.6, "Magdeburg"),
+            ("15", 54.5, 13.4, "Rostock")
+        ]
         
-        # Aachen/NRW: lat ≈ 51°, lon ≈ 6-9° → TRY Region 05 (Essen)
-        if 50.5 <= lat <= 52.0 and 6.0 <= lon <= 9.0:
-            return "05"  # Essen (NRW West)
+        # Finde nächste Station (euklidische Distanz)
+        import math
+        min_distance = float('inf')
+        nearest_region = "04"  # Fallback
         
-        # Berlin/Brandenburg: lat ≈ 52.5°, lon ≈ 13°
-        elif 52.0 <= lat <= 53.0 and 13.0 <= lon <= 14.0:
-            return "04"  # Potsdam
+        for region_id, station_lat, station_lon, name in try_stations:
+            # Euklidische Distanz (vereinfacht, für Deutschland ausreichend)
+            distance = math.sqrt(
+                (lat - station_lat) ** 2 + (lon - station_lon) ** 2
+            )
+            if distance < min_distance:
+                min_distance = distance
+                nearest_region = region_id
         
-        # München/Bayern: lat ≈ 48°, lon ≈ 11°
-        elif 47.5 <= lat <= 48.5 and 11.0 <= lon <= 12.0:
-            return "12"  # München
-        
-        # Hamburg: lat ≈ 53.5°, lon ≈ 10°
-        elif 53.0 <= lat <= 54.0 and 9.5 <= lon <= 10.5:
-            return "03"  # Hamburg
-        
-        # Frankfurt: lat ≈ 50°, lon ≈ 8.5°
-        elif 49.5 <= lat <= 50.5 and 8.0 <= lon <= 9.0:
-            return "07"  # Frankfurt/Main
-        
-        # Stuttgart: lat ≈ 48.8°, lon ≈ 9.2°
-        elif 48.5 <= lat <= 49.0 and 9.0 <= lon <= 9.5:
-            return "08"  # Stuttgart
-        
-        # Köln/Bonn: lat ≈ 50.9°, lon ≈ 7°
-        elif 50.5 <= lat <= 51.5 and 6.5 <= lon <= 7.5:
-            return "06"  # Köln/Bonn
-        
-        # Default: Nächste Region (grob Mitte Deutschland)
-        else:
-            return "04"  # Potsdam (Fallback)
+        return nearest_region
     
     def _extract_element_basic(self, ifc_elem) -> Optional[IFCElement]:
         """Extrahiert Basis-Informationen"""
@@ -1041,15 +1057,21 @@ class IFCParser:
 # ============================================================
 def parse_ifc_file(ifc_file_path: str) -> Dict[str, Any]:
     """
-    P1: Parst IFC-Datei und gibt Schema v2.2 konformes Dictionary zurück.
+    V3: Parst IFC-Datei und gibt Schema v2.3 konformes Dictionary zurück.
     
-    Struktur: input.building (storeys, zones) + input.envelope (walls, roofs, ...)
+    Struktur: input.building (storeys, dwelling_units, zones, rooms) + input.envelope (walls, roofs, ...)
+    
+    Neu in v2.3:
+    - rooms[] statt zones[] (IfcSpace → room)
+    - dwelling_units[] (leer, manuell zu ergänzen)
+    - zones[] (leer, thermische Zonen manuell zu ergänzen)
+    - Elemente haben room_ref (IfcSpace GUID) statt zone_ref
     """
     parser = IFCParser(ifc_file_path)
     geometry = parser.parse()
 
     def opaque_to_dict(elem: IFCElement) -> Dict[str, Any]:
-        """Opakes Element → Schema v2.2 opaque_element"""
+        """Opakes Element → Schema v2.3 opaque_element"""
         return {
             "id": elem.guid,
             "ifc_guid": elem.guid,
@@ -1063,13 +1085,14 @@ def parse_ifc_file(ifc_file_path: str) -> Dict[str, Any]:
             "boundary_condition": elem.boundary_condition,
             "din_code": elem.din_code,
             "fx_factor": elem.fx_factor,
-            "zone_ref": elem.zone_ref,
+            "room_ref": elem.zone_ref,  # V2: zone_ref → room_ref (IfcSpace GUID)
+            "zone_ref": None,  # Wird manuell ergänzt (thermische Zone)
             "storey_ref": elem.storey_guid,
             "construction_ref": None,  # Wird aus Katalog ergänzt
         }
 
     def transparent_to_dict(elem: IFCElement) -> Dict[str, Any]:
-        """Transparentes Element → Schema v2.2 transparent_element"""
+        """Transparentes Element → Schema v2.3 transparent_element"""
         return {
             "id": elem.guid,
             "ifc_guid": elem.guid,
@@ -1089,7 +1112,8 @@ def parse_ifc_file(ifc_file_path: str) -> Dict[str, Any]:
             "din_code": elem.din_code,
             "fx_factor": elem.fx_factor,
             "parent_wall_guid": elem.parent_element_guid,
-            "zone_ref": elem.zone_ref,
+            "room_ref": elem.zone_ref,  # V2: zone_ref → room_ref (IfcSpace GUID)
+            "zone_ref": None,  # Wird manuell ergänzt (thermische Zone)
             "storey_ref": elem.storey_guid,
             "shading_factor_f_sh": None,    # Wird ergänzt
             "construction_ref": None,
