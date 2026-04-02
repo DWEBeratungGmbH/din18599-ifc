@@ -289,12 +289,14 @@ class IFCParser:
                 self.geometry.walls.append(elem)
                 self.geometry.all_elements.append(elem)
 
-        for roof in self.ifc_file.by_type('IfcRoof'):
-            elem = self._extract_element_basic(roof)
-            if elem:
-                self.ifc_cache[elem.guid] = roof
-                self.geometry.roofs.append(elem)
-                self.geometry.all_elements.append(elem)
+        # P3: IfcRoof-Aggregate NICHT sammeln (nur Container, echte Flächen in IfcSlabs)
+        # Verhindert Doppelzählung: IfcRoof "Dach 1" (256m²) + seine Slab-Kinder (256m²) = doppelt
+        # for roof in self.ifc_file.by_type('IfcRoof'):
+        #     elem = self._extract_element_basic(roof)
+        #     if elem:
+        #         self.ifc_cache[elem.guid] = roof
+        #         self.geometry.roofs.append(elem)
+        #         self.geometry.all_elements.append(elem)
 
         for slab in self.ifc_file.by_type('IfcSlab'):
             elem = self._extract_element_basic(slab)
@@ -688,16 +690,8 @@ class IFCParser:
         """Step 8: DIN 18599 Konsistenzprüfung"""
         logger.info("Step 8: Validierung...")
 
-        # R4-FIX: TypeObject-basierte AW/IW Prüfung
-        for wall in self.geometry.walls:
-            if wall.is_external is False:
-                type_name = wall.properties.get('Pset_CompType', {}).get('TypeName', '')
-                if not type_name:
-                    type_name = wall.properties.get('Pset_WallCommon', {}).get('Reference', '')
-                if 'AW' in type_name or 'Außenwand' in type_name or 'Aussenwand' in type_name:
-                    self.geometry.warnings.append(
-                        f"Wand '{wall.name}' (Typ: {type_name}) ist AW-typisiert, aber IsExternal=False"
-                    )
+        # P1: AW-Warnungen werden jetzt aggregiert in _derive_boundary_conditions ausgegeben
+        # (alte Einzelwarnungen-Schleife entfernt)
 
         # U-Wert Prüfung
         zero_u = sum(1 for w in self.geometry.walls if w.u_value == 0.0)
@@ -1072,6 +1066,8 @@ class IFCParser:
             orientation = math.degrees(math.atan2(avg_nx, avg_ny))
             if orientation < 0:
                 orientation += 360
+            # P4: Verhindere -0.0 (kann bei atan2 auftreten)
+            orientation = orientation % 360
 
             # Neigung (von Vertikale)
             inclination = math.degrees(math.acos(min(abs(avg_nz), 1.0)))
@@ -1204,8 +1200,7 @@ def parse_ifc_file(ifc_file_path: str) -> Dict[str, Any]:
             },
             "envelope": {
                 "walls": [opaque_to_dict(e) for e in geometry.walls],
-                # P3: Nur IfcSlabs (ROOF), keine IfcRoof-Aggregate (Doppelzählung)
-                "roofs": [opaque_to_dict(e) for e in geometry.roofs if e.ifc_type != 'IfcRoof'],
+                "roofs": [opaque_to_dict(e) for e in geometry.roofs],
                 "floors": [opaque_to_dict(e) for e in geometry.slabs],
                 "windows": [transparent_to_dict(e) for e in geometry.windows],
                 "doors": [transparent_to_dict(e) for e in geometry.doors],
