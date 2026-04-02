@@ -955,7 +955,11 @@ class SidecarGenerator:
             pass
         
         # Nutze Neigung (inclination) zur Bestimmung
-        inclination = element.get("inclination", 90)
+        inclination = element.get("inclination")
+        
+        # Fallback wenn inclination None ist
+        if inclination is None:
+            inclination = 90  # Default: vertikal (Wand)
         
         if inclination < 45:
             return "ROOF"  # Flach oder geneigt
