@@ -253,7 +253,8 @@ def _extract_constructions(eing) -> List[EVEBIConstruction]:
                 schichten_liste = abfolge.find('schichtenListe')
                 if schichten_liste is not None:
                     for pos, schicht in enumerate(schichten_liste.findall('item')):
-                        mat_name = schicht.findtext('material', 'Unbekannt')
+                        # Material-Name ist in 'name' Tag, nicht 'material'!
+                        mat_name = schicht.findtext('name', 'Unbekannt')
                         
                         # Dicke in cm → m (Wert ist in text, nicht in Attributen!)
                         dicke_elem = schicht.find('dicke')
@@ -642,31 +643,68 @@ def process_roundtrip(ifc_path: str, evea_path: str, output_path: str = 'output_
     print(f'✅ {len(constructions)} Konstruktionen')
     
     # U-Wert-Merge: EVEBI → IFC Bauteile
-    # Erstelle GUID → U-Wert Mapping aus EVEBI-Elementen
-    evebi_u_values = {}
-    for elem in evebi_data.elements:
-        if elem.u_value is not None and elem.u_value > 0:
-            evebi_u_values[elem.guid] = elem.u_value
+    # Problem: tflListe hat sourceID="NONE", IFC hat generische Namen ("Wand - 001")
+    # Lösung: Mapping über DIN-Code (WA→Außenwand, WZ→Zwischenwand, DA→Dach, etc.)
     
-    # Ergänze U-Werte in IFC-Bauteilen (via sourceID-Brücke)
+    # Erstelle DIN-Code → Konstruktion Mapping
+    din_to_konstr = {
+        'WA': None,  # Außenwand
+        'WZ': None,  # Zwischenwand
+        'DA': None,  # Dach
+        'DE': None,  # Decke
+        'BO': None,  # Boden
+    }
+    
+    # Finde passende Konstruktionen für jeden DIN-Code
+    for konstr in evebi_data.constructions:
+        if not konstr.u_value or konstr.u_value <= 0:
+            continue
+        name_lower = konstr.name.lower()
+        
+        if 'außenwand' in name_lower or 'aussenwand' in name_lower:
+            din_to_konstr['WA'] = konstr
+        elif 'zwischenwand' in name_lower:
+            din_to_konstr['WZ'] = konstr
+        elif 'dach' in name_lower and 'decke' not in name_lower:
+            din_to_konstr['DA'] = konstr
+        elif 'decke' in name_lower:
+            din_to_konstr['DE'] = konstr
+        elif 'boden' in name_lower:
+            din_to_konstr['BO'] = konstr
+    
+    # Ergänze U-Werte in IFC-Bauteilen via DIN-Code
     u_value_count = 0
+    
     for wall in sidecar['input']['envelope']['walls']:
-        if wall['u_value'] == 0.0 and wall['id'] in evebi_u_values:
-            wall['u_value'] = round(evebi_u_values[wall['id']], 3)
-            u_value_count += 1
+        if wall['u_value'] == 0.0:
+            din_code = wall.get('din_code', '')
+            if din_code in din_to_konstr and din_to_konstr[din_code]:
+                konstr = din_to_konstr[din_code]
+                wall['u_value'] = round(konstr.u_value, 3)
+                wall['construction_ref'] = konstr.guid
+                u_value_count += 1
     
     for roof in sidecar['input']['envelope']['roofs']:
-        if roof['u_value'] == 0.0 and roof['id'] in evebi_u_values:
-            roof['u_value'] = round(evebi_u_values[roof['id']], 3)
-            u_value_count += 1
+        if roof['u_value'] == 0.0:
+            din_code = roof.get('din_code', 'DA')  # Default: Dach
+            if din_code in din_to_konstr and din_to_konstr[din_code]:
+                konstr = din_to_konstr[din_code]
+                roof['u_value'] = round(konstr.u_value, 3)
+                roof['construction_ref'] = konstr.guid
+                u_value_count += 1
     
     for floor in sidecar['input']['envelope']['floors']:
-        if floor['u_value'] == 0.0 and floor['id'] in evebi_u_values:
-            floor['u_value'] = round(evebi_u_values[floor['id']], 3)
-            u_value_count += 1
+        if floor['u_value'] == 0.0:
+            # Deckenplatten sind meist Zwischendecken
+            din_code = floor.get('din_code', 'DE')
+            if din_code in din_to_konstr and din_to_konstr[din_code]:
+                konstr = din_to_konstr[din_code]
+                floor['u_value'] = round(konstr.u_value, 3)
+                floor['construction_ref'] = konstr.guid
+                u_value_count += 1
     
     if u_value_count > 0:
-        print(f'✅ {u_value_count} U-Werte ergänzt (EVEBI → IFC)')
+        print(f'✅ {u_value_count} U-Werte ergänzt (EVEBI → IFC via DIN-Code)')
     
     # Systeme
     if 'systems' not in sidecar['input']:
@@ -685,6 +723,20 @@ def process_roundtrip(ifc_path: str, evea_path: str, output_path: str = 'output_
     if evebi_data.storeys:
         sidecar['input']['building']['storeys'] = evebi_data.storeys
         print(f'✅ {len(evebi_data.storeys)} Geschosse')
+    
+    # Zonen (FEHLTE!)
+    if evebi_data.zones:
+        sidecar['input']['building']['zones'] = [
+            {
+                'id': z.guid,
+                'name': z.name,
+                'area': z.area,
+                'volume': z.volume,
+                'heating_setpoint': z.heating_setpoint
+            }
+            for z in evebi_data.zones
+        ]
+        print(f'✅ {len(evebi_data.zones)} Zonen')
     
     print()
     
