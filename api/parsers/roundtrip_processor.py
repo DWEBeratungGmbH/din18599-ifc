@@ -86,6 +86,7 @@ class EVEBIData:
     project_name: str
     materials: List[EVEBIMaterial] = field(default_factory=list)
     constructions: List[EVEBIConstruction] = field(default_factory=list)
+    window_constructions: List[dict] = field(default_factory=list)
     elements: List[EVEBIElement] = field(default_factory=list)
     zones: List[EVEBIZone] = field(default_factory=list)
     storeys: List[dict] = field(default_factory=list)
@@ -140,6 +141,7 @@ def parse_evebi(evea_path: str) -> EVEBIData:
     # 4. Daten extrahieren
     materials = _extract_materials(eing) if eing is not None else []
     constructions = _extract_constructions(eing) if eing is not None else []
+    window_constructions = _extract_window_constructions(eing) if eing is not None else []
     elements = _extract_elements(eing) if eing is not None else []
     zones = _extract_zones(eing) if eing is not None else []
     storeys = _extract_storeys(eing) if eing is not None else []
@@ -150,6 +152,7 @@ def parse_evebi(evea_path: str) -> EVEBIData:
     pv_systems = _extract_pv(eing) if eing is not None else []
     
     print(f"✅ Konstruktionen: {len(constructions)}")
+    print(f"✅ Fenster-Konstruktionen: {len(window_constructions)}")
     print(f"✅ Bauteile: {len(elements)}")
     print(f"✅ Zonen: {len(zones)}")
     print(f"✅ Systeme: {len(heating_systems + dhw_systems + ventilation_systems + pv_systems)}")
@@ -159,6 +162,7 @@ def parse_evebi(evea_path: str) -> EVEBIData:
         project_name=project_name,
         materials=materials,
         constructions=constructions,
+        window_constructions=window_constructions,
         elements=elements,
         zones=zones,
         storeys=storeys,
@@ -553,6 +557,74 @@ def _extract_ventilation(eing) -> List[dict]:
     return systems
 
 
+def _extract_window_constructions(eing) -> List[dict]:
+    """Extrahiert Fenster-Konstruktionen aus EVEBI"""
+    window_constructions = []
+    
+    konstr_fenster_liste = eing.find('konstrFensterListe')
+    if konstr_fenster_liste is not None:
+        for item in konstr_fenster_liste.findall('item'):
+            guid = item.get('GUID', '')
+            name = item.findtext('name', 'Unbekannt')
+            
+            # g-Wert (Gesamtenergiedurchlassgrad)
+            g_wert = None
+            g_elem = item.find('gWert')
+            if g_elem is not None and g_elem.text:
+                try:
+                    g_wert = float(g_elem.text)
+                except (ValueError, TypeError):
+                    pass
+            
+            # Ug (U-Wert Verglasung)
+            ug = None
+            ug_elem = item.find('glas_Ug')
+            if ug_elem is not None and ug_elem.text:
+                try:
+                    ug = float(ug_elem.text)
+                except (ValueError, TypeError):
+                    pass
+            
+            # Uf (U-Wert Rahmen)
+            uf = None
+            uf_elem = item.find('rahmen_Uf')
+            if uf_elem is not None and uf_elem.text:
+                try:
+                    uf = float(uf_elem.text)
+                except (ValueError, TypeError):
+                    pass
+            
+            # Rahmenanteil
+            frame_area_fraction = None
+            rahmen_elem = item.find('rahmenAnteilWin')
+            if rahmen_elem is not None and rahmen_elem.text:
+                try:
+                    frame_area_fraction = float(rahmen_elem.text)
+                except (ValueError, TypeError):
+                    pass
+            
+            # U-Wert gesamt
+            u_value = None
+            u_standard_elem = item.find('UWertStandard')
+            if u_standard_elem is not None and u_standard_elem.text:
+                try:
+                    u_value = float(u_standard_elem.text)
+                except (ValueError, TypeError):
+                    pass
+            
+            window_constructions.append({
+                'guid': guid,
+                'name': name,
+                'g_value': g_wert,
+                'ug': ug,
+                'uf': uf,
+                'frame_area_fraction': frame_area_fraction,
+                'u_value': u_value
+            })
+    
+    return window_constructions
+
+
 def _extract_pv(eing) -> List[dict]:
     """Extrahiert PV-Systeme aus EVEBI"""
     systems = []
@@ -729,6 +801,23 @@ def process_roundtrip(ifc_path: str, evea_path: str, output_path: str = 'output_
     sidecar['input']['constructions'] = constructions
     print(f'✅ {len(constructions)} Konstruktionen')
     
+    # Fenster-Konstruktionen
+    window_constructions = []
+    for wc in evebi_data.window_constructions:
+        window_constructions.append({
+            'id': wc['guid'],
+            'name': wc['name'],
+            'source': 'EVEBI',
+            'g_value': round(wc['g_value'], 3) if wc['g_value'] else None,
+            'ug': round(wc['ug'], 3) if wc['ug'] else None,
+            'uf': round(wc['uf'], 3) if wc['uf'] else None,
+            'frame_area_fraction': round(wc['frame_area_fraction'], 3) if wc['frame_area_fraction'] else None,
+            'u_value': round(wc['u_value'], 3) if wc['u_value'] else None
+        })
+    
+    sidecar['input']['window_constructions'] = window_constructions
+    print(f'✅ {len(window_constructions)} Fenster-Konstruktionen')
+    
     # U-Wert-Merge: EVEBI → IFC Bauteile
     # Problem: btlListe hat keine Flächen/Orientierungen, Name-Matching funktioniert nicht
     # Lösung: DIN-Code-Mapping (WA→Außenwand, DA→Dach, etc.)
@@ -794,6 +883,46 @@ def process_roundtrip(ifc_path: str, evea_path: str, output_path: str = 'output_
     
     if u_value_count > 0:
         print(f'✅ {u_value_count} U-Werte ergänzt (EVEBI → IFC via DIN-Code)')
+    
+    # Fenster/Türen U-Werte (transparent elements)
+    # Nutze erste Fenster-Konstruktion für alle Fenster, erste Tür-Konstruktion für alle Türen
+    fenster_konstr = None
+    tuer_konstr = None
+    
+    for wc in evebi_data.window_constructions:
+        if 'fenster' in wc['name'].lower() and not fenster_konstr:
+            fenster_konstr = wc
+        elif 'tür' in wc['name'].lower() or 'tuer' in wc['name'].lower():
+            tuer_konstr = wc
+    
+    window_u_count = 0
+    door_u_count = 0
+    
+    # Fenster
+    for window in sidecar['input']['envelope']['windows']:
+        if not window.get('u_value') or window['u_value'] == 0.0:
+            if fenster_konstr and fenster_konstr['u_value']:
+                window['u_value'] = round(fenster_konstr['u_value'], 3)
+                window['construction_ref'] = fenster_konstr['guid']
+                if fenster_konstr['g_value']:
+                    window['g_value'] = round(fenster_konstr['g_value'], 3)
+                window_u_count += 1
+    
+    # Türen
+    for door in sidecar['input']['envelope']['doors']:
+        if not door.get('u_value') or door['u_value'] == 0.0:
+            if tuer_konstr and tuer_konstr['u_value']:
+                door['u_value'] = round(tuer_konstr['u_value'], 3)
+                door['construction_ref'] = tuer_konstr['guid']
+                door_u_count += 1
+            elif fenster_konstr and fenster_konstr['u_value']:
+                # Fallback: Nutze Fenster-Konstruktion für Türen
+                door['u_value'] = round(fenster_konstr['u_value'], 3)
+                door['construction_ref'] = fenster_konstr['guid']
+                door_u_count += 1
+    
+    if window_u_count > 0 or door_u_count > 0:
+        print(f'✅ {window_u_count} Fenster + {door_u_count} Türen mit U-Werten ergänzt')
     
     # Systeme
     if 'systems' not in sidecar['input']:
