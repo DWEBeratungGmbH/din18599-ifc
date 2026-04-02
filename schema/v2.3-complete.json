@@ -356,20 +356,44 @@
     "heating_system": {
       "type": "object",
       "properties": {
-        "generation": {"type": "object"},
-        "distribution": {"type": "object"},
-        "emission": {"type": "object"},
-        "control": {"type": "object"}
+        "generation": {
+          "type": "object",
+          "properties": {
+            "type": {"type": "string"},
+            "installation_year": {"type": "integer"},
+            "nominal_power_kw": {"type": "number", "minimum": 0},
+            "efficiency": {"type": "number", "minimum": 0, "maximum": 1}
+          }
+        },
+        "distribution": {
+          "type": "object",
+          "properties": {
+            "type": {"type": "string"},
+            "insulation_standard": {"type": "string"}
+          }
+        },
+        "emission": {"type": "object", "properties": {"type": {"type": "string"}}},
+        "control": {
+          "type": "object",
+          "properties": {
+            "type": {"type": "string"},
+            "efficiency_factor": {"type": "number", "minimum": 0, "maximum": 1}
+          }
+        }
       }
     },
     
     "ventilation_system": {
       "type": "object",
       "properties": {
-        "type": {"type": "string"},
+        "type": {
+          "type": "string",
+          "enum": ["natural", "mechanical_exhaust", "mechanical_supply_exhaust", "hybrid", "demand_controlled"]
+        },
         "n50_value": {"type": "number", "minimum": 0},
         "heat_recovery": {"type": "boolean"},
-        "heat_recovery_efficiency": {"type": "number", "minimum": 0, "maximum": 1}
+        "heat_recovery_efficiency": {"type": "number", "minimum": 0, "maximum": 1},
+        "air_flow_rate_m3h": {"type": "number", "minimum": 0}
       }
     },
     
@@ -377,35 +401,55 @@
       "type": "object",
       "properties": {
         "installed": {"type": "boolean"},
-        "type": {"type": "string"}
+        "type": {"type": "string"},
+        "nominal_power_kw": {"type": "number", "minimum": 0},
+        "eer": {"type": "number", "minimum": 0}
       }
     },
     
     "lighting_system": {
       "type": "object",
       "properties": {
-        "applicable": {"type": "boolean"}
+        "applicable": {"type": "boolean"},
+        "installed_power_w_m2": {"type": "number", "minimum": 0},
+        "control_type": {"type": "string"}
       }
     },
     
     "dhw_system": {
       "type": "object",
       "properties": {
-        "type": {"type": "string"}
+        "type": {"type": "string"},
+        "storage_volume_l": {"type": "number", "minimum": 0},
+        "circulation": {"type": "boolean"}
       }
     },
     
     "electricity": {
       "type": "object",
       "properties": {
-        "pv": {"type": "object"}
+        "pv": {
+          "type": "object",
+          "properties": {
+            "installed": {"type": "boolean"},
+            "peak_power_kwp": {"type": "number", "minimum": 0},
+            "area_m2": {"type": "number", "minimum": 0},
+            "orientation": {"type": "number", "minimum": 0, "maximum": 360},
+            "inclination": {"type": "number", "minimum": 0, "maximum": 90}
+          }
+        }
       }
     },
     
     "automation": {
       "type": "object",
       "properties": {
-        "installed": {"type": "boolean"}
+        "installed": {"type": "boolean"},
+        "bacs_class": {"type": "string", "enum": ["A", "B", "C", "D"]},
+        "efficiency_factor_heating": {"type": "number", "minimum": 0, "maximum": 1},
+        "efficiency_factor_cooling": {"type": "number", "minimum": 0, "maximum": 1},
+        "efficiency_factor_ventilation": {"type": "number", "minimum": 0, "maximum": 1},
+        "efficiency_factor_lighting": {"type": "number", "minimum": 0, "maximum": 1}
       }
     },
     
@@ -413,7 +457,26 @@
       "type": "object",
       "required": ["source"],
       "properties": {
-        "source": {"type": "string"}
+        "source": {"type": "string", "enum": ["GEG_2024", "BEG_2024", "DIN_18599", "CUSTOM"]},
+        "reference_year": {"type": "integer"},
+        "factors": {
+          "type": "object",
+          "properties": {
+            "electricity": {"type": "number", "minimum": 0},
+            "natural_gas": {"type": "number", "minimum": 0},
+            "oil": {"type": "number", "minimum": 0},
+            "district_heating": {"type": "number", "minimum": 0},
+            "wood_pellets": {"type": "number", "minimum": 0}
+          }
+        },
+        "co2_factors": {
+          "type": "object",
+          "properties": {
+            "electricity": {"type": "number", "minimum": 0},
+            "natural_gas": {"type": "number", "minimum": 0},
+            "oil": {"type": "number", "minimum": 0}
+          }
+        }
       }
     },
     
