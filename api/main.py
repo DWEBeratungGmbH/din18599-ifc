@@ -231,6 +231,7 @@ async def generate_sidecar_json(
             envelope = sidecar['input']['envelope']
             print(f"   - Außenwände: {len(envelope['walls_external'])}")
             print(f"   - Dächer: {len(envelope['roofs'])}")
+            print(f"   - Gauben: {len(envelope.get('dormers', []))}")
             print(f"   - Böden: {len(envelope['floors'])}")
             print(f"   - Fenster: {len(envelope['openings'])}")
             
@@ -252,6 +253,7 @@ async def generate_sidecar_json(
                     "evebi_zones": len(evebi_dict['zones']),
                     "sidecar_walls": len(envelope['walls_external']),
                     "sidecar_roofs": len(envelope['roofs']),
+                    "sidecar_dormers": len(envelope.get('dormers', [])),
                     "sidecar_floors": len(envelope['floors']),
                     "sidecar_windows": len(envelope['openings']),
                     "sidecar_zones": len(sidecar['input']['zones']),

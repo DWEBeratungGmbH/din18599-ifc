@@ -128,6 +128,7 @@ class SidecarGenerator:
         walls = []
         roofs = []
         floors = []
+        dormers = []  # Gauben
         
         for elem in elements:
             # Bestimme Typ basierend auf IFC-Element
@@ -139,10 +140,13 @@ class SidecarGenerator:
                 roofs.append(elem)
             elif elem_type == "FLOOR":
                 floors.append(elem)
+            elif elem_type == "DORMER":
+                dormers.append(elem)
         
         sidecar["input"]["envelope"]["walls_external"] = walls
         sidecar["input"]["envelope"]["roofs"] = roofs
         sidecar["input"]["envelope"]["floors"] = floors
+        sidecar["input"]["envelope"]["dormers"] = dormers  # Gauben
         sidecar["input"]["envelope"]["openings"] = windows
         
         # Anlagentechnik (falls vorhanden)
@@ -949,10 +953,14 @@ class SidecarGenerator:
         Erkennt Element-Typ aus IFC-Typ, Name oder inclination
         
         Returns:
-            "WALL", "ROOF", "FLOOR", oder "UNKNOWN"
+            "WALL", "ROOF", "FLOOR", "DORMER", oder "UNKNOWN"
         """
         # 1. Prüfe IFC-Typ (aus ifc_guid oder name)
         name = element.get("name", "").lower()
+        
+        # Gaube (Dormer) - spezifischer Check zuerst
+        if "gaube" in name or "dormer" in name:
+            return "DORMER"
         
         # IfcSlab kann Dach oder Boden sein - prüfe Position/Name
         if "ifcslab" in name or "deckenplatte" in name or "decke" in name:
@@ -962,7 +970,7 @@ class SidecarGenerator:
             else:
                 return "FLOOR"
         
-        # IfcRoof ist immer Dach
+        # IfcRoof ist immer Dach (außer Gaube wurde schon erkannt)
         if "ifcroof" in name or "dach" in name:
             return "ROOF"
         
