@@ -244,8 +244,12 @@
         },
         "din_code": {
           "type": "string",
-          "enum": ["WA", "WI", "DA", "DE", "DU", "BE", "BO", "BU"],
-          "description": "B1: DIN 18599 Bauteilcode (Beiblatt 3 Tabelle 77-85)"
+          "enum": ["WA", "WI", "WE", "WU", "WZ", "DA", "DE", "DU", "DZ", "BE", "BO", "BU", "BZ", "RK", "GF", "PF"],
+          "description": "R1: DIN 18599 Bauteilcode vollständig (Beiblatt 3 Tabelle 77-85)"
+        },
+        "zone_ref": {
+          "type": "string",
+          "description": "R2: Referenz zu Zone (für zonenweise Zuordnung Tabelle 92)"
         },
         "fx_factor": {
           "type": "number",
@@ -315,8 +319,12 @@
         },
         "din_code": {
           "type": "string",
-          "enum": ["FA", "FD", "FL", "TA", "TD"],
-          "description": "B1: DIN 18599 Bauteilcode (Beiblatt 3 Tabelle 86-92)"
+          "enum": ["FA", "FD", "FL", "FU", "FZ", "TA", "TD", "TU", "TZ"],
+          "description": "R1: DIN 18599 Bauteilcode vollständig (Beiblatt 3 Tabelle 86-92)"
+        },
+        "zone_ref": {
+          "type": "string",
+          "description": "R2: Referenz zu Zone (für zonenweise Zuordnung Tabelle 92)"
         },
         "fx_factor": {
           "type": "number",
