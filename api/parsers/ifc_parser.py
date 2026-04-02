@@ -397,10 +397,28 @@ def ifc_geometry_to_dict(ifc_geometry: IFCGeometry) -> dict:
     Konvertiert IFCGeometry in Dictionary-Format für Sidecar Generator
     Inkludiert vollständige Material-Schichtaufbauten (NEU!)
     """
+    
+    # Konvertiere IFCElement Objekte zu Dicts
+    def element_to_dict(elem: IFCElement) -> dict:
+        return {
+            "guid": elem.guid,
+            "ifc_type": elem.ifc_type,
+            "name": elem.name,
+            "tag": elem.tag,
+            "area": elem.area,
+            "orientation": elem.orientation,
+            "inclination": elem.inclination,
+            "height": elem.height,
+            "storey": elem.storey,
+            "material": elem.material,
+            "parent_element_guid": elem.parent_element_guid
+        }
+    
     return {
         "project_name": ifc_geometry.project_name,
         "building_guid": ifc_geometry.building_guid or "UNKNOWN",
         "material_layers": ifc_geometry.material_layers,  # ← NEU!
+        "all_elements": [element_to_dict(elem) for elem in ifc_geometry.all_elements],  # ← NEU!
         "walls": [
             {
                 "guid": elem.guid,
