@@ -120,15 +120,38 @@ class SidecarGenerator:
                 "zones": self._map_zones(evebi_zones),
                 "materials": self._map_materials(evebi_materials),
                 "layer_structures": self._map_layer_structures(evebi_constructions, ifc_material_layers),
-                "elements": [],
-                "windows": []
+                "envelope": {
+                    "walls_external": [],
+                    "roofs": [],
+                    "floors": [],
+                    "openings": []
+                }
             }
         }
         
         # Bauteile + Fenster mappen (mit IFC Material-Layers)
         elements, windows = self._map_elements(matched_elements, ifc_material_layers)
-        sidecar["input"]["elements"] = elements
-        sidecar["input"]["windows"] = windows
+        
+        # Gruppiere Elemente nach Typ für envelope
+        walls = []
+        roofs = []
+        floors = []
+        
+        for elem in elements:
+            # Bestimme Typ basierend auf IFC-Element
+            elem_type = self._detect_element_type(elem)
+            
+            if elem_type == "WALL" and elem.get("boundary_condition") == "EXTERIOR":
+                walls.append(elem)
+            elif elem_type == "ROOF":
+                roofs.append(elem)
+            elif elem_type == "FLOOR":
+                floors.append(elem)
+        
+        sidecar["input"]["envelope"]["walls_external"] = walls
+        sidecar["input"]["envelope"]["roofs"] = roofs
+        sidecar["input"]["envelope"]["floors"] = floors
+        sidecar["input"]["envelope"]["openings"] = windows
         
         # Anlagentechnik (falls vorhanden)
         if "systems" in evebi_data:
@@ -748,7 +771,11 @@ class SidecarGenerator:
             if is_window:
                 # Fenster (aus IFC, mit oder ohne EVEBI-Match)
                 window = {
+                    "id": ifc_elem.guid,
                     "ifc_guid": ifc_elem.guid,
+                    "name": ifc_elem.name or f"Fenster {ifc_elem.guid[:8]}",
+                    "area": ifc_elem.area or 0.0,
+                    "type": "WINDOW",
                     "u_value_glass": evebi_elem.u_value if evebi_elem else 1.1,
                     "u_value_frame": 1.3,  # Default
                     "psi_spacer": 0.03,  # Default
@@ -797,7 +824,10 @@ class SidecarGenerator:
                     u_value = self._calculate_u_value_from_layers([], ifc_elem.type)
                 
                 element = {
+                    "id": ifc_elem.guid,  # Viewer erwartet 'id' statt 'ifc_guid'
                     "ifc_guid": ifc_elem.guid,
+                    "name": ifc_elem.name or f"Element {ifc_elem.guid[:8]}",
+                    "area": ifc_elem.area or 0.0,
                     "boundary_condition": self._detect_boundary_condition(evebi_elem.name if evebi_elem else ifc_elem.name),
                     "layer_structure_ref": layer_structure_ref,
                     "u_value_undisturbed": u_value,
@@ -907,6 +937,31 @@ class SidecarGenerator:
     # ========================================================================
     # Helper-Funktionen
     # ========================================================================
+    
+    def _detect_element_type(self, element: Dict[str, Any]) -> str:
+        """
+        Erkennt Element-Typ aus layer_structure_ref oder inclination
+        
+        Returns:
+            "WALL", "ROOF", "FLOOR", oder "UNKNOWN"
+        """
+        # Prüfe layer_structure_ref
+        layer_ref = element.get("layer_structure_ref", "")
+        if layer_ref:
+            # Suche in layer_structures nach Typ
+            # Format: "LS-1ybs9cI0" oder "LS-{7456141"
+            # Wir nutzen die Neigung als Fallback
+            pass
+        
+        # Nutze Neigung (inclination) zur Bestimmung
+        inclination = element.get("inclination", 90)
+        
+        if inclination < 45:
+            return "ROOF"  # Flach oder geneigt
+        elif inclination > 135:
+            return "FLOOR"  # Nach unten geneigt
+        else:
+            return "WALL"  # Vertikal oder nah dran
     
     def _detect_structure_type(self, name: str) -> str:
         """Erkennt Konstruktions-Typ aus Name"""
