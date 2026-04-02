@@ -169,36 +169,132 @@ def parse_evebi(evea_path: str) -> EVEBIData:
 
 
 def _extract_materials(eing) -> List[EVEBIMaterial]:
-    """Extrahiert Materialien aus EVEBI"""
-    return []  # TODO: Implementieren
+    """Extrahiert Materialien aus konstruktionenListe"""
+    materials = []
+    
+    konstr_liste = eing.find('konstruktionenListe')
+    if konstr_liste is None:
+        return materials
+    
+    for item in konstr_liste:
+        guid = item.get('GUID', '')
+        name = item.findtext('.//name', 'Unbekannt')
+        
+        # Lambda-Wert
+        lambda_elem = item.find('.//lambda')
+        lambda_value = 0.0
+        if lambda_elem is not None:
+            try:
+                lambda_value = float(lambda_elem.get('man', lambda_elem.get('calc', '0')))
+            except (ValueError, TypeError):
+                lambda_value = 0.0
+        
+        # Dichte
+        density_elem = item.find('.//rho')
+        density = 0.0
+        if density_elem is not None:
+            try:
+                density = float(density_elem.get('man', density_elem.get('calc', '0')))
+            except (ValueError, TypeError):
+                density = 0.0
+        
+        if lambda_value > 0:
+            materials.append(EVEBIMaterial(
+                guid=guid,
+                name=name,
+                lambda_value=lambda_value,
+                density=density
+            ))
+    
+    return materials
 
 
 def _extract_constructions(eing) -> List[EVEBIConstruction]:
-    """Extrahiert Konstruktionen aus EVEBI"""
+    """Extrahiert Konstruktionen mit Schichten aus EVEBI"""
     constructions = []
     
     konstr_liste = eing.find('konstruktionenListe')
-    if konstr_liste is not None:
-        for item in konstr_liste.findall('item'):
-            guid = item.get('GUID', '')
-            name_elem = item.find('name')
-            name = name_elem.text if name_elem is not None and name_elem.text else 'Unbekannt'
-            
-            u_wert_elem = item.find('UWert')
-            u_value = 0.0
-            if u_wert_elem is not None and u_wert_elem.text:
+    if konstr_liste is None:
+        return constructions
+    
+    for item in konstr_liste.findall('item'):
+        guid = item.get('GUID', '')
+        
+        # Name aus Attribut 'man'
+        name_elem = item.find('name')
+        name = 'Unbekannte Konstruktion'
+        if name_elem is not None:
+            name = name_elem.get('man', name_elem.get('calc', name_elem.text or name))
+        
+        # U-Wert
+        u_value = 0.0
+        u_standard = item.findtext('UWertStandard')
+        if u_standard:
+            try:
+                u_value = float(u_standard)
+            except (ValueError, TypeError):
+                pass
+        
+        if u_value == 0.0:
+            u_elem = item.find('U')
+            if u_elem is not None:
                 try:
-                    u_value = float(u_wert_elem.text)
-                except ValueError:
+                    u_value = float(u_elem.get('man', u_elem.get('calc', '0')))
+                except (ValueError, TypeError):
                     pass
-            
-            constructions.append(EVEBIConstruction(
-                guid=guid,
-                name=name,
-                u_value=u_value,
-                layers=[],
-                total_thickness=0.0
-            ))
+        
+        # Schichten aus abfolgenListe → schichtenListe
+        layers = []
+        total_thickness = 0.0
+        
+        abfolgen_liste = item.find('abfolgenListe')
+        if abfolgen_liste is not None:
+            for abfolge in abfolgen_liste.findall('item'):
+                schichten_liste = abfolge.find('schichtenListe')
+                if schichten_liste is not None:
+                    for pos, schicht in enumerate(schichten_liste.findall('item')):
+                        mat_name = schicht.findtext('material', 'Unbekannt')
+                        
+                        # Dicke in cm → m (Wert ist in text, nicht in Attributen!)
+                        dicke_elem = schicht.find('dicke')
+                        thickness = 0.0
+                        if dicke_elem is not None:
+                            try:
+                                # Versuche zuerst Attribute, dann text
+                                val = dicke_elem.get('man') or dicke_elem.get('calc') or dicke_elem.text
+                                if val:
+                                    thickness = float(val) / 100.0
+                            except (ValueError, TypeError):
+                                thickness = 0.0
+                        
+                        # Lambda (Wert ist in text, nicht in Attributen!)
+                        lambda_elem = schicht.find('lambda')
+                        lambda_val = 0.0
+                        if lambda_elem is not None:
+                            try:
+                                # Versuche zuerst Attribute, dann text
+                                val = lambda_elem.get('man') or lambda_elem.get('calc') or lambda_elem.text
+                                if val:
+                                    lambda_val = float(val)
+                            except (ValueError, TypeError):
+                                lambda_val = 0.0
+                        
+                        if thickness > 0:
+                            layers.append(EVEBILayer(
+                                material_name=mat_name,
+                                thickness=thickness,
+                                lambda_value=lambda_val,
+                                position=pos
+                            ))
+                            total_thickness += thickness
+        
+        constructions.append(EVEBIConstruction(
+            guid=guid,
+            name=name,
+            u_value=u_value,
+            layers=layers,
+            total_thickness=total_thickness
+        ))
     
     return constructions
 
@@ -224,21 +320,50 @@ def _extract_elements(eing) -> List[EVEBIElement]:
 
 
 def _extract_zones(eing) -> List[EVEBIZone]:
-    """Extrahiert Zonen aus EVEBI"""
+    """Extrahiert Zonen aus zDListe (nicht geschosseListe!)"""
     zones = []
     
-    geschosse_liste = eing.find('geschosseListe')
-    if geschosse_liste is not None:
-        for item in geschosse_liste.findall('item'):
+    # zDListe enthält die echten DIN 18599 Zonen mit flaeche, V, raumHoehe, iTmp
+    zd_liste = eing.find('zDListe')
+    if zd_liste is not None:
+        for item in zd_liste.findall('item'):
             guid = item.get('GUID', '')
             name_elem = item.find('name')
-            name = name_elem.text if name_elem is not None and name_elem.text else 'Unbekannt'
+            name = name_elem.text if name_elem is not None and name_elem.text else 'Unbekannte Zone'
+            
+            # Fläche
+            area = 0.0
+            flaeche_elem = item.find('flaeche')
+            if flaeche_elem is not None:
+                try:
+                    area = float(flaeche_elem.get('man', flaeche_elem.get('calc', '0')))
+                except (ValueError, TypeError):
+                    area = 0.0
+            
+            # Volumen
+            volume = 0.0
+            v_elem = item.find('V')
+            if v_elem is not None:
+                try:
+                    volume = float(v_elem.get('man', v_elem.get('calc', '0')))
+                except (ValueError, TypeError):
+                    volume = 0.0
+            
+            # Solltemperatur
+            heating_setpoint = None
+            i_tmp_elem = item.find('iTmp')
+            if i_tmp_elem is not None:
+                try:
+                    heating_setpoint = float(i_tmp_elem.get('man', i_tmp_elem.get('calc', '20')))
+                except (ValueError, TypeError):
+                    heating_setpoint = None
             
             zones.append(EVEBIZone(
                 guid=guid,
                 name=name,
-                area=0.0,
-                volume=0.0
+                area=area,
+                volume=volume,
+                heating_setpoint=heating_setpoint
             ))
     
     return zones
@@ -303,12 +428,27 @@ def _extract_dhw(eing) -> List[dict]:
             art_elem = item.find('art')
             art = art_elem.text if art_elem is not None and art_elem.text else None
             
+            # Speichervolumen
+            storage_volume = None
+            v_sp_elem = item.find('V_Sp')
+            if v_sp_elem is not None:
+                try:
+                    storage_volume = float(v_sp_elem.get('man', v_sp_elem.get('calc', '0')))
+                except (ValueError, TypeError):
+                    storage_volume = None
+            
+            # Zirkulation
+            circulation = None
+            zirk_elem = item.find('zirkulation')
+            if zirk_elem is not None:
+                circulation = zirk_elem.text == 'true' or zirk_elem.get('man') == 'true'
+            
             systems.append({
                 'guid': guid,
                 'name': name,
                 'art': art,
-                'storage_volume': None,
-                'circulation': None
+                'storage_volume': storage_volume,
+                'circulation': circulation
             })
     
     return systems
@@ -328,12 +468,27 @@ def _extract_ventilation(eing) -> List[dict]:
             art_elem = item.find('art')
             art = art_elem.text if art_elem is not None and art_elem.text else None
             
+            # Wärmerückgewinnung
+            wrg = None
+            wrg_elem = item.find('wrg')
+            if wrg_elem is not None:
+                wrg = wrg_elem.text == 'true' or wrg_elem.get('man') == 'true'
+            
+            # WRG-Grad
+            wrg_grad = None
+            wrg_grad_elem = item.find('wrg_grad')
+            if wrg_grad_elem is not None:
+                try:
+                    wrg_grad = float(wrg_grad_elem.get('man', wrg_grad_elem.get('calc', '0')))
+                except (ValueError, TypeError):
+                    wrg_grad = None
+            
             systems.append({
                 'guid': guid,
                 'name': name,
                 'art': art,
-                'wrg': None,
-                'wrg_grad': None
+                'wrg': wrg,
+                'wrg_grad': wrg_grad
             })
     
     return systems
@@ -350,12 +505,57 @@ def _extract_pv(eing) -> List[dict]:
             name_elem = item.find('name')
             name = name_elem.text if name_elem is not None and name_elem.text else 'Unbekannt'
             
+            # Nennleistung (lstPeak in kWp) - Wert ist in text!
+            peak_power = None
+            lst_peak_elem = item.find('lstPeak')
+            if lst_peak_elem is not None:
+                try:
+                    val = lst_peak_elem.get('man') or lst_peak_elem.get('calc') or lst_peak_elem.text
+                    if val:
+                        peak_power = float(val)
+                except (ValueError, TypeError):
+                    peak_power = None
+            
+            # Orientierung (orientierung_genau, nicht orientGrad!)
+            orientation = None
+            orient_elem = item.find('orientierung_genau')
+            if orient_elem is not None:
+                try:
+                    val = orient_elem.get('man') or orient_elem.get('calc') or orient_elem.text
+                    if val:
+                        orientation = float(val)
+                except (ValueError, TypeError):
+                    orientation = None
+            
+            # Neigung - Wert ist in text!
+            inclination = None
+            neig_elem = item.find('neigung')
+            if neig_elem is not None:
+                try:
+                    val = neig_elem.get('man') or neig_elem.get('calc') or neig_elem.text
+                    if val:
+                        inclination = float(val)
+                except (ValueError, TypeError):
+                    inclination = None
+            
+            # Fläche - Wert ist in text!
+            area = None
+            flaeche_elem = item.find('flaeche')
+            if flaeche_elem is not None:
+                try:
+                    val = flaeche_elem.get('man') or flaeche_elem.get('calc') or flaeche_elem.text
+                    if val:
+                        area = float(val)
+                except (ValueError, TypeError):
+                    area = None
+            
             systems.append({
                 'guid': guid,
                 'name': name,
-                'peak_power': None,
-                'orientation': None,
-                'inclination': None
+                'peak_power': peak_power,
+                'orientation': orientation,
+                'inclination': inclination,
+                'area': area
             })
     
     return systems
@@ -409,20 +609,64 @@ def process_roundtrip(ifc_path: str, evea_path: str, output_path: str = 'output_
     print('STEP 3: MERGE')
     print('-' * 70)
     
-    # Konstruktionen
+    # Konstruktionen mit Schichten
     constructions = []
     for konstr in evebi_data.constructions:
+        # Schichten in sequences[] Format konvertieren
+        sequences = []
+        if konstr.layers:
+            sequences.append({
+                'share': 1.0,
+                'name': 'Hauptkonstruktion',
+                'layers': [
+                    {
+                        'material': layer.material_name,
+                        'thickness': layer.thickness,
+                        'lambda': layer.lambda_value,
+                        'position': layer.position
+                    }
+                    for layer in konstr.layers
+                ]
+            })
+        
         constructions.append({
             'id': konstr.guid,
             'name': konstr.name,
             'source': 'EVEBI',
             'u_value': round(konstr.u_value, 3) if konstr.u_value else None,
-            'sequences': [],
+            'sequences': sequences,
             'total_thickness': konstr.total_thickness
         })
     
     sidecar['input']['constructions'] = constructions
     print(f'✅ {len(constructions)} Konstruktionen')
+    
+    # U-Wert-Merge: EVEBI → IFC Bauteile
+    # Erstelle GUID → U-Wert Mapping aus EVEBI-Elementen
+    evebi_u_values = {}
+    for elem in evebi_data.elements:
+        if elem.u_value is not None and elem.u_value > 0:
+            evebi_u_values[elem.guid] = elem.u_value
+    
+    # Ergänze U-Werte in IFC-Bauteilen (via sourceID-Brücke)
+    u_value_count = 0
+    for wall in sidecar['input']['envelope']['walls']:
+        if wall['u_value'] == 0.0 and wall['id'] in evebi_u_values:
+            wall['u_value'] = round(evebi_u_values[wall['id']], 3)
+            u_value_count += 1
+    
+    for roof in sidecar['input']['envelope']['roofs']:
+        if roof['u_value'] == 0.0 and roof['id'] in evebi_u_values:
+            roof['u_value'] = round(evebi_u_values[roof['id']], 3)
+            u_value_count += 1
+    
+    for floor in sidecar['input']['envelope']['floors']:
+        if floor['u_value'] == 0.0 and floor['id'] in evebi_u_values:
+            floor['u_value'] = round(evebi_u_values[floor['id']], 3)
+            u_value_count += 1
+    
+    if u_value_count > 0:
+        print(f'✅ {u_value_count} U-Werte ergänzt (EVEBI → IFC)')
     
     # Systeme
     if 'systems' not in sidecar['input']:

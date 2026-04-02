@@ -1,0 +1,1499 @@
+{
+  "schema_info": {
+    "url": "https://din18599-ifc.de/schema/v2.3/complete",
+    "version": "2.3.0"
+  },
+  "meta": {
+    "project_name": "DIN18599Test.cad",
+    "ifc_file_ref": "sources/IFC_EVBI/DIN18599TestIFCv2.ifc",
+    "ifc_schema": "IFC2X3"
+  },
+  "input": {
+    "building": {
+      "name": "<Standard>",
+      "building_guid": "0RcwDA$D9F0xftuAn$9jSC",
+      "storeys": [
+        {
+          "id": "{37694178-00F9-423B-96EE-649846E66948}",
+          "name": "Erdgeschoss",
+          "elevation": null,
+          "height": null
+        },
+        {
+          "id": "{939217EE-58D4-4C95-913F-B1FCD494CD31}",
+          "name": "Obergeschoss",
+          "elevation": null,
+          "height": null
+        },
+        {
+          "id": "{5444834B-CABC-4CB2-9514-2897867C6017}",
+          "name": "Dachgeschoss",
+          "elevation": null,
+          "height": null
+        }
+      ],
+      "dwelling_units": [],
+      "zones": [],
+      "rooms": [
+        {
+          "id": "3e1TEZJ3DC_gcenOZBhzq4",
+          "ifc_guid": "3e1TEZJ3DC_gcenOZBhzq4",
+          "name": "Raum 1",
+          "area": 22.66,
+          "volume": 56.65,
+          "height": 2.5,
+          "zone_ref": null,
+          "dwelling_unit_ref": null,
+          "storey_ref": "0l8epsRaP9APUHjsFQJhiw"
+        },
+        {
+          "id": "1VreSvvhX6Lf8pMDeMs9dy",
+          "ifc_guid": "1VreSvvhX6Lf8pMDeMs9dy",
+          "name": "Raum 2",
+          "area": 20.44,
+          "volume": 51.1,
+          "height": 2.5,
+          "zone_ref": null,
+          "dwelling_unit_ref": null,
+          "storey_ref": "0l8epsRaP9APUHjsFQJhiw"
+        },
+        {
+          "id": "2VNDav7ib4J9Y_xH4socLR",
+          "ifc_guid": "2VNDav7ib4J9Y_xH4socLR",
+          "name": "Raum 3",
+          "area": 21.81,
+          "volume": 54.52,
+          "height": 2.5,
+          "zone_ref": null,
+          "dwelling_unit_ref": null,
+          "storey_ref": "0l8epsRaP9APUHjsFQJhiw"
+        },
+        {
+          "id": "1c$V6$ger0wvfgmLMFsw5X",
+          "ifc_guid": "1c$V6$ger0wvfgmLMFsw5X",
+          "name": "Raum 4",
+          "area": 67.39,
+          "volume": 168.47,
+          "height": 2.5,
+          "zone_ref": null,
+          "dwelling_unit_ref": null,
+          "storey_ref": "1I$MoAG4zEaw9jCsfreYMt"
+        },
+        {
+          "id": "0vb3EHSe10lRvdbh$Be4ri",
+          "ifc_guid": "0vb3EHSe10lRvdbh$Be4ri",
+          "name": "Raum 5",
+          "area": 11.11,
+          "volume": 27.77,
+          "height": 2.5,
+          "zone_ref": null,
+          "dwelling_unit_ref": null,
+          "storey_ref": "0l8epsRaP9APUHjsFQJhiw"
+        },
+        {
+          "id": "2X9uLB_i12DxsRDV43fnjc",
+          "ifc_guid": "2X9uLB_i12DxsRDV43fnjc",
+          "name": "Raum 6",
+          "area": 67.39,
+          "volume": 168.47,
+          "height": 2.5,
+          "zone_ref": null,
+          "dwelling_unit_ref": null,
+          "storey_ref": "0uKrW83IPFlwqIs45poFIf"
+        }
+      ]
+    },
+    "envelope": {
+      "walls": [
+        {
+          "id": "1ybs9cI0P0uhJtYtcGuM9Q",
+          "ifc_guid": "1ybs9cI0P0uhJtYtcGuM9Q",
+          "ifc_type": "IfcWallStandardCase",
+          "predefined_type": null,
+          "name": "Wand - 001",
+          "area": 27.22,
+          "orientation": 180.0,
+          "inclination": 90.0,
+          "u_value": 0.0,
+          "boundary_condition": "exterior",
+          "din_code": "WA",
+          "fx_factor": 1.0,
+          "room_ref": "3e1TEZJ3DC_gcenOZBhzq4",
+          "zone_ref": null,
+          "storey_ref": "0l8epsRaP9APUHjsFQJhiw",
+          "construction_ref": null
+        },
+        {
+          "id": "0wsGtpUkT56hELnVLS8x9z",
+          "ifc_guid": "0wsGtpUkT56hELnVLS8x9z",
+          "ifc_type": "IfcWallStandardCase",
+          "predefined_type": null,
+          "name": "Wand - 002",
+          "area": 21.65,
+          "orientation": 90.0,
+          "inclination": 90.0,
+          "u_value": 0.0,
+          "boundary_condition": "exterior",
+          "din_code": "WA",
+          "fx_factor": 1.0,
+          "room_ref": "3e1TEZJ3DC_gcenOZBhzq4",
+          "zone_ref": null,
+          "storey_ref": "0l8epsRaP9APUHjsFQJhiw",
+          "construction_ref": null
+        },
+        {
+          "id": "3ZBufg2tD83hKrgh97KgL4",
+          "ifc_guid": "3ZBufg2tD83hKrgh97KgL4",
+          "ifc_type": "IfcWallStandardCase",
+          "predefined_type": null,
+          "name": "Wand - 003",
+          "area": 24.13,
+          "orientation": 0.0,
+          "inclination": 90.0,
+          "u_value": 0.0,
+          "boundary_condition": "exterior",
+          "din_code": "WA",
+          "fx_factor": 1.0,
+          "room_ref": "3e1TEZJ3DC_gcenOZBhzq4",
+          "zone_ref": null,
+          "storey_ref": "0l8epsRaP9APUHjsFQJhiw",
+          "construction_ref": null
+        },
+        {
+          "id": "1dHWYmWpjEUOhnVpyhN7bg",
+          "ifc_guid": "1dHWYmWpjEUOhnVpyhN7bg",
+          "ifc_type": "IfcWallStandardCase",
+          "predefined_type": null,
+          "name": "Wand - 004",
+          "area": 21.65,
+          "orientation": 270.0,
+          "inclination": 90.0,
+          "u_value": 0.0,
+          "boundary_condition": "exterior",
+          "din_code": "WA",
+          "fx_factor": 1.0,
+          "room_ref": "3e1TEZJ3DC_gcenOZBhzq4",
+          "zone_ref": null,
+          "storey_ref": "0l8epsRaP9APUHjsFQJhiw",
+          "construction_ref": null
+        },
+        {
+          "id": "3GX2MArf19ChzJkt9QX23R",
+          "ifc_guid": "3GX2MArf19ChzJkt9QX23R",
+          "ifc_type": "IfcWallStandardCase",
+          "predefined_type": null,
+          "name": "Wand - 005",
+          "area": 23.25,
+          "orientation": 180.0,
+          "inclination": 90.0,
+          "u_value": 0.0,
+          "boundary_condition": "adjacent",
+          "din_code": "WZ",
+          "fx_factor": 0.0,
+          "room_ref": "3e1TEZJ3DC_gcenOZBhzq4",
+          "zone_ref": null,
+          "storey_ref": "0l8epsRaP9APUHjsFQJhiw",
+          "construction_ref": null
+        },
+        {
+          "id": "36RyDbx0nF3OfvuY0$rk_1",
+          "ifc_guid": "36RyDbx0nF3OfvuY0$rk_1",
+          "ifc_type": "IfcWallStandardCase",
+          "predefined_type": null,
+          "name": "Wand - 006",
+          "area": 11.42,
+          "orientation": 270.0,
+          "inclination": 90.0,
+          "u_value": 0.0,
+          "boundary_condition": "adjacent",
+          "din_code": "WZ",
+          "fx_factor": 0.0,
+          "room_ref": "3e1TEZJ3DC_gcenOZBhzq4",
+          "zone_ref": null,
+          "storey_ref": "0l8epsRaP9APUHjsFQJhiw",
+          "construction_ref": null
+        },
+        {
+          "id": "1nwNMAfTvETA6mMay7QvOB",
+          "ifc_guid": "1nwNMAfTvETA6mMay7QvOB",
+          "ifc_type": "IfcWallStandardCase",
+          "predefined_type": null,
+          "name": "Wand - 007",
+          "area": 28.0,
+          "orientation": 180.0,
+          "inclination": 90.0,
+          "u_value": 0.0,
+          "boundary_condition": "exterior",
+          "din_code": "WA",
+          "fx_factor": 1.0,
+          "room_ref": "1c$V6$ger0wvfgmLMFsw5X",
+          "zone_ref": null,
+          "storey_ref": "1I$MoAG4zEaw9jCsfreYMt",
+          "construction_ref": null
+        },
+        {
+          "id": "1AJqS9Ap1B9O67UKL288Ad",
+          "ifc_guid": "1AJqS9Ap1B9O67UKL288Ad",
+          "ifc_type": "IfcWallStandardCase",
+          "predefined_type": null,
+          "name": "Wand - 008",
+          "area": 20.85,
+          "orientation": 90.0,
+          "inclination": 90.0,
+          "u_value": 0.0,
+          "boundary_condition": "exterior",
+          "din_code": "WA",
+          "fx_factor": 1.0,
+          "room_ref": "1c$V6$ger0wvfgmLMFsw5X",
+          "zone_ref": null,
+          "storey_ref": "1I$MoAG4zEaw9jCsfreYMt",
+          "construction_ref": null
+        },
+        {
+          "id": "2VmTaTEzf1TAIyi5EQToiJ",
+          "ifc_guid": "2VmTaTEzf1TAIyi5EQToiJ",
+          "ifc_type": "IfcWallStandardCase",
+          "predefined_type": null,
+          "name": "Wand - 009",
+          "area": 24.91,
+          "orientation": 0.0,
+          "inclination": 90.0,
+          "u_value": 0.0,
+          "boundary_condition": "exterior",
+          "din_code": "WA",
+          "fx_factor": 1.0,
+          "room_ref": "1c$V6$ger0wvfgmLMFsw5X",
+          "zone_ref": null,
+          "storey_ref": "1I$MoAG4zEaw9jCsfreYMt",
+          "construction_ref": null
+        },
+        {
+          "id": "1hJ9Q0GkHEc8yze1IpG89P",
+          "ifc_guid": "1hJ9Q0GkHEc8yze1IpG89P",
+          "ifc_type": "IfcWallStandardCase",
+          "predefined_type": null,
+          "name": "Wand - 010",
+          "area": 20.85,
+          "orientation": 270.0,
+          "inclination": 90.0,
+          "u_value": 0.0,
+          "boundary_condition": "exterior",
+          "din_code": "WA",
+          "fx_factor": 1.0,
+          "room_ref": "1c$V6$ger0wvfgmLMFsw5X",
+          "zone_ref": null,
+          "storey_ref": "1I$MoAG4zEaw9jCsfreYMt",
+          "construction_ref": null
+        },
+        {
+          "id": "08sM8IGxr8X9IdFlOsGW2e",
+          "ifc_guid": "08sM8IGxr8X9IdFlOsGW2e",
+          "ifc_type": "IfcWallStandardCase",
+          "predefined_type": null,
+          "name": "Wand - 011",
+          "area": 10.77,
+          "orientation": 90.0,
+          "inclination": 90.0,
+          "u_value": 0.0,
+          "boundary_condition": "exterior",
+          "din_code": "WA",
+          "fx_factor": 1.0,
+          "room_ref": "3e1TEZJ3DC_gcenOZBhzq4",
+          "zone_ref": null,
+          "storey_ref": "0l8epsRaP9APUHjsFQJhiw",
+          "construction_ref": null
+        },
+        {
+          "id": "3k6$bzskHFyudhVfHBfhYf",
+          "ifc_guid": "3k6$bzskHFyudhVfHBfhYf",
+          "ifc_type": "IfcWallStandardCase",
+          "predefined_type": null,
+          "name": "Wand - 012",
+          "area": 11.73,
+          "orientation": 180.0,
+          "inclination": 90.0,
+          "u_value": 0.0,
+          "boundary_condition": "exterior",
+          "din_code": "WA",
+          "fx_factor": 1.0,
+          "room_ref": "3e1TEZJ3DC_gcenOZBhzq4",
+          "zone_ref": null,
+          "storey_ref": "0l8epsRaP9APUHjsFQJhiw",
+          "construction_ref": null
+        },
+        {
+          "id": "10bt3HWiP8Hu0jTpYDl92_",
+          "ifc_guid": "10bt3HWiP8Hu0jTpYDl92_",
+          "ifc_type": "IfcWallStandardCase",
+          "predefined_type": null,
+          "name": "Wand - 013",
+          "area": 11.83,
+          "orientation": 270.0,
+          "inclination": 90.0,
+          "u_value": 0.0,
+          "boundary_condition": "exterior",
+          "din_code": "WA",
+          "fx_factor": 1.0,
+          "room_ref": "3e1TEZJ3DC_gcenOZBhzq4",
+          "zone_ref": null,
+          "storey_ref": "0l8epsRaP9APUHjsFQJhiw",
+          "construction_ref": null
+        },
+        {
+          "id": "3IrBibc8rAEhULblN7MjOo",
+          "ifc_guid": "3IrBibc8rAEhULblN7MjOo",
+          "ifc_type": "IfcWallStandardCase",
+          "predefined_type": null,
+          "name": "Wand - 014",
+          "area": 28.0,
+          "orientation": 180.0,
+          "inclination": 90.0,
+          "u_value": 0.0,
+          "boundary_condition": "exterior",
+          "din_code": "WA",
+          "fx_factor": 1.0,
+          "room_ref": "2X9uLB_i12DxsRDV43fnjc",
+          "zone_ref": null,
+          "storey_ref": "0uKrW83IPFlwqIs45poFIf",
+          "construction_ref": null
+        },
+        {
+          "id": "0Ku$5Xc$j5hx8p_BSGW_dj",
+          "ifc_guid": "0Ku$5Xc$j5hx8p_BSGW_dj",
+          "ifc_type": "IfcWallStandardCase",
+          "predefined_type": null,
+          "name": "Wand - 015",
+          "area": 22.4,
+          "orientation": 90.0,
+          "inclination": 90.0,
+          "u_value": 0.0,
+          "boundary_condition": "exterior",
+          "din_code": "WA",
+          "fx_factor": 1.0,
+          "room_ref": "2X9uLB_i12DxsRDV43fnjc",
+          "zone_ref": null,
+          "storey_ref": "0uKrW83IPFlwqIs45poFIf",
+          "construction_ref": null
+        },
+        {
+          "id": "3ND6fA6LP7ePTpTpx4AOC5",
+          "ifc_guid": "3ND6fA6LP7ePTpTpx4AOC5",
+          "ifc_type": "IfcWallStandardCase",
+          "predefined_type": null,
+          "name": "Wand - 016",
+          "area": 28.0,
+          "orientation": 0.0,
+          "inclination": 90.0,
+          "u_value": 0.0,
+          "boundary_condition": "exterior",
+          "din_code": "WA",
+          "fx_factor": 1.0,
+          "room_ref": "2X9uLB_i12DxsRDV43fnjc",
+          "zone_ref": null,
+          "storey_ref": "0uKrW83IPFlwqIs45poFIf",
+          "construction_ref": null
+        },
+        {
+          "id": "289qpJ9i944g9O6KhpXp25",
+          "ifc_guid": "289qpJ9i944g9O6KhpXp25",
+          "ifc_type": "IfcWallStandardCase",
+          "predefined_type": null,
+          "name": "Wand - 017",
+          "area": 22.4,
+          "orientation": 270.0,
+          "inclination": 90.0,
+          "u_value": 0.0,
+          "boundary_condition": "exterior",
+          "din_code": "WA",
+          "fx_factor": 1.0,
+          "room_ref": "2X9uLB_i12DxsRDV43fnjc",
+          "zone_ref": null,
+          "storey_ref": "0uKrW83IPFlwqIs45poFIf",
+          "construction_ref": null
+        },
+        {
+          "id": "3N3B$e5Zz9c8NrtdJYnbP9",
+          "ifc_guid": "3N3B$e5Zz9c8NrtdJYnbP9",
+          "ifc_type": "IfcWallStandardCase",
+          "predefined_type": null,
+          "name": "Wand - 018",
+          "area": 19.81,
+          "orientation": 0.0,
+          "inclination": 90.0,
+          "u_value": 0.0,
+          "boundary_condition": "adjacent",
+          "din_code": "WZ",
+          "fx_factor": 0.0,
+          "room_ref": "2X9uLB_i12DxsRDV43fnjc",
+          "zone_ref": null,
+          "storey_ref": "0uKrW83IPFlwqIs45poFIf",
+          "construction_ref": null
+        },
+        {
+          "id": "27NdouOnHFWOsd0GB2idxs",
+          "ifc_guid": "27NdouOnHFWOsd0GB2idxs",
+          "ifc_type": "IfcWallStandardCase",
+          "predefined_type": null,
+          "name": "Wand - 019",
+          "area": 15.47,
+          "orientation": 90.0,
+          "inclination": 90.0,
+          "u_value": 0.0,
+          "boundary_condition": "adjacent",
+          "din_code": "WZ",
+          "fx_factor": 0.0,
+          "room_ref": "2X9uLB_i12DxsRDV43fnjc",
+          "zone_ref": null,
+          "storey_ref": "0uKrW83IPFlwqIs45poFIf",
+          "construction_ref": null
+        },
+        {
+          "id": "0WcMyW79XD6uy5QWRC0iel",
+          "ifc_guid": "0WcMyW79XD6uy5QWRC0iel",
+          "ifc_type": "IfcWallStandardCase",
+          "predefined_type": null,
+          "name": "Wand - 020",
+          "area": 15.47,
+          "orientation": 270.0,
+          "inclination": 90.0,
+          "u_value": 0.0,
+          "boundary_condition": "adjacent",
+          "din_code": "WZ",
+          "fx_factor": 0.0,
+          "room_ref": "2X9uLB_i12DxsRDV43fnjc",
+          "zone_ref": null,
+          "storey_ref": "0uKrW83IPFlwqIs45poFIf",
+          "construction_ref": null
+        }
+      ],
+      "roofs": [
+        {
+          "id": "15El$MzTD2u9P5v8kWWL$u",
+          "ifc_guid": "15El$MzTD2u9P5v8kWWL$u",
+          "ifc_type": "IfcSlab",
+          "predefined_type": "ROOF",
+          "name": "IfcSlab 15El$MzT",
+          "area": 3.42,
+          "orientation": 180.0,
+          "inclination": 11.3,
+          "u_value": null,
+          "boundary_condition": "exterior",
+          "din_code": "DA",
+          "fx_factor": 1.0,
+          "room_ref": null,
+          "zone_ref": null,
+          "storey_ref": null,
+          "construction_ref": null
+        },
+        {
+          "id": "3V66wyuPv2wxsiL7vgqo$Y",
+          "ifc_guid": "3V66wyuPv2wxsiL7vgqo$Y",
+          "ifc_type": "IfcSlab",
+          "predefined_type": "ROOF",
+          "name": "IfcSlab 3V66wyuP",
+          "area": 1.31,
+          "orientation": 270.0,
+          "inclination": 24.0,
+          "u_value": null,
+          "boundary_condition": "exterior",
+          "din_code": "DA",
+          "fx_factor": 1.0,
+          "room_ref": null,
+          "zone_ref": null,
+          "storey_ref": null,
+          "construction_ref": null
+        },
+        {
+          "id": "2cHreu4GH5rxiW5b4TnN0J",
+          "ifc_guid": "2cHreu4GH5rxiW5b4TnN0J",
+          "ifc_type": "IfcSlab",
+          "predefined_type": "ROOF",
+          "name": "IfcSlab 2cHreu4G",
+          "area": 1.31,
+          "orientation": 90.0,
+          "inclination": 24.0,
+          "u_value": null,
+          "boundary_condition": "exterior",
+          "din_code": "DA",
+          "fx_factor": 1.0,
+          "room_ref": null,
+          "zone_ref": null,
+          "storey_ref": null,
+          "construction_ref": null
+        },
+        {
+          "id": "0_nvreT_z8ohTXhVBtrI3d",
+          "ifc_guid": "0_nvreT_z8ohTXhVBtrI3d",
+          "ifc_type": "IfcSlab",
+          "predefined_type": "ROOF",
+          "name": "IfcSlab 0_nvreT_",
+          "area": 62.96,
+          "orientation": 180.0,
+          "inclination": 36.9,
+          "u_value": null,
+          "boundary_condition": "exterior",
+          "din_code": "DA",
+          "fx_factor": 1.0,
+          "room_ref": null,
+          "zone_ref": null,
+          "storey_ref": null,
+          "construction_ref": null
+        },
+        {
+          "id": "1TFOyvTBzAFhDQnPIZGwnj",
+          "ifc_guid": "1TFOyvTBzAFhDQnPIZGwnj",
+          "ifc_type": "IfcSlab",
+          "predefined_type": "ROOF",
+          "name": "IfcSlab 1TFOyvTB",
+          "area": 49.92,
+          "orientation": 270.0,
+          "inclination": 36.9,
+          "u_value": null,
+          "boundary_condition": "exterior",
+          "din_code": "DA",
+          "fx_factor": 1.0,
+          "room_ref": null,
+          "zone_ref": null,
+          "storey_ref": null,
+          "construction_ref": null
+        },
+        {
+          "id": "3O_Z3blsf3WgJHoaO_KLeq",
+          "ifc_guid": "3O_Z3blsf3WgJHoaO_KLeq",
+          "ifc_type": "IfcSlab",
+          "predefined_type": "ROOF",
+          "name": "IfcSlab 3O_Z3bls",
+          "area": 72.25,
+          "orientation": 180.0,
+          "inclination": 36.9,
+          "u_value": null,
+          "boundary_condition": "exterior",
+          "din_code": "DA",
+          "fx_factor": 1.0,
+          "room_ref": null,
+          "zone_ref": null,
+          "storey_ref": null,
+          "construction_ref": null
+        },
+        {
+          "id": "2_x9P0ZnTBEBS75KSJ792E",
+          "ifc_guid": "2_x9P0ZnTBEBS75KSJ792E",
+          "ifc_type": "IfcSlab",
+          "predefined_type": "ROOF",
+          "name": "IfcSlab 2_x9P0Zn",
+          "area": 49.92,
+          "orientation": 90.0,
+          "inclination": 36.9,
+          "u_value": null,
+          "boundary_condition": "exterior",
+          "din_code": "DA",
+          "fx_factor": 1.0,
+          "room_ref": null,
+          "zone_ref": null,
+          "storey_ref": null,
+          "construction_ref": null
+        },
+        {
+          "id": "20E0ttjbL8fvH2slrphuFv",
+          "ifc_guid": "20E0ttjbL8fvH2slrphuFv",
+          "ifc_type": "IfcSlab",
+          "predefined_type": "ROOF",
+          "name": "IfcSlab 20E0ttjb",
+          "area": 1.74,
+          "orientation": 270.0,
+          "inclination": 24.0,
+          "u_value": null,
+          "boundary_condition": "exterior",
+          "din_code": "DA",
+          "fx_factor": 1.0,
+          "room_ref": null,
+          "zone_ref": null,
+          "storey_ref": null,
+          "construction_ref": null
+        },
+        {
+          "id": "2kBqZuIar7Dx_FNORtalg0",
+          "ifc_guid": "2kBqZuIar7Dx_FNORtalg0",
+          "ifc_type": "IfcSlab",
+          "predefined_type": "ROOF",
+          "name": "IfcSlab 2kBqZuIa",
+          "area": 1.74,
+          "orientation": 90.0,
+          "inclination": 24.0,
+          "u_value": null,
+          "boundary_condition": "exterior",
+          "din_code": "DA",
+          "fx_factor": 1.0,
+          "room_ref": null,
+          "zone_ref": null,
+          "storey_ref": null,
+          "construction_ref": null
+        }
+      ],
+      "floors": [
+        {
+          "id": "1I$MoBG4zEaw9jCsfreYMt",
+          "ifc_guid": "1I$MoBG4zEaw9jCsfreYMt",
+          "ifc_type": "IfcSlab",
+          "predefined_type": "FLOOR",
+          "name": "Deckenplatte - 001",
+          "area": 80.0,
+          "orientation": 0.0,
+          "inclination": 0.0,
+          "u_value": null,
+          "boundary_condition": "adjacent",
+          "din_code": "BZ",
+          "fx_factor": 0.0,
+          "room_ref": "2X9uLB_i12DxsRDV43fnjc",
+          "zone_ref": null,
+          "storey_ref": "0uKrW83IPFlwqIs45poFIf",
+          "construction_ref": null
+        },
+        {
+          "id": "0uKrW93IPFlwqIs45poFIf",
+          "ifc_guid": "0uKrW93IPFlwqIs45poFIf",
+          "ifc_type": "IfcSlab",
+          "predefined_type": "FLOOR",
+          "name": "Deckenplatte - 002",
+          "area": 80.0,
+          "orientation": 0.0,
+          "inclination": 0.0,
+          "u_value": null,
+          "boundary_condition": "adjacent",
+          "din_code": "BZ",
+          "fx_factor": 0.0,
+          "room_ref": "2X9uLB_i12DxsRDV43fnjc",
+          "zone_ref": null,
+          "storey_ref": "0uKrW83IPFlwqIs45poFIf",
+          "construction_ref": null
+        },
+        {
+          "id": "0l8eptRaP9APUHjsFQJhiw",
+          "ifc_guid": "0l8eptRaP9APUHjsFQJhiw",
+          "ifc_type": "IfcSlab",
+          "predefined_type": "FLOOR",
+          "name": "Deckenplatte - 003",
+          "area": 95.03,
+          "orientation": 0.0,
+          "inclination": 0.0,
+          "u_value": null,
+          "boundary_condition": "adjacent",
+          "din_code": "BZ",
+          "fx_factor": 0.0,
+          "room_ref": "1c$V6$ger0wvfgmLMFsw5X",
+          "zone_ref": null,
+          "storey_ref": "1I$MoAG4zEaw9jCsfreYMt",
+          "construction_ref": null
+        }
+      ],
+      "windows": [
+        {
+          "id": "20k9uJH3T8lf2HBodvIB3m",
+          "ifc_guid": "20k9uJH3T8lf2HBodvIB3m",
+          "ifc_type": "IfcWindow",
+          "name": "Fenster - 001",
+          "area": 1.55,
+          "orientation": 270.0,
+          "inclination": 90.0,
+          "u_value": null,
+          "g_value": null,
+          "tau_value": null,
+          "g_value_perpendicular": null,
+          "g_value_summer": null,
+          "g_value_winter": null,
+          "is_glazed": true,
+          "boundary_condition": "exterior",
+          "din_code": "FA",
+          "fx_factor": 1.0,
+          "parent_wall_guid": "0wsGtpUkT56hELnVLS8x9z",
+          "room_ref": "3e1TEZJ3DC_gcenOZBhzq4",
+          "zone_ref": null,
+          "storey_ref": "0l8epsRaP9APUHjsFQJhiw",
+          "shading_factor_f_sh": null,
+          "construction_ref": null
+        },
+        {
+          "id": "1xfsysx9rEFu15BWDyaTVN",
+          "ifc_guid": "1xfsysx9rEFu15BWDyaTVN",
+          "ifc_type": "IfcWindow",
+          "name": "Fenster - 002",
+          "area": 1.55,
+          "orientation": 180.0,
+          "inclination": 90.0,
+          "u_value": null,
+          "g_value": null,
+          "tau_value": null,
+          "g_value_perpendicular": null,
+          "g_value_summer": null,
+          "g_value_winter": null,
+          "is_glazed": true,
+          "boundary_condition": "exterior",
+          "din_code": "FA",
+          "fx_factor": 1.0,
+          "parent_wall_guid": "3ZBufg2tD83hKrgh97KgL4",
+          "room_ref": "3e1TEZJ3DC_gcenOZBhzq4",
+          "zone_ref": null,
+          "storey_ref": "0l8epsRaP9APUHjsFQJhiw",
+          "shading_factor_f_sh": null,
+          "construction_ref": null
+        },
+        {
+          "id": "3sL1QnyTL1O8vCAIxyLG4j",
+          "ifc_guid": "3sL1QnyTL1O8vCAIxyLG4j",
+          "ifc_type": "IfcWindow",
+          "name": "Fenster - 003",
+          "area": 1.55,
+          "orientation": 180.0,
+          "inclination": 90.0,
+          "u_value": null,
+          "g_value": null,
+          "tau_value": null,
+          "g_value_perpendicular": null,
+          "g_value_summer": null,
+          "g_value_winter": null,
+          "is_glazed": true,
+          "boundary_condition": "exterior",
+          "din_code": "FA",
+          "fx_factor": 1.0,
+          "parent_wall_guid": "3ZBufg2tD83hKrgh97KgL4",
+          "room_ref": "3e1TEZJ3DC_gcenOZBhzq4",
+          "zone_ref": null,
+          "storey_ref": "0l8epsRaP9APUHjsFQJhiw",
+          "shading_factor_f_sh": null,
+          "construction_ref": null
+        },
+        {
+          "id": "1WVv9jyLL7FwE9d9gxHHYb",
+          "ifc_guid": "1WVv9jyLL7FwE9d9gxHHYb",
+          "ifc_type": "IfcWindow",
+          "name": "Fenster - 004",
+          "area": 1.55,
+          "orientation": 90.0,
+          "inclination": 90.0,
+          "u_value": null,
+          "g_value": null,
+          "tau_value": null,
+          "g_value_perpendicular": null,
+          "g_value_summer": null,
+          "g_value_winter": null,
+          "is_glazed": true,
+          "boundary_condition": "exterior",
+          "din_code": "FA",
+          "fx_factor": 1.0,
+          "parent_wall_guid": "1dHWYmWpjEUOhnVpyhN7bg",
+          "room_ref": "3e1TEZJ3DC_gcenOZBhzq4",
+          "zone_ref": null,
+          "storey_ref": "0l8epsRaP9APUHjsFQJhiw",
+          "shading_factor_f_sh": null,
+          "construction_ref": null
+        },
+        {
+          "id": "0I3V4b$3L69QDGByBX3lqt",
+          "ifc_guid": "0I3V4b$3L69QDGByBX3lqt",
+          "ifc_type": "IfcWindow",
+          "name": "Fenster - 005",
+          "area": 1.55,
+          "orientation": 270.0,
+          "inclination": 90.0,
+          "u_value": null,
+          "g_value": null,
+          "tau_value": null,
+          "g_value_perpendicular": null,
+          "g_value_summer": null,
+          "g_value_winter": null,
+          "is_glazed": true,
+          "boundary_condition": "exterior",
+          "din_code": "FA",
+          "fx_factor": 1.0,
+          "parent_wall_guid": "1AJqS9Ap1B9O67UKL288Ad",
+          "room_ref": "1c$V6$ger0wvfgmLMFsw5X",
+          "zone_ref": null,
+          "storey_ref": "1I$MoAG4zEaw9jCsfreYMt",
+          "shading_factor_f_sh": null,
+          "construction_ref": null
+        },
+        {
+          "id": "021Wl_a$L71Q58XkwNepV0",
+          "ifc_guid": "021Wl_a$L71Q58XkwNepV0",
+          "ifc_type": "IfcWindow",
+          "name": "Fenster - 006",
+          "area": 1.55,
+          "orientation": 180.0,
+          "inclination": 90.0,
+          "u_value": null,
+          "g_value": null,
+          "tau_value": null,
+          "g_value_perpendicular": null,
+          "g_value_summer": null,
+          "g_value_winter": null,
+          "is_glazed": true,
+          "boundary_condition": "exterior",
+          "din_code": "FA",
+          "fx_factor": 1.0,
+          "parent_wall_guid": "2VmTaTEzf1TAIyi5EQToiJ",
+          "room_ref": "1c$V6$ger0wvfgmLMFsw5X",
+          "zone_ref": null,
+          "storey_ref": "1I$MoAG4zEaw9jCsfreYMt",
+          "shading_factor_f_sh": null,
+          "construction_ref": null
+        },
+        {
+          "id": "1TY2chHQLC4OI8tJ2y0rDm",
+          "ifc_guid": "1TY2chHQLC4OI8tJ2y0rDm",
+          "ifc_type": "IfcWindow",
+          "name": "Fenster - 007",
+          "area": 1.55,
+          "orientation": 180.0,
+          "inclination": 90.0,
+          "u_value": null,
+          "g_value": null,
+          "tau_value": null,
+          "g_value_perpendicular": null,
+          "g_value_summer": null,
+          "g_value_winter": null,
+          "is_glazed": true,
+          "boundary_condition": "exterior",
+          "din_code": "FA",
+          "fx_factor": 1.0,
+          "parent_wall_guid": "2VmTaTEzf1TAIyi5EQToiJ",
+          "room_ref": "1c$V6$ger0wvfgmLMFsw5X",
+          "zone_ref": null,
+          "storey_ref": "1I$MoAG4zEaw9jCsfreYMt",
+          "shading_factor_f_sh": null,
+          "construction_ref": null
+        },
+        {
+          "id": "3Dsroa0A5DWgLEFPXSqcJj",
+          "ifc_guid": "3Dsroa0A5DWgLEFPXSqcJj",
+          "ifc_type": "IfcWindow",
+          "name": "Fenster - 008",
+          "area": 1.55,
+          "orientation": 90.0,
+          "inclination": 90.0,
+          "u_value": null,
+          "g_value": null,
+          "tau_value": null,
+          "g_value_perpendicular": null,
+          "g_value_summer": null,
+          "g_value_winter": null,
+          "is_glazed": true,
+          "boundary_condition": "exterior",
+          "din_code": "FA",
+          "fx_factor": 1.0,
+          "parent_wall_guid": "1hJ9Q0GkHEc8yze1IpG89P",
+          "room_ref": "1c$V6$ger0wvfgmLMFsw5X",
+          "zone_ref": null,
+          "storey_ref": "1I$MoAG4zEaw9jCsfreYMt",
+          "shading_factor_f_sh": null,
+          "construction_ref": null
+        },
+        {
+          "id": "2gmAEMbLjDVxMoFdmfz3Vm",
+          "ifc_guid": "2gmAEMbLjDVxMoFdmfz3Vm",
+          "ifc_type": "IfcWindow",
+          "name": "Fenster - 009",
+          "area": 1.03,
+          "orientation": 180.0,
+          "inclination": 90.0,
+          "u_value": null,
+          "g_value": null,
+          "tau_value": null,
+          "g_value_perpendicular": null,
+          "g_value_summer": null,
+          "g_value_winter": null,
+          "is_glazed": true,
+          "boundary_condition": "exterior",
+          "din_code": "FA",
+          "fx_factor": 1.0,
+          "parent_wall_guid": "3N3B$e5Zz9c8NrtdJYnbP9",
+          "room_ref": "2X9uLB_i12DxsRDV43fnjc",
+          "zone_ref": null,
+          "storey_ref": "0uKrW83IPFlwqIs45poFIf",
+          "shading_factor_f_sh": null,
+          "construction_ref": null
+        }
+      ],
+      "doors": [
+        {
+          "id": "3H6PiIapH1jOOw_GHXqlOl",
+          "ifc_guid": "3H6PiIapH1jOOw_GHXqlOl",
+          "ifc_type": "IfcDoor",
+          "name": "Tür - 001",
+          "area": 1.78,
+          "orientation": 180.0,
+          "inclination": 90.0,
+          "u_value": null,
+          "g_value": null,
+          "tau_value": null,
+          "g_value_perpendicular": null,
+          "g_value_summer": null,
+          "g_value_winter": null,
+          "is_glazed": false,
+          "boundary_condition": "exterior",
+          "din_code": "TA",
+          "fx_factor": 1.0,
+          "parent_wall_guid": "1ybs9cI0P0uhJtYtcGuM9Q",
+          "room_ref": "3e1TEZJ3DC_gcenOZBhzq4",
+          "zone_ref": null,
+          "storey_ref": "0l8epsRaP9APUHjsFQJhiw",
+          "shading_factor_f_sh": null,
+          "construction_ref": null
+        },
+        {
+          "id": "0drz$65oz6rOX4aZFGbaA9",
+          "ifc_guid": "0drz$65oz6rOX4aZFGbaA9",
+          "ifc_type": "IfcDoor",
+          "name": "Tür - 002",
+          "area": 1.78,
+          "orientation": 0.0,
+          "inclination": 90.0,
+          "u_value": null,
+          "g_value": null,
+          "tau_value": null,
+          "g_value_perpendicular": null,
+          "g_value_summer": null,
+          "g_value_winter": null,
+          "is_glazed": false,
+          "boundary_condition": "exterior",
+          "din_code": "TA",
+          "fx_factor": 1.0,
+          "parent_wall_guid": "3ZBufg2tD83hKrgh97KgL4",
+          "room_ref": "3e1TEZJ3DC_gcenOZBhzq4",
+          "zone_ref": null,
+          "storey_ref": "0l8epsRaP9APUHjsFQJhiw",
+          "shading_factor_f_sh": null,
+          "construction_ref": null
+        },
+        {
+          "id": "1AahKHPbrDJvZ7pFbKUG1s",
+          "ifc_guid": "1AahKHPbrDJvZ7pFbKUG1s",
+          "ifc_type": "IfcDoor",
+          "name": "Tür - 003",
+          "area": 1.78,
+          "orientation": 180.0,
+          "inclination": 90.0,
+          "u_value": null,
+          "g_value": null,
+          "tau_value": null,
+          "g_value_perpendicular": null,
+          "g_value_summer": null,
+          "g_value_winter": null,
+          "is_glazed": false,
+          "boundary_condition": "exterior",
+          "din_code": "TA",
+          "fx_factor": 1.0,
+          "parent_wall_guid": "3GX2MArf19ChzJkt9QX23R",
+          "room_ref": "3e1TEZJ3DC_gcenOZBhzq4",
+          "zone_ref": null,
+          "storey_ref": "0l8epsRaP9APUHjsFQJhiw",
+          "shading_factor_f_sh": null,
+          "construction_ref": null
+        },
+        {
+          "id": "2UgWmkTiTC7xg7T3SHaMff",
+          "ifc_guid": "2UgWmkTiTC7xg7T3SHaMff",
+          "ifc_type": "IfcDoor",
+          "name": "Tür - 004",
+          "area": 1.78,
+          "orientation": 270.0,
+          "inclination": 90.0,
+          "u_value": null,
+          "g_value": null,
+          "tau_value": null,
+          "g_value_perpendicular": null,
+          "g_value_summer": null,
+          "g_value_winter": null,
+          "is_glazed": false,
+          "boundary_condition": "exterior",
+          "din_code": "TA",
+          "fx_factor": 1.0,
+          "parent_wall_guid": "36RyDbx0nF3OfvuY0$rk_1",
+          "room_ref": "3e1TEZJ3DC_gcenOZBhzq4",
+          "zone_ref": null,
+          "storey_ref": "0l8epsRaP9APUHjsFQJhiw",
+          "shading_factor_f_sh": null,
+          "construction_ref": null
+        }
+      ]
+    },
+    "material_layers": [],
+    "climate": {
+      "try_region": "07",
+      "latitude": 51.266389,
+      "longitude": 8.883056
+    },
+    "constructions": [
+      {
+        "id": "{74561419-FA45-486D-9E4E-A7191F6D8056}",
+        "name": "Boden nach außen (auf Erdreich)",
+        "source": "EVEBI",
+        "u_value": 0.165,
+        "sequences": [
+          {
+            "share": 1.0,
+            "name": "Hauptkonstruktion",
+            "layers": [
+              {
+                "material": "Unbekannt",
+                "thickness": 0.01,
+                "lambda": 1.0,
+                "position": 0
+              },
+              {
+                "material": "Unbekannt",
+                "thickness": 0.002,
+                "lambda": 0.55,
+                "position": 1
+              },
+              {
+                "material": "Unbekannt",
+                "thickness": 0.06,
+                "lambda": 1.4,
+                "position": 2
+              },
+              {
+                "material": "Unbekannt",
+                "thickness": 0.08,
+                "lambda": 0.035,
+                "position": 3
+              },
+              {
+                "material": "Unbekannt",
+                "thickness": 0.25,
+                "lambda": 1.65,
+                "position": 4
+              },
+              {
+                "material": "Unbekannt",
+                "thickness": 0.12,
+                "lambda": 0.035,
+                "position": 5
+              },
+              {
+                "material": "Unbekannt",
+                "thickness": 0.01,
+                "lambda": 1.0,
+                "position": 0
+              },
+              {
+                "material": "Unbekannt",
+                "thickness": 0.002,
+                "lambda": 0.55,
+                "position": 1
+              },
+              {
+                "material": "Unbekannt",
+                "thickness": 0.06,
+                "lambda": 1.4,
+                "position": 2
+              },
+              {
+                "material": "Unbekannt",
+                "thickness": 0.08,
+                "lambda": 0.035,
+                "position": 3
+              },
+              {
+                "material": "Unbekannt",
+                "thickness": 0.25,
+                "lambda": 50.0,
+                "position": 4
+              },
+              {
+                "material": "Unbekannt",
+                "thickness": 0.12,
+                "lambda": 0.035,
+                "position": 5
+              }
+            ]
+          }
+        ],
+        "total_thickness": 1.044
+      },
+      {
+        "id": "{49BE96FF-B2D9-4437-99BB-7BB50BA462CC}",
+        "name": "Zwischendecke",
+        "source": "EVEBI",
+        "u_value": 1.156,
+        "sequences": [
+          {
+            "share": 1.0,
+            "name": "Hauptkonstruktion",
+            "layers": [
+              {
+                "material": "Unbekannt",
+                "thickness": 0.0025,
+                "lambda": 0.12,
+                "position": 0
+              },
+              {
+                "material": "Unbekannt",
+                "thickness": 0.03,
+                "lambda": 1.2,
+                "position": 1
+              },
+              {
+                "material": "Unbekannt",
+                "thickness": 0.01,
+                "lambda": 0.04,
+                "position": 2
+              },
+              {
+                "material": "Unbekannt",
+                "thickness": 0.21,
+                "lambda": 0.55,
+                "position": 3
+              },
+              {
+                "material": "Unbekannt",
+                "thickness": 0.015,
+                "lambda": 0.87,
+                "position": 4
+              }
+            ]
+          }
+        ],
+        "total_thickness": 0.2675
+      },
+      {
+        "id": "{23BA7790-E05A-459F-98DA-7854E1ADE0F4}",
+        "name": "Dach",
+        "source": "EVEBI",
+        "u_value": 0.133,
+        "sequences": [
+          {
+            "share": 1.0,
+            "name": "Hauptkonstruktion",
+            "layers": [
+              {
+                "material": "Unbekannt",
+                "thickness": 0.0125,
+                "lambda": 0.21,
+                "position": 0
+              },
+              {
+                "material": "Unbekannt",
+                "thickness": 0.02,
+                "lambda": 0.0,
+                "position": 1
+              },
+              {
+                "material": "Unbekannt",
+                "thickness": 0.025,
+                "lambda": 0.17,
+                "position": 2
+              },
+              {
+                "material": "Unbekannt",
+                "thickness": 0.24,
+                "lambda": 0.032,
+                "position": 3
+              },
+              {
+                "material": "Unbekannt",
+                "thickness": 0.06,
+                "lambda": 0.04,
+                "position": 4
+              },
+              {
+                "material": "Unbekannt",
+                "thickness": 0.04,
+                "lambda": 0.0,
+                "position": 5
+              },
+              {
+                "material": "Unbekannt",
+                "thickness": 0.02,
+                "lambda": 1.2,
+                "position": 6
+              },
+              {
+                "material": "Unbekannt",
+                "thickness": 0.0125,
+                "lambda": 0.21,
+                "position": 0
+              },
+              {
+                "material": "Unbekannt",
+                "thickness": 0.02,
+                "lambda": 0.0,
+                "position": 1
+              },
+              {
+                "material": "Unbekannt",
+                "thickness": 0.025,
+                "lambda": 0.17,
+                "position": 2
+              },
+              {
+                "material": "Unbekannt",
+                "thickness": 0.24,
+                "lambda": 0.13,
+                "position": 3
+              },
+              {
+                "material": "Unbekannt",
+                "thickness": 0.06,
+                "lambda": 0.04,
+                "position": 4
+              },
+              {
+                "material": "Unbekannt",
+                "thickness": 0.04,
+                "lambda": 0.0,
+                "position": 5
+              },
+              {
+                "material": "Unbekannt",
+                "thickness": 0.02,
+                "lambda": 1.2,
+                "position": 6
+              }
+            ]
+          }
+        ],
+        "total_thickness": 0.8350000000000002
+      },
+      {
+        "id": "{5899C7EC-D6C7-4B7A-B1D9-B55CA51B3233}",
+        "name": "Decke zu Dachraum (gedämmt)",
+        "source": "EVEBI",
+        "u_value": 0.158,
+        "sequences": [
+          {
+            "share": 1.0,
+            "name": "Hauptkonstruktion",
+            "layers": [
+              {
+                "material": "Unbekannt",
+                "thickness": 0.015,
+                "lambda": 0.7,
+                "position": 0
+              },
+              {
+                "material": "Unbekannt",
+                "thickness": 0.025,
+                "lambda": 0.15,
+                "position": 1
+              },
+              {
+                "material": "Unbekannt",
+                "thickness": 0.12,
+                "lambda": 0.035,
+                "position": 2
+              },
+              {
+                "material": "Unbekannt",
+                "thickness": 0.08,
+                "lambda": 0.035,
+                "position": 3
+              },
+              {
+                "material": "Unbekannt",
+                "thickness": 0.06,
+                "lambda": 0.04,
+                "position": 4
+              },
+              {
+                "material": "Unbekannt",
+                "thickness": 0.02,
+                "lambda": 1.2,
+                "position": 5
+              },
+              {
+                "material": "Unbekannt",
+                "thickness": 0.015,
+                "lambda": 0.7,
+                "position": 0
+              },
+              {
+                "material": "Unbekannt",
+                "thickness": 0.025,
+                "lambda": 0.14,
+                "position": 1
+              },
+              {
+                "material": "Unbekannt",
+                "thickness": 0.12,
+                "lambda": 0.13,
+                "position": 2
+              },
+              {
+                "material": "Unbekannt",
+                "thickness": 0.08,
+                "lambda": 0.13,
+                "position": 3
+              },
+              {
+                "material": "Unbekannt",
+                "thickness": 0.06,
+                "lambda": 0.04,
+                "position": 4
+              },
+              {
+                "material": "Unbekannt",
+                "thickness": 0.02,
+                "lambda": 1.2,
+                "position": 5
+              }
+            ]
+          }
+        ],
+        "total_thickness": 0.6400000000000001
+      },
+      {
+        "id": "{40AFF211-56F3-4961-94D4-DA2E5E242A5C}",
+        "name": "Außenwand (Luft)",
+        "source": "EVEBI",
+        "u_value": 0.189,
+        "sequences": [
+          {
+            "share": 1.0,
+            "name": "Hauptkonstruktion",
+            "layers": [
+              {
+                "material": "Unbekannt",
+                "thickness": 0.6,
+                "lambda": 2.3299999,
+                "position": 0
+              },
+              {
+                "material": "Unbekannt",
+                "thickness": 0.015,
+                "lambda": 0.13,
+                "position": 1
+              },
+              {
+                "material": "Unbekannt",
+                "thickness": 0.2,
+                "lambda": 0.05,
+                "position": 2
+              },
+              {
+                "material": "Unbekannt",
+                "thickness": 0.06,
+                "lambda": 0.05,
+                "position": 3
+              },
+              {
+                "material": "Unbekannt",
+                "thickness": 0.01,
+                "lambda": 0.56,
+                "position": 4
+              },
+              {
+                "material": "Unbekannt",
+                "thickness": 0.6,
+                "lambda": 2.3299999,
+                "position": 0
+              },
+              {
+                "material": "Unbekannt",
+                "thickness": 0.015,
+                "lambda": 0.13,
+                "position": 1
+              },
+              {
+                "material": "Unbekannt",
+                "thickness": 0.2,
+                "lambda": 0.13,
+                "position": 2
+              },
+              {
+                "material": "Unbekannt",
+                "thickness": 0.06,
+                "lambda": 0.05,
+                "position": 3
+              },
+              {
+                "material": "Unbekannt",
+                "thickness": 0.01,
+                "lambda": 0.56,
+                "position": 4
+              }
+            ]
+          }
+        ],
+        "total_thickness": 1.7699999999999998
+      },
+      {
+        "id": "{1F213908-1F37-45FB-92EF-720B64D2C25A}",
+        "name": "Zwischenwand",
+        "source": "EVEBI",
+        "u_value": 3.096,
+        "sequences": [
+          {
+            "share": 1.0,
+            "name": "Hauptkonstruktion",
+            "layers": [
+              {
+                "material": "Unbekannt",
+                "thickness": 0.01,
+                "lambda": 0.35,
+                "position": 0
+              },
+              {
+                "material": "Unbekannt",
+                "thickness": 0.115,
+                "lambda": 1.2,
+                "position": 1
+              },
+              {
+                "material": "Unbekannt",
+                "thickness": 0.01,
+                "lambda": 0.35,
+                "position": 2
+              }
+            ]
+          }
+        ],
+        "total_thickness": 0.135
+      }
+    ],
+    "systems": {
+      "heating": [
+        {
+          "guid": "{E0ADB872-0B4E-42CF-AEDE-091A387A7082}",
+          "name": "Gas-Niedertemperaturkessel",
+          "art": "HZ_ZENTRALHEIZUNG",
+          "year_built": null
+        }
+      ],
+      "dhw": [
+        {
+          "guid": "{653A71AA-50F6-4A7D-8CC8-34FD23CE446B}",
+          "name": "Gas-Niedertemperaturkessel (Kombibereiter)",
+          "art": "WT_HZG",
+          "storage_volume": null,
+          "circulation": null
+        }
+      ],
+      "ventilation": [
+        {
+          "guid": "{D997EAC5-1E30-418C-9C9A-FDFC35D6A84D}",
+          "name": "Fensterlüftung",
+          "art": "LA_FREI",
+          "wrg": false,
+          "wrg_grad": null
+        }
+      ],
+      "pv": [
+        {
+          "guid": "{109D7299-80DE-4D1A-9EF4-6B7E5A14F3E5}",
+          "name": "Photovoltaikanlage",
+          "peak_power": 0.0,
+          "orientation": 0.0,
+          "inclination": 0.0,
+          "area": 0.0
+        }
+      ]
+    }
+  },
+  "warnings": [
+    "15 Wände mit AW-Typ haben IsExternal=False (automatisch auf exterior korrigiert)",
+    "20 Wände mit U-Wert = 0.0",
+    "Keine IfcRelSpaceBoundary (room_ref ist heuristisch)",
+    "Keine Bodenplatte (BASESLAB) gefunden"
+  ],
+  "errors": []
+}
