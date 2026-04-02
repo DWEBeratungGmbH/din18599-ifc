@@ -70,6 +70,9 @@
         "building": {"$ref": "#/definitions/building"},
         "envelope": {"$ref": "#/definitions/envelope"},
         "material_layers": {"$ref": "#/definitions/material_layers"},
+        "constructions": {"$ref": "#/definitions/constructions"},
+        "window_constructions": {"$ref": "#/definitions/window_constructions"},
+        "pipes": {"$ref": "#/definitions/pipes"},
         "systems": {"$ref": "#/definitions/systems"},
         "electricity": {"$ref": "#/definitions/electricity"},
         "automation": {"$ref": "#/definitions/automation"},
@@ -292,6 +295,111 @@
       }
     },
     
+    "constructions": {
+      "type": "array",
+      "description": "EVEBI: Konstruktionen (konstruktionenListe) mit Schichtaufbauten",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {"type": "string", "description": "Konstruktions-GUID"},
+          "name": {"type": "string"},
+          "u_value": {"type": "number", "minimum": 0, "description": "U-Wert [W/(m²K)]"},
+          "main_construction": {
+            "type": "object",
+            "description": "Hauptkonstruktion (85% Flächenanteil)",
+            "properties": {
+              "layers": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "material": {"type": "string"},
+                    "thickness": {"type": "number", "minimum": 0, "description": "Dicke [m]"},
+                    "lambda": {"type": "number", "minimum": 0, "description": "Wärmeleitfähigkeit [W/(m·K)]"},
+                    "density": {"type": "number", "minimum": 0, "description": "Rohdichte [kg/m³]"},
+                    "position": {"type": "integer", "description": "Position von außen (0=außen)"}
+                  }
+                }
+              }
+            }
+          },
+          "secondary_construction": {
+            "type": "object",
+            "description": "Nebenkonstruktion (15% Flächenanteil, z.B. Holzständer)",
+            "properties": {
+              "layers": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "material": {"type": "string"},
+                    "thickness": {"type": "number", "minimum": 0},
+                    "lambda": {"type": "number", "minimum": 0},
+                    "density": {"type": "number", "minimum": 0},
+                    "position": {"type": "integer"}
+                  }
+                }
+              }
+            }
+          },
+          "total_thickness": {"type": "number", "minimum": 0, "description": "Gesamtdicke [m]"}
+        }
+      }
+    },
+    
+    "window_constructions": {
+      "type": "array",
+      "description": "EVEBI: Fensterkonstruktionen (konstrFensterListe) mit g-Wert, Ug/Uf getrennt",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {"type": "string", "description": "Fensterkonstruktions-GUID"},
+          "name": {"type": "string"},
+          "u_value": {"type": "number", "minimum": 0, "description": "Gesamt-U-Wert [W/(m²K)]"},
+          "g_value": {"type": "number", "minimum": 0, "maximum": 1, "description": "Gesamtenergiedurchlassgrad [-]"},
+          "glass": {
+            "type": "object",
+            "properties": {
+              "u_value": {"type": "number", "minimum": 0, "description": "Ug [W/(m²K)]"},
+              "g_value": {"type": "number", "minimum": 0, "maximum": 1}
+            }
+          },
+          "frame": {
+            "type": "object",
+            "properties": {
+              "u_value": {"type": "number", "minimum": 0, "description": "Uf [W/(m²K)]"},
+              "area_fraction": {"type": "number", "minimum": 0, "maximum": 1, "description": "Rahmenanteil [-]"}
+            }
+          },
+          "psi": {"type": "number", "description": "Randverbund-Psi-Wert [W/(m·K)]"},
+          "width": {"type": "number", "minimum": 0, "description": "Fensterbreite [m]"},
+          "height": {"type": "number", "minimum": 0, "description": "Fensterhöhe [m]"},
+          "frame_width_left": {"type": "number", "minimum": 0, "description": "Rahmenbreite links [m]"},
+          "frame_width_right": {"type": "number", "minimum": 0},
+          "frame_width_top": {"type": "number", "minimum": 0},
+          "frame_width_bottom": {"type": "number", "minimum": 0}
+        }
+      }
+    },
+    
+    "pipes": {
+      "type": "array",
+      "description": "EVEBI: Leitungen (ltgListe) mit Länge und Dämmstandard",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {"type": "string"},
+          "name": {"type": "string"},
+          "type": {"type": "string", "enum": ["HEATING_SUPPLY", "HEATING_RETURN", "DHW_CIRCULATION", "DHW_SUPPLY"]},
+          "location": {"type": "string", "enum": ["HEATED", "UNHEATED", "EXTERIOR"]},
+          "length": {"type": "number", "minimum": 0, "description": "Länge [m]"},
+          "insulation_u_value": {"type": "number", "minimum": 0, "description": "U-Wert Rohrdämmung [W/(m²K)]"},
+          "diameter": {"type": "number", "minimum": 0, "description": "Rohrdurchmesser [m]"},
+          "system_ref": {"type": "string", "description": "Referenz zu heating_system oder dhw_system"}
+        }
+      }
+    },
+    
     "opaque_element": {
       "type": "object",
       "required": ["id", "area"],
@@ -315,6 +423,7 @@
           "enum": ["WA", "WI", "WE", "WU", "WZ", "DA", "DE", "DU", "DZ", "BE", "BO", "BU", "BZ", "RK", "GF", "PF"]
         },
         "fx_factor": {"type": "number", "minimum": 0, "maximum": 1},
+        "wbr_zuschlag": {"type": "number", "minimum": 0, "description": "EVEBI: Wärmebrückenzuschlag pro Bauteil [W/(m²K)]"},
         "zone_ref": {"type": "string", "description": "v2.3: Referenz zu Zone"},
         "room_ref": {"type": "string", "description": "v2.3: Referenz zu Raum (optional)"},
         "storey_ref": {"type": "string"}
