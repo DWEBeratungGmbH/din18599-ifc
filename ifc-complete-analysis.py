@@ -169,6 +169,9 @@ class IFCAnalyzer:
             try:
                 psets = ifcopenshell.util.element.get_psets(wall)
                 
+                # Prüfe IsExternal (wichtig für AW/IW-Zuordnung!)
+                is_external = psets.get('Pset_WallCommon', {}).get('IsExternal', None)
+                
                 if psets:
                     for pset_name, props in psets.items():
                         if not pset_name.startswith('Qto'):  # Nur Psets, keine Quantities
@@ -178,6 +181,11 @@ class IFCAnalyzer:
                                     print(f"      {prop_name:30} = {prop_value}")
                 else:
                     print(f"   ⚠️  Keine Properties gefunden")
+                
+                # Validiere IsExternal für Außenwände
+                if is_external == False and 'AW' in wall.Name:
+                    print(f"\n   ❌ FEHLER: Wand '{wall.Name}' ist als Außenwand benannt, aber IsExternal=False!")
+                    
             except Exception as e:
                 print(f"   ⚠️  Fehler beim Lesen der Properties: {e}")
         
@@ -296,11 +304,20 @@ class IFCAnalyzer:
         
         by_predefined = defaultdict(list)
         by_parent = defaultdict(list)
+        by_representation = defaultdict(list)
         
         for slab in slabs:
-            # PredefinedType
+            # PredefinedType (FLOOR, ROOF, BASESLAB)
             pred_type = str(slab.PredefinedType) if hasattr(slab, 'PredefinedType') else 'NOTDEFINED'
             by_predefined[pred_type].append(slab)
+            
+            # Geometrie-Typ prüfen (SweptSolid vs Clipping)
+            if hasattr(slab, 'Representation') and slab.Representation:
+                for rep in slab.Representation.Representations:
+                    for item in rep.Items:
+                        rep_type = item.is_a()
+                        by_representation[rep_type].append(slab)
+                        break
             
             # Parent
             if hasattr(slab, 'Decomposes') and slab.Decomposes:
@@ -314,6 +331,17 @@ class IFCAnalyzer:
         print(f"   Nach PredefinedType:")
         for pred_type, slab_list in sorted(by_predefined.items()):
             print(f"      {pred_type:20} {len(slab_list):3} Slabs")
+        
+        print(f"\n   Nach Geometrie-Typ (Clipping-Erkennung):")
+        for rep_type, slab_list in sorted(by_representation.items()):
+            # Dedupliziere
+            unique_slabs = list(set(s.GlobalId for s in slab_list))
+            print(f"      {rep_type:30} {len(unique_slabs):3} Slabs")
+        
+        # Warne bei Clipping
+        if 'IfcBooleanClippingResult' in by_representation:
+            print(f"\n   ⚠️  WARNUNG: {len(set(s.GlobalId for s in by_representation['IfcBooleanClippingResult']))} Slabs nutzen Clipping!")
+            print(f"      → Prüfe ob Deckenplatten am Dach geclippt wurden")
         
         if by_parent:
             print(f"\n   Nach Parent (Aggregation):")
@@ -337,15 +365,32 @@ class IFCAnalyzer:
                                 slab_count += 1
                                 try:
                                     shape = ifcopenshell.geom.create_shape(self.settings, elem)
+                                    # B1-FIX: Berechne aus Mesh-Faces, nicht BoundingBox!
+                                    # BoundingBox gibt projizierte Fläche, bei 38° Neigung 27% zu klein
                                     verts = shape.geometry.verts
-                                    if verts and len(verts) >= 9:
-                                        xs = [verts[i] for i in range(0, len(verts), 3)]
-                                        ys = [verts[i] for i in range(1, len(verts), 3)]
-                                        width = max(xs) - min(xs)
-                                        depth = max(ys) - min(ys)
-                                        roof_area += width * depth
-                                except:
-                                    pass
+                                    faces = shape.geometry.faces
+                                    
+                                    if verts and faces:
+                                        # Summiere Dreiecksflächen
+                                        for i in range(0, len(faces), 3):
+                                            try:
+                                                idx1, idx2, idx3 = faces[i]*3, faces[i+1]*3, faces[i+2]*3
+                                                v1 = (verts[idx1], verts[idx1+1], verts[idx1+2])
+                                                v2 = (verts[idx2], verts[idx2+1], verts[idx2+2])
+                                                v3 = (verts[idx3], verts[idx3+1], verts[idx3+2])
+                                                
+                                                # Heron's Formel für Dreiecksfläche
+                                                a = ((v2[0]-v1[0])**2 + (v2[1]-v1[1])**2 + (v2[2]-v1[2])**2)**0.5
+                                                b = ((v3[0]-v2[0])**2 + (v3[1]-v2[1])**2 + (v3[2]-v2[2])**2)**0.5
+                                                c = ((v1[0]-v3[0])**2 + (v1[1]-v3[1])**2 + (v1[2]-v3[2])**2)**0.5
+                                                s = (a + b + c) / 2
+                                                if s > a and s > b and s > c:
+                                                    roof_area += (s*(s-a)*(s-b)*(s-c))**0.5
+                                            except:
+                                                pass
+                                except Exception as e:
+                                    # B4-FIX: Spezifisches Exception-Handling
+                                    print(f"      ⚠️  Fehler bei {elem.Name}: {str(e)[:50]}")
                 
                 print(f"      {roof.Name:30} {roof_area:8.2f} m²  ({slab_count} Slabs)")
         

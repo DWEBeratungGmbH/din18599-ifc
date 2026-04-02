@@ -15,18 +15,19 @@ import math
 
 @dataclass
 class IFCElement:
-    """IFC Bauteil mit Geometrie-Informationen"""
+    """IFC-Element mit allen relevanten Informationen"""
     guid: str
-    ifc_type: str  # 'IfcWall', 'IfcRoof', 'IfcSlab', etc.
+    ifc_type: str  # z.B. "IfcWall", "IfcSlab"
     name: str
-    tag: Optional[str] = None  # Positionsnummer (PosNo)
-    area: Optional[float] = None  # m² (berechnet)
+    tag: Optional[str] = None  # PosNo
+    area: Optional[float] = None  # m²
     orientation: Optional[float] = None  # Grad (0-360, berechnet)
     inclination: Optional[float] = None  # Grad (0-90, berechnet)
     height: Optional[float] = None  # m
     storey: Optional[str] = None  # Geschoss
     material: Optional[str] = None
     parent_element_guid: Optional[str] = None  # Für Fenster/Türen: GUID der Parent-Wand
+    predefined_type: Optional[str] = None  # IFC PredefinedType (z.B. "ROOF", "FLOOR")
 
 
 @dataclass
@@ -193,6 +194,11 @@ def _extract_element(ifc_element, ifc_file, settings) -> Optional[IFCElement]:
         posno = _extract_posno(ifc_element)
         if posno:
             tag = posno  # PosNo überschreibt Tag
+        
+        # PredefinedType extrahieren (wichtig für Slab-Klassifizierung!)
+        predefined_type = None
+        if hasattr(ifc_element, 'PredefinedType'):
+            predefined_type = str(ifc_element.PredefinedType)
         
         # Geschoss ermitteln
         storey = None

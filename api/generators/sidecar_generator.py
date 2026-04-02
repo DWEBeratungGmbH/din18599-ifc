@@ -957,17 +957,27 @@ class SidecarGenerator:
         """
         # 1. Prüfe IFC-Typ (aus ifc_guid oder name)
         name = element.get("name", "").lower()
+        ifc_type = element.get("ifc_type", "").lower()
         
         # Gaube (Dormer) - spezifischer Check zuerst
         if "gaube" in name or "dormer" in name:
             return "DORMER"
         
-        # IfcSlab kann Dach oder Boden sein - prüfe Position/Name
-        if "ifcslab" in name or "deckenplatte" in name or "decke" in name:
-            # Prüfe ob es ein Dach oder Boden ist
-            if "dach" in name or element.get("inclination", 90) < 45:
+        # IfcSlab: Nutze IFC PredefinedType als primären Klassifikator
+        # (wichtig für geclippte Deckenplatten am Dach!)
+        if "ifcslab" in ifc_type or "ifcslab" in name:
+            # Prüfe Parent-Beziehung (Slabs mit IfcRoof als Parent sind Dachflächen)
+            parent_guid = element.get("parent_element_guid")
+            if parent_guid:
+                # Hat Parent → wahrscheinlich Dachfläche
+                return "ROOF"
+            
+            # Kein Parent → Prüfe Name
+            if "dach" in name:
                 return "ROOF"
             else:
+                # Default für standalone Slabs: FLOOR
+                # (auch wenn sie am Dach geclippt wurden!)
                 return "FLOOR"
         
         # IfcRoof ist immer Dach (außer Gaube wurde schon erkannt)
