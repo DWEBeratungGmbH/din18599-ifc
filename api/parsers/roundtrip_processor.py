@@ -50,6 +50,7 @@ class EVEBIConstruction:
     u_value: float
     layers: List[EVEBILayer] = field(default_factory=list)
     total_thickness: float = 0.0
+    sequences: List[dict] = None  # Getrennte Abfolgen für inhomogene Schichten
 
 
 @dataclass
@@ -210,92 +211,95 @@ def _extract_materials(eing) -> List[EVEBIMaterial]:
 
 
 def _extract_constructions(eing) -> List[EVEBIConstruction]:
-    """Extrahiert Konstruktionen mit Schichten aus EVEBI"""
+    """Extrahiert Konstruktionen aus EVEBI mit getrennten Abfolgen (inhomogene Schichten)"""
     constructions = []
     
     konstr_liste = eing.find('konstruktionenListe')
-    if konstr_liste is None:
-        return constructions
-    
-    for item in konstr_liste.findall('item'):
-        guid = item.get('GUID', '')
-        
-        # Name aus Attribut 'man'
-        name_elem = item.find('name')
-        name = 'Unbekannte Konstruktion'
-        if name_elem is not None:
-            name = name_elem.get('man', name_elem.get('calc', name_elem.text or name))
-        
-        # U-Wert
-        u_value = 0.0
-        u_standard = item.findtext('UWertStandard')
-        if u_standard:
-            try:
-                u_value = float(u_standard)
-            except (ValueError, TypeError):
-                pass
-        
-        if u_value == 0.0:
-            u_elem = item.find('U')
-            if u_elem is not None:
+    if konstr_liste is not None:
+        for item in konstr_liste.findall('item'):
+            guid = item.get('GUID', '')
+            name_elem = item.find('name')
+            name = name_elem.get('man', name_elem.get('calc', name_elem.text or 'Unbekannt')) if name_elem is not None else 'Unbekannt'
+            
+            u_standard = item.findtext('UWertStandard')
+            u_value = 0.0
+            if u_standard:
                 try:
-                    u_value = float(u_elem.get('man', u_elem.get('calc', '0')))
+                    u_value = float(u_standard)
                 except (ValueError, TypeError):
                     pass
-        
-        # Schichten aus abfolgenListe → schichtenListe
-        layers = []
-        total_thickness = 0.0
-        
-        abfolgen_liste = item.find('abfolgenListe')
-        if abfolgen_liste is not None:
-            for abfolge in abfolgen_liste.findall('item'):
-                schichten_liste = abfolge.find('schichtenListe')
-                if schichten_liste is not None:
-                    for pos, schicht in enumerate(schichten_liste.findall('item')):
-                        # Material-Name ist in 'name' Tag, nicht 'material'!
-                        mat_name = schicht.findtext('name', 'Unbekannt')
-                        
-                        # Dicke in cm → m (Wert ist in text, nicht in Attributen!)
-                        dicke_elem = schicht.find('dicke')
-                        thickness = 0.0
-                        if dicke_elem is not None:
-                            try:
-                                # Versuche zuerst Attribute, dann text
-                                val = dicke_elem.get('man') or dicke_elem.get('calc') or dicke_elem.text
-                                if val:
-                                    thickness = float(val) / 100.0
-                            except (ValueError, TypeError):
-                                thickness = 0.0
-                        
-                        # Lambda (Wert ist in text, nicht in Attributen!)
-                        lambda_elem = schicht.find('lambda')
-                        lambda_val = 0.0
-                        if lambda_elem is not None:
-                            try:
-                                # Versuche zuerst Attribute, dann text
-                                val = lambda_elem.get('man') or lambda_elem.get('calc') or lambda_elem.text
-                                if val:
-                                    lambda_val = float(val)
-                            except (ValueError, TypeError):
-                                lambda_val = 0.0
-                        
-                        if thickness > 0:
-                            layers.append(EVEBILayer(
-                                material_name=mat_name,
-                                thickness=thickness,
-                                lambda_value=lambda_val,
-                                position=pos
-                            ))
-                            total_thickness += thickness
-        
-        constructions.append(EVEBIConstruction(
-            guid=guid,
-            name=name,
-            u_value=u_value,
-            layers=layers,
-            total_thickness=total_thickness
-        ))
+            
+            # Schichten aus abfolgenListe → schichtenListe
+            # WICHTIG: Jede Abfolge getrennt halten für inhomogene Schichten (85% Dämmung + 15% Sparren)
+            sequences = []  # Liste von Abfolgen mit anteil
+            total_thickness = 0.0
+            
+            abfolgen_liste = item.find('abfolgenListe')
+            if abfolgen_liste is not None:
+                for abfolge in abfolgen_liste.findall('item'):
+                    # Anteil der Abfolge (z.B. 0.85 für Hauptkonstruktion)
+                    anteil_elem = abfolge.find('anteil')
+                    anteil = 1.0
+                    if anteil_elem is not None and anteil_elem.text:
+                        try:
+                            anteil = float(anteil_elem.text)
+                        except (ValueError, TypeError):
+                            anteil = 1.0
+                    
+                    # Schichten dieser Abfolge
+                    layers = []
+                    schichten_liste = abfolge.find('schichtenListe')
+                    if schichten_liste is not None:
+                        for pos, schicht in enumerate(schichten_liste.findall('item')):
+                            # Material-Name ist in 'name' Tag, nicht 'material'!
+                            mat_name = schicht.findtext('name', 'Unbekannt')
+                            
+                            # Dicke in cm → m (Wert ist in text!)
+                            dicke_elem = schicht.find('dicke')
+                            thickness = 0.0
+                            if dicke_elem is not None and dicke_elem.text:
+                                try:
+                                    thickness = float(dicke_elem.text) / 100.0
+                                except (ValueError, TypeError):
+                                    thickness = 0.0
+                            
+                            # Lambda (Wert ist in text!)
+                            lambda_elem = schicht.find('lambda')
+                            lambda_val = 0.0
+                            if lambda_elem is not None and lambda_elem.text:
+                                try:
+                                    lambda_val = float(lambda_elem.text)
+                                except (ValueError, TypeError):
+                                    lambda_val = 0.0
+                            
+                            if thickness > 0:
+                                layers.append(EVEBILayer(
+                                    material_name=mat_name,
+                                    thickness=thickness,
+                                    lambda_value=lambda_val,
+                                    position=pos
+                                ))
+                    
+                    if layers:
+                        sequences.append({
+                            'share': anteil,
+                            'layers': layers
+                        })
+                        # Total thickness nur von erster Abfolge (alle haben gleiche Dicke)
+                        if not total_thickness:
+                            total_thickness = sum(layer.thickness for layer in layers)
+            
+            # Für Rückwärtskompatibilität: layers = erste Abfolge
+            layers = sequences[0]['layers'] if sequences else []
+            
+            constructions.append(EVEBIConstruction(
+                guid=guid,
+                name=name,
+                u_value=u_value,
+                layers=layers,
+                total_thickness=total_thickness,
+                sequences=sequences  # Neue Eigenschaft für getrennte Abfolgen
+            ))
     
     return constructions
 
@@ -569,36 +573,30 @@ def _extract_pv(eing) -> List[dict]:
                 except (ValueError, TypeError):
                     peak_power = None
             
-            # Orientierung (orientierung_genau, nicht orientGrad!)
+            # Orientierung (orientierung_genau) - Wert ist direkt im text!
             orientation = None
             orient_elem = item.find('orientierung_genau')
-            if orient_elem is not None:
+            if orient_elem is not None and orient_elem.text:
                 try:
-                    val = orient_elem.get('man') or orient_elem.get('calc') or orient_elem.text
-                    if val:
-                        orientation = float(val)
+                    orientation = float(orient_elem.text)
                 except (ValueError, TypeError):
                     orientation = None
             
-            # Neigung - Wert ist in text!
+            # Neigung - Wert ist direkt im text!
             inclination = None
             neig_elem = item.find('neigung')
-            if neig_elem is not None:
+            if neig_elem is not None and neig_elem.text:
                 try:
-                    val = neig_elem.get('man') or neig_elem.get('calc') or neig_elem.text
-                    if val:
-                        inclination = float(val)
+                    inclination = float(neig_elem.text)
                 except (ValueError, TypeError):
                     inclination = None
             
-            # Fläche - Wert ist in text!
+            # Fläche - Wert ist direkt im text!
             area = None
             flaeche_elem = item.find('flaeche')
-            if flaeche_elem is not None:
+            if flaeche_elem is not None and flaeche_elem.text:
                 try:
-                    val = flaeche_elem.get('man') or flaeche_elem.get('calc') or flaeche_elem.text
-                    if val:
-                        area = float(val)
+                    area = float(flaeche_elem.text)
                 except (ValueError, TypeError):
                     area = None
             
@@ -685,9 +683,26 @@ def process_roundtrip(ifc_path: str, evea_path: str, output_path: str = 'output_
         # Schichten in sequences[] Format konvertieren
         # Jede Abfolge (85% Dämmung + 15% Sparren) wird als separate Sequenz abgebildet
         sequences = []
-        if konstr.layers:
-            # TODO: Abfolgen aus EVEBI extrahieren (aktuell: alle Schichten in einer Sequenz)
-            # Für korrekte DIN 18599 Berechnung sollten Haupt-/Nebenkonstruktion getrennt sein
+        
+        if konstr.sequences:
+            # Nutze getrennte Abfolgen aus EVEBI (inhomogene Schichten)
+            for i, seq in enumerate(konstr.sequences):
+                seq_name = 'Hauptkonstruktion' if i == 0 else f'Nebenkonstruktion {i}'
+                sequences.append({
+                    'share': seq['share'],
+                    'name': seq_name,
+                    'layers': [
+                        {
+                            'material': layer.material_name,
+                            'thickness': layer.thickness,
+                            'lambda': layer.lambda_value,
+                            'position': layer.position
+                        }
+                        for layer in seq['layers']
+                    ]
+                })
+        elif konstr.layers:
+            # Fallback: Alle Schichten in einer Sequenz (alte Logik)
             sequences.append({
                 'share': 1.0,
                 'name': 'Hauptkonstruktion',
