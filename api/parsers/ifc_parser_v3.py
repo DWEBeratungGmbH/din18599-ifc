@@ -413,25 +413,38 @@ class IFCParser:
                 if not ifc_elem:
                     continue
 
-                shape = ifcopenshell.geom.create_shape(self.settings, ifc_elem)
-                verts = shape.geometry.verts
-                faces = shape.geometry.faces
+                # P1: Fläche primär aus IfcElementQuantity (genauer als Mesh)
+                elem.area = self._extract_area_from_quantities(ifc_elem, elem.ifc_type, elem.predefined_type)
 
-                if not verts or not faces:
-                    continue
+                # Fallback: Mesh-Berechnung wenn Quantity fehlt
+                if elem.area is None:
+                    shape = ifcopenshell.geom.create_shape(self.settings, ifc_elem)
+                    verts = shape.geometry.verts
+                    faces = shape.geometry.faces
 
-                # Fläche berechnen
-                if 'Wall' in elem.ifc_type:
-                    elem.area = self._calculate_wall_area(verts, faces)
-                elif 'Slab' in elem.ifc_type or 'Roof' in elem.ifc_type:
-                    # S4: Nur Oberseite für Slabs (nz > 0.9), alle Faces für Roof-Slabs
-                    if elem.predefined_type == 'FLOOR' or elem.predefined_type == 'BASESLAB':
-                        top_area = self._sum_faces_by_normal(verts, faces, nz_min=0.9)
-                        elem.area = round(top_area, 2) if top_area else None
+                    if not verts or not faces:
+                        continue
+
+                    # Fläche berechnen
+                    if 'Wall' in elem.ifc_type:
+                        elem.area = self._calculate_wall_area(verts, faces)
+                    elif 'Slab' in elem.ifc_type or 'Roof' in elem.ifc_type:
+                        # S4: Nur Oberseite für Slabs (nz > 0.9), alle Faces für Roof-Slabs
+                        if elem.predefined_type == 'FLOOR' or elem.predefined_type == 'BASESLAB':
+                            top_area = self._sum_faces_by_normal(verts, faces, nz_min=0.9)
+                            elem.area = round(top_area, 2) if top_area else None
+                        else:
+                            elem.area = self._calculate_total_surface(verts, faces)
                     else:
                         elem.area = self._calculate_total_surface(verts, faces)
                 else:
-                    elem.area = self._calculate_total_surface(verts, faces)
+                    # Für Orientierung/Neigung brauchen wir trotzdem Shape
+                    shape = ifcopenshell.geom.create_shape(self.settings, ifc_elem)
+                    verts = shape.geometry.verts
+                    faces = shape.geometry.faces
+
+                    if not verts or not faces:
+                        continue
 
                 # Orientierung + Neigung
                 elem.orientation, elem.inclination = self._calculate_orientation(shape)
@@ -663,6 +676,54 @@ class IFCParser:
     # ============================================================
     # Hilfsmethoden
     # ============================================================
+    def _extract_area_from_quantities(self, ifc_elem, ifc_type: str, predefined_type: Optional[str]) -> Optional[float]:
+        """P1: Extrahiere Fläche aus IfcElementQuantity (genauer als Mesh)"""
+        try:
+            # P4: Fenster/Türen - OverallHeight × OverallWidth (direkt am Element)
+            if 'Window' in ifc_type or 'Door' in ifc_type:
+                if hasattr(ifc_elem, 'OverallHeight') and hasattr(ifc_elem, 'OverallWidth'):
+                    if ifc_elem.OverallHeight and ifc_elem.OverallWidth:
+                        area = ifc_elem.OverallHeight * ifc_elem.OverallWidth
+                        logger.debug(f"{ifc_type} {ifc_elem.Name}: {ifc_elem.OverallHeight}×{ifc_elem.OverallWidth} = {area:.2f}m²")
+                        return round(area, 2)
+            
+            # Für andere Elemente: Suche in Quantity-Sets
+            psets = ifcopenshell.util.element.get_psets(ifc_elem)
+            
+            for pset_name, pset_vals in psets.items():
+                if not ('Qto' in pset_name or 'Quantity' in pset_name or 'BaseQuantities' in pset_name):
+                    continue
+                
+                # Wände: Wandfläche (berücksichtigt Dachschnitte)
+                if 'Wall' in ifc_type:
+                    if 'NetSideArea' in pset_vals:
+                        return round(pset_vals['NetSideArea'], 2)
+                    elif 'GrossSideArea' in pset_vals:
+                        return round(pset_vals['GrossSideArea'], 2)
+                    elif 'Wandfläche' in pset_vals:  # CASCADOS custom
+                        return round(pset_vals['Wandfläche'], 2)
+                
+                # Slabs/Roofs: Nettofläche
+                elif 'Slab' in ifc_type or 'Roof' in ifc_type:
+                    if predefined_type in ('FLOOR', 'BASESLAB'):
+                        # Bodenfläche
+                        if 'NetArea' in pset_vals:
+                            return round(pset_vals['NetArea'], 2)
+                        elif 'GrossArea' in pset_vals:
+                            return round(pset_vals['GrossArea'], 2)
+                    else:
+                        # Dachfläche
+                        if 'NetArea' in pset_vals:
+                            return round(pset_vals['NetArea'], 2)
+                        elif 'GrossArea' in pset_vals:
+                            return round(pset_vals['GrossArea'], 2)
+            
+            return None
+            
+        except Exception as e:
+            logger.debug(f"Quantity-Extraktion für {ifc_elem.GlobalId}: {e}")
+            return None
+    
     def _extract_element_basic(self, ifc_elem) -> Optional[IFCElement]:
         """Extrahiert Basis-Informationen"""
         try:

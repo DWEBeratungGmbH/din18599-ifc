@@ -700,7 +700,7 @@
           "ifc_guid": "20k9uJH3T8lf2HBodvIB3m",
           "ifc_type": "IfcWindow",
           "name": "Fenster - 001",
-          "area": 5.39,
+          "area": 1.55,
           "orientation": 270.0,
           "inclination": 90.0,
           "u_value": 0.0,
@@ -724,7 +724,7 @@
           "ifc_guid": "1xfsysx9rEFu15BWDyaTVN",
           "ifc_type": "IfcWindow",
           "name": "Fenster - 002",
-          "area": 5.39,
+          "area": 1.55,
           "orientation": 180.0,
           "inclination": 90.0,
           "u_value": 0.0,
@@ -748,7 +748,7 @@
           "ifc_guid": "3sL1QnyTL1O8vCAIxyLG4j",
           "ifc_type": "IfcWindow",
           "name": "Fenster - 003",
-          "area": 5.39,
+          "area": 1.55,
           "orientation": 180.0,
           "inclination": 90.0,
           "u_value": 0.0,
@@ -772,7 +772,7 @@
           "ifc_guid": "1WVv9jyLL7FwE9d9gxHHYb",
           "ifc_type": "IfcWindow",
           "name": "Fenster - 004",
-          "area": 5.39,
+          "area": 1.55,
           "orientation": 90.0,
           "inclination": 90.0,
           "u_value": 0.0,
@@ -796,7 +796,7 @@
           "ifc_guid": "0I3V4b$3L69QDGByBX3lqt",
           "ifc_type": "IfcWindow",
           "name": "Fenster - 005",
-          "area": 5.39,
+          "area": 1.55,
           "orientation": 270.0,
           "inclination": 90.0,
           "u_value": 0.0,
@@ -820,7 +820,7 @@
           "ifc_guid": "021Wl_a$L71Q58XkwNepV0",
           "ifc_type": "IfcWindow",
           "name": "Fenster - 006",
-          "area": 5.39,
+          "area": 1.55,
           "orientation": 180.0,
           "inclination": 90.0,
           "u_value": 0.0,
@@ -844,7 +844,7 @@
           "ifc_guid": "1TY2chHQLC4OI8tJ2y0rDm",
           "ifc_type": "IfcWindow",
           "name": "Fenster - 007",
-          "area": 5.39,
+          "area": 1.55,
           "orientation": 180.0,
           "inclination": 90.0,
           "u_value": 0.0,
@@ -868,7 +868,7 @@
           "ifc_guid": "3Dsroa0A5DWgLEFPXSqcJj",
           "ifc_type": "IfcWindow",
           "name": "Fenster - 008",
-          "area": 5.39,
+          "area": 1.55,
           "orientation": 90.0,
           "inclination": 90.0,
           "u_value": 0.0,
@@ -892,7 +892,7 @@
           "ifc_guid": "2gmAEMbLjDVxMoFdmfz3Vm",
           "ifc_type": "IfcWindow",
           "name": "Fenster - 009",
-          "area": 4.05,
+          "area": 1.03,
           "orientation": 180.0,
           "inclination": 90.0,
           "u_value": 0.0,
@@ -918,7 +918,7 @@
           "ifc_guid": "3H6PiIapH1jOOw_GHXqlOl",
           "ifc_type": "IfcDoor",
           "name": "Tür - 001",
-          "area": 8.37,
+          "area": 1.78,
           "orientation": 180.0,
           "inclination": 90.0,
           "u_value": 0.0,
@@ -942,7 +942,7 @@
           "ifc_guid": "0drz$65oz6rOX4aZFGbaA9",
           "ifc_type": "IfcDoor",
           "name": "Tür - 002",
-          "area": 8.37,
+          "area": 1.78,
           "orientation": 0.0,
           "inclination": 90.0,
           "u_value": 0.0,
@@ -966,7 +966,7 @@
           "ifc_guid": "1AahKHPbrDJvZ7pFbKUG1s",
           "ifc_type": "IfcDoor",
           "name": "Tür - 003",
-          "area": 6.5,
+          "area": 1.78,
           "orientation": 180.0,
           "inclination": 90.0,
           "u_value": 0.0,
@@ -990,7 +990,7 @@
           "ifc_guid": "2UgWmkTiTC7xg7T3SHaMff",
           "ifc_type": "IfcDoor",
           "name": "Tür - 004",
-          "area": 6.5,
+          "area": 1.78,
           "orientation": 270.0,
           "inclination": 90.0,
           "u_value": 0.0,
@@ -1011,7 +1011,554 @@
         }
       ]
     },
-    "material_layers": []
+    "material_layers": [
+      {
+        "id": "LS-1ybs9cI0",
+        "name": "Wand - 001",
+        "type": "WALLSTANDARDCASE",
+        "layers": [
+          {
+            "position": 1,
+            "material_name": "Tragende Schicht",
+            "thickness": 0.24,
+            "lambda": null,
+            "density": null,
+            "specific_heat": null,
+            "ifc_material_guid": 377
+          },
+          {
+            "position": 2,
+            "material_name": "Außen",
+            "thickness": 0.125,
+            "lambda": null,
+            "density": null,
+            "specific_heat": null,
+            "ifc_material_guid": 379
+          }
+        ],
+        "total_thickness": 0.365,
+        "u_value_calculated": null,
+        "source": "ifc_material_layer_set",
+        "ifc_material_layer_set_guid": 381,
+        "element_guid": "1ybs9cI0P0uhJtYtcGuM9Q"
+      },
+      {
+        "id": "LS-0wsGtpUk",
+        "name": "Wand - 002",
+        "type": "WALLSTANDARDCASE",
+        "layers": [
+          {
+            "position": 1,
+            "material_name": "Beton",
+            "thickness": 0.24,
+            "lambda": null,
+            "density": null,
+            "specific_heat": null,
+            "ifc_material_guid": 323
+          }
+        ],
+        "total_thickness": 0.24,
+        "u_value_calculated": null,
+        "source": "ifc_material_layer_set",
+        "ifc_material_layer_set_guid": null,
+        "element_guid": "0wsGtpUkT56hELnVLS8x9z"
+      },
+      {
+        "id": "LS-3ZBufg2t",
+        "name": "Wand - 003",
+        "type": "WALLSTANDARDCASE",
+        "layers": [
+          {
+            "position": 1,
+            "material_name": "Tragende Schicht",
+            "thickness": 0.24,
+            "lambda": null,
+            "density": null,
+            "specific_heat": null,
+            "ifc_material_guid": 377
+          },
+          {
+            "position": 2,
+            "material_name": "Außen",
+            "thickness": 0.125,
+            "lambda": null,
+            "density": null,
+            "specific_heat": null,
+            "ifc_material_guid": 379
+          }
+        ],
+        "total_thickness": 0.365,
+        "u_value_calculated": null,
+        "source": "ifc_material_layer_set",
+        "ifc_material_layer_set_guid": 381,
+        "element_guid": "3ZBufg2tD83hKrgh97KgL4"
+      },
+      {
+        "id": "LS-1dHWYmWp",
+        "name": "Wand - 004",
+        "type": "WALLSTANDARDCASE",
+        "layers": [
+          {
+            "position": 1,
+            "material_name": "Tragende Schicht",
+            "thickness": 0.24,
+            "lambda": null,
+            "density": null,
+            "specific_heat": null,
+            "ifc_material_guid": 377
+          },
+          {
+            "position": 2,
+            "material_name": "Außen",
+            "thickness": 0.125,
+            "lambda": null,
+            "density": null,
+            "specific_heat": null,
+            "ifc_material_guid": 379
+          }
+        ],
+        "total_thickness": 0.365,
+        "u_value_calculated": null,
+        "source": "ifc_material_layer_set",
+        "ifc_material_layer_set_guid": 381,
+        "element_guid": "1dHWYmWpjEUOhnVpyhN7bg"
+      },
+      {
+        "id": "LS-3GX2MArf",
+        "name": "Wand - 005",
+        "type": "WALLSTANDARDCASE",
+        "layers": [
+          {
+            "position": 1,
+            "material_name": "Tragende Schicht",
+            "thickness": 0.175,
+            "lambda": null,
+            "density": null,
+            "specific_heat": null,
+            "ifc_material_guid": 377
+          }
+        ],
+        "total_thickness": 0.175,
+        "u_value_calculated": null,
+        "source": "ifc_material_layer_set",
+        "ifc_material_layer_set_guid": 11170,
+        "element_guid": "3GX2MArf19ChzJkt9QX23R"
+      },
+      {
+        "id": "LS-36RyDbx0",
+        "name": "Wand - 006",
+        "type": "WALLSTANDARDCASE",
+        "layers": [
+          {
+            "position": 1,
+            "material_name": "Tragende Schicht",
+            "thickness": 0.175,
+            "lambda": null,
+            "density": null,
+            "specific_heat": null,
+            "ifc_material_guid": 377
+          }
+        ],
+        "total_thickness": 0.175,
+        "u_value_calculated": null,
+        "source": "ifc_material_layer_set",
+        "ifc_material_layer_set_guid": 11170,
+        "element_guid": "36RyDbx0nF3OfvuY0$rk_1"
+      },
+      {
+        "id": "LS-1nwNMAfT",
+        "name": "Wand - 007",
+        "type": "WALLSTANDARDCASE",
+        "layers": [
+          {
+            "position": 1,
+            "material_name": "Tragende Schicht",
+            "thickness": 0.24,
+            "lambda": null,
+            "density": null,
+            "specific_heat": null,
+            "ifc_material_guid": 377
+          },
+          {
+            "position": 2,
+            "material_name": "Außen",
+            "thickness": 0.125,
+            "lambda": null,
+            "density": null,
+            "specific_heat": null,
+            "ifc_material_guid": 379
+          }
+        ],
+        "total_thickness": 0.365,
+        "u_value_calculated": null,
+        "source": "ifc_material_layer_set",
+        "ifc_material_layer_set_guid": 381,
+        "element_guid": "1nwNMAfTvETA6mMay7QvOB"
+      },
+      {
+        "id": "LS-1AJqS9Ap",
+        "name": "Wand - 008",
+        "type": "WALLSTANDARDCASE",
+        "layers": [
+          {
+            "position": 1,
+            "material_name": "Tragende Schicht",
+            "thickness": 0.24,
+            "lambda": null,
+            "density": null,
+            "specific_heat": null,
+            "ifc_material_guid": 377
+          },
+          {
+            "position": 2,
+            "material_name": "Außen",
+            "thickness": 0.125,
+            "lambda": null,
+            "density": null,
+            "specific_heat": null,
+            "ifc_material_guid": 379
+          }
+        ],
+        "total_thickness": 0.365,
+        "u_value_calculated": null,
+        "source": "ifc_material_layer_set",
+        "ifc_material_layer_set_guid": 381,
+        "element_guid": "1AJqS9Ap1B9O67UKL288Ad"
+      },
+      {
+        "id": "LS-2VmTaTEz",
+        "name": "Wand - 009",
+        "type": "WALLSTANDARDCASE",
+        "layers": [
+          {
+            "position": 1,
+            "material_name": "Tragende Schicht",
+            "thickness": 0.24,
+            "lambda": null,
+            "density": null,
+            "specific_heat": null,
+            "ifc_material_guid": 377
+          },
+          {
+            "position": 2,
+            "material_name": "Außen",
+            "thickness": 0.125,
+            "lambda": null,
+            "density": null,
+            "specific_heat": null,
+            "ifc_material_guid": 379
+          }
+        ],
+        "total_thickness": 0.365,
+        "u_value_calculated": null,
+        "source": "ifc_material_layer_set",
+        "ifc_material_layer_set_guid": 381,
+        "element_guid": "2VmTaTEzf1TAIyi5EQToiJ"
+      },
+      {
+        "id": "LS-1hJ9Q0Gk",
+        "name": "Wand - 010",
+        "type": "WALLSTANDARDCASE",
+        "layers": [
+          {
+            "position": 1,
+            "material_name": "Tragende Schicht",
+            "thickness": 0.24,
+            "lambda": null,
+            "density": null,
+            "specific_heat": null,
+            "ifc_material_guid": 377
+          },
+          {
+            "position": 2,
+            "material_name": "Außen",
+            "thickness": 0.125,
+            "lambda": null,
+            "density": null,
+            "specific_heat": null,
+            "ifc_material_guid": 379
+          }
+        ],
+        "total_thickness": 0.365,
+        "u_value_calculated": null,
+        "source": "ifc_material_layer_set",
+        "ifc_material_layer_set_guid": 381,
+        "element_guid": "1hJ9Q0GkHEc8yze1IpG89P"
+      },
+      {
+        "id": "LS-08sM8IGx",
+        "name": "Wand - 011",
+        "type": "WALLSTANDARDCASE",
+        "layers": [
+          {
+            "position": 1,
+            "material_name": "Tragende Schicht",
+            "thickness": 0.24,
+            "lambda": null,
+            "density": null,
+            "specific_heat": null,
+            "ifc_material_guid": 377
+          },
+          {
+            "position": 2,
+            "material_name": "Außen",
+            "thickness": 0.125,
+            "lambda": null,
+            "density": null,
+            "specific_heat": null,
+            "ifc_material_guid": 379
+          }
+        ],
+        "total_thickness": 0.365,
+        "u_value_calculated": null,
+        "source": "ifc_material_layer_set",
+        "ifc_material_layer_set_guid": 381,
+        "element_guid": "08sM8IGxr8X9IdFlOsGW2e"
+      },
+      {
+        "id": "LS-3k6$bzsk",
+        "name": "Wand - 012",
+        "type": "WALLSTANDARDCASE",
+        "layers": [
+          {
+            "position": 1,
+            "material_name": "Tragende Schicht",
+            "thickness": 0.24,
+            "lambda": null,
+            "density": null,
+            "specific_heat": null,
+            "ifc_material_guid": 377
+          },
+          {
+            "position": 2,
+            "material_name": "Außen",
+            "thickness": 0.125,
+            "lambda": null,
+            "density": null,
+            "specific_heat": null,
+            "ifc_material_guid": 379
+          }
+        ],
+        "total_thickness": 0.365,
+        "u_value_calculated": null,
+        "source": "ifc_material_layer_set",
+        "ifc_material_layer_set_guid": 381,
+        "element_guid": "3k6$bzskHFyudhVfHBfhYf"
+      },
+      {
+        "id": "LS-10bt3HWi",
+        "name": "Wand - 013",
+        "type": "WALLSTANDARDCASE",
+        "layers": [
+          {
+            "position": 1,
+            "material_name": "Tragende Schicht",
+            "thickness": 0.24,
+            "lambda": null,
+            "density": null,
+            "specific_heat": null,
+            "ifc_material_guid": 377
+          },
+          {
+            "position": 2,
+            "material_name": "Außen",
+            "thickness": 0.125,
+            "lambda": null,
+            "density": null,
+            "specific_heat": null,
+            "ifc_material_guid": 379
+          }
+        ],
+        "total_thickness": 0.365,
+        "u_value_calculated": null,
+        "source": "ifc_material_layer_set",
+        "ifc_material_layer_set_guid": 381,
+        "element_guid": "10bt3HWiP8Hu0jTpYDl92_"
+      },
+      {
+        "id": "LS-3IrBibc8",
+        "name": "Wand - 014",
+        "type": "WALLSTANDARDCASE",
+        "layers": [
+          {
+            "position": 1,
+            "material_name": "Tragende Schicht",
+            "thickness": 0.24,
+            "lambda": null,
+            "density": null,
+            "specific_heat": null,
+            "ifc_material_guid": 377
+          },
+          {
+            "position": 2,
+            "material_name": "Außen",
+            "thickness": 0.125,
+            "lambda": null,
+            "density": null,
+            "specific_heat": null,
+            "ifc_material_guid": 379
+          }
+        ],
+        "total_thickness": 0.365,
+        "u_value_calculated": null,
+        "source": "ifc_material_layer_set",
+        "ifc_material_layer_set_guid": 381,
+        "element_guid": "3IrBibc8rAEhULblN7MjOo"
+      },
+      {
+        "id": "LS-0Ku$5Xc$",
+        "name": "Wand - 015",
+        "type": "WALLSTANDARDCASE",
+        "layers": [
+          {
+            "position": 1,
+            "material_name": "Tragende Schicht",
+            "thickness": 0.24,
+            "lambda": null,
+            "density": null,
+            "specific_heat": null,
+            "ifc_material_guid": 377
+          },
+          {
+            "position": 2,
+            "material_name": "Außen",
+            "thickness": 0.125,
+            "lambda": null,
+            "density": null,
+            "specific_heat": null,
+            "ifc_material_guid": 379
+          }
+        ],
+        "total_thickness": 0.365,
+        "u_value_calculated": null,
+        "source": "ifc_material_layer_set",
+        "ifc_material_layer_set_guid": 381,
+        "element_guid": "0Ku$5Xc$j5hx8p_BSGW_dj"
+      },
+      {
+        "id": "LS-3ND6fA6L",
+        "name": "Wand - 016",
+        "type": "WALLSTANDARDCASE",
+        "layers": [
+          {
+            "position": 1,
+            "material_name": "Tragende Schicht",
+            "thickness": 0.24,
+            "lambda": null,
+            "density": null,
+            "specific_heat": null,
+            "ifc_material_guid": 377
+          },
+          {
+            "position": 2,
+            "material_name": "Außen",
+            "thickness": 0.125,
+            "lambda": null,
+            "density": null,
+            "specific_heat": null,
+            "ifc_material_guid": 379
+          }
+        ],
+        "total_thickness": 0.365,
+        "u_value_calculated": null,
+        "source": "ifc_material_layer_set",
+        "ifc_material_layer_set_guid": 381,
+        "element_guid": "3ND6fA6LP7ePTpTpx4AOC5"
+      },
+      {
+        "id": "LS-289qpJ9i",
+        "name": "Wand - 017",
+        "type": "WALLSTANDARDCASE",
+        "layers": [
+          {
+            "position": 1,
+            "material_name": "Tragende Schicht",
+            "thickness": 0.24,
+            "lambda": null,
+            "density": null,
+            "specific_heat": null,
+            "ifc_material_guid": 377
+          },
+          {
+            "position": 2,
+            "material_name": "Außen",
+            "thickness": 0.125,
+            "lambda": null,
+            "density": null,
+            "specific_heat": null,
+            "ifc_material_guid": 379
+          }
+        ],
+        "total_thickness": 0.365,
+        "u_value_calculated": null,
+        "source": "ifc_material_layer_set",
+        "ifc_material_layer_set_guid": 381,
+        "element_guid": "289qpJ9i944g9O6KhpXp25"
+      },
+      {
+        "id": "LS-3N3B$e5Z",
+        "name": "Wand - 018",
+        "type": "WALLSTANDARDCASE",
+        "layers": [
+          {
+            "position": 1,
+            "material_name": "Tragende Schicht",
+            "thickness": 0.15,
+            "lambda": null,
+            "density": null,
+            "specific_heat": null,
+            "ifc_material_guid": 377
+          }
+        ],
+        "total_thickness": 0.15,
+        "u_value_calculated": null,
+        "source": "ifc_material_layer_set",
+        "ifc_material_layer_set_guid": 22207,
+        "element_guid": "3N3B$e5Zz9c8NrtdJYnbP9"
+      },
+      {
+        "id": "LS-27NdouOn",
+        "name": "Wand - 019",
+        "type": "WALLSTANDARDCASE",
+        "layers": [
+          {
+            "position": 1,
+            "material_name": "Tragende Schicht",
+            "thickness": 0.15,
+            "lambda": null,
+            "density": null,
+            "specific_heat": null,
+            "ifc_material_guid": 377
+          }
+        ],
+        "total_thickness": 0.15,
+        "u_value_calculated": null,
+        "source": "ifc_material_layer_set",
+        "ifc_material_layer_set_guid": 22207,
+        "element_guid": "27NdouOnHFWOsd0GB2idxs"
+      },
+      {
+        "id": "LS-0WcMyW79",
+        "name": "Wand - 020",
+        "type": "WALLSTANDARDCASE",
+        "layers": [
+          {
+            "position": 1,
+            "material_name": "Tragende Schicht",
+            "thickness": 0.15,
+            "lambda": null,
+            "density": null,
+            "specific_heat": null,
+            "ifc_material_guid": 377
+          }
+        ],
+        "total_thickness": 0.15,
+        "u_value_calculated": null,
+        "source": "ifc_material_layer_set",
+        "ifc_material_layer_set_guid": 22207,
+        "element_guid": "0WcMyW79XD6uy5QWRC0iel"
+      }
+    ]
   },
   "warnings": [
     "Wand 'Wand - 001' (Typ: Wand AW 36,5 m. Deckenauflager) ist AW-typisiert, aber IsExternal=False",
