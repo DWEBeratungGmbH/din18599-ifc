@@ -250,8 +250,10 @@ async def generate_sidecar_json(
                     "ifc_elements": total_ifc,
                     "evebi_elements": len(evebi_dict['elements']),
                     "evebi_zones": len(evebi_dict['zones']),
-                    "sidecar_elements": len(sidecar['input']['elements']),
-                    "sidecar_windows": len(sidecar['input']['windows']),
+                    "sidecar_walls": len(envelope['walls_external']),
+                    "sidecar_roofs": len(envelope['roofs']),
+                    "sidecar_floors": len(envelope['floors']),
+                    "sidecar_windows": len(envelope['openings']),
                     "sidecar_zones": len(sidecar['input']['zones']),
                     "match_rate": round(total_sidecar / total_ifc * 100, 1) if total_ifc > 0 else 0
                 },
