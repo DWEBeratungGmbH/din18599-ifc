@@ -144,7 +144,7 @@
     
     "zone": {
       "type": "object",
-      "required": ["id", "usage_profile_ref", "area"],
+      "required": ["id", "usage_profile_ref", "area", "volume", "height"],
       "properties": {
         "id": {"type": "string"},
         "ifc_guid": {"type": "string", "description": "A4: IFC GUID des IfcSpace"},
@@ -242,13 +242,20 @@
           "enum": ["exterior", "ground", "unheated", "adjacent"],
           "description": "A2: Randbedingung für Fx-Faktoren (statt opak/transparent)"
         },
+        "din_code": {
+          "type": "string",
+          "enum": ["WA", "WI", "DA", "DE", "DU", "BE", "BO", "BU"],
+          "description": "B1: DIN 18599 Bauteilcode (Beiblatt 3 Tabelle 77-85)"
+        },
+        "fx_factor": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "B2: Temperatur-Korrekturfaktor Fx (Beiblatt 3 Tabelle 77-92)"
+        },
         "storey_ref": {
           "type": "string",
           "description": "A4: Referenz zu Geschoss"
-        },
-        "parent_element_guid": {
-          "type": "string",
-          "description": "A4: Parent-Element (z.B. Wand bei Fenster)"
         }
       }
     },
@@ -266,15 +273,56 @@
         "g_value": {"type": "number", "minimum": 0, "maximum": 1},
         "area": {"type": "number", "minimum": 0},
         "orientation": {"type": "number", "minimum": 0, "maximum": 360},
+        "inclination": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 90,
+          "description": "B4: Neigung [°] für FA/FD/FL-Unterscheidung (Beiblatt 3)"
+        },
         "is_glazed": {
           "type": "boolean",
           "description": "Verglast? (für GEG-Kategorisierung)"
+        },
+        "tau_value": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "B3: Transmissionsgrad für Tageslicht τ [-] (Beiblatt 3 Tabelle 86-92)"
+        },
+        "g_value_perpendicular": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "B3: Gesamtenergiedurchlassgrad senkrecht g⊥ [-]"
+        },
+        "g_value_summer": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "B3: g-Wert mit Sonnenschutz Sommer (Beiblatt 3)"
+        },
+        "g_value_winter": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "B3: g-Wert mit Sonnenschutz Winter (Beiblatt 3)"
         },
         "shading_factor_f_sh": {"type": "number", "minimum": 0, "maximum": 1},
         "boundary_condition": {
           "type": "string",
           "enum": ["exterior", "ground", "unheated", "adjacent"],
           "description": "A2: Randbedingung"
+        },
+        "din_code": {
+          "type": "string",
+          "enum": ["FA", "FD", "FL", "TA", "TD"],
+          "description": "B1: DIN 18599 Bauteilcode (Beiblatt 3 Tabelle 86-92)"
+        },
+        "fx_factor": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "B2: Temperatur-Korrekturfaktor Fx"
         },
         "parent_wall_guid": {
           "type": "string",
