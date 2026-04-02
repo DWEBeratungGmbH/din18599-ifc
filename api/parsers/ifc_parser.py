@@ -26,6 +26,7 @@ class IFCElement:
     height: Optional[float] = None  # m
     storey: Optional[str] = None  # Geschoss
     material: Optional[str] = None
+    parent_element_guid: Optional[str] = None  # Für Fenster/Türen: GUID der Parent-Wand
 
 
 @dataclass
@@ -114,6 +115,10 @@ def parse_ifc(ifc_file_path: str) -> IFCGeometry:
         if element:
             geometry.doors.append(element)
             geometry.all_elements.append(element)
+    
+    # Parent-Child-Beziehungen extrahieren (Fenster/Türen → Wände)
+    print(f"\n🔍 Extrahiere Parent-Child-Beziehungen...")
+    _extract_parent_child_relationships(ifc_file, geometry)
     
     # Material-Layers extrahieren (NEU!)
     print(f"\n🔍 Extrahiere Material-Schichtaufbauten...")
@@ -303,6 +308,45 @@ def _calculate_height(shape) -> Optional[float]:
         
     except Exception as e:
         return None
+
+
+def _extract_parent_child_relationships(ifc_file, geometry: IFCGeometry):
+    """
+    Extrahiert Parent-Child-Beziehungen zwischen Fenstern/Türen und Wänden
+    
+    IFC-Struktur:
+    - IfcWindow/IfcDoor → IfcRelFillsElement → IfcOpeningElement
+    - IfcOpeningElement → IfcRelVoidsElement → IfcWall
+    """
+    # Mapping: Opening GUID → Wall GUID
+    opening_to_wall = {}
+    
+    # 1. IfcRelVoidsElement: Wand → Öffnung
+    for rel in ifc_file.by_type('IfcRelVoidsElement'):
+        if rel.RelatingBuildingElement and rel.RelatedOpeningElement:
+            wall_guid = rel.RelatingBuildingElement.GlobalId
+            opening_guid = rel.RelatedOpeningElement.GlobalId
+            opening_to_wall[opening_guid] = wall_guid
+    
+    # 2. IfcRelFillsElement: Öffnung → Fenster/Tür
+    window_to_opening = {}
+    for rel in ifc_file.by_type('IfcRelFillsElement'):
+        if rel.RelatingOpeningElement and rel.RelatedBuildingElement:
+            opening_guid = rel.RelatingOpeningElement.GlobalId
+            element_guid = rel.RelatedBuildingElement.GlobalId
+            window_to_opening[element_guid] = opening_guid
+    
+    # 3. Verknüpfe Fenster/Türen mit Wänden
+    for element in geometry.all_elements:
+        if element.ifc_type in ['IfcWindow', 'IfcDoor']:
+            # Finde Öffnung
+            opening_guid = window_to_opening.get(element.guid)
+            if opening_guid:
+                # Finde Wand
+                wall_guid = opening_to_wall.get(opening_guid)
+                if wall_guid:
+                    element.parent_element_guid = wall_guid
+                    print(f"  ✅ {element.name} → Parent: {wall_guid[:8]}")
 
 
 def _extract_posno(ifc_element) -> Optional[str]:

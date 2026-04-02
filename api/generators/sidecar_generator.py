@@ -776,6 +776,8 @@ class SidecarGenerator:
                     "name": ifc_elem.name or f"Fenster {ifc_elem.guid[:8]}",
                     "area": ifc_elem.area or 0.0,
                     "type": "WINDOW",
+                    "parent_element_id": ifc_elem.parent_element_guid,  # Parent-Wand GUID
+                    "orientation": ifc_elem.orientation if ifc_elem.orientation is not None else 0,
                     "u_value_glass": evebi_elem.u_value if evebi_elem else 1.1,
                     "u_value_frame": 1.3,  # Default
                     "psi_spacer": 0.03,  # Default
@@ -833,8 +835,8 @@ class SidecarGenerator:
                     "u_value_undisturbed": u_value,
                     "thermal_bridge_delta_u": 0.02,  # Default
                     "thermal_bridge_type": "SIMPLIFIED",
-                    "orientation": (evebi_elem.orientation if evebi_elem else 0) or 0,
-                    "inclination": (evebi_elem.inclination if evebi_elem else 90) or 90
+                    "orientation": ifc_elem.orientation if ifc_elem.orientation is not None else (evebi_elem.orientation if evebi_elem else 0),
+                    "inclination": ifc_elem.inclination if ifc_elem.inclination is not None else (evebi_elem.inclination if evebi_elem else 90)
                 }
                 
                 # Solar Absorption (nur für Außenbauteile)
