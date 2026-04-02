@@ -495,29 +495,51 @@ class IFCParser:
         """P3: Leite boundary_condition ab aus is_external + Z-Position + Storey + TypeName"""
         logger.info("   P3: boundary_conditions ableiten...")
 
+        # P1: Counter für aggregierte Warnungen
+        aw_false_count = 0
+        window_door_false_count = 0
+
         for elem in self.geometry.all_elements:
             # B4: TypeName-Heuristik wenn IsExternal fehlt
             type_name = elem.properties.get('Pset_CompType', {}).get('TypeName', '')
             if not type_name:
                 type_name = elem.properties.get('Pset_WallCommon', {}).get('Reference', '')
             
+            # P2: Keller-Boden Heuristik (vor IsExternal-Check)
+            if elem.ifc_type == 'IfcSlab' and elem.predefined_type in ('BASESLAB', 'FLOOR'):
+                # Lookup Storey für Keller-Erkennung
+                storey_name = ""
+                storey_elevation = None
+                if elem.storey_guid:
+                    for s in self.geometry.storeys:
+                        if s['id'] == elem.storey_guid:
+                            storey_name = s.get('name', '')
+                            storey_elevation = s.get('elevation')
+                            break
+                
+                # Keller-Heuristik: Name enthält "Keller" ODER Elevation < 0
+                is_basement = 'keller' in storey_name.lower() or (storey_elevation is not None and storey_elevation < 0)
+                
+                if is_basement:
+                    elem.boundary_condition = "ground"
+                    continue
+                # Fallback: IsExternal=True UND z_min <= 0.1
+                elif elem.is_external is True and elem.z_min is not None and elem.z_min <= 0.1:
+                    elem.boundary_condition = "ground"
+                    continue
+            
             if elem.is_external is True:
-                # Erdreich-Check: Boden mit Z <= 0
-                if elem.ifc_type in ('IfcSlab',) and elem.z_min is not None and elem.z_min <= 0.1:
-                    if elem.predefined_type in ('BASESLAB', 'FLOOR'):
-                        elem.boundary_condition = "ground"
-                        continue
                 elem.boundary_condition = "exterior"
 
             elif elem.is_external is False:
                 # B4: Fenster/Türen sind semantisch immer exterior
                 if elem.ifc_type in ('IfcWindow', 'IfcDoor'):
                     elem.boundary_condition = "exterior"
-                    logger.debug(f"{elem.name}: IsExternal=False, aber Fenster/Tür → exterior")
+                    window_door_false_count += 1
                 # B4: Korrektur wenn TypeName "AW" enthält
                 elif 'AW' in type_name or 'Außenwand' in type_name or 'Aussenwand' in type_name:
                     elem.boundary_condition = "exterior"
-                    logger.debug(f"{elem.name}: IsExternal=False, aber TypeName={type_name} → exterior")
+                    aw_false_count += 1
                 else:
                     # Prüfe ob unbeheizt (Keller, Dachboden) via storey_guid Lookup
                     storey_name = ""
@@ -543,6 +565,14 @@ class IFCParser:
                     elem.boundary_condition = "ground"
                 else:
                     elem.boundary_condition = "exterior"
+
+        # P1: Aggregierte Warnungen (statt 39 einzelne)
+        if aw_false_count > 0:
+            self.geometry.warnings.append(
+                f"{aw_false_count} Wände mit AW-Typ haben IsExternal=False (automatisch auf exterior korrigiert)"
+            )
+        if window_door_false_count > 0:
+            logger.debug(f"{window_door_false_count} Fenster/Türen mit IsExternal=False → exterior")
 
     # ============================================================
     # P2: din_code ableiten
@@ -1174,7 +1204,8 @@ def parse_ifc_file(ifc_file_path: str) -> Dict[str, Any]:
             },
             "envelope": {
                 "walls": [opaque_to_dict(e) for e in geometry.walls],
-                "roofs": [opaque_to_dict(e) for e in geometry.roofs],
+                # P3: Nur IfcSlabs (ROOF), keine IfcRoof-Aggregate (Doppelzählung)
+                "roofs": [opaque_to_dict(e) for e in geometry.roofs if e.ifc_type != 'IfcRoof'],
                 "floors": [opaque_to_dict(e) for e in geometry.slabs],
                 "windows": [transparent_to_dict(e) for e in geometry.windows],
                 "doors": [transparent_to_dict(e) for e in geometry.doors],
