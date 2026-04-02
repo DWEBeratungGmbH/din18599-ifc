@@ -88,10 +88,28 @@ def parse_ifc(ifc_file_path: str) -> IFCGeometry:
             geometry.walls.append(element)
             geometry.all_elements.append(element)
     
-    # Dächer
+    # Dächer (mit Slab-Flächen)
     for roof in ifc_file.by_type('IfcRoof'):
         element = _extract_element(roof, ifc_file, settings)
         if element:
+            # Aggregiere Flächen von zugehörigen Slabs
+            if element.area is None or element.area == 0:
+                slab_area = _calculate_roof_area_from_slabs(roof, ifc_file, settings)
+                if slab_area > 0:
+                    element = IFCElement(
+                        guid=element.guid,
+                        ifc_type=element.ifc_type,
+                        name=element.name,
+                        tag=element.tag,
+                        area=slab_area,  # Fläche aus Slabs
+                        orientation=element.orientation,
+                        inclination=element.inclination,
+                        height=element.height,
+                        storey=element.storey,
+                        parent_element_guid=element.parent_element_guid
+                    )
+                    print(f"  ✅ {element.name}: Fläche aus Slabs = {slab_area:.2f} m²")
+            
             geometry.roofs.append(element)
             geometry.all_elements.append(element)
     
@@ -313,6 +331,37 @@ def _calculate_orientation_and_inclination(shape, ifc_type: str) -> Tuple[Option
         
     except Exception as e:
         return None, None
+
+
+def _calculate_roof_area_from_slabs(roof, ifc_file, settings) -> float:
+    """
+    Berechnet Dachfläche aus zugehörigen Slabs
+    Dächer haben oft keine eigene Geometrie, aber Slabs als Teilflächen
+    """
+    try:
+        total_area = 0.0
+        processed_guids = set()  # Verhindere Duplikate
+        
+        # Finde zugehörige Slabs über IsDecomposedBy
+        if hasattr(roof, 'IsDecomposedBy'):
+            for rel in roof.IsDecomposedBy:
+                for elem in rel.RelatedObjects:
+                    if elem.is_a('IfcSlab') and elem.GlobalId not in processed_guids:
+                        processed_guids.add(elem.GlobalId)
+                        
+                        # Berechne Slab-Fläche
+                        try:
+                            shape = ifcopenshell.geom.create_shape(settings, elem)
+                            area = _calculate_area(shape, elem.is_a())
+                            if area:
+                                total_area += area
+                        except:
+                            pass
+        
+        return total_area
+        
+    except Exception as e:
+        return 0.0
 
 
 def _calculate_height(shape) -> Optional[float]:
