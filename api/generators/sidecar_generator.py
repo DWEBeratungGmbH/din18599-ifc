@@ -958,27 +958,47 @@ class SidecarGenerator:
         # 1. Prüfe IFC-Typ (aus ifc_guid oder name)
         name = element.get("name", "").lower()
         ifc_type = element.get("ifc_type", "").lower()
+        predefined_type = element.get("predefined_type", "").upper()  # IFC PredefinedType
         
         # Gaube (Dormer) - spezifischer Check zuerst
         if "gaube" in name or "dormer" in name:
             return "DORMER"
         
-        # IfcSlab: Nutze IFC PredefinedType als primären Klassifikator
-        # (wichtig für geclippte Deckenplatten am Dach!)
+        # IfcSlab: Nutze IFC PredefinedType als primären Klassifikator!
+        # IFC ist Source of Truth für Geometrie-Klassifizierung
         if "ifcslab" in ifc_type or "ifcslab" in name:
-            # Prüfe Parent-Beziehung (Slabs mit IfcRoof als Parent sind Dachflächen)
-            parent_guid = element.get("parent_element_guid")
-            if parent_guid:
-                # Hat Parent → wahrscheinlich Dachfläche
-                return "ROOF"
+            # 1. Priorität: IFC PredefinedType (ROOF, FLOOR, BASESLAB)
+            if predefined_type == "ROOF":
+                # Prüfe ob es wirklich eine Dachfläche ist (hat IfcRoof als Parent?)
+                parent_guid = element.get("parent_element_guid")
+                if parent_guid:
+                    # Hat IfcRoof als Parent → echte Dachfläche
+                    return "ROOF"
+                else:
+                    # Kein Parent aber PredefinedType=ROOF → wahrscheinlich falsch klassifiziert
+                    # Prüfe Name als Fallback
+                    if "dach" in name and "decke" not in name:
+                        return "ROOF"
+                    else:
+                        # Standalone Slab mit ROOF Type aber ohne Parent → FLOOR
+                        return "FLOOR"
             
-            # Kein Parent → Prüfe Name
-            if "dach" in name:
-                return "ROOF"
-            else:
-                # Default für standalone Slabs: FLOOR
-                # (auch wenn sie am Dach geclippt wurden!)
+            elif predefined_type == "FLOOR":
                 return "FLOOR"
+            
+            elif predefined_type == "BASESLAB":
+                return "FLOOR"  # Bodenplatte ist auch ein Boden
+            
+            # Fallback wenn PredefinedType fehlt
+            else:
+                # Prüfe Parent-Beziehung
+                parent_guid = element.get("parent_element_guid")
+                if parent_guid:
+                    return "ROOF"
+                elif "dach" in name:
+                    return "ROOF"
+                else:
+                    return "FLOOR"
         
         # IfcRoof ist immer Dach (außer Gaube wurde schon erkannt)
         if "ifcroof" in name or "dach" in name:

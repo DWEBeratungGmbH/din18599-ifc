@@ -245,7 +245,8 @@ def _extract_element(ifc_element, ifc_file, settings) -> Optional[IFCElement]:
             orientation=orientation,
             inclination=inclination,
             height=height,
-            storey=storey
+            storey=storey,
+            predefined_type=predefined_type  # IFC PredefinedType (ROOF, FLOOR, etc.)
         )
         
     except Exception as e:
@@ -254,39 +255,59 @@ def _extract_element(ifc_element, ifc_file, settings) -> Optional[IFCElement]:
 
 
 def _calculate_area(shape, ifc_type: str) -> Optional[float]:
-    """Berechnet die Fläche eines Elements (vereinfacht)"""
+    """
+    Berechnet die Fläche eines Elements
+    Nutzt Mesh-Faces für geneigte Flächen (z.B. Dächer)
+    """
     try:
-        # Für Wände: Höhe * Länge
-        # Für Dächer/Decken: Grundfläche
-        # Vereinfachte Berechnung basierend auf Bounding Box
-        
         verts = shape.geometry.verts
+        faces = shape.geometry.faces
+        
         if not verts or len(verts) < 9:
             return None
         
-        # Bounding Box berechnen
-        xs = [verts[i] for i in range(0, len(verts), 3)]
-        ys = [verts[i] for i in range(1, len(verts), 3)]
-        zs = [verts[i] for i in range(2, len(verts), 3)]
+        # Für Slabs/Dächer: Nutze Mesh-Faces für korrekte Fläche bei Neigung
+        if ('Slab' in ifc_type or 'Roof' in ifc_type) and faces:
+            # Summiere Dreiecksflächen (Heron's Formel)
+            total_area = 0.0
+            for i in range(0, len(faces), 3):
+                try:
+                    idx1, idx2, idx3 = faces[i]*3, faces[i+1]*3, faces[i+2]*3
+                    v1 = (verts[idx1], verts[idx1+1], verts[idx1+2])
+                    v2 = (verts[idx2], verts[idx2+1], verts[idx2+2])
+                    v3 = (verts[idx3], verts[idx3+1], verts[idx3+2])
+                    
+                    # Seitenlängen
+                    a = ((v2[0]-v1[0])**2 + (v2[1]-v1[1])**2 + (v2[2]-v1[2])**2)**0.5
+                    b = ((v3[0]-v2[0])**2 + (v3[1]-v2[1])**2 + (v3[2]-v2[2])**2)**0.5
+                    c = ((v1[0]-v3[0])**2 + (v1[1]-v3[1])**2 + (v1[2]-v3[2])**2)**0.5
+                    
+                    # Heron's Formel
+                    s = (a + b + c) / 2
+                    if s > a and s > b and s > c:
+                        total_area += (s*(s-a)*(s-b)*(s-c))**0.5
+                except:
+                    pass
+            
+            return round(total_area, 2) if total_area > 0 else None
         
-        width = max(xs) - min(xs)
-        depth = max(ys) - min(ys)
-        height = max(zs) - min(zs)
-        
-        # Flächen-Schätzung basierend auf Typ
-        if 'Wall' in ifc_type:
-            # Wand: max(width, depth) * height
-            area = max(width, depth) * height
-        elif 'Roof' in ifc_type or 'Slab' in ifc_type:
-            # Dach/Decke: width * depth
-            area = width * depth
-        elif 'Window' in ifc_type or 'Door' in ifc_type:
-            # Fenster/Tür: width * height oder depth * height
-            area = max(width * height, depth * height)
+        # Für Wände: Bounding Box Methode
         else:
-            area = width * depth
-        
-        return round(area, 2) if area > 0 else None
+            xs = [verts[i] for i in range(0, len(verts), 3)]
+            ys = [verts[i] for i in range(1, len(verts), 3)]
+            zs = [verts[i] for i in range(2, len(verts), 3)]
+            
+            width = max(xs) - min(xs)
+            depth = max(ys) - min(ys)
+            height = max(zs) - min(zs)
+            
+            if 'Wall' in ifc_type:
+                # Wand: Umfang * Höhe (vereinfacht)
+                area = max(width, depth) * height * 2
+            else:
+                area = width * depth
+            
+            return round(area, 2) if area > 0 else None
         
     except Exception as e:
         return None
