@@ -19,6 +19,14 @@ from dataclasses import dataclass, field
 from typing import List, Optional, Dict, Any, Tuple
 import math
 
+# R3-FIX: Import an Dateianfang statt in Methode
+try:
+    from .ifc_material_extractor import extract_material_layers, layer_structure_to_dict
+    HAS_MATERIAL_EXTRACTOR = True
+except ImportError:
+    HAS_MATERIAL_EXTRACTOR = False
+    print("⚠️  ifc_material_extractor nicht gefunden - Schichtaufbauten werden übersprungen")
+
 
 @dataclass
 class IFCElement:
@@ -219,8 +227,7 @@ class IFCParser:
         """Step 5: Materialien und Schichten"""
         print("5️⃣  Materialien...")
         
-        # N3-FIX: Extrahiere vollständige Schichtaufbauten
-        from .ifc_material_extractor import extract_material_layers, layer_structure_to_dict
+        # R3-FIX: Import bereits am Anfang der Datei
         
         for elem in self.geometry.all_elements:
             try:
@@ -236,12 +243,13 @@ class IFCParser:
                             if hasattr(mat, 'Name'):
                                 elem.material = mat.Name
                 
-                # N3-FIX: Schichtaufbau
-                layer_structure = extract_material_layers(ifc_elem, self.ifc_file)
-                if layer_structure:
-                    layer_dict = layer_structure_to_dict(layer_structure)
-                    layer_dict['element_guid'] = elem.guid
-                    self.geometry.material_layers.append(layer_dict)
+                # N3-FIX: Schichtaufbau (R3-FIX: mit try/except)
+                if HAS_MATERIAL_EXTRACTOR:
+                    layer_structure = extract_material_layers(ifc_elem, self.ifc_file)
+                    if layer_structure:
+                        layer_dict = layer_structure_to_dict(layer_structure)
+                        layer_dict['element_guid'] = elem.guid
+                        self.geometry.material_layers.append(layer_dict)
                     
             except:
                 pass
@@ -280,7 +288,13 @@ class IFCParser:
         print("7️⃣  Geometrie berechnen...")
         
         geom_count = 0
-        for elem in self.geometry.all_elements:
+        
+        # R2-FIX: Erst Slabs/Wände berechnen, dann Roofs
+        # Sonst haben Slabs noch area=None wenn IfcRoof sie aggregieren will
+        non_roofs = [e for e in self.geometry.all_elements if e.ifc_type != 'IfcRoof']
+        roofs = [e for e in self.geometry.all_elements if e.ifc_type == 'IfcRoof']
+        
+        for elem in non_roofs + roofs:
             try:
                 ifc_elem = self.ifc_cache.get(elem.guid)  # N2-FIX
                 if not ifc_elem:
@@ -306,11 +320,19 @@ class IFCParser:
         """Step 8: Validierung - DIN 18599 Konsistenz"""
         print("8️⃣  Validierung...")
         
+        # R4-FIX: Prüfe TypeObject-Namen statt Element-Namen
         for wall in self.geometry.walls:
-            if wall.is_external == False and 'AW' in wall.name:
-                self.geometry.warnings.append(
-                    f"Wand '{wall.name}' ist als AW benannt, aber IsExternal=False"
-                )
+            if wall.is_external == False:
+                # Prüfe TypeObject-Namen (z.B. "AW 36,5 m. Deckenauflager")
+                type_name = wall.properties.get('Pset_CompType', {}).get('TypeName', '')
+                if not type_name:
+                    # Fallback: Prüfe Reference Property
+                    type_name = wall.properties.get('Pset_WallCommon', {}).get('Reference', '')
+                
+                if 'AW' in type_name or 'Außenwand' in type_name:
+                    self.geometry.warnings.append(
+                        f"Wand '{wall.name}' (Typ: {type_name}) ist als AW typisiert, aber IsExternal=False"
+                    )
         
         zero_u_count = sum(1 for w in self.geometry.walls if w.u_value == 0.0)
         if zero_u_count > 0:
@@ -367,7 +389,7 @@ class IFCParser:
             return None
     
     def _calculate_area_mesh(self, shape, ifc_type: str) -> Optional[float]:
-        """N1-FIX: Korrekte Flächenberechnung - Wände nur Seitenflächen"""
+        """R1-FIX: Korrekte Flächenberechnung - Wände nach Normalenrichtung gruppiert"""
         try:
             verts = shape.geometry.verts
             faces = shape.geometry.faces
@@ -375,18 +397,19 @@ class IFCParser:
             if not verts or not faces:
                 return None
             
-            total_area = 0.0
-            
-            for i in range(0, len(faces), 3):
-                try:
-                    idx1, idx2, idx3 = faces[i]*3, faces[i+1]*3, faces[i+2]*3
-                    v1 = (verts[idx1], verts[idx1+1], verts[idx1+2])
-                    v2 = (verts[idx2], verts[idx2+1], verts[idx2+2])
-                    v3 = (verts[idx3], verts[idx3+1], verts[idx3+2])
-                    
-                    # N1-FIX: Für Wände nur Seitenflächen (horizontale Normale)
-                    if 'Wall' in ifc_type:
-                        # Berechne Normale des Dreiecks
+            if 'Wall' in ifc_type:
+                # R1-FIX: Für Wände nur eine Seite (nach Normalenrichtung gruppiert)
+                # Gruppiere Faces nach Normalenrichtung (z.B. +Y vs -Y)
+                faces_by_direction = {}
+                
+                for i in range(0, len(faces), 3):
+                    try:
+                        idx1, idx2, idx3 = faces[i]*3, faces[i+1]*3, faces[i+2]*3
+                        v1 = (verts[idx1], verts[idx1+1], verts[idx1+2])
+                        v2 = (verts[idx2], verts[idx2+1], verts[idx2+2])
+                        v3 = (verts[idx3], verts[idx3+1], verts[idx3+2])
+                        
+                        # Berechne Normale
                         v1v2 = (v2[0]-v1[0], v2[1]-v1[1], v2[2]-v1[2])
                         v1v3 = (v3[0]-v1[0], v3[1]-v1[1], v3[2]-v1[2])
                         nx = v1v2[1]*v1v3[2] - v1v2[2]*v1v3[1]
@@ -394,28 +417,65 @@ class IFCParser:
                         nz = v1v2[0]*v1v3[1] - v1v2[1]*v1v3[0]
                         length = (nx**2 + ny**2 + nz**2)**0.5
                         
-                        if length > 0:
-                            nz_norm = abs(nz / length)
-                            # Nur Faces mit horizontaler Normale (nz < 0.1)
-                            if nz_norm > 0.1:
-                                continue
-                    
-                    # Heron's Formel
-                    a = ((v2[0]-v1[0])**2 + (v2[1]-v1[1])**2 + (v2[2]-v1[2])**2)**0.5
-                    b = ((v3[0]-v2[0])**2 + (v3[1]-v2[1])**2 + (v3[2]-v2[2])**2)**0.5
-                    c = ((v1[0]-v3[0])**2 + (v1[1]-v3[1])**2 + (v1[2]-v3[2])**2)**0.5
-                    
-                    s = (a + b + c) / 2
-                    if s > a and s > b and s > c:
-                        total_area += (s*(s-a)*(s-b)*(s-c))**0.5
-                except:
-                    pass
+                        if length == 0:
+                            continue
+                        
+                        nx_norm = nx / length
+                        ny_norm = ny / length
+                        nz_norm = nz / length
+                        
+                        # Nur Seitenflächen (horizontale Normale)
+                        if abs(nz_norm) > 0.1:
+                            continue
+                        
+                        # Gruppiere nach Normalenrichtung (gerundet auf 0.1)
+                        direction_key = (round(nx_norm, 1), round(ny_norm, 1))
+                        
+                        if direction_key not in faces_by_direction:
+                            faces_by_direction[direction_key] = []
+                        
+                        # Heron's Formel
+                        a = ((v2[0]-v1[0])**2 + (v2[1]-v1[1])**2 + (v2[2]-v1[2])**2)**0.5
+                        b = ((v3[0]-v2[0])**2 + (v3[1]-v2[1])**2 + (v3[2]-v2[2])**2)**0.5
+                        c = ((v1[0]-v3[0])**2 + (v1[1]-v3[1])**2 + (v1[2]-v3[2])**2)**0.5
+                        
+                        s = (a + b + c) / 2
+                        if s > a and s > b and s > c:
+                            face_area = (s*(s-a)*(s-b)*(s-c))**0.5
+                            faces_by_direction[direction_key].append(face_area)
+                    except:
+                        pass
+                
+                # R1-FIX: Nimm die größte Richtungsgruppe (meist Außenseite)
+                # Bei geclippten Wänden ist das die korrekte Einzelfläche
+                if faces_by_direction:
+                    max_direction = max(faces_by_direction.items(), key=lambda x: sum(x[1]))
+                    total_area = sum(max_direction[1])
+                    return round(total_area, 2) if total_area > 0 else None
+                
+                return None
             
-            # N1-FIX: Für Wände durch 2 teilen (Vorder- + Rückseite)
-            if 'Wall' in ifc_type and total_area > 0:
-                total_area = total_area / 2
-            
-            return round(total_area, 2) if total_area > 0 else None
+            else:
+                # Für Slabs/Dächer: Summiere alle Faces
+                total_area = 0.0
+                for i in range(0, len(faces), 3):
+                    try:
+                        idx1, idx2, idx3 = faces[i]*3, faces[i+1]*3, faces[i+2]*3
+                        v1 = (verts[idx1], verts[idx1+1], verts[idx1+2])
+                        v2 = (verts[idx2], verts[idx2+1], verts[idx2+2])
+                        v3 = (verts[idx3], verts[idx3+1], verts[idx3+2])
+                        
+                        a = ((v2[0]-v1[0])**2 + (v2[1]-v1[1])**2 + (v2[2]-v1[2])**2)**0.5
+                        b = ((v3[0]-v2[0])**2 + (v3[1]-v2[1])**2 + (v3[2]-v2[2])**2)**0.5
+                        c = ((v1[0]-v3[0])**2 + (v1[1]-v3[1])**2 + (v1[2]-v3[2])**2)**0.5
+                        
+                        s = (a + b + c) / 2
+                        if s > a and s > b and s > c:
+                            total_area += (s*(s-a)*(s-b)*(s-c))**0.5
+                    except:
+                        pass
+                
+                return round(total_area, 2) if total_area > 0 else None
             
         except:
             return None
