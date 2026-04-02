@@ -165,31 +165,38 @@ class SidecarGenerator:
     # ========================================================================
     
     def _prepare_ifc_elements(self, ifc_data: Dict[str, Any]) -> List[IFCElement]:
-        """Konvertiert IFC-Daten in IFCElement-Objekte"""
-        elements = []
+        """
+        Extrahiert IFCElement-Objekte aus ifc_data
         
-        for element_type in ["walls", "roofs", "floors", "windows", "doors"]:
-            if element_type in ifc_data:
-                for elem in ifc_data[element_type]:
-                    # PosNo aus Properties extrahieren (falls vorhanden)
-                    posno = None
-                    if "properties" in elem and "PosNo" in elem["properties"]:
-                        posno = elem["properties"]["PosNo"]
-                    
-                    # Falls keine PosNo in Properties, aus Namen extrahieren
-                    # Muster: "Wand - 001", "Fenster - 002", "Außenwand Pos 001"
-                    if not posno:
-                        posno = self._extract_posno_from_name(elem.get("name", ""))
-                    
+        ifc_data enthält bereits IFCElement Objekte in 'all_elements' Liste
+        (aus ifc_geometry_to_dict konvertiert)
+        """
+        # Wenn all_elements vorhanden ist, direkt zurückgeben
+        if "all_elements" in ifc_data and isinstance(ifc_data["all_elements"], list):
+            # all_elements sind bereits IFCElement Objekte (oder Dicts davon)
+            elements = []
+            for elem in ifc_data["all_elements"]:
+                if isinstance(elem, IFCElement):
+                    elements.append(elem)
+                elif isinstance(elem, dict):
+                    # Konvertiere Dict zurück zu IFCElement
                     elements.append(IFCElement(
                         guid=elem.get("guid", ""),
-                        type=element_type.upper().rstrip("S"),  # "walls" -> "WALL"
+                        ifc_type=elem.get("ifc_type", ""),
                         name=elem.get("name", ""),
-                        area=elem.get("area", 0.0),
-                        posno=posno
+                        tag=elem.get("tag"),
+                        area=elem.get("area"),
+                        orientation=elem.get("orientation"),
+                        inclination=elem.get("inclination"),
+                        height=elem.get("height"),
+                        storey=elem.get("storey"),
+                        material=elem.get("material"),
+                        parent_element_guid=elem.get("parent_element_guid")
                     ))
+            return elements
         
-        return elements
+        # Fallback: Legacy-Konvertierung (sollte nicht mehr verwendet werden)
+        return []
     
     def _extract_posno_from_name(self, name: str) -> Optional[str]:
         """
