@@ -415,7 +415,7 @@ class SidecarGenerator:
         score += name_similarity * 0.4
         
         # 2. Typ-Match (Gewicht: 0.3) - Mit Fuzzy-Typ-Mapping
-        type_match = self._calculate_type_similarity(ifc_elem.type, evebi_elem.element_type)
+        type_match = self._calculate_type_similarity(ifc_elem.ifc_type, evebi_elem.element_type)
         score += type_match * 0.3
         
         # 3. Flächen-Match (Gewicht: 0.3) - Erweiterte Toleranz
@@ -766,7 +766,7 @@ class SidecarGenerator:
             evebi_elem = match["evebi"]
             
             # Prüfe ob IFC-Element ein Fenster ist (aus IFC-Typ)
-            is_window = ifc_elem.type.lower() in ["window", "ifcwindow"]
+            is_window = ifc_elem.ifc_type.lower() in ["window", "ifcwindow"]
             
             if is_window:
                 # Fenster (aus IFC, mit oder ohne EVEBI-Match)
@@ -823,7 +823,7 @@ class SidecarGenerator:
                 # Versuch 3: Fallback - Default U-Wert basierend auf Typ (für Dächer/Böden ohne Material-Layers)
                 if not layer_structure_ref or u_value == 0:
                     # Nutze Default U-Werte
-                    u_value = self._calculate_u_value_from_layers([], ifc_elem.type)
+                    u_value = self._calculate_u_value_from_layers([], ifc_elem.ifc_type)
                 
                 element = {
                     "id": ifc_elem.guid,  # Viewer erwartet 'id' statt 'ifc_guid'
