@@ -1,0 +1,430 @@
+{
+  "schema_info": {
+    "url": "https://din18599-ifc.de/schema/v2.3/complete",
+    "version": "2.3.0"
+  },
+  "meta": {
+    "project_name": "Ehlke-SOLL",
+    "ifc_file_ref": "sources/IFC_EVBI/DIN18599TestIFCv4.ifc",
+    "ifc_schema": "IFC2X3"
+  },
+  "input": {
+    "building": {
+      "name": "<Standard>",
+      "building_guid": "2Fuyz4GvH6oRl8xYyQstnm",
+      "storeys": [
+        {
+          "id": "2IkkTYtsn7tfRhANeYKozZ",
+          "name": "Kellergeschoss",
+          "elevation": -2.8
+        },
+        {
+          "id": "1IEcBcNsH1Dv9kXV34D0AS",
+          "name": "Erdgeschoss",
+          "elevation": -0.2
+        },
+        {
+          "id": "1q9TUfDqLEAxI4cag48L2D",
+          "name": "Obergeschoss",
+          "elevation": 3.61
+        },
+        {
+          "id": "2coCV7o8vASgQlcchNGhZi",
+          "name": "Dachgeschoss",
+          "elevation": 6.79
+        },
+        {
+          "id": "3s32ZJ3yz6t9s0FCa9wCzt",
+          "name": "Spitzdach",
+          "elevation": 9.51
+        }
+      ],
+      "dwelling_units": [],
+      "zones": [],
+      "rooms": [
+        {
+          "id": "2BbslXSz1Cd85950hy2ZVf",
+          "ifc_guid": "2BbslXSz1Cd85950hy2ZVf",
+          "name": "Galarie",
+          "area": 9.57,
+          "volume": 32.63,
+          "height": 3.41,
+          "zone_ref": null,
+          "dwelling_unit_ref": null,
+          "storey_ref": "1IEcBcNsH1Dv9kXV34D0AS"
+        },
+        {
+          "id": "0apB4Xnw10hON8F0VkKeY6",
+          "ifc_guid": "0apB4Xnw10hON8F0VkKeY6",
+          "name": "Bad",
+          "area": 6.62,
+          "volume": 22.57,
+          "height": 3.41,
+          "zone_ref": null,
+          "dwelling_unit_ref": null,
+          "storey_ref": "1IEcBcNsH1Dv9kXV34D0AS"
+        },
+        {
+          "id": "3z0e04JJHE6PnfNgFRuqnO",
+          "ifc_guid": "3z0e04JJHE6PnfNgFRuqnO",
+          "name": "Garage",
+          "area": 11.96,
+          "volume": 40.78,
+          "height": 3.41,
+          "zone_ref": null,
+          "dwelling_unit_ref": null,
+          "storey_ref": "1IEcBcNsH1Dv9kXV34D0AS"
+        },
+        {
+          "id": "2g1yKBquv1xQYP4tlObHny",
+          "ifc_guid": "2g1yKBquv1xQYP4tlObHny",
+          "name": "Eltern",
+          "area": 13.4,
+          "volume": null,
+          "height": null,
+          "zone_ref": null,
+          "dwelling_unit_ref": null,
+          "storey_ref": "2coCV7o8vASgQlcchNGhZi"
+        },
+        {
+          "id": "2GiA4suq1BRuF6vfIAXwbX",
+          "ifc_guid": "2GiA4suq1BRuF6vfIAXwbX",
+          "name": "Eingang",
+          "area": 8.98,
+          "volume": 30.62,
+          "height": 3.41,
+          "zone_ref": null,
+          "dwelling_unit_ref": null,
+          "storey_ref": "1IEcBcNsH1Dv9kXV34D0AS"
+        },
+        {
+          "id": "3YScUq8CP1vBY5KUFsYvTm",
+          "ifc_guid": "3YScUq8CP1vBY5KUFsYvTm",
+          "name": "Flur",
+          "area": 6.72,
+          "volume": 19.35,
+          "height": 2.88,
+          "zone_ref": null,
+          "dwelling_unit_ref": null,
+          "storey_ref": "1q9TUfDqLEAxI4cag48L2D"
+        },
+        {
+          "id": "00Y7z9rAT5Yhkq5rwb2vl2",
+          "ifc_guid": "00Y7z9rAT5Yhkq5rwb2vl2",
+          "name": "Schlafen",
+          "area": 15.83,
+          "volume": null,
+          "height": null,
+          "zone_ref": null,
+          "dwelling_unit_ref": null,
+          "storey_ref": "1q9TUfDqLEAxI4cag48L2D"
+        },
+        {
+          "id": "1lb5beWLX1rugd6BmWI7Xt",
+          "ifc_guid": "1lb5beWLX1rugd6BmWI7Xt",
+          "name": "Spitzdach",
+          "area": 69.31,
+          "volume": null,
+          "height": null,
+          "zone_ref": null,
+          "dwelling_unit_ref": null,
+          "storey_ref": "3s32ZJ3yz6t9s0FCa9wCzt"
+        },
+        {
+          "id": "0oZTbO1ufFbgokxTtRBLp1",
+          "ifc_guid": "0oZTbO1ufFbgokxTtRBLp1",
+          "name": "Keller",
+          "area": 22.04,
+          "volume": 50.69,
+          "height": 2.3,
+          "zone_ref": null,
+          "dwelling_unit_ref": null,
+          "storey_ref": "2IkkTYtsn7tfRhANeYKozZ"
+        },
+        {
+          "id": "2iXrLAvrvEeQ_bbB$F7Tv_",
+          "ifc_guid": "2iXrLAvrvEeQ_bbB$F7Tv_",
+          "name": "Schlafen",
+          "area": 11.43,
+          "volume": 32.92,
+          "height": 2.88,
+          "zone_ref": null,
+          "dwelling_unit_ref": null,
+          "storey_ref": "1q9TUfDqLEAxI4cag48L2D"
+        },
+        {
+          "id": "3uP2f3pI90ruuWqeqRM2Qi",
+          "ifc_guid": "3uP2f3pI90ruuWqeqRM2Qi",
+          "name": "Wohnen",
+          "area": 17.51,
+          "volume": 50.43,
+          "height": 2.88,
+          "zone_ref": null,
+          "dwelling_unit_ref": null,
+          "storey_ref": "1q9TUfDqLEAxI4cag48L2D"
+        },
+        {
+          "id": "1nCG1xOQfDvwQlM6_z2zt9",
+          "ifc_guid": "1nCG1xOQfDvwQlM6_z2zt9",
+          "name": "Küche",
+          "area": 18.64,
+          "volume": 53.68,
+          "height": 2.88,
+          "zone_ref": null,
+          "dwelling_unit_ref": null,
+          "storey_ref": "1q9TUfDqLEAxI4cag48L2D"
+        },
+        {
+          "id": "2HRVGFFkf88eb9M3AaOxm5",
+          "ifc_guid": "2HRVGFFkf88eb9M3AaOxm5",
+          "name": "Zimmer",
+          "area": 7.3,
+          "volume": 21.02,
+          "height": 2.88,
+          "zone_ref": null,
+          "dwelling_unit_ref": null,
+          "storey_ref": "1q9TUfDqLEAxI4cag48L2D"
+        },
+        {
+          "id": "0wTL6YxGf2aBDkq3dc7okT",
+          "ifc_guid": "0wTL6YxGf2aBDkq3dc7okT",
+          "name": "Abstell",
+          "area": 16.48,
+          "volume": null,
+          "height": null,
+          "zone_ref": null,
+          "dwelling_unit_ref": null,
+          "storey_ref": "1IEcBcNsH1Dv9kXV34D0AS"
+        },
+        {
+          "id": "1DdGtmjx11RQfrj8sVGOpI",
+          "ifc_guid": "1DdGtmjx11RQfrj8sVGOpI",
+          "name": "Abstell",
+          "area": 17.43,
+          "volume": null,
+          "height": null,
+          "zone_ref": null,
+          "dwelling_unit_ref": null,
+          "storey_ref": "1IEcBcNsH1Dv9kXV34D0AS"
+        },
+        {
+          "id": "2xDeTtskH0yBbjWPEH0Ox3",
+          "ifc_guid": "2xDeTtskH0yBbjWPEH0Ox3",
+          "name": "Treppenhaus",
+          "area": 7.62,
+          "volume": null,
+          "height": null,
+          "zone_ref": null,
+          "dwelling_unit_ref": null,
+          "storey_ref": "2coCV7o8vASgQlcchNGhZi"
+        },
+        {
+          "id": "0f6Xl1GTXESAh_d2oM9Ak2",
+          "ifc_guid": "0f6Xl1GTXESAh_d2oM9Ak2",
+          "name": "Keller",
+          "area": 15.92,
+          "volume": 36.62,
+          "height": 2.3,
+          "zone_ref": null,
+          "dwelling_unit_ref": null,
+          "storey_ref": "2IkkTYtsn7tfRhANeYKozZ"
+        },
+        {
+          "id": "2UnG6pTX9B3AFgpORbk_lV",
+          "ifc_guid": "2UnG6pTX9B3AFgpORbk_lV",
+          "name": "Keller",
+          "area": 21.07,
+          "volume": 48.46,
+          "height": 2.3,
+          "zone_ref": null,
+          "dwelling_unit_ref": null,
+          "storey_ref": "2IkkTYtsn7tfRhANeYKozZ"
+        },
+        {
+          "id": "1_wx5nYKT7KgsUG3bP1Azk",
+          "ifc_guid": "1_wx5nYKT7KgsUG3bP1Azk",
+          "name": "Luftraum",
+          "area": 14.47,
+          "volume": null,
+          "height": null,
+          "zone_ref": null,
+          "dwelling_unit_ref": null,
+          "storey_ref": "1q9TUfDqLEAxI4cag48L2D"
+        },
+        {
+          "id": "0gJstcLMH3mwvR$9YJckc4",
+          "ifc_guid": "0gJstcLMH3mwvR$9YJckc4",
+          "name": "Luftraum",
+          "area": 19.27,
+          "volume": null,
+          "height": null,
+          "zone_ref": null,
+          "dwelling_unit_ref": null,
+          "storey_ref": "1q9TUfDqLEAxI4cag48L2D"
+        },
+        {
+          "id": "0GcTSmzqH818qIn08zVzQc",
+          "ifc_guid": "0GcTSmzqH818qIn08zVzQc",
+          "name": "Flur",
+          "area": 8.43,
+          "volume": 28.75,
+          "height": 3.41,
+          "zone_ref": null,
+          "dwelling_unit_ref": null,
+          "storey_ref": "1IEcBcNsH1Dv9kXV34D0AS"
+        },
+        {
+          "id": "3q3wrjCYjBRwZuDOs8oqOg",
+          "ifc_guid": "3q3wrjCYjBRwZuDOs8oqOg",
+          "name": "Luftraum",
+          "area": 9.18,
+          "volume": null,
+          "height": null,
+          "zone_ref": null,
+          "dwelling_unit_ref": null,
+          "storey_ref": "1q9TUfDqLEAxI4cag48L2D"
+        },
+        {
+          "id": "0u_1TixYTD4e4OpwN2EiZy",
+          "ifc_guid": "0u_1TixYTD4e4OpwN2EiZy",
+          "name": "Wohnen",
+          "area": 40.41,
+          "volume": 137.8,
+          "height": 3.41,
+          "zone_ref": null,
+          "dwelling_unit_ref": null,
+          "storey_ref": "1IEcBcNsH1Dv9kXV34D0AS"
+        },
+        {
+          "id": "0Rum830ebEkgO56WNl1iIj",
+          "ifc_guid": "0Rum830ebEkgO56WNl1iIj",
+          "name": "Luftraum",
+          "area": 18.51,
+          "volume": null,
+          "height": null,
+          "zone_ref": null,
+          "dwelling_unit_ref": null,
+          "storey_ref": "1q9TUfDqLEAxI4cag48L2D"
+        },
+        {
+          "id": "1OTUcW49fDF9_nPJzCUY_p",
+          "ifc_guid": "1OTUcW49fDF9_nPJzCUY_p",
+          "name": "Gadarobe",
+          "area": 6.41,
+          "volume": 21.86,
+          "height": 3.41,
+          "zone_ref": null,
+          "dwelling_unit_ref": null,
+          "storey_ref": "1IEcBcNsH1Dv9kXV34D0AS"
+        },
+        {
+          "id": "0Tw2r7DiDBRvXLLYffGps2",
+          "ifc_guid": "0Tw2r7DiDBRvXLLYffGps2",
+          "name": "Kochen",
+          "area": 8.46,
+          "volume": 28.85,
+          "height": 3.41,
+          "zone_ref": null,
+          "dwelling_unit_ref": null,
+          "storey_ref": "1IEcBcNsH1Dv9kXV34D0AS"
+        },
+        {
+          "id": "3qokO2_mb8$f1BoTQJE99L",
+          "ifc_guid": "3qokO2_mb8$f1BoTQJE99L",
+          "name": "Arbeit",
+          "area": 4.81,
+          "volume": null,
+          "height": null,
+          "zone_ref": null,
+          "dwelling_unit_ref": null,
+          "storey_ref": "2coCV7o8vASgQlcchNGhZi"
+        },
+        {
+          "id": "3oGFWWO1PEK93PeF4XLeax",
+          "ifc_guid": "3oGFWWO1PEK93PeF4XLeax",
+          "name": "Gäste",
+          "area": 8.74,
+          "volume": null,
+          "height": null,
+          "zone_ref": null,
+          "dwelling_unit_ref": null,
+          "storey_ref": "2coCV7o8vASgQlcchNGhZi"
+        },
+        {
+          "id": "1s7d_kd6vD_903JSg5s5ao",
+          "ifc_guid": "1s7d_kd6vD_903JSg5s5ao",
+          "name": "Bad",
+          "area": 9.38,
+          "volume": null,
+          "height": null,
+          "zone_ref": null,
+          "dwelling_unit_ref": null,
+          "storey_ref": "2coCV7o8vASgQlcchNGhZi"
+        },
+        {
+          "id": "0LYczu6ST7qAPfB8rCLAbw",
+          "ifc_guid": "0LYczu6ST7qAPfB8rCLAbw",
+          "name": "Flur",
+          "area": 2.97,
+          "volume": 7.19,
+          "height": 2.42,
+          "zone_ref": null,
+          "dwelling_unit_ref": null,
+          "storey_ref": "2coCV7o8vASgQlcchNGhZi"
+        },
+        {
+          "id": "2frGM6Daf4YRCqMG7EM6ru",
+          "ifc_guid": "2frGM6Daf4YRCqMG7EM6ru",
+          "name": "Flur",
+          "area": 2.01,
+          "volume": 4.86,
+          "height": 2.42,
+          "zone_ref": null,
+          "dwelling_unit_ref": null,
+          "storey_ref": "2coCV7o8vASgQlcchNGhZi"
+        },
+        {
+          "id": "2u1PDhNNT9RRuIgwJGQehd",
+          "ifc_guid": "2u1PDhNNT9RRuIgwJGQehd",
+          "name": "Kind",
+          "area": 13.84,
+          "volume": null,
+          "height": null,
+          "zone_ref": null,
+          "dwelling_unit_ref": null,
+          "storey_ref": "2coCV7o8vASgQlcchNGhZi"
+        },
+        {
+          "id": "2$rvdT8Cz4be5OsgFZJuiE",
+          "ifc_guid": "2$rvdT8Cz4be5OsgFZJuiE",
+          "name": "Schrank",
+          "area": 2.83,
+          "volume": null,
+          "height": null,
+          "zone_ref": null,
+          "dwelling_unit_ref": null,
+          "storey_ref": "2coCV7o8vASgQlcchNGhZi"
+        }
+      ]
+    },
+    "envelope": {
+      "walls": [],
+      "roofs": [],
+      "floors": [],
+      "windows": [],
+      "doors": []
+    },
+    "material_layers": [],
+    "climate": {
+      "try_region": "07",
+      "latitude": 51.266389,
+      "longitude": 8.883056
+    }
+  },
+  "warnings": [
+    "15 Zonen ohne Volumen",
+    "Keine IfcRelSpaceBoundary (room_ref ist heuristisch)",
+    "Keine Bodenplatte (BASESLAB) gefunden"
+  ],
+  "errors": []
+}

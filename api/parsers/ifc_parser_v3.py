@@ -9,7 +9,7 @@ P2: din_code ableiten (Bauteiltyp + boundary_condition + inclination)
 P3: boundary_condition ableiten (is_external + Z-Position + Storey-Name)
 P4: fx_factor ableiten (exterior=1.0, ground=0.6, unheated=0.8/0.5)
 P5: Zone-Geometrie berechnen (IfcSpace: area, volume, height)
-P6: zone_ref zuordnen (Element → Zone via IfcRelSpaceBoundary)
+P6: room_ref zuordnen (Element → Room via IfcRelSpaceBoundary)
 S4: Slab-Fläche nur Oberseite (nz-Filter)
 """
 
@@ -54,29 +54,35 @@ FX_UNHEATED_BY_TYPE = {
 
 @dataclass
 class IFCElement:
-    """IFC-Element mit allen relevanten Informationen"""
+    """Einzelnes Bauteil mit allen Attributen"""
     guid: str
     ifc_type: str
     name: str
     tag: Optional[str] = None
-    area: Optional[float] = None
-    orientation: Optional[float] = None
-    inclination: Optional[float] = None
-    height: Optional[float] = None
-    storey: Optional[str] = None
-    storey_guid: Optional[str] = None        # NEU: GUID des Geschosses
-    material: Optional[str] = None
-    parent_element_guid: Optional[str] = None
     predefined_type: Optional[str] = None
-    # Step 4: Properties
-    is_external: Optional[bool] = None
+    
+    # Geometrie
+    area: Optional[float] = None
+    orientation: Optional[float] = None  # Azimut [0-360°]
+    inclination: Optional[float] = None  # Neigung [0-90°]
+    
+    # Material/Konstruktion
     u_value: Optional[float] = None
+    material_name: Optional[str] = None
+    
+    # Beziehungen
+    storey_guid: Optional[str] = None
+    parent_element_guid: Optional[str] = None  # Für Fenster/Türen
+    
+    # Properties
     properties: Dict[str, Any] = field(default_factory=dict)
-    # P2-P4: Schema v2.2 Felder
+    is_external: Optional[bool] = None
+    
+    # Abgeleitete Werte (P2-P6)
     boundary_condition: Optional[str] = None  # P3
     din_code: Optional[str] = None            # P2
     fx_factor: Optional[float] = None         # P4
-    zone_ref: Optional[str] = None            # P6
+    room_ref: Optional[str] = None            # K3: room_ref (IfcSpace GUID), nicht zone_ref
     # Z-Position für boundary_condition Ableitung
     z_min: Optional[float] = None
 
@@ -133,7 +139,7 @@ class IFCParser:
         self._derive_boundary_conditions()   # P3
         self._derive_din_codes()             # P2
         self._derive_fx_factors()            # P4
-        self._derive_zone_refs()             # P6
+        self._derive_room_refs()             # P6
         self.step8_validate()
 
         logger.info("PARSING ABGESCHLOSSEN")
@@ -513,8 +519,14 @@ class IFCParser:
                     elem.boundary_condition = "exterior"
                     logger.debug(f"{elem.name}: IsExternal=False, aber TypeName={type_name} → exterior")
                 else:
-                    # Prüfe ob unbeheizt (Keller, Dachboden)
-                    storey_lower = (elem.storey or "").lower()
+                    # Prüfe ob unbeheizt (Keller, Dachboden) via storey_guid Lookup
+                    storey_name = ""
+                    if elem.storey_guid:
+                        for s in self.geometry.storeys:
+                            if s['id'] == elem.storey_guid:
+                                storey_name = s.get('name', '')
+                                break
+                    storey_lower = storey_name.lower()
                     if any(kw in storey_lower for kw in ('keller', 'unbeheizt', 'garage', 'dachboden')):
                         elem.boundary_condition = "unheated"
                     else:
@@ -603,11 +615,11 @@ class IFCParser:
                 elem.fx_factor = FX_DEFAULTS.get(bc, 1.0)
 
     # ============================================================
-    # P6: zone_ref zuordnen
+    # P6: room_ref zuordnen
     # ============================================================
-    def _derive_zone_refs(self):
-        """P6: Ordne Elemente Zonen zu via IfcRelSpaceBoundary"""
-        logger.info("   P6: Zone-Referenzen zuordnen...")
+    def _derive_room_refs(self):
+        """P6: Ordne Elemente Räumen zu via IfcRelSpaceBoundary"""
+        logger.info("   P6: Room-Referenzen zuordnen...")
 
         # Versuch 1: IfcRelSpaceBoundary (ideal)
         boundary_count = 0
@@ -617,14 +629,14 @@ class IFCParser:
                 elem_guid = rel.RelatedBuildingElement.GlobalId if rel.RelatedBuildingElement else None
                 if elem_guid:
                     for elem in self.geometry.all_elements:
-                        if elem.guid == elem_guid and elem.zone_ref is None:
-                            elem.zone_ref = space_guid
+                        if elem.guid == elem_guid and elem.room_ref is None:
+                            elem.room_ref = space_guid
                             boundary_count += 1
             except (AttributeError, TypeError):
                 continue
 
         if boundary_count > 0:
-            logger.info(f"   {boundary_count} zone_refs via SpaceBoundary")
+            logger.info(f"   {boundary_count} room_refs via SpaceBoundary")
             return
 
         # Versuch 2: Fallback - gleicher Storey + gleicher Raum (heuristisch)
@@ -636,8 +648,8 @@ class IFCParser:
                 storey_to_space[sr] = space['id']
 
         for elem in self.geometry.all_elements:
-            if elem.zone_ref is None and elem.storey_guid:
-                elem.zone_ref = storey_to_space.get(elem.storey_guid)
+            if elem.room_ref is None and elem.storey_guid:
+                elem.room_ref = storey_to_space.get(elem.storey_guid)
 
     # ============================================================
     # STEP 8: Validierung
@@ -677,7 +689,7 @@ class IFCParser:
         # SpaceBoundary-Prüfung
         sb_count = len(self.ifc_file.by_type('IfcRelSpaceBoundary'))
         if sb_count == 0:
-            self.geometry.warnings.append("Keine IfcRelSpaceBoundary (zone_ref ist heuristisch)")
+            self.geometry.warnings.append("Keine IfcRelSpaceBoundary (room_ref ist heuristisch)")
 
         # BASESLAB-Prüfung
         has_baseslab = any(
@@ -849,7 +861,6 @@ class IFCParser:
                 ifc_type=ifc_type,
                 name=name,
                 tag=tag,
-                storey=storey,
                 storey_guid=storey_guid,
                 predefined_type=predefined_type,
             )
@@ -910,7 +921,13 @@ class IFCParser:
         return total if total > 0 else None
 
     def _calculate_total_surface(self, verts, faces) -> Optional[float]:
-        """Gesamtoberfläche aller Faces (für Dächer)"""
+        """K2: Dachfläche nur Außenseite (Dachschräge), nicht Unterseite/Kanten
+        
+        Filter: Faces mit abs(nz) < 0.9 (Neigung 0-80° von Horizontalen)
+        - Dachschräge: nz ≈ 0.2-0.7 (abhängig von Neigung)
+        - Unterseite: nz ≈ -0.9 bis -1.0 (nach unten zeigend) → ausschließen
+        - Kanten: nz ≈ 0 (vertikal) → OK, aber meist klein
+        """
         total = 0.0
         for i in range(0, len(faces), 3):
             try:
@@ -919,9 +936,12 @@ class IFCParser:
                 v2 = (verts[idx2], verts[idx2 + 1], verts[idx2 + 2])
                 v3 = (verts[idx3], verts[idx3 + 1], verts[idx3 + 2])
 
-                area = self._triangle_area(v1, v2, v3)
-                if area:
-                    total += area
+                # K2: Nur Faces mit abs(nz) < 0.9 (Dachschräge, nicht Unterseite)
+                nz = self._face_nz(v1, v2, v3)
+                if nz is not None and abs(nz) < 0.9:
+                    area = self._triangle_area(v1, v2, v3)
+                    if area:
+                        total += area
             except (IndexError, ValueError):
                 continue
 
@@ -1085,7 +1105,7 @@ def parse_ifc_file(ifc_file_path: str) -> Dict[str, Any]:
             "boundary_condition": elem.boundary_condition,
             "din_code": elem.din_code,
             "fx_factor": elem.fx_factor,
-            "room_ref": elem.zone_ref,  # V2: zone_ref → room_ref (IfcSpace GUID)
+            "room_ref": elem.room_ref,  # K3: room_ref (IfcSpace GUID)
             "zone_ref": None,  # Wird manuell ergänzt (thermische Zone)
             "storey_ref": elem.storey_guid,
             "construction_ref": None,  # Wird aus Katalog ergänzt
@@ -1112,7 +1132,7 @@ def parse_ifc_file(ifc_file_path: str) -> Dict[str, Any]:
             "din_code": elem.din_code,
             "fx_factor": elem.fx_factor,
             "parent_wall_guid": elem.parent_element_guid,
-            "room_ref": elem.zone_ref,  # V2: zone_ref → room_ref (IfcSpace GUID)
+            "room_ref": elem.room_ref,  # K3: room_ref (IfcSpace GUID)
             "zone_ref": None,  # Wird manuell ergänzt (thermische Zone)
             "storey_ref": elem.storey_guid,
             "shading_factor_f_sh": None,    # Wird ergänzt

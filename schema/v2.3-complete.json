@@ -69,6 +69,7 @@
       "properties": {
         "building": {"$ref": "#/definitions/building"},
         "envelope": {"$ref": "#/definitions/envelope"},
+        "material_layers": {"$ref": "#/definitions/material_layers"},
         "systems": {"$ref": "#/definitions/systems"},
         "electricity": {"$ref": "#/definitions/electricity"},
         "automation": {"$ref": "#/definitions/automation"},
@@ -263,6 +264,30 @@
               "items": {"$ref": "#/definitions/linear_thermal_bridge"}
             }
           }
+        }
+      }
+    },
+    
+    "material_layers": {
+      "type": "array",
+      "description": "K4: Materialschichtaufbauten aus IFC (IfcMaterialLayerSet)",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {"type": "string", "description": "Material-GUID"},
+          "name": {"type": "string"},
+          "layers": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "material": {"type": "string"},
+                "thickness": {"type": "number", "minimum": 0, "description": "Dicke [m]"},
+                "lambda": {"type": "number", "minimum": 0, "description": "Wärmeleitfähigkeit [W/(m·K)]"}
+              }
+            }
+          },
+          "u_value_calculated": {"type": "number", "minimum": 0, "description": "Berechneter U-Wert [W/(m²K)]"}
         }
       }
     },
@@ -492,21 +517,240 @@
     
     "scenario": {
       "type": "object",
+      "description": "K5: Sanierungsvariante (iSFP-Workflow)",
       "required": ["id", "name", "delta"],
       "properties": {
-        "id": {"type": "string"},
-        "name": {"type": "string"},
-        "delta": {"type": "object"}
+        "id": {"type": "string", "pattern": "^[a-z0-9_]+$"},
+        "name": {"type": "string", "description": "z.B. 'Fassadendämmung WDVS 16cm'"},
+        "description": {"type": "string"},
+        "priority": {"type": "integer", "minimum": 1, "description": "Priorität (1=hoch)"},
+        "timeline": {"type": "integer", "description": "Umsetzungsjahr"},
+        "delta": {
+          "type": "object",
+          "description": "Änderungen gegenüber Basis",
+          "properties": {
+            "elements": {
+              "type": "array",
+              "description": "Geänderte Bauteile (z.B. neue U-Werte)",
+              "items": {
+                "type": "object",
+                "required": ["id"],
+                "properties": {
+                  "id": {"type": "string", "description": "Element-GUID"},
+                  "construction_ref": {"type": "string", "description": "Neue Konstruktion"},
+                  "u_value": {"type": "number", "minimum": 0, "description": "Neuer U-Wert [W/(m²K)]"}
+                }
+              }
+            },
+            "systems": {
+              "type": "object",
+              "description": "Geänderte Anlagentechnik",
+              "properties": {
+                "heating": {"type": "object"},
+                "ventilation": {"type": "object"},
+                "dhw": {"type": "object"}
+              }
+            }
+          }
+        }
       }
     },
     
     "output_snapshot": {
       "type": "object",
+      "description": "K1: Berechnungsergebnisse (Hottgenroth/EVEBI Roundtrip)",
       "properties": {
-        "meta": {"type": "object"},
-        "useful_energy": {"type": "object"},
-        "final_energy": {"type": "object"},
-        "primary_energy": {"type": "object"}
+        "meta": {
+          "type": "object",
+          "required": ["calculation_date", "input_hash"],
+          "properties": {
+            "calculated_by": {"type": "string", "description": "Berechnende Person/Firma"},
+            "calculation_date": {"type": "string", "format": "date-time"},
+            "software": {"type": "string", "description": "z.B. Hottgenroth, EVEBI"},
+            "software_version": {"type": "string"},
+            "input_hash": {"type": "string", "description": "SHA256 des input-Objekts"},
+            "valid": {"type": "boolean", "description": "Berechnung gültig"}
+          }
+        },
+        "useful_energy": {
+          "type": "object",
+          "description": "Nutzenergie [kWh/a] nach DIN 18599-2",
+          "properties": {
+            "per_zone": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "zone_id": {"type": "string"},
+                  "heating": {"type": "number", "minimum": 0},
+                  "cooling": {"type": "number", "minimum": 0},
+                  "dhw": {"type": "number", "minimum": 0},
+                  "lighting": {"type": "number", "minimum": 0},
+                  "ventilation": {"type": "number", "minimum": 0}
+                }
+              }
+            },
+            "total": {
+              "type": "object",
+              "properties": {
+                "heating": {"type": "number", "minimum": 0},
+                "cooling": {"type": "number", "minimum": 0},
+                "dhw": {"type": "number", "minimum": 0},
+                "lighting": {"type": "number", "minimum": 0},
+                "ventilation": {"type": "number", "minimum": 0}
+              }
+            }
+          }
+        },
+        "final_energy": {
+          "type": "object",
+          "description": "Endenergie [kWh/a] nach DIN 18599-1",
+          "properties": {
+            "reference_system": {
+              "type": "string",
+              "enum": ["gross_calorific_value", "net_calorific_value"],
+              "description": "Brennwert (Hs) oder Heizwert (Hi)"
+            },
+            "by_carrier": {
+              "type": "object",
+              "description": "Nach Energieträger",
+              "properties": {
+                "electricity": {"type": "number", "minimum": 0},
+                "natural_gas": {"type": "number", "minimum": 0},
+                "oil": {"type": "number", "minimum": 0},
+                "district_heating": {"type": "number", "minimum": 0},
+                "wood_pellets": {"type": "number", "minimum": 0},
+                "solar_thermal": {"type": "number", "minimum": 0}
+              }
+            },
+            "by_zone_and_application": {
+              "type": "object",
+              "description": "Nach Zone und Anwendung",
+              "additionalProperties": {
+                "type": "object",
+                "properties": {
+                  "heating": {"type": "number"},
+                  "cooling": {"type": "number"},
+                  "dhw": {"type": "number"},
+                  "lighting": {"type": "number"},
+                  "ventilation": {"type": "number"},
+                  "auxiliaries": {"type": "number"}
+                }
+              }
+            },
+            "total": {"type": "number", "minimum": 0}
+          }
+        },
+        "primary_energy": {
+          "type": "object",
+          "description": "Primärenergie [kWh/a] nach DIN 18599-1",
+          "properties": {
+            "reference_system": {
+              "type": "string",
+              "enum": ["non_renewable", "renewable", "total"],
+              "description": "Nicht-erneuerbar (fp,ne), erneuerbar (fp,e) oder gesamt"
+            },
+            "by_carrier": {
+              "type": "object",
+              "description": "Nach Energieträger",
+              "properties": {
+                "electricity": {"type": "number", "minimum": 0},
+                "natural_gas": {"type": "number", "minimum": 0},
+                "oil": {"type": "number", "minimum": 0},
+                "district_heating": {"type": "number", "minimum": 0},
+                "wood_pellets": {"type": "number", "minimum": 0}
+              }
+            },
+            "by_zone_and_application": {
+              "type": "object",
+              "description": "Nach Zone und Anwendung",
+              "additionalProperties": {
+                "type": "object",
+                "properties": {
+                  "heating": {"type": "number"},
+                  "cooling": {"type": "number"},
+                  "dhw": {"type": "number"},
+                  "lighting": {"type": "number"},
+                  "ventilation": {"type": "number"}
+                }
+              }
+            },
+            "total": {"type": "number", "minimum": 0}
+          }
+        },
+        "co2_emissions": {
+          "type": "object",
+          "description": "CO2-Emissionen [kg/a]",
+          "properties": {
+            "by_carrier": {
+              "type": "object",
+              "properties": {
+                "electricity": {"type": "number", "minimum": 0},
+                "natural_gas": {"type": "number", "minimum": 0},
+                "oil": {"type": "number", "minimum": 0},
+                "district_heating": {"type": "number", "minimum": 0}
+              }
+            },
+            "by_zone_and_application": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "properties": {
+                  "heating": {"type": "number"},
+                  "cooling": {"type": "number"},
+                  "dhw": {"type": "number"},
+                  "lighting": {"type": "number"},
+                  "ventilation": {"type": "number"}
+                }
+              }
+            },
+            "total": {"type": "number", "minimum": 0}
+          }
+        },
+        "specific_values": {
+          "type": "object",
+          "description": "Spezifische Werte pro m² Bezugsfläche",
+          "properties": {
+            "reference_area": {"type": "number", "minimum": 0, "description": "Bezugsfläche [m²]"},
+            "useful_energy": {
+              "type": "object",
+              "properties": {
+                "heating": {"type": "number"},
+                "cooling": {"type": "number"},
+                "dhw": {"type": "number"},
+                "total": {"type": "number"}
+              }
+            },
+            "final_energy": {
+              "type": "object",
+              "properties": {
+                "total": {"type": "number", "description": "[kWh/(m²·a)]"}
+              }
+            },
+            "primary_energy": {
+              "type": "object",
+              "properties": {
+                "total": {"type": "number", "description": "[kWh/(m²·a)]"}
+              }
+            },
+            "co2_emissions": {
+              "type": "object",
+              "properties": {
+                "total": {"type": "number", "description": "[kg/(m²·a)]"}
+              }
+            }
+          }
+        },
+        "savings": {
+          "type": "object",
+          "description": "Einsparungen gegenüber Referenz (für Szenarien)",
+          "properties": {
+            "final_energy_percent": {"type": "number", "description": "Endenergie-Einsparung [%]"},
+            "primary_energy_percent": {"type": "number", "description": "Primärenergie-Einsparung [%]"},
+            "co2_percent": {"type": "number", "description": "CO2-Einsparung [%]"},
+            "cost_annual_euro": {"type": "number", "description": "Jährliche Kosteneinsparung [€/a]"}
+          }
+        }
       }
     }
   }
