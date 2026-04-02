@@ -264,7 +264,7 @@ fi
 
 echo ""
 echo -e "${BLUE}💡 Nächste Schritte:${NC}"
-echo -e "   1. Öffne ${CYAN}http://localhost:3003${NC} im Browser"
+echo -e "   1. Öffne ${CYAN}http://localhost:3001${NC} im Browser"
 echo -e "   2. Lade die gleichen Dateien hoch"
 echo -e "   3. Prüfe Gebäudehülle-Tab im Viewer"
 echo -e "   4. Fenster sollten unter Wänden erscheinen (expandierbar)"
@@ -275,3 +275,23 @@ SIDECAR_FILE="/tmp/sidecar-test-$(date +%Y%m%d-%H%M%S).json"
 echo "$BODY" | jq '.sidecar' > "$SIDECAR_FILE"
 echo -e "${BLUE}💾 Sidecar JSON gespeichert: ${CYAN}$SIDECAR_FILE${NC}"
 echo ""
+
+# Optional: Zeige JSON-Auszüge
+if [ "$1" == "--show-json" ] || [ "$1" == "-j" ]; then
+    echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+    echo -e "${BLUE}📄 JSON-Auszüge${NC}"
+    echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+    echo ""
+    
+    echo -e "${BLUE}Erste Wand (vollständig):${NC}"
+    echo "$BODY" | jq '.sidecar.input.envelope.walls_external[0]'
+    echo ""
+    
+    echo -e "${BLUE}Erstes Fenster (vollständig):${NC}"
+    echo "$BODY" | jq '.sidecar.input.envelope.openings[0]'
+    echo ""
+    
+    echo -e "${BLUE}Erste Zone:${NC}"
+    echo "$BODY" | jq '.sidecar.input.zones[0]'
+    echo ""
+fi
