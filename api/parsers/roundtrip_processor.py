@@ -301,7 +301,7 @@ def _extract_constructions(eing) -> List[EVEBIConstruction]:
 
 
 def _extract_elements(eing) -> List[EVEBIElement]:
-    """Extrahiert Bauteile aus EVEBI"""
+    """Extrahiert Bauteile aus tflListe (Teilflächen)"""
     elements = []
     
     tfl_liste = eing.find('tflListe')
@@ -318,6 +318,60 @@ def _extract_elements(eing) -> List[EVEBIElement]:
             ))
     
     return elements
+
+
+def _extract_btl_elements(eing) -> List[dict]:
+    """Extrahiert Bauteile aus btlListe (hat Konstruktion-Referenz!)"""
+    btl_elements = []
+    
+    # Erstelle Konstruktions-GUID → U-Wert Mapping
+    konstr_map = {}
+    konstr_liste = eing.find('konstruktionenListe')
+    if konstr_liste is not None:
+        for k in konstr_liste.findall('item'):
+            guid = k.get('GUID', '')
+            name_elem = k.find('name')
+            name = name_elem.get('man', name_elem.get('calc', name_elem.text or 'Unbekannt')) if name_elem is not None else 'Unbekannt'
+            
+            u_standard = k.findtext('UWertStandard')
+            u_value = 0.0
+            if u_standard:
+                try:
+                    u_value = float(u_standard)
+                except (ValueError, TypeError):
+                    pass
+            
+            konstr_map[guid] = {'name': name, 'u_value': u_value}
+    
+    # Extrahiere btlListe mit Konstruktion-Referenz
+    btl_liste = eing.find('btlListe')
+    if btl_liste is not None:
+        for item in btl_liste.findall('item'):
+            guid = item.get('GUID', '')
+            name = item.findtext('name', 'Unbekannt')
+            
+            # Konstruktion-Referenz
+            konstr_guid = None
+            u_value = None
+            konstr_name = None
+            
+            konstr_elem = item.find('konstruktion')
+            if konstr_elem is not None:
+                konstr_guid = konstr_elem.get('GUID', '')
+                if konstr_guid in konstr_map:
+                    konstr_data = konstr_map[konstr_guid]
+                    u_value = konstr_data['u_value']
+                    konstr_name = konstr_data['name']
+            
+            btl_elements.append({
+                'guid': guid,
+                'name': name,
+                'konstruktion_guid': konstr_guid,
+                'konstruktion_name': konstr_name,
+                'u_value': u_value
+            })
+    
+    return btl_elements
 
 
 def _extract_zones(eing) -> List[EVEBIZone]:
@@ -604,6 +658,22 @@ def process_roundtrip(ifc_path: str, evea_path: str, output_path: str = 'output_
     print('-' * 70)
     
     evebi_data = parse_evebi(evea_path)
+    
+    # Extrahiere btlListe separat (für U-Wert-Merge)
+    import zipfile
+    import xml.etree.ElementTree as ET
+    from pathlib import Path
+    
+    extract_dir = Path('/tmp/evea_extract')
+    with zipfile.ZipFile(evea_path, 'r') as zip_ref:
+        zip_ref.extractall(extract_dir)
+    
+    xml_path = extract_dir / 'projekt.xml'
+    tree = ET.parse(xml_path)
+    root = tree.getroot()
+    eing = root.find('eing')
+    
+    btl_elements = _extract_btl_elements(eing) if eing is not None else []
     print()
     
     # 3. Merge
@@ -643,19 +713,11 @@ def process_roundtrip(ifc_path: str, evea_path: str, output_path: str = 'output_
     print(f'✅ {len(constructions)} Konstruktionen')
     
     # U-Wert-Merge: EVEBI → IFC Bauteile
-    # Problem: tflListe hat sourceID="NONE", IFC hat generische Namen ("Wand - 001")
-    # Lösung: Mapping über DIN-Code (WA→Außenwand, WZ→Zwischenwand, DA→Dach, etc.)
+    # Problem: btlListe hat keine Flächen/Orientierungen, Name-Matching funktioniert nicht
+    # Lösung: DIN-Code-Mapping (WA→Außenwand, DA→Dach, etc.)
     
     # Erstelle DIN-Code → Konstruktion Mapping
-    din_to_konstr = {
-        'WA': None,  # Außenwand
-        'WZ': None,  # Zwischenwand
-        'DA': None,  # Dach
-        'DE': None,  # Decke
-        'BO': None,  # Boden
-    }
-    
-    # Finde passende Konstruktionen für jeden DIN-Code
+    din_to_konstr = {}
     for konstr in evebi_data.constructions:
         if not konstr.u_value or konstr.u_value <= 0:
             continue
@@ -667,9 +729,9 @@ def process_roundtrip(ifc_path: str, evea_path: str, output_path: str = 'output_
             din_to_konstr['WZ'] = konstr
         elif 'dach' in name_lower and 'decke' not in name_lower:
             din_to_konstr['DA'] = konstr
-        elif 'decke' in name_lower:
+        elif 'zwischendecke' in name_lower:
             din_to_konstr['DE'] = konstr
-        elif 'boden' in name_lower:
+        elif 'boden' in name_lower and 'außen' in name_lower:
             din_to_konstr['BO'] = konstr
     
     # Ergänze U-Werte in IFC-Bauteilen via DIN-Code
@@ -678,7 +740,7 @@ def process_roundtrip(ifc_path: str, evea_path: str, output_path: str = 'output_
     for wall in sidecar['input']['envelope']['walls']:
         if wall['u_value'] == 0.0:
             din_code = wall.get('din_code', '')
-            if din_code in din_to_konstr and din_to_konstr[din_code]:
+            if din_code in din_to_konstr:
                 konstr = din_to_konstr[din_code]
                 wall['u_value'] = round(konstr.u_value, 3)
                 wall['construction_ref'] = konstr.guid
@@ -686,9 +748,9 @@ def process_roundtrip(ifc_path: str, evea_path: str, output_path: str = 'output_
     
     for roof in sidecar['input']['envelope']['roofs']:
         if roof['u_value'] == 0.0:
-            din_code = roof.get('din_code', 'DA')  # Default: Dach
-            if din_code in din_to_konstr and din_to_konstr[din_code]:
-                konstr = din_to_konstr[din_code]
+            # Dächer haben meist keinen din_code, nutze DA als Default
+            if 'DA' in din_to_konstr:
+                konstr = din_to_konstr['DA']
                 roof['u_value'] = round(konstr.u_value, 3)
                 roof['construction_ref'] = konstr.guid
                 u_value_count += 1
@@ -696,9 +758,8 @@ def process_roundtrip(ifc_path: str, evea_path: str, output_path: str = 'output_
     for floor in sidecar['input']['envelope']['floors']:
         if floor['u_value'] == 0.0:
             # Deckenplatten sind meist Zwischendecken
-            din_code = floor.get('din_code', 'DE')
-            if din_code in din_to_konstr and din_to_konstr[din_code]:
-                konstr = din_to_konstr[din_code]
+            if 'DE' in din_to_konstr:
+                konstr = din_to_konstr['DE']
                 floor['u_value'] = round(konstr.u_value, 3)
                 floor['construction_ref'] = konstr.guid
                 u_value_count += 1
