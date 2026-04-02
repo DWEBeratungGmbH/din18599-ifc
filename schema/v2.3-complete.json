@@ -297,46 +297,33 @@
     
     "constructions": {
       "type": "array",
-      "description": "EVEBI: Konstruktionen (konstruktionenListe) mit Schichtaufbauten",
+      "description": "EVEBI: Konstruktionen (konstruktionenListe) mit Schichtaufbauten. Flexibles sequences[]-Modell für beliebig viele Abfolgen (meist 2: Haupt-/Nebenkonstruktion).",
       "items": {
         "type": "object",
         "properties": {
-          "id": {"type": "string", "description": "Konstruktions-GUID"},
+          "id": {"type": "string", "description": "Konstruktions-GUID (EVEBI-Quelle)"},
           "name": {"type": "string"},
+          "source": {"type": "string", "enum": ["EVEBI", "IFC", "MANUAL"], "description": "Datenquelle"},
           "u_value": {"type": "number", "minimum": 0, "description": "U-Wert [W/(m²K)]"},
-          "main_construction": {
-            "type": "object",
-            "description": "Hauptkonstruktion (85% Flächenanteil)",
-            "properties": {
-              "layers": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "material": {"type": "string"},
-                    "thickness": {"type": "number", "minimum": 0, "description": "Dicke [m]"},
-                    "lambda": {"type": "number", "minimum": 0, "description": "Wärmeleitfähigkeit [W/(m·K)]"},
-                    "density": {"type": "number", "minimum": 0, "description": "Rohdichte [kg/m³]"},
-                    "position": {"type": "integer", "description": "Position von außen (0=außen)"}
-                  }
-                }
-              }
-            }
-          },
-          "secondary_construction": {
-            "type": "object",
-            "description": "Nebenkonstruktion (15% Flächenanteil, z.B. Holzständer)",
-            "properties": {
-              "layers": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "material": {"type": "string"},
-                    "thickness": {"type": "number", "minimum": 0},
-                    "lambda": {"type": "number", "minimum": 0},
-                    "density": {"type": "number", "minimum": 0},
-                    "position": {"type": "integer"}
+          "sequences": {
+            "type": "array",
+            "description": "Abfolgen mit Flächenanteilen (z.B. 85% Dämmung + 15% Holzständer)",
+            "items": {
+              "type": "object",
+              "properties": {
+                "share": {"type": "number", "minimum": 0, "maximum": 1, "description": "Flächenanteil [-] (Summe aller shares = 1.0)"},
+                "name": {"type": "string", "description": "Name der Abfolge (z.B. 'Hauptkonstruktion', 'Holzständer')"},
+                "layers": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "material": {"type": "string"},
+                      "thickness": {"type": "number", "minimum": 0, "description": "Dicke [m]"},
+                      "lambda": {"type": "number", "minimum": 0, "description": "Wärmeleitfähigkeit [W/(m·K)]"},
+                      "density": {"type": "number", "minimum": 0, "description": "Rohdichte [kg/m³]"},
+                      "position": {"type": "integer", "description": "Position von außen (0=außen)"}
+                    }
                   }
                 }
               }
@@ -384,13 +371,28 @@
     
     "pipes": {
       "type": "array",
-      "description": "EVEBI: Leitungen (ltgListe) mit Länge und Dämmstandard",
+      "description": "EVEBI: Leitungen (ltgListe) mit Länge und Dämmstandard. Erweiterte Typen für feinere EVEBI-Differenzierung.",
       "items": {
         "type": "object",
         "properties": {
           "id": {"type": "string"},
           "name": {"type": "string"},
-          "type": {"type": "string", "enum": ["HEATING_SUPPLY", "HEATING_RETURN", "DHW_CIRCULATION", "DHW_SUPPLY"]},
+          "type": {
+            "type": "string",
+            "enum": [
+              "HEATING_SUPPLY",
+              "HEATING_RETURN",
+              "HEATING_DISTRIBUTION",
+              "HEATING_RISER",
+              "HEATING_CONNECTION",
+              "DHW_SUPPLY",
+              "DHW_CIRCULATION",
+              "DHW_DISTRIBUTION",
+              "DHW_RISER",
+              "DHW_CONNECTION"
+            ],
+            "description": "EVEBI LTYP_H + LFKT_V/S/SL/A (Verteilung/Steig/Steigleitung/Anbindung)"
+          },
           "location": {"type": "string", "enum": ["HEATED", "UNHEATED", "EXTERIOR"]},
           "length": {"type": "number", "minimum": 0, "description": "Länge [m]"},
           "insulation_u_value": {"type": "number", "minimum": 0, "description": "U-Wert Rohrdämmung [W/(m²K)]"},
@@ -409,7 +411,10 @@
         "ifc_type": {"type": "string", "description": "IFC-Typ (IfcWall, IfcSlab, IfcRoof)"},
         "predefined_type": {"type": "string", "description": "IFC PredefinedType"},
         "name": {"type": "string"},
-        "construction_ref": {"type": "string"},
+        "construction_ref": {
+          "type": "string",
+          "description": "Referenz zu constructions[] (EVEBI-GUID) oder material_layers[] (IFC-GUID). Konvention: IFC-GUIDs beginnen mit IFC-Präfix, EVEBI-GUIDs mit {GUID}"
+        },
         "u_value": {"type": "number", "minimum": 0, "description": "U-Wert [W/(m²K)]"},
         "area": {"type": "number", "minimum": 0, "description": "Fläche [m²]"},
         "orientation": {"type": "number", "minimum": 0, "maximum": 360},
@@ -438,7 +443,10 @@
         "ifc_guid": {"type": "string"},
         "ifc_type": {"type": "string"},
         "name": {"type": "string"},
-        "construction_ref": {"type": "string"},
+        "construction_ref": {
+          "type": "string",
+          "description": "Referenz zu window_constructions[] (EVEBI-GUID) oder material_layers[] (IFC-GUID)"
+        },
         "u_value": {"type": "number", "minimum": 0},
         "g_value": {"type": "number", "minimum": 0, "maximum": 1},
         "tau_value": {"type": "number", "minimum": 0, "maximum": 1},
