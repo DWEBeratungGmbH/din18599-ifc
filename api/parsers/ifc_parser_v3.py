@@ -87,6 +87,8 @@ class IFCGeometry:
     site_name: Optional[str] = None
     building_name: Optional[str] = None
     building_guid: Optional[str] = None
+    latitude: Optional[float] = None   # P2: Breitengrad
+    longitude: Optional[float] = None  # P2: Längengrad
 
     storeys: List[Dict[str, Any]] = field(default_factory=list)
     spaces: List[Dict[str, Any]] = field(default_factory=list)   # P5: erweitert
@@ -150,6 +152,17 @@ class IFCParser:
         if buildings:
             self.geometry.building_name = buildings[0].Name
             self.geometry.building_guid = buildings[0].GlobalId
+        
+        # P2: IfcSite Geodaten extrahieren
+        sites = self.ifc_file.by_type('IfcSite')
+        if sites:
+            site = sites[0]
+            self.geometry.site_name = site.Name
+            # RefLatitude/RefLongitude sind Tuples: (degrees, minutes, seconds, [millionths])
+            if hasattr(site, 'RefLatitude') and site.RefLatitude:
+                self.geometry.latitude = self._parse_ifc_latlong(site.RefLatitude)
+            if hasattr(site, 'RefLongitude') and site.RefLongitude:
+                self.geometry.longitude = self._parse_ifc_latlong(site.RefLongitude)
 
     # ============================================================
     # STEP 2: Räumliche Struktur + P5 Zone-Geometrie
@@ -724,6 +737,73 @@ class IFCParser:
             logger.debug(f"Quantity-Extraktion für {ifc_elem.GlobalId}: {e}")
             return None
     
+    def _parse_ifc_latlong(self, coords: Tuple) -> Optional[float]:
+        """P2: Parse IFC LatLong Tuple (degrees, minutes, seconds, [millionths]) zu Dezimalgrad"""
+        try:
+            if not coords or len(coords) < 3:
+                return None
+            
+            degrees = coords[0]
+            minutes = coords[1]
+            seconds = coords[2]
+            
+            # Millionths optional (IFC2X3 vs IFC4)
+            if len(coords) > 3 and coords[3]:
+                seconds += coords[3] / 1000000.0
+            
+            # Dezimalgrad berechnen
+            decimal = abs(degrees) + minutes / 60.0 + seconds / 3600.0
+            
+            # Vorzeichen
+            if degrees < 0:
+                decimal = -decimal
+            
+            return round(decimal, 6)
+        
+        except Exception as e:
+            logger.debug(f"LatLong-Parsing: {e}")
+            return None
+    
+    def _derive_try_region(self, lat: Optional[float], lon: Optional[float]) -> Optional[str]:
+        """P2: Leite TRY-Region aus Koordinaten ab (vereinfacht)"""
+        if lat is None or lon is None:
+            return None
+        
+        # Vereinfachte TRY-Zuordnung nach Bundesländern (grob)
+        # TRY-Regionen: 01-15 (DWD Testreferenzjahre)
+        
+        # Aachen/NRW: lat ≈ 51°, lon ≈ 6-9° → TRY Region 05 (Essen)
+        if 50.5 <= lat <= 52.0 and 6.0 <= lon <= 9.0:
+            return "05"  # Essen (NRW West)
+        
+        # Berlin/Brandenburg: lat ≈ 52.5°, lon ≈ 13°
+        elif 52.0 <= lat <= 53.0 and 13.0 <= lon <= 14.0:
+            return "04"  # Potsdam
+        
+        # München/Bayern: lat ≈ 48°, lon ≈ 11°
+        elif 47.5 <= lat <= 48.5 and 11.0 <= lon <= 12.0:
+            return "12"  # München
+        
+        # Hamburg: lat ≈ 53.5°, lon ≈ 10°
+        elif 53.0 <= lat <= 54.0 and 9.5 <= lon <= 10.5:
+            return "03"  # Hamburg
+        
+        # Frankfurt: lat ≈ 50°, lon ≈ 8.5°
+        elif 49.5 <= lat <= 50.5 and 8.0 <= lon <= 9.0:
+            return "07"  # Frankfurt/Main
+        
+        # Stuttgart: lat ≈ 48.8°, lon ≈ 9.2°
+        elif 48.5 <= lat <= 49.0 and 9.0 <= lon <= 9.5:
+            return "08"  # Stuttgart
+        
+        # Köln/Bonn: lat ≈ 50.9°, lon ≈ 7°
+        elif 50.5 <= lat <= 51.5 and 6.5 <= lon <= 7.5:
+            return "06"  # Köln/Bonn
+        
+        # Default: Nächste Region (grob Mitte Deutschland)
+        else:
+            return "04"  # Potsdam (Fallback)
+    
     def _extract_element_basic(self, ifc_elem) -> Optional[IFCElement]:
         """Extrahiert Basis-Informationen"""
         try:
@@ -1053,6 +1133,12 @@ def parse_ifc_file(ifc_file_path: str) -> Dict[str, Any]:
                 "doors": [transparent_to_dict(e) for e in geometry.doors],
             },
             "material_layers": geometry.material_layers,
+            # P2: Climate aus IfcSite Geodaten
+            "climate": {
+                "try_region": parser._derive_try_region(geometry.latitude, geometry.longitude),
+                "latitude": geometry.latitude,
+                "longitude": geometry.longitude,
+            } if geometry.latitude or geometry.longitude else None,
         },
         "warnings": geometry.warnings,
         "errors": geometry.errors,

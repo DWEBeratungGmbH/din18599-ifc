@@ -1049,18 +1049,27 @@
         "layers": [
           {
             "position": 1,
-            "material_name": "Beton",
+            "material_name": "Tragende Schicht",
             "thickness": 0.24,
             "lambda": null,
             "density": null,
             "specific_heat": null,
-            "ifc_material_guid": 323
+            "ifc_material_guid": 377
+          },
+          {
+            "position": 2,
+            "material_name": "Außen",
+            "thickness": 0.125,
+            "lambda": null,
+            "density": null,
+            "specific_heat": null,
+            "ifc_material_guid": 379
           }
         ],
-        "total_thickness": 0.24,
+        "total_thickness": 0.365,
         "u_value_calculated": null,
         "source": "ifc_material_layer_set",
-        "ifc_material_layer_set_guid": null,
+        "ifc_material_layer_set_guid": 381,
         "element_guid": "0wsGtpUkT56hELnVLS8x9z"
       },
       {
@@ -1502,18 +1511,18 @@
         "layers": [
           {
             "position": 1,
-            "material_name": "Tragende Schicht",
-            "thickness": 0.15,
+            "material_name": "Beton",
+            "thickness": 0.24,
             "lambda": null,
             "density": null,
             "specific_heat": null,
-            "ifc_material_guid": 377
+            "ifc_material_guid": 323
           }
         ],
-        "total_thickness": 0.15,
+        "total_thickness": 0.24,
         "u_value_calculated": null,
         "source": "ifc_material_layer_set",
-        "ifc_material_layer_set_guid": 22207,
+        "ifc_material_layer_set_guid": null,
         "element_guid": "3N3B$e5Zz9c8NrtdJYnbP9"
       },
       {
@@ -1558,7 +1567,12 @@
         "ifc_material_layer_set_guid": 22207,
         "element_guid": "0WcMyW79XD6uy5QWRC0iel"
       }
-    ]
+    ],
+    "climate": {
+      "try_region": "05",
+      "latitude": 51.266389,
+      "longitude": 8.883056
+    }
   },
   "warnings": [
     "Wand 'Wand - 001' (Typ: Wand AW 36,5 m. Deckenauflager) ist AW-typisiert, aber IsExternal=False",
