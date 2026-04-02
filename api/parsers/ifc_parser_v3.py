@@ -1095,11 +1095,11 @@ def parse_ifc_file(ifc_file_path: str) -> Dict[str, Any]:
             "construction_ref": None,
         }
 
-    # P1: Schema v2.2 Struktur
+    # P1: Schema v2.3 Struktur (flach: dwelling_units, zones, rooms)
     return {
         "schema_info": {
-            "url": "https://din18599-ifc.de/schema/v2.2/complete",
-            "version": "2.2.0"
+            "url": "https://din18599-ifc.de/schema/v2.3/complete",
+            "version": "2.3.0"
         },
         "meta": {
             "project_name": geometry.project_name,
@@ -1111,7 +1111,9 @@ def parse_ifc_file(ifc_file_path: str) -> Dict[str, Any]:
                 "name": geometry.building_name,
                 "building_guid": geometry.building_guid,
                 "storeys": geometry.storeys,
-                "zones": [
+                "dwelling_units": [],  # Wird manuell oder aus IFC ergänzt
+                "zones": [],           # Wird manuell oder aus IfcZone ergänzt
+                "rooms": [
                     {
                         "id": s['id'],
                         "ifc_guid": s['ifc_guid'],
@@ -1119,8 +1121,9 @@ def parse_ifc_file(ifc_file_path: str) -> Dict[str, Any]:
                         "area": s.get('area'),
                         "volume": s.get('volume'),
                         "height": s.get('height'),
+                        "zone_ref": None,           # Wird manuell ergänzt
+                        "dwelling_unit_ref": None,  # Optional
                         "storey_ref": s.get('storey_ref'),
-                        "usage_profile_ref": None,  # Wird manuell ergänzt
                     }
                     for s in geometry.spaces
                 ],
