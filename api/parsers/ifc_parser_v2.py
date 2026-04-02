@@ -51,6 +51,10 @@ class IFCGeometry:
     building_name: Optional[str] = None
     building_guid: Optional[str] = None
     
+    # Step 2: Räumliche Struktur (S1-FIX)
+    storeys: List[Dict[str, Any]] = field(default_factory=list)
+    spaces: List[Dict[str, Any]] = field(default_factory=list)
+    
     # Step 3: Bauteile
     walls: List[IFCElement] = field(default_factory=list)
     roofs: List[IFCElement] = field(default_factory=list)
@@ -75,6 +79,7 @@ class IFCParser:
         self.settings = ifcopenshell.geom.settings()
         self.settings.set(self.settings.USE_WORLD_COORDS, True)
         self.geometry = IFCGeometry()
+        self.ifc_cache = {}  # N2-FIX: GUID-Cache für Performance
     
     def parse(self) -> IFCGeometry:
         """Führt alle 8 Schritte aus"""
@@ -117,25 +122,41 @@ class IFCParser:
         """Step 2: Räumliche Struktur - Geschosse, Räume"""
         print("2️⃣  Räumliche Struktur...")
         
+        # S1-FIX: Speichere Geschoss-Daten für spätere Nutzung
         storeys = self.ifc_file.by_type('IfcBuildingStorey')
-        spaces = self.ifc_file.by_type('IfcSpace')
+        for storey in storeys:
+            self.geometry.storeys.append({
+                'guid': storey.GlobalId,
+                'name': storey.Name,
+                'elevation': storey.Elevation if hasattr(storey, 'Elevation') else None
+            })
         
-        print(f"   Geschosse: {len(storeys)}")
-        print(f"   Räume: {len(spaces)}")
+        spaces = self.ifc_file.by_type('IfcSpace')
+        for space in spaces:
+            self.geometry.spaces.append({
+                'guid': space.GlobalId,
+                'name': space.Name or 'Unnamed'
+            })
+        
+        print(f"   Geschosse: {len(self.geometry.storeys)}")
+        print(f"   Räume: {len(self.geometry.spaces)}")
     
     def step3_collect_elements(self):
         """Step 3: Bauteile inventarisieren"""
         print("3️⃣  Bauteile sammeln...")
         
+        # N2-FIX: Baue GUID-Cache für alle nachfolgenden Steps
         for wall in self.ifc_file.by_type('IfcWall'):
             elem = self._extract_element_basic(wall)
             if elem:
+                self.ifc_cache[elem.guid] = wall  # Cache IFC-Objekt
                 self.geometry.walls.append(elem)
                 self.geometry.all_elements.append(elem)
         
         for roof in self.ifc_file.by_type('IfcRoof'):
             elem = self._extract_element_basic(roof)
             if elem:
+                self.ifc_cache[elem.guid] = roof
                 self.geometry.roofs.append(elem)
                 self.geometry.all_elements.append(elem)
         
@@ -143,6 +164,7 @@ class IFCParser:
         for slab in self.ifc_file.by_type('IfcSlab'):
             elem = self._extract_element_basic(slab)
             if elem:
+                self.ifc_cache[elem.guid] = slab
                 if elem.predefined_type == "ROOF":
                     self.geometry.roofs.append(elem)
                 else:
@@ -152,12 +174,14 @@ class IFCParser:
         for window in self.ifc_file.by_type('IfcWindow'):
             elem = self._extract_element_basic(window)
             if elem:
+                self.ifc_cache[elem.guid] = window
                 self.geometry.windows.append(elem)
                 self.geometry.all_elements.append(elem)
         
         for door in self.ifc_file.by_type('IfcDoor'):
             elem = self._extract_element_basic(door)
             if elem:
+                self.ifc_cache[elem.guid] = door
                 self.geometry.doors.append(elem)
                 self.geometry.all_elements.append(elem)
         
@@ -174,7 +198,9 @@ class IFCParser:
         props_count = 0
         for elem in self.geometry.all_elements:
             try:
-                ifc_elem = self.ifc_file.by_guid(elem.guid)  # K2-FIX
+                ifc_elem = self.ifc_cache.get(elem.guid)  # N2-FIX: Nutze Cache
+                if not ifc_elem:
+                    continue
                 psets = ifcopenshell.util.element.get_psets(ifc_elem)
                 
                 if 'Pset_WallCommon' in psets:
@@ -193,20 +219,35 @@ class IFCParser:
         """Step 5: Materialien und Schichten"""
         print("5️⃣  Materialien...")
         
+        # N3-FIX: Extrahiere vollständige Schichtaufbauten
+        from .ifc_material_extractor import extract_material_layers, layer_structure_to_dict
+        
         for elem in self.geometry.all_elements:
             try:
-                ifc_elem = self.ifc_file.by_guid(elem.guid)  # K2-FIX
+                ifc_elem = self.ifc_cache.get(elem.guid)  # N2-FIX
+                if not ifc_elem:
+                    continue
                 
+                # Material-Name
                 if hasattr(ifc_elem, 'HasAssociations'):
                     for assoc in ifc_elem.HasAssociations:
                         if assoc.is_a('IfcRelAssociatesMaterial'):
                             mat = assoc.RelatingMaterial
                             if hasattr(mat, 'Name'):
                                 elem.material = mat.Name
+                
+                # N3-FIX: Schichtaufbau
+                layer_structure = extract_material_layers(ifc_elem, self.ifc_file)
+                if layer_structure:
+                    layer_dict = layer_structure_to_dict(layer_structure)
+                    layer_dict['element_guid'] = elem.guid
+                    self.geometry.material_layers.append(layer_dict)
+                    
             except:
                 pass
         
-        print(f"   Materialien zugeordnet")
+        print(f"   Materialien: {len([e for e in self.geometry.all_elements if e.material])}")
+        print(f"   Schichtaufbauten: {len(self.geometry.material_layers)}")
     
     def step6_extract_relationships(self):
         """Step 6: Beziehungen - Parent-Child, Aggregation"""
@@ -215,7 +256,9 @@ class IFCParser:
         parent_count = 0
         for window in self.geometry.windows + self.geometry.doors:
             try:
-                ifc_elem = self.ifc_file.by_guid(window.guid)
+                ifc_elem = self.ifc_cache.get(window.guid)  # N2-FIX
+                if not ifc_elem:
+                    continue
                 
                 if hasattr(ifc_elem, 'FillsVoids'):
                     for rel in ifc_elem.FillsVoids:
@@ -239,10 +282,13 @@ class IFCParser:
         geom_count = 0
         for elem in self.geometry.all_elements:
             try:
-                ifc_elem = self.ifc_file.by_guid(elem.guid)
+                ifc_elem = self.ifc_cache.get(elem.guid)  # N2-FIX
+                if not ifc_elem:
+                    continue
+                
                 shape = ifcopenshell.geom.create_shape(self.settings, ifc_elem)
                 
-                # K1-FIX: Mesh-Faces für alle Elemente
+                # N1-FIX: Unterschiedliche Logik für Wände vs Slabs
                 elem.area = self._calculate_area_mesh(shape, elem.ifc_type)
                 elem.orientation, elem.inclination = self._calculate_orientation(shape)
                 elem.height = self._calculate_height(shape)
@@ -250,7 +296,9 @@ class IFCParser:
                 geom_count += 1
                 
             except:
-                pass
+                # S4-FIX: Für IfcRoof ohne Geometrie, aggregiere Slab-Flächen
+                if elem.ifc_type == 'IfcRoof':
+                    elem.area = self._calculate_roof_area_from_slabs(elem.guid)
         
         print(f"   Geometrie für {geom_count} Elemente berechnet")
     
@@ -319,7 +367,7 @@ class IFCParser:
             return None
     
     def _calculate_area_mesh(self, shape, ifc_type: str) -> Optional[float]:
-        """K1-FIX: Mesh-Faces für alle Elemente"""
+        """N1-FIX: Korrekte Flächenberechnung - Wände nur Seitenflächen"""
         try:
             verts = shape.geometry.verts
             faces = shape.geometry.faces
@@ -328,6 +376,7 @@ class IFCParser:
                 return None
             
             total_area = 0.0
+            
             for i in range(0, len(faces), 3):
                 try:
                     idx1, idx2, idx3 = faces[i]*3, faces[i+1]*3, faces[i+2]*3
@@ -335,6 +384,23 @@ class IFCParser:
                     v2 = (verts[idx2], verts[idx2+1], verts[idx2+2])
                     v3 = (verts[idx3], verts[idx3+1], verts[idx3+2])
                     
+                    # N1-FIX: Für Wände nur Seitenflächen (horizontale Normale)
+                    if 'Wall' in ifc_type:
+                        # Berechne Normale des Dreiecks
+                        v1v2 = (v2[0]-v1[0], v2[1]-v1[1], v2[2]-v1[2])
+                        v1v3 = (v3[0]-v1[0], v3[1]-v1[1], v3[2]-v1[2])
+                        nx = v1v2[1]*v1v3[2] - v1v2[2]*v1v3[1]
+                        ny = v1v2[2]*v1v3[0] - v1v2[0]*v1v3[2]
+                        nz = v1v2[0]*v1v3[1] - v1v2[1]*v1v3[0]
+                        length = (nx**2 + ny**2 + nz**2)**0.5
+                        
+                        if length > 0:
+                            nz_norm = abs(nz / length)
+                            # Nur Faces mit horizontaler Normale (nz < 0.1)
+                            if nz_norm > 0.1:
+                                continue
+                    
+                    # Heron's Formel
                     a = ((v2[0]-v1[0])**2 + (v2[1]-v1[1])**2 + (v2[2]-v1[2])**2)**0.5
                     b = ((v3[0]-v2[0])**2 + (v3[1]-v2[1])**2 + (v3[2]-v2[2])**2)**0.5
                     c = ((v1[0]-v3[0])**2 + (v1[1]-v3[1])**2 + (v1[2]-v3[2])**2)**0.5
@@ -344,6 +410,10 @@ class IFCParser:
                         total_area += (s*(s-a)*(s-b)*(s-c))**0.5
                 except:
                     pass
+            
+            # N1-FIX: Für Wände durch 2 teilen (Vorder- + Rückseite)
+            if 'Wall' in ifc_type and total_area > 0:
+                total_area = total_area / 2
             
             return round(total_area, 2) if total_area > 0 else None
             
@@ -399,6 +469,27 @@ class IFCParser:
             
         except:
             return None
+    
+    def _calculate_roof_area_from_slabs(self, roof_guid: str) -> Optional[float]:
+        """S4-FIX: Aggregiere Fläche aus zugehörigen Slabs"""
+        try:
+            roof_ifc = self.ifc_cache.get(roof_guid)
+            if not roof_ifc or not hasattr(roof_ifc, 'IsDecomposedBy'):
+                return None
+            
+            total_area = 0.0
+            for rel in roof_ifc.IsDecomposedBy:
+                for elem in rel.RelatedObjects:
+                    if elem.is_a('IfcSlab'):
+                        # Finde Slab in geometry.roofs
+                        for slab in self.geometry.roofs:
+                            if slab.guid == elem.GlobalId and slab.area:
+                                total_area += slab.area
+            
+            return round(total_area, 2) if total_area > 0 else None
+            
+        except:
+            return None
 
 
 def parse_ifc_file(ifc_file_path: str) -> Dict[str, Any]:
@@ -432,6 +523,8 @@ def parse_ifc_file(ifc_file_path: str) -> Dict[str, Any]:
         "project_name": geometry.project_name,
         "building_name": geometry.building_name,
         "building_guid": geometry.building_guid,
+        "storeys": geometry.storeys,
+        "spaces": geometry.spaces,
         "walls": [element_to_dict(e) for e in geometry.walls],
         "roofs": [element_to_dict(e) for e in geometry.roofs],
         "floors": [element_to_dict(e) for e in geometry.slabs],
