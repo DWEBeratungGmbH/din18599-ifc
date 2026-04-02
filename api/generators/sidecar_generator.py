@@ -946,20 +946,31 @@ class SidecarGenerator:
     
     def _detect_element_type(self, element: Dict[str, Any]) -> str:
         """
-        Erkennt Element-Typ aus layer_structure_ref oder inclination
+        Erkennt Element-Typ aus IFC-Typ, Name oder inclination
         
         Returns:
             "WALL", "ROOF", "FLOOR", oder "UNKNOWN"
         """
-        # Prüfe layer_structure_ref
-        layer_ref = element.get("layer_structure_ref", "")
-        if layer_ref:
-            # Suche in layer_structures nach Typ
-            # Format: "LS-1ybs9cI0" oder "LS-{7456141"
-            # Wir nutzen die Neigung als Fallback
-            pass
+        # 1. Prüfe IFC-Typ (aus ifc_guid oder name)
+        name = element.get("name", "").lower()
         
-        # Nutze Neigung (inclination) zur Bestimmung
+        # IfcSlab kann Dach oder Boden sein - prüfe Position/Name
+        if "ifcslab" in name or "deckenplatte" in name or "decke" in name:
+            # Prüfe ob es ein Dach oder Boden ist
+            if "dach" in name or element.get("inclination", 90) < 45:
+                return "ROOF"
+            else:
+                return "FLOOR"
+        
+        # IfcRoof ist immer Dach
+        if "ifcroof" in name or "dach" in name:
+            return "ROOF"
+        
+        # IfcWall ist immer Wand
+        if "ifcwall" in name or "wand" in name:
+            return "WALL"
+        
+        # Fallback: Nutze Neigung (inclination) zur Bestimmung
         inclination = element.get("inclination")
         
         # Fallback wenn inclination None ist
