@@ -1,0 +1,450 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://din18599-ifc.de/schema/v2.3/complete",
+  "title": "DIN 18599 IFC Sidecar v2.3 - Complete Schema",
+  "description": "Schema mit flacher Struktur: dwelling_units, zones, rooms (statt Hierarchie)",
+  "version": "2.3.0",
+  "type": "object",
+  "required": ["schema_info", "meta", "input"],
+  
+  "properties": {
+    "schema_info": {
+      "type": "object",
+      "description": "Schema-Metadaten",
+      "required": ["url", "version"],
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "const": "https://din18599-ifc.de/schema/v2.3/complete"
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^2\\.3\\.\\d+$",
+          "description": "Schema-Version (Semantic Versioning)"
+        }
+      }
+    },
+    
+    "meta": {
+      "type": "object",
+      "description": "Projekt-Metadaten und Versionierung",
+      "required": ["project_name", "created"],
+      "properties": {
+        "project_name": {"type": "string"},
+        "project_id": {"type": "string"},
+        "created": {"type": "string", "format": "date-time"},
+        "last_modified": {"type": "string", "format": "date-time"},
+        "version": {"type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$"},
+        "version_history": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["version", "date", "changes"],
+            "properties": {
+              "version": {"type": "string"},
+              "date": {"type": "string", "format": "date-time"},
+              "changes": {"type": "string"},
+              "author": {"type": "string"}
+            }
+          }
+        },
+        "ifc_file_ref": {"type": "string"},
+        "ifc_schema": {
+          "type": "string",
+          "enum": ["IFC2X3", "IFC4", "IFC4X3"],
+          "description": "IFC-Schema-Version der Quelldatei"
+        },
+        "lod": {
+          "type": "string",
+          "enum": ["100", "200", "300", "400", "500"]
+        }
+      }
+    },
+    
+    "input": {
+      "type": "object",
+      "description": "Eingabedaten (Definition) - Source of Truth",
+      "required": ["building"],
+      "properties": {
+        "building": {"$ref": "#/definitions/building"},
+        "envelope": {"$ref": "#/definitions/envelope"},
+        "systems": {"$ref": "#/definitions/systems"},
+        "electricity": {"$ref": "#/definitions/electricity"},
+        "automation": {"$ref": "#/definitions/automation"},
+        "primary_energy": {"$ref": "#/definitions/primary_energy_factors"},
+        "climate": {"$ref": "#/definitions/climate"}
+      }
+    },
+    
+    "scenarios": {
+      "type": "array",
+      "items": {"$ref": "#/definitions/scenario"}
+    },
+    
+    "output": {
+      "type": "object",
+      "properties": {
+        "base": {"$ref": "#/definitions/output_snapshot"}
+      },
+      "patternProperties": {
+        "^scenario_": {"$ref": "#/definitions/output_snapshot"}
+      }
+    }
+  },
+  
+  "definitions": {
+    "building": {
+      "type": "object",
+      "required": ["address", "construction_year", "heated_area"],
+      "properties": {
+        "address": {
+          "type": "object",
+          "required": ["zip", "city"],
+          "properties": {
+            "street": {"type": "string"},
+            "zip": {"type": "string"},
+            "city": {"type": "string"},
+            "country": {"type": "string", "default": "DE"}
+          }
+        },
+        "construction_year": {"type": "integer", "minimum": 1800, "maximum": 2100},
+        "renovation_year": {"type": "integer", "minimum": 1800, "maximum": 2100},
+        "type": {"type": "string", "enum": ["residential", "non_residential", "mixed"]},
+        "subtype": {"type": "string"},
+        "heated_area": {"type": "number", "minimum": 0},
+        "gross_floor_area": {"type": "number", "minimum": 0},
+        "heated_volume": {"type": "number", "minimum": 0},
+        "av_ratio": {"type": "number", "minimum": 0},
+        "storeys": {
+          "type": "array",
+          "description": "Geschosse mit Elevation",
+          "items": {"$ref": "#/definitions/storey"}
+        },
+        "dwelling_units": {
+          "type": "array",
+          "description": "v2.3: Wohneinheiten (flach, unabhängig)",
+          "items": {"$ref": "#/definitions/dwelling_unit"}
+        },
+        "zones": {
+          "type": "array",
+          "description": "v2.3: Thermische Zonen (flach)",
+          "items": {"$ref": "#/definitions/zone"}
+        },
+        "rooms": {
+          "type": "array",
+          "description": "v2.3: Räume (IfcSpace) mit zone_ref + dwelling_unit_ref",
+          "items": {"$ref": "#/definitions/room"}
+        }
+      }
+    },
+    
+    "storey": {
+      "type": "object",
+      "description": "Geschoss-Metadaten aus IFC",
+      "required": ["id", "name"],
+      "properties": {
+        "id": {"type": "string", "description": "IFC GUID"},
+        "name": {"type": "string"},
+        "elevation": {
+          "type": "number",
+          "description": "Geschosshöhe [m] über Projektbasis"
+        }
+      }
+    },
+    
+    "dwelling_unit": {
+      "type": "object",
+      "description": "v2.3: Wohneinheit (unabhängig von Zonen)",
+      "required": ["id", "name"],
+      "properties": {
+        "id": {"type": "string"},
+        "ifc_guid": {"type": "string", "description": "IFC GUID (falls vorhanden)"},
+        "name": {"type": "string"},
+        "type": {
+          "type": "string",
+          "enum": ["residential", "commercial", "common_area"],
+          "description": "Typ der Wohneinheit"
+        },
+        "area": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Gesamtfläche [m²] (aggregiert aus rooms)"
+        },
+        "volume": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Gesamtvolumen [m³]"
+        }
+      }
+    },
+    
+    "zone": {
+      "type": "object",
+      "description": "v2.3: Thermische Zone (flach, nicht hierarchisch)",
+      "required": ["id", "usage_profile_ref", "area", "volume", "height"],
+      "properties": {
+        "id": {"type": "string"},
+        "ifc_guid": {"type": "string", "description": "IFC GUID (IfcZone falls vorhanden)"},
+        "name": {"type": "string"},
+        "usage_profile_ref": {"type": "string", "description": "DIN 18599-10 Nutzungsprofil"},
+        "area": {"type": "number", "minimum": 0, "description": "Zonenfläche [m²] (aggregiert aus rooms)"},
+        "volume": {"type": "number", "minimum": 0, "description": "Zonenvolumen [m³]"},
+        "height": {"type": "number", "minimum": 0, "description": "Durchschnittliche Raumhöhe [m]"},
+        "setpoint_heating_c": {"type": "number"},
+        "setpoint_cooling_c": {"type": "number"},
+        "air_change_rate_h": {"type": "number", "minimum": 0},
+        "conditioned": {"type": "boolean"}
+      }
+    },
+    
+    "room": {
+      "type": "object",
+      "description": "v2.3: Raum (IfcSpace) mit Referenzen zu Zone + Wohneinheit",
+      "required": ["id", "name", "area"],
+      "properties": {
+        "id": {"type": "string"},
+        "ifc_guid": {"type": "string", "description": "IFC GUID des IfcSpace"},
+        "name": {"type": "string"},
+        "area": {"type": "number", "minimum": 0, "description": "Raumfläche [m²]"},
+        "volume": {"type": "number", "minimum": 0, "description": "Raumvolumen [m³]"},
+        "height": {"type": "number", "minimum": 0, "description": "Raumhöhe [m]"},
+        "zone_ref": {
+          "type": "string",
+          "description": "Referenz zu Zone (zone.id)"
+        },
+        "dwelling_unit_ref": {
+          "type": "string",
+          "description": "Referenz zu Wohneinheit (dwelling_unit.id) - optional"
+        },
+        "storey_ref": {
+          "type": "string",
+          "description": "Referenz zu Geschoss (storey.id)"
+        }
+      }
+    },
+    
+    "envelope": {
+      "type": "object",
+      "description": "Gebäudehülle nach Bauteiltyp strukturiert",
+      "properties": {
+        "walls": {
+          "type": "array",
+          "description": "Wände (inkl. AW/IW, Neigung ~90°)",
+          "items": {"$ref": "#/definitions/opaque_element"}
+        },
+        "roofs": {
+          "type": "array",
+          "description": "Dächer (Neigung 0-60°)",
+          "items": {"$ref": "#/definitions/opaque_element"}
+        },
+        "floors": {
+          "type": "array",
+          "description": "Böden/Decken (Neigung ~0°)",
+          "items": {"$ref": "#/definitions/opaque_element"}
+        },
+        "windows": {
+          "type": "array",
+          "description": "Fenster",
+          "items": {"$ref": "#/definitions/transparent_element"}
+        },
+        "doors": {
+          "type": "array",
+          "description": "Türen",
+          "items": {"$ref": "#/definitions/transparent_element"}
+        },
+        "thermal_bridges": {
+          "type": "object",
+          "properties": {
+            "method": {"type": "string", "enum": ["NONE", "SIMPLIFIED", "DETAILED"]},
+            "delta_u_wb": {"type": "number"},
+            "linear_bridges": {
+              "type": "array",
+              "items": {"$ref": "#/definitions/linear_thermal_bridge"}
+            }
+          }
+        }
+      }
+    },
+    
+    "opaque_element": {
+      "type": "object",
+      "required": ["id", "area"],
+      "properties": {
+        "id": {"type": "string"},
+        "ifc_guid": {"type": "string", "description": "IFC GUID"},
+        "ifc_type": {"type": "string", "description": "IFC-Typ (IfcWall, IfcSlab, IfcRoof)"},
+        "predefined_type": {"type": "string", "description": "IFC PredefinedType"},
+        "name": {"type": "string"},
+        "construction_ref": {"type": "string"},
+        "u_value": {"type": "number", "minimum": 0, "description": "U-Wert [W/(m²K)]"},
+        "area": {"type": "number", "minimum": 0, "description": "Fläche [m²]"},
+        "orientation": {"type": "number", "minimum": 0, "maximum": 360},
+        "inclination": {"type": "number", "minimum": 0, "maximum": 90},
+        "boundary_condition": {
+          "type": "string",
+          "enum": ["exterior", "ground", "unheated", "adjacent"]
+        },
+        "din_code": {
+          "type": "string",
+          "enum": ["WA", "WI", "WE", "WU", "WZ", "DA", "DE", "DU", "DZ", "BE", "BO", "BU", "BZ", "RK", "GF", "PF"]
+        },
+        "fx_factor": {"type": "number", "minimum": 0, "maximum": 1},
+        "zone_ref": {"type": "string", "description": "v2.3: Referenz zu Zone"},
+        "room_ref": {"type": "string", "description": "v2.3: Referenz zu Raum (optional)"},
+        "storey_ref": {"type": "string"}
+      }
+    },
+    
+    "transparent_element": {
+      "type": "object",
+      "required": ["id", "area"],
+      "properties": {
+        "id": {"type": "string"},
+        "ifc_guid": {"type": "string"},
+        "ifc_type": {"type": "string"},
+        "name": {"type": "string"},
+        "construction_ref": {"type": "string"},
+        "u_value": {"type": "number", "minimum": 0},
+        "g_value": {"type": "number", "minimum": 0, "maximum": 1},
+        "tau_value": {"type": "number", "minimum": 0, "maximum": 1},
+        "g_value_perpendicular": {"type": "number", "minimum": 0, "maximum": 1},
+        "g_value_summer": {"type": "number", "minimum": 0, "maximum": 1},
+        "g_value_winter": {"type": "number", "minimum": 0, "maximum": 1},
+        "area": {"type": "number", "minimum": 0},
+        "orientation": {"type": "number", "minimum": 0, "maximum": 360},
+        "inclination": {"type": "number", "minimum": 0, "maximum": 90},
+        "is_glazed": {"type": "boolean"},
+        "shading_factor_f_sh": {"type": "number", "minimum": 0, "maximum": 1},
+        "boundary_condition": {
+          "type": "string",
+          "enum": ["exterior", "ground", "unheated", "adjacent"]
+        },
+        "din_code": {
+          "type": "string",
+          "enum": ["FA", "FD", "FL", "FU", "FZ", "TA", "TD", "TU", "TZ"]
+        },
+        "fx_factor": {"type": "number", "minimum": 0, "maximum": 1},
+        "parent_wall_guid": {"type": "string"},
+        "zone_ref": {"type": "string", "description": "v2.3: Referenz zu Zone"},
+        "room_ref": {"type": "string", "description": "v2.3: Referenz zu Raum (optional)"},
+        "storey_ref": {"type": "string"}
+      }
+    },
+    
+    "linear_thermal_bridge": {
+      "type": "object",
+      "properties": {
+        "id": {"type": "string"},
+        "type": {"type": "string"},
+        "psi_value": {"type": "number"},
+        "length": {"type": "number", "minimum": 0}
+      }
+    },
+    
+    "systems": {
+      "type": "object",
+      "properties": {
+        "heating": {"$ref": "#/definitions/heating_system"},
+        "ventilation": {"$ref": "#/definitions/ventilation_system"},
+        "cooling": {"$ref": "#/definitions/cooling_system"},
+        "lighting": {"$ref": "#/definitions/lighting_system"},
+        "dhw": {"$ref": "#/definitions/dhw_system"}
+      }
+    },
+    
+    "heating_system": {
+      "type": "object",
+      "properties": {
+        "generation": {"type": "object"},
+        "distribution": {"type": "object"},
+        "emission": {"type": "object"},
+        "control": {"type": "object"}
+      }
+    },
+    
+    "ventilation_system": {
+      "type": "object",
+      "properties": {
+        "type": {"type": "string"},
+        "n50_value": {"type": "number", "minimum": 0},
+        "heat_recovery": {"type": "boolean"},
+        "heat_recovery_efficiency": {"type": "number", "minimum": 0, "maximum": 1}
+      }
+    },
+    
+    "cooling_system": {
+      "type": "object",
+      "properties": {
+        "installed": {"type": "boolean"},
+        "type": {"type": "string"}
+      }
+    },
+    
+    "lighting_system": {
+      "type": "object",
+      "properties": {
+        "applicable": {"type": "boolean"}
+      }
+    },
+    
+    "dhw_system": {
+      "type": "object",
+      "properties": {
+        "type": {"type": "string"}
+      }
+    },
+    
+    "electricity": {
+      "type": "object",
+      "properties": {
+        "pv": {"type": "object"}
+      }
+    },
+    
+    "automation": {
+      "type": "object",
+      "properties": {
+        "installed": {"type": "boolean"}
+      }
+    },
+    
+    "primary_energy_factors": {
+      "type": "object",
+      "required": ["source"],
+      "properties": {
+        "source": {"type": "string"}
+      }
+    },
+    
+    "climate": {
+      "type": "object",
+      "properties": {
+        "try_region": {"type": "string"},
+        "latitude": {"type": "number"},
+        "longitude": {"type": "number"},
+        "heating_degree_days": {"type": "number", "minimum": 0}
+      }
+    },
+    
+    "scenario": {
+      "type": "object",
+      "required": ["id", "name", "delta"],
+      "properties": {
+        "id": {"type": "string"},
+        "name": {"type": "string"},
+        "delta": {"type": "object"}
+      }
+    },
+    
+    "output_snapshot": {
+      "type": "object",
+      "properties": {
+        "meta": {"type": "object"},
+        "useful_energy": {"type": "object"},
+        "final_energy": {"type": "object"},
+        "primary_energy": {"type": "object"}
+      }
+    }
+  }
+}
