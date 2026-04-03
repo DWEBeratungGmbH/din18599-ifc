@@ -454,71 +454,103 @@ def _extract_storeys(eing) -> List[dict]:
 
 
 def _extract_heating(eing) -> List[dict]:
-    """Extrahiert Heizungssysteme aus EVEBI"""
+    """Extrahiert Heizungssysteme aus EVEBI mit Detailfeldern"""
     systems = []
     
-    hz_erz_liste = eing.find('hzErzListe')
-    if hz_erz_liste is not None:
-        for item in hz_erz_liste.findall('item'):
+    hz_liste = eing.find('hzListe')
+    if hz_liste is not None:
+        for item in hz_liste.findall('item'):
             guid = item.get('GUID', '')
             name_elem = item.find('name')
             name = name_elem.text if name_elem is not None and name_elem.text else 'Unbekannt'
             
-            art_elem = item.find('art')
-            art = art_elem.text if art_elem is not None and art_elem.text else None
+            # Netztyp
+            netz_typ = item.findtext('netzTyp', None)
+            
+            # Deckung
+            deckung = None
+            deckung_elem = item.find('deckung')
+            if deckung_elem is not None and deckung_elem.text:
+                try:
+                    deckung = float(deckung_elem.text)
+                except (ValueError, TypeError):
+                    pass
+            
+            # Baujahr
+            baujahr = None
+            bj_elem = item.find('baujahr')
+            if bj_elem is not None and bj_elem.text:
+                try:
+                    baujahr = int(bj_elem.text)
+                except (ValueError, TypeError):
+                    pass
             
             systems.append({
                 'guid': guid,
                 'name': name,
-                'art': art,
-                'year_built': None
+                'netz_typ': netz_typ,
+                'deckung': deckung,
+                'baujahr': baujahr
             })
     
     return systems
 
 
 def _extract_dhw(eing) -> List[dict]:
-    """Extrahiert Warmwassersysteme aus EVEBI"""
+    """Extrahiert Warmwassersysteme aus EVEBI mit Detailfeldern"""
     systems = []
     
-    tw_erz_liste = eing.find('twErzListe')
-    if tw_erz_liste is not None:
-        for item in tw_erz_liste.findall('item'):
+    tw_liste = eing.find('twListe')
+    if tw_liste is not None:
+        for item in tw_liste.findall('item'):
             guid = item.get('GUID', '')
             name_elem = item.find('name')
             name = name_elem.text if name_elem is not None and name_elem.text else 'Unbekannt'
             
-            art_elem = item.find('art')
-            art = art_elem.text if art_elem is not None and art_elem.text else None
+            # Netztyp
+            netz_typ = item.findtext('netzTyp', None)
             
-            # Speichervolumen
-            storage_volume = None
-            v_sp_elem = item.find('V_Sp')
-            if v_sp_elem is not None:
+            # Deckung
+            deckung = None
+            deckung_elem = item.find('deckung')
+            if deckung_elem is not None and deckung_elem.text:
                 try:
-                    storage_volume = float(v_sp_elem.get('man', v_sp_elem.get('calc', '0')))
+                    deckung = float(deckung_elem.text)
                 except (ValueError, TypeError):
-                    storage_volume = None
+                    pass
             
-            # Zirkulation
-            circulation = None
-            zirk_elem = item.find('zirkulation')
-            if zirk_elem is not None:
-                circulation = zirk_elem.text == 'true' or zirk_elem.get('man') == 'true'
+            # Temperatur
+            temperatur = None
+            temp_elem = item.find('temperatur')
+            if temp_elem is not None and temp_elem.text:
+                try:
+                    temperatur = float(temp_elem.text)
+                except (ValueError, TypeError):
+                    pass
+            
+            # Zapfstellen
+            zapfstellen = None
+            zapf_elem = item.find('zapfstellen')
+            if zapf_elem is not None and zapf_elem.text:
+                try:
+                    zapfstellen = int(float(zapf_elem.text))
+                except (ValueError, TypeError):
+                    pass
             
             systems.append({
                 'guid': guid,
                 'name': name,
-                'art': art,
-                'storage_volume': storage_volume,
-                'circulation': circulation
+                'netz_typ': netz_typ,
+                'deckung': deckung,
+                'temperatur': temperatur,
+                'zapfstellen': zapfstellen
             })
     
     return systems
 
 
 def _extract_ventilation(eing) -> List[dict]:
-    """Extrahiert Lüftungssysteme aus EVEBI"""
+    """Extrahiert Lüftungssysteme aus EVEBI mit wrg_grad als float"""
     systems = []
     
     luft_liste = eing.find('luftListe')
@@ -528,30 +560,34 @@ def _extract_ventilation(eing) -> List[dict]:
             name_elem = item.find('name')
             name = name_elem.text if name_elem is not None and name_elem.text else 'Unbekannt'
             
+            # Art (LA_FREI = Fensterlüftung, LA_ZENTRAL = zentrale RLT, etc.)
             art_elem = item.find('art')
             art = art_elem.text if art_elem is not None and art_elem.text else None
             
-            # Wärmerückgewinnung
-            wrg = None
-            wrg_elem = item.find('wrg')
-            if wrg_elem is not None:
-                wrg = wrg_elem.text == 'true' or wrg_elem.get('man') == 'true'
-            
-            # WRG-Grad
+            # WRG (Wärmerückgewinnung) - als float (0.0 = keine WRG)
             wrg_grad = None
-            wrg_grad_elem = item.find('wrg_grad')
-            if wrg_grad_elem is not None:
+            wrg_elem = item.find('wrg')
+            if wrg_elem is not None and wrg_elem.text:
                 try:
-                    wrg_grad = float(wrg_grad_elem.get('man', wrg_grad_elem.get('calc', '0')))
+                    wrg_grad = float(wrg_elem.text)
                 except (ValueError, TypeError):
                     wrg_grad = None
+            
+            # Anzahl
+            anzahl = None
+            anzahl_elem = item.find('anzahl')
+            if anzahl_elem is not None and anzahl_elem.text:
+                try:
+                    anzahl = int(float(anzahl_elem.text))
+                except (ValueError, TypeError):
+                    pass
             
             systems.append({
                 'guid': guid,
                 'name': name,
                 'art': art,
-                'wrg': wrg,
-                'wrg_grad': wrg_grad
+                'wrg_grad': wrg_grad,
+                'anzahl': anzahl
             })
     
     return systems
@@ -802,17 +838,23 @@ def process_roundtrip(ifc_path: str, evea_path: str, output_path: str = 'output_
     print(f'✅ {len(constructions)} Konstruktionen')
     
     # Fenster-Konstruktionen
+    # Fenster-Konstruktionen im Schema-Format (nested objects)
     window_constructions = []
     for wc in evebi_data.window_constructions:
         window_constructions.append({
             'id': wc['guid'],
             'name': wc['name'],
             'source': 'EVEBI',
+            'u_value': round(wc['u_value'], 3) if wc['u_value'] else None,
             'g_value': round(wc['g_value'], 3) if wc['g_value'] else None,
-            'ug': round(wc['ug'], 3) if wc['ug'] else None,
-            'uf': round(wc['uf'], 3) if wc['uf'] else None,
-            'frame_area_fraction': round(wc['frame_area_fraction'], 3) if wc['frame_area_fraction'] else None,
-            'u_value': round(wc['u_value'], 3) if wc['u_value'] else None
+            'glass': {
+                'u_value': round(wc['ug'], 3) if wc['ug'] else None,
+                'g_value': round(wc['g_value'], 3) if wc['g_value'] else None
+            },
+            'frame': {
+                'u_value': round(wc['uf'], 3) if wc['uf'] else None,
+                'area_fraction': round(wc['frame_area_fraction'], 3) if wc['frame_area_fraction'] else None
+            }
         })
     
     sidecar['input']['window_constructions'] = window_constructions
