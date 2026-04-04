@@ -4,16 +4,11 @@ Parst IFC und EVEBI Dateien für Sidecar-Generierung
 """
 
 from .evebi_parser import parse_evea, EVEBIData
-from .ifc_parser import parse_ifc, IFCGeometry
-from .mapper import map_ifc_to_evebi, MappingResult
-from .sidecar_generator import generate_sidecar
+
+# ifc_parser wurde durch ifc_parser_v3 ersetzt
+# Import wird hier nicht gemacht — wird direkt in roundtrip_processor.py importiert
 
 __all__ = [
     'parse_evea',
     'EVEBIData',
-    'parse_ifc',
-    'IFCGeometry',
-    'map_ifc_to_evebi',
-    'MappingResult',
-    'generate_sidecar'
 ]

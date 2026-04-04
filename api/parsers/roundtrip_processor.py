@@ -720,6 +720,89 @@ def _extract_pv(eing) -> List[dict]:
     return systems
 
 
+def _assign_zone_refs(sidecar: dict, eing, evebi_data) -> None:
+    """
+    Weist Räumen ihre zone_ref zu und markiert unbeheizte Räume.
+
+    Strategie:
+    1. EVEBI rmListe auslesen: Jeder Raum hat <zoneID> und <geschossID>
+    2. IFC-Räume (rooms[]) mit EVEBI-Räumen über Name matchen
+    3. zone_ref setzen (EVEBI zoneID → Sidecar Zone ID)
+    4. Raum ohne Zone → conditioned=false (unbeheizt)
+
+    Die Zuordnung Raum→Zone kommt vom Energieberater (EVEBI) und ist
+    fachlich maßgeblich. Ein Raum ohne Zone ist unbeheizt.
+    """
+    import xml.etree.ElementTree as ET
+
+    rooms = sidecar['input']['building'].get('rooms', [])
+    zones = sidecar['input']['building'].get('zones', [])
+    if not rooms or not zones:
+        return
+
+    # Verfügbare Zone-IDs sammeln (EVEBI-GUIDs)
+    zone_ids = {z['id'] for z in zones}
+
+    # EVEBI rmListe auslesen: Name → {zoneID, geschossID}
+    evebi_rooms = {}
+    rm_liste = eing.find('rmListe')
+    if rm_liste is not None:
+        for item in rm_liste.findall('item'):
+            name_elem = item.find('name')
+            name = ''
+            if name_elem is not None:
+                # EVEBI name hat Attribute (auto, man, calc) — Textinhalt ist der sichtbare Name
+                name = name_elem.text if name_elem.text else name_elem.get('man', '')
+            name = name.strip()
+
+            zone_id_elem = item.find('zoneID')
+            zone_id = ''
+            if zone_id_elem is not None and zone_id_elem.text:
+                zone_id = zone_id_elem.text.strip()
+
+            geschoss_id_elem = item.find('geschossID')
+            geschoss_id = ''
+            if geschoss_id_elem is not None and geschoss_id_elem.text:
+                geschoss_id = geschoss_id_elem.text.strip()
+
+            if name:
+                evebi_rooms[name.lower()] = {
+                    'zone_id': zone_id,
+                    'geschoss_id': geschoss_id,
+                }
+
+    # Jetzt IFC-Räume mit EVEBI-Räumen matchen (über Name)
+    assigned = 0
+    unheated = 0
+    for room in rooms:
+        room_name = room.get('name', '').strip().lower()
+        evebi_room = evebi_rooms.get(room_name)
+
+        if evebi_room:
+            zone_id = evebi_room['zone_id']
+            if zone_id and zone_id in zone_ids:
+                # Raum gehört zu einer Zone → beheizt
+                room['zone_ref'] = zone_id
+                room['conditioned'] = True
+                assigned += 1
+            else:
+                # Raum hat keine Zone → unbeheizt
+                room['zone_ref'] = None
+                room['conditioned'] = False
+                unheated += 1
+        else:
+            # Kein EVEBI-Match gefunden — Fallback: Wenn nur 1 Zone, zuweisen
+            if len(zones) == 1:
+                room['zone_ref'] = zones[0]['id']
+                room['conditioned'] = True
+                assigned += 1
+            else:
+                room['conditioned'] = None  # Unbekannt
+
+    if assigned > 0 or unheated > 0:
+        print(f'✅ zone_ref: {assigned} Räume zugewiesen, {unheated} unbeheizt')
+
+
 # ============================================================
 # Roundtrip Processor
 # ============================================================
@@ -979,12 +1062,26 @@ def process_roundtrip(ifc_path: str, evea_path: str, output_path: str = 'output_
                      len(evebi_data.ventilation_systems) + len(evebi_data.pv_systems))
     print(f'✅ {systems_count} Systeme')
     
-    # Geschosse
-    if evebi_data.storeys:
+    # Geschosse: IFC ist führend (korrekte Base64-GUIDs), EVEBI ergänzt Geschosshöhe
+    # Bug-Fix: Vorher wurden IFC-Storeys komplett mit EVEBI überschrieben,
+    # dabei ging das GUID-Format kaputt (Base64 vs. UUID+{}).
+    ifc_storeys = sidecar['input']['building'].get('storeys', [])
+    if evebi_data.storeys and ifc_storeys:
+        # Name-Matching: EVEBI-Geschosshöhe in IFC-Storeys ergänzen
+        evebi_by_name = {s['name'].lower().strip(): s for s in evebi_data.storeys}
+        for ifc_storey in ifc_storeys:
+            match = evebi_by_name.get(ifc_storey.get('name', '').lower().strip())
+            if match:
+                # Geschosshöhe aus EVEBI übernehmen (wenn vorhanden)
+                if match.get('height'):
+                    ifc_storey['height'] = match['height']
+        print(f'✅ {len(ifc_storeys)} Geschosse (IFC führend, EVEBI-Höhen ergänzt)')
+    elif evebi_data.storeys and not ifc_storeys:
+        # Kein IFC: EVEBI-Geschosse als Fallback
         sidecar['input']['building']['storeys'] = evebi_data.storeys
-        print(f'✅ {len(evebi_data.storeys)} Geschosse')
-    
-    # Zonen (FEHLTE!)
+        print(f'✅ {len(evebi_data.storeys)} Geschosse (aus EVEBI)')
+
+    # Zonen aus EVEBI
     if evebi_data.zones:
         sidecar['input']['building']['zones'] = [
             {
@@ -997,6 +1094,11 @@ def process_roundtrip(ifc_path: str, evea_path: str, output_path: str = 'output_
             for z in evebi_data.zones
         ]
         print(f'✅ {len(evebi_data.zones)} Zonen')
+
+    # Räume: zone_ref aus EVEBI rmListe zuweisen + unbeheizte Räume markieren
+    # EVEBI rmListe enthält <zoneID> pro Raum — das ist die fachlich korrekte Zuordnung
+    if eing is not None:
+        _assign_zone_refs(sidecar, eing, evebi_data)
     
     print()
     
