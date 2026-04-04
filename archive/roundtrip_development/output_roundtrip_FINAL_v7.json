@@ -14,23 +14,34 @@
       "building_guid": "0RcwDA$D9F0xftuAn$9jSC",
       "storeys": [
         {
-          "id": "0l8epsRaP9APUHjsFQJhiw",
+          "id": "{37694178-00F9-423B-96EE-649846E66948}",
           "name": "Erdgeschoss",
-          "elevation": -0.2
+          "elevation": null,
+          "height": null
         },
         {
-          "id": "1I$MoAG4zEaw9jCsfreYMt",
+          "id": "{939217EE-58D4-4C95-913F-B1FCD494CD31}",
           "name": "Obergeschoss",
-          "elevation": 2.7
+          "elevation": null,
+          "height": null
         },
         {
-          "id": "0uKrW83IPFlwqIs45poFIf",
+          "id": "{5444834B-CABC-4CB2-9514-2897867C6017}",
           "name": "Dachgeschoss",
-          "elevation": 5.5
+          "elevation": null,
+          "height": null
         }
       ],
       "dwelling_units": [],
-      "zones": [],
+      "zones": [
+        {
+          "id": "{5649D4EC-EAC4-4BAB-9420-DB55B4E4841C}",
+          "name": "Zone 1",
+          "area": 197.797852,
+          "volume": 433.8906555,
+          "heating_setpoint": 20.0
+        }
+      ],
       "rooms": [
         {
           "id": "3e1TEZJ3DC_gcenOZBhzq4",
@@ -111,14 +122,14 @@
           "area": 27.22,
           "orientation": 180.0,
           "inclination": 90.0,
-          "u_value": 0.0,
+          "u_value": 0.189,
           "boundary_condition": "exterior",
           "din_code": "WA",
           "fx_factor": 1.0,
           "room_ref": "3e1TEZJ3DC_gcenOZBhzq4",
           "zone_ref": null,
           "storey_ref": "0l8epsRaP9APUHjsFQJhiw",
-          "construction_ref": null
+          "construction_ref": "{40AFF211-56F3-4961-94D4-DA2E5E242A5C}"
         },
         {
           "id": "0wsGtpUkT56hELnVLS8x9z",
@@ -129,14 +140,14 @@
           "area": 21.65,
           "orientation": 90.0,
           "inclination": 90.0,
-          "u_value": 0.0,
+          "u_value": 0.189,
           "boundary_condition": "exterior",
           "din_code": "WA",
           "fx_factor": 1.0,
           "room_ref": "3e1TEZJ3DC_gcenOZBhzq4",
           "zone_ref": null,
           "storey_ref": "0l8epsRaP9APUHjsFQJhiw",
-          "construction_ref": null
+          "construction_ref": "{40AFF211-56F3-4961-94D4-DA2E5E242A5C}"
         },
         {
           "id": "3ZBufg2tD83hKrgh97KgL4",
@@ -147,14 +158,14 @@
           "area": 24.13,
           "orientation": 0.0,
           "inclination": 90.0,
-          "u_value": 0.0,
+          "u_value": 0.189,
           "boundary_condition": "exterior",
           "din_code": "WA",
           "fx_factor": 1.0,
           "room_ref": "3e1TEZJ3DC_gcenOZBhzq4",
           "zone_ref": null,
           "storey_ref": "0l8epsRaP9APUHjsFQJhiw",
-          "construction_ref": null
+          "construction_ref": "{40AFF211-56F3-4961-94D4-DA2E5E242A5C}"
         },
         {
           "id": "1dHWYmWpjEUOhnVpyhN7bg",
@@ -165,14 +176,14 @@
           "area": 21.65,
           "orientation": 270.0,
           "inclination": 90.0,
-          "u_value": 0.0,
+          "u_value": 0.189,
           "boundary_condition": "exterior",
           "din_code": "WA",
           "fx_factor": 1.0,
           "room_ref": "3e1TEZJ3DC_gcenOZBhzq4",
           "zone_ref": null,
           "storey_ref": "0l8epsRaP9APUHjsFQJhiw",
-          "construction_ref": null
+          "construction_ref": "{40AFF211-56F3-4961-94D4-DA2E5E242A5C}"
         },
         {
           "id": "3GX2MArf19ChzJkt9QX23R",
@@ -183,14 +194,14 @@
           "area": 23.25,
           "orientation": 180.0,
           "inclination": 90.0,
-          "u_value": 0.0,
+          "u_value": 3.096,
           "boundary_condition": "adjacent",
           "din_code": "WZ",
           "fx_factor": 0.0,
           "room_ref": "3e1TEZJ3DC_gcenOZBhzq4",
           "zone_ref": null,
           "storey_ref": "0l8epsRaP9APUHjsFQJhiw",
-          "construction_ref": null
+          "construction_ref": "{1F213908-1F37-45FB-92EF-720B64D2C25A}"
         },
         {
           "id": "36RyDbx0nF3OfvuY0$rk_1",
@@ -201,14 +212,14 @@
           "area": 11.42,
           "orientation": 270.0,
           "inclination": 90.0,
-          "u_value": 0.0,
+          "u_value": 3.096,
           "boundary_condition": "adjacent",
           "din_code": "WZ",
           "fx_factor": 0.0,
           "room_ref": "3e1TEZJ3DC_gcenOZBhzq4",
           "zone_ref": null,
           "storey_ref": "0l8epsRaP9APUHjsFQJhiw",
-          "construction_ref": null
+          "construction_ref": "{1F213908-1F37-45FB-92EF-720B64D2C25A}"
         },
         {
           "id": "1nwNMAfTvETA6mMay7QvOB",
@@ -219,14 +230,14 @@
           "area": 28.0,
           "orientation": 180.0,
           "inclination": 90.0,
-          "u_value": 0.0,
+          "u_value": 0.189,
           "boundary_condition": "exterior",
           "din_code": "WA",
           "fx_factor": 1.0,
           "room_ref": "1c$V6$ger0wvfgmLMFsw5X",
           "zone_ref": null,
           "storey_ref": "1I$MoAG4zEaw9jCsfreYMt",
-          "construction_ref": null
+          "construction_ref": "{40AFF211-56F3-4961-94D4-DA2E5E242A5C}"
         },
         {
           "id": "1AJqS9Ap1B9O67UKL288Ad",
@@ -237,14 +248,14 @@
           "area": 20.85,
           "orientation": 90.0,
           "inclination": 90.0,
-          "u_value": 0.0,
+          "u_value": 0.189,
           "boundary_condition": "exterior",
           "din_code": "WA",
           "fx_factor": 1.0,
           "room_ref": "1c$V6$ger0wvfgmLMFsw5X",
           "zone_ref": null,
           "storey_ref": "1I$MoAG4zEaw9jCsfreYMt",
-          "construction_ref": null
+          "construction_ref": "{40AFF211-56F3-4961-94D4-DA2E5E242A5C}"
         },
         {
           "id": "2VmTaTEzf1TAIyi5EQToiJ",
@@ -255,14 +266,14 @@
           "area": 24.91,
           "orientation": 0.0,
           "inclination": 90.0,
-          "u_value": 0.0,
+          "u_value": 0.189,
           "boundary_condition": "exterior",
           "din_code": "WA",
           "fx_factor": 1.0,
           "room_ref": "1c$V6$ger0wvfgmLMFsw5X",
           "zone_ref": null,
           "storey_ref": "1I$MoAG4zEaw9jCsfreYMt",
-          "construction_ref": null
+          "construction_ref": "{40AFF211-56F3-4961-94D4-DA2E5E242A5C}"
         },
         {
           "id": "1hJ9Q0GkHEc8yze1IpG89P",
@@ -273,14 +284,14 @@
           "area": 20.85,
           "orientation": 270.0,
           "inclination": 90.0,
-          "u_value": 0.0,
+          "u_value": 0.189,
           "boundary_condition": "exterior",
           "din_code": "WA",
           "fx_factor": 1.0,
           "room_ref": "1c$V6$ger0wvfgmLMFsw5X",
           "zone_ref": null,
           "storey_ref": "1I$MoAG4zEaw9jCsfreYMt",
-          "construction_ref": null
+          "construction_ref": "{40AFF211-56F3-4961-94D4-DA2E5E242A5C}"
         },
         {
           "id": "08sM8IGxr8X9IdFlOsGW2e",
@@ -291,14 +302,14 @@
           "area": 10.77,
           "orientation": 90.0,
           "inclination": 90.0,
-          "u_value": 0.0,
+          "u_value": 0.189,
           "boundary_condition": "exterior",
           "din_code": "WA",
           "fx_factor": 1.0,
           "room_ref": "3e1TEZJ3DC_gcenOZBhzq4",
           "zone_ref": null,
           "storey_ref": "0l8epsRaP9APUHjsFQJhiw",
-          "construction_ref": null
+          "construction_ref": "{40AFF211-56F3-4961-94D4-DA2E5E242A5C}"
         },
         {
           "id": "3k6$bzskHFyudhVfHBfhYf",
@@ -309,14 +320,14 @@
           "area": 11.73,
           "orientation": 180.0,
           "inclination": 90.0,
-          "u_value": 0.0,
+          "u_value": 0.189,
           "boundary_condition": "exterior",
           "din_code": "WA",
           "fx_factor": 1.0,
           "room_ref": "3e1TEZJ3DC_gcenOZBhzq4",
           "zone_ref": null,
           "storey_ref": "0l8epsRaP9APUHjsFQJhiw",
-          "construction_ref": null
+          "construction_ref": "{40AFF211-56F3-4961-94D4-DA2E5E242A5C}"
         },
         {
           "id": "10bt3HWiP8Hu0jTpYDl92_",
@@ -327,14 +338,14 @@
           "area": 11.83,
           "orientation": 270.0,
           "inclination": 90.0,
-          "u_value": 0.0,
+          "u_value": 0.189,
           "boundary_condition": "exterior",
           "din_code": "WA",
           "fx_factor": 1.0,
           "room_ref": "3e1TEZJ3DC_gcenOZBhzq4",
           "zone_ref": null,
           "storey_ref": "0l8epsRaP9APUHjsFQJhiw",
-          "construction_ref": null
+          "construction_ref": "{40AFF211-56F3-4961-94D4-DA2E5E242A5C}"
         },
         {
           "id": "3IrBibc8rAEhULblN7MjOo",
@@ -345,14 +356,14 @@
           "area": 28.0,
           "orientation": 180.0,
           "inclination": 90.0,
-          "u_value": 0.0,
+          "u_value": 0.189,
           "boundary_condition": "exterior",
           "din_code": "WA",
           "fx_factor": 1.0,
           "room_ref": "2X9uLB_i12DxsRDV43fnjc",
           "zone_ref": null,
           "storey_ref": "0uKrW83IPFlwqIs45poFIf",
-          "construction_ref": null
+          "construction_ref": "{40AFF211-56F3-4961-94D4-DA2E5E242A5C}"
         },
         {
           "id": "0Ku$5Xc$j5hx8p_BSGW_dj",
@@ -363,14 +374,14 @@
           "area": 22.4,
           "orientation": 90.0,
           "inclination": 90.0,
-          "u_value": 0.0,
+          "u_value": 0.189,
           "boundary_condition": "exterior",
           "din_code": "WA",
           "fx_factor": 1.0,
           "room_ref": "2X9uLB_i12DxsRDV43fnjc",
           "zone_ref": null,
           "storey_ref": "0uKrW83IPFlwqIs45poFIf",
-          "construction_ref": null
+          "construction_ref": "{40AFF211-56F3-4961-94D4-DA2E5E242A5C}"
         },
         {
           "id": "3ND6fA6LP7ePTpTpx4AOC5",
@@ -381,14 +392,14 @@
           "area": 28.0,
           "orientation": 0.0,
           "inclination": 90.0,
-          "u_value": 0.0,
+          "u_value": 0.189,
           "boundary_condition": "exterior",
           "din_code": "WA",
           "fx_factor": 1.0,
           "room_ref": "2X9uLB_i12DxsRDV43fnjc",
           "zone_ref": null,
           "storey_ref": "0uKrW83IPFlwqIs45poFIf",
-          "construction_ref": null
+          "construction_ref": "{40AFF211-56F3-4961-94D4-DA2E5E242A5C}"
         },
         {
           "id": "289qpJ9i944g9O6KhpXp25",
@@ -399,14 +410,14 @@
           "area": 22.4,
           "orientation": 270.0,
           "inclination": 90.0,
-          "u_value": 0.0,
+          "u_value": 0.189,
           "boundary_condition": "exterior",
           "din_code": "WA",
           "fx_factor": 1.0,
           "room_ref": "2X9uLB_i12DxsRDV43fnjc",
           "zone_ref": null,
           "storey_ref": "0uKrW83IPFlwqIs45poFIf",
-          "construction_ref": null
+          "construction_ref": "{40AFF211-56F3-4961-94D4-DA2E5E242A5C}"
         },
         {
           "id": "3N3B$e5Zz9c8NrtdJYnbP9",
@@ -417,14 +428,14 @@
           "area": 19.81,
           "orientation": 0.0,
           "inclination": 90.0,
-          "u_value": 0.0,
+          "u_value": 3.096,
           "boundary_condition": "adjacent",
           "din_code": "WZ",
           "fx_factor": 0.0,
           "room_ref": "2X9uLB_i12DxsRDV43fnjc",
           "zone_ref": null,
           "storey_ref": "0uKrW83IPFlwqIs45poFIf",
-          "construction_ref": null
+          "construction_ref": "{1F213908-1F37-45FB-92EF-720B64D2C25A}"
         },
         {
           "id": "27NdouOnHFWOsd0GB2idxs",
@@ -435,14 +446,14 @@
           "area": 15.47,
           "orientation": 90.0,
           "inclination": 90.0,
-          "u_value": 0.0,
+          "u_value": 3.096,
           "boundary_condition": "adjacent",
           "din_code": "WZ",
           "fx_factor": 0.0,
           "room_ref": "2X9uLB_i12DxsRDV43fnjc",
           "zone_ref": null,
           "storey_ref": "0uKrW83IPFlwqIs45poFIf",
-          "construction_ref": null
+          "construction_ref": "{1F213908-1F37-45FB-92EF-720B64D2C25A}"
         },
         {
           "id": "0WcMyW79XD6uy5QWRC0iel",
@@ -453,14 +464,14 @@
           "area": 15.47,
           "orientation": 270.0,
           "inclination": 90.0,
-          "u_value": 0.0,
+          "u_value": 3.096,
           "boundary_condition": "adjacent",
           "din_code": "WZ",
           "fx_factor": 0.0,
           "room_ref": "2X9uLB_i12DxsRDV43fnjc",
           "zone_ref": null,
           "storey_ref": "0uKrW83IPFlwqIs45poFIf",
-          "construction_ref": null
+          "construction_ref": "{1F213908-1F37-45FB-92EF-720B64D2C25A}"
         }
       ],
       "roofs": [
@@ -1018,6 +1029,472 @@
       "try_region": "07",
       "latitude": 51.266389,
       "longitude": 8.883056
+    },
+    "constructions": [
+      {
+        "id": "{74561419-FA45-486D-9E4E-A7191F6D8056}",
+        "name": "Boden nach außen (auf Erdreich)",
+        "source": "EVEBI",
+        "u_value": 0.165,
+        "sequences": [
+          {
+            "share": 1.0,
+            "name": "Hauptkonstruktion",
+            "layers": [
+              {
+                "material": "Fliesen",
+                "thickness": 0.01,
+                "lambda": 1.0,
+                "position": 0
+              },
+              {
+                "material": "Flexm.,Spezial-Fliese",
+                "thickness": 0.002,
+                "lambda": 0.55,
+                "position": 1
+              },
+              {
+                "material": "Zement-Estrich",
+                "thickness": 0.06,
+                "lambda": 1.4,
+                "position": 2
+              },
+              {
+                "material": "PS Partikelschaum",
+                "thickness": 0.08,
+                "lambda": 0.035,
+                "position": 3
+              },
+              {
+                "material": "Beton",
+                "thickness": 0.25,
+                "lambda": 1.65,
+                "position": 4
+              },
+              {
+                "material": "Polystyrolschaum",
+                "thickness": 0.12,
+                "lambda": 0.035,
+                "position": 5
+              },
+              {
+                "material": "Fliesen",
+                "thickness": 0.01,
+                "lambda": 1.0,
+                "position": 0
+              },
+              {
+                "material": "Flexm.,Spezial-Fliese",
+                "thickness": 0.002,
+                "lambda": 0.55,
+                "position": 1
+              },
+              {
+                "material": "Zement-Estrich",
+                "thickness": 0.06,
+                "lambda": 1.4,
+                "position": 2
+              },
+              {
+                "material": "PS Partikelschaum",
+                "thickness": 0.08,
+                "lambda": 0.035,
+                "position": 3
+              },
+              {
+                "material": "Beton",
+                "thickness": 0.25,
+                "lambda": 50.0,
+                "position": 4
+              },
+              {
+                "material": "Polystyrolschaum",
+                "thickness": 0.12,
+                "lambda": 0.035,
+                "position": 5
+              }
+            ]
+          }
+        ],
+        "total_thickness": 1.044
+      },
+      {
+        "id": "{49BE96FF-B2D9-4437-99BB-7BB50BA462CC}",
+        "name": "Zwischendecke",
+        "source": "EVEBI",
+        "u_value": 1.156,
+        "sequences": [
+          {
+            "share": 1.0,
+            "name": "Hauptkonstruktion",
+            "layers": [
+              {
+                "material": "Linoleum",
+                "thickness": 0.0025,
+                "lambda": 0.12,
+                "position": 0
+              },
+              {
+                "material": "Anhydritestrich",
+                "thickness": 0.03,
+                "lambda": 1.2,
+                "position": 1
+              },
+              {
+                "material": "Mineral. Faserdämmstoff",
+                "thickness": 0.01,
+                "lambda": 0.04,
+                "position": 2
+              },
+              {
+                "material": "Rippendecksteine",
+                "thickness": 0.21,
+                "lambda": 0.55,
+                "position": 3
+              },
+              {
+                "material": "Kalk-, Kalkzementmörtel",
+                "thickness": 0.015,
+                "lambda": 0.87,
+                "position": 4
+              }
+            ]
+          }
+        ],
+        "total_thickness": 0.2675
+      },
+      {
+        "id": "{23BA7790-E05A-459F-98DA-7854E1ADE0F4}",
+        "name": "Dach",
+        "source": "EVEBI",
+        "u_value": 0.133,
+        "sequences": [
+          {
+            "share": 1.0,
+            "name": "Hauptkonstruktion",
+            "layers": [
+              {
+                "material": "Kalkgipsputz",
+                "thickness": 0.0125,
+                "lambda": 0.21,
+                "position": 0
+              },
+              {
+                "material": "ruhende Luftschicht",
+                "thickness": 0.02,
+                "lambda": 0.0,
+                "position": 1
+              },
+              {
+                "material": "Dampfbremse",
+                "thickness": 0.025,
+                "lambda": 0.17,
+                "position": 2
+              },
+              {
+                "material": "Mineralwolle WLG032",
+                "thickness": 0.24,
+                "lambda": 0.032,
+                "position": 3
+              },
+              {
+                "material": "Holzweichfaser",
+                "thickness": 0.06,
+                "lambda": 0.04,
+                "position": 4
+              },
+              {
+                "material": "stark belüftete Luftschicht",
+                "thickness": 0.04,
+                "lambda": 0.0,
+                "position": 5
+              },
+              {
+                "material": "Tondachziegel",
+                "thickness": 0.02,
+                "lambda": 1.2,
+                "position": 6
+              },
+              {
+                "material": "Kalkgipsputz",
+                "thickness": 0.0125,
+                "lambda": 0.21,
+                "position": 0
+              },
+              {
+                "material": "ruhende Luftschicht",
+                "thickness": 0.02,
+                "lambda": 0.0,
+                "position": 1
+              },
+              {
+                "material": "Dampfbremse",
+                "thickness": 0.025,
+                "lambda": 0.17,
+                "position": 2
+              },
+              {
+                "material": "Mineralwolle WLG032",
+                "thickness": 0.24,
+                "lambda": 0.13,
+                "position": 3
+              },
+              {
+                "material": "Holzweichfaser",
+                "thickness": 0.06,
+                "lambda": 0.04,
+                "position": 4
+              },
+              {
+                "material": "stark belüftete Luftschicht",
+                "thickness": 0.04,
+                "lambda": 0.0,
+                "position": 5
+              },
+              {
+                "material": "Tondachziegel",
+                "thickness": 0.02,
+                "lambda": 1.2,
+                "position": 6
+              }
+            ]
+          }
+        ],
+        "total_thickness": 0.8350000000000002
+      },
+      {
+        "id": "{5899C7EC-D6C7-4B7A-B1D9-B55CA51B3233}",
+        "name": "Decke zu Dachraum (gedämmt)",
+        "source": "EVEBI",
+        "u_value": 0.158,
+        "sequences": [
+          {
+            "share": 1.0,
+            "name": "Hauptkonstruktion",
+            "layers": [
+              {
+                "material": "Kalkgipsmörtel",
+                "thickness": 0.015,
+                "lambda": 0.7,
+                "position": 0
+              },
+              {
+                "material": "Holzwolle-Leichtbauplatten",
+                "thickness": 0.025,
+                "lambda": 0.15,
+                "position": 1
+              },
+              {
+                "material": "Mineralfaser",
+                "thickness": 0.12,
+                "lambda": 0.035,
+                "position": 2
+              },
+              {
+                "material": "Mineralfaser",
+                "thickness": 0.08,
+                "lambda": 0.035,
+                "position": 3
+              },
+              {
+                "material": "Holzfaserdämmstoff (WF)",
+                "thickness": 0.06,
+                "lambda": 0.04,
+                "position": 4
+              },
+              {
+                "material": "Tondachziegel",
+                "thickness": 0.02,
+                "lambda": 1.2,
+                "position": 5
+              },
+              {
+                "material": "Kalkgipsmörtel",
+                "thickness": 0.015,
+                "lambda": 0.7,
+                "position": 0
+              },
+              {
+                "material": "Holzwolle-Leichtbauplatte",
+                "thickness": 0.025,
+                "lambda": 0.14,
+                "position": 1
+              },
+              {
+                "material": "Sparren",
+                "thickness": 0.12,
+                "lambda": 0.13,
+                "position": 2
+              },
+              {
+                "material": "Sparren",
+                "thickness": 0.08,
+                "lambda": 0.13,
+                "position": 3
+              },
+              {
+                "material": "Holzfaserdämmstoff (WF)",
+                "thickness": 0.06,
+                "lambda": 0.04,
+                "position": 4
+              },
+              {
+                "material": "Tondachziegel",
+                "thickness": 0.02,
+                "lambda": 1.2,
+                "position": 5
+              }
+            ]
+          }
+        ],
+        "total_thickness": 0.6400000000000001
+      },
+      {
+        "id": "{40AFF211-56F3-4961-94D4-DA2E5E242A5C}",
+        "name": "Außenwand (Luft)",
+        "source": "EVEBI",
+        "u_value": 0.189,
+        "sequences": [
+          {
+            "share": 1.0,
+            "name": "Hauptkonstruktion",
+            "layers": [
+              {
+                "material": "Natursteinmauerwerk",
+                "thickness": 0.6,
+                "lambda": 2.3299999,
+                "position": 0
+              },
+              {
+                "material": "Kronoply OSB-Platte",
+                "thickness": 0.015,
+                "lambda": 0.13,
+                "position": 1
+              },
+              {
+                "material": "Zellulosedämmung zw. Holzständ",
+                "thickness": 0.2,
+                "lambda": 0.05,
+                "position": 2
+              },
+              {
+                "material": "Holzfaserdämmplatte Therm",
+                "thickness": 0.06,
+                "lambda": 0.05,
+                "position": 3
+              },
+              {
+                "material": "Leichtputz",
+                "thickness": 0.01,
+                "lambda": 0.56,
+                "position": 4
+              },
+              {
+                "material": "Natursteinmauerwerk",
+                "thickness": 0.6,
+                "lambda": 2.3299999,
+                "position": 0
+              },
+              {
+                "material": "Kronoply OSB-Platte",
+                "thickness": 0.015,
+                "lambda": 0.13,
+                "position": 1
+              },
+              {
+                "material": "Holz (Fichte, Kiefer, Tanne)",
+                "thickness": 0.2,
+                "lambda": 0.13,
+                "position": 2
+              },
+              {
+                "material": "Holzfaserdämmplatte Therm",
+                "thickness": 0.06,
+                "lambda": 0.05,
+                "position": 3
+              },
+              {
+                "material": "Leichtputz",
+                "thickness": 0.01,
+                "lambda": 0.56,
+                "position": 4
+              }
+            ]
+          }
+        ],
+        "total_thickness": 1.7699999999999998
+      },
+      {
+        "id": "{1F213908-1F37-45FB-92EF-720B64D2C25A}",
+        "name": "Zwischenwand",
+        "source": "EVEBI",
+        "u_value": 3.096,
+        "sequences": [
+          {
+            "share": 1.0,
+            "name": "Hauptkonstruktion",
+            "layers": [
+              {
+                "material": "Maschinenputz",
+                "thickness": 0.01,
+                "lambda": 0.35,
+                "position": 0
+              },
+              {
+                "material": "KLB-Plan-Schalldämmsteine 11,5",
+                "thickness": 0.115,
+                "lambda": 1.2,
+                "position": 1
+              },
+              {
+                "material": "Maschinenputz",
+                "thickness": 0.01,
+                "lambda": 0.35,
+                "position": 2
+              }
+            ]
+          }
+        ],
+        "total_thickness": 0.135
+      }
+    ],
+    "systems": {
+      "heating": [
+        {
+          "guid": "{E0ADB872-0B4E-42CF-AEDE-091A387A7082}",
+          "name": "Gas-Niedertemperaturkessel",
+          "art": "HZ_ZENTRALHEIZUNG",
+          "year_built": null
+        }
+      ],
+      "dhw": [
+        {
+          "guid": "{653A71AA-50F6-4A7D-8CC8-34FD23CE446B}",
+          "name": "Gas-Niedertemperaturkessel (Kombibereiter)",
+          "art": "WT_HZG",
+          "storage_volume": null,
+          "circulation": null
+        }
+      ],
+      "ventilation": [
+        {
+          "guid": "{D997EAC5-1E30-418C-9C9A-FDFC35D6A84D}",
+          "name": "Fensterlüftung",
+          "art": "LA_FREI",
+          "wrg": false,
+          "wrg_grad": null
+        }
+      ],
+      "pv": [
+        {
+          "guid": "{109D7299-80DE-4D1A-9EF4-6B7E5A14F3E5}",
+          "name": "Photovoltaikanlage",
+          "peak_power": 4.9347601,
+          "orientation": 0.0,
+          "inclination": 0.0,
+          "area": 0.0
+        }
+      ]
     }
   },
   "warnings": [

@@ -1,98 +1,127 @@
--- ============================================================================
--- DIN 18599 IFC Sidecar - PostgreSQL Database Schema
--- ============================================================================
--- Version: 2.0.0
--- Stand: März 2026
--- Beschreibung: Optional Backend für Multi-User, Versionierung, Kataloge
--- ============================================================================
+-- ══════════════════════════════════════════════════════════════════════
+-- DIN 18599 IFC Sidecar — Datenbank-Schema v2.3
+-- ══════════════════════════════════════════════════════════════════════
+--
+-- Architektur: Hybrid (Option C)
+--   → JSONB als Source of Truth (verlustfreier Roundtrip)
+--   → Extrahierte Spalten für schnelle Queries
+--   → Validierung in Python VOR dem Insert
+--
+-- Kompatibel mit: Schema v2.3 (flache Struktur: dwelling_units, zones, rooms)
+-- Erstellt: 2026-04-04
+-- Lizenz: Apache 2.0
+-- ══════════════════════════════════════════════════════════════════════
 
--- Schema erstellen
+-- Eigenes Schema für Isolation
 CREATE SCHEMA IF NOT EXISTS din18599;
 
--- Kommentar
-COMMENT ON SCHEMA din18599 IS 'DIN 18599 IFC Sidecar - Projekt-Management und Kataloge';
+-- UUID-Erweiterung (für gen_random_uuid)
+CREATE EXTENSION IF NOT EXISTS "pgcrypto";
 
--- ============================================================================
+
+-- ══════════════════════════════════════════════════════════════════════
 -- 1. PROJEKTE
--- ============================================================================
+-- Verwaltungs-Ebene: Ein Projekt = ein Gebäude mit IFC + Sidecar(s)
+-- ══════════════════════════════════════════════════════════════════════
 
 CREATE TABLE din18599.projects (
-    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    name VARCHAR(255) NOT NULL,
-    description TEXT,
-    
-    -- IFC-Referenz
-    ifc_file_path TEXT,
-    ifc_guid_building UUID,
-    
-    -- Metadaten
-    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    created_by UUID,
-    updated_by UUID,
-    
-    -- Soft Delete
-    deleted_at TIMESTAMPTZ,
-    
-    -- Constraints
-    CONSTRAINT projects_name_not_empty CHECK (LENGTH(TRIM(name)) > 0)
+    id              UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    name            TEXT NOT NULL,
+    description     TEXT,
+    -- IFC-Referenz (optional, da Sidecar auch ohne IFC existieren kann)
+    ifc_file_ref    TEXT,
+    created_at      TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    updated_at      TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
-CREATE INDEX idx_projects_created_at ON din18599.projects(created_at);
-CREATE INDEX idx_projects_deleted_at ON din18599.projects(deleted_at) WHERE deleted_at IS NULL;
+-- Automatische Aktualisierung von updated_at
+CREATE OR REPLACE FUNCTION din18599.update_timestamp()
+RETURNS TRIGGER AS $$
+BEGIN
+    NEW.updated_at = NOW();
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
 
-COMMENT ON TABLE din18599.projects IS 'Energieberatungs-Projekte';
-COMMENT ON COLUMN din18599.projects.ifc_file_path IS 'Pfad zur IFC-Datei (relativ oder absolut)';
-COMMENT ON COLUMN din18599.projects.ifc_guid_building IS 'GlobalId des IfcBuilding';
+CREATE TRIGGER trg_projects_updated
+    BEFORE UPDATE ON din18599.projects
+    FOR EACH ROW EXECUTE FUNCTION din18599.update_timestamp();
 
--- ============================================================================
--- 2. SIDECARS (Versionierte JSON-Daten)
--- ============================================================================
+
+-- ══════════════════════════════════════════════════════════════════════
+-- 2. SIDECARS (Kern-Tabelle)
+-- Versionierte Sidecar-JSONs mit extrahierten Metadaten
+--
+-- Design-Entscheidung: data (JSONB) enthält das VOLLSTÄNDIGE JSON.
+-- Die extrahierten Spalten sind Convenience-Felder für schnelle Queries,
+-- sie werden beim Import aus dem JSON befüllt.
+-- Export = SELECT data → 1:1 identisch mit dem Original.
+-- ══════════════════════════════════════════════════════════════════════
 
 CREATE TABLE din18599.sidecars (
-    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    project_id UUID NOT NULL REFERENCES din18599.projects(id) ON DELETE CASCADE,
-    
-    -- Versionierung
-    version INT NOT NULL,
-    version_name VARCHAR(100),
-    is_current BOOLEAN NOT NULL DEFAULT false,
-    
-    -- Metadaten
-    lod VARCHAR(10),
-    mode VARCHAR(20) CHECK (mode IN ('STANDALONE', 'SIMPLIFIED', 'IFC_LINKED')),
-    
-    -- Vollständiges Sidecar JSON
-    data JSONB NOT NULL,
-    
-    -- Hash für Änderungserkennung
-    data_hash VARCHAR(64),
-    
-    -- Audit
-    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    created_by UUID,
-    
-    -- Soft Delete
-    deleted_at TIMESTAMPTZ,
-    
+    id                  UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    project_id          UUID NOT NULL REFERENCES din18599.projects(id) ON DELETE CASCADE,
+    version             INT NOT NULL,
+
+    -- Das vollständige Sidecar JSON — Source of Truth
+    data                JSONB NOT NULL,
+
+    -- SHA-256 Hash des JSON für Duplikat-Erkennung
+    data_hash           TEXT NOT NULL,
+
+    -- Versionierung: Nur eine aktuelle Version pro Projekt
+    is_current          BOOLEAN NOT NULL DEFAULT true,
+
+    -- ── Extrahierte Metadaten (aus data beim Import befüllt) ──
+
+    -- Schema-Version (z.B. "2.3.0")
+    schema_version      TEXT,
+    -- Level of Detail: "100" bis "500"
+    lod                 TEXT,
+    -- Projektname aus meta.project_name
+    project_name        TEXT,
+    -- IFC-Dateiname aus meta.ifc_file_ref
+    ifc_file_ref        TEXT,
+    -- IFC-Schema (IFC2X3, IFC4, IFC4X3)
+    ifc_schema          TEXT,
+
+    -- ── Extrahierte Gebäudedaten ──
+
+    -- Baujahr aus building.construction_year
+    construction_year   INT,
+    -- Beheizte Fläche aus building.heated_area [m²]
+    heated_area         NUMERIC,
+
+    -- ── Statistik-Spalten (beim Import berechnet) ──
+
+    wall_count          INT DEFAULT 0,
+    roof_count          INT DEFAULT 0,
+    floor_count         INT DEFAULT 0,
+    window_count        INT DEFAULT 0,
+    door_count          INT DEFAULT 0,
+    zone_count          INT DEFAULT 0,
+    room_count          INT DEFAULT 0,
+    construction_count  INT DEFAULT 0,
+
+    -- Timestamps
+    created_at          TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+
     -- Constraints
-    UNIQUE(project_id, version),
-    CONSTRAINT sidecars_version_positive CHECK (version > 0),
-    CONSTRAINT sidecars_lod_valid CHECK (lod IN ('100', '200', '300', '400', '500'))
+    UNIQUE(project_id, version)
 );
 
-CREATE INDEX idx_sidecars_project_id ON din18599.sidecars(project_id);
-CREATE INDEX idx_sidecars_is_current ON din18599.sidecars(project_id, is_current) WHERE is_current = true;
+-- GIN-Index für JSONB-Queries (z.B. alle Wände mit U-Wert < 0.3)
 CREATE INDEX idx_sidecars_data_gin ON din18599.sidecars USING GIN (data);
-CREATE INDEX idx_sidecars_deleted_at ON din18599.sidecars(deleted_at) WHERE deleted_at IS NULL;
 
-COMMENT ON TABLE din18599.sidecars IS 'Versionierte Sidecar-JSONs';
-COMMENT ON COLUMN din18599.sidecars.data IS 'Vollständiges Sidecar JSON (JSONB für schnelle Queries)';
-COMMENT ON COLUMN din18599.sidecars.data_hash IS 'SHA-256 Hash des JSON (für Änderungserkennung)';
-COMMENT ON COLUMN din18599.sidecars.is_current IS 'Aktuelle Version (nur eine pro Projekt)';
+-- B-Tree Indizes für häufige Filter
+CREATE INDEX idx_sidecars_project_current ON din18599.sidecars (project_id, is_current) WHERE is_current = true;
+CREATE INDEX idx_sidecars_schema_version ON din18599.sidecars (schema_version);
+CREATE INDEX idx_sidecars_lod ON din18599.sidecars (lod);
 
 -- Trigger: Nur eine aktuelle Version pro Projekt
-CREATE OR REPLACE FUNCTION din18599.ensure_single_current_version()
+-- Wenn ein neuer Sidecar mit is_current=true eingefügt wird,
+-- werden alle anderen Versionen desselben Projekts auf is_current=false gesetzt.
+CREATE OR REPLACE FUNCTION din18599.ensure_single_current()
 RETURNS TRIGGER AS $$
 BEGIN
     IF NEW.is_current = true THEN
@@ -106,421 +135,177 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-CREATE TRIGGER trigger_ensure_single_current_version
+CREATE TRIGGER trg_single_current
     BEFORE INSERT OR UPDATE ON din18599.sidecars
-    FOR EACH ROW
-    EXECUTE FUNCTION din18599.ensure_single_current_version();
+    FOR EACH ROW EXECUTE FUNCTION din18599.ensure_single_current();
 
--- ============================================================================
+
+-- ══════════════════════════════════════════════════════════════════════
 -- 3. KATALOGE
--- ============================================================================
+-- Bundesanzeiger U-Werte, Material-Datenbanken, Custom Catalogs
+-- ══════════════════════════════════════════════════════════════════════
 
 CREATE TABLE din18599.catalogs (
-    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    
-    -- Katalog-Info
-    catalog_id VARCHAR(100) NOT NULL UNIQUE,
-    version VARCHAR(20) NOT NULL,
-    name VARCHAR(255) NOT NULL,
-    description TEXT,
-    
-    -- Typ
-    type VARCHAR(50) NOT NULL CHECK (type IN ('CONSTRUCTIONS', 'MATERIALS', 'SYSTEMS', 'CUSTOM')),
-    
-    -- Quelle
-    source VARCHAR(255),
-    source_url TEXT,
-    valid_from DATE,
-    valid_to DATE,
-    
-    -- Katalog-Daten (JSON)
-    data JSONB NOT NULL,
-    
-    -- Metadaten
-    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    created_by UUID,
-    
-    -- Soft Delete
-    deleted_at TIMESTAMPTZ,
-    
-    -- Constraints
-    UNIQUE(catalog_id, version),
-    CONSTRAINT catalogs_name_not_empty CHECK (LENGTH(TRIM(name)) > 0)
+    id              UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    name            TEXT NOT NULL,
+    -- Katalog-Typ: CONSTRUCTIONS, MATERIALS, USAGE_PROFILES, SYSTEMS
+    type            TEXT NOT NULL,
+    version         TEXT,
+    -- Quelle: z.B. "Bundesanzeiger AT 04.12.2020 B1"
+    source          TEXT,
+    -- Vollständiger Katalog als JSONB
+    data            JSONB NOT NULL,
+    created_at      TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+
+    -- Ein Katalog-Name + Version muss eindeutig sein
+    UNIQUE(name, version)
 );
 
-CREATE INDEX idx_catalogs_type ON din18599.catalogs(type);
-CREATE INDEX idx_catalogs_data_gin ON din18599.catalogs USING GIN (data);
-CREATE INDEX idx_catalogs_deleted_at ON din18599.catalogs(deleted_at) WHERE deleted_at IS NULL;
 
-COMMENT ON TABLE din18599.catalogs IS 'Kataloge (Bundesanzeiger, Custom)';
-COMMENT ON COLUMN din18599.catalogs.catalog_id IS 'Eindeutige Katalog-ID (z.B. DE_BMWI2020_BAUTEILE)';
-COMMENT ON COLUMN din18599.catalogs.data IS 'Katalog-Daten als JSONB';
+-- ══════════════════════════════════════════════════════════════════════
+-- 4. IMPORT-LOG
+-- Dokumentiert jeden Import-Versuch mit Validierungsergebnis
+-- Wichtig für Nachvollziehbarkeit und Fehleranalyse
+-- ══════════════════════════════════════════════════════════════════════
 
--- ============================================================================
--- 4. AUDIT LOG
--- ============================================================================
+CREATE TABLE din18599.import_log (
+    id                      UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    -- Referenz zum erstellten Sidecar (NULL wenn Import fehlgeschlagen)
+    sidecar_id              UUID REFERENCES din18599.sidecars(id) ON DELETE SET NULL,
+    project_id              UUID REFERENCES din18599.projects(id) ON DELETE CASCADE,
 
-CREATE TABLE din18599.audit_log (
-    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    
-    -- Referenz
-    project_id UUID REFERENCES din18599.projects(id) ON DELETE SET NULL,
-    sidecar_id UUID REFERENCES din18599.sidecars(id) ON DELETE SET NULL,
-    
-    -- Aktion
-    action VARCHAR(50) NOT NULL CHECK (action IN (
-        'CREATE', 'UPDATE', 'DELETE', 'RESTORE',
-        'CALCULATE', 'EXPORT', 'IMPORT'
-    )),
-    entity_type VARCHAR(50) NOT NULL CHECK (entity_type IN (
-        'PROJECT', 'SIDECAR', 'CATALOG'
-    )),
-    
-    -- Änderungen (JSON Diff)
-    changes JSONB,
-    
-    -- Metadaten
-    user_id UUID,
-    ip_address INET,
-    user_agent TEXT,
-    
-    -- Zeitstempel
-    timestamp TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    -- Quelldatei-Info
+    filename                TEXT,
+    file_size_bytes         INT,
+
+    -- Import-Status: SUCCESS, WARNINGS, FAILED
+    status                  TEXT NOT NULL,
+
+    -- Validierungsergebnisse (3 Ebenen)
+    schema_valid            BOOLEAN,       -- Ebene 1: JSON Schema
+    references_valid        BOOLEAN,       -- Ebene 2: Interne Referenzen
+    plausibility_valid      BOOLEAN,       -- Ebene 3: Fachliche Plausibilität
+
+    -- Details zu Fehlern und Warnungen
+    errors                  JSONB DEFAULT '[]'::jsonb,
+    warnings                JSONB DEFAULT '[]'::jsonb,
+
+    -- Wie lange hat die Validierung gedauert?
+    validation_duration_ms  INT,
+
+    imported_at             TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
-CREATE INDEX idx_audit_log_project_id ON din18599.audit_log(project_id);
-CREATE INDEX idx_audit_log_timestamp ON din18599.audit_log(timestamp DESC);
-CREATE INDEX idx_audit_log_action ON din18599.audit_log(action);
+CREATE INDEX idx_import_log_project ON din18599.import_log (project_id);
+CREATE INDEX idx_import_log_status ON din18599.import_log (status);
 
-COMMENT ON TABLE din18599.audit_log IS 'Audit-Trail für alle Änderungen';
-COMMENT ON COLUMN din18599.audit_log.changes IS 'JSON Diff (old_value, new_value)';
 
--- ============================================================================
--- 5. BENUTZER (Optional - wenn nicht externes Auth-System)
--- ============================================================================
+-- ══════════════════════════════════════════════════════════════════════
+-- 5. VIEW: Projekt-Übersicht
+-- Für schnelle Auflistung aller Projekte mit aktuellem Sidecar-Status
+-- ══════════════════════════════════════════════════════════════════════
 
-CREATE TABLE din18599.users (
-    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    
-    -- Auth
-    email VARCHAR(255) NOT NULL UNIQUE,
-    password_hash VARCHAR(255),
-    
-    -- Profil
-    name VARCHAR(255),
-    organization VARCHAR(255),
-    
-    -- Rollen
-    role VARCHAR(50) NOT NULL DEFAULT 'USER' CHECK (role IN ('ADMIN', 'USER', 'VIEWER')),
-    
-    -- Metadaten
-    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    last_login_at TIMESTAMPTZ,
-    
-    -- Soft Delete
-    deleted_at TIMESTAMPTZ,
-    
-    -- Constraints
-    CONSTRAINT users_email_valid CHECK (email ~* '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$')
-);
-
-CREATE INDEX idx_users_email ON din18599.users(email);
-CREATE INDEX idx_users_deleted_at ON din18599.users(deleted_at) WHERE deleted_at IS NULL;
-
-COMMENT ON TABLE din18599.users IS 'Benutzer (optional, wenn kein externes Auth-System)';
-
--- ============================================================================
--- 6. DIN 18599 VARIABLEN-REGISTRY (Tabelle 1-4)
--- ============================================================================
-
--- Tabelle 1: Symbole
-CREATE TABLE din18599.variables (
-    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    
-    -- Symbol
-    symbol VARCHAR(50) UNIQUE NOT NULL,
-    symbol_latex VARCHAR(100),
-    
-    -- Namen
-    name_de TEXT NOT NULL,
-    name_en TEXT,
-    
-    -- Einheit
-    unit VARCHAR(50),
-    unit_latex VARCHAR(100),
-    
-    -- Datentyp
-    data_type VARCHAR(20) NOT NULL CHECK (data_type IN ('number', 'string', 'boolean', 'enum', 'array')),
-    min_value NUMERIC,
-    max_value NUMERIC,
-    enum_values TEXT[], -- Für Enums
-    
-    -- DIN-Referenz
-    din_part VARCHAR(20), -- z.B. 'DIN/TS 18599-2'
-    din_table VARCHAR(50), -- z.B. 'Tabelle 5'
-    din_section VARCHAR(50), -- z.B. 'Abschnitt 5'
-    
-    -- Verwendung
-    used_in TEXT[], -- Array von DIN-Teilen
-    category VARCHAR(50), -- temperature, thermal_transmission, internal_gains, etc.
-    scope VARCHAR(20) CHECK (scope IN ('building', 'zone', 'element', 'window', 'system', 'global')),
-    
-    -- Pflichtfeld?
-    required BOOLEAN DEFAULT false,
-    
-    -- Berechnung
-    calculation_method VARCHAR(50), -- automatic, manual, lookup, formula
-    formula TEXT, -- LaTeX-Formel
-    
-    -- Default-Werte (JSONB für Flexibilität)
-    default_values JSONB, -- {"residential_efh": 20, "residential_mfh": 20}
-    
-    -- Mapping zu Schema-Feldern
-    schema_path TEXT, -- z.B. 'zones[].usage_profile.parameters_din.theta_i_h_soll'
-    
-    -- Metadaten
-    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    
-    -- Constraints
-    CONSTRAINT variables_symbol_not_empty CHECK (LENGTH(TRIM(symbol)) > 0),
-    CONSTRAINT variables_name_de_not_empty CHECK (LENGTH(TRIM(name_de)) > 0)
-);
-
-CREATE INDEX idx_variables_symbol ON din18599.variables(symbol);
-CREATE INDEX idx_variables_category ON din18599.variables(category);
-CREATE INDEX idx_variables_scope ON din18599.variables(scope);
-CREATE INDEX idx_variables_used_in_gin ON din18599.variables USING GIN (used_in);
-
-COMMENT ON TABLE din18599.variables IS 'DIN 18599 Variablen-Registry (Tabelle 1: Symbole)';
-COMMENT ON COLUMN din18599.variables.symbol IS 'Symbol (z.B. theta_i_h_soll, F_x, q_I)';
-COMMENT ON COLUMN din18599.variables.symbol_latex IS 'LaTeX-Symbol (z.B. \\theta_{i,h,soll})';
-COMMENT ON COLUMN din18599.variables.schema_path IS 'JSON-Path im Schema (z.B. zones[].usage_profile.parameters_din.theta_i_h_soll)';
-
--- Tabelle 2: Indizes
-CREATE TABLE din18599.indices (
-    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    
-    -- Index
-    index_symbol VARCHAR(10) UNIQUE NOT NULL,
-    
-    -- Namen
-    name_de TEXT NOT NULL,
-    name_en TEXT,
-    
-    -- Beschreibung
-    description_de TEXT,
-    description_en TEXT,
-    
-    -- Metadaten
-    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    
-    -- Constraints
-    CONSTRAINT indices_symbol_not_empty CHECK (LENGTH(TRIM(index_symbol)) > 0)
-);
-
-CREATE INDEX idx_indices_symbol ON din18599.indices(index_symbol);
-
-COMMENT ON TABLE din18599.indices IS 'DIN 18599 Indizes (Tabelle 2)';
-COMMENT ON COLUMN din18599.indices.index_symbol IS 'Index-Symbol (z.B. i, h, soll, a)';
-
--- Tabelle 3+4: Ein-/Ausgangsgrößen
-CREATE TABLE din18599.interface_variables (
-    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    
-    -- Referenz zu Variable
-    variable_id UUID REFERENCES din18599.variables(id) ON DELETE CASCADE,
-    
-    -- Typ
-    interface_type VARCHAR(20) NOT NULL CHECK (interface_type IN ('INPUT', 'OUTPUT')),
-    
-    -- Quelle/Ziel
-    source_part VARCHAR(20), -- z.B. 'DIN/TS 18599-1' (bei INPUT)
-    target_part VARCHAR(20), -- z.B. 'DIN/TS 18599-2' (bei OUTPUT)
-    
-    -- DIN-Referenz
-    din_table VARCHAR(50), -- 'Tabelle 3' oder 'Tabelle 4'
-    din_section VARCHAR(50),
-    
-    -- Beschreibung
-    description_de TEXT,
-    description_en TEXT,
-    
-    -- Metadaten
-    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    
-    -- Constraints
-    UNIQUE(variable_id, interface_type, source_part, target_part)
-);
-
-CREATE INDEX idx_interface_variables_type ON din18599.interface_variables(interface_type);
-CREATE INDEX idx_interface_variables_variable_id ON din18599.interface_variables(variable_id);
-
-COMMENT ON TABLE din18599.interface_variables IS 'DIN 18599 Ein-/Ausgangsgrößen (Tabelle 3+4)';
-COMMENT ON COLUMN din18599.interface_variables.interface_type IS 'INPUT = Eingangsgröße (Tabelle 3), OUTPUT = Ausgangsgröße (Tabelle 4)';
-
--- ============================================================================
--- 7. PROJEKT-MITGLIEDER (Team-Zugriff)
--- ============================================================================
-
-CREATE TABLE din18599.project_members (
-    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    
-    -- Referenzen
-    project_id UUID NOT NULL REFERENCES din18599.projects(id) ON DELETE CASCADE,
-    user_id UUID NOT NULL REFERENCES din18599.users(id) ON DELETE CASCADE,
-    
-    -- Rolle
-    role VARCHAR(50) NOT NULL DEFAULT 'VIEWER' CHECK (role IN ('OWNER', 'EDITOR', 'VIEWER')),
-    
-    -- Metadaten
-    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    created_by UUID,
-    
-    -- Constraints
-    UNIQUE(project_id, user_id)
-);
-
-CREATE INDEX idx_project_members_project_id ON din18599.project_members(project_id);
-CREATE INDEX idx_project_members_user_id ON din18599.project_members(user_id);
-
-COMMENT ON TABLE din18599.project_members IS 'Projekt-Team (Multi-User-Zugriff)';
-
--- ============================================================================
--- 7. VIEWS (Convenience)
--- ============================================================================
-
--- Aktuelle Sidecars
-CREATE VIEW din18599.current_sidecars AS
-SELECT 
-    s.*,
-    p.name AS project_name
-FROM din18599.sidecars s
-JOIN din18599.projects p ON s.project_id = p.id
-WHERE s.is_current = true
-  AND s.deleted_at IS NULL
-  AND p.deleted_at IS NULL;
-
-COMMENT ON VIEW din18599.current_sidecars IS 'Nur aktuelle Sidecar-Versionen';
-
--- Projekt-Übersicht
-CREATE VIEW din18599.project_overview AS
-SELECT 
-    p.id,
-    p.name,
+CREATE OR REPLACE VIEW din18599.v_projects_overview AS
+SELECT
+    p.id                    AS project_id,
+    p.name                  AS project_name,
     p.description,
-    p.ifc_file_path,
-    COUNT(DISTINCT s.id) AS version_count,
-    MAX(s.version) AS latest_version,
-    MAX(s.created_at) AS last_updated,
-    p.created_at,
-    p.created_by
+    p.ifc_file_ref          AS project_ifc_ref,
+    p.created_at            AS project_created,
+    p.updated_at            AS project_updated,
+    -- Aktueller Sidecar
+    s.id                    AS sidecar_id,
+    s.version               AS sidecar_version,
+    s.schema_version,
+    s.lod,
+    s.project_name          AS sidecar_project_name,
+    s.ifc_file_ref          AS sidecar_ifc_ref,
+    s.ifc_schema,
+    s.construction_year,
+    s.heated_area,
+    -- Statistiken
+    s.wall_count,
+    s.roof_count,
+    s.floor_count,
+    s.window_count,
+    s.door_count,
+    s.zone_count,
+    s.room_count,
+    s.construction_count,
+    s.created_at            AS sidecar_created,
+    -- Gesamte Versionen
+    (SELECT COUNT(*) FROM din18599.sidecars sv WHERE sv.project_id = p.id)::int AS total_versions,
+    -- Letzter Import-Status
+    (SELECT il.status FROM din18599.import_log il
+     WHERE il.project_id = p.id
+     ORDER BY il.imported_at DESC LIMIT 1) AS last_import_status
 FROM din18599.projects p
-LEFT JOIN din18599.sidecars s ON p.id = s.project_id AND s.deleted_at IS NULL
-WHERE p.deleted_at IS NULL
-GROUP BY p.id;
+LEFT JOIN din18599.sidecars s ON s.project_id = p.id AND s.is_current = true;
 
-COMMENT ON VIEW din18599.project_overview IS 'Projekt-Übersicht mit Statistiken';
 
--- ============================================================================
--- 8. FUNKTIONEN (Helper)
--- ============================================================================
+-- ══════════════════════════════════════════════════════════════════════
+-- 6. HELPER-FUNKTIONEN
+-- Nützliche SQL-Funktionen für häufige JSONB-Abfragen
+-- ══════════════════════════════════════════════════════════════════════
 
--- Neue Sidecar-Version erstellen
-CREATE OR REPLACE FUNCTION din18599.create_sidecar_version(
-    p_project_id UUID,
-    p_data JSONB,
-    p_version_name VARCHAR(100) DEFAULT NULL,
-    p_created_by UUID DEFAULT NULL
-)
-RETURNS UUID AS $$
-DECLARE
-    v_version INT;
-    v_sidecar_id UUID;
-    v_data_hash VARCHAR(64);
-BEGIN
-    -- Nächste Version ermitteln
-    SELECT COALESCE(MAX(version), 0) + 1 INTO v_version
-    FROM din18599.sidecars
-    WHERE project_id = p_project_id;
-    
-    -- Hash berechnen
-    v_data_hash := encode(digest(p_data::text, 'sha256'), 'hex');
-    
-    -- Sidecar erstellen
-    INSERT INTO din18599.sidecars (
-        project_id,
-        version,
-        version_name,
-        is_current,
-        lod,
-        mode,
-        data,
-        data_hash,
-        created_by
-    ) VALUES (
-        p_project_id,
-        v_version,
-        p_version_name,
-        true,
-        p_data->'meta'->>'lod',
-        CASE 
-            WHEN p_data->'meta'->>'ifc_file_ref' IS NOT NULL THEN 'IFC_LINKED'
-            WHEN p_data->'meta'->>'simplified_geometry' = 'true' THEN 'SIMPLIFIED'
-            ELSE 'STANDALONE'
-        END,
-        p_data,
-        v_data_hash,
-        p_created_by
-    ) RETURNING id INTO v_sidecar_id;
-    
-    RETURN v_sidecar_id;
-END;
-$$ LANGUAGE plpgsql;
+-- Alle Wände eines Sidecars mit U-Werten extrahieren
+CREATE OR REPLACE FUNCTION din18599.get_walls(p_sidecar_id UUID)
+RETURNS TABLE (
+    ifc_guid TEXT,
+    name TEXT,
+    u_value NUMERIC,
+    area NUMERIC,
+    orientation INT,
+    boundary_condition TEXT,
+    din_code TEXT
+) AS $$
+    SELECT
+        wall->>'ifc_guid',
+        wall->>'name',
+        (wall->>'u_value')::NUMERIC,
+        (wall->>'area')::NUMERIC,
+        (wall->>'orientation')::INT,
+        wall->>'boundary_condition',
+        wall->>'din_code'
+    FROM din18599.sidecars s,
+         jsonb_array_elements(s.data->'input'->'envelope'->'walls') AS wall
+    WHERE s.id = p_sidecar_id;
+$$ LANGUAGE sql STABLE;
 
-COMMENT ON FUNCTION din18599.create_sidecar_version IS 'Erstellt neue Sidecar-Version';
+-- Alle Zonen eines Sidecars extrahieren
+CREATE OR REPLACE FUNCTION din18599.get_zones(p_sidecar_id UUID)
+RETURNS TABLE (
+    id TEXT,
+    name TEXT,
+    area NUMERIC,
+    volume NUMERIC,
+    height NUMERIC,
+    usage_profile_ref TEXT
+) AS $$
+    SELECT
+        zone->>'id',
+        zone->>'name',
+        (zone->>'area')::NUMERIC,
+        (zone->>'volume')::NUMERIC,
+        (zone->>'height')::NUMERIC,
+        zone->>'usage_profile_ref'
+    FROM din18599.sidecars s,
+         jsonb_array_elements(s.data->'input'->'building'->'zones') AS zone
+    WHERE s.id = p_sidecar_id;
+$$ LANGUAGE sql STABLE;
 
--- ============================================================================
--- 9. BEISPIEL-QUERIES
--- ============================================================================
+-- Durchschnittlicher U-Wert aller Außenwände eines Projekts
+CREATE OR REPLACE FUNCTION din18599.avg_u_value_walls(p_sidecar_id UUID)
+RETURNS NUMERIC AS $$
+    SELECT ROUND(AVG((wall->>'u_value')::NUMERIC), 3)
+    FROM din18599.sidecars s,
+         jsonb_array_elements(s.data->'input'->'envelope'->'walls') AS wall
+    WHERE s.id = p_sidecar_id
+      AND (wall->>'u_value')::NUMERIC > 0;
+$$ LANGUAGE sql STABLE;
 
--- Alle Projekte mit aktueller Version
-COMMENT ON SCHEMA din18599 IS 'Beispiel-Query: SELECT * FROM din18599.project_overview;';
 
--- Alle Bauteile mit U-Wert < 0.3
-COMMENT ON TABLE din18599.sidecars IS 'Beispiel-Query: 
-SELECT 
-    p.name AS project,
-    elem->''name'' AS element_name,
-    (elem->>''u_value_undisturbed'')::float AS u_value
-FROM din18599.current_sidecars s
-JOIN din18599.projects p ON s.project_id = p.id,
-     jsonb_array_elements(s.data->''input''->''elements'') AS elem
-WHERE (elem->>''u_value_undisturbed'')::float < 0.3;';
-
--- Varianten-Anzahl pro Projekt
-COMMENT ON TABLE din18599.projects IS 'Beispiel-Query:
-SELECT 
-    p.name,
-    jsonb_array_length(s.data->''scenarios'') AS scenario_count
-FROM din18599.current_sidecars s
-JOIN din18599.projects p ON s.project_id = p.id
-WHERE s.data ? ''scenarios'';';
-
--- ============================================================================
--- 10. GRANTS (Berechtigungen)
--- ============================================================================
-
--- Erstelle Rollen (optional)
--- CREATE ROLE din18599_admin;
--- CREATE ROLE din18599_user;
--- CREATE ROLE din18599_viewer;
-
--- GRANT ALL ON SCHEMA din18599 TO din18599_admin;
--- GRANT USAGE ON SCHEMA din18599 TO din18599_user, din18599_viewer;
--- GRANT SELECT, INSERT, UPDATE ON ALL TABLES IN SCHEMA din18599 TO din18599_user;
--- GRANT SELECT ON ALL TABLES IN SCHEMA din18599 TO din18599_viewer;
-
--- ============================================================================
--- ENDE
--- ============================================================================
+-- ══════════════════════════════════════════════════════════════════════
+-- FERTIG
+-- Schema bereit für: Python Validator → Import → Export
+-- ══════════════════════════════════════════════════════════════════════

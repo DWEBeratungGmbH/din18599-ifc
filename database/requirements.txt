@@ -1,0 +1,2 @@
+# DIN 18599 Sidecar Database - Dependencies
+psycopg2-binary>=2.9.0
