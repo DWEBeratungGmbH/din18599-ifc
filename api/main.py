@@ -13,11 +13,28 @@ from parsers.evebi_parser import parse_evea, evebi_data_to_dict
 from parsers.ifc_parser import parse_ifc, ifc_geometry_to_dict
 from generators.sidecar_generator import SidecarGenerator
 
+# Datenbank-Integration (optional — funktioniert auch ohne PostgreSQL)
+import sys
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
+try:
+    from database.python.api_routes import create_db_router
+    DB_AVAILABLE = True
+except ImportError:
+    DB_AVAILABLE = False
+
 app = FastAPI(
     title="DIN 18599 Sidecar API",
-    description="API für IFC + EVEBI Upload, Parsing und Sidecar-Generierung",
-    version="2.0.0"
+    description="API für IFC + EVEBI Upload, Parsing, Sidecar-Generierung und Datenbank",
+    version="2.1.0"
 )
+
+# Datenbank-Router einbinden (wenn verfügbar)
+if DB_AVAILABLE:
+    db_router = create_db_router()
+    app.include_router(db_router, prefix="/db")
+    print("✅ Datenbank-Endpoints verfügbar unter /db/*")
+else:
+    print("ℹ️  Datenbank-Endpoints nicht verfügbar (psycopg2 fehlt)")
 
 # CORS für Viewer
 app.add_middleware(
