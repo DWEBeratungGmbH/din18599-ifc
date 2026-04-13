@@ -204,16 +204,35 @@ python3 -m json.tool input.json > output.json
 
 ---
 
-## 📐 Schema-Änderungen
+## 📐 Schema-Änderungen (Schema-First-Workflow)
+
+> **Grundregel:** Das JSON Schema in `schema/` ist die **Single Source of Truth**.
+> Alle anderen Artefakte (DB-Spalten, TypeScript-Typen, Beispiele, Doku) werden
+> daraus abgeleitet — nicht andersherum. Wer am Schema vorbei Code schreibt,
+> erzeugt Drift, und Drift kostet später viel Zeit.
+
+### Wer nutzt dieses Schema?
+
+- **din18599-ifc** selbst — Python-Validator, FastAPI-Endpunkte, `database/schema.sql`
+- **DWEapp** (`/opt/weclapp-manager`) — generiert TypeScript-Typen via
+  `npm run schema:generate` aus diesem Schema und nutzt sie in der Gebäudeakte
+- **Externe Konsumenten** — Drittanbieter-Tools, die das Sidecar-Format unterstützen
+
+Jede Schema-Änderung muss daher *bewusst* sein und das Round-Trip-Verhalten
+zwischen Schema, DB und generierten Typen erhalten.
 
 ### Workflow
 
-1. **Issue öffnen** - Diskussion über Änderung
-2. **Schema anpassen** - `gebaeude.din18599.schema.json`
-3. **Parameter-Matrix aktualisieren** - `docs/PARAMETER_MATRIX.md`
-4. **Beispiele anpassen** - `examples/*.din18599.json`
-5. **Tests anpassen** - Validierung prüfen
-6. **Dokumentation** - README, LOD_GUIDE, etc.
+1. **Issue öffnen** — Diskussion über die Änderung, Begründung dokumentieren
+2. **JSON Schema anpassen** — `schema/v3.x-complete.json`
+   - Neue Definitions sauber benennen, Beschreibungen pflegen (werden in TS-Comments übernommen)
+   - Bei `properties` + `patternProperties` aufpassen: kann beim Code-Gen Index-Signature-Konflikte erzeugen → lieber `patternProperties` allein verwenden
+3. **SemVer-Bump** — Schema-`version` erhöhen + Eintrag in `CHANGELOG.md`
+4. **`database/schema.sql` mitziehen** — neue Statistik-Spalten + Helper-Funktionen ergänzen
+5. **`MIGRATION_vX.Y_to_vX.Z.md`** schreiben — was hat sich geändert, was muss in Konsumenten passieren
+6. **Beispiele anpassen** — `examples/*.din18599.json`
+7. **Validator-Tests** ausführen — `python3 tools/validate.py examples/*.json`
+8. **Konsumenten benachrichtigen** — DWEapp muss `npm run schema:generate` ausführen und ggf. Code anpassen
 
 ### Abwärtskompatibilität
 
@@ -230,9 +249,9 @@ python3 -m json.tool input.json > output.json
 - ✅ Beschreibungen verbessern
 
 **Versionierung:**
-- **Major:** Breaking Changes (v1.0 → v2.0)
-- **Minor:** Neue Features (v1.0 → v1.1)
-- **Patch:** Bugfixes (v1.0.0 → v1.0.1)
+- **Major:** Breaking Changes (v2.x → v3.0)
+- **Minor:** Neue Features (v3.0 → v3.1)
+- **Patch:** Bugfixes (v3.0.0 → v3.0.1)
 
 ---
 
