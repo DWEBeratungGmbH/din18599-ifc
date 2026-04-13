@@ -7,6 +7,91 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/lang/de/).
 
 ---
 
+## [3.1.0] - 2026-04-13
+
+### Added
+
+#### Schema v3.1 (abwärtskompatibel zu v3.0)
+
+- **`input.energy_certificate`** — Energieausweis-Daten (Typ `VERBRAUCH` oder `BEDARF`),
+  alle Felder optional. `source` = `MANUAL_ENTRY | PDF_UPLOAD | NEXTCLOUD_LINK` für
+  Audit-Trail (typischer Fall: Energieberater tippt Werte aus einem PDF ab).
+- **`input.targets`** — freie Zielwerte (`FINAL_ENERGY_KWH_M2A`, `PRIMARY_ENERGY_KWH_M2A`,
+  `CO2_KG_M2A`, `HEATING_ENERGY_KWH_M2A`, `OTHER`) mit Jahr und Source-Typ. Gedacht für
+  den "nur IFC vorhanden"-Fall, wo noch keine Messwerte existieren.
+
+### Changed
+
+- `schema_info.$id` const + `version` pattern auf v3.1 hochgezogen.
+
+### Migration
+
+Siehe [schema/MIGRATION_v3.0_to_v3.1.md](schema/MIGRATION_v3.0_to_v3.1.md).
+Jedes valide v3.0-Sidecar ist auch ein valides v3.1-Sidecar — keine Änderung an
+bestehenden Dateien nötig.
+
+---
+
+## [3.0.0] - 2026-04-10
+
+### 🏛️ Gebäudeakte-Release
+
+**Additiv zu v2.3 — jedes valide v2.3-Sidecar ist auch ein valides v3.0-Sidecar.**
+Erweitert das Schema um die für die energetische Gebäudeakte nötigen Sektionen
+(Dokumente, Förderungen, Sanierungsfahrplan, SLA-Kontext).
+
+### Added
+
+#### Schema v3.0 — neue Top-Level-Sektionen
+
+- **`documents[]`** — Pläne, Nachweise, Fotos, Rechnungen, Förderdokumente als
+  Cloud-Links. Nutzt logische `storage_ref`-Pfade, die ein Storage-Resolver-Service
+  auf Nextcloud, S3 o.ä. auflöst (Provider-Wechsel = nur Resolver-Config ändern).
+- **`funding[]`** — Förderungen (BEG, KfW, BAFA) als Hybrid-Modell: technische
+  Zuordnung im Sidecar + `erpnext_ref` zum ERPNext-Datensatz (Source of Truth für
+  Finanzen) + `snapshot` mit letztem Sync-Stand (n8n-Workflow).
+- **`roadmap`** — Sanierungsfahrplan mit priorisierten Schritten (`steps[]`), inkl.
+  geplantem Jahr, Status, Priorität und geschätzten Kosten.
+- **`sla_context`** — Brücke zur SLA-Sandbox: abgeleitete Parameter (BGF, WE, BT,
+  Gebäudeart) und Mapping von Sidecar-Szenarien auf SLA-Szenarien + Maßnahmen.
+
+#### Neue Definitions
+
+`document`, `funding_entry`, `roadmap_step` — wiederverwendbare Strukturen für die
+neuen Sektionen.
+
+#### Datenbank (`database/schema.sql`)
+
+- Statistik-Spalten auf `din18599.sidecars`: `document_count`, `funding_count`,
+  `roadmap_step_count` (beim Import befüllt, vermeiden JSONB-Aggregation in Listen).
+- Spiegelung der Stat-Felder in `din18599.v_projects_overview`.
+- Helper-Funktionen für direkten Zugriff ohne Client-Side-JSONB-Logik:
+  - `din18599.get_documents(sidecar_id)`
+  - `din18599.get_funding(sidecar_id)`
+  - `din18599.get_roadmap_steps(sidecar_id)`
+  - `din18599.sum_approved_funding(sidecar_id)`
+
+### Changed
+
+- `schema_info.$id` auf `https://din18599-ifc.de/schema/v3.0/complete`,
+  `version` pattern auf `^3\.0\.\d+$`.
+- `database/schema.sql` Header auf v3.0, Kommentare aktualisiert.
+
+### Migration
+
+Siehe [schema/MIGRATION_v2.3_to_v3.0.md](schema/MIGRATION_v2.3_to_v3.0.md).
+
+**Datenbank-Hinweis:** Bestehende Datenbanken benötigen ein Migrationsskript
+(`ALTER TABLE` für die 3 neuen Statistik-Spalten + `CREATE FUNCTION` für die
+Helper). `schema.sql` allein ist nur für frische Deployments autoritativ.
+
+### Notes
+
+- v2.1, v2.2 und v2.3 wurden zwischen v2.0 und v3.0 veröffentlicht, aber nicht im
+  CHANGELOG dokumentiert. Siehe Git-History (`git log schema/`) für die Details.
+
+---
+
 ## [2.0.0] - 2026-03-27
 
 ### 🎉 Major Release - Production Ready
