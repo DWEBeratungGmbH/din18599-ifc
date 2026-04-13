@@ -1,0 +1,1023 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://din18599-ifc.de/schema/v3.0/complete",
+  "title": "DIN 18599 IFC Sidecar v3.0 - Complete Schema",
+  "description": "v3.0: Erweitert v2.3 um documents, funding, roadmap und sla_context fuer die digitale Gebaeudeakte",
+  "version": "3.0.0",
+  "type": "object",
+  "required": ["schema_info", "meta", "input"],
+  
+  "properties": {
+    "schema_info": {
+      "type": "object",
+      "description": "Schema-Metadaten",
+      "required": ["url", "version"],
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "const": "https://din18599-ifc.de/schema/v3.0/complete"
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^3\\.0\\.\\d+$",
+          "description": "Schema-Version (Semantic Versioning)"
+        }
+      }
+    },
+    
+    "meta": {
+      "type": "object",
+      "description": "Projekt-Metadaten und Versionierung",
+      "required": ["project_name", "created"],
+      "properties": {
+        "project_name": {"type": "string"},
+        "project_id": {"type": "string"},
+        "created": {"type": "string", "format": "date-time"},
+        "last_modified": {"type": "string", "format": "date-time"},
+        "version": {"type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$"},
+        "version_history": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["version", "date", "changes"],
+            "properties": {
+              "version": {"type": "string"},
+              "date": {"type": "string", "format": "date-time"},
+              "changes": {"type": "string"},
+              "author": {"type": "string"}
+            }
+          }
+        },
+        "ifc_file_ref": {"type": "string"},
+        "ifc_schema": {
+          "type": "string",
+          "enum": ["IFC2X3", "IFC4", "IFC4X3"],
+          "description": "IFC-Schema-Version der Quelldatei"
+        },
+        "lod": {
+          "type": "string",
+          "enum": ["100", "200", "300", "400", "500"]
+        }
+      }
+    },
+    
+    "input": {
+      "type": "object",
+      "description": "Eingabedaten (Definition) - Source of Truth",
+      "required": ["building"],
+      "properties": {
+        "building": {"$ref": "#/definitions/building"},
+        "envelope": {"$ref": "#/definitions/envelope"},
+        "material_layers": {"$ref": "#/definitions/material_layers"},
+        "constructions": {"$ref": "#/definitions/constructions"},
+        "window_constructions": {"$ref": "#/definitions/window_constructions"},
+        "pipes": {"$ref": "#/definitions/pipes"},
+        "systems": {"$ref": "#/definitions/systems"},
+        "electricity": {"$ref": "#/definitions/electricity"},
+        "automation": {"$ref": "#/definitions/automation"},
+        "primary_energy": {"$ref": "#/definitions/primary_energy_factors"},
+        "climate": {"$ref": "#/definitions/climate"}
+      }
+    },
+    
+    "scenarios": {
+      "type": "array",
+      "items": {"$ref": "#/definitions/scenario"}
+    },
+    
+    "output": {
+      "type": "object",
+      "description": "Berechnungsergebnisse: 'base' = Ist-Zustand, 'scenario_<id>' = Szenarien. Keys via patternProperties damit der Code-Gen eine saubere Index-Signatur erzeugt.",
+      "patternProperties": {
+        "^(base|scenario_)": {"$ref": "#/definitions/output_snapshot"}
+      },
+      "additionalProperties": false
+    },
+
+    "documents": {
+      "type": "array",
+      "description": "v3.0: Dokumente, Nachweise, Plaene, Fotos, Rechnungen — als Links zum Cloud-Speicher",
+      "items": {"$ref": "#/definitions/document"}
+    },
+
+    "funding": {
+      "type": "array",
+      "description": "v3.0: Foerderungen (BEG, KfW, BAFA) — Sidecar speichert Snapshot, ERPNext ist Master",
+      "items": {"$ref": "#/definitions/funding_entry"}
+    },
+
+    "roadmap": {
+      "type": "object",
+      "description": "v3.0: Grobe Sanierungsplanung mit priorisierten Schritten",
+      "properties": {
+        "steps": {
+          "type": "array",
+          "items": {"$ref": "#/definitions/roadmap_step"}
+        }
+      }
+    },
+
+    "sla_context": {
+      "type": "object",
+      "description": "v3.0: Sandbox-Bruecke — abgeleitete Parameter fuer SLA-Kalkulation",
+      "properties": {
+        "gebaeudeart": {
+          "type": "string",
+          "enum": ["WG", "NWG", "MISCH"],
+          "description": "Gebaeudeart fuer SLA-Szenario-Auswahl"
+        },
+        "bgf": {"type": "number", "minimum": 0, "description": "Bruttogeschossflaeche [m²]"},
+        "we": {"type": "integer", "minimum": 0, "description": "Anzahl Wohneinheiten"},
+        "bt": {"type": "integer", "minimum": 0, "description": "Anzahl Bauteile (Huelle-Elemente)"},
+        "scenarios": {
+          "type": "array",
+          "description": "Mapping von Sidecar-Szenarien zu SLA-Szenarien",
+          "items": {
+            "type": "object",
+            "required": ["ref"],
+            "properties": {
+              "ref": {"type": "string", "description": "Referenz zu scenarios[].id"},
+              "sla_scenario_code": {"type": "string", "description": "SLA-Szenario-Code (z.B. S1, K3)"},
+              "massnahmen": {
+                "type": "array",
+                "items": {"type": "string"},
+                "description": "SLA-Massnahmen-Codes (z.B. FENSTER, FASSADE)"
+              },
+              "status": {
+                "type": "string",
+                "enum": ["GEPLANT", "AKTIV", "ABGESCHLOSSEN"]
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  
+  "definitions": {
+    "building": {
+      "type": "object",
+      "required": ["address", "construction_year", "heated_area"],
+      "properties": {
+        "address": {
+          "type": "object",
+          "required": ["zip", "city"],
+          "properties": {
+            "street": {"type": "string"},
+            "zip": {"type": "string"},
+            "city": {"type": "string"},
+            "country": {"type": "string", "default": "DE"}
+          }
+        },
+        "construction_year": {"type": "integer", "minimum": 1800, "maximum": 2100},
+        "renovation_year": {"type": "integer", "minimum": 1800, "maximum": 2100},
+        "type": {"type": "string", "enum": ["residential", "non_residential", "mixed"]},
+        "subtype": {"type": "string"},
+        "heated_area": {"type": "number", "minimum": 0},
+        "gross_floor_area": {"type": "number", "minimum": 0},
+        "heated_volume": {"type": "number", "minimum": 0},
+        "av_ratio": {"type": "number", "minimum": 0},
+        "storeys": {
+          "type": "array",
+          "description": "Geschosse mit Elevation",
+          "items": {"$ref": "#/definitions/storey"}
+        },
+        "dwelling_units": {
+          "type": "array",
+          "description": "v2.3: Wohneinheiten (flach, unabhängig)",
+          "items": {"$ref": "#/definitions/dwelling_unit"}
+        },
+        "zones": {
+          "type": "array",
+          "description": "v2.3: Thermische Zonen (flach)",
+          "items": {"$ref": "#/definitions/zone"}
+        },
+        "rooms": {
+          "type": "array",
+          "description": "v2.3: Räume (IfcSpace) mit zone_ref + dwelling_unit_ref",
+          "items": {"$ref": "#/definitions/room"}
+        }
+      }
+    },
+    
+    "storey": {
+      "type": "object",
+      "description": "Geschoss-Metadaten aus IFC",
+      "required": ["id", "name"],
+      "properties": {
+        "id": {"type": "string", "description": "IFC GUID"},
+        "name": {"type": "string"},
+        "elevation": {
+          "type": "number",
+          "description": "Geschosshöhe [m] über Projektbasis"
+        }
+      }
+    },
+    
+    "dwelling_unit": {
+      "type": "object",
+      "description": "v2.3: Wohneinheit (unabhängig von Zonen)",
+      "required": ["id", "name"],
+      "properties": {
+        "id": {"type": "string"},
+        "ifc_guid": {"type": "string", "description": "IFC GUID (falls vorhanden)"},
+        "name": {"type": "string"},
+        "type": {
+          "type": "string",
+          "enum": ["residential", "commercial", "common_area"],
+          "description": "Typ der Wohneinheit"
+        },
+        "area": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Gesamtfläche [m²] (aggregiert aus rooms)"
+        },
+        "volume": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Gesamtvolumen [m³]"
+        }
+      }
+    },
+    
+    "zone": {
+      "type": "object",
+      "description": "v2.3: Thermische Zone (flach, nicht hierarchisch)",
+      "required": ["id", "usage_profile_ref", "area", "volume", "height"],
+      "properties": {
+        "id": {"type": "string"},
+        "ifc_guid": {"type": "string", "description": "IFC GUID (IfcZone falls vorhanden)"},
+        "name": {"type": "string"},
+        "usage_profile_ref": {"type": "string", "description": "DIN 18599-10 Nutzungsprofil"},
+        "area": {"type": "number", "minimum": 0, "description": "Zonenfläche [m²] (aggregiert aus rooms)"},
+        "volume": {"type": "number", "minimum": 0, "description": "Zonenvolumen [m³]"},
+        "height": {"type": "number", "minimum": 0, "description": "Durchschnittliche Raumhöhe [m]"},
+        "setpoint_heating_c": {"type": "number"},
+        "setpoint_cooling_c": {"type": "number"},
+        "air_change_rate_h": {"type": "number", "minimum": 0},
+        "conditioned": {"type": "boolean"}
+      }
+    },
+    
+    "room": {
+      "type": "object",
+      "description": "v2.3: Raum (IfcSpace) mit Referenzen zu Zone + Wohneinheit",
+      "required": ["id", "name", "area"],
+      "properties": {
+        "id": {"type": "string"},
+        "ifc_guid": {"type": "string", "description": "IFC GUID des IfcSpace"},
+        "name": {"type": "string"},
+        "area": {"type": "number", "minimum": 0, "description": "Raumfläche [m²]"},
+        "volume": {"type": "number", "minimum": 0, "description": "Raumvolumen [m³]"},
+        "height": {"type": "number", "minimum": 0, "description": "Raumhöhe [m]"},
+        "zone_ref": {
+          "type": "string",
+          "description": "Referenz zu Zone (zone.id)"
+        },
+        "dwelling_unit_ref": {
+          "type": "string",
+          "description": "Referenz zu Wohneinheit (dwelling_unit.id) - optional"
+        },
+        "storey_ref": {
+          "type": "string",
+          "description": "Referenz zu Geschoss (storey.id)"
+        }
+      }
+    },
+    
+    "envelope": {
+      "type": "object",
+      "description": "Gebäudehülle nach Bauteiltyp strukturiert",
+      "properties": {
+        "walls": {
+          "type": "array",
+          "description": "Wände (inkl. AW/IW, Neigung ~90°)",
+          "items": {"$ref": "#/definitions/opaque_element"}
+        },
+        "roofs": {
+          "type": "array",
+          "description": "Dächer (Neigung 0-60°)",
+          "items": {"$ref": "#/definitions/opaque_element"}
+        },
+        "floors": {
+          "type": "array",
+          "description": "Böden/Decken (Neigung ~0°)",
+          "items": {"$ref": "#/definitions/opaque_element"}
+        },
+        "windows": {
+          "type": "array",
+          "description": "Fenster",
+          "items": {"$ref": "#/definitions/transparent_element"}
+        },
+        "doors": {
+          "type": "array",
+          "description": "Türen",
+          "items": {"$ref": "#/definitions/transparent_element"}
+        },
+        "thermal_bridges": {
+          "type": "object",
+          "properties": {
+            "method": {"type": "string", "enum": ["NONE", "SIMPLIFIED", "DETAILED"]},
+            "delta_u_wb": {"type": "number"},
+            "linear_bridges": {
+              "type": "array",
+              "items": {"$ref": "#/definitions/linear_thermal_bridge"}
+            }
+          }
+        }
+      }
+    },
+    
+    "material_layers": {
+      "type": "array",
+      "description": "K4: Materialschichtaufbauten aus IFC (IfcMaterialLayerSet)",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {"type": "string", "description": "Material-GUID"},
+          "name": {"type": "string"},
+          "layers": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "material": {"type": "string"},
+                "thickness": {"type": "number", "minimum": 0, "description": "Dicke [m]"},
+                "lambda": {"type": "number", "minimum": 0, "description": "Wärmeleitfähigkeit [W/(m·K)]"}
+              }
+            }
+          },
+          "u_value_calculated": {"type": "number", "minimum": 0, "description": "Berechneter U-Wert [W/(m²K)]"}
+        }
+      }
+    },
+    
+    "constructions": {
+      "type": "array",
+      "description": "EVEBI: Konstruktionen (konstruktionenListe) mit Schichtaufbauten. Flexibles sequences[]-Modell für beliebig viele Abfolgen (meist 2: Haupt-/Nebenkonstruktion).",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {"type": "string", "description": "Konstruktions-GUID (EVEBI-Quelle)"},
+          "name": {"type": "string"},
+          "source": {"type": "string", "enum": ["EVEBI", "IFC", "MANUAL"], "description": "Datenquelle"},
+          "u_value": {"type": "number", "minimum": 0, "description": "U-Wert [W/(m²K)]"},
+          "sequences": {
+            "type": "array",
+            "description": "Abfolgen mit Flächenanteilen (z.B. 85% Dämmung + 15% Holzständer)",
+            "items": {
+              "type": "object",
+              "properties": {
+                "share": {"type": "number", "minimum": 0, "maximum": 1, "description": "Flächenanteil [-] (Summe aller shares = 1.0)"},
+                "name": {"type": "string", "description": "Name der Abfolge (z.B. 'Hauptkonstruktion', 'Holzständer')"},
+                "layers": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "material": {"type": "string"},
+                      "thickness": {"type": "number", "minimum": 0, "description": "Dicke [m]"},
+                      "lambda": {"type": "number", "minimum": 0, "description": "Wärmeleitfähigkeit [W/(m·K)]"},
+                      "density": {"type": "number", "minimum": 0, "description": "Rohdichte [kg/m³]"},
+                      "position": {"type": "integer", "description": "Position von außen (0=außen)"}
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "total_thickness": {"type": "number", "minimum": 0, "description": "Gesamtdicke [m]"}
+        }
+      }
+    },
+    
+    "window_constructions": {
+      "type": "array",
+      "description": "EVEBI: Fensterkonstruktionen (konstrFensterListe) mit g-Wert, Ug/Uf getrennt",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {"type": "string", "description": "Fensterkonstruktions-GUID"},
+          "name": {"type": "string"},
+          "u_value": {"type": "number", "minimum": 0, "description": "Gesamt-U-Wert [W/(m²K)]"},
+          "g_value": {"type": "number", "minimum": 0, "maximum": 1, "description": "Gesamtenergiedurchlassgrad [-]"},
+          "glass": {
+            "type": "object",
+            "properties": {
+              "u_value": {"type": "number", "minimum": 0, "description": "Ug [W/(m²K)]"},
+              "g_value": {"type": "number", "minimum": 0, "maximum": 1}
+            }
+          },
+          "frame": {
+            "type": "object",
+            "properties": {
+              "u_value": {"type": "number", "minimum": 0, "description": "Uf [W/(m²K)]"},
+              "area_fraction": {"type": "number", "minimum": 0, "maximum": 1, "description": "Rahmenanteil [-]"}
+            }
+          },
+          "psi": {"type": "number", "description": "Randverbund-Psi-Wert [W/(m·K)]"},
+          "width": {"type": "number", "minimum": 0, "description": "Fensterbreite [m]"},
+          "height": {"type": "number", "minimum": 0, "description": "Fensterhöhe [m]"},
+          "frame_width_left": {"type": "number", "minimum": 0, "description": "Rahmenbreite links [m]"},
+          "frame_width_right": {"type": "number", "minimum": 0},
+          "frame_width_top": {"type": "number", "minimum": 0},
+          "frame_width_bottom": {"type": "number", "minimum": 0}
+        }
+      }
+    },
+    
+    "pipes": {
+      "type": "array",
+      "description": "EVEBI: Leitungen (ltgListe) mit Länge und Dämmstandard. Erweiterte Typen für feinere EVEBI-Differenzierung.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {"type": "string"},
+          "name": {"type": "string"},
+          "type": {
+            "type": "string",
+            "enum": [
+              "HEATING_SUPPLY",
+              "HEATING_RETURN",
+              "HEATING_DISTRIBUTION",
+              "HEATING_RISER",
+              "HEATING_CONNECTION",
+              "DHW_SUPPLY",
+              "DHW_CIRCULATION",
+              "DHW_DISTRIBUTION",
+              "DHW_RISER",
+              "DHW_CONNECTION"
+            ],
+            "description": "EVEBI LTYP_H + LFKT_V/S/SL/A (Verteilung/Steig/Steigleitung/Anbindung)"
+          },
+          "location": {"type": "string", "enum": ["HEATED", "UNHEATED", "EXTERIOR"]},
+          "length": {"type": "number", "minimum": 0, "description": "Länge [m]"},
+          "insulation_u_value": {"type": "number", "minimum": 0, "description": "U-Wert Rohrdämmung [W/(m²K)]"},
+          "diameter": {"type": "number", "minimum": 0, "description": "Rohrdurchmesser [m]"},
+          "system_ref": {"type": "string", "description": "Referenz zu heating_system oder dhw_system"}
+        }
+      }
+    },
+    
+    "opaque_element": {
+      "type": "object",
+      "required": ["id", "area"],
+      "properties": {
+        "id": {"type": "string"},
+        "ifc_guid": {"type": "string", "description": "IFC GUID"},
+        "ifc_type": {"type": "string", "description": "IFC-Typ (IfcWall, IfcSlab, IfcRoof)"},
+        "predefined_type": {"type": "string", "description": "IFC PredefinedType"},
+        "name": {"type": "string"},
+        "construction_ref": {
+          "type": "string",
+          "description": "Referenz zu constructions[] (EVEBI-GUID) oder material_layers[] (IFC-GUID). Konvention: IFC-GUIDs beginnen mit IFC-Präfix, EVEBI-GUIDs mit {GUID}"
+        },
+        "u_value": {"type": "number", "minimum": 0, "description": "U-Wert [W/(m²K)]"},
+        "area": {"type": "number", "minimum": 0, "description": "Fläche [m²]"},
+        "orientation": {"type": "number", "minimum": 0, "maximum": 360},
+        "inclination": {"type": "number", "minimum": 0, "maximum": 90},
+        "boundary_condition": {
+          "type": "string",
+          "enum": ["exterior", "ground", "unheated", "adjacent"]
+        },
+        "din_code": {
+          "type": "string",
+          "enum": ["WA", "WI", "WE", "WU", "WZ", "DA", "DE", "DU", "DZ", "BE", "BO", "BU", "BZ", "RK", "GF", "PF"]
+        },
+        "fx_factor": {"type": "number", "minimum": 0, "maximum": 1},
+        "wbr_zuschlag": {"type": "number", "minimum": 0, "description": "EVEBI: Wärmebrückenzuschlag pro Bauteil [W/(m²K)]"},
+        "zone_ref": {"type": "string", "description": "v2.3: Referenz zu Zone"},
+        "room_ref": {"type": "string", "description": "v2.3: Referenz zu Raum (optional)"},
+        "storey_ref": {"type": "string"}
+      }
+    },
+    
+    "transparent_element": {
+      "type": "object",
+      "required": ["id", "area"],
+      "properties": {
+        "id": {"type": "string"},
+        "ifc_guid": {"type": "string"},
+        "ifc_type": {"type": "string"},
+        "name": {"type": "string"},
+        "construction_ref": {
+          "type": "string",
+          "description": "Referenz zu window_constructions[] (EVEBI-GUID) oder material_layers[] (IFC-GUID)"
+        },
+        "u_value": {"type": "number", "minimum": 0},
+        "g_value": {"type": "number", "minimum": 0, "maximum": 1},
+        "tau_value": {"type": "number", "minimum": 0, "maximum": 1},
+        "g_value_perpendicular": {"type": "number", "minimum": 0, "maximum": 1},
+        "g_value_summer": {"type": "number", "minimum": 0, "maximum": 1},
+        "g_value_winter": {"type": "number", "minimum": 0, "maximum": 1},
+        "area": {"type": "number", "minimum": 0},
+        "orientation": {"type": "number", "minimum": 0, "maximum": 360},
+        "inclination": {"type": "number", "minimum": 0, "maximum": 90},
+        "is_glazed": {"type": "boolean"},
+        "shading_factor_f_sh": {"type": "number", "minimum": 0, "maximum": 1},
+        "boundary_condition": {
+          "type": "string",
+          "enum": ["exterior", "ground", "unheated", "adjacent"]
+        },
+        "din_code": {
+          "type": "string",
+          "enum": ["FA", "FD", "FL", "FU", "FZ", "TA", "TD", "TU", "TZ"]
+        },
+        "fx_factor": {"type": "number", "minimum": 0, "maximum": 1},
+        "parent_wall_guid": {"type": "string"},
+        "zone_ref": {"type": "string", "description": "v2.3: Referenz zu Zone"},
+        "room_ref": {"type": "string", "description": "v2.3: Referenz zu Raum (optional)"},
+        "storey_ref": {"type": "string"}
+      }
+    },
+    
+    "linear_thermal_bridge": {
+      "type": "object",
+      "properties": {
+        "id": {"type": "string"},
+        "type": {"type": "string"},
+        "psi_value": {"type": "number"},
+        "length": {"type": "number", "minimum": 0}
+      }
+    },
+    
+    "systems": {
+      "type": "object",
+      "properties": {
+        "heating": {"$ref": "#/definitions/heating_system"},
+        "ventilation": {"$ref": "#/definitions/ventilation_system"},
+        "cooling": {"$ref": "#/definitions/cooling_system"},
+        "lighting": {"$ref": "#/definitions/lighting_system"},
+        "dhw": {"$ref": "#/definitions/dhw_system"}
+      }
+    },
+    
+    "heating_system": {
+      "type": "object",
+      "properties": {
+        "generation": {
+          "type": "object",
+          "properties": {
+            "type": {"type": "string"},
+            "installation_year": {"type": "integer"},
+            "nominal_power_kw": {"type": "number", "minimum": 0},
+            "efficiency": {"type": "number", "minimum": 0, "maximum": 1}
+          }
+        },
+        "distribution": {
+          "type": "object",
+          "properties": {
+            "type": {"type": "string"},
+            "insulation_standard": {"type": "string"}
+          }
+        },
+        "emission": {"type": "object", "properties": {"type": {"type": "string"}}},
+        "control": {
+          "type": "object",
+          "properties": {
+            "type": {"type": "string"},
+            "efficiency_factor": {"type": "number", "minimum": 0, "maximum": 1}
+          }
+        }
+      }
+    },
+    
+    "ventilation_system": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["natural", "mechanical_exhaust", "mechanical_supply_exhaust", "hybrid", "demand_controlled"]
+        },
+        "n50_value": {"type": "number", "minimum": 0},
+        "heat_recovery": {"type": "boolean"},
+        "heat_recovery_efficiency": {"type": "number", "minimum": 0, "maximum": 1},
+        "air_flow_rate_m3h": {"type": "number", "minimum": 0}
+      }
+    },
+    
+    "cooling_system": {
+      "type": "object",
+      "properties": {
+        "installed": {"type": "boolean"},
+        "type": {"type": "string"},
+        "nominal_power_kw": {"type": "number", "minimum": 0},
+        "eer": {"type": "number", "minimum": 0}
+      }
+    },
+    
+    "lighting_system": {
+      "type": "object",
+      "properties": {
+        "applicable": {"type": "boolean"},
+        "installed_power_w_m2": {"type": "number", "minimum": 0},
+        "control_type": {"type": "string"}
+      }
+    },
+    
+    "dhw_system": {
+      "type": "object",
+      "properties": {
+        "type": {"type": "string"},
+        "storage_volume_l": {"type": "number", "minimum": 0},
+        "circulation": {"type": "boolean"}
+      }
+    },
+    
+    "electricity": {
+      "type": "object",
+      "properties": {
+        "pv": {
+          "type": "object",
+          "properties": {
+            "installed": {"type": "boolean"},
+            "peak_power_kwp": {"type": "number", "minimum": 0},
+            "area_m2": {"type": "number", "minimum": 0},
+            "orientation": {"type": "number", "minimum": 0, "maximum": 360},
+            "inclination": {"type": "number", "minimum": 0, "maximum": 90}
+          }
+        }
+      }
+    },
+    
+    "automation": {
+      "type": "object",
+      "properties": {
+        "installed": {"type": "boolean"},
+        "bacs_class": {"type": "string", "enum": ["A", "B", "C", "D"]},
+        "efficiency_factor_heating": {"type": "number", "minimum": 0, "maximum": 1},
+        "efficiency_factor_cooling": {"type": "number", "minimum": 0, "maximum": 1},
+        "efficiency_factor_ventilation": {"type": "number", "minimum": 0, "maximum": 1},
+        "efficiency_factor_lighting": {"type": "number", "minimum": 0, "maximum": 1}
+      }
+    },
+    
+    "primary_energy_factors": {
+      "type": "object",
+      "required": ["source"],
+      "properties": {
+        "source": {"type": "string", "enum": ["GEG_2024", "BEG_2024", "DIN_18599", "CUSTOM"]},
+        "reference_year": {"type": "integer"},
+        "factors": {
+          "type": "object",
+          "properties": {
+            "electricity": {"type": "number", "minimum": 0},
+            "natural_gas": {"type": "number", "minimum": 0},
+            "oil": {"type": "number", "minimum": 0},
+            "district_heating": {"type": "number", "minimum": 0},
+            "wood_pellets": {"type": "number", "minimum": 0}
+          }
+        },
+        "co2_factors": {
+          "type": "object",
+          "properties": {
+            "electricity": {"type": "number", "minimum": 0},
+            "natural_gas": {"type": "number", "minimum": 0},
+            "oil": {"type": "number", "minimum": 0}
+          }
+        }
+      }
+    },
+    
+    "climate": {
+      "type": "object",
+      "properties": {
+        "try_region": {"type": "string"},
+        "latitude": {"type": "number"},
+        "longitude": {"type": "number"},
+        "heating_degree_days": {"type": "number", "minimum": 0}
+      }
+    },
+    
+    "scenario": {
+      "type": "object",
+      "description": "K5: Sanierungsvariante (iSFP-Workflow)",
+      "required": ["id", "name", "delta"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^[a-z0-9_]+$"},
+        "name": {"type": "string", "description": "z.B. 'Fassadendämmung WDVS 16cm'"},
+        "description": {"type": "string"},
+        "priority": {"type": "integer", "minimum": 1, "description": "Priorität (1=hoch)"},
+        "timeline": {"type": "integer", "description": "Umsetzungsjahr"},
+        "delta": {
+          "type": "object",
+          "description": "Änderungen gegenüber Basis",
+          "properties": {
+            "elements": {
+              "type": "array",
+              "description": "Geänderte Bauteile (z.B. neue U-Werte)",
+              "items": {
+                "type": "object",
+                "required": ["id"],
+                "properties": {
+                  "id": {"type": "string", "description": "Element-GUID"},
+                  "construction_ref": {"type": "string", "description": "Neue Konstruktion"},
+                  "u_value": {"type": "number", "minimum": 0, "description": "Neuer U-Wert [W/(m²K)]"}
+                }
+              }
+            },
+            "systems": {
+              "type": "object",
+              "description": "Geänderte Anlagentechnik",
+              "properties": {
+                "heating": {"type": "object"},
+                "ventilation": {"type": "object"},
+                "dhw": {"type": "object"}
+              }
+            }
+          }
+        }
+      }
+    },
+    
+    "output_snapshot": {
+      "type": "object",
+      "description": "K1: Berechnungsergebnisse (Hottgenroth/EVEBI Roundtrip)",
+      "properties": {
+        "meta": {
+          "type": "object",
+          "required": ["calculation_date", "input_hash"],
+          "properties": {
+            "calculated_by": {"type": "string", "description": "Berechnende Person/Firma"},
+            "calculation_date": {"type": "string", "format": "date-time"},
+            "software": {"type": "string", "description": "z.B. Hottgenroth, EVEBI"},
+            "software_version": {"type": "string"},
+            "input_hash": {"type": "string", "description": "SHA256 des input-Objekts"},
+            "valid": {"type": "boolean", "description": "Berechnung gültig"}
+          }
+        },
+        "useful_energy": {
+          "type": "object",
+          "description": "Nutzenergie [kWh/a] nach DIN 18599-2",
+          "properties": {
+            "per_zone": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "zone_id": {"type": "string"},
+                  "heating": {"type": "number", "minimum": 0},
+                  "cooling": {"type": "number", "minimum": 0},
+                  "dhw": {"type": "number", "minimum": 0},
+                  "lighting": {"type": "number", "minimum": 0},
+                  "ventilation": {"type": "number", "minimum": 0}
+                }
+              }
+            },
+            "total": {
+              "type": "object",
+              "properties": {
+                "heating": {"type": "number", "minimum": 0},
+                "cooling": {"type": "number", "minimum": 0},
+                "dhw": {"type": "number", "minimum": 0},
+                "lighting": {"type": "number", "minimum": 0},
+                "ventilation": {"type": "number", "minimum": 0}
+              }
+            }
+          }
+        },
+        "final_energy": {
+          "type": "object",
+          "description": "Endenergie [kWh/a] nach DIN 18599-1",
+          "properties": {
+            "reference_system": {
+              "type": "string",
+              "enum": ["gross_calorific_value", "net_calorific_value"],
+              "description": "Brennwert (Hs) oder Heizwert (Hi)"
+            },
+            "by_carrier": {
+              "type": "object",
+              "description": "Nach Energieträger",
+              "properties": {
+                "electricity": {"type": "number", "minimum": 0},
+                "natural_gas": {"type": "number", "minimum": 0},
+                "oil": {"type": "number", "minimum": 0},
+                "district_heating": {"type": "number", "minimum": 0},
+                "wood_pellets": {"type": "number", "minimum": 0},
+                "solar_thermal": {"type": "number", "minimum": 0}
+              }
+            },
+            "by_zone_and_application": {
+              "type": "object",
+              "description": "Nach Zone und Anwendung",
+              "additionalProperties": {
+                "type": "object",
+                "properties": {
+                  "heating": {"type": "number"},
+                  "cooling": {"type": "number"},
+                  "dhw": {"type": "number"},
+                  "lighting": {"type": "number"},
+                  "ventilation": {"type": "number"},
+                  "auxiliaries": {"type": "number"}
+                }
+              }
+            },
+            "total": {"type": "number", "minimum": 0}
+          }
+        },
+        "primary_energy": {
+          "type": "object",
+          "description": "Primärenergie [kWh/a] nach DIN 18599-1",
+          "properties": {
+            "reference_system": {
+              "type": "string",
+              "enum": ["non_renewable", "renewable", "total"],
+              "description": "Nicht-erneuerbar (fp,ne), erneuerbar (fp,e) oder gesamt"
+            },
+            "by_carrier": {
+              "type": "object",
+              "description": "Nach Energieträger",
+              "properties": {
+                "electricity": {"type": "number", "minimum": 0},
+                "natural_gas": {"type": "number", "minimum": 0},
+                "oil": {"type": "number", "minimum": 0},
+                "district_heating": {"type": "number", "minimum": 0},
+                "wood_pellets": {"type": "number", "minimum": 0}
+              }
+            },
+            "by_zone_and_application": {
+              "type": "object",
+              "description": "Nach Zone und Anwendung",
+              "additionalProperties": {
+                "type": "object",
+                "properties": {
+                  "heating": {"type": "number"},
+                  "cooling": {"type": "number"},
+                  "dhw": {"type": "number"},
+                  "lighting": {"type": "number"},
+                  "ventilation": {"type": "number"}
+                }
+              }
+            },
+            "total": {"type": "number", "minimum": 0}
+          }
+        },
+        "co2_emissions": {
+          "type": "object",
+          "description": "CO2-Emissionen [kg/a]",
+          "properties": {
+            "by_carrier": {
+              "type": "object",
+              "properties": {
+                "electricity": {"type": "number", "minimum": 0},
+                "natural_gas": {"type": "number", "minimum": 0},
+                "oil": {"type": "number", "minimum": 0},
+                "district_heating": {"type": "number", "minimum": 0}
+              }
+            },
+            "by_zone_and_application": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "properties": {
+                  "heating": {"type": "number"},
+                  "cooling": {"type": "number"},
+                  "dhw": {"type": "number"},
+                  "lighting": {"type": "number"},
+                  "ventilation": {"type": "number"}
+                }
+              }
+            },
+            "total": {"type": "number", "minimum": 0}
+          }
+        },
+        "specific_values": {
+          "type": "object",
+          "description": "Spezifische Werte pro m² Bezugsfläche",
+          "properties": {
+            "reference_area": {"type": "number", "minimum": 0, "description": "Bezugsfläche [m²]"},
+            "useful_energy": {
+              "type": "object",
+              "properties": {
+                "heating": {"type": "number"},
+                "cooling": {"type": "number"},
+                "dhw": {"type": "number"},
+                "total": {"type": "number"}
+              }
+            },
+            "final_energy": {
+              "type": "object",
+              "properties": {
+                "total": {"type": "number", "description": "[kWh/(m²·a)]"}
+              }
+            },
+            "primary_energy": {
+              "type": "object",
+              "properties": {
+                "total": {"type": "number", "description": "[kWh/(m²·a)]"}
+              }
+            },
+            "co2_emissions": {
+              "type": "object",
+              "properties": {
+                "total": {"type": "number", "description": "[kg/(m²·a)]"}
+              }
+            }
+          }
+        },
+        "savings": {
+          "type": "object",
+          "description": "Einsparungen gegenüber Referenz (für Szenarien)",
+          "properties": {
+            "final_energy_percent": {"type": "number", "description": "Endenergie-Einsparung [%]"},
+            "primary_energy_percent": {"type": "number", "description": "Primärenergie-Einsparung [%]"},
+            "co2_percent": {"type": "number", "description": "CO2-Einsparung [%]"},
+            "cost_annual_euro": {"type": "number", "description": "Jährliche Kosteneinsparung [€/a]"}
+          }
+        }
+      }
+    },
+
+    "document": {
+      "type": "object",
+      "description": "v3.0: Dokument-Metadaten mit Link zum Cloud-Speicher",
+      "required": ["id", "type", "name", "storage_ref"],
+      "properties": {
+        "id": {"type": "string", "description": "Eindeutige Dokument-ID"},
+        "type": {
+          "type": "string",
+          "enum": ["NACHWEIS", "PLAN", "FOTO", "RECHNUNG", "FOERDERUNG", "SONSTIGE"],
+          "description": "Dokumenttyp"
+        },
+        "name": {"type": "string", "description": "Anzeigename (z.B. 'Energieausweis Bedarfsausweis 2024')"},
+        "description": {"type": "string"},
+        "storage_ref": {
+          "type": "string",
+          "description": "Logischer Pfad zum Cloud-Speicher (z.B. 'buildings/{id}/documents/energieausweis.pdf'). Wird via Storage-Resolver zur vollen URL aufgeloest."
+        },
+        "mime_type": {"type": "string", "description": "MIME-Typ (z.B. 'application/pdf', 'image/jpeg')"},
+        "element_refs": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "Optionale Zuordnung zu Bauteil-IDs (z.B. Foto einer bestimmten Wand)"
+        },
+        "scenario_ref": {"type": "string", "description": "Optionale Zuordnung zu einem Szenario"},
+        "uploaded_at": {"type": "string", "format": "date-time"},
+        "uploaded_by": {"type": "string"},
+        "valid_until": {"type": "string", "format": "date-time", "description": "Gueltigkeitsdatum (z.B. Energieausweis 10 Jahre)"},
+        "amount_eur": {"type": "number", "minimum": 0, "description": "Nur bei RECHNUNG: Rechnungsbetrag [EUR]"},
+        "tags": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "Freie Tags fuer Suche/Filterung"
+        }
+      }
+    },
+
+    "funding_entry": {
+      "type": "object",
+      "description": "v3.0: Foerderung — Sidecar speichert Snapshot, ERPNext ist Master fuer Finanzstatus",
+      "required": ["id", "program"],
+      "properties": {
+        "id": {"type": "string"},
+        "program": {
+          "type": "string",
+          "enum": ["BEG_EM", "BEG_WG", "BEG_NWG", "KFW_261", "KFW_262", "BAFA", "OTHER"],
+          "description": "Foerderprogramm"
+        },
+        "name": {"type": "string", "description": "Freitext-Bezeichnung"},
+        "scenario_ref": {"type": "string", "description": "Zugeordnetes Szenario (scenarios[].id)"},
+        "document_ref": {"type": "string", "description": "Zugehoeriges Dokument (documents[].id)"},
+        "erpnext_ref": {"type": "string", "description": "Referenz zum ERPNext-Foerder-Datensatz (Source of Truth fuer Finanzen)"},
+        "snapshot": {
+          "type": "object",
+          "description": "Letzter bekannter Stand (wird per n8n-Workflow aktualisiert)",
+          "properties": {
+            "status": {
+              "type": "string",
+              "enum": ["GEPLANT", "BEANTRAGT", "BEWILLIGT", "ABGELEHNT", "AUSGEZAHLT"]
+            },
+            "amount_applied_eur": {"type": "number", "minimum": 0, "description": "Beantragter Betrag [EUR]"},
+            "amount_approved_eur": {"type": "number", "minimum": 0, "description": "Bewilligter Betrag [EUR]"},
+            "synced_at": {"type": "string", "format": "date-time", "description": "Zeitpunkt der letzten Synchronisierung"}
+          }
+        }
+      }
+    },
+
+    "roadmap_step": {
+      "type": "object",
+      "description": "v3.0: Ein Schritt im Sanierungsfahrplan",
+      "required": ["id", "name"],
+      "properties": {
+        "id": {"type": "string"},
+        "name": {"type": "string", "description": "z.B. 'Fassadendaemmung + Fenster Sued'"},
+        "description": {"type": "string"},
+        "scenario_ref": {"type": "string", "description": "Zugeordnetes Szenario (scenarios[].id)"},
+        "planned_year": {"type": "integer", "minimum": 2020, "maximum": 2060, "description": "Geplantes Umsetzungsjahr"},
+        "status": {
+          "type": "string",
+          "enum": ["GEPLANT", "IN_UMSETZUNG", "ABGESCHLOSSEN", "ABGEBROCHEN"]
+        },
+        "priority": {"type": "integer", "minimum": 1, "description": "Prioritaet (1=hoechste)"},
+        "estimated_cost_eur": {"type": "number", "minimum": 0, "description": "Geschaetzte Kosten [EUR]"},
+        "funding_refs": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "Zugeordnete Foerderungen (funding[].id)"
+        }
+      }
+    }
+  }
+}

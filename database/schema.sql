@@ -1,5 +1,5 @@
 -- ══════════════════════════════════════════════════════════════════════
--- DIN 18599 IFC Sidecar — Datenbank-Schema v2.3
+-- DIN 18599 IFC Sidecar — Datenbank-Schema v3.0
 -- ══════════════════════════════════════════════════════════════════════
 --
 -- Architektur: Hybrid (Option C)
@@ -7,8 +7,12 @@
 --   → Extrahierte Spalten für schnelle Queries
 --   → Validierung in Python VOR dem Insert
 --
--- Kompatibel mit: Schema v2.3 (flache Struktur: dwelling_units, zones, rooms)
--- Erstellt: 2026-04-04
+-- Kompatibel mit: Schema v3.0 (erweitert v2.3 um die Gebäudeakte-Sektionen)
+--   v2.3: building, envelope, constructions, systems, scenarios, output
+--   v3.0: + documents, funding, roadmap, sla_context (Gebäudeakte-Erweiterung)
+--
+-- Schema = Single Source of Truth — siehe schema/v3.0-complete.json
+-- Erstellt: 2026-04-04, v3.0-Update: 2026-04-10
 -- Lizenz: Apache 2.0
 -- ══════════════════════════════════════════════════════════════════════
 
@@ -102,6 +106,13 @@ CREATE TABLE din18599.sidecars (
     zone_count          INT DEFAULT 0,
     room_count          INT DEFAULT 0,
     construction_count  INT DEFAULT 0,
+
+    -- ── v3.0: Statistiken der Gebäudeakte-Sektionen ──
+    -- Aus dem JSON beim Import befüllt; ermöglicht schnelle Übersicht
+    -- ohne JSONB-Aggregation in der Liste.
+    document_count      INT DEFAULT 0,
+    funding_count       INT DEFAULT 0,
+    roadmap_step_count  INT DEFAULT 0,
 
     -- Timestamps
     created_at          TIMESTAMPTZ NOT NULL DEFAULT NOW(),
@@ -232,6 +243,10 @@ SELECT
     s.zone_count,
     s.room_count,
     s.construction_count,
+    -- v3.0: Gebäudeakte-Statistiken
+    s.document_count,
+    s.funding_count,
+    s.roadmap_step_count,
     s.created_at            AS sidecar_created,
     -- Gesamte Versionen
     (SELECT COUNT(*) FROM din18599.sidecars sv WHERE sv.project_id = p.id)::int AS total_versions,
@@ -306,6 +321,110 @@ $$ LANGUAGE sql STABLE;
 
 
 -- ══════════════════════════════════════════════════════════════════════
--- FERTIG
+-- 7. v3.0 HELPER-FUNKTIONEN — Gebäudeakte-Sektionen
+-- Zugriff auf documents, funding und roadmap-Schritte ohne Client-Code
+-- ══════════════════════════════════════════════════════════════════════
+
+-- Alle Dokumente eines Sidecars extrahieren
+-- (Pläne, Nachweise, Fotos, Rechnungen, Förderdokumente)
+CREATE OR REPLACE FUNCTION din18599.get_documents(p_sidecar_id UUID)
+RETURNS TABLE (
+    id TEXT,
+    type TEXT,
+    name TEXT,
+    storage_ref TEXT,
+    mime_type TEXT,
+    scenario_ref TEXT,
+    valid_until TIMESTAMPTZ,
+    amount_eur NUMERIC,
+    uploaded_at TIMESTAMPTZ
+) AS $$
+    SELECT
+        doc->>'id',
+        doc->>'type',
+        doc->>'name',
+        doc->>'storage_ref',
+        doc->>'mime_type',
+        doc->>'scenario_ref',
+        (doc->>'valid_until')::TIMESTAMPTZ,
+        (doc->>'amount_eur')::NUMERIC,
+        (doc->>'uploaded_at')::TIMESTAMPTZ
+    FROM din18599.sidecars s,
+         jsonb_array_elements(s.data->'documents') AS doc
+    WHERE s.id = p_sidecar_id;
+$$ LANGUAGE sql STABLE;
+
+-- Alle Förderungen eines Sidecars extrahieren
+-- (BEG, KfW, BAFA — Snapshot-Daten, ERPNext bleibt Master)
+CREATE OR REPLACE FUNCTION din18599.get_funding(p_sidecar_id UUID)
+RETURNS TABLE (
+    id TEXT,
+    program TEXT,
+    name TEXT,
+    scenario_ref TEXT,
+    document_ref TEXT,
+    erpnext_ref TEXT,
+    status TEXT,
+    amount_applied_eur NUMERIC,
+    amount_approved_eur NUMERIC,
+    synced_at TIMESTAMPTZ
+) AS $$
+    SELECT
+        f->>'id',
+        f->>'program',
+        f->>'name',
+        f->>'scenario_ref',
+        f->>'document_ref',
+        f->>'erpnext_ref',
+        f->'snapshot'->>'status',
+        (f->'snapshot'->>'amount_applied_eur')::NUMERIC,
+        (f->'snapshot'->>'amount_approved_eur')::NUMERIC,
+        (f->'snapshot'->>'synced_at')::TIMESTAMPTZ
+    FROM din18599.sidecars s,
+         jsonb_array_elements(s.data->'funding') AS f
+    WHERE s.id = p_sidecar_id;
+$$ LANGUAGE sql STABLE;
+
+-- Alle Roadmap-Schritte eines Sidecars extrahieren
+-- (Sanierungsfahrplan mit priorisierten Schritten)
+CREATE OR REPLACE FUNCTION din18599.get_roadmap_steps(p_sidecar_id UUID)
+RETURNS TABLE (
+    id TEXT,
+    name TEXT,
+    description TEXT,
+    scenario_ref TEXT,
+    planned_year INT,
+    status TEXT,
+    priority INT,
+    estimated_cost_eur NUMERIC
+) AS $$
+    SELECT
+        step->>'id',
+        step->>'name',
+        step->>'description',
+        step->>'scenario_ref',
+        (step->>'planned_year')::INT,
+        step->>'status',
+        (step->>'priority')::INT,
+        (step->>'estimated_cost_eur')::NUMERIC
+    FROM din18599.sidecars s,
+         jsonb_array_elements(s.data->'roadmap'->'steps') AS step
+    WHERE s.id = p_sidecar_id;
+$$ LANGUAGE sql STABLE;
+
+-- Summe der bewilligten Förderungen eines Projekts [EUR]
+-- Schnelle Kennzahl für Übersicht und Reporting
+CREATE OR REPLACE FUNCTION din18599.sum_approved_funding(p_sidecar_id UUID)
+RETURNS NUMERIC AS $$
+    SELECT COALESCE(SUM((f->'snapshot'->>'amount_approved_eur')::NUMERIC), 0)
+    FROM din18599.sidecars s,
+         jsonb_array_elements(s.data->'funding') AS f
+    WHERE s.id = p_sidecar_id;
+$$ LANGUAGE sql STABLE;
+
+
+-- ══════════════════════════════════════════════════════════════════════
+-- FERTIG — v3.0
 -- Schema bereit für: Python Validator → Import → Export
+-- Quelle der Wahrheit: schema/v3.0-complete.json
 -- ══════════════════════════════════════════════════════════════════════
