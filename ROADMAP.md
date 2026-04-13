@@ -1,7 +1,7 @@
 # DIN 18599 IFC Sidecar - Roadmap 2026
 
-**Version:** 3.0  
-**Stand:** 1. April 2026  
+**Stand:** 13. April 2026
+**Schema-Version:** v3.1 (ausgeliefert), v3.2 in Planung
 **Projekt:** Open Source Standard für energetische Gebäudeakte
 
 ---
@@ -11,10 +11,24 @@
 **Vision:** Software-neutraler Datenstandard für die energetische Gebäudeakte, der Geometrie (IFC), Physik (Sidecar) und Berechnung (Software) entkoppelt.
 
 **Hauptziele 2026:**
-1. ✅ **Schema v2.1:** Norm-konforme, robuste Datenstruktur (Q2) - **ABGESCHLOSSEN**
-2. 🚀 **Parser-System:** IFC + EVEBI → Sidecar Generator (Q2) - **NEU!**
-3. 🔄 **Viewer-MVP:** Professioneller 3D-Viewer + Upload/Download (Q2) - **IN ARBEIT**
-4. 📅 **Community:** Erste externe Contributors, Präsentationen (Q3-Q4)
+1. ✅ **Schema v2.1 → v3.1:** Norm-konforme Datenstruktur + Gebäudeakte-Sektionen (Q2) — **ABGESCHLOSSEN**
+2. ✅ **Parser-System:** IFC + EVEBI → Sidecar Generator (Q2) — **ABGESCHLOSSEN**
+3. 🔄 **Viewer-MVP:** Professioneller 3D-Viewer + Upload/Download (Q2) — **IN ARBEIT**
+4. 📅 **Community:** Erste externe Contributors, Berlin-Präsentation (Q2–Q4)
+
+> **Der Block "Status Quo (1. April 2026)" weiter unten ist ein historischer Snapshot** —
+> er dokumentiert den Zustand vom 1.4., als das Parser-System fertig war. Für den
+> aktuellen Stand siehe diesen Abschnitt und den [CHANGELOG](CHANGELOG.md).
+
+### 🟢 Seit dem 1. April erreicht
+
+- **Schema v2.2, v2.3, v3.0, v3.1** ausgeliefert — siehe [CHANGELOG.md](CHANGELOG.md)
+- **v3.0 Gebäudeakte-Release:** neue Sektionen `documents`, `funding`, `roadmap`, `sla_context`
+- **v3.1 Additiv:** `input.energy_certificate`, `input.targets`
+- **database/schema.sql v3.0:** 3 neue Statistik-Spalten, 4 Helper-Funktionen (get_documents, get_funding, get_roadmap_steps, sum_approved_funding)
+- **E2E-Roundtrip-Test** (lossless) produktiv — Parser → Generator → Validator
+- **Cross-Repo-Integration DWEapp:** `schema:generate` + `schema:check` Scripts in [/opt/weclapp-manager](../weclapp-manager) lesen v3.0-complete.json als Single Source of Truth
+- **Contributing-Workflow:** Schema-First-Workflow formalisiert (8 Schritte, siehe [CONTRIBUTING.md](CONTRIBUTING.md))
 
 ---
 
@@ -157,35 +171,16 @@
 - ✅ `viewer/src/components/FileUpload.tsx` - Upload UI
 - ✅ `api/main.py` - FastAPI Backend
 
-### 🔄 **Phase 3: Setup & Testing** (2.-7. April) - **IN ARBEIT**
+### ✅ **Phase 3: Setup & Testing** (2.-7. April) — **ABGESCHLOSSEN**
 
-**Aufgaben:**
-- [ ] **Python Environment Setup** (1h)
-  - `sudo apt install python3.12-venv`
-  - `python3 -m venv venv`
-  - `pip install -r requirements.txt`
-  - `ifcopenshell` Installation
+**Erreicht:**
+- [x] Python Environment + ifcopenshell installiert
+- [x] FastAPI Backend läuft, CORS für DWEapp-Dev (Port 3000) konfiguriert
+- [x] End-to-End Roundtrip-Test: lossless verifiziert (Commit 4510760)
+- [x] `api/README.md`, `docs/QUICKSTART.md` vorhanden
 
-- [ ] **Backend Server starten** (15min)
-  - `uvicorn main:app --reload --port 8000`
-  - CORS-Test mit Viewer
-
-- [ ] **End-to-End Testing** (2h)
-  - Upload Real-World Dateien (IFC + EVEBI)
-  - Mapping-Qualität prüfen
-  - Sidecar JSON validieren
-  - Performance-Test (große Dateien)
-
-- [ ] **Dokumentation** (2h)
-  - README.md für Parser-System
-  - API-Dokumentation
-  - Setup-Guide (Quickstart)
-  - Beispiel-Workflow
-
-**Deliverables:**
-- `api/README.md` - Parser-System Dokumentation
-- `docs/API.md` - API-Dokumentation
-- `docs/QUICKSTART.md` - Setup-Guide
+**Noch offen (nachgelagert zur Doku-Aufräum-Session, siehe unten):**
+- [ ] `docs/API.md` — OpenAPI/Swagger-Export
 
 ### 📅 **Phase 4: Viewer-Verbesserungen** (8.-14. April)
 
@@ -252,28 +247,13 @@
 
 ## 📋 Offene Punkte (Priorität)
 
-### 🔴 Kritisch (Must-Have)
-
-1. **Python Environment Setup**
-   - `sudo apt install python3.12-venv`
-   - Virtual Environment erstellen
-   - Dependencies installieren
-
-2. **ifcopenshell Installation**
-   - Kann komplex sein (C++ Dependencies)
-   - Alternative: Docker Container
-
-3. **End-to-End Testing**
-   - Real-World IFC + EVEBI Dateien testen
-   - Mapping-Qualität validieren
-   - Edge Cases prüfen
+> Stand 13.4.: Die Punkte 1–3 aus dem 1.4.-Stand (Python-Setup, ifcopenshell, E2E-Testing) sind abgeschlossen. Die Liste unten ist entsprechend bereinigt.
 
 ### 🟠 Hoch (Should-Have)
 
-4. **Dokumentation**
-   - README.md für Parser-System
-   - API-Dokumentation (OpenAPI/Swagger)
-   - Setup-Guide (Quickstart)
+4. **Dokumentation (API-Layer)**
+   - API-Dokumentation (OpenAPI/Swagger-Export aus FastAPI)
+   - Siehe auch "Dokumentations-Konsistenz (offen)" am Ende dieser Roadmap
 
 5. **Error Handling**
    - Bessere Fehlermeldungen
@@ -471,11 +451,37 @@
 
 ---
 
+## 📝 Dokumentations-Konsistenz (offen)
+
+> Notiert am 13. April 2026 nach der v3.0/v3.1-Aufräum-Session.
+> README.md, CLAUDE.md und diese Roadmap wurden bereits aktualisiert —
+> die folgenden Punkte stehen noch aus.
+
+### 🟠 Mittel (eigene Session, ca. 45 min)
+
+- [ ] **docs/ARCHITECTURE.md** — 5-Layer-Architektur um die v3.0-Sektionen (documents, funding, roadmap, sla_context) erweitern; DB-Helper-Funktionen erwähnen
+- [ ] **docs/QUICKSTART.md** — Setup-Guide auf v3.1 heben (Schema-Pfad, Beispiel-JSON)
+- [ ] **docs/PARAMETER_MATRIX.md** — Auf v3.1-Stand prüfen; die v3.1-Neufelder (energy_certificate, targets) ergänzen falls relevant
+- [ ] **CONTRIBUTING.md** — Schritt 2 verweist auf `schema/v3.x-complete.json` und `PARAMETER_MATRIX.md`; letzteren Verweis prüfen, ob er noch aktuell ist
+
+### 🟡 Niedrig (nur bei Bedarf)
+
+- [ ] **CHANGELOG-Rückfüllung v2.1–v2.3** — aktuell nur Hinweis auf Git-History; optional nachtragen für vollständige Keep-a-Changelog-Form
+- [ ] **"Historisch"-Header für v2.1-Guides** — `docs/SIDECAR_SCHEMA_v2.1.md`, `docs/SCHEMA_V2.1_CONCEPT.md`, `docs/SCHEMA_V2.1_GUIDE.md`, `docs/SOLID_LIBRARY_v2.md`, `docs/MIGRATION_GUIDE_v2.0_to_v2.1.md` — jeweils einen Warnblock am Dateianfang hinzufügen, damit Leser erkennen dass es sich um versionsspezifische Guides handelt
+- [ ] **Ungewisse Dateien prüfen** — `docs/LOD_GUIDE.md`, `docs/IFC_SIDECAR_LINK.md`, `docs/FILE_FORMATS.md` wurden im Drift-Scan nicht gefunden; stichprobenartig lesen ob sie trotzdem outdated sind
+
+### 🟢 Nachgelagert
+
+- [ ] **Datenbank-Migrationsskript** — `database/migrations/v2.3_to_v3.0.sql` erstellen (ALTER TABLE für die 3 neuen Statistik-Spalten + CREATE FUNCTION für die Helper), damit bestehende Produktiv-DBs sauber migriert werden können. Das pure schema.sql ist nur für frische Deployments autoritativ.
+- [ ] **LFS-Evaluation** — sobald `sources/IFC_EVBI/` oder andere Binärordner insgesamt >500 MB überschreiten, Umstellung auf Git LFS erwägen (bislang alle Test-Fixtures direkt im Git, was bei den aktuellen Größen OK ist).
+
+---
+
 ## ✅ Abschluss
 
 Diese Roadmap ist ein **lebendiges Dokument** und wird nach jeder Phase aktualisiert.
 
 **Feedback willkommen!** → GitHub Issues oder Discussions
 
-**Letzte Aktualisierung:** 1. April 2026 (Parser-System implementiert)  
-**Nächste Review:** 7. April 2026 (nach Setup & Testing)
+**Letzte Aktualisierung:** 13. April 2026 (v3.1 ausgeliefert, Cross-Repo DWEapp integriert, Doku-Refresh für README/CLAUDE/ROADMAP)
+**Nächste Review:** nach der Doku-Konsistenz-Session (siehe oben)

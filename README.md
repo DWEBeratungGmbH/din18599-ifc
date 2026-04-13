@@ -3,11 +3,11 @@
 **Ein offenes Austauschformat für die energetische Gebäudeakte in Deutschland**
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/Version-2.0.0-green.svg)](CHANGELOG.md)
-[![Schema](https://img.shields.io/badge/Schema-JSON%20Draft--07-orange.svg)](gebaeude.din18599.schema.json)
+[![Version](https://img.shields.io/badge/Version-3.1.0-green.svg)](CHANGELOG.md)
+[![Schema](https://img.shields.io/badge/Schema-JSON%20Draft--07-orange.svg)](schema/v3.1-complete.json)
 
-> **Status:** v2.0.0 - Production Ready  
-> **Lizenz:** Apache License 2.0  
+> **Status:** v3.1.0 — Gebäudeakte-Release (documents, funding, roadmap, sla_context)
+> **Lizenz:** Apache License 2.0
 > **Repository:** [github.com/DWEBeratungGmbH/din18599-ifc](https://github.com/DWEBeratungGmbH/din18599-ifc)
 
 ---
@@ -15,7 +15,7 @@
 ## 📑 Inhaltsverzeichnis
 
 - [Zielbild](#-zielbild)
-- [Features v2.0](#-features-v20)
+- [Features v3.1](#-features-v31)
 - [Roadmap 2026](#-roadmap-2026)
 - [Quick Start](#-quick-start)
 - [Scope & Datenmodell](#-scope--datenmodell)
@@ -48,11 +48,11 @@ Ein Energieberatungsprojekt besteht künftig aus mindestens zwei Dateien:
 
 ---
 
-## ✨ Features v2.0
+## ✨ Features v3.1
 
 ### 🎯 Kern-Features
 
-- ✅ **JSON Schema v2.0** - Vollständig validierbar (Draft-07)
+- ✅ **JSON Schema v3.1** - Vollständig validierbar (Draft-07), abwärtskompatibel bis v2.0
 - ✅ **IFC-Verknüpfung** - GUID-basiertes Mapping (IfcBuilding, IfcSpace, IfcWall, IfcWindow)
 - ✅ **LOD-Konzept** - Level of Detail 100-500 (BIM-inspiriert)
 - ✅ **Varianten-Management** - Delta-Modell (Base + Scenarios)
@@ -60,6 +60,15 @@ Ein Energieberatungsprojekt besteht künftig aus mindestens zwei Dateien:
 - ✅ **Materialien** - Standard + Air Layers (EN ISO 6946)
 - ✅ **Wärmebrücken** - ΔU_WB mit Typen (DEFAULT, REDUCED, DETAILED)
 - ✅ **Kataloge** - Bundesanzeiger 2020 (97 U-Werte, BEG-konform)
+
+### 🏛️ Gebäudeakte-Sektionen (neu in v3.0/v3.1)
+
+- ✅ **`documents[]`** - Pläne, Nachweise, Fotos, Rechnungen als Cloud-Links (Nextcloud/S3 via Storage-Resolver)
+- ✅ **`funding[]`** - Förderungen (BEG, KfW, BAFA) als Hybrid-Modell mit ERPNext-Referenz + Snapshot
+- ✅ **`roadmap`** - Sanierungsfahrplan mit priorisierten Schritten (iSFP-kompatibel)
+- ✅ **`sla_context`** - Brücke zur SLA-Sandbox (BGF, WE, BT, Szenarien-Mapping)
+- ✅ **`input.energy_certificate`** (v3.1) - Energieausweis-Daten (VERBRAUCH/BEDARF) mit Audit-Quelle
+- ✅ **`input.targets`** (v3.1) - freie Zielwerte für den "nur IFC vorhanden"-Fall
 
 ### � Tools
 
@@ -80,15 +89,15 @@ Ein Energieberatungsprojekt besteht künftig aus mindestens zwei Dateien:
 
 ## �️ Roadmap 2026
 
-**Nächste Schritte:** Schema v2.1 (April), Katalog-System (April), Viewer-MVP (Mai)
+**Aktueller Stand (April 2026):** Schema v3.1 ausgeliefert, FastAPI-Parser produktiv, Viewer-MVP in Arbeit.
 
 👉 **[Vollständige Roadmap ansehen](ROADMAP.md)**
 
 **Highlights:**
-- **Q2 2026:** Schema v2.1 mit kritischen Fixes, Katalog-Integration, Viewer-MVP
+- **Q2 2026 (abgeschlossen):** Schema v2.1 → v3.1, Parser-System (IFC + EVEBI), DB v3.0 mit Helper-Funktionen
 - **Mai 2026:** MVP-Präsentation in Berlin
-- **Q3 2026:** IFC Integration, Editor-Prototyp
-- **Q4 2026:** Community-Aufbau, v3.0 Release
+- **Q3 2026:** IFC.js-Integration, Editor-Prototyp, weitere Parser
+- **Q4 2026:** Community-Aufbau, externe Norm-Review
 
 ---
 
@@ -167,8 +176,8 @@ open http://localhost:8000/viewer/index.html
 ```json
 {
   "schema_info": {
-    "url": "https://din18599-ifc.de/schema/v1",
-    "version": "2.0.0"
+    "$id": "https://din18599-ifc.de/schema/v3.1/complete",
+    "version": "3.1.0"
   },
   "meta": {
     "project_name": "Mein Projekt",
@@ -236,10 +245,16 @@ Das Format unterstützt den gesamten Lebenszyklus:
 
 ```
 din18599-ifc/
-├── gebaeude.din18599.schema.json    # JSON Schema (v2.0)
+├── schema/                          # JSON Schema (Single Source of Truth)
+│   ├── v3.1-complete.json           # Aktuelle Version (v3.1)
+│   ├── v3.0-complete.json           # Gebäudeakte-Release
+│   ├── v2.3-complete.json           # Flache Struktur (historisch)
+│   └── MIGRATION_*.md               # Upgrade-Guides pro Version
+├── database/                        # PostgreSQL Schema + Helper-Funktionen
+│   └── schema.sql                   # v3.0 mit get_documents/get_funding/...
 ├── README.md                        # Dieses Dokument
 ├── LICENSE                          # Apache 2.0
-├── CHANGELOG.md                     # Versionshistorie
+├── CHANGELOG.md                     # Versionshistorie (Keep a Changelog)
 │
 ├── docs/                            # Dokumentation
 │   ├── ARCHITECTURE.md              # 5-Layer-Architektur, DB-Schema
@@ -248,26 +263,14 @@ din18599-ifc/
 │   ├── LOD_GUIDE.md                 # LOD 100-500 Definitionen
 │   └── KATALOG_VERWENDUNG.md        # Katalog-Integration
 │
-├── examples/                        # Beispiel-Dateien
-│   ├── lod100_schnellschaetzung.din18599.json
-│   ├── lod200_bestandsaufnahme.din18599.json
-│   ├── lod300_sanierung_varianten.din18599.json
-│   └── lod400_geg_nachweis.din18599.json
-│
-├── catalogs/                        # Kataloge
-│   └── constructions/
-│       └── de-bmwi2020-bauteile-v1.0.json  # Bundesanzeiger 2020
-│
-├── tools/                           # CLI-Tools
-│   └── validate.py                  # Python Validator
-│
-├── viewer/                          # Web Viewer
-│   └── index.html                   # Drag & Drop Viewer
-│
-└── api/                             # REST API
-    ├── main.py                      # FastAPI Service
-    ├── requirements.txt
-    └── Dockerfile
+├── examples/                        # Beispiel-Dateien (LOD 100-400)
+├── catalogs/                        # Bundesanzeiger 2020 Katalog
+├── tools/                           # CLI Validator (validate.py)
+├── viewer/                          # React/Vite Viewer
+└── api/                             # FastAPI Parser-System
+    ├── main.py                      # Endpunkte: /process, /health
+    ├── parsers/                     # IFC + EVEBI Parser
+    └── generators/                  # Sidecar-Generator
 ```
 
 ### Projekt-Dateistruktur (Anwendung)
@@ -340,9 +343,12 @@ curl -X POST -F "file=@examples/musterhaus.din18599.json" http://localhost:8000/
 
 | Dokument | Beschreibung |
 |----------|-------------|
-| [gebaeude.din18599.schema.json](gebaeude.din18599.schema.json) | JSON Schema (Draft-07) |
+| [schema/v3.1-complete.json](schema/v3.1-complete.json) | JSON Schema v3.1 (Draft-07) — Single Source of Truth |
+| [schema/MIGRATION_v3.0_to_v3.1.md](schema/MIGRATION_v3.0_to_v3.1.md) | Migration v3.0 → v3.1 |
+| [schema/MIGRATION_v2.3_to_v3.0.md](schema/MIGRATION_v2.3_to_v3.0.md) | Migration v2.3 → v3.0 (Gebäudeakte) |
+| [database/schema.sql](database/schema.sql) | PostgreSQL Schema v3.0 + Helper-Funktionen |
 | [CHANGELOG.md](CHANGELOG.md) | Versionshistorie |
-| [CONTRIBUTING.md](CONTRIBUTING.md) | Contribution Guidelines |
+| [CONTRIBUTING.md](CONTRIBUTING.md) | Contribution Guidelines + Schema-First-Workflow |
 
 ### Pläne & Konzepte
 

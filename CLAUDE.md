@@ -7,7 +7,7 @@
 
 - **Backend/API:** Python 3.12, FastAPI, SQLAlchemy, PostgreSQL
 - **Frontend/Viewer:** React 19, TypeScript, Vite, Three.js (3D/Web-IFC)
-- **Datenformat:** JSON Schema v2.0 (Draft-07)
+- **Datenformat:** JSON Schema v3.1 (Draft-07), abwärtskompatibel bis v2.0
 - **Standards:** DIN 18599 (Energetische Bewertung von Gebäuden)
 
 ## Projektstruktur
@@ -51,14 +51,18 @@ tools/                  # CLI Validator (validate.py)
 - Branch-Naming: `feature/`, `fix/`, `docs/`, `refactor/`, `test/`
 
 ### Schema-Änderungen
-- Abwärtskompatibilität beachten
-- Changelog pflegen
-- Beispieldateien aktualisieren
+- **Schema-First-Workflow:** JSON Schema in `schema/` ist die Single Source of Truth — DB, TS-Typen und Doku werden daraus abgeleitet.
+- Abwärtskompatibilität beachten, SemVer-Bump + CHANGELOG-Eintrag pflegen.
+- Bei jedem Release auch `database/schema.sql` mitziehen und Migration-Dokument (`schema/MIGRATION_vX.Y_to_vX.Z.md`) schreiben.
+- DWEapp (`/opt/weclapp-manager`) ist primärer Konsument — nach Schema-Änderungen dort `npm run schema:check` ausführen.
+- Details: siehe [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Wichtige Dateien
 
-- **Schema:** `schema/gebaeude.din18599.schema.json`
-- **Roadmap:** `ROADMAP.md` (Q2-Q4 2026)
+- **Schema (aktuell):** `schema/v3.1-complete.json`
+- **Schema v3.0 (Gebäudeakte-Basis):** `schema/v3.0-complete.json`
+- **Datenbank-Schema:** `database/schema.sql` (v3.0 mit Helper-Funktionen)
+- **Roadmap:** `ROADMAP.md`
 - **Contributing:** `CONTRIBUTING.md`
 - **Changelog:** `CHANGELOG.md`
 - **Tests:** `TESTING.md`
