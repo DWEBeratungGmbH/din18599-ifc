@@ -13,6 +13,13 @@ from parsers.evebi_parser import parse_evea, evebi_data_to_dict
 from parsers.ifc_parser import parse_ifc, ifc_geometry_to_dict
 from generators.sidecar_generator import SidecarGenerator
 
+# QNG EVEBI Parser-Modul (Phase 3.9 Welle 3)
+try:
+    from qng.orchestrator import orchestrate as qng_orchestrate
+    QNG_AVAILABLE = True
+except ImportError:
+    QNG_AVAILABLE = False
+
 # Datenbank-Integration (optional — funktioniert auch ohne PostgreSQL)
 import sys
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
@@ -284,3 +291,57 @@ async def generate_sidecar_json(
             print(f"❌ Fehler: {e}")
             print(traceback.format_exc())
             raise HTTPException(status_code=500, detail=f"Fehler beim Generieren: {str(e)}")
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# QNG EVEBI Parser — Phase 3.9 Welle 3
+# ─────────────────────────────────────────────────────────────────────────────
+
+@app.post("/qng/parse")
+async def qng_parse(file: UploadFile = File(...)):
+    """
+    Erkennt EVEBI-Dateityp automatisch und extrahiert QNG-relevante Werte.
+
+    Unterstützte Formate:
+    - BEG-GEG-Nachweis-Import.xml  → deterministisch, Confidence 1.0
+    - eLCA XML Export               → deterministisch, Confidence 1.0
+    - idi-al.ini                    → deterministisch, Confidence 1.0
+    - Nachhaltigkeit.docx           → Ollama-unterstützt, Confidence < 1.0
+    - IFC                           → nur Metadaten, Confidence 0.0
+
+    Response:
+    {
+      "kanal":          str,           # EingangKanal-Enum
+      "ki_extrahiert":  { "sidecar.pfad": {"wert": X, "confidence": 1.0} },
+      "ki_confidence":  float,
+      "direkt_freigabe": bool,         # true = sofort in Sidecar schreiben
+      "warnungen":      [str],
+    }
+    """
+    if not QNG_AVAILABLE:
+        raise HTTPException(
+            status_code=503,
+            detail="QNG-Parser nicht verfügbar (Import-Fehler beim Start).",
+        )
+
+    content = await file.read()
+    filename = file.filename or "unbekannt"
+
+    try:
+        result = qng_orchestrate(content, filename)
+    except ValueError as e:
+        raise HTTPException(status_code=422, detail=str(e))
+    except Exception as e:
+        import traceback
+        print(f"❌ QNG-Parser Fehler: {e}")
+        print(traceback.format_exc())
+        raise HTTPException(status_code=500, detail=f"Parser-Fehler: {str(e)}")
+
+    return {
+        "kanal":           result.kanal,
+        "ki_extrahiert":   result.ki_extrahiert,
+        "ki_confidence":   result.ki_confidence,
+        "direkt_freigabe": result.direkt_freigabe,
+        "warnungen":       result.warnungen,
+        **({"bauteilkatalog": result.bauteilkatalog} if result.bauteilkatalog else {}),
+    }
