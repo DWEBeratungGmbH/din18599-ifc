@@ -277,7 +277,22 @@
    - Manuelle Korrektur-UI
    - Confidence-Threshold konfigurierbar
 
-9. **Export-Funktionen**
+### 🟣 Strategie (Pitch-Vorbereitung 06.05.2026)
+
+9. **Katalog-Anbindung — 3-Säulen-Strategie**
+   Siehe [docs/CATALOG_STRATEGY.md](docs/CATALOG_STRATEGY.md)
+   - ÖKOBAUDAT (LCA), EPREL (TGA), bSDD (Klassifikation)
+   - Schema-Erweiterung v3.2: Identifier-Felder (`oekobaudat_uuid`, `eprel_id`, `bsdd_guid`)
+   - Offene Flanke benannt: keine offene EU-DB für Bauhülle bis CPR/DPP
+
+10. **IFC-Mindestanforderungs-Spec als IDS**
+    Siehe [docs/IFC_REQUIREMENTS.md](docs/IFC_REQUIREMENTS.md)
+    - Q2 2026: IDS 1.0 Draft `schema/ids/din18599-base.ids`
+    - Q3 2026: bSDD-Domäne registrieren, IDS-Template-Antrag bei bSI
+    - Q4 2026: Pset-Antrag (`Pset_ThermalBridge`, `Pset_ShadingDeviceWindow`) für IFC4.3 ADD3
+    - Andockpunkt DE: Fachgruppe Nachhaltigkeit (Neustart 20.10.2025, Treffen 10.11.2025 Fulda)
+
+11. **Export-Funktionen**
    - IFC-Export (mit Sidecar-Daten)
    - Excel-Export (Bauteil-Liste)
    - PDF-Report

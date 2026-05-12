@@ -338,6 +338,8 @@ curl -X POST -F "file=@examples/musterhaus.din18599.json" http://localhost:8000/
 | [PARAMETER_MATRIX.md](docs/PARAMETER_MATRIX.md) | Alle DIN 18599 Parameter (Teil 1-10) |
 | [LOD_GUIDE.md](docs/LOD_GUIDE.md) | LOD 100-500 Definitionen, Use Cases |
 | [KATALOG_VERWENDUNG.md](docs/KATALOG_VERWENDUNG.md) | Bundesanzeiger, Custom Catalogs |
+| [CATALOG_STRATEGY.md](docs/CATALOG_STRATEGY.md) | Strategie Hersteller-/Produktkataloge (ÖKOBAUDAT, EPREL, bSDD) |
+| [IFC_REQUIREMENTS.md](docs/IFC_REQUIREMENTS.md) | IFC-Mindestanforderungs-Spec + buildingSMART-Andockpunkte |
 
 ### Technische Dokumentation
 
