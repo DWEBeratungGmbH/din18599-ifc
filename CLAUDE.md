@@ -60,10 +60,24 @@ tools/                  # CLI Validator (validate.py)
 
 ## Wichtige Dateien
 
-- **Schema v4.0 (in Entwicklung, Greenfield):** `schema/v4.0/sidecar.schema.json` + `schema/v4.0/manifest.schema.json`
+- **Container-Spezifikation v4.0:** [`docs/DWE_CONTAINER.md`](docs/DWE_CONTAINER.md) — Einstieg
+- **Schema v4.0 (in Entwicklung, Greenfield):** `schema/v4.0/sidecar.schema.json` + `manifest.schema.json` + `catalog-envelope.schema.json`
+- **Kern-Kataloge:** `catalog/core/` (Struktur, öffentlich) · `catalog/values/` + `catalog-private/` (Normwerte, gitignored)
+- **Referenz-Container:** `examples/v4.0/beispiel1/`
+- **Validator:** `tools/dwe_validate.py` (5 Stufen) · Tests `tools/test_dwe_validate.py`
 - **Schema v3.1 (produktiv eingefroren):** `schema/v3.1-complete.json`
-- **Schema v3.0 (Basis der DWEapp-TS-Typen):** `schema/v3.0-complete.json`
+- **Schema v3.0 (Basis der DWEapp-TS-Typen — nicht entfernen):** `schema/v3.0-complete.json`
 - **Altstände v2.x:** `archive/schema-legacy/` (v3.2 verworfen, siehe CHANGELOG)
+
+### Regenerieren und prüfen
+
+```bash
+python3 scripts/build-usage-profiles-catalog.py --edition 2018-09
+python3 scripts/build-room-types-catalog.py
+python3 scripts/build-example-beispiel1.py
+python3 tools/test_dwe_validate.py            # Validator-Regeln
+bash scripts/check-catalog-values.sh --all    # Rechtsschutz-Gate
+```
 - **Datenbank-Schema:** `database/schema.sql` (v3.0 mit Helper-Funktionen)
 - **Roadmap:** `ROADMAP.md`
 - **Contributing:** `CONTRIBUTING.md`

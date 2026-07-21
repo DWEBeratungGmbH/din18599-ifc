@@ -1,6 +1,6 @@
 # Katalog-Bestandsanalyse — Grundlage für Schema v4.0
 
-> **Zweck:** Diskussionsgrundlage nach HANDOFF §8.1 (`HANDOFF-schema-v4-greenfield.md`, noch nicht im Repo). Ist-Analyse des Katalog-Bestands + konsolidierte Anforderungen + offene Design-Fragen für Sebi.
+> **Zweck:** Diskussionsgrundlage nach [HANDOFF §8.1](HANDOFF-schema-v4-greenfield.md). Ist-Analyse des Katalog-Bestands + konsolidierte Anforderungen + offene Design-Fragen für Sebi.
 > **Status:** Schritt 1 von 2. Katalog-Format wird ERST nach Sebis Feedback entworfen.
 > **Stand:** 2026-07-21
 
