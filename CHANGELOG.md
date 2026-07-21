@@ -7,6 +7,58 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/lang/de/).
 
 ---
 
+## [Unreleased] - Schema v4.0 (.dwe-Container)
+
+### Added
+
+- **`schema/v4.0/manifest.schema.json`** — Container-Manifest der `.dwe`-Datei (ZIP):
+  Inhaltsverzeichnis, SHA256-Checksummen, GUID-Konsistenzprüfung IFC↔Sidecar,
+  Validierungsgrad. Einzige Datei, die ein Konsument lesen muss, um zu entscheiden
+  ob er den Container verarbeiten kann.
+- **`schema/v4.0/sidecar.schema.json`** — Sidecar v4.0, Greenfield-Neuentwurf:
+  - **`input.boundaries[]`** — Angrenzungsmatrix analog IfcRelSpaceBoundary 2nd Level.
+    Wird extern berechnet und lebt im Sidecar; IFC-SpaceBoundaries sind Best-Effort
+    und nie Rechengrundlage. Splits bei Raumwechsel, Wechsel der Angrenzungsart
+    (Pflicht) und optional Materialwechsel. Geometrie als `z_range` oder `polygon`.
+  - **`input.element_groups[]`** — Bauteilgruppen als berechnete Zwischenebene mit
+    Koplanaritäts-Fingerprint im Projektsystem. DIN 18599 rechnet auf Gruppen-,
+    Heizlast auf Boundary-Ebene. Fachdaten hängen an der Gruppe, nie an der Instanz.
+  - **`rooms[].zone_memberships[]`** — Mehrfach-Zonenzugehörigkeit (thermal,
+    dwelling_unit, ventilation, fire, acoustic) statt fester Einzel-Refs.
+  - **`meta.norm_editions{}`** — Norm-Edition als projektweiter Default je Norm-Teil.
+    Referenzen bleiben ohne Editions-Suffix stabil.
+  - **`meta.catalogs[]`** + `catalog_ref`/`catalog_source` — reproduzierbare
+    Katalogstände; ergänzt durch `zone.used_profile_values`-Snapshot.
+  - **`meta.true_north_offset_deg`** + `azimuth_reference: "geographic"` — alle
+    exportierten Azimute sind bereits geo-korrigiert, der Fingerprint bleibt im
+    Projektsystem.
+  - **`meta.ve_method`** — Ermittlungsmethode des beheizten Volumens ist immer zu
+    dokumentieren; `room.volume_reported_m3` ist ausdrücklich nur Plausibilitätswert.
+  - `adjacency_type`-Enum mit 14 Werten (Fx und Maßbezug im Katalog, nicht im Schema),
+    `opening_type`-Enum mit 9 Werten, 5 Validierungsstufen `draft` … `calc_ready`.
+
+### Removed
+
+- **Schema v3.2 verworfen.** Es war nie in einem Release dokumentiert und hatte zwei
+  Defekte: `schema_info.url`-const und `version`-Pattern (`^3\.1\.\d+$`) wurden nie
+  hochgezogen — das Schema lehnte seine eigene Version ab — und `step_refs[]` verwies
+  auf `scenarios[].steps[].id`, was in keiner Version existierte. Beide v3.2-Felder
+  (`funding_entry.step_refs[]`, `status_erweitert`) sind in v4.0 übernommen, `steps[]`
+  dort erstmals als echte Struktur unter `scenarios[]` definiert.
+- **v2.1 / v2.2 / v2.3** samt zugehörigen Migrations-Dokumenten nach
+  `archive/schema-legacy/` verschoben.
+
+### Notes
+
+- v3.0 und v3.1 bleiben eingefroren in Betrieb, bis DWEapp auf v4.0 umgestellt ist.
+  DWEapp generiert seine TS-Typen aus **v3.0** (`scripts/schema-check.mjs`) — diese
+  Datei darf bis dahin nicht entfernt werden.
+- v4.0 ist bewusst **kein** abwärtskompatibler Diff auf v3.x. Ein Migrationsskript ist
+  keine Release-Pflicht; die Parser-Anpassung ist ein eigenes Arbeitspaket.
+- Katalog-Format ist noch offen — siehe [docs/v4/KATALOG_BESTANDSANALYSE.md](docs/v4/KATALOG_BESTANDSANALYSE.md).
+
+---
+
 ## [3.1.0] - 2026-04-13
 
 ### Added

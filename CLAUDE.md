@@ -7,7 +7,7 @@
 
 - **Backend/API:** Python 3.12, FastAPI, SQLAlchemy, PostgreSQL
 - **Frontend/Viewer:** React 19, TypeScript, Vite, Three.js (3D/Web-IFC)
-- **Datenformat:** JSON Schema v3.1 (Draft-07), abwärtskompatibel bis v2.0
+- **Datenformat:** JSON Schema (Draft-07). Produktiv: v3.1. In Entwicklung: v4.0 als .dwe-Container (Greenfield, kein Diff auf v3.x)
 - **Standards:** DIN 18599 (Energetische Bewertung von Gebäuden)
 
 ## Projektstruktur
@@ -33,7 +33,8 @@ docs/                   # Umfangreiche Dokumentation
 ├── LOD_GUIDE.md        # Level of Detail (100-500)
 └── PARAMETER_MATRIX.md # DIN 18599 Parameter
 
-catalogs/               # Bundesanzeiger 2020 Katalog
+catalog/                # Kern-Kataloge (Struktur, öffentlich)
+catalog-private/        # Normwerte (gitignored, DIN/Beuth-Urheberrecht)
 examples/               # LOD 100-400 Beispiel-JSON
 tools/                  # CLI Validator (validate.py)
 .plans/                 # Implementierungspläne (18 Dateien)
@@ -59,8 +60,10 @@ tools/                  # CLI Validator (validate.py)
 
 ## Wichtige Dateien
 
-- **Schema (aktuell):** `schema/v3.1-complete.json`
-- **Schema v3.0 (Gebäudeakte-Basis):** `schema/v3.0-complete.json`
+- **Schema v4.0 (in Entwicklung, Greenfield):** `schema/v4.0/sidecar.schema.json` + `schema/v4.0/manifest.schema.json`
+- **Schema v3.1 (produktiv eingefroren):** `schema/v3.1-complete.json`
+- **Schema v3.0 (Basis der DWEapp-TS-Typen):** `schema/v3.0-complete.json`
+- **Altstände v2.x:** `archive/schema-legacy/` (v3.2 verworfen, siehe CHANGELOG)
 - **Datenbank-Schema:** `database/schema.sql` (v3.0 mit Helper-Funktionen)
 - **Roadmap:** `ROADMAP.md`
 - **Contributing:** `CONTRIBUTING.md`
