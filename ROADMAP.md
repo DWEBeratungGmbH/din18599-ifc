@@ -1,7 +1,8 @@
 # DIN 18599 IFC Sidecar - Roadmap 2026
 
-**Stand:** 13. April 2026
-**Schema-Version:** v3.1 (ausgeliefert), v3.2 in Planung
+**Stand:** 21. Juli 2026
+**Schema-Version:** v3.1 (ausgeliefert, eingefroren), v4.0 im Entwurf (.dwe-Container, Greenfield)
+**v3.2:** verworfen — siehe [CHANGELOG.md](CHANGELOG.md)
 **Projekt:** Open Source Standard für energetische Gebäudeakte
 
 ---

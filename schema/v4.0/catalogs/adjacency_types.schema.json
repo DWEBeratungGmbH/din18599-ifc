@@ -1,0 +1,90 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://din18599-ifc.de/schema/v4.0/catalogs/adjacency_types",
+  "title": "Entry-Schema: adjacency_types",
+  "description": "Angrenzungsarten nach DIN V 18599-2. Traegt Fx-Wert, Massbezugsregel und Relevanz-Defaults. Dieser Katalog ist vollstaendig oeffentlich inklusive Zahlenwerte (Entscheidung 6.6): es sind 12 Einzelfakten, die in jedem GEG-Kommentar stehen, und die Boundary-Validierung als Grundfunktion darf nicht an einem Overlay haengen.",
+  "type": "object",
+  "required": ["code", "name_de", "fx", "measurement_reference"],
+  "additionalProperties": false,
+
+  "properties": {
+    "code": {
+      "type": "string",
+      "enum": [
+        "exterior", "attic_uninsulated", "unheated", "low_heated",
+        "glass_single", "glass_double", "glass_triple",
+        "ground_slab", "ground_basement_heated", "ground_basement_unheated",
+        "floor_suspended", "other_zone", "same_zone", "adjacent_building"
+      ],
+      "description": "Deckungsgleich mit dem adjacency_type-Enum im Sidecar-Schema"
+    },
+    "name_de":   { "type": "string" },
+    "name_en":   { "type": "string" },
+    "norm_ref":  { "type": "string", "description": "z.B. 'DIN V 18599-2:2018-09, Tab. 5 Zeile 1'" },
+    "norm_cell": { "type": "string", "description": "Kurzform, z.B. 'T5-Z1'" },
+
+    "fx": {
+      "type": "object",
+      "description": "Temperatur-Korrekturfaktor. Nicht jede Angrenzungsart hat einen festen Wert — Erdreich und Nachbarzone werden gerechnet.",
+      "required": ["method"],
+      "properties": {
+        "method": {
+          "type": "string",
+          "enum": ["constant", "computed", "table"],
+          "description": "constant = fester Wert. computed = aus Delta-Theta bzw. B'/Rf. table = mehrzeilige Norm-Tabelle, v1 nutzt simplified_value."
+        },
+        "value": {
+          "type": ["number", "null"],
+          "minimum": 0, "maximum": 1,
+          "description": "Fester Wert bei method='constant'"
+        },
+        "simplified_value": {
+          "type": ["number", "null"],
+          "minimum": 0, "maximum": 1,
+          "description": "Vereinfachter Ersatzwert fuer v1 bei method='table' oder 'computed'"
+        },
+        "computation": {
+          "type": "string",
+          "description": "Rechenvorschrift in Worten, z.B. \"(theta_i - theta_nachbar) / (theta_i - theta_e)\""
+        },
+        "note": { "type": "string" }
+      }
+    },
+
+    "measurement_reference": {
+      "type": "string",
+      "enum": ["outer", "axis"],
+      "description": "Massbezug nach DIN 18599-1 Abschnitt 8. outer = Aussenmass (volle Staerke inkl. Daemmung und Putz) bzw. Aussenmass der beheizten Zone. axis = Achsmass, Mitte Rohbau-Kernschicht."
+    },
+    "measurement_note": {
+      "type": "string",
+      "description": "DWE-eigene Auslegung der Massbezugsregel — ausdruecklich kein Normtext"
+    },
+
+    "space_b_required": {
+      "type": "boolean",
+      "description": "Muss boundary.space_b gesetzt sein? false bei exterior/ground/adjacent_building — dort gibt es keinen modellierten Gegenraum."
+    },
+
+    "default_relevant_18599": {
+      "type": "boolean",
+      "description": "Vorbelegung fuer boundary.relevant_18599"
+    },
+    "default_relevant_heizlast": {
+      "type": "boolean",
+      "description": "Vorbelegung fuer boundary.relevant_heizlast"
+    },
+
+    "mutually_exclusive_with": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Angrenzungsarten, die sich pro Bauteil ausschliessen. Traegt die Validierungsregel low_heated gegen other_zone."
+    },
+    "validation_note": { "type": "string" },
+
+    "geg_reference_row_hint": {
+      "type": "string",
+      "description": "Zeile des GEG-Referenzgebaeudes fuer opake Bauteile, abhaengig von element_type. Aufloesung im geg_reference_building-Katalog."
+    }
+  }
+}

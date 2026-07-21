@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://din18599-ifc.de/schema/v4.0/catalogs/usage_profiles",
+  "title": "Entry-Schema: usage_profiles",
+  "description": "Nutzungsprofile nach DIN V 18599-10. Die oeffentliche Struktur-Datei enthaelt KEINE Zahlenwerte — jeder Parameter traegt nur Einheit, Herkunftsart und Zellenzeiger. Der Werte-Merge erfolgt zur Laufzeit aus einem Overlay.",
+  "type": "object",
+  "required": ["code", "name_de", "applicability", "parameters"],
+
+  "properties": {
+    "code":    { "type": "string", "description": "Ziel von zones[].usage_profile_ref" },
+    "number":  { "type": "string", "description": "Profilnummer der Norm, z.B. '01' oder 'R1'" },
+    "name_de": { "type": "string" },
+    "name_en": { "type": "string" },
+    "description": { "type": "string" },
+    "category": { "type": "string" },
+
+    "applicability": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "enum": ["WG", "NWG"] },
+      "description": "Flache Liste mit Filter-Feld statt getrennter WG-/NWG-Listen (Entscheidung 6.5). Der frueher getrennte Bestand fuehrte dazu, dass WG- und NWG-Profile unterschiedliche Parameter-Saetze hatten; Mischgebaeude brauchen ohnehin beides in einer Liste."
+    },
+
+    "norm_ref":  { "type": "string" },
+    "norm_cell": { "type": "string", "description": "Tabelle und Zeile, z.B. 'T6-Z01'" },
+
+    "parent_profile": {
+      "type": "string",
+      "description": "Uebergeordnetes Profil. Untergeordnete NWG-Profile (16/18/19/20/41) erben Betriebszeiten der Eltern-Zone."
+    },
+
+    "parameters": {
+      "type": "object",
+      "description": "Randbedingungen. Schluessel ist der DIN-Symbolname.",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["unit", "value_source"],
+        "properties": {
+          "unit":        { "type": "string" },
+          "description": { "type": "string" },
+          "value_source": {
+            "type": "string",
+            "enum": ["norm_table", "derived", "dwe_default", "not_applicable"],
+            "description": "norm_table = Wert kommt aus dem Overlay. not_applicable = existiert fuer dieses Profil nicht (z.B. Profile 16/18/19/20) — DAS ist der Fall, fuer den null reserviert bleibt."
+          },
+          "norm_column": {
+            "type": ["string", "null"],
+            "description": "Spalte in der Norm-Tabelle. Zusammen mit dem norm_cell des Eintrags ergibt sich die vollstaendige Zelle, z.B. 'T6-Z01-S19'. null = noch nicht erfasst."
+          }
+        }
+      }
+    }
+  }
+}

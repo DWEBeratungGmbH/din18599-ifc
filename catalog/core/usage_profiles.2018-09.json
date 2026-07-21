@@ -1,0 +1,3131 @@
+{
+  "$schema_ref": "https://din18599-ifc.de/schema/v4.0/catalog-envelope",
+  "catalog_id": "usage_profiles",
+  "catalog_version": "1.0.0",
+  "catalog_source": "core",
+  "dimension": {
+    "type": "norm_edition",
+    "value": "2018-09"
+  },
+  "title": "DIN 18599-10 Nutzungsprofile (2018-09)",
+  "description": "STRUKTUR-Katalog: Profilnummern, Namen, Kategorien und Parameter-Slots mit norm_cell-Zeigern. Enthaelt KEINE Zahlenwerte — diese sind urheberrechtlich geschuetzt (DIN/Beuth) und werden zur Laufzeit aus einem Werte-Overlay gemerged.",
+  "last_updated": "2026-07-21",
+  "norm_ref": "DIN V 18599-10:2018-09, Tabellen 5 bis 7",
+  "values_overlay": {
+    "required": true,
+    "expected_file": "catalog/values/usage_profiles.2018-09.values.json",
+    "merge_key": "code",
+    "missing_value_message": "Werte-Katalog fehlt — DWEapp verbinden oder Overlay aus eigener Normlizenz befuellen. Ohne aufgeloeste Werte kein calc_ready."
+  },
+  "entry_schema_ref": "schema/v4.0/catalogs/usage_profiles.schema.json",
+  "entries": [
+    {
+      "code": "WG_R1",
+      "number": "R1",
+      "name_de": "Einfamilienhaus",
+      "name_en": "Single-family house",
+      "category": "residential",
+      "applicability": [
+        "WG"
+      ],
+      "norm_ref": "DIN V 18599-10:2018-09, Tabelle 5",
+      "norm_cell": "T5-ZR1",
+      "parameters": {
+        "theta_i_h_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Heizung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "theta_i_c_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Kuehlung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "delta_theta_i_NA": {
+          "unit": "K",
+          "description": "Temperaturabsenkung reduzierter Betrieb",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_I": {
+          "unit": "Wh/(m²·d)",
+          "description": "Interne Waermequellen",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "n_nutz": {
+          "unit": "1/h",
+          "description": "Nutzungsbedingter Mindestaussenluftwechsel",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_w_b_a": {
+          "unit": "kWh/(m²·a)",
+          "description": "Jahreswert Nutzenergiebedarf Trinkwarmwasser",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_el_b": {
+          "unit": "Wh/(m²·d)",
+          "description": "Anwendungsstrombedarf",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "t_nutz_d": {
+          "unit": "h/d",
+          "description": "Taegliche Nutzungszeit",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "d_nutz_a": {
+          "unit": "d/a",
+          "description": "Jaehrliche Nutzungstage",
+          "value_source": "norm_table",
+          "norm_column": null
+        }
+      }
+    },
+    {
+      "code": "WG_R2",
+      "number": "R2",
+      "name_de": "Mehrfamilienhaus",
+      "name_en": "Multi-family house",
+      "category": "residential",
+      "applicability": [
+        "WG"
+      ],
+      "norm_ref": "DIN V 18599-10:2018-09, Tabelle 5",
+      "norm_cell": "T5-ZR2",
+      "parameters": {
+        "theta_i_h_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Heizung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "theta_i_c_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Kuehlung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "delta_theta_i_NA": {
+          "unit": "K",
+          "description": "Temperaturabsenkung reduzierter Betrieb",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_I": {
+          "unit": "Wh/(m²·d)",
+          "description": "Interne Waermequellen",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "n_nutz": {
+          "unit": "1/h",
+          "description": "Nutzungsbedingter Mindestaussenluftwechsel",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_w_b_a": {
+          "unit": "kWh/(m²·a)",
+          "description": "Jahreswert Nutzenergiebedarf Trinkwarmwasser",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_el_b": {
+          "unit": "Wh/(m²·d)",
+          "description": "Anwendungsstrombedarf",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "t_nutz_d": {
+          "unit": "h/d",
+          "description": "Taegliche Nutzungszeit",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "d_nutz_a": {
+          "unit": "d/a",
+          "description": "Jaehrliche Nutzungstage",
+          "value_source": "norm_table",
+          "norm_column": null
+        }
+      }
+    },
+    {
+      "code": "NWG_01",
+      "number": "01",
+      "name_de": "Einzelbüro",
+      "name_en": "Single office",
+      "category": "office",
+      "applicability": [
+        "NWG"
+      ],
+      "norm_ref": "DIN V 18599-10:2018-09, Tabelle 6 und 7",
+      "norm_cell": "T7-Z01",
+      "parameters": {
+        "theta_i_h_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Heizung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "theta_i_c_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Kuehlung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "delta_theta_i_NA": {
+          "unit": "K",
+          "description": "Temperaturabsenkung reduzierter Betrieb",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_I": {
+          "unit": "Wh/(m²·d)",
+          "description": "Interne Waermequellen",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "n_nutz": {
+          "unit": "1/h",
+          "description": "Nutzungsbedingter Mindestaussenluftwechsel",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_w_b_a": {
+          "unit": "kWh/(m²·a)",
+          "description": "Jahreswert Nutzenergiebedarf Trinkwarmwasser",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_el_b": {
+          "unit": "Wh/(m²·d)",
+          "description": "Anwendungsstrombedarf",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "t_nutz_d": {
+          "unit": "h/d",
+          "description": "Taegliche Nutzungszeit",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "d_nutz_a": {
+          "unit": "d/a",
+          "description": "Jaehrliche Nutzungstage",
+          "value_source": "norm_table",
+          "norm_column": null
+        }
+      },
+      "description": "Büroraum für 1-6 Arbeitsplätze"
+    },
+    {
+      "code": "NWG_02",
+      "number": "02",
+      "name_de": "Gruppenbüro",
+      "name_en": "Group office",
+      "category": "office",
+      "applicability": [
+        "NWG"
+      ],
+      "norm_ref": "DIN V 18599-10:2018-09, Tabelle 6 und 7",
+      "norm_cell": "T7-Z02",
+      "parameters": {
+        "theta_i_h_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Heizung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "theta_i_c_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Kuehlung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "delta_theta_i_NA": {
+          "unit": "K",
+          "description": "Temperaturabsenkung reduzierter Betrieb",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_I": {
+          "unit": "Wh/(m²·d)",
+          "description": "Interne Waermequellen",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "n_nutz": {
+          "unit": "1/h",
+          "description": "Nutzungsbedingter Mindestaussenluftwechsel",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_w_b_a": {
+          "unit": "kWh/(m²·a)",
+          "description": "Jahreswert Nutzenergiebedarf Trinkwarmwasser",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_el_b": {
+          "unit": "Wh/(m²·d)",
+          "description": "Anwendungsstrombedarf",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "t_nutz_d": {
+          "unit": "h/d",
+          "description": "Taegliche Nutzungszeit",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "d_nutz_a": {
+          "unit": "d/a",
+          "description": "Jaehrliche Nutzungstage",
+          "value_source": "norm_table",
+          "norm_column": null
+        }
+      },
+      "description": "Büroraum für 7-20 Arbeitsplätze"
+    },
+    {
+      "code": "NWG_03",
+      "number": "03",
+      "name_de": "Großraumbüro",
+      "name_en": "Open-plan office",
+      "category": "office",
+      "applicability": [
+        "NWG"
+      ],
+      "norm_ref": "DIN V 18599-10:2018-09, Tabelle 6 und 7",
+      "norm_cell": "T7-Z03",
+      "parameters": {
+        "theta_i_h_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Heizung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "theta_i_c_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Kuehlung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "delta_theta_i_NA": {
+          "unit": "K",
+          "description": "Temperaturabsenkung reduzierter Betrieb",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_I": {
+          "unit": "Wh/(m²·d)",
+          "description": "Interne Waermequellen",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "n_nutz": {
+          "unit": "1/h",
+          "description": "Nutzungsbedingter Mindestaussenluftwechsel",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_w_b_a": {
+          "unit": "kWh/(m²·a)",
+          "description": "Jahreswert Nutzenergiebedarf Trinkwarmwasser",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_el_b": {
+          "unit": "Wh/(m²·d)",
+          "description": "Anwendungsstrombedarf",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "t_nutz_d": {
+          "unit": "h/d",
+          "description": "Taegliche Nutzungszeit",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "d_nutz_a": {
+          "unit": "d/a",
+          "description": "Jaehrliche Nutzungstage",
+          "value_source": "norm_table",
+          "norm_column": null
+        }
+      },
+      "description": "Büroraum für mehr als 20 Arbeitsplätze"
+    },
+    {
+      "code": "NWG_04",
+      "number": "04",
+      "name_de": "Besprechung, Sitzung, Seminar",
+      "name_en": "Meeting, conference, seminar",
+      "category": "office",
+      "applicability": [
+        "NWG"
+      ],
+      "norm_ref": "DIN V 18599-10:2018-09, Tabelle 6 und 7",
+      "norm_cell": "T7-Z04",
+      "parameters": {
+        "theta_i_h_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Heizung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "theta_i_c_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Kuehlung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "delta_theta_i_NA": {
+          "unit": "K",
+          "description": "Temperaturabsenkung reduzierter Betrieb",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_I": {
+          "unit": "Wh/(m²·d)",
+          "description": "Interne Waermequellen",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "n_nutz": {
+          "unit": "1/h",
+          "description": "Nutzungsbedingter Mindestaussenluftwechsel",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_w_b_a": {
+          "unit": "kWh/(m²·a)",
+          "description": "Jahreswert Nutzenergiebedarf Trinkwarmwasser",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_el_b": {
+          "unit": "Wh/(m²·d)",
+          "description": "Anwendungsstrombedarf",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "t_nutz_d": {
+          "unit": "h/d",
+          "description": "Taegliche Nutzungszeit",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "d_nutz_a": {
+          "unit": "d/a",
+          "description": "Jaehrliche Nutzungstage",
+          "value_source": "norm_table",
+          "norm_column": null
+        }
+      },
+      "description": "Besprechungs- und Seminarräume"
+    },
+    {
+      "code": "NWG_05",
+      "number": "05",
+      "name_de": "Schalterhalle",
+      "name_en": "Counter hall",
+      "category": "office",
+      "applicability": [
+        "NWG"
+      ],
+      "norm_ref": "DIN V 18599-10:2018-09, Tabelle 6 und 7",
+      "norm_cell": "T7-Z05",
+      "parameters": {
+        "theta_i_h_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Heizung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "theta_i_c_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Kuehlung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "delta_theta_i_NA": {
+          "unit": "K",
+          "description": "Temperaturabsenkung reduzierter Betrieb",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_I": {
+          "unit": "Wh/(m²·d)",
+          "description": "Interne Waermequellen",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "n_nutz": {
+          "unit": "1/h",
+          "description": "Nutzungsbedingter Mindestaussenluftwechsel",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_w_b_a": {
+          "unit": "kWh/(m²·a)",
+          "description": "Jahreswert Nutzenergiebedarf Trinkwarmwasser",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_el_b": {
+          "unit": "Wh/(m²·d)",
+          "description": "Anwendungsstrombedarf",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "t_nutz_d": {
+          "unit": "h/d",
+          "description": "Taegliche Nutzungszeit",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "d_nutz_a": {
+          "unit": "d/a",
+          "description": "Jaehrliche Nutzungstage",
+          "value_source": "norm_table",
+          "norm_column": null
+        }
+      },
+      "description": "Publikumsverkehr mit Schaltern"
+    },
+    {
+      "code": "NWG_06",
+      "number": "06",
+      "name_de": "Klassenzimmer",
+      "name_en": "Classroom",
+      "category": "education",
+      "applicability": [
+        "NWG"
+      ],
+      "norm_ref": "DIN V 18599-10:2018-09, Tabelle 6 und 7",
+      "norm_cell": "T7-Z06",
+      "parameters": {
+        "theta_i_h_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Heizung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "theta_i_c_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Kuehlung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "delta_theta_i_NA": {
+          "unit": "K",
+          "description": "Temperaturabsenkung reduzierter Betrieb",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_I": {
+          "unit": "Wh/(m²·d)",
+          "description": "Interne Waermequellen",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "n_nutz": {
+          "unit": "1/h",
+          "description": "Nutzungsbedingter Mindestaussenluftwechsel",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_w_b_a": {
+          "unit": "kWh/(m²·a)",
+          "description": "Jahreswert Nutzenergiebedarf Trinkwarmwasser",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_el_b": {
+          "unit": "Wh/(m²·d)",
+          "description": "Anwendungsstrombedarf",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "t_nutz_d": {
+          "unit": "h/d",
+          "description": "Taegliche Nutzungszeit",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "d_nutz_a": {
+          "unit": "d/a",
+          "description": "Jaehrliche Nutzungstage",
+          "value_source": "norm_table",
+          "norm_column": null
+        }
+      },
+      "description": "Unterrichtsräume in Schulen"
+    },
+    {
+      "code": "NWG_07",
+      "number": "07",
+      "name_de": "Hörsaal, Auditorium",
+      "name_en": "Lecture hall, auditorium",
+      "category": "education",
+      "applicability": [
+        "NWG"
+      ],
+      "norm_ref": "DIN V 18599-10:2018-09, Tabelle 6 und 7",
+      "norm_cell": "T7-Z07",
+      "parameters": {
+        "theta_i_h_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Heizung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "theta_i_c_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Kuehlung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "delta_theta_i_NA": {
+          "unit": "K",
+          "description": "Temperaturabsenkung reduzierter Betrieb",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_I": {
+          "unit": "Wh/(m²·d)",
+          "description": "Interne Waermequellen",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "n_nutz": {
+          "unit": "1/h",
+          "description": "Nutzungsbedingter Mindestaussenluftwechsel",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_w_b_a": {
+          "unit": "kWh/(m²·a)",
+          "description": "Jahreswert Nutzenergiebedarf Trinkwarmwasser",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_el_b": {
+          "unit": "Wh/(m²·d)",
+          "description": "Anwendungsstrombedarf",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "t_nutz_d": {
+          "unit": "h/d",
+          "description": "Taegliche Nutzungszeit",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "d_nutz_a": {
+          "unit": "d/a",
+          "description": "Jaehrliche Nutzungstage",
+          "value_source": "norm_table",
+          "norm_column": null
+        }
+      },
+      "description": "Große Unterrichtsräume, Hörsäle"
+    },
+    {
+      "code": "NWG_08",
+      "number": "08",
+      "name_de": "Bettenzimmer",
+      "name_en": "Patient room",
+      "category": "healthcare",
+      "applicability": [
+        "NWG"
+      ],
+      "norm_ref": "DIN V 18599-10:2018-09, Tabelle 6 und 7",
+      "norm_cell": "T7-Z08",
+      "parameters": {
+        "theta_i_h_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Heizung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "theta_i_c_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Kuehlung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "delta_theta_i_NA": {
+          "unit": "K",
+          "description": "Temperaturabsenkung reduzierter Betrieb",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_I": {
+          "unit": "Wh/(m²·d)",
+          "description": "Interne Waermequellen",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "n_nutz": {
+          "unit": "1/h",
+          "description": "Nutzungsbedingter Mindestaussenluftwechsel",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_w_b_a": {
+          "unit": "kWh/(m²·a)",
+          "description": "Jahreswert Nutzenergiebedarf Trinkwarmwasser",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_el_b": {
+          "unit": "Wh/(m²·d)",
+          "description": "Anwendungsstrombedarf",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "t_nutz_d": {
+          "unit": "h/d",
+          "description": "Taegliche Nutzungszeit",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "d_nutz_a": {
+          "unit": "d/a",
+          "description": "Jaehrliche Nutzungstage",
+          "value_source": "norm_table",
+          "norm_column": null
+        }
+      },
+      "description": "Patientenzimmer in Krankenhäusern"
+    },
+    {
+      "code": "NWG_09",
+      "number": "09",
+      "name_de": "Hotelzimmer",
+      "name_en": "Hotel room",
+      "category": "hospitality",
+      "applicability": [
+        "NWG"
+      ],
+      "norm_ref": "DIN V 18599-10:2018-09, Tabelle 6 und 7",
+      "norm_cell": "T7-Z09",
+      "parameters": {
+        "theta_i_h_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Heizung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "theta_i_c_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Kuehlung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "delta_theta_i_NA": {
+          "unit": "K",
+          "description": "Temperaturabsenkung reduzierter Betrieb",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_I": {
+          "unit": "Wh/(m²·d)",
+          "description": "Interne Waermequellen",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "n_nutz": {
+          "unit": "1/h",
+          "description": "Nutzungsbedingter Mindestaussenluftwechsel",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_w_b_a": {
+          "unit": "kWh/(m²·a)",
+          "description": "Jahreswert Nutzenergiebedarf Trinkwarmwasser",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_el_b": {
+          "unit": "Wh/(m²·d)",
+          "description": "Anwendungsstrombedarf",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "t_nutz_d": {
+          "unit": "h/d",
+          "description": "Taegliche Nutzungszeit",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "d_nutz_a": {
+          "unit": "d/a",
+          "description": "Jaehrliche Nutzungstage",
+          "value_source": "norm_table",
+          "norm_column": null
+        }
+      },
+      "description": "Gästezimmer in Hotels"
+    },
+    {
+      "code": "NWG_10",
+      "number": "10",
+      "name_de": "Kantine, Cafeteria",
+      "name_en": "Canteen, cafeteria",
+      "category": "food_service",
+      "applicability": [
+        "NWG"
+      ],
+      "norm_ref": "DIN V 18599-10:2018-09, Tabelle 6 und 7",
+      "norm_cell": "T7-Z10",
+      "parameters": {
+        "theta_i_h_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Heizung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "theta_i_c_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Kuehlung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "delta_theta_i_NA": {
+          "unit": "K",
+          "description": "Temperaturabsenkung reduzierter Betrieb",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_I": {
+          "unit": "Wh/(m²·d)",
+          "description": "Interne Waermequellen",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "n_nutz": {
+          "unit": "1/h",
+          "description": "Nutzungsbedingter Mindestaussenluftwechsel",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_w_b_a": {
+          "unit": "kWh/(m²·a)",
+          "description": "Jahreswert Nutzenergiebedarf Trinkwarmwasser",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_el_b": {
+          "unit": "Wh/(m²·d)",
+          "description": "Anwendungsstrombedarf",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "t_nutz_d": {
+          "unit": "h/d",
+          "description": "Taegliche Nutzungszeit",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "d_nutz_a": {
+          "unit": "d/a",
+          "description": "Jaehrliche Nutzungstage",
+          "value_source": "norm_table",
+          "norm_column": null
+        }
+      },
+      "description": "Betriebskantinen, Cafeterias"
+    },
+    {
+      "code": "NWG_11",
+      "number": "11",
+      "name_de": "Restaurant",
+      "name_en": "Restaurant",
+      "category": "food_service",
+      "applicability": [
+        "NWG"
+      ],
+      "norm_ref": "DIN V 18599-10:2018-09, Tabelle 6 und 7",
+      "norm_cell": "T7-Z11",
+      "parameters": {
+        "theta_i_h_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Heizung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "theta_i_c_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Kuehlung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "delta_theta_i_NA": {
+          "unit": "K",
+          "description": "Temperaturabsenkung reduzierter Betrieb",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_I": {
+          "unit": "Wh/(m²·d)",
+          "description": "Interne Waermequellen",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "n_nutz": {
+          "unit": "1/h",
+          "description": "Nutzungsbedingter Mindestaussenluftwechsel",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_w_b_a": {
+          "unit": "kWh/(m²·a)",
+          "description": "Jahreswert Nutzenergiebedarf Trinkwarmwasser",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_el_b": {
+          "unit": "Wh/(m²·d)",
+          "description": "Anwendungsstrombedarf",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "t_nutz_d": {
+          "unit": "h/d",
+          "description": "Taegliche Nutzungszeit",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "d_nutz_a": {
+          "unit": "d/a",
+          "description": "Jaehrliche Nutzungstage",
+          "value_source": "norm_table",
+          "norm_column": null
+        }
+      },
+      "description": "Gaststätten, Restaurants"
+    },
+    {
+      "code": "NWG_12",
+      "number": "12",
+      "name_de": "Küche - Zubereitung warm",
+      "name_en": "Kitchen - hot food preparation",
+      "category": "food_service",
+      "applicability": [
+        "NWG"
+      ],
+      "norm_ref": "DIN V 18599-10:2018-09, Tabelle 6 und 7",
+      "norm_cell": "T7-Z12",
+      "parameters": {
+        "theta_i_h_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Heizung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "theta_i_c_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Kuehlung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "delta_theta_i_NA": {
+          "unit": "K",
+          "description": "Temperaturabsenkung reduzierter Betrieb",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_I": {
+          "unit": "Wh/(m²·d)",
+          "description": "Interne Waermequellen",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "n_nutz": {
+          "unit": "1/h",
+          "description": "Nutzungsbedingter Mindestaussenluftwechsel",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_w_b_a": {
+          "unit": "kWh/(m²·a)",
+          "description": "Jahreswert Nutzenergiebedarf Trinkwarmwasser",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_el_b": {
+          "unit": "Wh/(m²·d)",
+          "description": "Anwendungsstrombedarf",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "t_nutz_d": {
+          "unit": "h/d",
+          "description": "Taegliche Nutzungszeit",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "d_nutz_a": {
+          "unit": "d/a",
+          "description": "Jaehrliche Nutzungstage",
+          "value_source": "norm_table",
+          "norm_column": null
+        }
+      },
+      "description": "Küchen mit warmer Speisenzubereitung"
+    },
+    {
+      "code": "NWG_13",
+      "number": "13",
+      "name_de": "Küche - Zubereitung kalt",
+      "name_en": "Kitchen - cold food preparation",
+      "category": "food_service",
+      "applicability": [
+        "NWG"
+      ],
+      "norm_ref": "DIN V 18599-10:2018-09, Tabelle 6 und 7",
+      "norm_cell": "T7-Z13",
+      "parameters": {
+        "theta_i_h_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Heizung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "theta_i_c_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Kuehlung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "delta_theta_i_NA": {
+          "unit": "K",
+          "description": "Temperaturabsenkung reduzierter Betrieb",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_I": {
+          "unit": "Wh/(m²·d)",
+          "description": "Interne Waermequellen",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "n_nutz": {
+          "unit": "1/h",
+          "description": "Nutzungsbedingter Mindestaussenluftwechsel",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_w_b_a": {
+          "unit": "kWh/(m²·a)",
+          "description": "Jahreswert Nutzenergiebedarf Trinkwarmwasser",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_el_b": {
+          "unit": "Wh/(m²·d)",
+          "description": "Anwendungsstrombedarf",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "t_nutz_d": {
+          "unit": "h/d",
+          "description": "Taegliche Nutzungszeit",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "d_nutz_a": {
+          "unit": "d/a",
+          "description": "Jaehrliche Nutzungstage",
+          "value_source": "norm_table",
+          "norm_column": null
+        }
+      },
+      "description": "Küchen mit kalter Speisenzubereitung"
+    },
+    {
+      "code": "NWG_14",
+      "number": "14",
+      "name_de": "WC und Sanitärräume in Nichtwohngebäuden",
+      "name_en": "Restrooms and sanitary facilities in non-residential buildings",
+      "category": "sanitary",
+      "applicability": [
+        "NWG"
+      ],
+      "norm_ref": "DIN V 18599-10:2018-09, Tabelle 6 und 7",
+      "norm_cell": "T7-Z14",
+      "parameters": {
+        "theta_i_h_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Heizung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "theta_i_c_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Kuehlung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "delta_theta_i_NA": {
+          "unit": "K",
+          "description": "Temperaturabsenkung reduzierter Betrieb",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_I": {
+          "unit": "Wh/(m²·d)",
+          "description": "Interne Waermequellen",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "n_nutz": {
+          "unit": "1/h",
+          "description": "Nutzungsbedingter Mindestaussenluftwechsel",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_w_b_a": {
+          "unit": "kWh/(m²·a)",
+          "description": "Jahreswert Nutzenergiebedarf Trinkwarmwasser",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_el_b": {
+          "unit": "Wh/(m²·d)",
+          "description": "Anwendungsstrombedarf",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "t_nutz_d": {
+          "unit": "h/d",
+          "description": "Taegliche Nutzungszeit",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "d_nutz_a": {
+          "unit": "d/a",
+          "description": "Jaehrliche Nutzungstage",
+          "value_source": "norm_table",
+          "norm_column": null
+        }
+      },
+      "description": "Toiletten, Waschräume"
+    },
+    {
+      "code": "NWG_15",
+      "number": "15",
+      "name_de": "Sonstige Aufenthaltsräume",
+      "name_en": "Other common rooms",
+      "category": "common",
+      "applicability": [
+        "NWG"
+      ],
+      "norm_ref": "DIN V 18599-10:2018-09, Tabelle 6 und 7",
+      "norm_cell": "T7-Z15",
+      "parameters": {
+        "theta_i_h_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Heizung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "theta_i_c_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Kuehlung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "delta_theta_i_NA": {
+          "unit": "K",
+          "description": "Temperaturabsenkung reduzierter Betrieb",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_I": {
+          "unit": "Wh/(m²·d)",
+          "description": "Interne Waermequellen",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "n_nutz": {
+          "unit": "1/h",
+          "description": "Nutzungsbedingter Mindestaussenluftwechsel",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_w_b_a": {
+          "unit": "kWh/(m²·a)",
+          "description": "Jahreswert Nutzenergiebedarf Trinkwarmwasser",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_el_b": {
+          "unit": "Wh/(m²·d)",
+          "description": "Anwendungsstrombedarf",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "t_nutz_d": {
+          "unit": "h/d",
+          "description": "Taegliche Nutzungszeit",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "d_nutz_a": {
+          "unit": "d/a",
+          "description": "Jaehrliche Nutzungstage",
+          "value_source": "norm_table",
+          "norm_column": null
+        }
+      },
+      "description": "Aufenthaltsräume ohne spezifische Nutzung"
+    },
+    {
+      "code": "NWG_16",
+      "number": "16",
+      "name_de": "Nebenflächen ohne Aufenthaltsräume",
+      "name_en": "Ancillary areas without common rooms",
+      "category": "ancillary",
+      "applicability": [
+        "NWG"
+      ],
+      "norm_ref": "DIN V 18599-10:2018-09, Tabelle 6 und 7",
+      "norm_cell": "T7-Z16",
+      "parameters": {
+        "theta_i_h_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Heizung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "theta_i_c_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Kuehlung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "delta_theta_i_NA": {
+          "unit": "K",
+          "description": "Temperaturabsenkung reduzierter Betrieb",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_I": {
+          "unit": "Wh/(m²·d)",
+          "description": "Interne Waermequellen",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "n_nutz": {
+          "unit": "1/h",
+          "description": "Nutzungsbedingter Mindestaussenluftwechsel",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_w_b_a": {
+          "unit": "kWh/(m²·a)",
+          "description": "Jahreswert Nutzenergiebedarf Trinkwarmwasser",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_el_b": {
+          "unit": "Wh/(m²·d)",
+          "description": "Anwendungsstrombedarf",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "t_nutz_d": {
+          "unit": "h/d",
+          "description": "Taegliche Nutzungszeit",
+          "value_source": "not_applicable",
+          "norm_column": null
+        },
+        "d_nutz_a": {
+          "unit": "d/a",
+          "description": "Jaehrliche Nutzungstage",
+          "value_source": "not_applicable",
+          "norm_column": null
+        }
+      },
+      "description": "Flure, Treppenhäuser, Lager",
+      "parent_profile": "__parent_zone__"
+    },
+    {
+      "code": "NWG_17",
+      "number": "17",
+      "name_de": "Verkehrsflächen",
+      "name_en": "Circulation areas",
+      "category": "circulation",
+      "applicability": [
+        "NWG"
+      ],
+      "norm_ref": "DIN V 18599-10:2018-09, Tabelle 6 und 7",
+      "norm_cell": "T7-Z17",
+      "parameters": {
+        "theta_i_h_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Heizung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "theta_i_c_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Kuehlung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "delta_theta_i_NA": {
+          "unit": "K",
+          "description": "Temperaturabsenkung reduzierter Betrieb",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_I": {
+          "unit": "Wh/(m²·d)",
+          "description": "Interne Waermequellen",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "n_nutz": {
+          "unit": "1/h",
+          "description": "Nutzungsbedingter Mindestaussenluftwechsel",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_w_b_a": {
+          "unit": "kWh/(m²·a)",
+          "description": "Jahreswert Nutzenergiebedarf Trinkwarmwasser",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_el_b": {
+          "unit": "Wh/(m²·d)",
+          "description": "Anwendungsstrombedarf",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "t_nutz_d": {
+          "unit": "h/d",
+          "description": "Taegliche Nutzungszeit",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "d_nutz_a": {
+          "unit": "d/a",
+          "description": "Jaehrliche Nutzungstage",
+          "value_source": "norm_table",
+          "norm_column": null
+        }
+      },
+      "description": "Flure, Gänge, Eingangsbereiche"
+    },
+    {
+      "code": "NWG_18",
+      "number": "18",
+      "name_de": "Lager, Logistik, Verteilung",
+      "name_en": "Storage, logistics, distribution",
+      "category": "storage",
+      "applicability": [
+        "NWG"
+      ],
+      "norm_ref": "DIN V 18599-10:2018-09, Tabelle 6 und 7",
+      "norm_cell": "T7-Z18",
+      "parameters": {
+        "theta_i_h_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Heizung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "theta_i_c_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Kuehlung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "delta_theta_i_NA": {
+          "unit": "K",
+          "description": "Temperaturabsenkung reduzierter Betrieb",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_I": {
+          "unit": "Wh/(m²·d)",
+          "description": "Interne Waermequellen",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "n_nutz": {
+          "unit": "1/h",
+          "description": "Nutzungsbedingter Mindestaussenluftwechsel",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_w_b_a": {
+          "unit": "kWh/(m²·a)",
+          "description": "Jahreswert Nutzenergiebedarf Trinkwarmwasser",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_el_b": {
+          "unit": "Wh/(m²·d)",
+          "description": "Anwendungsstrombedarf",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "t_nutz_d": {
+          "unit": "h/d",
+          "description": "Taegliche Nutzungszeit",
+          "value_source": "not_applicable",
+          "norm_column": null
+        },
+        "d_nutz_a": {
+          "unit": "d/a",
+          "description": "Jaehrliche Nutzungstage",
+          "value_source": "not_applicable",
+          "norm_column": null
+        }
+      },
+      "description": "Lagerhallen, Logistikzentren",
+      "parent_profile": "__parent_zone__"
+    },
+    {
+      "code": "NWG_19",
+      "number": "19",
+      "name_de": "Verkauf",
+      "name_en": "Retail",
+      "category": "retail",
+      "applicability": [
+        "NWG"
+      ],
+      "norm_ref": "DIN V 18599-10:2018-09, Tabelle 6 und 7",
+      "norm_cell": "T7-Z19",
+      "parameters": {
+        "theta_i_h_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Heizung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "theta_i_c_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Kuehlung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "delta_theta_i_NA": {
+          "unit": "K",
+          "description": "Temperaturabsenkung reduzierter Betrieb",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_I": {
+          "unit": "Wh/(m²·d)",
+          "description": "Interne Waermequellen",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "n_nutz": {
+          "unit": "1/h",
+          "description": "Nutzungsbedingter Mindestaussenluftwechsel",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_w_b_a": {
+          "unit": "kWh/(m²·a)",
+          "description": "Jahreswert Nutzenergiebedarf Trinkwarmwasser",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_el_b": {
+          "unit": "Wh/(m²·d)",
+          "description": "Anwendungsstrombedarf",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "t_nutz_d": {
+          "unit": "h/d",
+          "description": "Taegliche Nutzungszeit",
+          "value_source": "not_applicable",
+          "norm_column": null
+        },
+        "d_nutz_a": {
+          "unit": "d/a",
+          "description": "Jaehrliche Nutzungstage",
+          "value_source": "not_applicable",
+          "norm_column": null
+        }
+      },
+      "description": "Verkaufsräume, Einzelhandel",
+      "parent_profile": "__parent_zone__"
+    },
+    {
+      "code": "NWG_20",
+      "number": "20",
+      "name_de": "Ausstellungsraum",
+      "name_en": "Exhibition room",
+      "category": "exhibition",
+      "applicability": [
+        "NWG"
+      ],
+      "norm_ref": "DIN V 18599-10:2018-09, Tabelle 6 und 7",
+      "norm_cell": "T7-Z20",
+      "parameters": {
+        "theta_i_h_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Heizung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "theta_i_c_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Kuehlung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "delta_theta_i_NA": {
+          "unit": "K",
+          "description": "Temperaturabsenkung reduzierter Betrieb",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_I": {
+          "unit": "Wh/(m²·d)",
+          "description": "Interne Waermequellen",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "n_nutz": {
+          "unit": "1/h",
+          "description": "Nutzungsbedingter Mindestaussenluftwechsel",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_w_b_a": {
+          "unit": "kWh/(m²·a)",
+          "description": "Jahreswert Nutzenergiebedarf Trinkwarmwasser",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_el_b": {
+          "unit": "Wh/(m²·d)",
+          "description": "Anwendungsstrombedarf",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "t_nutz_d": {
+          "unit": "h/d",
+          "description": "Taegliche Nutzungszeit",
+          "value_source": "not_applicable",
+          "norm_column": null
+        },
+        "d_nutz_a": {
+          "unit": "d/a",
+          "description": "Jaehrliche Nutzungstage",
+          "value_source": "not_applicable",
+          "norm_column": null
+        }
+      },
+      "description": "Ausstellungen, Showrooms",
+      "parent_profile": "__parent_zone__"
+    },
+    {
+      "code": "NWG_21",
+      "number": "21",
+      "name_de": "Sporthalle",
+      "name_en": "Sports hall",
+      "category": "sports",
+      "applicability": [
+        "NWG"
+      ],
+      "norm_ref": "DIN V 18599-10:2018-09, Tabelle 6 und 7",
+      "norm_cell": "T7-Z21",
+      "parameters": {
+        "theta_i_h_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Heizung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "theta_i_c_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Kuehlung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "delta_theta_i_NA": {
+          "unit": "K",
+          "description": "Temperaturabsenkung reduzierter Betrieb",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_I": {
+          "unit": "Wh/(m²·d)",
+          "description": "Interne Waermequellen",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "n_nutz": {
+          "unit": "1/h",
+          "description": "Nutzungsbedingter Mindestaussenluftwechsel",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_w_b_a": {
+          "unit": "kWh/(m²·a)",
+          "description": "Jahreswert Nutzenergiebedarf Trinkwarmwasser",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_el_b": {
+          "unit": "Wh/(m²·d)",
+          "description": "Anwendungsstrombedarf",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "t_nutz_d": {
+          "unit": "h/d",
+          "description": "Taegliche Nutzungszeit",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "d_nutz_a": {
+          "unit": "d/a",
+          "description": "Jaehrliche Nutzungstage",
+          "value_source": "norm_table",
+          "norm_column": null
+        }
+      },
+      "description": "Turnhallen, Sporthallen"
+    },
+    {
+      "code": "NWG_22",
+      "number": "22",
+      "name_de": "Schwimmbad",
+      "name_en": "Swimming pool",
+      "category": "sports",
+      "applicability": [
+        "NWG"
+      ],
+      "norm_ref": "DIN V 18599-10:2018-09, Tabelle 6 und 7",
+      "norm_cell": "T7-Z22",
+      "parameters": {
+        "theta_i_h_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Heizung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "theta_i_c_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Kuehlung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "delta_theta_i_NA": {
+          "unit": "K",
+          "description": "Temperaturabsenkung reduzierter Betrieb",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_I": {
+          "unit": "Wh/(m²·d)",
+          "description": "Interne Waermequellen",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "n_nutz": {
+          "unit": "1/h",
+          "description": "Nutzungsbedingter Mindestaussenluftwechsel",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_w_b_a": {
+          "unit": "kWh/(m²·a)",
+          "description": "Jahreswert Nutzenergiebedarf Trinkwarmwasser",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_el_b": {
+          "unit": "Wh/(m²·d)",
+          "description": "Anwendungsstrombedarf",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "t_nutz_d": {
+          "unit": "h/d",
+          "description": "Taegliche Nutzungszeit",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "d_nutz_a": {
+          "unit": "d/a",
+          "description": "Jaehrliche Nutzungstage",
+          "value_source": "norm_table",
+          "norm_column": null
+        }
+      },
+      "description": "Hallenbäder, Schwimmhallen"
+    },
+    {
+      "code": "NWG_23",
+      "number": "23",
+      "name_de": "Theater, Kino",
+      "name_en": "Theatre, cinema",
+      "category": "culture",
+      "applicability": [
+        "NWG"
+      ],
+      "norm_ref": "DIN V 18599-10:2018-09, Tabelle 6 und 7",
+      "norm_cell": "T7-Z23",
+      "parameters": {
+        "theta_i_h_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Heizung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "theta_i_c_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Kuehlung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "delta_theta_i_NA": {
+          "unit": "K",
+          "description": "Temperaturabsenkung reduzierter Betrieb",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_I": {
+          "unit": "Wh/(m²·d)",
+          "description": "Interne Waermequellen",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "n_nutz": {
+          "unit": "1/h",
+          "description": "Nutzungsbedingter Mindestaussenluftwechsel",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_w_b_a": {
+          "unit": "kWh/(m²·a)",
+          "description": "Jahreswert Nutzenergiebedarf Trinkwarmwasser",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_el_b": {
+          "unit": "Wh/(m²·d)",
+          "description": "Anwendungsstrombedarf",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "t_nutz_d": {
+          "unit": "h/d",
+          "description": "Taegliche Nutzungszeit",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "d_nutz_a": {
+          "unit": "d/a",
+          "description": "Jaehrliche Nutzungstage",
+          "value_source": "norm_table",
+          "norm_column": null
+        }
+      },
+      "description": "Theater, Kinos, Veranstaltungssäle"
+    },
+    {
+      "code": "NWG_24",
+      "number": "24",
+      "name_de": "Museum",
+      "name_en": "Museum",
+      "category": "culture",
+      "applicability": [
+        "NWG"
+      ],
+      "norm_ref": "DIN V 18599-10:2018-09, Tabelle 6 und 7",
+      "norm_cell": "T7-Z24",
+      "parameters": {
+        "theta_i_h_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Heizung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "theta_i_c_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Kuehlung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "delta_theta_i_NA": {
+          "unit": "K",
+          "description": "Temperaturabsenkung reduzierter Betrieb",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_I": {
+          "unit": "Wh/(m²·d)",
+          "description": "Interne Waermequellen",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "n_nutz": {
+          "unit": "1/h",
+          "description": "Nutzungsbedingter Mindestaussenluftwechsel",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_w_b_a": {
+          "unit": "kWh/(m²·a)",
+          "description": "Jahreswert Nutzenergiebedarf Trinkwarmwasser",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_el_b": {
+          "unit": "Wh/(m²·d)",
+          "description": "Anwendungsstrombedarf",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "t_nutz_d": {
+          "unit": "h/d",
+          "description": "Taegliche Nutzungszeit",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "d_nutz_a": {
+          "unit": "d/a",
+          "description": "Jaehrliche Nutzungstage",
+          "value_source": "norm_table",
+          "norm_column": null
+        }
+      },
+      "description": "Museen, Galerien"
+    },
+    {
+      "code": "NWG_25",
+      "number": "25",
+      "name_de": "Bibliothek - Lesesaal",
+      "name_en": "Library - reading room",
+      "category": "culture",
+      "applicability": [
+        "NWG"
+      ],
+      "norm_ref": "DIN V 18599-10:2018-09, Tabelle 6 und 7",
+      "norm_cell": "T7-Z25",
+      "parameters": {
+        "theta_i_h_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Heizung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "theta_i_c_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Kuehlung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "delta_theta_i_NA": {
+          "unit": "K",
+          "description": "Temperaturabsenkung reduzierter Betrieb",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_I": {
+          "unit": "Wh/(m²·d)",
+          "description": "Interne Waermequellen",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "n_nutz": {
+          "unit": "1/h",
+          "description": "Nutzungsbedingter Mindestaussenluftwechsel",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_w_b_a": {
+          "unit": "kWh/(m²·a)",
+          "description": "Jahreswert Nutzenergiebedarf Trinkwarmwasser",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_el_b": {
+          "unit": "Wh/(m²·d)",
+          "description": "Anwendungsstrombedarf",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "t_nutz_d": {
+          "unit": "h/d",
+          "description": "Taegliche Nutzungszeit",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "d_nutz_a": {
+          "unit": "d/a",
+          "description": "Jaehrliche Nutzungstage",
+          "value_source": "norm_table",
+          "norm_column": null
+        }
+      },
+      "description": "Lesesäle in Bibliotheken"
+    },
+    {
+      "code": "NWG_26",
+      "number": "26",
+      "name_de": "Bibliothek - Freihandbereich",
+      "name_en": "Library - open access area",
+      "category": "culture",
+      "applicability": [
+        "NWG"
+      ],
+      "norm_ref": "DIN V 18599-10:2018-09, Tabelle 6 und 7",
+      "norm_cell": "T7-Z26",
+      "parameters": {
+        "theta_i_h_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Heizung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "theta_i_c_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Kuehlung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "delta_theta_i_NA": {
+          "unit": "K",
+          "description": "Temperaturabsenkung reduzierter Betrieb",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_I": {
+          "unit": "Wh/(m²·d)",
+          "description": "Interne Waermequellen",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "n_nutz": {
+          "unit": "1/h",
+          "description": "Nutzungsbedingter Mindestaussenluftwechsel",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_w_b_a": {
+          "unit": "kWh/(m²·a)",
+          "description": "Jahreswert Nutzenergiebedarf Trinkwarmwasser",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_el_b": {
+          "unit": "Wh/(m²·d)",
+          "description": "Anwendungsstrombedarf",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "t_nutz_d": {
+          "unit": "h/d",
+          "description": "Taegliche Nutzungszeit",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "d_nutz_a": {
+          "unit": "d/a",
+          "description": "Jaehrliche Nutzungstage",
+          "value_source": "norm_table",
+          "norm_column": null
+        }
+      },
+      "description": "Freihandbereiche in Bibliotheken"
+    },
+    {
+      "code": "NWG_27",
+      "number": "27",
+      "name_de": "Bibliothek - Magazin",
+      "name_en": "Library - stacks",
+      "category": "culture",
+      "applicability": [
+        "NWG"
+      ],
+      "norm_ref": "DIN V 18599-10:2018-09, Tabelle 6 und 7",
+      "norm_cell": "T7-Z27",
+      "parameters": {
+        "theta_i_h_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Heizung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "theta_i_c_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Kuehlung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "delta_theta_i_NA": {
+          "unit": "K",
+          "description": "Temperaturabsenkung reduzierter Betrieb",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_I": {
+          "unit": "Wh/(m²·d)",
+          "description": "Interne Waermequellen",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "n_nutz": {
+          "unit": "1/h",
+          "description": "Nutzungsbedingter Mindestaussenluftwechsel",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_w_b_a": {
+          "unit": "kWh/(m²·a)",
+          "description": "Jahreswert Nutzenergiebedarf Trinkwarmwasser",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_el_b": {
+          "unit": "Wh/(m²·d)",
+          "description": "Anwendungsstrombedarf",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "t_nutz_d": {
+          "unit": "h/d",
+          "description": "Taegliche Nutzungszeit",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "d_nutz_a": {
+          "unit": "d/a",
+          "description": "Jaehrliche Nutzungstage",
+          "value_source": "norm_table",
+          "norm_column": null
+        }
+      },
+      "description": "Büchermagazine"
+    },
+    {
+      "code": "NWG_28",
+      "number": "28",
+      "name_de": "Rechenzentrum",
+      "name_en": "Data center",
+      "category": "technical",
+      "applicability": [
+        "NWG"
+      ],
+      "norm_ref": "DIN V 18599-10:2018-09, Tabelle 6 und 7",
+      "norm_cell": "T7-Z28",
+      "parameters": {
+        "theta_i_h_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Heizung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "theta_i_c_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Kuehlung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "delta_theta_i_NA": {
+          "unit": "K",
+          "description": "Temperaturabsenkung reduzierter Betrieb",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_I": {
+          "unit": "Wh/(m²·d)",
+          "description": "Interne Waermequellen",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "n_nutz": {
+          "unit": "1/h",
+          "description": "Nutzungsbedingter Mindestaussenluftwechsel",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_w_b_a": {
+          "unit": "kWh/(m²·a)",
+          "description": "Jahreswert Nutzenergiebedarf Trinkwarmwasser",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_el_b": {
+          "unit": "Wh/(m²·d)",
+          "description": "Anwendungsstrombedarf",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "t_nutz_d": {
+          "unit": "h/d",
+          "description": "Taegliche Nutzungszeit",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "d_nutz_a": {
+          "unit": "d/a",
+          "description": "Jaehrliche Nutzungstage",
+          "value_source": "norm_table",
+          "norm_column": null
+        }
+      },
+      "description": "Serverräume, Rechenzentren"
+    },
+    {
+      "code": "NWG_29",
+      "number": "29",
+      "name_de": "Gewerbliche und industrielle Hallen - leichte Arbeit",
+      "name_en": "Commercial and industrial halls - light work",
+      "category": "industrial",
+      "applicability": [
+        "NWG"
+      ],
+      "norm_ref": "DIN V 18599-10:2018-09, Tabelle 6 und 7",
+      "norm_cell": "T7-Z29",
+      "parameters": {
+        "theta_i_h_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Heizung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "theta_i_c_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Kuehlung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "delta_theta_i_NA": {
+          "unit": "K",
+          "description": "Temperaturabsenkung reduzierter Betrieb",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_I": {
+          "unit": "Wh/(m²·d)",
+          "description": "Interne Waermequellen",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "n_nutz": {
+          "unit": "1/h",
+          "description": "Nutzungsbedingter Mindestaussenluftwechsel",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_w_b_a": {
+          "unit": "kWh/(m²·a)",
+          "description": "Jahreswert Nutzenergiebedarf Trinkwarmwasser",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_el_b": {
+          "unit": "Wh/(m²·d)",
+          "description": "Anwendungsstrombedarf",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "t_nutz_d": {
+          "unit": "h/d",
+          "description": "Taegliche Nutzungszeit",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "d_nutz_a": {
+          "unit": "d/a",
+          "description": "Jaehrliche Nutzungstage",
+          "value_source": "norm_table",
+          "norm_column": null
+        }
+      },
+      "description": "Produktionshallen mit leichter Arbeit"
+    },
+    {
+      "code": "NWG_30",
+      "number": "30",
+      "name_de": "Gewerbliche und industrielle Hallen - mittelschwere Arbeit",
+      "name_en": "Commercial and industrial halls - medium work",
+      "category": "industrial",
+      "applicability": [
+        "NWG"
+      ],
+      "norm_ref": "DIN V 18599-10:2018-09, Tabelle 6 und 7",
+      "norm_cell": "T7-Z30",
+      "parameters": {
+        "theta_i_h_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Heizung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "theta_i_c_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Kuehlung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "delta_theta_i_NA": {
+          "unit": "K",
+          "description": "Temperaturabsenkung reduzierter Betrieb",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_I": {
+          "unit": "Wh/(m²·d)",
+          "description": "Interne Waermequellen",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "n_nutz": {
+          "unit": "1/h",
+          "description": "Nutzungsbedingter Mindestaussenluftwechsel",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_w_b_a": {
+          "unit": "kWh/(m²·a)",
+          "description": "Jahreswert Nutzenergiebedarf Trinkwarmwasser",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_el_b": {
+          "unit": "Wh/(m²·d)",
+          "description": "Anwendungsstrombedarf",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "t_nutz_d": {
+          "unit": "h/d",
+          "description": "Taegliche Nutzungszeit",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "d_nutz_a": {
+          "unit": "d/a",
+          "description": "Jaehrliche Nutzungstage",
+          "value_source": "norm_table",
+          "norm_column": null
+        }
+      },
+      "description": "Produktionshallen mit mittelschwerer Arbeit"
+    },
+    {
+      "code": "NWG_31",
+      "number": "31",
+      "name_de": "Gewerbliche und industrielle Hallen - schwere Arbeit",
+      "name_en": "Commercial and industrial halls - heavy work",
+      "category": "industrial",
+      "applicability": [
+        "NWG"
+      ],
+      "norm_ref": "DIN V 18599-10:2018-09, Tabelle 6 und 7",
+      "norm_cell": "T7-Z31",
+      "parameters": {
+        "theta_i_h_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Heizung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "theta_i_c_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Kuehlung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "delta_theta_i_NA": {
+          "unit": "K",
+          "description": "Temperaturabsenkung reduzierter Betrieb",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_I": {
+          "unit": "Wh/(m²·d)",
+          "description": "Interne Waermequellen",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "n_nutz": {
+          "unit": "1/h",
+          "description": "Nutzungsbedingter Mindestaussenluftwechsel",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_w_b_a": {
+          "unit": "kWh/(m²·a)",
+          "description": "Jahreswert Nutzenergiebedarf Trinkwarmwasser",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_el_b": {
+          "unit": "Wh/(m²·d)",
+          "description": "Anwendungsstrombedarf",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "t_nutz_d": {
+          "unit": "h/d",
+          "description": "Taegliche Nutzungszeit",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "d_nutz_a": {
+          "unit": "d/a",
+          "description": "Jaehrliche Nutzungstage",
+          "value_source": "norm_table",
+          "norm_column": null
+        }
+      },
+      "description": "Produktionshallen mit schwerer Arbeit"
+    },
+    {
+      "code": "NWG_32",
+      "number": "32",
+      "name_de": "Parkhaus",
+      "name_en": "Parking garage",
+      "category": "parking",
+      "applicability": [
+        "NWG"
+      ],
+      "norm_ref": "DIN V 18599-10:2018-09, Tabelle 6 und 7",
+      "norm_cell": "T7-Z32",
+      "parameters": {
+        "theta_i_h_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Heizung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "theta_i_c_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Kuehlung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "delta_theta_i_NA": {
+          "unit": "K",
+          "description": "Temperaturabsenkung reduzierter Betrieb",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_I": {
+          "unit": "Wh/(m²·d)",
+          "description": "Interne Waermequellen",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "n_nutz": {
+          "unit": "1/h",
+          "description": "Nutzungsbedingter Mindestaussenluftwechsel",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_w_b_a": {
+          "unit": "kWh/(m²·a)",
+          "description": "Jahreswert Nutzenergiebedarf Trinkwarmwasser",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_el_b": {
+          "unit": "Wh/(m²·d)",
+          "description": "Anwendungsstrombedarf",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "t_nutz_d": {
+          "unit": "h/d",
+          "description": "Taegliche Nutzungszeit",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "d_nutz_a": {
+          "unit": "d/a",
+          "description": "Jaehrliche Nutzungstage",
+          "value_source": "norm_table",
+          "norm_column": null
+        }
+      },
+      "description": "Parkhäuser, Tiefgaragen"
+    },
+    {
+      "code": "NWG_33",
+      "number": "33",
+      "name_de": "Laboratorien",
+      "name_en": "Laboratories",
+      "category": "technical",
+      "applicability": [
+        "NWG"
+      ],
+      "norm_ref": "DIN V 18599-10:2018-09, Tabelle 6 und 7",
+      "norm_cell": "T7-Z33",
+      "parameters": {
+        "theta_i_h_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Heizung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "theta_i_c_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Kuehlung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "delta_theta_i_NA": {
+          "unit": "K",
+          "description": "Temperaturabsenkung reduzierter Betrieb",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_I": {
+          "unit": "Wh/(m²·d)",
+          "description": "Interne Waermequellen",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "n_nutz": {
+          "unit": "1/h",
+          "description": "Nutzungsbedingter Mindestaussenluftwechsel",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_w_b_a": {
+          "unit": "kWh/(m²·a)",
+          "description": "Jahreswert Nutzenergiebedarf Trinkwarmwasser",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_el_b": {
+          "unit": "Wh/(m²·d)",
+          "description": "Anwendungsstrombedarf",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "t_nutz_d": {
+          "unit": "h/d",
+          "description": "Taegliche Nutzungszeit",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "d_nutz_a": {
+          "unit": "d/a",
+          "description": "Jaehrliche Nutzungstage",
+          "value_source": "norm_table",
+          "norm_column": null
+        }
+      },
+      "description": "Labore, Forschungseinrichtungen"
+    },
+    {
+      "code": "NWG_34",
+      "number": "34",
+      "name_de": "Werkstätten",
+      "name_en": "Workshops",
+      "category": "industrial",
+      "applicability": [
+        "NWG"
+      ],
+      "norm_ref": "DIN V 18599-10:2018-09, Tabelle 6 und 7",
+      "norm_cell": "T7-Z34",
+      "parameters": {
+        "theta_i_h_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Heizung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "theta_i_c_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Kuehlung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "delta_theta_i_NA": {
+          "unit": "K",
+          "description": "Temperaturabsenkung reduzierter Betrieb",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_I": {
+          "unit": "Wh/(m²·d)",
+          "description": "Interne Waermequellen",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "n_nutz": {
+          "unit": "1/h",
+          "description": "Nutzungsbedingter Mindestaussenluftwechsel",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_w_b_a": {
+          "unit": "kWh/(m²·a)",
+          "description": "Jahreswert Nutzenergiebedarf Trinkwarmwasser",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_el_b": {
+          "unit": "Wh/(m²·d)",
+          "description": "Anwendungsstrombedarf",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "t_nutz_d": {
+          "unit": "h/d",
+          "description": "Taegliche Nutzungszeit",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "d_nutz_a": {
+          "unit": "d/a",
+          "description": "Jaehrliche Nutzungstage",
+          "value_source": "norm_table",
+          "norm_column": null
+        }
+      },
+      "description": "Werkstätten, Reparaturbetriebe"
+    },
+    {
+      "code": "NWG_35",
+      "number": "35",
+      "name_de": "Bühnenbereiche",
+      "name_en": "Stage areas",
+      "category": "culture",
+      "applicability": [
+        "NWG"
+      ],
+      "norm_ref": "DIN V 18599-10:2018-09, Tabelle 6 und 7",
+      "norm_cell": "T7-Z35",
+      "parameters": {
+        "theta_i_h_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Heizung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "theta_i_c_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Kuehlung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "delta_theta_i_NA": {
+          "unit": "K",
+          "description": "Temperaturabsenkung reduzierter Betrieb",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_I": {
+          "unit": "Wh/(m²·d)",
+          "description": "Interne Waermequellen",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "n_nutz": {
+          "unit": "1/h",
+          "description": "Nutzungsbedingter Mindestaussenluftwechsel",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_w_b_a": {
+          "unit": "kWh/(m²·a)",
+          "description": "Jahreswert Nutzenergiebedarf Trinkwarmwasser",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_el_b": {
+          "unit": "Wh/(m²·d)",
+          "description": "Anwendungsstrombedarf",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "t_nutz_d": {
+          "unit": "h/d",
+          "description": "Taegliche Nutzungszeit",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "d_nutz_a": {
+          "unit": "d/a",
+          "description": "Jaehrliche Nutzungstage",
+          "value_source": "norm_table",
+          "norm_column": null
+        }
+      },
+      "description": "Bühnen in Theatern, Konzerthallen"
+    },
+    {
+      "code": "NWG_36",
+      "number": "36",
+      "name_de": "Foyers",
+      "name_en": "Foyers",
+      "category": "common",
+      "applicability": [
+        "NWG"
+      ],
+      "norm_ref": "DIN V 18599-10:2018-09, Tabelle 6 und 7",
+      "norm_cell": "T7-Z36",
+      "parameters": {
+        "theta_i_h_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Heizung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "theta_i_c_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Kuehlung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "delta_theta_i_NA": {
+          "unit": "K",
+          "description": "Temperaturabsenkung reduzierter Betrieb",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_I": {
+          "unit": "Wh/(m²·d)",
+          "description": "Interne Waermequellen",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "n_nutz": {
+          "unit": "1/h",
+          "description": "Nutzungsbedingter Mindestaussenluftwechsel",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_w_b_a": {
+          "unit": "kWh/(m²·a)",
+          "description": "Jahreswert Nutzenergiebedarf Trinkwarmwasser",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_el_b": {
+          "unit": "Wh/(m²·d)",
+          "description": "Anwendungsstrombedarf",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "t_nutz_d": {
+          "unit": "h/d",
+          "description": "Taegliche Nutzungszeit",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "d_nutz_a": {
+          "unit": "d/a",
+          "description": "Jaehrliche Nutzungstage",
+          "value_source": "norm_table",
+          "norm_column": null
+        }
+      },
+      "description": "Eingangsbereiche, Foyers"
+    },
+    {
+      "code": "NWG_37",
+      "number": "37",
+      "name_de": "Saunen",
+      "name_en": "Saunas",
+      "category": "wellness",
+      "applicability": [
+        "NWG"
+      ],
+      "norm_ref": "DIN V 18599-10:2018-09, Tabelle 6 und 7",
+      "norm_cell": "T7-Z37",
+      "parameters": {
+        "theta_i_h_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Heizung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "theta_i_c_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Kuehlung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "delta_theta_i_NA": {
+          "unit": "K",
+          "description": "Temperaturabsenkung reduzierter Betrieb",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_I": {
+          "unit": "Wh/(m²·d)",
+          "description": "Interne Waermequellen",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "n_nutz": {
+          "unit": "1/h",
+          "description": "Nutzungsbedingter Mindestaussenluftwechsel",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_w_b_a": {
+          "unit": "kWh/(m²·a)",
+          "description": "Jahreswert Nutzenergiebedarf Trinkwarmwasser",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_el_b": {
+          "unit": "Wh/(m²·d)",
+          "description": "Anwendungsstrombedarf",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "t_nutz_d": {
+          "unit": "h/d",
+          "description": "Taegliche Nutzungszeit",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "d_nutz_a": {
+          "unit": "d/a",
+          "description": "Jaehrliche Nutzungstage",
+          "value_source": "norm_table",
+          "norm_column": null
+        }
+      },
+      "description": "Saunen, Dampfbäder"
+    },
+    {
+      "code": "NWG_38",
+      "number": "38",
+      "name_de": "Umkleideräume",
+      "name_en": "Changing rooms",
+      "category": "sports",
+      "applicability": [
+        "NWG"
+      ],
+      "norm_ref": "DIN V 18599-10:2018-09, Tabelle 6 und 7",
+      "norm_cell": "T7-Z38",
+      "parameters": {
+        "theta_i_h_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Heizung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "theta_i_c_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Kuehlung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "delta_theta_i_NA": {
+          "unit": "K",
+          "description": "Temperaturabsenkung reduzierter Betrieb",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_I": {
+          "unit": "Wh/(m²·d)",
+          "description": "Interne Waermequellen",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "n_nutz": {
+          "unit": "1/h",
+          "description": "Nutzungsbedingter Mindestaussenluftwechsel",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_w_b_a": {
+          "unit": "kWh/(m²·a)",
+          "description": "Jahreswert Nutzenergiebedarf Trinkwarmwasser",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_el_b": {
+          "unit": "Wh/(m²·d)",
+          "description": "Anwendungsstrombedarf",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "t_nutz_d": {
+          "unit": "h/d",
+          "description": "Taegliche Nutzungszeit",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "d_nutz_a": {
+          "unit": "d/a",
+          "description": "Jaehrliche Nutzungstage",
+          "value_source": "norm_table",
+          "norm_column": null
+        }
+      },
+      "description": "Umkleiden in Sportanlagen"
+    },
+    {
+      "code": "NWG_39",
+      "number": "39",
+      "name_de": "Fitnessstudio",
+      "name_en": "Fitness center",
+      "category": "sports",
+      "applicability": [
+        "NWG"
+      ],
+      "norm_ref": "DIN V 18599-10:2018-09, Tabelle 6 und 7",
+      "norm_cell": "T7-Z39",
+      "parameters": {
+        "theta_i_h_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Heizung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "theta_i_c_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Kuehlung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "delta_theta_i_NA": {
+          "unit": "K",
+          "description": "Temperaturabsenkung reduzierter Betrieb",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_I": {
+          "unit": "Wh/(m²·d)",
+          "description": "Interne Waermequellen",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "n_nutz": {
+          "unit": "1/h",
+          "description": "Nutzungsbedingter Mindestaussenluftwechsel",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_w_b_a": {
+          "unit": "kWh/(m²·a)",
+          "description": "Jahreswert Nutzenergiebedarf Trinkwarmwasser",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_el_b": {
+          "unit": "Wh/(m²·d)",
+          "description": "Anwendungsstrombedarf",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "t_nutz_d": {
+          "unit": "h/d",
+          "description": "Taegliche Nutzungszeit",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "d_nutz_a": {
+          "unit": "d/a",
+          "description": "Jaehrliche Nutzungstage",
+          "value_source": "norm_table",
+          "norm_column": null
+        }
+      },
+      "description": "Fitnessstudios, Krafträume"
+    },
+    {
+      "code": "NWG_40",
+      "number": "40",
+      "name_de": "Arztpraxis",
+      "name_en": "Medical practice",
+      "category": "healthcare",
+      "applicability": [
+        "NWG"
+      ],
+      "norm_ref": "DIN V 18599-10:2018-09, Tabelle 6 und 7",
+      "norm_cell": "T7-Z40",
+      "parameters": {
+        "theta_i_h_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Heizung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "theta_i_c_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Kuehlung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "delta_theta_i_NA": {
+          "unit": "K",
+          "description": "Temperaturabsenkung reduzierter Betrieb",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_I": {
+          "unit": "Wh/(m²·d)",
+          "description": "Interne Waermequellen",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "n_nutz": {
+          "unit": "1/h",
+          "description": "Nutzungsbedingter Mindestaussenluftwechsel",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_w_b_a": {
+          "unit": "kWh/(m²·a)",
+          "description": "Jahreswert Nutzenergiebedarf Trinkwarmwasser",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_el_b": {
+          "unit": "Wh/(m²·d)",
+          "description": "Anwendungsstrombedarf",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "t_nutz_d": {
+          "unit": "h/d",
+          "description": "Taegliche Nutzungszeit",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "d_nutz_a": {
+          "unit": "d/a",
+          "description": "Jaehrliche Nutzungstage",
+          "value_source": "norm_table",
+          "norm_column": null
+        }
+      },
+      "description": "Arztpraxen, Behandlungsräume"
+    },
+    {
+      "code": "NWG_41",
+      "number": "41",
+      "name_de": "OP-Bereich",
+      "name_en": "Operating room area",
+      "category": "healthcare",
+      "applicability": [
+        "NWG"
+      ],
+      "norm_ref": "DIN V 18599-10:2018-09, Tabelle 6 und 7",
+      "norm_cell": "T7-Z41",
+      "parameters": {
+        "theta_i_h_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Heizung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "theta_i_c_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Kuehlung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "delta_theta_i_NA": {
+          "unit": "K",
+          "description": "Temperaturabsenkung reduzierter Betrieb",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_I": {
+          "unit": "Wh/(m²·d)",
+          "description": "Interne Waermequellen",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "n_nutz": {
+          "unit": "1/h",
+          "description": "Nutzungsbedingter Mindestaussenluftwechsel",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_w_b_a": {
+          "unit": "kWh/(m²·a)",
+          "description": "Jahreswert Nutzenergiebedarf Trinkwarmwasser",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_el_b": {
+          "unit": "Wh/(m²·d)",
+          "description": "Anwendungsstrombedarf",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "t_nutz_d": {
+          "unit": "h/d",
+          "description": "Taegliche Nutzungszeit",
+          "value_source": "not_applicable",
+          "norm_column": null
+        },
+        "d_nutz_a": {
+          "unit": "d/a",
+          "description": "Jaehrliche Nutzungstage",
+          "value_source": "not_applicable",
+          "norm_column": null
+        }
+      },
+      "description": "Operationssäle in Krankenhäusern",
+      "parent_profile": "__parent_zone__"
+    },
+    {
+      "code": "NWG_42",
+      "number": "42",
+      "name_de": "Intensivstation",
+      "name_en": "Intensive care unit",
+      "category": "healthcare",
+      "applicability": [
+        "NWG"
+      ],
+      "norm_ref": "DIN V 18599-10:2018-09, Tabelle 6 und 7",
+      "norm_cell": "T7-Z42",
+      "parameters": {
+        "theta_i_h_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Heizung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "theta_i_c_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Kuehlung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "delta_theta_i_NA": {
+          "unit": "K",
+          "description": "Temperaturabsenkung reduzierter Betrieb",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_I": {
+          "unit": "Wh/(m²·d)",
+          "description": "Interne Waermequellen",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "n_nutz": {
+          "unit": "1/h",
+          "description": "Nutzungsbedingter Mindestaussenluftwechsel",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_w_b_a": {
+          "unit": "kWh/(m²·a)",
+          "description": "Jahreswert Nutzenergiebedarf Trinkwarmwasser",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_el_b": {
+          "unit": "Wh/(m²·d)",
+          "description": "Anwendungsstrombedarf",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "t_nutz_d": {
+          "unit": "h/d",
+          "description": "Taegliche Nutzungszeit",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "d_nutz_a": {
+          "unit": "d/a",
+          "description": "Jaehrliche Nutzungstage",
+          "value_source": "norm_table",
+          "norm_column": null
+        }
+      },
+      "description": "Intensivstationen"
+    },
+    {
+      "code": "NWG_43",
+      "number": "43",
+      "name_de": "Tiefkühlhaus",
+      "name_en": "Cold storage",
+      "category": "storage",
+      "applicability": [
+        "NWG"
+      ],
+      "norm_ref": "DIN V 18599-10:2018-09, Tabelle 6 und 7",
+      "norm_cell": "T7-Z43",
+      "parameters": {
+        "theta_i_h_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Heizung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "theta_i_c_soll": {
+          "unit": "°C",
+          "description": "Raum-Solltemperatur Kuehlung",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "delta_theta_i_NA": {
+          "unit": "K",
+          "description": "Temperaturabsenkung reduzierter Betrieb",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_I": {
+          "unit": "Wh/(m²·d)",
+          "description": "Interne Waermequellen",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "n_nutz": {
+          "unit": "1/h",
+          "description": "Nutzungsbedingter Mindestaussenluftwechsel",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_w_b_a": {
+          "unit": "kWh/(m²·a)",
+          "description": "Jahreswert Nutzenergiebedarf Trinkwarmwasser",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "q_el_b": {
+          "unit": "Wh/(m²·d)",
+          "description": "Anwendungsstrombedarf",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "t_nutz_d": {
+          "unit": "h/d",
+          "description": "Taegliche Nutzungszeit",
+          "value_source": "norm_table",
+          "norm_column": null
+        },
+        "d_nutz_a": {
+          "unit": "d/a",
+          "description": "Jaehrliche Nutzungstage",
+          "value_source": "norm_table",
+          "norm_column": null
+        }
+      },
+      "description": "Kühlhäuser, Tiefkühllager"
+    }
+  ]
+}
