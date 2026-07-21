@@ -1,7 +1,7 @@
 {
   "$schema_ref": "https://din18599-ifc.de/schema/v4.0/catalog-envelope",
   "catalog_id": "room_types",
-  "catalog_version": "0.1.0",
+  "catalog_version": "0.2.0",
   "catalog_source": "core",
   "dimension": {
     "type": "none"
@@ -17,8 +17,8 @@
   "entry_schema_ref": "schema/v4.0/catalogs/room_types.schema.json",
   "entries": [
     {
-      "code": "WOHNEN",
-      "name_de": "Wohnen",
+      "code": "WOHNRAUM",
+      "name_de": "Wohnraum",
       "applicability": [
         "WG"
       ],
@@ -29,20 +29,22 @@
       },
       "defaults": {
         "heating_status": "heated",
-        "theta_heizlast_standard_c": null,
-        "counts_as_living_area": true
+        "theta_heizlast_standard_c": 20,
+        "counts_as_living_area": true,
+        "ventilation_function": "supply"
       },
       "suggestion_keywords": [
         "wohn",
-        "living",
-        "wohnzimmer"
+        "wohnzimmer",
+        "living"
       ],
-      "value_source": "dwe_definition",
-      "note": "DWE-eigene Definition aus der Baupraxis. din_277_category und theta_heizlast_standard_c sind Normgroessen und noch nicht belegt."
+      "value_source": "norm_table",
+      "norm_cell": "DIN EN 12831-1/NA",
+      "note": "theta_heizlast_standard_c nach DIN EN 12831-1/NA. heating_status, ventilation_function und counts_as_living_area sind DWE-Vorbelegungen aus der praxisvalidierten Revit-Pipeline."
     },
     {
-      "code": "SCHLAFEN",
-      "name_de": "Schlafen",
+      "code": "SCHLAFZIMMER",
+      "name_de": "Schlafzimmer",
       "applicability": [
         "WG"
       ],
@@ -53,16 +55,145 @@
       },
       "defaults": {
         "heating_status": "heated",
-        "theta_heizlast_standard_c": null,
-        "counts_as_living_area": true
+        "theta_heizlast_standard_c": 20,
+        "counts_as_living_area": true,
+        "ventilation_function": "supply"
       },
       "suggestion_keywords": [
         "schlaf",
-        "bedroom",
+        "bedroom"
+      ],
+      "value_source": "norm_table",
+      "norm_cell": "DIN EN 12831-1/NA",
+      "note": "theta_heizlast_standard_c nach DIN EN 12831-1/NA. heating_status, ventilation_function und counts_as_living_area sind DWE-Vorbelegungen aus der praxisvalidierten Revit-Pipeline."
+    },
+    {
+      "code": "KINDERZIMMER",
+      "name_de": "Kinderzimmer",
+      "applicability": [
+        "WG"
+      ],
+      "mapping": {
+        "din_18599_profile": null,
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": 20,
+        "counts_as_living_area": true,
+        "ventilation_function": "supply"
+      },
+      "suggestion_keywords": [
+        "kinder",
         "kinderzimmer"
       ],
-      "value_source": "dwe_definition",
-      "note": "DWE-eigene Definition aus der Baupraxis. din_277_category und theta_heizlast_standard_c sind Normgroessen und noch nicht belegt."
+      "value_source": "norm_table",
+      "norm_cell": "DIN EN 12831-1/NA",
+      "note": "theta_heizlast_standard_c nach DIN EN 12831-1/NA. heating_status, ventilation_function und counts_as_living_area sind DWE-Vorbelegungen aus der praxisvalidierten Revit-Pipeline."
+    },
+    {
+      "code": "GAESTEZIMMER",
+      "name_de": "Gaestezimmer",
+      "applicability": [
+        "WG"
+      ],
+      "mapping": {
+        "din_18599_profile": null,
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": 20,
+        "counts_as_living_area": true,
+        "ventilation_function": "supply"
+      },
+      "suggestion_keywords": [
+        "gaeste",
+        "gäste",
+        "guest"
+      ],
+      "value_source": "norm_table",
+      "norm_cell": "DIN EN 12831-1/NA",
+      "note": "theta_heizlast_standard_c nach DIN EN 12831-1/NA. heating_status, ventilation_function und counts_as_living_area sind DWE-Vorbelegungen aus der praxisvalidierten Revit-Pipeline."
+    },
+    {
+      "code": "ARBEITSZIMMER",
+      "name_de": "Arbeitszimmer",
+      "applicability": [
+        "WG"
+      ],
+      "mapping": {
+        "din_18599_profile": null,
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": 20,
+        "counts_as_living_area": true,
+        "ventilation_function": "supply"
+      },
+      "suggestion_keywords": [
+        "arbeit",
+        "arbeitszimmer",
+        "study"
+      ],
+      "value_source": "norm_table",
+      "norm_cell": "DIN EN 12831-1/NA",
+      "note": "theta_heizlast_standard_c nach DIN EN 12831-1/NA. heating_status, ventilation_function und counts_as_living_area sind DWE-Vorbelegungen aus der praxisvalidierten Revit-Pipeline."
+    },
+    {
+      "code": "HOBBYRAUM",
+      "name_de": "Hobbyraum",
+      "applicability": [
+        "WG"
+      ],
+      "mapping": {
+        "din_18599_profile": null,
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": 20,
+        "counts_as_living_area": true,
+        "ventilation_function": "supply"
+      },
+      "suggestion_keywords": [
+        "hobby",
+        "hobbyraum"
+      ],
+      "value_source": "norm_table",
+      "norm_cell": "DIN EN 12831-1/NA",
+      "note": "theta_heizlast_standard_c nach DIN EN 12831-1/NA. heating_status, ventilation_function und counts_as_living_area sind DWE-Vorbelegungen aus der praxisvalidierten Revit-Pipeline."
+    },
+    {
+      "code": "BUERO",
+      "name_de": "Buero",
+      "applicability": [
+        "WG"
+      ],
+      "mapping": {
+        "din_18599_profile": null,
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": 20,
+        "counts_as_living_area": true,
+        "ventilation_function": "supply"
+      },
+      "suggestion_keywords": [
+        "buero",
+        "büro",
+        "office"
+      ],
+      "value_source": "norm_table",
+      "norm_cell": "DIN EN 12831-1/NA",
+      "note": "theta_heizlast_standard_c nach DIN EN 12831-1/NA. heating_status, ventilation_function und counts_as_living_area sind DWE-Vorbelegungen aus der praxisvalidierten Revit-Pipeline."
     },
     {
       "code": "KUECHE",
@@ -77,65 +208,18 @@
       },
       "defaults": {
         "heating_status": "heated",
-        "theta_heizlast_standard_c": null,
-        "counts_as_living_area": true
+        "theta_heizlast_standard_c": 20,
+        "counts_as_living_area": true,
+        "ventilation_function": "exhaust"
       },
       "suggestion_keywords": [
         "kueche",
         "küche",
         "kitchen"
       ],
-      "value_source": "dwe_definition",
-      "note": "DWE-eigene Definition aus der Baupraxis. din_277_category und theta_heizlast_standard_c sind Normgroessen und noch nicht belegt."
-    },
-    {
-      "code": "ESSEN",
-      "name_de": "Essen",
-      "applicability": [
-        "WG"
-      ],
-      "mapping": {
-        "din_18599_profile": null,
-        "din_277_category": null,
-        "geg_category": null
-      },
-      "defaults": {
-        "heating_status": "heated",
-        "theta_heizlast_standard_c": null,
-        "counts_as_living_area": true
-      },
-      "suggestion_keywords": [
-        "essen",
-        "esszimmer",
-        "dining"
-      ],
-      "value_source": "dwe_definition",
-      "note": "DWE-eigene Definition aus der Baupraxis. din_277_category und theta_heizlast_standard_c sind Normgroessen und noch nicht belegt."
-    },
-    {
-      "code": "ARBEITEN",
-      "name_de": "Arbeiten",
-      "applicability": [
-        "WG"
-      ],
-      "mapping": {
-        "din_18599_profile": null,
-        "din_277_category": null,
-        "geg_category": null
-      },
-      "defaults": {
-        "heating_status": "heated",
-        "theta_heizlast_standard_c": null,
-        "counts_as_living_area": true
-      },
-      "suggestion_keywords": [
-        "arbeit",
-        "buero",
-        "büro",
-        "study"
-      ],
-      "value_source": "dwe_definition",
-      "note": "DWE-eigene Definition aus der Baupraxis. din_277_category und theta_heizlast_standard_c sind Normgroessen und noch nicht belegt."
+      "value_source": "norm_table",
+      "norm_cell": "DIN EN 12831-1/NA",
+      "note": "theta_heizlast_standard_c nach DIN EN 12831-1/NA. heating_status, ventilation_function und counts_as_living_area sind DWE-Vorbelegungen aus der praxisvalidierten Revit-Pipeline."
     },
     {
       "code": "BAD",
@@ -150,16 +234,18 @@
       },
       "defaults": {
         "heating_status": "heated",
-        "theta_heizlast_standard_c": null,
-        "counts_as_living_area": true
+        "theta_heizlast_standard_c": 24,
+        "counts_as_living_area": true,
+        "ventilation_function": "exhaust"
       },
       "suggestion_keywords": [
         "bad",
         "bath",
         "duschbad"
       ],
-      "value_source": "dwe_definition",
-      "note": "DWE-eigene Definition aus der Baupraxis. din_277_category und theta_heizlast_standard_c sind Normgroessen und noch nicht belegt."
+      "value_source": "norm_table",
+      "norm_cell": "DIN EN 12831-1/NA",
+      "note": "theta_heizlast_standard_c nach DIN EN 12831-1/NA. heating_status, ventilation_function und counts_as_living_area sind DWE-Vorbelegungen aus der praxisvalidierten Revit-Pipeline."
     },
     {
       "code": "WC",
@@ -174,16 +260,68 @@
       },
       "defaults": {
         "heating_status": "heated",
-        "theta_heizlast_standard_c": null,
-        "counts_as_living_area": true
+        "theta_heizlast_standard_c": 20,
+        "counts_as_living_area": true,
+        "ventilation_function": "exhaust"
       },
       "suggestion_keywords": [
         "wc",
         "gaeste-wc",
         "toilette"
       ],
-      "value_source": "dwe_definition",
-      "note": "DWE-eigene Definition aus der Baupraxis. din_277_category und theta_heizlast_standard_c sind Normgroessen und noch nicht belegt."
+      "value_source": "norm_table",
+      "norm_cell": "DIN EN 12831-1/NA",
+      "note": "theta_heizlast_standard_c nach DIN EN 12831-1/NA. heating_status, ventilation_function und counts_as_living_area sind DWE-Vorbelegungen aus der praxisvalidierten Revit-Pipeline."
+    },
+    {
+      "code": "HWR",
+      "name_de": "Hauswirtschaftsraum",
+      "applicability": [
+        "WG"
+      ],
+      "mapping": {
+        "din_18599_profile": null,
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": 20,
+        "counts_as_living_area": true,
+        "ventilation_function": "exhaust"
+      },
+      "suggestion_keywords": [
+        "hwr",
+        "hauswirtschaft",
+        "waschkueche"
+      ],
+      "value_source": "norm_table",
+      "norm_cell": "DIN EN 12831-1/NA",
+      "note": "theta_heizlast_standard_c nach DIN EN 12831-1/NA. heating_status, ventilation_function und counts_as_living_area sind DWE-Vorbelegungen aus der praxisvalidierten Revit-Pipeline."
+    },
+    {
+      "code": "SAUNA",
+      "name_de": "Sauna",
+      "applicability": [
+        "WG"
+      ],
+      "mapping": {
+        "din_18599_profile": null,
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": 24,
+        "counts_as_living_area": true,
+        "ventilation_function": "exhaust"
+      },
+      "suggestion_keywords": [
+        "sauna"
+      ],
+      "value_source": "norm_table",
+      "norm_cell": "DIN EN 12831-1/NA",
+      "note": "theta_heizlast_standard_c nach DIN EN 12831-1/NA. heating_status, ventilation_function und counts_as_living_area sind DWE-Vorbelegungen aus der praxisvalidierten Revit-Pipeline."
     },
     {
       "code": "FLUR",
@@ -198,8 +336,9 @@
       },
       "defaults": {
         "heating_status": "heated",
-        "theta_heizlast_standard_c": null,
-        "counts_as_living_area": true
+        "theta_heizlast_standard_c": 20,
+        "counts_as_living_area": true,
+        "ventilation_function": "transfer"
       },
       "suggestion_keywords": [
         "flur",
@@ -207,8 +346,35 @@
         "gang",
         "corridor"
       ],
-      "value_source": "dwe_definition",
-      "note": "DWE-eigene Definition aus der Baupraxis. din_277_category und theta_heizlast_standard_c sind Normgroessen und noch nicht belegt."
+      "value_source": "norm_table",
+      "norm_cell": "DIN EN 12831-1/NA",
+      "note": "theta_heizlast_standard_c nach DIN EN 12831-1/NA. heating_status, ventilation_function und counts_as_living_area sind DWE-Vorbelegungen aus der praxisvalidierten Revit-Pipeline."
+    },
+    {
+      "code": "ABSTELLRAUM",
+      "name_de": "Abstellraum",
+      "applicability": [
+        "WG"
+      ],
+      "mapping": {
+        "din_18599_profile": null,
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": 20,
+        "counts_as_living_area": true,
+        "ventilation_function": "transfer"
+      },
+      "suggestion_keywords": [
+        "abstell",
+        "storage",
+        "speis"
+      ],
+      "value_source": "norm_table",
+      "norm_cell": "DIN EN 12831-1/NA",
+      "note": "theta_heizlast_standard_c nach DIN EN 12831-1/NA. heating_status, ventilation_function und counts_as_living_area sind DWE-Vorbelegungen aus der praxisvalidierten Revit-Pipeline."
     },
     {
       "code": "TREPPENHAUS",
@@ -222,44 +388,21 @@
         "geg_category": null
       },
       "defaults": {
-        "heating_status": "heated",
-        "theta_heizlast_standard_c": null,
-        "counts_as_living_area": true
+        "heating_status": "low_heated",
+        "theta_heizlast_standard_c": 15,
+        "counts_as_living_area": false
       },
       "suggestion_keywords": [
         "treppe",
         "treppenhaus",
         "stair"
       ],
-      "value_source": "dwe_definition",
-      "note": "DWE-eigene Definition aus der Baupraxis. din_277_category und theta_heizlast_standard_c sind Normgroessen und noch nicht belegt."
+      "value_source": "norm_table",
+      "norm_cell": "DIN EN 12831-1/NA",
+      "note": "theta_heizlast_standard_c nach DIN EN 12831-1/NA. heating_status, ventilation_function und counts_as_living_area sind DWE-Vorbelegungen aus der praxisvalidierten Revit-Pipeline."
     },
     {
-      "code": "ABSTELL",
-      "name_de": "Abstellraum",
-      "applicability": [
-        "WG"
-      ],
-      "mapping": {
-        "din_18599_profile": null,
-        "din_277_category": null,
-        "geg_category": null
-      },
-      "defaults": {
-        "heating_status": "heated",
-        "theta_heizlast_standard_c": null,
-        "counts_as_living_area": true
-      },
-      "suggestion_keywords": [
-        "abstell",
-        "hwr",
-        "storage"
-      ],
-      "value_source": "dwe_definition",
-      "note": "DWE-eigene Definition aus der Baupraxis. din_277_category und theta_heizlast_standard_c sind Normgroessen und noch nicht belegt."
-    },
-    {
-      "code": "TECHNIK",
+      "code": "TECHNIKRAUM",
       "name_de": "Technikraum",
       "applicability": [
         "WG"
@@ -271,7 +414,7 @@
       },
       "defaults": {
         "heating_status": "low_heated",
-        "theta_heizlast_standard_c": null,
+        "theta_heizlast_standard_c": 15,
         "counts_as_living_area": false
       },
       "suggestion_keywords": [
@@ -279,8 +422,9 @@
         "heizung",
         "hausanschluss"
       ],
-      "value_source": "dwe_definition",
-      "note": "DWE-eigene Definition aus der Baupraxis. din_277_category und theta_heizlast_standard_c sind Normgroessen und noch nicht belegt."
+      "value_source": "norm_table",
+      "norm_cell": "DIN EN 12831-1/NA",
+      "note": "theta_heizlast_standard_c nach DIN EN 12831-1/NA. heating_status, ventilation_function und counts_as_living_area sind DWE-Vorbelegungen aus der praxisvalidierten Revit-Pipeline."
     },
     {
       "code": "KELLER",
@@ -303,7 +447,8 @@
         "basement"
       ],
       "value_source": "dwe_definition",
-      "note": "DWE-eigene Definition aus der Baupraxis. din_277_category und theta_heizlast_standard_c sind Normgroessen und noch nicht belegt."
+      "norm_cell": null,
+      "note": "theta_heizlast_standard_c nach DIN EN 12831-1/NA. heating_status, ventilation_function und counts_as_living_area sind DWE-Vorbelegungen aus der praxisvalidierten Revit-Pipeline."
     },
     {
       "code": "GARAGE",
@@ -327,31 +472,8 @@
         "stellplatz"
       ],
       "value_source": "dwe_definition",
-      "note": "DWE-eigene Definition aus der Baupraxis. din_277_category und theta_heizlast_standard_c sind Normgroessen und noch nicht belegt."
-    },
-    {
-      "code": "DACHBODEN",
-      "name_de": "Dachboden",
-      "applicability": [
-        "WG"
-      ],
-      "mapping": {
-        "din_18599_profile": null,
-        "din_277_category": null,
-        "geg_category": null
-      },
-      "defaults": {
-        "heating_status": "unheated",
-        "theta_heizlast_standard_c": null,
-        "counts_as_living_area": false
-      },
-      "suggestion_keywords": [
-        "dachboden",
-        "spitzboden",
-        "attic"
-      ],
-      "value_source": "dwe_definition",
-      "note": "DWE-eigene Definition aus der Baupraxis. din_277_category und theta_heizlast_standard_c sind Normgroessen und noch nicht belegt."
+      "norm_cell": null,
+      "note": "theta_heizlast_standard_c nach DIN EN 12831-1/NA. heating_status, ventilation_function und counts_as_living_area sind DWE-Vorbelegungen aus der praxisvalidierten Revit-Pipeline."
     },
     {
       "code": "NWG_01",
@@ -1344,9 +1466,10 @@
     }
   ],
   "open_points": [
-    "catalog_version bewusst 0.1.0: Der Katalog ist ein belegter Seed, keine abgenommene Liste. Die im Handoff genannten rund 55 Typen mit 3-Normen-Mapping haben im Repo keine Quelle — Handoff Abschnitt 5 enthaelt die Revit-Testbefunde, keine Raumtypen.",
-    "din_277_category fuer alle Eintraege offen (DIN 277-1 Nutzungsarten).",
-    "theta_heizlast_standard_c fuer alle Eintraege offen (DIN EN 12831).",
-    "geg_category nur fuer NWG relevant, haengt an der GEG-Anlage-2-Zonierung."
+    "catalog_version 0.2.0: WG-Typen stammen aus der praxisvalidierten RAUMTYPEN-Tabelle der Revit-Pipeline (Freigabe 21.07.2026). NWG-Typen sind weiterhin ein aus den Nutzungsprofilen abgeleiteter Seed.",
+    "din_277_category fuer alle Eintraege offen — Sebi liefert nach Normpruefung nach.",
+    "theta_heizlast_standard_c fuer die 43 NWG-Typen offen (DIN EN 12831-1/NA). Fuer die WG-Typen belegt.",
+    "geg_category nur fuer NWG relevant, haengt an der GEG-Anlage-2-Zonierung.",
+    "Vorgeschlagene Ergaenzungen aus dem ersten Seed, in der freigegebenen Tabelle nicht enthalten: ESSEN (Esszimmer) und DACHBODEN (unbeheizter Dachraum). DACHBODEN fehlt als Gegenstueck zu adjacency_type=attic_uninsulated — Entscheidung offen."
   ]
 }

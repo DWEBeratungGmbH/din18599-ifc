@@ -108,8 +108,8 @@
           "name_de": { "type": "string" },
           "name_en": { "type": "string" },
           "norm_cell": {
-            "type": "string",
-            "description": "Herkunftszelle in der Norm, Konvention 'T<Tabelle>-Z<Zeile>[-S<Spalte>]', z.B. 'T7-Z1-S19'. Macht den Overlay-Merge PRUEFBAR: der Validator kann melden, welche Zelle fehlt, statt nur 'irgendwo ist null'. null bleibt dadurch reserviert fuer 'existiert fuer diesen Eintrag nicht' (z.B. Profile 16/18/19/20)."
+            "type": ["string", "null"],
+            "description": "Herkunftszelle in der Norm, Konvention 'T<Tabelle>-Z<Zeile>[-S<Spalte>]', z.B. 'T7-Z1-S19'. Macht den Overlay-Merge PRUEFBAR: der Validator kann melden, welche Zelle fehlt, statt nur 'irgendwo ist null'. null bedeutet, dass der Eintrag KEINE Normherkunft hat — also eine DWE-eigene Definition ist oder die Groesse fuer diesen Eintrag nicht existiert (z.B. Auslegungstemperatur eines unbeheizten Raums)."
           },
           "deprecated": {
             "type": "boolean",

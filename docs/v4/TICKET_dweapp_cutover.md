@@ -89,6 +89,61 @@ CI-Variable `DIN18599_IFC_PATH` bleibt, der Rest des Pfads nicht.
 
 ---
 
+## Fundstelle 4 — `heated_area` mischt zwei Größen
+
+**Dateien:** `din18599-ifc/api/qng/parser_nachhaltigkeit_docx.py` gegen
+`parser_beg_geg_xml.py` und `parser_idi_al_ini.py`
+
+Alle drei Parser schreiben nach `input.building.heated_area`, meinen aber nicht
+dasselbe:
+
+```python
+# parser_nachhaltigkeit_docx.py — befüllt aus NRF
+"nrf_m2": "input.building.heated_area",
+
+# parser_beg_geg_xml.py — befüllt als beheizte Fläche
+ki_extrahiert["input.building.heated_area"] = {"wert": nrf, "confidence": 1.0}
+```
+
+Nettoraumfläche und beheizte Fläche sind verschiedene Größen. Je nachdem, welcher
+Kanal einen Eingang liefert, steht am selben Pfad etwas anderes — und niemand kann
+dem Wert ansehen, welche Definition gilt.
+
+**Zu tun beim Cutover:** nicht einfach auf `input.building.ngf_m2` umbenennen.
+v4.0 definiert `ngf_m2` klar als Nettogrundfläche nach DIN 277; ein reines Umbenennen
+würde die Unschärfe mitnehmen. Entweder je Parser klären, welche Größe wirklich
+geliefert wird und auf `ngf_m2` bzw. ein eigenes Feld mappen, oder ein
+`heated_area_source`-Feld einführen, das die Herkunftsdefinition mitführt.
+
+---
+
+## Fundstelle 5 — `specific_values.*.total` mischt spezifisch und absolut
+
+**Datei:** `din18599-ifc/api/qng/parser_beg_geg_xml.py`
+
+```python
+ki_extrahiert["output.base.specific_values.primary_energy.total"]
+ki_extrahiert["output.base.specific_values.final_energy.total"]
+ki_extrahiert["output.base.specific_values.co2_emissions.total"]
+```
+
+Der Pfad heißt `specific_values`, das Blatt heißt `total`. Ob dort kWh/(m²·a) oder
+kWh/a steht, ist aus dem Pfad nicht ableitbar und im Parser nicht dokumentiert.
+
+v4.0 trennt beides sauber:
+
+| Größe | absolut | spezifisch |
+|---|---|---|
+| Primärenergie | `output.*.primary_energy.total_kwh_a` | `.specific_kwh_m2a` |
+| Endenergie | `output.*.final_energy.total_kwh_a` | — |
+| CO2 | `output.*.co2.total_kg_a` | `.specific_kg_m2a` |
+
+**Zu tun beim Cutover:** je Parser und je Kennwert prüfen, welche der beiden Größen
+tatsächlich aus der Quelldatei kommt, und auf das passende Feld mappen. Ein
+Sammel-Mapping auf `specific_*` wäre geraten, nicht belegt.
+
+---
+
 ## Reihenfolge beim Cutover
 
 1. `schema-check.mjs` auf v4.0 umstellen, Typen regenerieren → deckt auf, was bricht
