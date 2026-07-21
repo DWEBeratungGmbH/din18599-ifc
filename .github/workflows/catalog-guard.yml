@@ -1,0 +1,56 @@
+name: Catalog Guard
+
+# Rechtsschutz-Gate: lehnt jeden Push/PR ab, der geschuetzte Katalog-Dateien
+# (Normzahlenwerte aus DIN/Beuth-Quellen) in den getrackten Baum bringt.
+# Ergaenzt die .gitignore, die per `git add -f` umgangen werden kann.
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+
+jobs:
+  catalog-guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Geschuetzte Katalog-Dateien pruefen
+        run: bash scripts/check-catalog-values.sh --all
+
+      - name: Sidecar- und Manifest-Schema validieren
+        run: |
+          python -m pip install --quiet jsonschema
+          python - <<'PY'
+          import json, sys
+          from jsonschema import Draft7Validator
+
+          fehler = 0
+          for pfad in ["schema/v4.0/manifest.schema.json",
+                       "schema/v4.0/sidecar.schema.json"]:
+              schema = json.load(open(pfad))
+              try:
+                  Draft7Validator.check_schema(schema)
+              except Exception as exc:
+                  print(f"FEHLER: {pfad} ist kein gueltiges Draft-07-Schema: {exc}")
+                  fehler += 1
+                  continue
+
+              # Selbstauskunft gegen die eigene Definition pruefen — in v3.2 war
+              # genau das auseinandergelaufen (Schema lehnte seine Version ab).
+              info = "manifest_info" if "manifest" in pfad else "schema_info"
+              props = schema["properties"][info]["properties"]
+              erwartet_url = props["url"]["const"]
+              muster = props["version"]["pattern"]
+              if erwartet_url != schema["$id"]:
+                  print(f"FEHLER: {pfad}: $id ({schema['$id']}) "
+                        f"weicht von {info}.url ({erwartet_url}) ab")
+                  fehler += 1
+              import re
+              if not re.match(muster, schema["version"]):
+                  print(f"FEHLER: {pfad}: version {schema['version']} "
+                        f"passt nicht auf das eigene Pattern {muster}")
+                  fehler += 1
+
+          sys.exit(1 if fehler else 0)
+          PY
