@@ -149,8 +149,28 @@ def pruefe_fachdaten(sidecar: dict, kataloge: dict, erg: Ergebnis) -> None:
                           f"{raum['id']}: zone_id '{m['zone_id']}' existiert nicht",
                           blocks_level="enriched", json_pointer=zeiger)
 
+        # Raeume ausserhalb der thermischen Huelle duerfen nicht bilanziert werden.
+        # Vorbelegung kommt aus dem Katalog, am Raum ueberschreibbar.
+        katalog_eintrag = raumtypen.get(ref, {})
+        ausserhalb = raum.get(
+            "outside_thermal_envelope",
+            katalog_eintrag.get("defaults", {}).get("outside_thermal_envelope", False),
+        )
+        if ausserhalb and "thermal" in arten:
+            erg.melde("ROOM_OUTSIDE_ENVELOPE_IN_ZONE", "error",
+                      f"{raum['id']}: liegt ausserhalb der thermischen Huelle, ist "
+                      f"aber einer thermischen Zone zugeordnet",
+                      blocks_level="enriched", json_pointer=zeiger)
+        if ausserhalb and raum.get("heating_status") != "unheated":
+            erg.melde("ROOM_OUTSIDE_ENVELOPE_HEATED", "warning",
+                      f"{raum['id']}: liegt ausserhalb der thermischen Huelle, "
+                      f"heating_status ist aber '{raum.get('heating_status')}'",
+                      json_pointer=zeiger)
+
         # Pflicht laut Handoff E2: thermal bei konditionierten Raeumen.
-        if raum.get("heating_status") in ("heated", "low_heated") and "thermal" not in arten:
+        if ausserhalb:
+            pass
+        elif raum.get("heating_status") in ("heated", "low_heated") and "thermal" not in arten:
             erg.melde("ZONE_THERMAL_MISSING", "warning",
                       f"{raum['id']} ist konditioniert, aber keiner thermischen Zone zugeordnet",
                       blocks_level="enriched", json_pointer=zeiger)

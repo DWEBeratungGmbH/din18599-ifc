@@ -11,7 +11,7 @@
 catalog/
 ├── core/                          # öffentlich, im Git — STRUKTUR
 │   ├── adjacency_types.json              14 Einträge, inkl. Fx-Werte
-│   ├── room_types.json                   57 Einträge (14 WG / 43 NWG)
+│   ├── room_types.json                   67 Einträge (19 WG / 43 NWG / 5 beide)
 │   ├── usage_profiles.2018-09.json       45 Profile, wertfrei
 │   └── geg_reference_building.2024.json   7 Zeilen + Mapping-Regeln
 └── values/                        # gitignored — ZAHLENWERTE
@@ -119,7 +119,7 @@ Kein `calc_ready`. Meldung aus `values_overlay.missing_value_message`, z.B.
 | Katalog | Werte public? | Begründung |
 |---|---|---|
 | `adjacency_types` | **ja, vollständig** | Zwölf Einzelfakten aus jedem GEG-Kommentar, kein Datenbankwerk. Und die Boundary-Validierung als Grundfunktion darf nicht an einem Overlay hängen (Entscheidung 6.6) |
-| `geg_reference_building` | **rechtlich ja**, faktisch noch nicht | GEG ist amtliches Werk nach § 5 UrhG, also gemeinfrei. Werte fehlen nur, weil sie belegt aus dem Gesetzestext zu übernehmen sind, nicht aus zweiter Hand |
+| `geg_reference_building` | **rechtlich ja**, faktisch noch nicht | GEG ist amtliches Werk nach § 5 UrhG, also gemeinfrei. Werte bleiben auf `value_pending: true`, bis Sebi sie gegen den Gesetzestext verifiziert hat — unverifizierte Zwischenstände in der Prüfliste |
 | `usage_profiles` | **nein** | DIN-Tabellenwerte, DIN/Beuth-Urheberrecht |
 | `room_types` | ja (Struktur) | DWE-eigene Definitionen und abgeleitete Profilbezüge |
 
@@ -153,17 +153,20 @@ Profilliste vorliegt.
 
 ## Offene Punkte
 
-1. **`room_types` ist ein belegter Seed, keine abgenommene Liste** (`catalog_version: 0.1.0`).
-   Die 43 NWG-Typen sind 1:1 aus den Nutzungsprofilen abgeleitet, die 14 WG-Typen sind
-   DWE-eigene Definitionen aus der Baupraxis. Für die im Handoff genannten „~55 Typen mit
-   3-Normen-Mapping" gibt es im Repo **keine Quelle** — der referenzierte Handoff-Abschnitt
-   enthält die Revit-Testbefunde, keine Raumtypen. Zwei Spalten sind deshalb durchgehend
-   `null`: `din_277_category` (DIN 277-1 Nutzungsarten) und `theta_heizlast_standard_c`
-   (DIN EN 12831). Beides Normgrößen, die nicht geraten werden.
+1. **`room_types` ist freigegeben, aber noch nicht vollständig** (`catalog_version: 0.3.0`).
+   Die 19 WG-Typen stammen aus der praxisvalidierten RAUMTYPEN-Tabelle der Revit-Pipeline,
+   die 43 NWG-Typen sind 1:1 aus den Nutzungsprofilen abgeleitet, fünf weitere gelten für
+   beide Gebäudearten. Offen bleibt `din_277_category` (DIN 277-1) — liefert Sebi nach
+   Normprüfung nach. `theta_heizlast_standard_c` ist für die WG-Typen belegt
+   (DIN EN 12831-1/NA), für die NWG-Typen offen.
 
-2. **Profilanzahl weicht ab.** Der Altbestand liefert 45 Profile (2 WG + 43 NWG),
-   der Handoff nennt 42 für 2018-09 und 43 für 2025-10. Vor dem Befüllen des Overlays
-   zu klären, welche Zählung stimmt.
+   `aliases[]` ist überall leer: Hook für den 142er-Namens-Synonymschlüssel, der nach
+   Review nachgereicht wird. Befüllbar ohne Schema-Änderung.
+
+2. **Profilanzahl weicht um genau einen Eintrag ab.** Zählbasis geklärt: die „42" des
+   Handoffs zählt nur NWG. Bestand 43 gegen erwartete 42 — und 43 ist die Zahl der
+   Ausgabe 2025-10. Sebi prüft die Kandidaten 41/42/43. Siehe
+   [PRUEFLISTE_normpruefung.md](PRUEFLISTE_normpruefung.md).
 
 3. **`norm_column` ist durchgehend `null`.** Zeile und Tabelle stehen fest, die
    Spaltennummern werden beim Befüllen aus der lizenzierten Quelle ergänzt.

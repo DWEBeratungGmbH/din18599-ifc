@@ -17,6 +17,13 @@
       "items": { "type": "string", "enum": ["WG", "NWG"] }
     },
 
+    "aliases": {
+      "type": "array",
+      "items": { "type": "string" },
+      "default": [],
+      "description": "Synonyme aus dem Raumtypen-Namensschluessel. Anders als suggestion_keywords (unscharfe Teilstring-Suche fuer die Vorschlagslogik) sind das exakte Namen, die eindeutig auf diesen Typ abbilden."
+    },
+
     "mapping": {
       "type": "object",
       "description": "Das 3-Normen-Mapping. null bedeutet: noch nicht belegt, NICHT 'gibt es nicht'.",
@@ -52,6 +59,11 @@
         "counts_as_living_area": {
           "type": "boolean",
           "description": "Zaehlt zur Wohnflaeche nach WoFlV? Garage und Nebenflaechen: false"
+        },
+        "outside_thermal_envelope": {
+          "type": "boolean",
+          "default": false,
+          "description": "Liegt ausserhalb der thermischen Huelle (Terrasse, Balkon, unbeheizter Wintergarten). NICHT dasselbe wie heating_status='unheated': ein unbeheizter Keller liegt im Gebaeudevolumen und wird als angrenzender Bereich bilanziert, eine Terrasse nicht. Solche Raeume gehoeren in KEINE thermische Zone."
         }
       }
     },

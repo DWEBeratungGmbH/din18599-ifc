@@ -19,16 +19,20 @@
 keine Dublette, keinen Eintrag ohne `description` oder `name_en`. Aus den Daten allein
 lässt sich also nicht ableiten, welche Einträge zu viel sind — deshalb keine Löschung.
 
-### Die Zählbasis ist die erste offene Frage
+### Zählbasis geklärt (Feedback 21.07.2026)
 
-Bevor man nach „den drei zusätzlichen Profilen" sucht, muss klar sein, was der
-Handoff zählt:
+> Die „42" im Ursprungs-Handoff zählt **nur NWG** (Tabelle 6). R1/R2 aus Tabelle 5
+> stehen separat.
 
-- **Zählt er nur NWG?** Dann steht 43 (Bestand) gegen 42 (2018-09) → **ein** Profil
-  zu viel. Auffällig: 43 ist exakt die Zahl, die der Handoff für **2025-10** nennt.
-  Naheliegende Hypothese: der Altbestand trägt bereits die Liste der neueren Ausgabe,
-  ist aber als `DIN/TS 18599-10:2018-09` deklariert.
-- **Zählt er WG und NWG zusammen?** Dann steht 45 gegen 42 → **drei** zu viel.
+Damit steht 43 (Bestand) gegen 42 (2018-09) → **genau ein Profil zu viel**, nicht drei.
+
+Und 43 ist exakt die Zahl, die der Handoff für **2025-10** nennt. Die tragende
+Hypothese ist damit bestätigt-plausibel: **der Altbestand trägt bereits die Liste der
+neueren Ausgabe, ist aber als `DIN/TS 18599-10:2018-09` deklariert.**
+
+**Status:** Sebi prüft die Kandidaten 41/42/43 gegen die lizenzierte Tabelle 6 der
+Ausgabe 2018-09. Bis dahin bleibt der Katalog unverändert bei 45 Einträgen —
+überzählige Profile schaden nicht, fehlende schon.
 
 ### Konkret zu prüfen
 
@@ -71,6 +75,29 @@ anders als DIN-Tabellenwerte.
 Zugriff auf den Gesetzestext bzw. den Bundesanzeiger. Werte aus dem Gedächtnis oder
 aus Sekundärquellen einzutragen wäre bei einer Nachweisgröße das falsche Risiko —
 sie sähen autoritativ aus und würden ungeprüft in GEG-Nachweise wandern.
+
+### Werte liegen vor — aber noch NICHT freigegeben
+
+Sebi hat am 21.07. die sieben Zeilen **aus dem Gedächtnis** genannt und ausdrücklich
+angewiesen, sie erst nach seiner Verifikation gegen den Gesetzestext einzutragen.
+
+> ⚠️ **Die folgenden Werte sind unverifiziert und dürfen NICHT verwendet werden.**
+> Sie stehen hier nur, damit die Verifikation nicht bei null anfängt. Der Katalog
+> bleibt bis zur Freigabe auf `value_pending: true`.
+
+| `code` | Bauteil | U-Wert (unverifiziert) | g-Wert (unverifiziert) |
+|---|---|---|---|
+| `1.1` | Außenwand gegen Außenluft | 0,28 | — |
+| `1.2` | gegen Erdreich / unbeheizt | 0,35 | — |
+| `1.3` | Dach | 0,20 | — |
+| `2` | Fenster | 1,3 | 0,60 |
+| `3` | Dachflächenfenster | 1,4 | 0,60 |
+| `4` | Lichtkuppeln | 2,7 | 0,64 |
+| `5` | Außentüren | 1,8 | — |
+
+**Ablauf:** Sebi verifiziert gegen GEG Anlage 1 und trägt die Werte selbst ein bzw.
+gibt sie frei. Diese Session lässt `value_pending: true` stehen — dieselbe Disziplin
+wie bei den DIN-Werten.
 
 ### Was zu liefern ist
 

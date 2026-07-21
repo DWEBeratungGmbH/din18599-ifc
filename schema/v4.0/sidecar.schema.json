@@ -292,6 +292,11 @@
           "enum": ["heated", "unheated", "low_heated"],
           "description": "Konditionierungsgrad. Steuert, ob der Raum bilanziert wird und welche adjacency_types an seinen Grenzen zulaessig sind."
         },
+        "outside_thermal_envelope": {
+          "type": "boolean",
+          "default": false,
+          "description": "Der Raum liegt AUSSERHALB der thermischen Huelle (Terrasse, Balkon, Loggia, unbeheizter Wintergarten). Bewusst getrennt von heating_status: ein unbeheizter Keller ist 'unheated' und liegt trotzdem im Gebaeudevolumen — er wird als angrenzender unbeheizter Bereich bilanziert. Ein Aussenbereich wird gar nicht bilanziert. Solche Raeume duerfen KEINER thermischen Zone angehoeren; Vorbelegung kommt aus dem room_types-Katalog."
+        },
         "ventilation_function": {
           "type": "string",
           "description": "Lueftungstechnische Funktion des Raums (z.B. Zuluft, Abluft, Ueberstroem). Katalog-Kandidat."

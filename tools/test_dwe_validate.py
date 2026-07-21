@@ -108,7 +108,46 @@ def baue_faelle(basis: dict) -> list[tuple[str, dict, str]]:
     d["input"]["boundaries"] = [_grenze(area_18599=300.0, relevant_18599=True)]
     faelle.append(("Huellflaeche ausserhalb Toleranz", d, "ENVELOPE_AREA_MISMATCH"))
 
+    # Raum ausserhalb der thermischen Huelle in einer thermischen Zone. Der
+    # Default kommt aus dem Katalog, ohne dass am Raum ein Feld gesetzt ist.
+    d = copy.deepcopy(basis)
+    d["input"]["rooms"].append({
+        "id": "R-TER-01", "name": "Terrasse", "storey_ref": "S-EG",
+        "room_type_ref": "AUSSENBEREICH", "heating_status": "unheated",
+        "zone_memberships": [{"zone_type": "thermal", "zone_id": "Z-THERM-01"}],
+        "area_ngf_m2": 24.0,
+    })
+    faelle.append(("Aussenbereich in thermischer Zone", d,
+                   "ROOM_OUTSIDE_ENVELOPE_IN_ZONE"))
+
+    d = copy.deepcopy(basis)
+    d["input"]["rooms"].append({
+        "id": "R-WIG-01", "name": "Wintergarten", "storey_ref": "S-EG",
+        "room_type_ref": "WINTERGARTEN", "heating_status": "heated",
+        "zone_memberships": [], "area_ngf_m2": 12.0,
+    })
+    faelle.append(("Wintergarten ausserhalb Huelle als beheizt", d,
+                   "ROOM_OUTSIDE_ENVELOPE_HEATED"))
+
     return faelle
+
+
+def pruefe_override(basis: dict, kataloge: dict) -> bool:
+    """
+    Der Katalog-Default muss am Raum ueberschreibbar sein — ein beheizter
+    Wintergarten innerhalb der Huelle ist ein zulaessiger Fall.
+    """
+    from dwe_validate import validiere  # lokal, damit der Import oben schlank bleibt
+
+    d = copy.deepcopy(basis)
+    d["input"]["rooms"].append({
+        "id": "R-WIG-02", "name": "Wintergarten beheizt", "storey_ref": "S-EG",
+        "room_type_ref": "WINTERGARTEN", "outside_thermal_envelope": False,
+        "heating_status": "heated", "area_ngf_m2": 12.0,
+        "zone_memberships": [{"zone_type": "thermal", "zone_id": "Z-THERM-01"}],
+    })
+    codes = {b.code for b in validiere(d, kataloge).befunde}
+    return "ROOM_OUTSIDE_ENVELOPE_IN_ZONE" not in codes
 
 
 def main() -> int:
@@ -143,6 +182,11 @@ def main() -> int:
     print("Falsch-Positive im sauberen Beispiel:", ", ".join(falsch_positiv) or "keine")
     fehlgeschlagen += len(falsch_positiv)
 
+    override_ok = pruefe_override(basis, kataloge)
+    print(f"Katalog-Default am Raum ueberschreibbar: "
+          f"{'PASS' if override_ok else 'FAIL'}")
+    fehlgeschlagen += 0 if override_ok else 1
+
     # Das Referenz-Beispiel muss die dokumentierte Stufe erreichen.
     erg = validiere(basis, kataloge)
     erwartete_stufe = "enriched"
@@ -152,7 +196,7 @@ def main() -> int:
     fehlgeschlagen += 0 if stufe_ok else 1
 
     print()
-    gesamt = len(faelle) + 2
+    gesamt = len(faelle) + 3
     print(f"{gesamt - fehlgeschlagen}/{gesamt} Pruefungen bestanden")
     return 1 if fehlgeschlagen else 0
 

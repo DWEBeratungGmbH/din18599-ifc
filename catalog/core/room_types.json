@@ -1,7 +1,7 @@
 {
   "$schema_ref": "https://din18599-ifc.de/schema/v4.0/catalog-envelope",
   "catalog_id": "room_types",
-  "catalog_version": "0.2.0",
+  "catalog_version": "0.3.0",
   "catalog_source": "core",
   "dimension": {
     "type": "none"
@@ -22,6 +22,7 @@
       "applicability": [
         "WG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": null,
         "din_277_category": null,
@@ -48,6 +49,7 @@
       "applicability": [
         "WG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": null,
         "din_277_category": null,
@@ -73,6 +75,7 @@
       "applicability": [
         "WG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": null,
         "din_277_category": null,
@@ -98,6 +101,7 @@
       "applicability": [
         "WG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": null,
         "din_277_category": null,
@@ -124,6 +128,7 @@
       "applicability": [
         "WG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": null,
         "din_277_category": null,
@@ -150,6 +155,7 @@
       "applicability": [
         "WG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": null,
         "din_277_category": null,
@@ -175,6 +181,7 @@
       "applicability": [
         "WG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": null,
         "din_277_category": null,
@@ -201,6 +208,7 @@
       "applicability": [
         "WG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": null,
         "din_277_category": null,
@@ -227,6 +235,7 @@
       "applicability": [
         "WG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": null,
         "din_277_category": null,
@@ -253,6 +262,7 @@
       "applicability": [
         "WG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": null,
         "din_277_category": null,
@@ -279,6 +289,7 @@
       "applicability": [
         "WG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": null,
         "din_277_category": null,
@@ -305,6 +316,7 @@
       "applicability": [
         "WG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": null,
         "din_277_category": null,
@@ -329,6 +341,7 @@
       "applicability": [
         "WG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": null,
         "din_277_category": null,
@@ -356,6 +369,7 @@
       "applicability": [
         "WG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": null,
         "din_277_category": null,
@@ -382,6 +396,7 @@
       "applicability": [
         "WG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": null,
         "din_277_category": null,
@@ -407,6 +422,7 @@
       "applicability": [
         "WG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": null,
         "din_277_category": null,
@@ -432,6 +448,7 @@
       "applicability": [
         "WG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": null,
         "din_277_category": null,
@@ -456,6 +473,7 @@
       "applicability": [
         "WG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": null,
         "din_277_category": null,
@@ -476,12 +494,178 @@
       "note": "theta_heizlast_standard_c nach DIN EN 12831-1/NA. heating_status, ventilation_function und counts_as_living_area sind DWE-Vorbelegungen aus der praxisvalidierten Revit-Pipeline."
     },
     {
+      "code": "DACHBODEN",
+      "name_de": "Dachboden / Spitzboden",
+      "applicability": [
+        "WG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": null,
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "unheated",
+        "theta_heizlast_standard_c": null,
+        "counts_as_living_area": false
+      },
+      "suggestion_keywords": [
+        "dachboden",
+        "spitzboden",
+        "attic"
+      ],
+      "value_source": "dwe_definition",
+      "norm_cell": null,
+      "note": "theta_heizlast_standard_c nach DIN EN 12831-1/NA. heating_status, ventilation_function und counts_as_living_area sind DWE-Vorbelegungen aus der praxisvalidierten Revit-Pipeline."
+    },
+    {
+      "code": "AUFENTHALTSRAUM",
+      "name_de": "Aufenthaltsraum",
+      "applicability": [
+        "WG",
+        "NWG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": null,
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": 20,
+        "counts_as_living_area": false,
+        "ventilation_function": "supply"
+      },
+      "suggestion_keywords": [
+        "aufenthalt",
+        "aufenthaltsraum"
+      ],
+      "value_source": "norm_table",
+      "norm_cell": "DIN EN 12831-1/NA",
+      "note": "theta_heizlast_standard_c nach DIN EN 12831-1/NA. heating_status, ventilation_function und counts_as_living_area sind DWE-Vorbelegungen aus der praxisvalidierten Revit-Pipeline."
+    },
+    {
+      "code": "BEHANDLUNGSRAUM",
+      "name_de": "Behandlungsraum",
+      "applicability": [
+        "WG",
+        "NWG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": null,
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": 24,
+        "counts_as_living_area": false,
+        "ventilation_function": "supply"
+      },
+      "suggestion_keywords": [
+        "behandlung",
+        "behandlungsraum",
+        "praxis"
+      ],
+      "value_source": "norm_table",
+      "norm_cell": "DIN EN 12831-1/NA",
+      "note": "theta_heizlast_standard_c nach DIN EN 12831-1/NA. heating_status, ventilation_function und counts_as_living_area sind DWE-Vorbelegungen aus der praxisvalidierten Revit-Pipeline."
+    },
+    {
+      "code": "SCHWIMMBAD",
+      "name_de": "Schwimmbad",
+      "applicability": [
+        "WG",
+        "NWG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": null,
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": 28,
+        "counts_as_living_area": false,
+        "ventilation_function": "exhaust"
+      },
+      "suggestion_keywords": [
+        "schwimmbad",
+        "pool",
+        "schwimmhalle"
+      ],
+      "value_source": "norm_table",
+      "norm_cell": "DIN EN 12831-1/NA",
+      "note": "theta_heizlast_standard_c nach DIN EN 12831-1/NA. heating_status, ventilation_function und counts_as_living_area sind DWE-Vorbelegungen aus der praxisvalidierten Revit-Pipeline."
+    },
+    {
+      "code": "AUSSENBEREICH",
+      "name_de": "Aussenbereich",
+      "applicability": [
+        "WG",
+        "NWG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": null,
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "unheated",
+        "theta_heizlast_standard_c": null,
+        "counts_as_living_area": false,
+        "outside_thermal_envelope": true
+      },
+      "suggestion_keywords": [
+        "terrasse",
+        "balkon",
+        "loggia",
+        "aussenbereich"
+      ],
+      "value_source": "dwe_definition",
+      "norm_cell": null,
+      "note": "theta_heizlast_standard_c nach DIN EN 12831-1/NA. heating_status, ventilation_function und counts_as_living_area sind DWE-Vorbelegungen aus der praxisvalidierten Revit-Pipeline."
+    },
+    {
+      "code": "WINTERGARTEN",
+      "name_de": "Wintergarten",
+      "applicability": [
+        "WG",
+        "NWG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": null,
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "unheated",
+        "theta_heizlast_standard_c": null,
+        "counts_as_living_area": false,
+        "outside_thermal_envelope": true
+      },
+      "suggestion_keywords": [
+        "wintergarten",
+        "glasvorbau"
+      ],
+      "value_source": "dwe_definition",
+      "norm_cell": null,
+      "note": "theta_heizlast_standard_c nach DIN EN 12831-1/NA. heating_status, ventilation_function und counts_as_living_area sind DWE-Vorbelegungen aus der praxisvalidierten Revit-Pipeline."
+    },
+    {
       "code": "NWG_01",
       "name_de": "Einzelbüro",
       "name_en": "Single office",
       "applicability": [
         "NWG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": "NWG_01",
         "din_277_category": null,
@@ -505,6 +689,7 @@
       "applicability": [
         "NWG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": "NWG_02",
         "din_277_category": null,
@@ -528,6 +713,7 @@
       "applicability": [
         "NWG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": "NWG_03",
         "din_277_category": null,
@@ -551,6 +737,7 @@
       "applicability": [
         "NWG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": "NWG_04",
         "din_277_category": null,
@@ -574,6 +761,7 @@
       "applicability": [
         "NWG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": "NWG_05",
         "din_277_category": null,
@@ -597,6 +785,7 @@
       "applicability": [
         "NWG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": "NWG_06",
         "din_277_category": null,
@@ -620,6 +809,7 @@
       "applicability": [
         "NWG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": "NWG_07",
         "din_277_category": null,
@@ -643,6 +833,7 @@
       "applicability": [
         "NWG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": "NWG_08",
         "din_277_category": null,
@@ -666,6 +857,7 @@
       "applicability": [
         "NWG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": "NWG_09",
         "din_277_category": null,
@@ -689,6 +881,7 @@
       "applicability": [
         "NWG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": "NWG_10",
         "din_277_category": null,
@@ -712,6 +905,7 @@
       "applicability": [
         "NWG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": "NWG_11",
         "din_277_category": null,
@@ -735,6 +929,7 @@
       "applicability": [
         "NWG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": "NWG_12",
         "din_277_category": null,
@@ -758,6 +953,7 @@
       "applicability": [
         "NWG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": "NWG_13",
         "din_277_category": null,
@@ -781,6 +977,7 @@
       "applicability": [
         "NWG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": "NWG_14",
         "din_277_category": null,
@@ -804,6 +1001,7 @@
       "applicability": [
         "NWG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": "NWG_15",
         "din_277_category": null,
@@ -827,6 +1025,7 @@
       "applicability": [
         "NWG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": "NWG_16",
         "din_277_category": null,
@@ -850,6 +1049,7 @@
       "applicability": [
         "NWG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": "NWG_17",
         "din_277_category": null,
@@ -873,6 +1073,7 @@
       "applicability": [
         "NWG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": "NWG_18",
         "din_277_category": null,
@@ -896,6 +1097,7 @@
       "applicability": [
         "NWG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": "NWG_19",
         "din_277_category": null,
@@ -919,6 +1121,7 @@
       "applicability": [
         "NWG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": "NWG_20",
         "din_277_category": null,
@@ -942,6 +1145,7 @@
       "applicability": [
         "NWG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": "NWG_21",
         "din_277_category": null,
@@ -965,6 +1169,7 @@
       "applicability": [
         "NWG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": "NWG_22",
         "din_277_category": null,
@@ -988,6 +1193,7 @@
       "applicability": [
         "NWG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": "NWG_23",
         "din_277_category": null,
@@ -1011,6 +1217,7 @@
       "applicability": [
         "NWG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": "NWG_24",
         "din_277_category": null,
@@ -1034,6 +1241,7 @@
       "applicability": [
         "NWG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": "NWG_25",
         "din_277_category": null,
@@ -1057,6 +1265,7 @@
       "applicability": [
         "NWG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": "NWG_26",
         "din_277_category": null,
@@ -1080,6 +1289,7 @@
       "applicability": [
         "NWG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": "NWG_27",
         "din_277_category": null,
@@ -1103,6 +1313,7 @@
       "applicability": [
         "NWG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": "NWG_28",
         "din_277_category": null,
@@ -1126,6 +1337,7 @@
       "applicability": [
         "NWG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": "NWG_29",
         "din_277_category": null,
@@ -1149,6 +1361,7 @@
       "applicability": [
         "NWG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": "NWG_30",
         "din_277_category": null,
@@ -1172,6 +1385,7 @@
       "applicability": [
         "NWG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": "NWG_31",
         "din_277_category": null,
@@ -1195,6 +1409,7 @@
       "applicability": [
         "NWG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": "NWG_32",
         "din_277_category": null,
@@ -1218,6 +1433,7 @@
       "applicability": [
         "NWG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": "NWG_33",
         "din_277_category": null,
@@ -1241,6 +1457,7 @@
       "applicability": [
         "NWG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": "NWG_34",
         "din_277_category": null,
@@ -1264,6 +1481,7 @@
       "applicability": [
         "NWG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": "NWG_35",
         "din_277_category": null,
@@ -1287,6 +1505,7 @@
       "applicability": [
         "NWG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": "NWG_36",
         "din_277_category": null,
@@ -1310,6 +1529,7 @@
       "applicability": [
         "NWG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": "NWG_37",
         "din_277_category": null,
@@ -1333,6 +1553,7 @@
       "applicability": [
         "NWG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": "NWG_38",
         "din_277_category": null,
@@ -1356,6 +1577,7 @@
       "applicability": [
         "NWG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": "NWG_39",
         "din_277_category": null,
@@ -1379,6 +1601,7 @@
       "applicability": [
         "NWG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": "NWG_40",
         "din_277_category": null,
@@ -1402,6 +1625,7 @@
       "applicability": [
         "NWG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": "NWG_41",
         "din_277_category": null,
@@ -1425,6 +1649,7 @@
       "applicability": [
         "NWG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": "NWG_42",
         "din_277_category": null,
@@ -1448,6 +1673,7 @@
       "applicability": [
         "NWG"
       ],
+      "aliases": [],
       "mapping": {
         "din_18599_profile": "NWG_43",
         "din_277_category": null,
@@ -1470,6 +1696,9 @@
     "din_277_category fuer alle Eintraege offen — Sebi liefert nach Normpruefung nach.",
     "theta_heizlast_standard_c fuer die 43 NWG-Typen offen (DIN EN 12831-1/NA). Fuer die WG-Typen belegt.",
     "geg_category nur fuer NWG relevant, haengt an der GEG-Anlage-2-Zonierung.",
-    "Vorgeschlagene Ergaenzungen aus dem ersten Seed, in der freigegebenen Tabelle nicht enthalten: ESSEN (Esszimmer) und DACHBODEN (unbeheizter Dachraum). DACHBODEN fehlt als Gegenstueck zu adjacency_type=attic_uninsulated — Entscheidung offen."
+    "aliases[] ist ueberall leer — Hook fuer den 142er-Namens-Synonymschluessel, der nach Review nachgereicht wird. Befuellbar ohne Schema-Aenderung.",
+    "ESSEN wurde entfernt: der Schluessel mappt 'Essen'/'Essbereich' auf WOHNRAUM. DACHBODEN ist zurueckgeholt (Gegenstueck zu adjacency_type=attic_uninsulated).",
+    "Die fuenf Ergaenzungen vom 21.07. stehen auf applicability [WG, NWG], obwohl sie aus dem NWG-Teil des Schluessels stammen — Wintergarten und Aussenbereich sind im Wohnbau der Regelfall. Bei Widerspruch korrigieren.",
+    "Namenskollision: SCHWIMMBAD steht neben dem abgeleiteten NWG_22 (Nutzungsprofil 22, Schwimmbad). Ob beide bleiben oder der Schluessel-Typ auf NWG_22 mappt, ist offen."
   ]
 }

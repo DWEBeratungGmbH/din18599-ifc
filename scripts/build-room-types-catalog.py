@@ -35,26 +35,41 @@ REPO = Path(__file__).resolve().parent.parent
 #
 # counts_as_living_area ist dagegen DWE-eigene Vorbelegung nach WoFlV-Logik und
 # bildet die Feinheiten (Treppen ab 4 Steigungen, Zubehoerraeume) NICHT ab.
+# Spalten: code, name_de, theta, lueftung, heating, wohnflaeche, ausserhalb_huelle,
+#          applicability, keywords
 WG_TYPEN = [
-    # code,          name_de,          theta, lueftung,   heating,      wohnflaeche, keywords
-    ("WOHNRAUM",     "Wohnraum",       20,    "supply",   "heated",     True,  ["wohn", "wohnzimmer", "living"]),
-    ("SCHLAFZIMMER", "Schlafzimmer",   20,    "supply",   "heated",     True,  ["schlaf", "bedroom"]),
-    ("KINDERZIMMER", "Kinderzimmer",   20,    "supply",   "heated",     True,  ["kinder", "kinderzimmer"]),
-    ("GAESTEZIMMER", "Gaestezimmer",   20,    "supply",   "heated",     True,  ["gaeste", "gäste", "guest"]),
-    ("ARBEITSZIMMER", "Arbeitszimmer", 20,    "supply",   "heated",     True,  ["arbeit", "arbeitszimmer", "study"]),
-    ("HOBBYRAUM",    "Hobbyraum",      20,    "supply",   "heated",     True,  ["hobby", "hobbyraum"]),
-    ("BUERO",        "Buero",          20,    "supply",   "heated",     True,  ["buero", "büro", "office"]),
-    ("KUECHE",       "Kueche",         20,    "exhaust",  "heated",     True,  ["kueche", "küche", "kitchen"]),
-    ("BAD",          "Bad",            24,    "exhaust",  "heated",     True,  ["bad", "bath", "duschbad"]),
-    ("WC",           "WC",             20,    "exhaust",  "heated",     True,  ["wc", "gaeste-wc", "toilette"]),
-    ("HWR",          "Hauswirtschaftsraum", 20, "exhaust", "heated",    True,  ["hwr", "hauswirtschaft", "waschkueche"]),
-    ("SAUNA",        "Sauna",          24,    "exhaust",  "heated",     True,  ["sauna"]),
-    ("FLUR",         "Flur / Diele",   20,    "transfer", "heated",     True,  ["flur", "diele", "gang", "corridor"]),
-    ("ABSTELLRAUM",  "Abstellraum",    20,    "transfer", "heated",     True,  ["abstell", "storage", "speis"]),
-    ("TREPPENHAUS",  "Treppenhaus",    15,    None,       "low_heated", False, ["treppe", "treppenhaus", "stair"]),
-    ("TECHNIKRAUM",  "Technikraum",    15,    None,       "low_heated", False, ["technik", "heizung", "hausanschluss"]),
-    ("KELLER",       "Keller",         None,  None,       "unheated",   False, ["keller", "basement"]),
-    ("GARAGE",       "Garage / Carport", None, None,      "unheated",   False, ["garage", "carport", "stellplatz"]),
+    ("WOHNRAUM",     "Wohnraum",       20,   "supply",   "heated",     True,  False, ["WG"], ["wohn", "wohnzimmer", "living"]),
+    ("SCHLAFZIMMER", "Schlafzimmer",   20,   "supply",   "heated",     True,  False, ["WG"], ["schlaf", "bedroom"]),
+    ("KINDERZIMMER", "Kinderzimmer",   20,   "supply",   "heated",     True,  False, ["WG"], ["kinder", "kinderzimmer"]),
+    ("GAESTEZIMMER", "Gaestezimmer",   20,   "supply",   "heated",     True,  False, ["WG"], ["gaeste", "gäste", "guest"]),
+    ("ARBEITSZIMMER", "Arbeitszimmer", 20,   "supply",   "heated",     True,  False, ["WG"], ["arbeit", "arbeitszimmer", "study"]),
+    ("HOBBYRAUM",    "Hobbyraum",      20,   "supply",   "heated",     True,  False, ["WG"], ["hobby", "hobbyraum"]),
+    ("BUERO",        "Buero",          20,   "supply",   "heated",     True,  False, ["WG"], ["buero", "büro", "office"]),
+    ("KUECHE",       "Kueche",         20,   "exhaust",  "heated",     True,  False, ["WG"], ["kueche", "küche", "kitchen"]),
+    ("BAD",          "Bad",            24,   "exhaust",  "heated",     True,  False, ["WG"], ["bad", "bath", "duschbad"]),
+    ("WC",           "WC",             20,   "exhaust",  "heated",     True,  False, ["WG"], ["wc", "gaeste-wc", "toilette"]),
+    ("HWR",          "Hauswirtschaftsraum", 20, "exhaust", "heated",   True,  False, ["WG"], ["hwr", "hauswirtschaft", "waschkueche"]),
+    ("SAUNA",        "Sauna",          24,   "exhaust",  "heated",     True,  False, ["WG"], ["sauna"]),
+    ("FLUR",         "Flur / Diele",   20,   "transfer", "heated",     True,  False, ["WG"], ["flur", "diele", "gang", "corridor"]),
+    ("ABSTELLRAUM",  "Abstellraum",    20,   "transfer", "heated",     True,  False, ["WG"], ["abstell", "storage", "speis"]),
+    ("TREPPENHAUS",  "Treppenhaus",    15,   None,       "low_heated", False, False, ["WG"], ["treppe", "treppenhaus", "stair"]),
+    ("TECHNIKRAUM",  "Technikraum",    15,   None,       "low_heated", False, False, ["WG"], ["technik", "heizung", "hausanschluss"]),
+    ("KELLER",       "Keller",         None, None,       "unheated",   False, False, ["WG"], ["keller", "basement"]),
+    ("GARAGE",       "Garage / Carport", None, None,     "unheated",   False, False, ["WG"], ["garage", "carport", "stellplatz"]),
+
+    # Zurueckgeholt (Feedback 21.07.): Gegenstueck zu adjacency_type=
+    # attic_uninsulated. Ohne ihn laesst sich ein unbeheizter Dachraum nicht
+    # typisieren. Wird im 142er-Schluessel als Zeile 143 ergaenzt.
+    ("DACHBODEN",    "Dachboden / Spitzboden", None, None, "unheated",  False, False, ["WG"], ["dachboden", "spitzboden", "attic"]),
+
+    # Fuenf Ergaenzungen aus dem NWG-Teil des Raumtypen-Schluessels (21.07.).
+    # applicability auf beide gesetzt: Wintergarten und Aussenbereich sind im
+    # Wohnbau der Regelfall — bei Widerspruch korrigieren.
+    ("AUFENTHALTSRAUM", "Aufenthaltsraum", 20, "supply",  "heated",     False, False, ["WG", "NWG"], ["aufenthalt", "aufenthaltsraum"]),
+    ("BEHANDLUNGSRAUM", "Behandlungsraum", 24, "supply",  "heated",     False, False, ["WG", "NWG"], ["behandlung", "behandlungsraum", "praxis"]),
+    ("SCHWIMMBAD",   "Schwimmbad",     28,   "exhaust",  "heated",     False, False, ["WG", "NWG"], ["schwimmbad", "pool", "schwimmhalle"]),
+    ("AUSSENBEREICH", "Aussenbereich", None, None,       "unheated",   False, True,  ["WG", "NWG"], ["terrasse", "balkon", "loggia", "aussenbereich"]),
+    ("WINTERGARTEN", "Wintergarten",   None, None,       "unheated",   False, True,  ["WG", "NWG"], ["wintergarten", "glasvorbau"]),
 ]
 
 
@@ -65,7 +80,8 @@ def main() -> int:
 
     entries = []
 
-    for code, name, theta, lueftung, heating, wohnflaeche, keywords in WG_TYPEN:
+    for (code, name, theta, lueftung, heating, wohnflaeche,
+         ausserhalb, applicability, keywords) in WG_TYPEN:
         defaults = {
             "heating_status": heating,
             "theta_heizlast_standard_c": theta,
@@ -73,10 +89,18 @@ def main() -> int:
         }
         if lueftung is not None:
             defaults["ventilation_function"] = lueftung
+        if ausserhalb:
+            # Liegt ausserhalb der thermischen Huelle: wird nicht bilanziert und
+            # gehoert in KEINE thermische Zone. Unterscheidet sich von "unbeheizt":
+            # ein unbeheizter Keller liegt im Gebaeudevolumen, eine Terrasse nicht.
+            defaults["outside_thermal_envelope"] = True
         entries.append({
             "code": code,
             "name_de": name,
-            "applicability": ["WG"],
+            "applicability": applicability,
+            # Hook fuer den 142er-Namens-Synonymschluessel. Bleibt leer, bis der
+            # Schluessel nachgereicht wird — dann ohne Schema-Aenderung befuellbar.
+            "aliases": [],
             "mapping": {
                 # Wohngebaeude werden auf Zonenebene ueber R1/R2 bilanziert.
                 # Die Zuordnung geschieht an der Zone, nicht am Raumtyp.
@@ -103,6 +127,7 @@ def main() -> int:
             "name_de": name,
             "name_en": profil.get("name_en", ""),
             "applicability": ["NWG"],
+            "aliases": [],
             "mapping": {
                 "din_18599_profile": f"NWG_{nummer}",
                 "din_277_category": None,
@@ -121,7 +146,7 @@ def main() -> int:
     katalog = {
         "$schema_ref": "https://din18599-ifc.de/schema/v4.0/catalog-envelope",
         "catalog_id": "room_types",
-        "catalog_version": "0.2.0",
+        "catalog_version": "0.3.0",
         "catalog_source": "core",
         "dimension": {"type": "none"},
         "title": "Raumtypen (flach, mit applicability)",
@@ -151,10 +176,18 @@ def main() -> int:
             "theta_heizlast_standard_c fuer die 43 NWG-Typen offen (DIN EN 12831-1/NA). "
             "Fuer die WG-Typen belegt.",
             "geg_category nur fuer NWG relevant, haengt an der GEG-Anlage-2-Zonierung.",
-            "Vorgeschlagene Ergaenzungen aus dem ersten Seed, in der freigegebenen "
-            "Tabelle nicht enthalten: ESSEN (Esszimmer) und DACHBODEN (unbeheizter "
-            "Dachraum). DACHBODEN fehlt als Gegenstueck zu adjacency_type="
-            "attic_uninsulated — Entscheidung offen.",
+            "aliases[] ist ueberall leer — Hook fuer den 142er-Namens-Synonym"
+            "schluessel, der nach Review nachgereicht wird. Befuellbar ohne "
+            "Schema-Aenderung.",
+            "ESSEN wurde entfernt: der Schluessel mappt 'Essen'/'Essbereich' auf "
+            "WOHNRAUM. DACHBODEN ist zurueckgeholt (Gegenstueck zu adjacency_type="
+            "attic_uninsulated).",
+            "Die fuenf Ergaenzungen vom 21.07. stehen auf applicability [WG, NWG], "
+            "obwohl sie aus dem NWG-Teil des Schluessels stammen — Wintergarten und "
+            "Aussenbereich sind im Wohnbau der Regelfall. Bei Widerspruch korrigieren.",
+            "Namenskollision: SCHWIMMBAD steht neben dem abgeleiteten NWG_22 "
+            "(Nutzungsprofil 22, Schwimmbad). Ob beide bleiben oder der "
+            "Schluessel-Typ auf NWG_22 mappt, ist offen.",
         ],
     }
 
