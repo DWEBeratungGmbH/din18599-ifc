@@ -1,0 +1,1073 @@
+{
+  "schema_info": {
+    "url": "https://din18599-ifc.de/schema/v4.0/sidecar",
+    "version": "4.0.0"
+  },
+  "meta": {
+    "project_name": "Beispiel1",
+    "building_uid": "bsp1-0000-0000-0000-000000000001",
+    "created_at": "2026-07-21T10:00:00Z",
+    "ifc_file_ref": "model.ifc",
+    "norm_editions": {
+      "din_18599": "2018-09",
+      "din_277": "2021-08",
+      "geg": "2024"
+    },
+    "catalogs": [
+      {
+        "catalog_id": "adjacency_types",
+        "catalog_version": "1.0.0",
+        "catalog_source": "core",
+        "dimension": {
+          "type": "norm_edition",
+          "value": "2018-09"
+        }
+      },
+      {
+        "catalog_id": "room_types",
+        "catalog_version": "0.2.0",
+        "catalog_source": "core",
+        "dimension": {
+          "type": "none"
+        }
+      },
+      {
+        "catalog_id": "usage_profiles",
+        "catalog_version": "1.0.0",
+        "catalog_source": "core",
+        "dimension": {
+          "type": "norm_edition",
+          "value": "2018-09"
+        }
+      }
+    ],
+    "true_north_offset_deg": 35.0,
+    "azimuth_reference": "geographic",
+    "validation": {
+      "level": "enriched",
+      "validated_at": "2026-07-21T10:00:00Z",
+      "ruleset_version": "0.1.0"
+    },
+    "source": {
+      "origin": "REVIT_DYNAMO",
+      "tool": "DWE Dynamo Export",
+      "tool_version": "0.1.0-stufe1"
+    }
+  },
+  "input": {
+    "building": {
+      "type": "residential",
+      "subtype": "Doppelhaus, zwei Maisonette-Wohnungen",
+      "ngf_m2": 258.96,
+      "storeys_above_ground": 2,
+      "storeys_below_ground": 0
+    },
+    "storeys": [
+      {
+        "id": "S-EG",
+        "name": "Erdgeschoss",
+        "elevation_m": 0.0,
+        "height_m": 2.5,
+        "below_ground": false
+      },
+      {
+        "id": "S-OG",
+        "name": "Obergeschoss",
+        "elevation_m": 2.75,
+        "height_m": 2.5,
+        "below_ground": false
+      }
+    ],
+    "rooms": [
+      {
+        "id": "R-WE1-01",
+        "dwe_uid": "BSP1-WE1-01",
+        "name": "Flur EG (WE1)",
+        "number": "1.01",
+        "storey_ref": "S-EG",
+        "room_type_ref": "FLUR",
+        "zone_memberships": [
+          {
+            "zone_type": "thermal",
+            "zone_id": "Z-THERM-01"
+          },
+          {
+            "zone_type": "dwelling_unit",
+            "zone_id": "Z-WE1"
+          }
+        ],
+        "heating_status": "heated",
+        "area_ngf_m2": 8.2,
+        "height_m": 2.5,
+        "volume_ve_m3": 20.5
+      },
+      {
+        "id": "R-WE1-02",
+        "dwe_uid": "BSP1-WE1-02",
+        "name": "Wohnen/Essen (WE1)",
+        "number": "1.02",
+        "storey_ref": "S-EG",
+        "room_type_ref": "WOHNRAUM",
+        "zone_memberships": [
+          {
+            "zone_type": "thermal",
+            "zone_id": "Z-THERM-01"
+          },
+          {
+            "zone_type": "dwelling_unit",
+            "zone_id": "Z-WE1"
+          }
+        ],
+        "heating_status": "heated",
+        "area_ngf_m2": 28.5,
+        "height_m": 2.5,
+        "volume_ve_m3": 71.25
+      },
+      {
+        "id": "R-WE1-03",
+        "dwe_uid": "BSP1-WE1-03",
+        "name": "Kueche (WE1)",
+        "number": "1.03",
+        "storey_ref": "S-EG",
+        "room_type_ref": "KUECHE",
+        "zone_memberships": [
+          {
+            "zone_type": "thermal",
+            "zone_id": "Z-THERM-01"
+          },
+          {
+            "zone_type": "dwelling_unit",
+            "zone_id": "Z-WE1"
+          }
+        ],
+        "heating_status": "heated",
+        "area_ngf_m2": 11.3,
+        "height_m": 2.5,
+        "volume_ve_m3": 28.25
+      },
+      {
+        "id": "R-WE1-04",
+        "dwe_uid": "BSP1-WE1-04",
+        "name": "Gaeste-WC (WE1)",
+        "number": "1.04",
+        "storey_ref": "S-EG",
+        "room_type_ref": "WC",
+        "zone_memberships": [
+          {
+            "zone_type": "thermal",
+            "zone_id": "Z-THERM-01"
+          },
+          {
+            "zone_type": "dwelling_unit",
+            "zone_id": "Z-WE1"
+          }
+        ],
+        "heating_status": "heated",
+        "area_ngf_m2": 3.6,
+        "height_m": 2.5,
+        "volume_ve_m3": 9.0
+      },
+      {
+        "id": "R-WE1-05",
+        "dwe_uid": "BSP1-WE1-05",
+        "name": "Hauswirtschaft (WE1)",
+        "number": "1.05",
+        "storey_ref": "S-EG",
+        "room_type_ref": "HWR",
+        "zone_memberships": [
+          {
+            "zone_type": "thermal",
+            "zone_id": "Z-THERM-01"
+          },
+          {
+            "zone_type": "dwelling_unit",
+            "zone_id": "Z-WE1"
+          }
+        ],
+        "heating_status": "heated",
+        "area_ngf_m2": 5.4,
+        "height_m": 2.5,
+        "volume_ve_m3": 13.5
+      },
+      {
+        "id": "R-WE1-06",
+        "dwe_uid": "BSP1-WE1-06",
+        "name": "Flur OG (WE1)",
+        "number": "1.06",
+        "storey_ref": "S-OG",
+        "room_type_ref": "FLUR",
+        "zone_memberships": [
+          {
+            "zone_type": "thermal",
+            "zone_id": "Z-THERM-01"
+          },
+          {
+            "zone_type": "dwelling_unit",
+            "zone_id": "Z-WE1"
+          }
+        ],
+        "heating_status": "heated",
+        "area_ngf_m2": 6.48,
+        "height_m": 2.5,
+        "volume_ve_m3": 16.2
+      },
+      {
+        "id": "R-WE1-07",
+        "dwe_uid": "BSP1-WE1-07",
+        "name": "Schlafen (WE1)",
+        "number": "1.07",
+        "storey_ref": "S-OG",
+        "room_type_ref": "SCHLAFZIMMER",
+        "zone_memberships": [
+          {
+            "zone_type": "thermal",
+            "zone_id": "Z-THERM-01"
+          },
+          {
+            "zone_type": "dwelling_unit",
+            "zone_id": "Z-WE1"
+          }
+        ],
+        "heating_status": "heated",
+        "area_ngf_m2": 16.2,
+        "height_m": 2.5,
+        "volume_ve_m3": 40.5
+      },
+      {
+        "id": "R-WE1-08",
+        "dwe_uid": "BSP1-WE1-08",
+        "name": "Kind 1 (WE1)",
+        "number": "1.08",
+        "storey_ref": "S-OG",
+        "room_type_ref": "KINDERZIMMER",
+        "zone_memberships": [
+          {
+            "zone_type": "thermal",
+            "zone_id": "Z-THERM-01"
+          },
+          {
+            "zone_type": "dwelling_unit",
+            "zone_id": "Z-WE1"
+          }
+        ],
+        "heating_status": "heated",
+        "area_ngf_m2": 13.5,
+        "height_m": 2.5,
+        "volume_ve_m3": 33.75
+      },
+      {
+        "id": "R-WE1-09",
+        "dwe_uid": "BSP1-WE1-09",
+        "name": "Gast (WE1)",
+        "number": "1.09",
+        "storey_ref": "S-OG",
+        "room_type_ref": "GAESTEZIMMER",
+        "zone_memberships": [
+          {
+            "zone_type": "thermal",
+            "zone_id": "Z-THERM-01"
+          },
+          {
+            "zone_type": "dwelling_unit",
+            "zone_id": "Z-WE1"
+          }
+        ],
+        "heating_status": "heated",
+        "area_ngf_m2": 11.8,
+        "height_m": 2.5,
+        "volume_ve_m3": 29.5
+      },
+      {
+        "id": "R-WE1-10",
+        "dwe_uid": "BSP1-WE1-10",
+        "name": "Bad (WE1)",
+        "number": "1.10",
+        "storey_ref": "S-OG",
+        "room_type_ref": "BAD",
+        "zone_memberships": [
+          {
+            "zone_type": "thermal",
+            "zone_id": "Z-THERM-01"
+          },
+          {
+            "zone_type": "dwelling_unit",
+            "zone_id": "Z-WE1"
+          }
+        ],
+        "heating_status": "heated",
+        "area_ngf_m2": 9.5,
+        "height_m": 2.5,
+        "volume_ve_m3": 23.75
+      },
+      {
+        "id": "R-WE1-11",
+        "dwe_uid": "BSP1-WE1-11",
+        "name": "Abstellraum (WE1)",
+        "number": "1.11",
+        "storey_ref": "S-OG",
+        "room_type_ref": "ABSTELLRAUM",
+        "zone_memberships": [
+          {
+            "zone_type": "thermal",
+            "zone_id": "Z-THERM-01"
+          },
+          {
+            "zone_type": "dwelling_unit",
+            "zone_id": "Z-WE1"
+          }
+        ],
+        "heating_status": "heated",
+        "area_ngf_m2": 6.0,
+        "height_m": 2.5,
+        "volume_ve_m3": 15.0
+      },
+      {
+        "id": "R-WE2-01",
+        "dwe_uid": "BSP1-WE2-01",
+        "name": "Flur EG (WE2)",
+        "number": "2.01",
+        "storey_ref": "S-EG",
+        "room_type_ref": "FLUR",
+        "zone_memberships": [
+          {
+            "zone_type": "thermal",
+            "zone_id": "Z-THERM-01"
+          },
+          {
+            "zone_type": "dwelling_unit",
+            "zone_id": "Z-WE2"
+          }
+        ],
+        "heating_status": "heated",
+        "area_ngf_m2": 8.2,
+        "height_m": 2.5,
+        "volume_ve_m3": 20.5
+      },
+      {
+        "id": "R-WE2-02",
+        "dwe_uid": "BSP1-WE2-02",
+        "name": "Wohnen/Essen (WE2)",
+        "number": "2.02",
+        "storey_ref": "S-EG",
+        "room_type_ref": "WOHNRAUM",
+        "zone_memberships": [
+          {
+            "zone_type": "thermal",
+            "zone_id": "Z-THERM-01"
+          },
+          {
+            "zone_type": "dwelling_unit",
+            "zone_id": "Z-WE2"
+          }
+        ],
+        "heating_status": "heated",
+        "area_ngf_m2": 28.5,
+        "height_m": 2.5,
+        "volume_ve_m3": 71.25
+      },
+      {
+        "id": "R-WE2-03",
+        "dwe_uid": "BSP1-WE2-03",
+        "name": "Kueche (WE2)",
+        "number": "2.03",
+        "storey_ref": "S-EG",
+        "room_type_ref": "KUECHE",
+        "zone_memberships": [
+          {
+            "zone_type": "thermal",
+            "zone_id": "Z-THERM-01"
+          },
+          {
+            "zone_type": "dwelling_unit",
+            "zone_id": "Z-WE2"
+          }
+        ],
+        "heating_status": "heated",
+        "area_ngf_m2": 11.3,
+        "height_m": 2.5,
+        "volume_ve_m3": 28.25
+      },
+      {
+        "id": "R-WE2-04",
+        "dwe_uid": "BSP1-WE2-04",
+        "name": "Gaeste-WC (WE2)",
+        "number": "2.04",
+        "storey_ref": "S-EG",
+        "room_type_ref": "WC",
+        "zone_memberships": [
+          {
+            "zone_type": "thermal",
+            "zone_id": "Z-THERM-01"
+          },
+          {
+            "zone_type": "dwelling_unit",
+            "zone_id": "Z-WE2"
+          }
+        ],
+        "heating_status": "heated",
+        "area_ngf_m2": 3.6,
+        "height_m": 2.5,
+        "volume_ve_m3": 9.0
+      },
+      {
+        "id": "R-WE2-05",
+        "dwe_uid": "BSP1-WE2-05",
+        "name": "Hauswirtschaft (WE2)",
+        "number": "2.05",
+        "storey_ref": "S-EG",
+        "room_type_ref": "HWR",
+        "zone_memberships": [
+          {
+            "zone_type": "thermal",
+            "zone_id": "Z-THERM-01"
+          },
+          {
+            "zone_type": "dwelling_unit",
+            "zone_id": "Z-WE2"
+          }
+        ],
+        "heating_status": "heated",
+        "area_ngf_m2": 5.4,
+        "height_m": 2.5,
+        "volume_ve_m3": 13.5
+      },
+      {
+        "id": "R-WE2-06",
+        "dwe_uid": "BSP1-WE2-06",
+        "name": "Flur OG (WE2)",
+        "number": "2.06",
+        "storey_ref": "S-OG",
+        "room_type_ref": "FLUR",
+        "zone_memberships": [
+          {
+            "zone_type": "thermal",
+            "zone_id": "Z-THERM-01"
+          },
+          {
+            "zone_type": "dwelling_unit",
+            "zone_id": "Z-WE2"
+          }
+        ],
+        "heating_status": "heated",
+        "area_ngf_m2": 6.48,
+        "height_m": 2.5,
+        "volume_ve_m3": 16.2
+      },
+      {
+        "id": "R-WE2-07",
+        "dwe_uid": "BSP1-WE2-07",
+        "name": "Schlafen (WE2)",
+        "number": "2.07",
+        "storey_ref": "S-OG",
+        "room_type_ref": "SCHLAFZIMMER",
+        "zone_memberships": [
+          {
+            "zone_type": "thermal",
+            "zone_id": "Z-THERM-01"
+          },
+          {
+            "zone_type": "dwelling_unit",
+            "zone_id": "Z-WE2"
+          }
+        ],
+        "heating_status": "heated",
+        "area_ngf_m2": 16.2,
+        "height_m": 2.5,
+        "volume_ve_m3": 40.5
+      },
+      {
+        "id": "R-WE2-08",
+        "dwe_uid": "BSP1-WE2-08",
+        "name": "Kind 1 (WE2)",
+        "number": "2.08",
+        "storey_ref": "S-OG",
+        "room_type_ref": "KINDERZIMMER",
+        "zone_memberships": [
+          {
+            "zone_type": "thermal",
+            "zone_id": "Z-THERM-01"
+          },
+          {
+            "zone_type": "dwelling_unit",
+            "zone_id": "Z-WE2"
+          }
+        ],
+        "heating_status": "heated",
+        "area_ngf_m2": 13.5,
+        "height_m": 2.5,
+        "volume_ve_m3": 33.75
+      },
+      {
+        "id": "R-WE2-09",
+        "dwe_uid": "BSP1-WE2-09",
+        "name": "Gast (WE2)",
+        "number": "2.09",
+        "storey_ref": "S-OG",
+        "room_type_ref": "GAESTEZIMMER",
+        "zone_memberships": [
+          {
+            "zone_type": "thermal",
+            "zone_id": "Z-THERM-01"
+          },
+          {
+            "zone_type": "dwelling_unit",
+            "zone_id": "Z-WE2"
+          }
+        ],
+        "heating_status": "heated",
+        "area_ngf_m2": 11.8,
+        "height_m": 2.5,
+        "volume_ve_m3": 29.5
+      },
+      {
+        "id": "R-WE2-10",
+        "dwe_uid": "BSP1-WE2-10",
+        "name": "Bad (WE2)",
+        "number": "2.10",
+        "storey_ref": "S-OG",
+        "room_type_ref": "BAD",
+        "zone_memberships": [
+          {
+            "zone_type": "thermal",
+            "zone_id": "Z-THERM-01"
+          },
+          {
+            "zone_type": "dwelling_unit",
+            "zone_id": "Z-WE2"
+          }
+        ],
+        "heating_status": "heated",
+        "area_ngf_m2": 9.5,
+        "height_m": 2.5,
+        "volume_ve_m3": 23.75
+      },
+      {
+        "id": "R-WE2-11",
+        "dwe_uid": "BSP1-WE2-11",
+        "name": "Abstellraum (WE2)",
+        "number": "2.11",
+        "storey_ref": "S-OG",
+        "room_type_ref": "ABSTELLRAUM",
+        "zone_memberships": [
+          {
+            "zone_type": "thermal",
+            "zone_id": "Z-THERM-01"
+          },
+          {
+            "zone_type": "dwelling_unit",
+            "zone_id": "Z-WE2"
+          }
+        ],
+        "heating_status": "heated",
+        "area_ngf_m2": 6.0,
+        "height_m": 2.5,
+        "volume_ve_m3": 15.0
+      },
+      {
+        "id": "R-GAR-01",
+        "dwe_uid": "BSP1-GAR-01",
+        "name": "Garage",
+        "number": "0.01",
+        "storey_ref": "S-EG",
+        "room_type_ref": "GARAGE",
+        "zone_memberships": [],
+        "heating_status": "unheated",
+        "area_ngf_m2": 18.0,
+        "height_m": 2.5
+      }
+    ],
+    "zones": [
+      {
+        "id": "Z-THERM-01",
+        "name": "Beheizte Zone Gesamtgebaeude",
+        "zone_type": "thermal",
+        "usage_profile_ref": "WG_R2",
+        "conditioned": true,
+        "area_m2": 240.96
+      },
+      {
+        "id": "Z-WE1",
+        "name": "Wohneinheit 1 (Maisonette)",
+        "zone_type": "dwelling_unit",
+        "area_m2": 120.48
+      },
+      {
+        "id": "Z-WE2",
+        "name": "Wohneinheit 2 (Maisonette)",
+        "zone_type": "dwelling_unit",
+        "area_m2": 120.48
+      }
+    ],
+    "element_groups": [
+      {
+        "id": "AW-NO-01",
+        "name": "AW-NO-01",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 0.17,
+          "normal_y": 0.98,
+          "normal_z": 0.0,
+          "dist_m": 0.0,
+          "coordinate_system": "project",
+          "tolerance": {
+            "normal_decimals": 2,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "construction_ref": "C-AW-01",
+        "member_elements": [
+          {
+            "source_id": "2521171",
+            "source_kind": "revit_element_id",
+            "type_name": "Aussenwand 36,5"
+          },
+          {
+            "source_id": "2527976",
+            "source_kind": "revit_element_id",
+            "type_name": "Aussenwand 36,5"
+          },
+          {
+            "source_id": "AW-NO-01-INST-3",
+            "source_kind": "revit_element_id",
+            "type_name": "Aussenwand 36,5"
+          },
+          {
+            "source_id": "AW-NO-01-INST-4",
+            "source_kind": "revit_element_id",
+            "type_name": "Aussenwand 36,5"
+          }
+        ],
+        "aggregates": {
+          "member_count": 4,
+          "boundary_count": 0
+        }
+      },
+      {
+        "id": "AW-NO-02",
+        "name": "AW-NO-02",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 0.17,
+          "normal_y": 0.98,
+          "normal_z": 0.0,
+          "dist_m": 4.2,
+          "coordinate_system": "project",
+          "tolerance": {
+            "normal_decimals": 2,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "construction_ref": "C-AW-01",
+        "member_elements": [
+          {
+            "source_id": "AW-NO-02-INST-1",
+            "source_kind": "revit_element_id",
+            "type_name": "Aussenwand 36,5"
+          },
+          {
+            "source_id": "AW-NO-02-INST-2",
+            "source_kind": "revit_element_id",
+            "type_name": "Aussenwand 36,5"
+          }
+        ],
+        "aggregates": {
+          "member_count": 2,
+          "boundary_count": 0
+        }
+      },
+      {
+        "id": "AW-NO-03",
+        "name": "AW-NO-03",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 0.17,
+          "normal_y": 0.98,
+          "normal_z": 0.0,
+          "dist_m": 8.6,
+          "coordinate_system": "project",
+          "tolerance": {
+            "normal_decimals": 2,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "construction_ref": "C-AW-01",
+        "member_elements": [
+          {
+            "source_id": "AW-NO-03-INST-1",
+            "source_kind": "revit_element_id",
+            "type_name": "Aussenwand 36,5"
+          },
+          {
+            "source_id": "AW-NO-03-INST-2",
+            "source_kind": "revit_element_id",
+            "type_name": "Aussenwand 36,5"
+          }
+        ],
+        "aggregates": {
+          "member_count": 2,
+          "boundary_count": 0
+        }
+      },
+      {
+        "id": "AW-SO-01",
+        "name": "AW-SO-01",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 0.98,
+          "normal_y": -0.17,
+          "normal_z": 0.0,
+          "dist_m": 0.0,
+          "coordinate_system": "project",
+          "tolerance": {
+            "normal_decimals": 2,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "construction_ref": "C-AW-01",
+        "member_elements": [
+          {
+            "source_id": "AW-SO-01-INST-1",
+            "source_kind": "revit_element_id",
+            "type_name": "Aussenwand 36,5"
+          },
+          {
+            "source_id": "AW-SO-01-INST-2",
+            "source_kind": "revit_element_id",
+            "type_name": "Aussenwand 36,5"
+          }
+        ],
+        "aggregates": {
+          "member_count": 2,
+          "boundary_count": 0
+        }
+      },
+      {
+        "id": "AW-SO-02",
+        "name": "AW-SO-02",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 0.98,
+          "normal_y": -0.17,
+          "normal_z": 0.0,
+          "dist_m": 5.2,
+          "coordinate_system": "project",
+          "tolerance": {
+            "normal_decimals": 2,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "construction_ref": "C-AW-01",
+        "member_elements": [
+          {
+            "source_id": "AW-SO-02-INST-1",
+            "source_kind": "revit_element_id",
+            "type_name": "Aussenwand 36,5"
+          },
+          {
+            "source_id": "AW-SO-02-INST-2",
+            "source_kind": "revit_element_id",
+            "type_name": "Aussenwand 36,5"
+          }
+        ],
+        "aggregates": {
+          "member_count": 2,
+          "boundary_count": 0
+        }
+      },
+      {
+        "id": "AW-SO-03",
+        "name": "AW-SO-03",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 0.98,
+          "normal_y": -0.17,
+          "normal_z": 0.0,
+          "dist_m": 10.4,
+          "coordinate_system": "project",
+          "tolerance": {
+            "normal_decimals": 2,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "construction_ref": "C-AW-01",
+        "member_elements": [
+          {
+            "source_id": "AW-SO-03-INST-1",
+            "source_kind": "revit_element_id",
+            "type_name": "Aussenwand 36,5"
+          },
+          {
+            "source_id": "AW-SO-03-INST-2",
+            "source_kind": "revit_element_id",
+            "type_name": "Aussenwand 36,5"
+          }
+        ],
+        "aggregates": {
+          "member_count": 2,
+          "boundary_count": 0
+        }
+      },
+      {
+        "id": "AW-SO-04",
+        "name": "AW-SO-04",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 0.98,
+          "normal_y": -0.17,
+          "normal_z": 0.0,
+          "dist_m": 15.6,
+          "coordinate_system": "project",
+          "tolerance": {
+            "normal_decimals": 2,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "construction_ref": "C-AW-01",
+        "member_elements": [
+          {
+            "source_id": "AW-SO-04-INST-1",
+            "source_kind": "revit_element_id",
+            "type_name": "Aussenwand 36,5"
+          },
+          {
+            "source_id": "AW-SO-04-INST-2",
+            "source_kind": "revit_element_id",
+            "type_name": "Aussenwand 36,5"
+          }
+        ],
+        "aggregates": {
+          "member_count": 2,
+          "boundary_count": 0
+        }
+      },
+      {
+        "id": "AW-SO-05",
+        "name": "AW-SO-05",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 0.98,
+          "normal_y": -0.17,
+          "normal_z": 0.0,
+          "dist_m": 20.8,
+          "coordinate_system": "project",
+          "tolerance": {
+            "normal_decimals": 2,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "construction_ref": "C-AW-01",
+        "member_elements": [
+          {
+            "source_id": "AW-SO-05-INST-1",
+            "source_kind": "revit_element_id",
+            "type_name": "Aussenwand 36,5"
+          },
+          {
+            "source_id": "AW-SO-05-INST-2",
+            "source_kind": "revit_element_id",
+            "type_name": "Aussenwand 36,5"
+          }
+        ],
+        "aggregates": {
+          "member_count": 2,
+          "boundary_count": 0
+        }
+      },
+      {
+        "id": "IW-WE1-01",
+        "name": "IW-WE1-01",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 0.17,
+          "normal_y": 0.98,
+          "normal_z": 0.0,
+          "dist_m": 2.6,
+          "coordinate_system": "project",
+          "tolerance": {
+            "normal_decimals": 2,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "construction_ref": "C-IW-02",
+        "member_elements": [
+          {
+            "source_id": "IW-WE1-01-INST-1",
+            "source_kind": "revit_element_id",
+            "type_name": "Innenwand 17,5"
+          },
+          {
+            "source_id": "IW-WE1-01-INST-2",
+            "source_kind": "revit_element_id",
+            "type_name": "Innenwand 17,5"
+          }
+        ],
+        "aggregates": {
+          "member_count": 2,
+          "boundary_count": 0
+        }
+      },
+      {
+        "id": "IW-WE1-02",
+        "name": "IW-WE1-02",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 0.98,
+          "normal_y": -0.17,
+          "normal_z": 0.0,
+          "dist_m": 3.8,
+          "coordinate_system": "project",
+          "tolerance": {
+            "normal_decimals": 2,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "construction_ref": "C-IW-02",
+        "member_elements": [
+          {
+            "source_id": "IW-WE1-02-INST-1",
+            "source_kind": "revit_element_id",
+            "type_name": "Innenwand 17,5"
+          },
+          {
+            "source_id": "IW-WE1-02-INST-2",
+            "source_kind": "revit_element_id",
+            "type_name": "Innenwand 17,5"
+          }
+        ],
+        "aggregates": {
+          "member_count": 2,
+          "boundary_count": 0
+        }
+      },
+      {
+        "id": "IW-WE1-WE2-01",
+        "name": "IW-WE1-WE2-01",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 0.98,
+          "normal_y": -0.17,
+          "normal_z": 0.0,
+          "dist_m": 9.3,
+          "coordinate_system": "project",
+          "tolerance": {
+            "normal_decimals": 2,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "construction_ref": "C-IW-01",
+        "member_elements": [
+          {
+            "source_id": "IW-WE1-WE2-01-INST-1",
+            "source_kind": "revit_element_id",
+            "type_name": "Innenwand 17,5"
+          },
+          {
+            "source_id": "IW-WE1-WE2-01-INST-2",
+            "source_kind": "revit_element_id",
+            "type_name": "Innenwand 17,5"
+          }
+        ],
+        "aggregates": {
+          "member_count": 2,
+          "boundary_count": 0
+        }
+      },
+      {
+        "id": "IW-WE2-01",
+        "name": "IW-WE2-01",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 0.17,
+          "normal_y": 0.98,
+          "normal_z": 0.0,
+          "dist_m": 6.9,
+          "coordinate_system": "project",
+          "tolerance": {
+            "normal_decimals": 2,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "construction_ref": "C-IW-02",
+        "member_elements": [
+          {
+            "source_id": "IW-WE2-01-INST-1",
+            "source_kind": "revit_element_id",
+            "type_name": "Innenwand 17,5"
+          },
+          {
+            "source_id": "IW-WE2-01-INST-2",
+            "source_kind": "revit_element_id",
+            "type_name": "Innenwand 17,5"
+          }
+        ],
+        "aggregates": {
+          "member_count": 2,
+          "boundary_count": 0
+        }
+      },
+      {
+        "id": "IW-WE2-02",
+        "name": "IW-WE2-02",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 0.98,
+          "normal_y": -0.17,
+          "normal_z": 0.0,
+          "dist_m": 14.2,
+          "coordinate_system": "project",
+          "tolerance": {
+            "normal_decimals": 2,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "construction_ref": "C-IW-02",
+        "member_elements": [
+          {
+            "source_id": "IW-WE2-02-INST-1",
+            "source_kind": "revit_element_id",
+            "type_name": "Innenwand 17,5"
+          },
+          {
+            "source_id": "IW-WE2-02-INST-2",
+            "source_kind": "revit_element_id",
+            "type_name": "Innenwand 17,5"
+          }
+        ],
+        "aggregates": {
+          "member_count": 2,
+          "boundary_count": 0
+        }
+      }
+    ],
+    "boundaries": [],
+    "constructions": [
+      {
+        "id": "C-AW-01",
+        "name": "Aussenwand 36,5 Ziegel",
+        "source": "IFC",
+        "origin_ref": "Aussenwand 36,5"
+      },
+      {
+        "id": "C-IW-01",
+        "name": "Innenwand 24 tragend",
+        "source": "IFC",
+        "origin_ref": "Innenwand 24"
+      },
+      {
+        "id": "C-IW-02",
+        "name": "Innenwand 17,5 nicht tragend",
+        "source": "IFC",
+        "origin_ref": "Innenwand 17,5"
+      }
+    ],
+    "climate": {
+      "try_region": "TRY04",
+      "location_name": "Koeln"
+    }
+  },
+  "sla_context": {
+    "gebaeudeart": "WG",
+    "we": 2,
+    "bt": 13
+  }
+}

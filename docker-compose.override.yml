@@ -1,0 +1,7 @@
+# Lokaler Override (nicht committen).
+# Host-Port 8080 ist auf diesem Server bereits durch mailcow-nginx belegt,
+# deshalb wird der Viewer hier auf 8088 gemappt.
+services:
+  viewer:
+    ports:
+      - "8088:80"

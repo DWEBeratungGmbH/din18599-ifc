@@ -18,6 +18,16 @@ jobs:
       - name: Geschuetzte Katalog-Dateien pruefen
         run: bash scripts/check-catalog-values.sh --all
 
+      - name: Kataloge und Validator pruefen
+        run: |
+          python -m pip install --quiet jsonschema
+          python scripts/build-usage-profiles-catalog.py --edition 2018-09
+          python scripts/build-room-types-catalog.py
+          python scripts/build-example-beispiel1.py
+          git diff --exit-code catalog/core examples/v4.0 \
+            || (echo "Generierte Kataloge/Beispiele weichen vom Commit ab -- Generator laufen lassen und committen." && exit 1)
+          python tools/test_dwe_validate.py
+
       - name: Sidecar- und Manifest-Schema validieren
         run: |
           python -m pip install --quiet jsonschema
