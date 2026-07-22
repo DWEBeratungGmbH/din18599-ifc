@@ -30,6 +30,9 @@ VALUES = REPO / "catalog" / "values"
 # Welche Felder je Katalog Normzahlenwerte tragen.
 #   entries:  Feldpfade innerhalb eines entries[]-Eintrags. Punkt = eine Ebene tiefer.
 #   extra:    (Top-Level-Schluessel, Listenname, Feld) fuer Anhaenge ausserhalb entries[].
+#   datei:    abweichender Pfad relativ zum Repo (Default: catalog/core/<id>.json)
+#   liste:    abweichender Listenname (Default: "entries")
+#   schluessel: abweichendes Merge-Feld (Default: "code")
 FELDER = {
     "adjacency_types": {
         "entries": ["fx.value", "fx.simplified_value"],
@@ -45,6 +48,22 @@ FELDER = {
         "entries": ["r_upward", "r_horizontal", "r_downward"],
         "extra": [("unheated_attic_spaces", "entries", "r_u")],
         "grund": "Luftschicht-Widerstaende aus DIN EN ISO 6946 Tabelle 8 und 9",
+    },
+    # Nachtrag 22.07.2026: Der Materialkatalog lag ausserhalb von catalog/core/
+    # und ist dem Guard deshalb durchgerutscht — 48 Eintraege mit Bemessungswerten
+    # aus DIN 4108-4 Tabelle 1 standen im PUBLIC-Repo. Gleicher Fall wie der
+    # 605-KB-Befund, gleiche Behandlung.
+    #
+    # wlg (Waermeleitgruppe) wird mit entwertet: sie ist eine direkte Ableitung
+    # aus lambda und wuerde den Wert sonst auf 0,001 genau rekonstruierbar machen.
+    "materials": {
+        "datei": "catalog/materials.json",
+        "liste": "materials",
+        "schluessel": "id",
+        "entries": ["lambda", "mu", "rho", "c", "wlg",
+                    "r_value", "u_value", "g_value"],
+        "extra": [],
+        "grund": "Bemessungswerte aus DIN 4108-4 Tabelle 1 ff.",
     },
 }
 
@@ -74,21 +93,30 @@ def setze(obj: dict, pfad: str, wert) -> bool:
 
 
 def split(katalog_id: str, konfig: dict, dry_run: bool) -> dict | None:
-    pfad = CORE / f"{katalog_id}.json"
-    if not pfad.exists():
-        # Kataloge mit Editions-Suffix (usage_profiles.2018-09) haben eigene Namen.
-        treffer = sorted(CORE.glob(f"{katalog_id}*.json"))
-        if not treffer:
-            print(f"  {katalog_id}: nicht gefunden, uebersprungen")
+    liste = konfig.get("liste", "entries")
+    schluessel = konfig.get("schluessel", "code")
+
+    if konfig.get("datei"):
+        pfad = REPO / konfig["datei"]
+        if not pfad.exists():
+            print(f"  {katalog_id}: {konfig['datei']} nicht gefunden, uebersprungen")
             return None
-        pfad = treffer[0]
+    else:
+        pfad = CORE / f"{katalog_id}.json"
+        if not pfad.exists():
+            # Kataloge mit Editions-Suffix (usage_profiles.2018-09) haben eigene Namen.
+            treffer = sorted(CORE.glob(f"{katalog_id}*.json"))
+            if not treffer:
+                print(f"  {katalog_id}: nicht gefunden, uebersprungen")
+                return None
+            pfad = treffer[0]
 
     katalog = json.loads(pfad.read_text(encoding="utf-8"))
     werte: dict = {"entries": {}}
     entwertet = 0
 
-    for eintrag in katalog.get("entries", []):
-        code = eintrag.get("code")
+    for eintrag in katalog.get(liste, []):
+        code = eintrag.get(schluessel)
         if not code:
             continue
         gesammelt = {}
@@ -126,7 +154,7 @@ def split(katalog_id: str, konfig: dict, dry_run: bool) -> dict | None:
     katalog["values_overlay"] = {
         "required": True,
         "expected_file": overlay_datei,
-        "merge_key": "code",
+        "merge_key": schluessel,
         "missing_value_message": (
             f"Werte fuer '{katalog_id}' fehlen ({konfig['grund']}). "
             f"Overlay unter {overlay_datei} bereitstellen — aus eigener Normlizenz "

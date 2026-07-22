@@ -4,17 +4,16 @@
   "source": "DIN EN ISO 6946, DIN 4108-4, ÖKOBAUDAT",
   "last_updated": "2026-03-29",
   "note": "Materialwerte für U-Wert-Berechnung und Schichtaufbauten",
-  
   "materials": [
     {
       "id": "MAT_CONCRETE_NORMAL",
       "name_de": "Stahlbeton",
       "name_en": "Reinforced concrete",
       "category": "concrete",
-      "lambda": 2.3,
-      "rho": 2400,
-      "c": 1000,
-      "mu": 100,
+      "lambda": null,
+      "rho": null,
+      "c": null,
+      "mu": null,
       "unit_lambda": "W/(m·K)",
       "unit_rho": "kg/m³",
       "unit_c": "J/(kg·K)",
@@ -25,10 +24,10 @@
       "name_de": "Leichtbeton",
       "name_en": "Lightweight concrete",
       "category": "concrete",
-      "lambda": 0.8,
-      "rho": 1600,
-      "c": 1000,
-      "mu": 10,
+      "lambda": null,
+      "rho": null,
+      "c": null,
+      "mu": null,
       "norm_ref": "DIN_4108-4_TAB_2"
     },
     {
@@ -36,10 +35,10 @@
       "name_de": "Vollziegel",
       "name_en": "Solid brick",
       "category": "masonry",
-      "lambda": 0.8,
-      "rho": 1800,
-      "c": 1000,
-      "mu": 10,
+      "lambda": null,
+      "rho": null,
+      "c": null,
+      "mu": null,
       "norm_ref": "DIN_4108-4_TAB_3"
     },
     {
@@ -47,10 +46,10 @@
       "name_de": "Hochlochziegel",
       "name_en": "Perforated brick",
       "category": "masonry",
-      "lambda": 0.45,
-      "rho": 1200,
-      "c": 1000,
-      "mu": 5,
+      "lambda": null,
+      "rho": null,
+      "c": null,
+      "mu": null,
       "norm_ref": "DIN_4108-4_TAB_3"
     },
     {
@@ -58,10 +57,10 @@
       "name_de": "Poroton",
       "name_en": "Porous brick",
       "category": "masonry",
-      "lambda": 0.12,
-      "rho": 800,
-      "c": 1000,
-      "mu": 5,
+      "lambda": null,
+      "rho": null,
+      "c": null,
+      "mu": null,
       "norm_ref": "DIN_4108-4_TAB_3"
     },
     {
@@ -69,10 +68,10 @@
       "name_de": "Porenbeton 500 kg/m³",
       "name_en": "Autoclaved aerated concrete 500",
       "category": "masonry",
-      "lambda": 0.14,
-      "rho": 500,
-      "c": 1000,
-      "mu": 5,
+      "lambda": null,
+      "rho": null,
+      "c": null,
+      "mu": null,
       "norm_ref": "DIN_4108-4_TAB_3"
     },
     {
@@ -80,10 +79,10 @@
       "name_de": "Porenbeton 600 kg/m³",
       "name_en": "Autoclaved aerated concrete 600",
       "category": "masonry",
-      "lambda": 0.16,
-      "rho": 600,
-      "c": 1000,
-      "mu": 5,
+      "lambda": null,
+      "rho": null,
+      "c": null,
+      "mu": null,
       "norm_ref": "DIN_4108-4_TAB_3"
     },
     {
@@ -91,10 +90,10 @@
       "name_de": "Kalksandstein",
       "name_en": "Calcium silicate brick",
       "category": "masonry",
-      "lambda": 0.99,
-      "rho": 1800,
-      "c": 1000,
-      "mu": 25,
+      "lambda": null,
+      "rho": null,
+      "c": null,
+      "mu": null,
       "norm_ref": "DIN_4108-4_TAB_3"
     },
     {
@@ -102,84 +101,84 @@
       "name_de": "EPS 035 (Styropor)",
       "name_en": "EPS 035 (Polystyrene)",
       "category": "insulation",
-      "lambda": 0.035,
-      "rho": 15,
-      "c": 1500,
-      "mu": 50,
+      "lambda": null,
+      "rho": null,
+      "c": null,
+      "mu": null,
       "norm_ref": "DIN_4108-4_TAB_4",
-      "wlg": "035"
+      "wlg": null
     },
     {
       "id": "MAT_EPS_032",
       "name_de": "EPS 032",
       "name_en": "EPS 032",
       "category": "insulation",
-      "lambda": 0.032,
-      "rho": 15,
-      "c": 1500,
-      "mu": 50,
+      "lambda": null,
+      "rho": null,
+      "c": null,
+      "mu": null,
       "norm_ref": "DIN_4108-4_TAB_4",
-      "wlg": "032"
+      "wlg": null
     },
     {
       "id": "MAT_XPS_035",
       "name_de": "XPS 035 (Styrodur)",
       "name_en": "XPS 035 (Extruded polystyrene)",
       "category": "insulation",
-      "lambda": 0.035,
-      "rho": 30,
-      "c": 1500,
-      "mu": 100,
+      "lambda": null,
+      "rho": null,
+      "c": null,
+      "mu": null,
       "norm_ref": "DIN_4108-4_TAB_4",
-      "wlg": "035"
+      "wlg": null
     },
     {
       "id": "MAT_MINERAL_WOOL_035",
       "name_de": "Mineralwolle 035",
       "name_en": "Mineral wool 035",
       "category": "insulation",
-      "lambda": 0.035,
-      "rho": 30,
-      "c": 1030,
-      "mu": 1,
+      "lambda": null,
+      "rho": null,
+      "c": null,
+      "mu": null,
       "norm_ref": "DIN_4108-4_TAB_4",
-      "wlg": "035"
+      "wlg": null
     },
     {
       "id": "MAT_MINERAL_WOOL_032",
       "name_de": "Mineralwolle 032",
       "name_en": "Mineral wool 032",
       "category": "insulation",
-      "lambda": 0.032,
-      "rho": 30,
-      "c": 1030,
-      "mu": 1,
+      "lambda": null,
+      "rho": null,
+      "c": null,
+      "mu": null,
       "norm_ref": "DIN_4108-4_TAB_4",
-      "wlg": "032"
+      "wlg": null
     },
     {
       "id": "MAT_PUR_024",
       "name_de": "PUR/PIR 024",
       "name_en": "Polyurethane 024",
       "category": "insulation",
-      "lambda": 0.024,
-      "rho": 30,
-      "c": 1400,
-      "mu": 50,
+      "lambda": null,
+      "rho": null,
+      "c": null,
+      "mu": null,
       "norm_ref": "DIN_4108-4_TAB_4",
-      "wlg": "024"
+      "wlg": null
     },
     {
       "id": "MAT_WOOD_FIBER_040",
       "name_de": "Holzfaser 040",
       "name_en": "Wood fiber 040",
       "category": "insulation",
-      "lambda": 0.04,
-      "rho": 160,
-      "c": 2100,
-      "mu": 5,
+      "lambda": null,
+      "rho": null,
+      "c": null,
+      "mu": null,
       "norm_ref": "DIN_4108-4_TAB_4",
-      "wlg": "040",
+      "wlg": null,
       "sustainable": true
     },
     {
@@ -187,12 +186,12 @@
       "name_de": "Zellulose 040",
       "name_en": "Cellulose 040",
       "category": "insulation",
-      "lambda": 0.04,
-      "rho": 60,
-      "c": 2000,
-      "mu": 2,
+      "lambda": null,
+      "rho": null,
+      "c": null,
+      "mu": null,
       "norm_ref": "DIN_4108-4_TAB_4",
-      "wlg": "040",
+      "wlg": null,
       "sustainable": true
     },
     {
@@ -200,12 +199,12 @@
       "name_de": "Hanf 040",
       "name_en": "Hemp 040",
       "category": "insulation",
-      "lambda": 0.04,
-      "rho": 30,
-      "c": 2300,
-      "mu": 2,
+      "lambda": null,
+      "rho": null,
+      "c": null,
+      "mu": null,
       "norm_ref": "DIN_4108-4_TAB_4",
-      "wlg": "040",
+      "wlg": null,
       "sustainable": true
     },
     {
@@ -213,10 +212,10 @@
       "name_de": "Fichte/Tanne",
       "name_en": "Spruce/Fir",
       "category": "wood",
-      "lambda": 0.13,
-      "rho": 450,
-      "c": 1600,
-      "mu": 50,
+      "lambda": null,
+      "rho": null,
+      "c": null,
+      "mu": null,
       "norm_ref": "DIN_4108-4_TAB_5"
     },
     {
@@ -224,10 +223,10 @@
       "name_de": "Eiche",
       "name_en": "Oak",
       "category": "wood",
-      "lambda": 0.18,
-      "rho": 700,
-      "c": 1600,
-      "mu": 50,
+      "lambda": null,
+      "rho": null,
+      "c": null,
+      "mu": null,
       "norm_ref": "DIN_4108-4_TAB_5"
     },
     {
@@ -235,10 +234,10 @@
       "name_de": "OSB-Platte",
       "name_en": "OSB board",
       "category": "wood",
-      "lambda": 0.13,
-      "rho": 650,
-      "c": 1700,
-      "mu": 50,
+      "lambda": null,
+      "rho": null,
+      "c": null,
+      "mu": null,
       "norm_ref": "DIN_4108-4_TAB_5"
     },
     {
@@ -246,10 +245,10 @@
       "name_de": "Sperrholz",
       "name_en": "Plywood",
       "category": "wood",
-      "lambda": 0.13,
-      "rho": 500,
-      "c": 1600,
-      "mu": 50,
+      "lambda": null,
+      "rho": null,
+      "c": null,
+      "mu": null,
       "norm_ref": "DIN_4108-4_TAB_5"
     },
     {
@@ -257,10 +256,10 @@
       "name_de": "Gipskartonplatte",
       "name_en": "Gypsum board",
       "category": "interior",
-      "lambda": 0.25,
-      "rho": 900,
-      "c": 1000,
-      "mu": 10,
+      "lambda": null,
+      "rho": null,
+      "c": null,
+      "mu": null,
       "norm_ref": "DIN_4108-4_TAB_6"
     },
     {
@@ -268,10 +267,10 @@
       "name_de": "Gipsputz",
       "name_en": "Gypsum plaster",
       "category": "interior",
-      "lambda": 0.35,
-      "rho": 1200,
-      "c": 1000,
-      "mu": 10,
+      "lambda": null,
+      "rho": null,
+      "c": null,
+      "mu": null,
       "norm_ref": "DIN_4108-4_TAB_6"
     },
     {
@@ -279,10 +278,10 @@
       "name_de": "Kalkzementputz",
       "name_en": "Lime cement plaster",
       "category": "exterior",
-      "lambda": 0.87,
-      "rho": 1800,
-      "c": 1000,
-      "mu": 19,
+      "lambda": null,
+      "rho": null,
+      "c": null,
+      "mu": null,
       "norm_ref": "DIN_4108-4_TAB_6"
     },
     {
@@ -290,22 +289,22 @@
       "name_de": "Wärmedämmputz",
       "name_en": "Thermal insulation plaster",
       "category": "insulation",
-      "lambda": 0.07,
-      "rho": 400,
-      "c": 1000,
-      "mu": 10,
+      "lambda": null,
+      "rho": null,
+      "c": null,
+      "mu": null,
       "norm_ref": "DIN_4108-4_TAB_6",
-      "wlg": "070"
+      "wlg": null
     },
     {
       "id": "MAT_SCREED_CEMENT",
       "name_de": "Zementestrich",
       "name_en": "Cement screed",
       "category": "floor",
-      "lambda": 1.4,
-      "rho": 2000,
-      "c": 1000,
-      "mu": 20,
+      "lambda": null,
+      "rho": null,
+      "c": null,
+      "mu": null,
       "norm_ref": "DIN_4108-4_TAB_7"
     },
     {
@@ -313,10 +312,10 @@
       "name_de": "Anhydritestrich",
       "name_en": "Anhydrite screed",
       "category": "floor",
-      "lambda": 1.2,
-      "rho": 2100,
-      "c": 1000,
-      "mu": 10,
+      "lambda": null,
+      "rho": null,
+      "c": null,
+      "mu": null,
       "norm_ref": "DIN_4108-4_TAB_7"
     },
     {
@@ -324,10 +323,10 @@
       "name_de": "Keramikfliesen",
       "name_en": "Ceramic tiles",
       "category": "floor",
-      "lambda": 1.3,
-      "rho": 2300,
-      "c": 840,
-      "mu": 200,
+      "lambda": null,
+      "rho": null,
+      "c": null,
+      "mu": null,
       "norm_ref": "DIN_4108-4_TAB_7"
     },
     {
@@ -335,10 +334,10 @@
       "name_de": "Parkett",
       "name_en": "Parquet",
       "category": "floor",
-      "lambda": 0.17,
-      "rho": 650,
-      "c": 1600,
-      "mu": 50,
+      "lambda": null,
+      "rho": null,
+      "c": null,
+      "mu": null,
       "norm_ref": "DIN_4108-4_TAB_7"
     },
     {
@@ -346,10 +345,10 @@
       "name_de": "Bitumenbahn",
       "name_en": "Bitumen membrane",
       "category": "sealing",
-      "lambda": 0.23,
-      "rho": 1200,
-      "c": 1000,
-      "mu": 50000,
+      "lambda": null,
+      "rho": null,
+      "c": null,
+      "mu": null,
       "norm_ref": "DIN_4108-4_TAB_8"
     },
     {
@@ -357,10 +356,10 @@
       "name_de": "PE-Folie",
       "name_en": "PE foil",
       "category": "sealing",
-      "lambda": 0.33,
-      "rho": 950,
-      "c": 2300,
-      "mu": 100000,
+      "lambda": null,
+      "rho": null,
+      "c": null,
+      "mu": null,
       "norm_ref": "DIN_4108-4_TAB_8"
     },
     {
@@ -368,10 +367,10 @@
       "name_de": "Dampfsperre",
       "name_en": "Vapor barrier",
       "category": "sealing",
-      "lambda": 0.17,
-      "rho": 130,
-      "c": 2300,
-      "mu": 100000,
+      "lambda": null,
+      "rho": null,
+      "c": null,
+      "mu": null,
       "norm_ref": "DIN_4108-4_TAB_8"
     },
     {
@@ -379,10 +378,10 @@
       "name_de": "Winddichtung",
       "name_en": "Wind barrier",
       "category": "sealing",
-      "lambda": 0.17,
-      "rho": 130,
-      "c": 2300,
-      "mu": 5,
+      "lambda": null,
+      "rho": null,
+      "c": null,
+      "mu": null,
       "norm_ref": "DIN_4108-4_TAB_8"
     },
     {
@@ -390,12 +389,12 @@
       "name_de": "Einfachglas",
       "name_en": "Single glazing",
       "category": "glazing",
-      "lambda": 1.0,
-      "rho": 2500,
-      "c": 750,
-      "mu": 10000,
-      "u_value": 5.8,
-      "g_value": 0.85,
+      "lambda": null,
+      "rho": null,
+      "c": null,
+      "mu": null,
+      "u_value": null,
+      "g_value": null,
       "norm_ref": "DIN_EN_673"
     },
     {
@@ -403,12 +402,12 @@
       "name_de": "Zweifachverglasung",
       "name_en": "Double glazing",
       "category": "glazing",
-      "lambda": 1.0,
-      "rho": 2500,
-      "c": 750,
-      "mu": 10000,
-      "u_value": 2.8,
-      "g_value": 0.75,
+      "lambda": null,
+      "rho": null,
+      "c": null,
+      "mu": null,
+      "u_value": null,
+      "g_value": null,
       "norm_ref": "DIN_EN_673"
     },
     {
@@ -416,12 +415,12 @@
       "name_de": "Dreifachverglasung",
       "name_en": "Triple glazing",
       "category": "glazing",
-      "lambda": 1.0,
-      "rho": 2500,
-      "c": 750,
-      "mu": 10000,
-      "u_value": 0.7,
-      "g_value": 0.5,
+      "lambda": null,
+      "rho": null,
+      "c": null,
+      "mu": null,
+      "u_value": null,
+      "g_value": null,
       "norm_ref": "DIN_EN_673"
     },
     {
@@ -429,7 +428,7 @@
       "name_de": "Luftschicht unbelüftet",
       "name_en": "Air layer unventilated",
       "category": "air",
-      "r_value": 0.18,
+      "r_value": null,
       "note": "R-Wert für 2-10 cm Luftschicht",
       "norm_ref": "DIN_EN_ISO_6946"
     },
@@ -438,7 +437,7 @@
       "name_de": "Luftschicht schwach belüftet",
       "name_en": "Air layer slightly ventilated",
       "category": "air",
-      "r_value": 0.15,
+      "r_value": null,
       "note": "R-Wert für schwach belüftete Luftschicht",
       "norm_ref": "DIN_EN_ISO_6946"
     },
@@ -447,10 +446,10 @@
       "name_de": "Erdreich",
       "name_en": "Soil",
       "category": "ground",
-      "lambda": 2.0,
-      "rho": 2000,
-      "c": 1000,
-      "mu": 50,
+      "lambda": null,
+      "rho": null,
+      "c": null,
+      "mu": null,
       "norm_ref": "DIN_4108-4"
     },
     {
@@ -458,10 +457,10 @@
       "name_de": "Kies/Schotter",
       "name_en": "Gravel",
       "category": "ground",
-      "lambda": 2.0,
-      "rho": 1800,
-      "c": 1000,
-      "mu": 1,
+      "lambda": null,
+      "rho": null,
+      "c": null,
+      "mu": null,
       "norm_ref": "DIN_4108-4"
     },
     {
@@ -469,12 +468,12 @@
       "name_de": "Perimeterdämmung XPS",
       "name_en": "Perimeter insulation XPS",
       "category": "insulation",
-      "lambda": 0.035,
-      "rho": 35,
-      "c": 1500,
-      "mu": 150,
+      "lambda": null,
+      "rho": null,
+      "c": null,
+      "mu": null,
       "norm_ref": "DIN_4108-10",
-      "wlg": "035",
+      "wlg": null,
       "application": "ground_contact"
     },
     {
@@ -482,12 +481,12 @@
       "name_de": "Schaumglas",
       "name_en": "Foam glass",
       "category": "insulation",
-      "lambda": 0.04,
-      "rho": 120,
-      "c": 1000,
-      "mu": 10000,
+      "lambda": null,
+      "rho": null,
+      "c": null,
+      "mu": null,
       "norm_ref": "DIN_4108-4",
-      "wlg": "040",
+      "wlg": null,
       "application": "ground_contact"
     },
     {
@@ -495,12 +494,12 @@
       "name_de": "Kork",
       "name_en": "Cork",
       "category": "insulation",
-      "lambda": 0.045,
-      "rho": 120,
-      "c": 1600,
-      "mu": 10,
+      "lambda": null,
+      "rho": null,
+      "c": null,
+      "mu": null,
       "norm_ref": "DIN_4108-4",
-      "wlg": "045",
+      "wlg": null,
       "sustainable": true
     },
     {
@@ -508,12 +507,12 @@
       "name_de": "Schafwolle",
       "name_en": "Sheep wool",
       "category": "insulation",
-      "lambda": 0.04,
-      "rho": 20,
-      "c": 1720,
-      "mu": 2,
+      "lambda": null,
+      "rho": null,
+      "c": null,
+      "mu": null,
       "norm_ref": "DIN_4108-4",
-      "wlg": "040",
+      "wlg": null,
       "sustainable": true
     },
     {
@@ -521,12 +520,12 @@
       "name_de": "Flachs",
       "name_en": "Flax",
       "category": "insulation",
-      "lambda": 0.04,
-      "rho": 30,
-      "c": 2300,
-      "mu": 2,
+      "lambda": null,
+      "rho": null,
+      "c": null,
+      "mu": null,
       "norm_ref": "DIN_4108-4",
-      "wlg": "040",
+      "wlg": null,
       "sustainable": true
     },
     {
@@ -534,12 +533,12 @@
       "name_de": "Stroh",
       "name_en": "Straw",
       "category": "insulation",
-      "lambda": 0.055,
-      "rho": 110,
-      "c": 2000,
-      "mu": 2,
+      "lambda": null,
+      "rho": null,
+      "c": null,
+      "mu": null,
       "norm_ref": "DIN_4108-4",
-      "wlg": "055",
+      "wlg": null,
       "sustainable": true
     },
     {
@@ -547,36 +546,36 @@
       "name_de": "Perlite",
       "name_en": "Perlite",
       "category": "insulation",
-      "lambda": 0.05,
-      "rho": 90,
-      "c": 1000,
-      "mu": 5,
+      "lambda": null,
+      "rho": null,
+      "c": null,
+      "mu": null,
       "norm_ref": "DIN_4108-4",
-      "wlg": "050"
+      "wlg": null
     },
     {
       "id": "MAT_VERMICULITE",
       "name_de": "Vermiculit",
       "name_en": "Vermiculite",
       "category": "insulation",
-      "lambda": 0.07,
-      "rho": 100,
-      "c": 1000,
-      "mu": 3,
+      "lambda": null,
+      "rho": null,
+      "c": null,
+      "mu": null,
       "norm_ref": "DIN_4108-4",
-      "wlg": "070"
+      "wlg": null
     },
     {
       "id": "MAT_AEROGEL",
       "name_de": "Aerogel",
       "name_en": "Aerogel",
       "category": "insulation",
-      "lambda": 0.015,
-      "rho": 150,
-      "c": 1000,
-      "mu": 5,
+      "lambda": null,
+      "rho": null,
+      "c": null,
+      "mu": null,
       "norm_ref": "DIN_4108-4",
-      "wlg": "015",
+      "wlg": null,
       "high_performance": true
     },
     {
@@ -584,30 +583,72 @@
       "name_de": "Vakuumisolationspaneel",
       "name_en": "Vacuum insulation panel",
       "category": "insulation",
-      "lambda": 0.007,
-      "rho": 200,
-      "c": 1000,
-      "mu": 100000,
+      "lambda": null,
+      "rho": null,
+      "c": null,
+      "mu": null,
       "norm_ref": "DIN_4108-4",
-      "wlg": "007",
+      "wlg": null,
       "high_performance": true
     }
   ],
-  
   "categories": [
-    {"id": "concrete", "name_de": "Beton", "name_en": "Concrete"},
-    {"id": "masonry", "name_de": "Mauerwerk", "name_en": "Masonry"},
-    {"id": "insulation", "name_de": "Dämmung", "name_en": "Insulation"},
-    {"id": "wood", "name_de": "Holz", "name_en": "Wood"},
-    {"id": "interior", "name_de": "Innenausbau", "name_en": "Interior"},
-    {"id": "exterior", "name_de": "Außenputz", "name_en": "Exterior"},
-    {"id": "floor", "name_de": "Fußboden", "name_en": "Floor"},
-    {"id": "sealing", "name_de": "Abdichtung", "name_en": "Sealing"},
-    {"id": "glazing", "name_de": "Verglasung", "name_en": "Glazing"},
-    {"id": "air", "name_de": "Luftschicht", "name_en": "Air layer"},
-    {"id": "ground", "name_de": "Erdreich", "name_en": "Ground"}
+    {
+      "id": "concrete",
+      "name_de": "Beton",
+      "name_en": "Concrete"
+    },
+    {
+      "id": "masonry",
+      "name_de": "Mauerwerk",
+      "name_en": "Masonry"
+    },
+    {
+      "id": "insulation",
+      "name_de": "Dämmung",
+      "name_en": "Insulation"
+    },
+    {
+      "id": "wood",
+      "name_de": "Holz",
+      "name_en": "Wood"
+    },
+    {
+      "id": "interior",
+      "name_de": "Innenausbau",
+      "name_en": "Interior"
+    },
+    {
+      "id": "exterior",
+      "name_de": "Außenputz",
+      "name_en": "Exterior"
+    },
+    {
+      "id": "floor",
+      "name_de": "Fußboden",
+      "name_en": "Floor"
+    },
+    {
+      "id": "sealing",
+      "name_de": "Abdichtung",
+      "name_en": "Sealing"
+    },
+    {
+      "id": "glazing",
+      "name_de": "Verglasung",
+      "name_en": "Glazing"
+    },
+    {
+      "id": "air",
+      "name_de": "Luftschicht",
+      "name_en": "Air layer"
+    },
+    {
+      "id": "ground",
+      "name_de": "Erdreich",
+      "name_en": "Ground"
+    }
   ],
-  
   "legend": {
     "lambda": "Wärmeleitfähigkeit λ [W/(m·K)]",
     "rho": "Rohdichte ρ [kg/m³]",
@@ -617,5 +658,11 @@
     "u_value": "Wärmedurchgangskoeffizient U [W/(m²·K)]",
     "g_value": "Gesamtenergiedurchlassgrad g [-]",
     "wlg": "Wärmeleitgruppe (WLG)"
+  },
+  "values_overlay": {
+    "required": true,
+    "expected_file": "catalog/values/materials.values.json",
+    "merge_key": "id",
+    "missing_value_message": "Werte fuer 'materials' fehlen (Bemessungswerte aus DIN 4108-4 Tabelle 1 ff.). Overlay unter catalog/values/materials.values.json bereitstellen — aus eigener Normlizenz oder ueber DWEapp. Ohne aufgeloeste Werte kein calc_ready."
   }
 }

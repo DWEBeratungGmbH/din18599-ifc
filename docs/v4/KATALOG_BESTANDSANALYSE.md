@@ -24,10 +24,31 @@ Der Katalog-Bestand besteht aus **10 JSON-Dateien mit 664 KB**, von denen **kein
 | `din18599_glossary.json` | 97 KB | 222 Begriffe. **Definitionen weitgehend leer oder kaputt** (z.B. `definition_de: "**GA**"`) | nein | niedrig — Datenqualität mangelhaft |
 | `constructions.json` | 16 KB | 24 Konstruktionen mit Schichtaufbau + U-Wert, 9 Kategorien, 7 Bauepochen | nein (DWE-eigen) | **hoch** — Vorbild für Erweiterungs-Katalog |
 | `din18599_usage_profiles.json` | 16 KB | 45 Profile (2 WG + 43 NWG) | **teilweise** — siehe §2 | **hoch** — Kern-Katalog |
-| `materials.json` | 15 KB | 50 Materialien (λ, ρ, c, μ) + 11 Kategorien | nein (DIN 4108-4 abgeleitet, Grenzfall) | **hoch** — Erweiterungs-Katalog |
+| `materials.json` | 15 KB | 50 Materialien (λ, ρ, c, μ) + 11 Kategorien | **ja — Fehleinschaetzung, korrigiert 22.07.2026** (siehe unten) | **hoch** — Erweiterungs-Katalog |
 | `din18599_indexing_system.json` | 11 KB | Indizierungs-Systematik (3 Ebenen, Pattern `{SYMBOL}_{L1}[,{L2}]`) | nein | niedrig |
 | `din18599_interface_map.json` | 2,7 KB | Datenflüsse zwischen Norm-Teilen (1 Input, 7 Outputs) | nein | niedrig — sehr unvollständig |
 | `schema_mapping.json` | 1,8 KB | Symbol → JSON-Pfad-Mapping | nein | **veraltet** — mappt auf v2.1-Pfade (`zones[].usage_profile.parameters_din.*`), die es in v3.1 nicht mehr gibt |
+
+> **Korrektur 22.07.2026 — `materials.json` war falsch bewertet.**
+> Die Einstufung „nein (DIN 4108-4 abgeleitet, Grenzfall)" oben war meine
+> Fehleinschätzung. 48 der 50 Einträge trugen die Bemessungswerte selbst
+> (λ, μ, ρ, c) mit `norm_ref: DIN_4108-4_TAB_2` bis `TAB_8` — das sind die
+> Tabellenwerte, nicht eine Ableitung davon. Die Datei stand damit im
+> PUBLIC-Repo, obwohl sie derselben Sperre unterliegt wie die 605 KB aus §1.3.
+>
+> Ursache der Lücke: `materials.json` liegt in `catalog/` statt `catalog/core/`
+> und nennt seine Liste `materials` statt `entries`. Beide Guards griffen
+> deshalb nicht — `check-catalog-values.sh` sperrt nur Verzeichnisse,
+> `check-catalog-structure.py` globbte nur `catalog/core/*.json`.
+>
+> Behoben: Werte per `split-catalog-values.py` nach
+> `catalog/values/materials.values.json` (gitignored), 220 Zahlen in 50
+> Einträgen. `check-catalog-structure.py` prüft die Datei jetzt mit
+> (`SONDERFAELLE`). Struktur, Namen, Kategorien und `norm_ref` bleiben public.
+>
+> **Wie bei den 605 KB gilt: die Git-Historie enthält die Werte weiterhin.**
+> Ob eine Historien-Bereinigung nötig ist, wird mit DIN Media bzw.
+> anwaltlich geklärt — das ist Sebis Aufgabe, nicht die dieser Session.
 
 ### 1.2 `catalog-private/` — gitignored, korrekt geschützt
 

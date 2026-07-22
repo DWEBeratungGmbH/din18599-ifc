@@ -29,9 +29,20 @@ GESCHUETZT = {
     "adjacency_types": ["fx.value", "fx.simplified_value"],
     "surface_resistances": ["rsi", "rse"],
     "air_layers": ["r_upward", "r_horizontal", "r_downward"],
+    "materials": ["lambda", "mu", "rho", "c", "wlg",
+                  "r_value", "u_value", "g_value"],
 }
 GESCHUETZT_EXTRA = {
     "air_layers": [("unheated_attic_spaces", "entries", "r_u")],
+}
+
+# Kataloge ausserhalb von catalog/core/ mit abweichender Listen-/Schluesselform.
+# Genau hier lag die Luecke: materials.json liegt eine Ebene hoeher und heisst
+# seine Liste "materials" statt "entries" — der Glob auf CORE hat sie nie gesehen,
+# obwohl 48 Eintraege Bemessungswerte aus DIN 4108-4 trugen.
+SONDERFAELLE = {
+    "materials": {"datei": "catalog/materials.json",
+                  "liste": "materials", "schluessel": "id"},
 }
 
 
@@ -47,9 +58,17 @@ def hole(obj: dict, pfad: str):
 def main() -> int:
     befunde: list[str] = []
 
-    for pfad in sorted(CORE.glob("*.json")):
+    zu_pruefen = [(p, "entries", "code") for p in sorted(CORE.glob("*.json"))]
+    for kid, konfig in SONDERFAELLE.items():
+        pfad = REPO / konfig["datei"]
+        if pfad.exists():
+            zu_pruefen.append((pfad, konfig["liste"], konfig["schluessel"]))
+        else:
+            befunde.append(f"{konfig['datei']}: erwartet, aber nicht gefunden")
+
+    for pfad, liste, schluessel in zu_pruefen:
         katalog = json.loads(pfad.read_text(encoding="utf-8"))
-        kid = katalog.get("catalog_id")
+        kid = katalog.get("catalog_id") or pfad.stem
         felder = GESCHUETZT.get(kid)
         if not felder:
             continue
@@ -60,12 +79,12 @@ def main() -> int:
                 f"Katalog geschuetzte Felder hat"
             )
 
-        for eintrag in katalog.get("entries", []):
+        for eintrag in katalog.get(liste, []):
             for feld in felder:
                 wert = hole(eintrag, feld)
                 if isinstance(wert, (int, float)):
                     befunde.append(
-                        f"{pfad.name}: entries[{eintrag.get('code')}].{feld} "
+                        f"{pfad.name}: {liste}[{eintrag.get(schluessel)}].{feld} "
                         f"= {wert} — gehoert ins private Overlay"
                     )
 
@@ -88,7 +107,8 @@ def main() -> int:
         print("  python3 scripts/split-catalog-values.py", file=sys.stderr)
         return 1
 
-    print("[check-catalog-structure] OK — keine Normzahlenwerte in catalog/core/.")
+    print(f"[check-catalog-structure] OK — keine Normzahlenwerte in "
+          f"{len(zu_pruefen)} oeffentlichen Katalogdateien.")
     return 0
 
 

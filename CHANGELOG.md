@@ -9,6 +9,28 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/lang/de/).
 
 ## [Unreleased] - Schema v4.0 (.dwe-Container)
 
+### Security
+
+- **`catalog/materials.json` entwertet (22.07.2026)** — 48 der 50 Einträge trugen
+  Bemessungswerte aus DIN 4108-4 Tabelle 1 ff. (λ, μ, ρ, c) und standen im
+  PUBLIC-Repo. Die frühere Einstufung als „Grenzfall, DIN 4108-4 abgeleitet"
+  in `docs/v4/KATALOG_BESTANDSANALYSE.md` war falsch: es sind die Tabellenwerte
+  selbst, referenziert als `DIN_4108-4_TAB_2` bis `TAB_8`.
+  220 Zahlen wandern per `scripts/split-catalog-values.py` nach
+  `catalog/values/materials.values.json` (gitignored). Struktur, Namen,
+  Kategorien, Einheiten und `norm_ref` bleiben öffentlich.
+- **Guard-Lücke geschlossen** — `materials.json` liegt in `catalog/` statt
+  `catalog/core/` und nennt seine Liste `materials` statt `entries`; beide
+  Prüfungen sahen die Datei deshalb nie. `check-catalog-structure.py` kennt
+  jetzt `SONDERFAELLE` für Kataloge außerhalb von `core/`,
+  `split-catalog-values.py` unterstützt abweichende Datei-, Listen- und
+  Schlüsselnamen. Regressionstest: ein wieder eingetragener λ-Wert wird
+  abgelehnt.
+- **Hinweis zur Historie:** Die Git-Historie dieses öffentlichen Repos enthält
+  die Werte weiterhin — Entfernen im HEAD genügt dafür nicht. Ob eine
+  Historien-Bereinigung nötig ist, wird mit DIN Media bzw. anwaltlich geklärt.
+  Gleiche Behandlung wie beim 605-KB-Befund.
+
 ### Added
 
 - **`schema/v4.0/manifest.schema.json`** — Container-Manifest der `.dwe`-Datei (ZIP):
