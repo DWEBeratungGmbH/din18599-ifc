@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://din18599-ifc.de/schema/v4.0/catalogs/air_layers",
+  "title": "Entry-Schema: air_layers",
+  "description": "Stuetzstellen der Tabelle 8 (DIN EN ISO 6946). Zwischenwerte werden linear interpoliert, siehe interpolation im Katalog-Kopf.",
+  "type": "object",
+  "required": ["code", "thickness_mm", "r_upward", "r_horizontal", "r_downward"],
+  "additionalProperties": false,
+
+  "properties": {
+    "code": { "type": "string", "pattern": "^d_[0-9]+$" },
+    "thickness_mm": {
+      "type": "number", "minimum": 0,
+      "description": "Dicke der Luftschicht [mm]"
+    },
+    "r_upward": {
+      "type": "number", "minimum": 0,
+      "description": "Waermedurchlasswiderstand bei Waermestrom aufwaerts [(m2K)/W]"
+    },
+    "r_horizontal": {
+      "type": "number", "minimum": 0,
+      "description": "Waermestrom horizontal, gilt fuer plus/minus 30 Grad zur Horizontalen"
+    },
+    "r_downward": {
+      "type": "number", "minimum": 0,
+      "description": "Waermestrom abwaerts"
+    },
+    "norm_cell": { "type": ["string", "null"] },
+    "name_de": { "type": "string" }
+  }
+}

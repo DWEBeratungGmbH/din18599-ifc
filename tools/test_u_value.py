@@ -71,6 +71,7 @@ def main() -> int:
     #   R_lower = 0,14 + 1/(0,9/5,0000 + 0,1/1,5385)  = 4,22163
     #   R_T     = (4,26120 + 4,22163) / 2             = 4,24142
     #   U       = 1 / 4,24142                         = 0,23577
+    #   e       = (4,26120 - 4,22163) / (2 * 4,24142) * 100 = 0,47 %  (Gl. 10)
     k_inhom = {
         "id": "T3",
         "sequences": [
@@ -85,8 +86,8 @@ def main() -> int:
     pruefe("kombiniert: R_T = 4,2414", nah(e.r_total, 4.24142, 0.0005),
            f"R_T={e.r_total:.4f}" if e.r_total else str(e.fehler))
     pruefe("kombiniert: U = 0,2358", nah(e.u_value, 0.23577, 0.0002), f"U={e.u_value}")
-    pruefe("kombiniert: Unsicherheit e = 0,0047", nah(e.uncertainty, 0.00466, 0.0002),
-           f"e={e.uncertainty}")
+    pruefe("kombiniert: max. Fehler e = 0,47 %", nah(e.uncertainty, 0.47, 0.02),
+           f"e={e.uncertainty} %")
 
     # Der Sparren verschlechtert den U-Wert deutlich — genau der Effekt, den ein
     # flaches layers[] ohne Flaechenanteile nicht abbilden kann.
@@ -136,6 +137,52 @@ def main() -> int:
     pruefe("Anteilssumme 1,1 wird gemeldet",
            any("Flaechenanteile" in w for w in e.warnungen), str(e.warnungen[:1]))
 
+    # --- 7b. Luftschicht aus Tabelle 8, mit Interpolation ------------------
+    # 20 mm horizontal liegt zwischen 15 mm (0,17) und 25 mm (0,18):
+    # 0,17 + 0,5 * (0,18 - 0,17) = 0,175
+    from u_value import lade_luftschichten, luftschicht_widerstand
+    luft = lade_luftschichten()
+    r, problem = luftschicht_widerstand(20.0, "horizontal", luft)
+    pruefe("Tabelle 8: 20 mm horizontal = 0,175 (interpoliert)",
+           nah(r, 0.175, 0.0001), f"R={r}")
+    r25_auf, _ = luftschicht_widerstand(25.0, "upward", luft)
+    r25_ab, _ = luftschicht_widerstand(25.0, "downward", luft)
+    pruefe("Tabelle 8: 25 mm richtungsabhaengig (0,16 / 0,19)",
+           nah(r25_auf, 0.16) and nah(r25_ab, 0.19), f"auf={r25_auf} ab={r25_ab}")
+    r500, _ = luftschicht_widerstand(500.0, "downward", luft)
+    pruefe("Tabelle 8: oberhalb 300 mm wird der letzte Wert gehalten",
+           nah(r500, 0.23), f"R={r500}")
+
+    # Luftschicht im Schichtaufbau, ueber air_layer statt lambda
+    k_luftschicht = {
+        "id": "T9",
+        "layers": [{"thickness_m": 0.025, "air_layer": True},
+                   {"thickness_m": 0.20, "lambda": 0.04}],
+    }
+    e = berechne(k_luftschicht, materialien, WIDERSTAENDE, "exterior", "wall")
+    # 0,13 + 0,18 + 5,0 + 0,04 = 5,35 -> U = 0,186916
+    pruefe("Luftschicht im Aufbau: U = 0,1869", nah(e.u_value, 0.1869, 0.0002),
+           f"U={e.u_value}")
+
+    # --- 7c. Harte Anwendungsgrenze 6.7.2.1 --------------------------------
+    # Anteile 0,5/0,5, R = 5,00 gegen 0,04 -> Verhaeltnis 1,62 > 1,5
+    k_extrem = {
+        "id": "T10",
+        "sequences": [
+            {"share": 0.5, "layers": [{"thickness_m": 0.20, "lambda": 0.04}]},
+            {"share": 0.5, "layers": [{"thickness_m": 0.20, "lambda": 5.00}]},
+        ],
+    }
+    e = berechne(k_extrem, materialien, WIDERSTAENDE, "exterior", "wall")
+    pruefe("Verhaeltnis > 1,5: Verfahren unzulaessig, kein Ergebnis",
+           not e.ok and e.method == "unzulaessig" and e.u_value is None,
+           str(e.fehler[:1]))
+
+    # --- 7d. Rundung des Endergebnisses (6.7.2.2) --------------------------
+    e = berechne(k, materialien, WIDERSTAENDE, "exterior", "wall")
+    pruefe("R_tot auf zwei Dezimalen gerundet mitgefuehrt",
+           e.r_total_rounded == 2.17, f"{e.r_total_rounded}")
+
     # --- 8. Gegen den Altkatalog: ein reproduzierbarer Fall ----------------
     import json
     alt = {c["id"]: c for c in json.loads(
@@ -149,7 +196,7 @@ def main() -> int:
            f"U={e.u_value} gegen 0.17 ({abw:+.1%})")
 
     print()
-    gesamt = 18
+    gesamt = 25
     print(f"{gesamt - fehler}/{gesamt} Pruefungen bestanden")
     return 1 if fehler else 0
 

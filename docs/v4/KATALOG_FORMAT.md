@@ -11,6 +11,8 @@
 catalog/
 ├── core/                          # öffentlich, im Git — STRUKTUR
 │   ├── adjacency_types.json              14 Einträge, inkl. Fx-Werte
+│   ├── air_layers.json                    9 Stützstellen (ISO 6946 Tab. 8)
+│   ├── surface_resistances.json           7 Einträge (ISO 6946 Tab. 7)
 │   ├── room_types.json                   67 Einträge (19 WG / 43 NWG / 5 beide)
 │   ├── usage_profiles.2018-09.json       45 Profile, wertfrei
 │   └── geg_reference_building.2024.json   7 Zeilen + Mapping-Regeln
@@ -120,6 +122,8 @@ Kein `calc_ready`. Meldung aus `values_overlay.missing_value_message`, z.B.
 |---|---|---|
 | `adjacency_types` | **ja, vollständig** | Zwölf Einzelfakten aus jedem GEG-Kommentar, kein Datenbankwerk. Und die Boundary-Validierung als Grundfunktion darf nicht an einem Overlay hängen (Entscheidung 6.6) |
 | `geg_reference_building` | **rechtlich ja**, faktisch noch nicht | GEG ist amtliches Werk nach § 5 UrhG, also gemeinfrei. Werte bleiben auf `value_pending: true`, bis Sebi sie gegen den Gesetzestext verifiziert hat — unverifizierte Zwischenstände in der Prüfliste |
+| `surface_resistances` | **ja** | Sechs Einzelfakten, ohne die keine U-Wert-Berechnung möglich ist |
+| `air_layers` | **vorerst ja, offen** | 27 Werte aus Tabelle 8 — größer als die bisherigen Fälle, C4-Einordnung weniger eindeutig. Siehe [U_WERT_RECHNER.md](U_WERT_RECHNER.md) |
 | `usage_profiles` | **nein** | DIN-Tabellenwerte, DIN/Beuth-Urheberrecht |
 | `room_types` | ja (Struktur) | DWE-eigene Definitionen und abgeleitete Profilbezüge |
 

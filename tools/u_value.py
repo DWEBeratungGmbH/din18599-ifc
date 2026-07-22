@@ -45,9 +45,15 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
 
-# Ab dieser Unsicherheit des kombinierten Verfahrens ist ein genaueres
-# Verfahren angezeigt (DIN EN ISO 6946, Abschnitt 6.7.3).
-UNSICHERHEIT_WARNSCHWELLE = 0.10
+# HARTE Anwendungsgrenze des vereinfachten Verfahrens (DIN EN ISO 6946, 6.7.2.1):
+# "Das Verfahren gilt nicht fuer Faelle, bei denen das Verhaeltnis des oberen
+# Grenzwertes zum unteren Grenzwert mehr als 1,5 betraegt."
+# Das ist kein Richtwert, sondern ein Ausschluss — deshalb Fehler, nicht Warnung.
+VERHAELTNIS_GRENZE = 1.5
+
+# Bei Verhaeltnis 1,5 betraegt der maximale relative Fehler 20 % (Beispiel in
+# 6.7.2.5). Ab dieser Schwelle wird gewarnt, auch wenn das Verfahren noch gilt.
+FEHLER_WARNSCHWELLE_PROZENT = 10.0
 
 # Ab dieser relativen Abweichung gilt ein angegebener U-Wert als nicht
 # reproduzierbar. Validator-Konstante, kein Schema-Inhalt.
@@ -63,6 +69,7 @@ class Ergebnis:
     method: str = "homogen"
     uncertainty: float | None = None
     resistance_source: str | None = None
+    r_total_rounded: float | None = None
     warnungen: list[str] = field(default_factory=list)
     fehler: list[str] = field(default_factory=list)
 
@@ -114,16 +121,74 @@ def waehle_uebergangswiderstaende(
     return e["rsi"], e["rse"], e["code"]
 
 
-def schicht_widerstand(schicht: dict, materialien: dict) -> tuple[float | None, str | None]:
+def lade_luftschichten() -> dict:
+    """Tabelle 8 mit Stuetzstellen, plus die Regeln aus 6.9."""
+    pfad = REPO / "catalog" / "core" / "air_layers.json"
+    if not pfad.exists():
+        return {}
+    return json.loads(pfad.read_text(encoding="utf-8"))
+
+
+def luftschicht_widerstand(
+    dicke_mm: float, heat_flow: str, katalog: dict
+) -> tuple[float | None, str | None]:
+    """
+    Waermedurchlasswiderstand einer ruhenden Luftschicht nach Tabelle 8.
+    Zwischenwerte werden linear interpoliert, oberhalb der letzten Stuetzstelle
+    (300 mm) wird deren Wert gehalten — die Tabelle laeuft dort flach aus.
+    """
+    stuetzstellen = sorted(
+        katalog.get("entries", []), key=lambda e: e["thickness_mm"]
+    )
+    if not stuetzstellen:
+        return None, "Katalog air_layers fehlt oder ist leer"
+
+    spalte = {"upward": "r_upward", "horizontal": "r_horizontal",
+              "downward": "r_downward"}.get(heat_flow)
+    if spalte is None:
+        return None, f"Unbekannte Waermestromrichtung '{heat_flow}'"
+
+    if dicke_mm <= stuetzstellen[0]["thickness_mm"]:
+        return stuetzstellen[0][spalte], None
+    if dicke_mm >= stuetzstellen[-1]["thickness_mm"]:
+        return stuetzstellen[-1][spalte], None
+
+    for unten, oben in zip(stuetzstellen, stuetzstellen[1:]):
+        if unten["thickness_mm"] <= dicke_mm <= oben["thickness_mm"]:
+            spanne = oben["thickness_mm"] - unten["thickness_mm"]
+            anteil = (dicke_mm - unten["thickness_mm"]) / spanne
+            return unten[spalte] + anteil * (oben[spalte] - unten[spalte]), None
+    return None, "Interpolation fehlgeschlagen"
+
+
+def schicht_widerstand(
+    schicht: dict,
+    materialien: dict,
+    heat_flow: str = "horizontal",
+    luftschichten: dict | None = None,
+) -> tuple[float | None, str | None]:
     """
     Waermedurchlasswiderstand einer Schicht [(m2K)/W].
 
-    Reihenfolge: expliziter r_value (Luftschichten!) vor lambda vor Katalog-Lookup.
+    Reihenfolge:
+      1. expliziter r_value
+      2. Luftschicht (air_layer=True) -> Tabelle 8, richtungsabhaengig
+      3. lambda an der Schicht
+      4. lambda aus dem Materialkatalog
+
     Eine Luftschicht hat keine sinnvolle Waermeleitfaehigkeit — ihr Widerstand
-    steht in DIN EN ISO 6946 Tabelle 8 und gehoert als r_value in die Daten.
+    haengt von Dicke UND Waermestromrichtung ab (DIN EN ISO 6946 Tabelle 8).
     """
     if schicht.get("r_value") is not None:
         return float(schicht["r_value"]), None
+
+    if schicht.get("air_layer"):
+        dicke = schicht.get("thickness_m", schicht.get("thickness"))
+        if dicke is None:
+            return None, "Luftschicht ohne Dicke"
+        return luftschicht_widerstand(
+            float(dicke) * 1000.0, heat_flow, luftschichten or {}
+        )
 
     dicke = schicht.get("thickness_m", schicht.get("thickness"))
     if dicke is None:
@@ -147,11 +212,12 @@ def schicht_widerstand(schicht: dict, materialien: dict) -> tuple[float | None, 
     return float(dicke) / float(lam), None
 
 
-def _sequenz_widerstand(layers: list, materialien: dict) -> tuple[float | None, list]:
+def _sequenz_widerstand(layers: list, materialien: dict, heat_flow: str,
+                        luftschichten: dict) -> tuple[float | None, list]:
     summe = 0.0
     fehler = []
     for schicht in layers:
-        r, problem = schicht_widerstand(schicht, materialien)
+        r, problem = schicht_widerstand(schicht, materialien, heat_flow, luftschichten)
         if problem:
             fehler.append(problem)
         else:
@@ -176,6 +242,8 @@ def berechne(
         )
         return erg
     erg.rsi, erg.rse, erg.resistance_source = rb
+    heat_flow = widerstaende[erg.resistance_source].get("heat_flow", "horizontal")
+    luftschichten = lade_luftschichten()
 
     sequences = construction.get("sequences")
     if not sequences:
@@ -195,7 +263,8 @@ def berechne(
     # --- R_upper: Parallelweg-Grenze ---
     kehrwerte = 0.0
     for seq, anteil in zip(sequences, anteile):
-        r_seq, fehler = _sequenz_widerstand(seq.get("layers", []), materialien)
+        r_seq, fehler = _sequenz_widerstand(seq.get("layers", []), materialien,
+                                            heat_flow, luftschichten)
         if fehler:
             erg.fehler.extend(fehler)
             return erg
@@ -207,6 +276,8 @@ def berechne(
         erg.method = "homogen"
         erg.r_total = r_upper
         erg.u_value = round(1.0 / r_upper, 4)
+        # 6.7.2.2: als Endergebnis ist R_tot auf zwei Dezimalstellen zu runden.
+        erg.r_total_rounded = round(r_upper, 2)
         return erg
 
     # --- R_lower: Reihenweg-Grenze, nur bei deckungsgleicher Schichtung ---
@@ -217,7 +288,8 @@ def berechne(
         for i in range(schichtzahlen.pop()):
             kehrwert = 0.0
             for seq, anteil in zip(sequences, anteile):
-                r, problem = schicht_widerstand(seq["layers"][i], materialien)
+                r, problem = schicht_widerstand(seq["layers"][i], materialien,
+                                                heat_flow, luftschichten)
                 if problem:
                     gleich_geschichtet = False
                     break
@@ -228,14 +300,31 @@ def berechne(
             r_lower += 1.0 / kehrwert
 
     if gleich_geschichtet:
+        # Anwendungsgrenze VOR der Mittelung pruefen: liegt das Verhaeltnis der
+        # Grenzwerte ueber 1,5, ist das vereinfachte Verfahren unzulaessig und
+        # der Mittelwert waere eine Scheingenauigkeit.
+        verhaeltnis = r_upper / r_lower if r_lower > 0 else float("inf")
+        if verhaeltnis > VERHAELTNIS_GRENZE:
+            erg.fehler.append(
+                f"Vereinfachtes Verfahren unzulaessig: R_upper/R_lower = "
+                f"{verhaeltnis:.2f} > {VERHAELTNIS_GRENZE} "
+                f"(DIN EN ISO 6946, 6.7.2.1). Detailliertes Verfahren nach 5.3 "
+                f"anwenden — Ergebnis absichtlich nicht geliefert."
+            )
+            erg.method = "unzulaessig"
+            return erg
+
         erg.method = "kombiniert"
         erg.r_total = (r_upper + r_lower) / 2.0
-        erg.uncertainty = round((r_upper - r_lower) / (2.0 * erg.r_total), 4)
-        if abs(erg.uncertainty) > UNSICHERHEIT_WARNSCHWELLE:
+        # Maximaler relativer Fehler in Prozent, Gleichung (10).
+        erg.uncertainty = round(
+            (r_upper - r_lower) / (2.0 * erg.r_total) * 100.0, 2
+        )
+        if abs(erg.uncertainty) > FEHLER_WARNSCHWELLE_PROZENT:
             erg.warnungen.append(
-                f"Unsicherheit des kombinierten Verfahrens betraegt "
-                f"{abs(erg.uncertainty):.1%} — ueber {UNSICHERHEIT_WARNSCHWELLE:.0%} "
-                f"ist ein genaueres Verfahren angezeigt (DIN EN ISO 6946, 6.7.3)"
+                f"Maximaler relativer Fehler {abs(erg.uncertainty):.1f} % "
+                f"(Verhaeltnis {verhaeltnis:.2f}). Das Verfahren gilt noch, aber "
+                f"das detaillierte Verfahren nach 5.3 liefert ein genaueres Ergebnis."
             )
     else:
         erg.method = "parallelweg_naeherung"
@@ -247,6 +336,7 @@ def berechne(
         )
 
     erg.u_value = round(1.0 / erg.r_total, 4)
+    erg.r_total_rounded = round(erg.r_total, 2)
     return erg
 
 

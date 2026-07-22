@@ -28,13 +28,23 @@ Er ist im Validator eingehängt: Konstruktionen mit angegebenem `u_value` werden
 mit Flächenanteilen:
 
 ```
-R_upper = 1 / Σ(f_j / R_Tj)              Parallelweg-Grenze
-R_lower = Rsi + Rse + Σ_Schichten 1/Σ(f_j/R_lj)    Reihenweg-Grenze
-R_T     = (R_upper + R_lower) / 2
-e       = (R_upper − R_lower) / (2·R_T)  Unsicherheit
+R_upper = 1 / Σ(f_m / R_tot;m)                     Gl. (6), Parallelweg-Grenze
+R_lower = Rsi + Rse + Σ_Schichten 1/Σ(f_m/R_mj)    Gl. (7), Reihenweg-Grenze
+R_tot   = (R_upper + R_lower) / 2                  Gl. (5)
+e       = (R_upper − R_lower) / (2·R_tot) · 100    Gl. (10), in Prozent
 ```
 
-Ab `e > 10 %` warnt der Rechner, dass ein genaueres Verfahren angezeigt ist.
+**Harte Anwendungsgrenze (§6.7.2.1):** Ist `R_upper / R_lower > 1,5`, gilt das
+vereinfachte Verfahren **nicht**. Der Rechner liefert dann bewusst **kein Ergebnis**,
+sondern einen Fehler mit Verweis auf das detaillierte Verfahren nach §5.3 — ein
+Mittelwert wäre hier Scheingenauigkeit. Bei genau 1,5 beträgt der maximale Fehler 20 %.
+Ab `e > 10 %` wird gewarnt, obwohl das Verfahren noch gilt.
+
+Ebenfalls ausgeschlossen: Dämmschichten mit Wärmebrücken aus Metall. Metallische
+Verbindungsmittel dürfen dagegen ignoriert und nachträglich nach Anhang F.3 korrigiert
+werden.
+
+`R_tot` wird als Endergebnis auf zwei Dezimalstellen gerundet mitgeführt (§6.7.2.2).
 
 `R_lower` setzt deckungsgleiche Schichtung aller Abfolgen voraus. Ist das nicht
 gegeben, fällt die Rechnung auf `R_upper` zurück und **sagt das** — eine ehrlich
@@ -65,8 +75,8 @@ benannte Näherung ist besser als ein falscher Mittelwert.
 | Ergebnis | Anzahl |
 |---|---:|
 | **reproduziert** (< 5 % Abweichung) | **2** |
-| weicht ab | 16 |
-| nicht rechenbar (Luftschicht ohne R) | 3 |
+| weicht ab | 16 (+3 nach Tabelle 8) |
+| nicht rechenbar | 3 → **0** |
 | falsches Verfahren (Fenster) | 3 |
 
 **Die angegebenen `u_value_calculated` lassen sich aus den eigenen `layers[]`
@@ -79,16 +89,30 @@ Fenster-U-Wert ergibt. Das ist eine Kategorieverwechslung im Katalog, kein Reche
 Fenster gehören in `window_constructions[]` mit Ug/Uf/g/ψ — die v4.0-Struktur hat das
 bereits.
 
-### 2. Luftschichten haben kein λ (3 Stück)
+### 2. Luftschichten haben kein λ (3 Stück) — gelöst
 
 `MAT_AIR_LAYER_UNVENTILATED` und `MAT_AIR_LAYER_SLIGHTLY_VENTILATED` tragen kein
-`lambda`, weshalb `ROOF_PITCHED_UNINSULATED`, `ROOF_PITCHED_BETWEEN_RAFTERS_160` und
-`FLOOR_TOP_UNINSULATED` gar nicht rechenbar sind.
+`lambda`. **Das ist richtig so** — eine Luftschicht hat keine sinnvolle
+Wärmeleitfähigkeit, ihr Widerstand hängt von Dicke *und* Wärmestromrichtung ab.
 
-**Das ist richtig so** — eine Luftschicht hat keine sinnvolle Wärmeleitfähigkeit. Ihr
-Widerstand steht in DIN EN ISO 6946 Tabelle 8, abhängig von Dicke und
-Wärmestromrichtung. Der Rechner unterstützt dafür ein `r_value` direkt an der Schicht.
-**Die Werte fehlen im Katalog** — siehe offene Punkte.
+Seit dem Katalog `air_layers` (DIN EN ISO 6946 Tabelle 8, mit linearer Interpolation)
+sind alle drei rechenbar. Eine Schicht wird über `air_layer: true` als Luftschicht
+markiert, alternativ trägt sie einen expliziten `r_value`:
+
+| Konstruktion | Katalog | berechnet | Abweichung |
+|---|---:|---:|---:|
+| `ROOF_PITCHED_UNINSULATED` | 1,80 | 1,461 | −18,8 % |
+| `ROOF_PITCHED_BETWEEN_RAFTERS_160` | 0,28 | 0,184 | −34,2 % |
+| `FLOOR_TOP_UNINSULATED` | 1,40 | 1,258 | −10,1 % |
+
+Sie fallen damit in Ursache 3 bzw. 4 — nicht mehr in „nicht rechenbar". Der
+Zwischensparren-Fall mit −34 % ist der klassische Inhomogenitätsfall.
+
+**Ebenfalls im Katalog, noch nicht verdrahtet:** die Regeln für schwach belüftete
+Luftschichten (§6.9.3, lineare Überblendung über die Öffnungsfläche A_ve) und stark
+belüftete (§6.9.4, Luftschicht und alles außerhalb wird verworfen), sowie Tabelle 9
+mit den Widerständen unbeheizter Dachräume (R_u = 0,06 bis 0,30) für
+`adjacency_type: attic_uninsulated`.
 
 ### 3. Der Dämmstoff im U-Wert ist ein anderer als in der Schicht
 
@@ -149,16 +173,21 @@ sichtbar macht.
 
 ## Offene Punkte
 
-1. **Luftschicht-Widerstände fehlen** (DIN EN ISO 6946 Tabelle 8). Ohne sie sind
-   drei Konstruktionen und faktisch jeder reale Dachaufbau nicht rechenbar. Höchste
-   Priorität unter den Datenlücken.
-2. **Flächenanteile für inhomogene Bauteile** — Sparren- und Ständeranteile sind
+1. **C4-Entscheidung zu `air_layers` offen.** Der Katalog enthält 27 Zahlenwerte aus
+   Tabelle 8 — deutlich mehr als die zwölf verstreuten Fx-Einzelfakten. Die Einordnung
+   als gemeinfreie Einzelfakten ist hier weniger eindeutig. Bleibt vorerst öffentlich,
+   weil die U-Wert-Berechnung eine Grundfunktion ist; bei anderer Einschätzung genügt
+   ein Verschieben nach `catalog/values/` plus `values_overlay.required: true`.
+2. **§6.9.3 und §6.9.4 sind katalogisiert, aber noch nicht im Rechner verdrahtet** —
+   belüftete Luftschichten werden derzeit wie ruhende behandelt. Ebenso Tabelle 9
+   (unbeheizte Dachräume) für `attic_uninsulated`.
+3. **Flächenanteile für inhomogene Bauteile** — Sparren- und Ständeranteile sind
    konstruktionsspezifisch, keine Normwerte. Müssen je Konstruktion erfasst werden.
-3. **λ-Herkunft klären:** sind die Werte in `materials.json` Bemessungswerte
+4. **λ-Herkunft klären:** sind die Werte in `materials.json` Bemessungswerte
    (mit Sicherheitszuschlag) oder Nennwerte? Das erklärt keine 15 %, gehört aber
    dokumentiert.
-4. **Fenster-Konstruktionen** aus `constructions.json` nach `window_constructions[]`
+5. **Fenster-Konstruktionen** aus `constructions.json` nach `window_constructions[]`
    überführen.
-5. **Envelope-Migration** von `constructions.json` und `materials.json` — steht
+6. **Envelope-Migration** von `constructions.json` und `materials.json` — steht
    ohnehin an (KATALOG_FORMAT.md, offener Punkt 5) und ist die Gelegenheit,
    `sequences[]` einzuführen.
