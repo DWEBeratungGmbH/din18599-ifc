@@ -28,7 +28,10 @@ WAS DIESES MODUL NICHT KANN, bewusst:
     Modul zu rechnen liefert grob falsche Werte (Faktor 7 beim Dreifachglas).
   - Erdreich. Geliefert wird der BAUTEIL-U-Wert; der Erdreichwiderstand nach
     DIN EN ISO 13370 kommt in der Bilanz ueber Fx dazu.
-  - Korrekturen dU nach Anhang F (Befestigungen, Umkehrdach).
+  - Korrekturen dU nach Anhang F (Luftspalte, Befestigungen, Umkehrdach). Die
+    stehen seit 22.07.2026 in tools/thermal_corrections.py und werden dort auf
+    das hier gelieferte U und R_T aufgesetzt — dieses Modul liefert bewusst
+    weiter den unkorrigierten Wert.
 
 Aufruf:
     python3 tools/u_value.py --construction WALL_EXT_BRICK_WDVS_160

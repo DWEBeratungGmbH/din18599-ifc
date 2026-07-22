@@ -33,11 +33,15 @@ GESCHUETZT = {
                   "r_value", "u_value", "g_value"],
     "moisture_conditions": ["theta_i", "phi_i", "theta_e", "phi_e",
                             "duration_days", "rsi", "rse"],
+    "thermal_corrections": ["delta_u_double_prime"],
 }
 GESCHUETZT_EXTRA = {
     "air_layers": [("unheated_attic_spaces", "entries", "r_u")],
     "moisture_conditions": [("diffusion", "entries", "value"),
                             ("assessment_limits", "entries", "value")],
+    "thermal_corrections": [("fastener_factors", "entries", "value"),
+                            ("inverted_roof_factors", "entries", "value"),
+                            ("application_rules", "entries", "value")],
 }
 
 # Kataloge ausserhalb von catalog/core/ mit abweichender Listen-/Schluesselform.

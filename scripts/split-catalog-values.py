@@ -57,6 +57,14 @@ FELDER = {
         "grund": "Klimarandbedingungen aus DIN 4108-3 Tabelle A.3, "
                  "delta_0 aus C.2.4, Grenzwerte aus 5.2.2/5.3",
     },
+    "thermal_corrections": {
+        "entries": ["delta_u_double_prime"],
+        "extra": [("fastener_factors", "entries", "value"),
+                  ("inverted_roof_factors", "entries", "value"),
+                  ("application_rules", "entries", "value")],
+        "grund": "delta_U'' aus DIN EN ISO 6946 Tabelle F.1, alpha aus F.3.2, "
+                 "f*x und p aus F.4/Tabelle B.7, Bagatellgrenze aus 6.7.3",
+    },
     # Nachtrag 22.07.2026: Der Materialkatalog lag ausserhalb von catalog/core/
     # und ist dem Guard deshalb durchgerutscht — 48 Eintraege mit Bemessungswerten
     # aus DIN 4108-4 Tabelle 1 standen im PUBLIC-Repo. Gleicher Fall wie der
