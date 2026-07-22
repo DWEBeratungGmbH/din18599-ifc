@@ -1,0 +1,129 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://din18599-ifc.de/schema/v4.0/catalogs/moisture_conditions",
+  "title": "Entry-Schema: moisture_conditions",
+  "description": "Randbedingungen einer Periode des Periodenbilanzverfahrens nach DIN 4108-3 Tabelle A.3. Ein Eintrag beschreibt genau eine Periode (Tauperiode oder Verdunstungsperiode) mit Innen- und Aussenklima, Dauer und den Uebergangswiderstaenden des Nachweises. Die Uebergangswiderstaende weichen bewusst von DIN EN ISO 6946 Tabelle 7 ab — der Tauwassernachweis rechnet mit eigenen Randbedingungen.",
+  "type": "object",
+  "required": [
+    "code",
+    "name_de",
+    "period",
+    "theta_i",
+    "phi_i",
+    "theta_e",
+    "phi_e",
+    "duration_days",
+    "rsi",
+    "rse"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "code": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*$"
+    },
+    "name_de": {
+      "type": "string"
+    },
+    "name_en": {
+      "type": "string"
+    },
+    "period": {
+      "type": "string",
+      "enum": [
+        "condensation",
+        "evaporation"
+      ],
+      "description": "Tauperiode oder Verdunstungsperiode. Steuert, welche Gleichungen des Anhangs A angewendet werden."
+    },
+    "theta_i": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": -50,
+      "maximum": 60,
+      "description": "Innenlufttemperatur [Grad C]. null = Wert liegt im privaten Werte-Overlay (values_overlay)."
+    },
+    "phi_i": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Relative Luftfeuchte innen als Anteil (0 bis 1). null = Wert liegt im privaten Werte-Overlay."
+    },
+    "theta_e": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": -50,
+      "maximum": 60,
+      "description": "Aussenlufttemperatur [Grad C]. null = Wert liegt im privaten Werte-Overlay."
+    },
+    "phi_e": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Relative Luftfeuchte aussen als Anteil (0 bis 1). null = Wert liegt im privaten Werte-Overlay."
+    },
+    "duration_days": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 365,
+      "description": "Dauer der Periode in Tagen. null = Wert liegt im privaten Werte-Overlay."
+    },
+    "rsi": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Waermeuebergangswiderstand innen des Nachweises [(m2K)/W]. null = Wert liegt im privaten Werte-Overlay."
+    },
+    "rse": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Waermeuebergangswiderstand aussen des Nachweises [(m2K)/W]. null = Wert liegt im privaten Werte-Overlay."
+    },
+    "applies_to_adjacency": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "adjacency_type-Codes, fuer die diese Periode gilt"
+    },
+    "applies_to_element_type": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "element_type-Werte, fuer die diese Periode gilt"
+    },
+    "norm_cell": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "note_de": {
+      "type": "string"
+    },
+    "note": {
+      "type": "string"
+    }
+  }
+}

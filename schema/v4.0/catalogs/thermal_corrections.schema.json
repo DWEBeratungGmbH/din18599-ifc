@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://din18599-ifc.de/schema/v4.0/catalogs/thermal_corrections",
+  "title": "Entry-Schema: thermal_corrections",
+  "description": "Eine Stufe der Luftspalt-Korrektur nach DIN EN ISO 6946 Tabelle F.1. Die Stufe beschreibt die Art der Zwischenraeume in der Daemmschicht und traegt den zugehoerigen Zuschlag delta_U''. Die uebrigen Groessen des Anhangs F (alpha, f*x, p, Bagatellgrenze) stehen in den Zusatzbloecken des Katalogs, nicht in entries[].",
+  "type": "object",
+  "required": [
+    "code",
+    "level",
+    "name_de",
+    "delta_u_double_prime"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "code": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*$"
+    },
+    "level": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 2,
+      "description": "Stufe nach Tabelle F.1. 0 = keine wesentliche Wirkung, 1 = Zwischenraeume verbinden warme und kalte Seite ohne Zirkulation, 2 = zusaetzlich freie Luftzirkulation."
+    },
+    "name_de": {
+      "type": "string"
+    },
+    "name_en": {
+      "type": "string"
+    },
+    "delta_u_double_prime": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Zuschlag delta_U'' [W/(m2K)] vor Multiplikation mit (R_1/R_tot)^2. null = Wert liegt im privaten Werte-Overlay (values_overlay)."
+    },
+    "unit": {
+      "type": "string"
+    },
+    "norm_cell": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "note_de": {
+      "type": "string"
+    },
+    "note": {
+      "type": "string"
+    }
+  }
+}
