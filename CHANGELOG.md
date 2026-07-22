@@ -34,7 +34,7 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/lang/de/).
     Projektsystem.
   - **`meta.ve_method`** — Ermittlungsmethode des beheizten Volumens ist immer zu
     dokumentieren; `room.volume_reported_m3` ist ausdrücklich nur Plausibilitätswert.
-  - `adjacency_type`-Enum mit 14 Werten (Fx und Maßbezug im Katalog, nicht im Schema),
+  - `adjacency_type`-Enum mit 15 Werten (Fx und Maßbezug im Katalog, nicht im Schema),
     `opening_type`-Enum mit 9 Werten, 5 Validierungsstufen `draft` … `calc_ready`.
 
 - **`schema/v4.0/paths.json`** — generierte Pfad-Whitelist des Sidecars (615 Pfade,
@@ -48,8 +48,35 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/lang/de/).
   `element_groups[].aggregates` und `openings[].geg_reference_row`. Vererbt sich
   auf den Teilbaum und ist damit die Quelle für die `readonly`-Spalte in `paths.json`.
 
+- **W1 — Hüllen- und Geometrie-Kennwerte** (Entscheidungen 22.07.2026):
+  `building.airtightness` (n50/q50, Beiblatt 3 T.6.4.2), `building.thermal_mass`
+  mit Zonen-Override `zone.thermal_mass` (T.6.6), `building.ground_geometry`
+  (B'/P/Einbindetiefe, T.6.5.3/T.6.5.4) plus `boundaries[].ground` je Fläche, und
+  `building.envelope_kpis` (H'T, mittlere U-Werte, Fensterflächenanteil) als
+  `readOnly`. Der Klassen-Zahlenwert der Gebäudeschwere steht im Katalog, nicht
+  im Schema — er ist editionsabhängig.
+- **`adjacency_type: "internal_unheated"`** — Grenzfläche zwischen zwei unbeheizten
+  Räumen innerhalb der Akte. Nie bilanzrelevant, wird für die vollständige
+  Topologie-Dokumentation mitgeführt. Als **innere** Grenze mit
+  `space_b_required: true` im Katalog, damit `BOUNDARY_SPACE_B_MISSING` greift.
+- **`MEASUREMENT_CLEAR_RELEVANT`** — neue Validator-Warnung: Maßbezug
+  `clear_structural` an einer Fläche mit `relevant_18599: true` sperrt
+  `calc_ready`, weil die Hüllfläche dann zu klein gerechnet wäre.
+
 ### Changed
 
+- **`measurement_reference` um `clear_structural` erweitert** — lichtes Rohbaumaß als
+  Übergangszustand für Flächen, deren Umrechnung noch aussteht. Bewusst so benannt
+  wie `opening.measurement_rule = "clear_structural"`: dieselbe Sache heißt an beiden
+  Stellen gleich. Die Feldbeschreibung sagt jetzt „im Regelfall deterministisch aus
+  `adjacency_type`" statt „deterministisch" — der neue Wert ist die dokumentierte
+  Ausnahme und wird deshalb von `MEASUREMENT_REFERENCE_MISMATCH` ausgenommen.
+- **`building.ngf_m2` / `ve_m3` / `envelope_area_m2`** — Beschreibungen geschärft.
+  Sie lasen sich wie abgeleitete Größen („Summe der boundaries[]", „aggregiert aus
+  rooms[]"), sind aber **deklarierte** Werte, die der Validator gegen die berechnete
+  Summe hält (`ENVELOPE_AREA_MISMATCH`, `NGF_MISMATCH`, `VE_MISMATCH`). Als `readOnly`
+  markiert verglichen sie sich gegen ihre eigene Quelle und die Stufe `balanced` wäre
+  wertlos — der Unterschied zu `envelope_kpis` steht jetzt an beiden Feldern.
 - **`fingerprint.tolerance.normal_decimals` → `angle_tolerance_deg`.** Rundungs-
   Dezimalen sind kein Toleranzmaß: gleich gerundete Werte trennen zwei Wände schon
   ab rund 0,3°, vereinigen aber nie zwei Wände über eine Rundungsgrenze hinweg. Die

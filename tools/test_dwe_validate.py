@@ -85,6 +85,22 @@ def baue_faelle(basis: dict) -> list[tuple[str, dict, str]]:
     d["input"]["boundaries"] = [_grenze(adjacency_type="unheated")]
     faelle.append(("unheated ohne Gegenraum", d, "BOUNDARY_SPACE_B_MISSING"))
 
+    # internal_unheated ist eine INNERE Grenzflaeche — space_b ist Pflicht.
+    # Die Regel kommt aus dem Katalog (space_b_required), nicht aus Code.
+    d = copy.deepcopy(basis)
+    d["input"]["boundaries"] = [_grenze(adjacency_type="internal_unheated")]
+    faelle.append(("internal_unheated ohne Gegenraum", d,
+                   "BOUNDARY_SPACE_B_MISSING"))
+
+    # Lichtes Rohbaumass an einer bilanzrelevanten Flaeche: die Huellflaeche
+    # waere zu klein gerechnet, calc_ready bleibt gesperrt.
+    d = copy.deepcopy(basis)
+    d["input"]["boundaries"] = [
+        _grenze(measurement_reference="clear_structural", relevant_18599=True)
+    ]
+    faelle.append(("clear_structural an bilanzrelevanter Flaeche", d,
+                   "MEASUREMENT_CLEAR_RELEVANT"))
+
     d = copy.deepcopy(basis)
     d["input"]["boundaries"] = [
         _grenze(geometry={"type": "z_range", "z_from": 4.2, "z_to": 0.0})

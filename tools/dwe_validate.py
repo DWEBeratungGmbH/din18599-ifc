@@ -362,14 +362,31 @@ def pruefe_geometrie(sidecar: dict, kataloge: dict, erg: Ergebnis) -> None:
                           f"{grenze['id']}: space_b '{grenze['space_b']}' existiert nicht",
                           blocks_level="geometry_ok", json_pointer=zeiger)
 
-            # Massbezug muss zur Angrenzungsart passen.
+            # Massbezug muss zur Angrenzungsart passen. Ausnahme
+            # 'clear_structural': das ist bewusst KEIN aus der Angrenzungsart
+            # ableitbarer Wert, sondern die Doku einer offenen Umrechnung —
+            # er wird deshalb unten eigens geprueft und hier nicht als
+            # Mismatch gegen den Katalog gemeldet.
             soll = eintrag.get("measurement_reference")
             ist = grenze.get("measurement_reference")
-            if ist and soll and ist != soll:
+            if ist and soll and ist != soll and ist != "clear_structural":
                 erg.melde("MEASUREMENT_REFERENCE_MISMATCH", "warning",
                           f"{grenze['id']}: '{art}' verlangt Massbezug '{soll}', "
                           f"gesetzt ist '{ist}'",
                           json_pointer=zeiger)
+
+        # Lichtes Rohbaumass ist ein Uebergangszustand. Solange eine
+        # bilanzrelevante Flaeche darauf steht, ist die Huellflaeche zu klein
+        # gerechnet — das darf calc_ready nicht erreichen. Warnung statt
+        # Fehler nach der Beta-Konvention: die Stufen-Checks blockieren, sie
+        # brechen nicht ab.
+        if (grenze.get("measurement_reference") == "clear_structural"
+                and grenze.get("relevant_18599")):
+            erg.melde("MEASUREMENT_CLEAR_RELEVANT", "warning",
+                      f"{grenze['id']}: Massbezug 'clear_structural' (lichtes "
+                      f"Rohbaumass) an einer bilanzrelevanten Flaeche — "
+                      f"Umrechnung auf Aussen- bzw. Achsmass steht noch aus",
+                      blocks_level="calc_ready", json_pointer=zeiger)
 
         geom = grenze.get("geometry") or {}
         if geom.get("type") == "polygon":

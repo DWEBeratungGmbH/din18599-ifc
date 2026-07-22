@@ -104,9 +104,18 @@ Boundary die Raum-Bauteil-Beziehung mit eigener Fläche.
 
 - `space_a` ist **immer** der innere bzw. wärmere Raum. Diese Konvention ist
   verbindlich, sonst kippen Vorzeichen und Fx-Zuordnung.
-- `space_b` ist `null` bei `exterior`, Erdreich und `adjacent_building`.
+- `space_b` ist `null` bei `exterior`, Erdreich und `adjacent_building`. Bei
+  `internal_unheated` — der Grenze zwischen zwei unbeheizten Räumen innerhalb der
+  Akte — ist er dagegen **Pflicht**: das ist eine innere Grenze. Sie ist nie
+  bilanzrelevant und wird nur für die vollständige Topologie mitgeführt. Welche
+  Art einen Gegenraum braucht, steht im Katalog (`space_b_required`), nicht im Code.
 - Getrennte Flächen für Bilanz (`area_18599`) und Heizlast (`area_heizlast`) — die
   Heizlast rechnet raumweise und mit anderem Maßbezug.
+- `measurement_reference` folgt im Regelfall deterministisch aus der Angrenzungsart.
+  Der dritte Wert `clear_structural` (lichtes Rohbaumaß) ist die Ausnahme: ein
+  **Übergangszustand** für Flächen, deren Umrechnung noch aussteht. An einer
+  bilanzrelevanten Fläche meldet der Validator `MEASUREMENT_CLEAR_RELEVANT` und
+  sperrt `calc_ready` — die Hüllfläche wäre sonst zu klein gerechnet.
 - Geometrie als `z_range` (Regelfall) oder `polygon` (Giebel, Schrägen), in
   2D-Koordinaten der Bauteilebene.
 
@@ -243,9 +252,12 @@ Ehrliche Lücken, keine Absichtserklärungen:
   pauschal über `element_groups[].delta_u_wb`.
 - **Verschattung:** `shading`-Objekt vorhanden, v1 arbeitet mit dem Default Fs = 0,9.
   `source: "computed"` ist vorgesehen, aber nicht belegt.
-- **Erdreich-Fx:** v1 vereinfacht 0,6 (Fußnote a zu Tabelle 6). Die volle B'/Rf-Matrix
-  fehlt — dabei sind die Geometrieregeln nach DIN V 18599-2 §6.1.4.4 zu beachten
-  (Reihenbebauung, Teilunterkellerung).
+- **Erdreich-Fx:** v1 vereinfacht 0,6 (Fußnote a zu Tabelle 6). Die **Eingangsgrößen**
+  für B'/Rf sind mit W1 da — `building.ground_geometry` als Gebäude-Aggregat und
+  `boundaries[].ground` je Fläche (bei Widerspruch gewinnt die Fläche). Die
+  **Auflösung** der Matrix fehlt weiterhin, ebenso die Geometrieregeln nach
+  DIN V 18599-2 §6.1.4.4 (Reihenbebauung, Teilunterkellerung). Das Format kann die
+  Daten transportieren, der Rechenweg steht aus.
 - **LCA/Ökobilanz:** vollständig offen. 17 produktiv geschriebene QNG-Pfade nach
   EN-15804-Modulen liegen als Vorlage vor, siehe
   [`docs/v4/QNG_SIDECAR_PFADE.md`](v4/QNG_SIDECAR_PFADE.md).

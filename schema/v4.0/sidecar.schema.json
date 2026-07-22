@@ -215,20 +215,65 @@
         "subtype": { "type": "string" },
         "ngf_m2": {
           "type": "number", "minimum": 0,
-          "description": "Nettogrundflaeche nach DIN 277 [m2] — aggregiert aus rooms[]"
+          "description": "Nettogrundflaeche nach DIN 277 [m2]. DEKLARIERTER Wert, bewusst NICHT read-only: der Validator haelt ihn gegen die Summe aus rooms[].area_ngf_m2 (NGF_MISMATCH). Waere er abgeleitet, verglichen er sich gegen seine eigene Quelle und die Stufe 'balanced' waere wertlos."
         },
         "bgf_m2": { "type": "number", "minimum": 0, "description": "Bruttogrundflaeche [m2]" },
         "ve_m3": {
           "type": "number", "minimum": 0,
-          "description": "Beheiztes Gebaeudevolumen [m3]. Ermittlungsmethode steht in meta.ve_method."
+          "description": "Beheiztes Gebaeudevolumen [m3]. Ermittlungsmethode steht in meta.ve_method. Deklariert und gegen die Summe aus rooms[].volume_ve_m3 geprueft (VE_MISMATCH) — siehe ngf_m2."
         },
         "envelope_area_m2": {
           "type": "number", "minimum": 0,
-          "description": "Huellflaeche A [m2] — Summe der boundaries[] mit relevant_18599=true"
+          "description": "Huellflaeche A [m2]. Deklariert und gegen die Summe der boundaries[] mit relevant_18599=true geprueft (ENVELOPE_AREA_MISMATCH) — siehe ngf_m2."
         },
         "av_ratio": { "type": "number", "minimum": 0, "description": "A/Ve [1/m]" },
         "storeys_above_ground": { "type": "integer", "minimum": 0 },
-        "storeys_below_ground": { "type": "integer", "minimum": 0 }
+        "storeys_below_ground": { "type": "integer", "minimum": 0 },
+
+        "airtightness": {
+          "type": "object",
+          "description": "Luftdichtheit der Gebaeudehuelle (W1, Beiblatt 3 T.6.4.2). Gemeinsame Eingangsgroesse fuer DIN V 18599-2 (Infiltration), DIN EN 12831-1 (Heizlast) und DIN 1946-6 (Lueftungskonzept).",
+          "properties": {
+            "n50_h":      { "type": "number", "minimum": 0, "description": "Luftwechsel bei 50 Pa Druckdifferenz [1/h]" },
+            "q50_m3_hm2": { "type": "number", "minimum": 0, "description": "Luftdurchlaessigkeit bei 50 Pa, huellflaechenbezogen [m3/(h*m2)]" },
+            "source":     { "type": "string", "enum": ["measured", "planned", "default"], "description": "measured = Blower-Door-Messung, planned = Planungswert, default = Norm-Standardwert (Herkunft im Katalog, editionsabhaengig)" },
+            "test_date":  { "type": "string", "format": "date" },
+            "note":       { "type": "string" }
+          }
+        },
+
+        "thermal_mass": {
+          "type": "object",
+          "description": "Gebaeudeschwere (W1, Beiblatt 3 T.6.6, DIN V 18599-2). Klasse ODER expliziter Wert; der Klassen-Zahlenwert (Wh/(m2*K)) steht im Katalog, NICHT im Schema (editionsabhaengig). Zonen koennen per zone.thermal_mass abweichen.",
+          "properties": {
+            "class":        { "type": "string", "enum": ["light", "medium", "heavy"], "description": "leicht/mittel/schwer nach DIN V 18599-2" },
+            "c_eff_wh_m2k": { "type": "number", "minimum": 0, "description": "Wirksame Speicherkapazitaet [Wh/(m2*K)], falls explizit ermittelt — gewinnt gegenueber class" }
+          }
+        },
+
+        "ground_geometry": {
+          "type": "object",
+          "description": "Erdreich-Kennmasse des Gebaeudes (W1, Beiblatt 3 T.6.5.3/T.6.5.4). Grundlage fuer Fx-Erdreich (B'/Rf) und die Erdreich-Ansaetze der 12831. VORRANG: liegen Werte an den Flaechen (boundaries[].ground), gewinnen DIESE — hier stehen die gebaeudebezogenen Aggregatwerte, die auch dann tragen, wenn boundaries[] noch leer ist. Bewusst nicht read-only: in fruehen Stufen ist dies die einzige Quelle.",
+          "properties": {
+            "b_prime_m":               { "type": "number", "minimum": 0, "description": "Bodenplattenmass B' = A_G / (0,5 * P) [m] nach DIN EN ISO 13370 — A_G Bodenplattenflaeche, P freier Umfang" },
+            "perimeter_exposed_m":     { "type": "number", "minimum": 0, "description": "Freier (nach aussen exponierter) Umfang P der Bodenplatte [m]" },
+            "characteristic_length_m": { "type": "number", "minimum": 0 },
+            "characteristic_width_m":  { "type": "number", "minimum": 0 },
+            "basement_depth_m":        { "type": "number", "minimum": 0, "description": "Mittlere Einbindetiefe des Kellers unter Gelaende [m]" }
+          }
+        },
+
+        "envelope_kpis": {
+          "type": "object",
+          "readOnly": true,
+          "description": "ABGELEITETE Huellen-Kennzahlen (W1, Beiblatt 3 T.6.2.1/T.6.5.1). READ-ONLY: wird beim Export/Import aus boundaries[] und element_groups[] berechnet, nie gepflegt — bei Abweichung gewinnt die Quelle. Unterschied zu envelope_area_m2/ngf_m2/ve_m3: fuer die gibt es einen Abgleich gegen eine unabhaengige Deklaration, hier nicht.",
+          "properties": {
+            "h_t_prime_w_m2k":     { "type": "number", "minimum": 0, "description": "Spezifischer Transmissionswaermeverlust H'T [W/(m2*K)]" },
+            "u_mean_opaque_w_m2k": { "type": "number", "minimum": 0 },
+            "u_mean_window_w_m2k": { "type": "number", "minimum": 0 },
+            "window_area_ratio":   { "type": "number", "minimum": 0, "maximum": 1, "description": "Fensterflaechenanteil f [-] nach DIN V 18599-1" }
+          }
+        }
       }
     },
 
@@ -358,6 +403,15 @@
         "conditioned": { "type": "boolean" },
         "area_m2":     { "type": "number", "minimum": 0, "description": "Aggregiert aus zugeordneten Raeumen [m2]" },
         "volume_m3":   { "type": "number", "minimum": 0 },
+
+        "thermal_mass": {
+          "type": "object",
+          "description": "Zonen-Override der Gebaeudeschwere (W1, Beiblatt 3 T.6.6 fuehrt sie zonenweise). Fehlt das Objekt, gilt building.thermal_mass. Wie dort gewinnt c_eff_wh_m2k gegenueber class.",
+          "properties": {
+            "class":        { "type": "string", "enum": ["light", "medium", "heavy"] },
+            "c_eff_wh_m2k": { "type": "number", "minimum": 0 }
+          }
+        },
 
         "used_profile_values": {
           "type": "object",
@@ -522,8 +576,8 @@
         },
         "measurement_reference": {
           "type": "string",
-          "enum": ["outer", "axis"],
-          "description": "Massbezug nach DIN 18599-1 Abschnitt 8. Folgt deterministisch aus adjacency_type (Aussenmass bei exterior/unheated/attic/glass/ground, Achsmass bei low_heated/other_zone/same_zone/adjacent_building) und wird zur Nachvollziehbarkeit mitgefuehrt."
+          "enum": ["outer", "axis", "clear_structural"],
+          "description": "Massbezug nach DIN 18599-1 Abschnitt 8. Im Regelfall folgt er deterministisch aus adjacency_type (Aussenmass bei exterior/unheated/attic/glass/ground, Achsmass bei low_heated/other_zone/same_zone/adjacent_building/internal_unheated) und wird zur Nachvollziehbarkeit mitgefuehrt. AUSNAHME 'clear_structural' = lichtes Rohbaumass: ein UEBERGANGSZUSTAND fuer Flaechen, deren Aussenmass-Umrechnung noch aussteht (z.B. horizontale Flaechen vor der Dach-Etappe). Er ist bewusst NICHT aus adjacency_type ableitbar, sondern dokumentiert eine offene Umrechnung. Bilanzrelevante Flaechen (relevant_18599=true) muessen fuer calc_ready 'outer' bzw. 'axis' tragen; der Validator meldet MEASUREMENT_CLEAR_RELEVANT. Benannt wie opening.measurement_rule='clear_structural' — dieselbe Sache heisst an beiden Stellen gleich."
         },
 
         "area_18599": {
@@ -545,6 +599,16 @@
         },
 
         "geometry": { "$ref": "#/definitions/boundary_geometry" },
+
+        "ground": {
+          "type": "object",
+          "description": "Erdreich-Kennmasse DIESER Flaeche (W1) — nur bei adjacency_type ground_slab / ground_basement_*. Das Gebaeude-Aggregat steht in building.ground_geometry; bei Widerspruch gewinnen die Werte HIER, weil sie die feinere Aufloesung tragen (Teilunterkellerung, Hanglage).",
+          "properties": {
+            "b_prime_m":           { "type": "number", "minimum": 0, "description": "Bodenplattenmass B' dieser Teilflaeche [m] nach DIN EN ISO 13370" },
+            "perimeter_exposed_m": { "type": "number", "minimum": 0 },
+            "depth_below_grade_m": { "type": "number", "minimum": 0, "description": "Mittlere Tiefe der Flaeche unter Gelaende [m] (bei Kellerwaenden: Wandmitte)" }
+          }
+        },
 
         "openings": {
           "type": "array",
@@ -698,7 +762,7 @@
 
     "adjacency_type": {
       "type": "string",
-      "description": "Angrenzungsart nach DIN V 18599-2:2018-09 Tabelle 5/6. Fx-Werte und Massbezugsregel stehen im adjacency_types-Katalog, NICHT im Schema — sie sind editionsabhaengig. VALIDIERUNGSREGEL: low_heated und other_zone schliessen sich aus. Gehoert der Nachbarraum mit heating_status=low_heated einer bilanzierten Zone an, MUSS other_zone gesetzt werden — Fx=0,35 ist der ERSATZ fuer eine fehlende Nachbarzonen-Bilanz, kein Zusatz dazu.",
+      "description": "Angrenzungsart nach DIN V 18599-2:2018-09 Tabelle 5/6. Fx-Werte und Massbezugsregel stehen im adjacency_types-Katalog, NICHT im Schema — sie sind editionsabhaengig. VALIDIERUNGSREGEL: low_heated und other_zone schliessen sich aus. Gehoert der Nachbarraum mit heating_status=low_heated einer bilanzierten Zone an, MUSS other_zone gesetzt werden — Fx=0,35 ist der ERSATZ fuer eine fehlende Nachbarzonen-Bilanz, kein Zusatz dazu. internal_unheated = Grenzflaeche zwischen ZWEI unbeheizten Raeumen innerhalb der Akte: nie bilanzrelevant (relevant_18599=false, Fx=0), wird aber fuer die vollstaendige Topologie-Dokumentation mitgefuehrt (Entscheidung 22.07.2026). Sie ist eine INNERE Grenze — space_b ist damit Pflicht, anders als bei exterior/ground/adjacent_building.",
       "enum": [
         "exterior",
         "attic_uninsulated",
@@ -713,7 +777,8 @@
         "floor_suspended",
         "other_zone",
         "same_zone",
-        "adjacent_building"
+        "adjacent_building",
+        "internal_unheated"
       ]
     },
 

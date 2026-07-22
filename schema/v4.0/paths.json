@@ -8,7 +8,7 @@
     ".{pattern:X}": "patternProperties, X ist der Regex"
   },
   "readonly_hinweis": "readonly=true kommt aus readOnly im Schema und vererbt sich auf den Teilbaum. Solche Pfade duerfen gelesen, aber nicht geschrieben werden — sie werden beim Export neu berechnet.",
-  "count": 615,
+  "count": 642,
   "paths": [
     {
       "path": "documents",
@@ -311,6 +311,26 @@
       "kind": "property"
     },
     {
+      "path": "input.boundaries[].ground",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].ground.b_prime_m",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].ground.depth_below_grade_m",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].ground.perimeter_exposed_m",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
       "path": "input.boundaries[].id",
       "readonly": false,
       "kind": "property"
@@ -526,6 +546,36 @@
       "kind": "property"
     },
     {
+      "path": "input.building.airtightness",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.building.airtightness.n50_h",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.building.airtightness.note",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.building.airtightness.q50_m3_hm2",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.building.airtightness.source",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.building.airtightness.test_date",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
       "path": "input.building.av_ratio",
       "readonly": false,
       "kind": "property"
@@ -542,6 +592,61 @@
     },
     {
       "path": "input.building.envelope_area_m2",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.building.envelope_kpis",
+      "readonly": true,
+      "kind": "property"
+    },
+    {
+      "path": "input.building.envelope_kpis.h_t_prime_w_m2k",
+      "readonly": true,
+      "kind": "property"
+    },
+    {
+      "path": "input.building.envelope_kpis.u_mean_opaque_w_m2k",
+      "readonly": true,
+      "kind": "property"
+    },
+    {
+      "path": "input.building.envelope_kpis.u_mean_window_w_m2k",
+      "readonly": true,
+      "kind": "property"
+    },
+    {
+      "path": "input.building.envelope_kpis.window_area_ratio",
+      "readonly": true,
+      "kind": "property"
+    },
+    {
+      "path": "input.building.ground_geometry",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.building.ground_geometry.b_prime_m",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.building.ground_geometry.basement_depth_m",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.building.ground_geometry.characteristic_length_m",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.building.ground_geometry.characteristic_width_m",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.building.ground_geometry.perimeter_exposed_m",
       "readonly": false,
       "kind": "property"
     },
@@ -567,6 +672,21 @@
     },
     {
       "path": "input.building.subtype",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.building.thermal_mass",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.building.thermal_mass.c_eff_wh_m2k",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.building.thermal_mass.class",
       "readonly": false,
       "kind": "property"
     },
@@ -1737,6 +1857,21 @@
     },
     {
       "path": "input.zones[].parent_zone_ref",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.zones[].thermal_mass",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.zones[].thermal_mass.c_eff_wh_m2k",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.zones[].thermal_mass.class",
       "readonly": false,
       "kind": "property"
     },

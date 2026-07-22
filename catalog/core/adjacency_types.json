@@ -258,6 +258,21 @@
       "space_b_required": false,
       "default_relevant_18599": false,
       "default_relevant_heizlast": false
+    },
+    {
+      "code": "internal_unheated",
+      "name_de": "Zwischen zwei unbeheizten Raeumen",
+      "name_en": "Between two unheated spaces",
+      "fx": {
+        "method": "constant",
+        "value": null,
+        "note": "Nie bilanzrelevant: zwischen zwei unbeheizten Raeumen wird kein Waermestrom angesetzt. Der Eintrag dient der vollstaendigen Topologie-Dokumentation (Entscheidung 22.07.2026)."
+      },
+      "measurement_reference": "axis",
+      "measurement_note": "Achsmass — innere Grenzflaeche",
+      "space_b_required": true,
+      "default_relevant_18599": false,
+      "default_relevant_heizlast": false
     }
   ]
 }
