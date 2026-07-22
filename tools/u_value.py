@@ -120,9 +120,23 @@ def merge_overlay(katalog: dict) -> tuple[dict, str | None]:
         )
 
     werte = json.loads(pfad.read_text(encoding="utf-8"))
+
+    # Nicht jeder Katalog heisst seine Liste "entries" und seinen Schluessel
+    # "code": catalog/materials.json nutzt "materials"/"id". Das Overlay selbst
+    # legt seine Werte immer unter "entries" ab, nur der Zielkatalog variiert.
+    #
+    # Warum das hier steht: Beim Materials-Split am 22.07.2026 blieb diese
+    # Funktion auf entries/code verdrahtet, waehrend die beiden Guard-Skripte
+    # bereits verallgemeinert wurden. Folge war ein stiller Totalausfall —
+    # lade_materialien() bekam nur null-Platzhalter und jede Konstruktion mit
+    # material_ref lieferte u_value = None. Derselbe Fehler wie zuvor bei
+    # lade_luftschichten(), das ebenfalls am Merge vorbeigelesen hatte.
+    merge_key = overlay_konfig.get("merge_key", "code")
+    merge_list = overlay_konfig.get("merge_list", "entries")
+
     nach_code = werte.get("entries", {})
-    for eintrag in katalog.get("entries", []):
-        for feld, wert in nach_code.get(eintrag.get("code"), {}).items():
+    for eintrag in katalog.get(merge_list, []):
+        for feld, wert in nach_code.get(eintrag.get(merge_key), {}).items():
             _setze_pfad(eintrag, feld, wert)
 
     # Anhaenge ausserhalb entries[] (z.B. unheated_attic_spaces)
@@ -165,6 +179,10 @@ def lade_materialien() -> dict:
     if not pfad.exists():
         return {}
     roh = json.loads(pfad.read_text(encoding="utf-8"))
+    # Ueber merge_overlay, NICHT direkt: die Bemessungswerte aus DIN 4108-4
+    # liegen seit dem Split im gitignorierten Overlay. Wer hier die Datei
+    # direkt liest, bekommt lauter null und rechnet mit nichts.
+    roh, _ = merge_overlay(roh)
     return {m["id"]: m for m in roh.get("materials", [])}
 
 

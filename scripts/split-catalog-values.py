@@ -173,6 +173,10 @@ def split(katalog_id: str, konfig: dict, dry_run: bool) -> dict | None:
         "required": True,
         "expected_file": overlay_datei,
         "merge_key": schluessel,
+        # Ohne diese Angabe faellt merge_overlay() auf "entries" zurueck und
+        # findet die Liste nicht — genau daran ist der Materialkatalog nach dem
+        # Split still ausgefallen.
+        "merge_list": liste,
         "missing_value_message": (
             f"Werte fuer '{katalog_id}' fehlen ({konfig['grund']}). "
             f"Overlay unter {overlay_datei} bereitstellen — aus eigener Normlizenz "

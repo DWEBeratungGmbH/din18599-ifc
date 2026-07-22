@@ -663,6 +663,7 @@
     "required": true,
     "expected_file": "catalog/values/materials.values.json",
     "merge_key": "id",
-    "missing_value_message": "Werte fuer 'materials' fehlen (Bemessungswerte aus DIN 4108-4 Tabelle 1 ff.). Overlay unter catalog/values/materials.values.json bereitstellen — aus eigener Normlizenz oder ueber DWEapp. Ohne aufgeloeste Werte kein calc_ready."
+    "missing_value_message": "Werte fuer 'materials' fehlen (Bemessungswerte aus DIN 4108-4 Tabelle 1 ff.). Overlay unter catalog/values/materials.values.json bereitstellen — aus eigener Normlizenz oder ueber DWEapp. Ohne aufgeloeste Werte kein calc_ready.",
+    "merge_list": "materials"
   }
 }
