@@ -21,21 +21,21 @@
   "rules": {
     "unventilated": {
       "norm_ref": "6.9.2",
-      "criterion_mm2": 500,
       "description": "Ruhend, wenn kein Luftstrom vorgesehen ist. Auch mit kleinen Oeffnungen zur Aussenumgebung, solange diese 500 mm2 je Meter Laenge (vertikale Luftschicht) bzw. je Quadratmeter Oberflaeche (horizontale Luftschicht) nicht ueberschreiten und kein Durchstroemen moeglich ist.",
-      "note": "Entwaesserungsoeffnungen als offene Stossfugen in der Aussenschale zweischaligen Mauerwerks erfuellen diese Kriterien in der Regel und gelten NICHT als Lueftungsoeffnungen."
+      "note": "Entwaesserungsoeffnungen als offene Stossfugen in der Aussenschale zweischaligen Mauerwerks erfuellen diese Kriterien in der Regel und gelten NICHT als Lueftungsoeffnungen.",
+      "criterion_ref": "threshold_unventilated_mm2"
     },
     "slightly_ventilated": {
       "norm_ref": "6.9.3",
-      "criterion_mm2_min": 500,
-      "criterion_mm2_max": 1500,
       "formula": "R_tot = (1500 - A_ve)/1000 * R_tot_nve + (A_ve - 500)/1000 * R_tot_ve",
-      "description": "Lineare Ueberblendung zwischen dem Aufbau mit ruhender und dem mit stark beluefteter Luftschicht, gesteuert ueber die Oeffnungsflaeche A_ve in mm2."
+      "description": "Lineare Ueberblendung zwischen dem Aufbau mit ruhender und dem mit stark beluefteter Luftschicht, gesteuert ueber die Oeffnungsflaeche A_ve in mm2.",
+      "criterion_ref_min": "threshold_unventilated_mm2",
+      "criterion_ref_max": "threshold_well_ventilated_mm2"
     },
     "well_ventilated": {
       "norm_ref": "6.9.4",
-      "criterion_mm2": 1500,
-      "description": "Der Waermedurchlasswiderstand der Luftschicht UND aller Schichten zwischen ihr und der Aussenumgebung wird vernachlaessigt. Als aeusserer Uebergangswiderstand wird der Wert fuer ruhende Luft angesetzt — vereinfacht darf der Rsi-Wert aus Tabelle 7 verwendet werden."
+      "description": "Der Waermedurchlasswiderstand der Luftschicht UND aller Schichten zwischen ihr und der Aussenumgebung wird vernachlaessigt. Als aeusserer Uebergangswiderstand wird der Wert fuer ruhende Luft angesetzt — vereinfacht darf der Rsi-Wert aus Tabelle 7 verwendet werden.",
+      "criterion_ref": "threshold_well_ventilated_mm2"
     }
   },
   "interpolation": "linear",
@@ -141,6 +141,51 @@
         "r_u": null,
         "name_de": "Dach mit Schalung und Pappe",
         "norm_cell": "T9-Z4"
+      }
+    ]
+  },
+  "ventilation": {
+    "description": "Schwellen und Divisor der Einstufung nach 6.9. Bezug: je Meter Laenge in horizontaler Richtung bei VERTIKALEN Luftschichten, je Quadratmeter Oberflaeche bei HORIZONTALEN Luftschichten. Die Zahlenwerte stammen aus dem Normtext und liegen im privaten Werte-Overlay.",
+    "entries": [
+      {
+        "code": "threshold_unventilated_mm2",
+        "name_de": "Obergrenze der Oeffnungsflaeche fuer eine ruhende Luftschicht",
+        "value": null,
+        "unit": "mm2",
+        "norm_cell": "6.9.2"
+      },
+      {
+        "code": "threshold_well_ventilated_mm2",
+        "name_de": "Untergrenze der Oeffnungsflaeche fuer eine stark belueftete Luftschicht",
+        "value": null,
+        "unit": "mm2",
+        "norm_cell": "6.9.4"
+      },
+      {
+        "code": "interpolation_divisor",
+        "name_de": "Divisor der Interpolationsgleichung (11)",
+        "value": null,
+        "unit": "mm2",
+        "norm_cell": "6.9.3"
+      }
+    ]
+  },
+  "standard_selection": {
+    "description": "Informative Standardauswahl aus Tabelle B.6. Anhang A (Tabelle A.6) ist eine leere Vorlage fuer nationale Festlegungen — eine abweichende nationale Festlegung geht diesen Flags vor. Als Flag gehalten, damit die Umschaltung ohne Code-Aenderung moeglich ist.",
+    "entries": [
+      {
+        "code": "approximation_6_9_3_permitted",
+        "name_de": "Naeherung fuer schwach belueftete Luftschichten nach 6.9.3 zulaessig",
+        "value": null,
+        "unit": "-",
+        "norm_cell": "T-B.6-6.9"
+      },
+      {
+        "code": "simplified_unheated_spaces_permitted",
+        "name_de": "Vereinfachte Behandlung unbeheizter Raeume nach 6.10.2/6.10.3 zulaessig",
+        "value": null,
+        "unit": "-",
+        "norm_cell": "T-B.6-6.10"
       }
     ]
   }

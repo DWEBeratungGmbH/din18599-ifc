@@ -36,7 +36,9 @@ GESCHUETZT = {
     "thermal_corrections": ["delta_u_double_prime"],
 }
 GESCHUETZT_EXTRA = {
-    "air_layers": [("unheated_attic_spaces", "entries", "r_u")],
+    "air_layers": [("unheated_attic_spaces", "entries", "r_u"),
+                   ("ventilation", "entries", "value"),
+                   ("standard_selection", "entries", "value")],
     "moisture_conditions": [("diffusion", "entries", "value"),
                             ("assessment_limits", "entries", "value")],
     "thermal_corrections": [("fastener_factors", "entries", "value"),

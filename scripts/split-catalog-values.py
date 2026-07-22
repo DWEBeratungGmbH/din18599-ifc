@@ -46,7 +46,9 @@ FELDER = {
     },
     "air_layers": {
         "entries": ["r_upward", "r_horizontal", "r_downward"],
-        "extra": [("unheated_attic_spaces", "entries", "r_u")],
+        "extra": [("unheated_attic_spaces", "entries", "r_u"),
+                  ("ventilation", "entries", "value"),
+                  ("standard_selection", "entries", "value")],
         "grund": "Luftschicht-Widerstaende aus DIN EN ISO 6946 Tabelle 8 und 9",
     },
     "moisture_conditions": {
