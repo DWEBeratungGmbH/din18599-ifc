@@ -27,6 +27,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import sys
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -118,6 +119,96 @@ def pruefe_schema(sidecar: dict, erg: Ergebnis) -> bool:
 
 
 # --- Stufe 2: enriched -------------------------------------------------------
+
+def _ebene(gruppe: dict) -> tuple | None:
+    """Normierte Ebene (Einheitsnormale, Abstand) einer Gruppe, oder None.
+
+    Gibt None zurueck, wenn der Fingerprint fehlt oder entartet ist — solche
+    Gruppen sind kein Kollisionsbefund, sondern ein Schema-Thema.
+    """
+    fp = gruppe.get("fingerprint") or {}
+    try:
+        n = (float(fp.get("normal_x", 0.0)),
+             float(fp.get("normal_y", 0.0)),
+             float(fp.get("normal_z") or 0.0))
+        dist = float(fp.get("dist_m", 0.0))
+    except (TypeError, ValueError):
+        return None
+    laenge = math.sqrt(sum(k * k for k in n))
+    if laenge < 1e-9:
+        return None
+    return tuple(k / laenge for k in n), dist
+
+
+def pruefe_fingerprint_kollisionen(gruppen: dict, erg: Ergebnis) -> None:
+    """Zwei Gruppen, deren Ebenen innerhalb der Gruppierungstoleranzen liegen,
+    waeren in Wahrheit eine Gruppe.
+
+    Verglichen wird der WINKELABSTAND der Normalen, nicht die Gleichheit
+    gerundeter Werte: Runden ist Quantisierung, keine Toleranz. Der alte
+    Bucket-Vergleich uebersah jede Kollision, die knapp ueber einer
+    Rundungsgrenze lag, und war nicht transitiv.
+
+    Der Betrag |n_a . n_b| vergleicht EBENEN statt Vektoren und faengt damit
+    den Kanonisierungs-Kipppunkt bei normal_x nahe 0 mit ab — dort kippt das
+    Vorzeichen der Normalen und dist_m wird mitgespiegelt.
+
+    Die Paar-Toleranz ist das MAXIMUM beider Gruppen: sonst haengt der Befund
+    davon ab, welche Gruppe zufaellig zuerst in der Liste steht.
+
+    Der Check ist mit der Greedy-Repraesentanten-Regel konsistent — dort wird
+    eine neue Gruppe nur eroeffnet, wenn das Element zu KEINEM bestehenden
+    Repraesentanten passt. Zwei Repraesentanten innerhalb der Toleranz sind
+    also per Konstruktion unmoeglich und jeder Treffer ein echter Befund.
+    """
+    # Vorsortierung nach Bauteiltyp: Gruppen verschiedenen Typs kollidieren
+    # per Definition nie, das spart den Grossteil der Paare. Innerhalb des
+    # Typs nach |dist| sortiert, damit die Schleife abbrechen kann.
+    nach_typ: dict[str, list] = {}
+    for gruppe in gruppen.values():
+        ebene = _ebene(gruppe)
+        if ebene is None:
+            continue
+        nach_typ.setdefault(gruppe.get("element_type"), []).append((gruppe, ebene))
+
+    for eintraege in nach_typ.values():
+        eintraege.sort(key=lambda e: abs(e[1][1]))
+        # Konservative Abbruchschranke fuer diesen Typ: die groesste im Typ
+        # dokumentierte Abstandstoleranz.
+        max_dist_tol = max(
+            float((g.get("fingerprint", {}).get("tolerance") or {})
+                  .get("dist_tolerance_m", 0.02))
+            for g, _ in eintraege
+        )
+        for ia, (ga, (na, da)) in enumerate(eintraege):
+            for gb, (nb, db) in eintraege[ia + 1:]:
+                # |s*da - db| <= tol erzwingt ||da| - |db|| <= tol, also darf
+                # ab dieser Differenz abgebrochen werden (nach |dist| sortiert).
+                if abs(db) - abs(da) > max_dist_tol:
+                    break
+
+                tol_a = (ga.get("fingerprint", {}).get("tolerance") or {})
+                tol_b = (gb.get("fingerprint", {}).get("tolerance") or {})
+                winkel_tol = max(float(tol_a.get("angle_tolerance_deg", 1.0)),
+                                 float(tol_b.get("angle_tolerance_deg", 1.0)))
+                dist_tol = max(float(tol_a.get("dist_tolerance_m", 0.02)),
+                               float(tol_b.get("dist_tolerance_m", 0.02)))
+
+                skalar = sum(x * y for x, y in zip(na, nb))
+                skalar = max(-1.0, min(1.0, skalar))     # Rundungsdrift abfangen
+                if abs(skalar) < math.cos(math.radians(winkel_tol)) - 1e-12:
+                    continue
+                # Bei antiparalleler Normale ist dist mitgespiegelt.
+                vorzeichen = 1.0 if skalar >= 0 else -1.0
+                if abs(vorzeichen * da - db) <= dist_tol:
+                    winkel = math.degrees(math.acos(abs(skalar)))
+                    erg.melde("FINGERPRINT_COLLISION", "warning",
+                              f"{ga['id']} und {gb['id']}: Ebenen liegen innerhalb "
+                              f"der Gruppierungstoleranzen ({winkel:.2f} von "
+                              f"{winkel_tol:g} Grad, {abs(vorzeichen * da - db):.3f} "
+                              f"von {dist_tol:g} m) — sie muessten eine Gruppe sein",
+                              json_pointer="/input/element_groups")
+
 
 def pruefe_fachdaten(sidecar: dict, kataloge: dict, erg: Ergebnis) -> None:
     eingabe = sidecar.get("input", {})
@@ -216,23 +307,7 @@ def pruefe_fachdaten(sidecar: dict, kataloge: dict, erg: Ergebnis) -> None:
                       f"{zone['id']}: usage_profile_ref '{ref}' steht in keinem Katalog",
                       blocks_level="enriched", json_pointer=f"/input/zones/{i}")
 
-    # Fingerprint-Kollision: zwei Gruppen auf derselben Ebene mit gleichem Typ
-    # waeren in Wahrheit eine Gruppe.
-    gesehen: dict[tuple, str] = {}
-    for gruppe in gruppen.values():
-        fp = gruppe.get("fingerprint", {})
-        schluessel = (
-            gruppe.get("element_type"),
-            fp.get("normal_x"), fp.get("normal_y"), fp.get("normal_z", 0.0),
-            round(float(fp.get("dist_m", 0.0)), 2),
-        )
-        if schluessel in gesehen:
-            erg.melde("FINGERPRINT_COLLISION", "warning",
-                      f"{gruppe['id']} und {gesehen[schluessel]} haben denselben "
-                      f"Fingerprint — sie muessten eine Gruppe sein",
-                      json_pointer="/input/element_groups")
-        else:
-            gesehen[schluessel] = gruppe["id"]
+    pruefe_fingerprint_kollisionen(gruppen, erg)
 
 
 # --- Stufe 3: geometry_ok ----------------------------------------------------
@@ -485,10 +560,34 @@ def validiere(sidecar: dict, kataloge: dict) -> Ergebnis:
 
 def main() -> int:
     p = argparse.ArgumentParser(description="Validiert ein .dwe-Sidecar (Schema v4.0)")
-    p.add_argument("sidecar", help="Pfad zur energy.din18599.json")
+    p.add_argument("sidecar", nargs="?", help="Pfad zur energy.din18599.json")
     p.add_argument("--manifest", help="Optional: manifest.json gegenpruefen")
     p.add_argument("--json", action="store_true", help="Befunde als JSON ausgeben")
+    p.add_argument("--list-paths", action="store_true",
+                   help="Pfad-Whitelist aus schema/v4.0/paths.json ausgeben "
+                        "(erzeugt wird sie von scripts/build-paths.py)")
     args = p.parse_args()
+
+    if args.list_paths:
+        # Bewusst nur LESEN, nicht erzeugen: das Artefakt ist versioniert und
+        # per CI gegen das Schema verriegelt. Wuerde die CLI es selbst
+        # ableiten, gaebe es zwei Wahrheiten mit demselben Namen.
+        artefakt = REPO / "schema" / "v4.0" / "paths.json"
+        if not artefakt.exists():
+            print(f"{artefakt} fehlt — python3 scripts/build-paths.py laufen lassen",
+                  file=sys.stderr)
+            return 2
+        daten = json.loads(artefakt.read_text(encoding="utf-8"))
+        if args.json:
+            print(json.dumps(daten, indent=2, ensure_ascii=False))
+        else:
+            for eintrag in daten["paths"]:
+                marke = "ro" if eintrag["readonly"] else "rw"
+                print(f"{marke}  {eintrag['path']}")
+        return 0
+
+    if not args.sidecar:
+        p.error("sidecar fehlt (oder --list-paths verwenden)")
 
     pfad = Path(args.sidecar)
     if not pfad.exists():

@@ -4,40 +4,74 @@
   "title": "Entry-Schema: surface_resistances",
   "description": "Waermeuebergangswiderstaende nach DIN EN ISO 6946 Tabelle 7. Die Auswahl des richtigen Eintrags erfolgt ueber adjacency_type und element_type — nicht ueber freie Eingabe, damit dieselbe Bauteilsituation immer dieselben Randbedingungen bekommt.",
   "type": "object",
-  "required": ["code", "name_de", "heat_flow", "rsi", "rse"],
+  "required": [
+    "code",
+    "name_de",
+    "heat_flow",
+    "rsi",
+    "rse"
+  ],
   "additionalProperties": false,
-
   "properties": {
-    "code":    { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
-    "name_de": { "type": "string" },
-    "name_en": { "type": "string" },
-
+    "code": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*$"
+    },
+    "name_de": {
+      "type": "string"
+    },
+    "name_en": {
+      "type": "string"
+    },
     "heat_flow": {
       "type": "string",
-      "enum": ["horizontal", "upward", "downward"],
+      "enum": [
+        "horizontal",
+        "upward",
+        "downward"
+      ],
       "description": "Waermestromrichtung. Bestimmt Rsi nach Tabelle 7."
     },
     "rsi": {
-      "type": "number", "minimum": 0, "maximum": 1,
-      "description": "Waermeuebergangswiderstand innen [(m2K)/W]"
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Waermeuebergangswiderstand innen [(m2K)/W]. null = Wert liegt im privaten Werte-Overlay (values_overlay)."
     },
     "rse": {
-      "type": "number", "minimum": 0, "maximum": 1,
-      "description": "Waermeuebergangswiderstand aussen [(m2K)/W]. 0 bei Erdreichkontakt."
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Waermeuebergangswiderstand aussen [(m2K)/W]. 0 bei Erdreichkontakt. null = Wert liegt im privaten Werte-Overlay (values_overlay)."
     },
-
     "applies_to_adjacency": {
       "type": "array",
-      "items": { "type": "string" },
+      "items": {
+        "type": "string"
+      },
       "description": "adjacency_type-Codes, fuer die dieser Eintrag gilt. Basis der automatischen Auswahl."
     },
     "applies_to_element_type": {
       "type": "array",
-      "items": { "type": "string" },
+      "items": {
+        "type": "string"
+      },
       "description": "element_type-Werte, fuer die dieser Eintrag gilt"
     },
-
-    "norm_cell": { "type": ["string", "null"] },
-    "note":      { "type": "string" }
+    "norm_cell": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "note": {
+      "type": "string"
+    }
   }
 }

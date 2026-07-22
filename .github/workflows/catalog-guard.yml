@@ -18,28 +18,60 @@ jobs:
       - name: Geschuetzte Katalog-Dateien pruefen
         run: bash scripts/check-catalog-values.sh --all
 
+      - name: Keine Normzahlenwerte im oeffentlichen Katalog
+        run: python3 scripts/check-catalog-structure.py
+
       - name: Kataloge und Validator pruefen
         run: |
           python -m pip install --quiet jsonschema
           python scripts/build-usage-profiles-catalog.py --edition 2018-09
           python scripts/build-room-types-catalog.py
           python scripts/build-example-beispiel1.py
-          git diff --exit-code catalog/core examples/v4.0 \
-            || (echo "Generierte Kataloge/Beispiele weichen vom Commit ab -- Generator laufen lassen und committen." && exit 1)
+          python scripts/build-paths.py
+          git diff --exit-code catalog/core examples/v4.0 schema/v4.0/paths.json \
+            || (echo "Generierte Kataloge/Beispiele/Pfadliste weichen vom Commit ab -- Generator laufen lassen und committen." && exit 1)
           python tools/test_dwe_validate.py
           python tools/test_u_value.py
 
-      - name: Sidecar- und Manifest-Schema validieren
+      - name: Konsumenten-Abhaengigkeit v3.0 einfordern
+        # TICKET_dweapp_cutover nennt die Datei "unantastbar" -- aber ein
+        # `git rm` ginge still durch und braeche DWEapps preflight
+        # (package.json schema:generate, scripts/schema-check.mjs und zwei
+        # Testdateien lesen sie). Entfernen erst, wenn der v4-Cutover die
+        # Referenzen dort geloescht hat.
+        run: |
+          test -s schema/v3.0-complete.json \
+            || (echo "schema/v3.0-complete.json fehlt -- DWEapp liest die Datei an 4 Stellen. Erst nach dem v4-Cutover entfernen." && exit 1)
+          test -s schema/v3.1-complete.json \
+            || (echo "schema/v3.1-complete.json fehlt -- v3.1 ist das eingefrorene Produktiv-Schema." && exit 1)
+
+      - name: Schemata validieren (Selbstkonsistenz)
         run: |
           python -m pip install --quiet jsonschema
           python - <<'PY'
-          import json, sys
+          import glob, json, re, sys
           from jsonschema import Draft7Validator
 
+          # Bewusst KEIN schema/**/*.json: unter schema/ liegen auch reine
+          # Datendateien (usage_profile_enum.json, usage_profile_mapping.json).
+          # check_schema sagt bei denen vakuum "ok" -- das waere Scheinsicherheit,
+          # und beim naechsten Datenfile kann es genauso gut falsch-rot werden.
+          dateien = sorted(set(
+              glob.glob("schema/**/*.schema.json", recursive=True)
+              + glob.glob("schema/v*-complete.json")
+          ))
+          if not dateien:
+              print("FEHLER: keine Schema-Dateien gefunden")
+              sys.exit(1)
+
           fehler = 0
-          for pfad in ["schema/v4.0/manifest.schema.json",
-                       "schema/v4.0/sidecar.schema.json"]:
-              schema = json.load(open(pfad))
+          for pfad in dateien:
+              try:
+                  schema = json.load(open(pfad))
+              except Exception as exc:
+                  print(f"FEHLER: {pfad}: kein gueltiges JSON: {exc}")
+                  fehler += 1
+                  continue
               try:
                   Draft7Validator.check_schema(schema)
               except Exception as exc:
@@ -47,21 +79,56 @@ jobs:
                   fehler += 1
                   continue
 
-              # Selbstauskunft gegen die eigene Definition pruefen — in v3.2 war
+              # Selbstauskunft gegen die eigene Definition pruefen -- in v3.2 war
               # genau das auseinandergelaufen (Schema lehnte seine Version ab).
-              info = "manifest_info" if "manifest" in pfad else "schema_info"
-              props = schema["properties"][info]["properties"]
-              erwartet_url = props["url"]["const"]
-              muster = props["version"]["pattern"]
-              if erwartet_url != schema["$id"]:
-                  print(f"FEHLER: {pfad}: $id ({schema['$id']}) "
+              props = schema.get("properties", {})
+              info = next((k for k in ("schema_info", "manifest_info")
+                           if k in props), None)
+              if info is None:
+                  continue
+              iprops = props[info].get("properties", {})
+              erwartet_url = iprops.get("url", {}).get("const")
+              muster = iprops.get("version", {}).get("pattern")
+              if erwartet_url and erwartet_url != schema.get("$id"):
+                  print(f"FEHLER: {pfad}: $id ({schema.get('$id')}) "
                         f"weicht von {info}.url ({erwartet_url}) ab")
                   fehler += 1
-              import re
-              if not re.match(muster, schema["version"]):
-                  print(f"FEHLER: {pfad}: version {schema['version']} "
+              if muster and not re.match(muster, schema.get("version", "")):
+                  print(f"FEHLER: {pfad}: version {schema.get('version')} "
                         f"passt nicht auf das eigene Pattern {muster}")
                   fehler += 1
 
+          print(f"{len(dateien)} Schema-Dateien geprueft, {fehler} Fehler")
+          sys.exit(1 if fehler else 0)
+          PY
+
+      - name: Kern-Kataloge gegen den Envelope validieren
+        # Die sechs Katalog-Schemata tragen keine schema_info und werden vom
+        # Selbstkonsistenz-Check oben nicht erfasst. Der wirksamere Hebel ist,
+        # die realen Katalog-Objekte gegen catalog-envelope.schema.json zu
+        # pruefen: das trifft die catalog_version-Falle am Objekt statt vakuum
+        # am Schema.
+        run: |
+          python - <<'PY'
+          import glob, json, sys
+          from jsonschema import Draft7Validator
+
+          envelope = json.load(open("schema/v4.0/catalog-envelope.schema.json"))
+          pruefer = Draft7Validator(envelope)
+
+          fehler = 0
+          dateien = sorted(glob.glob("catalog/core/*.json"))
+          if not dateien:
+              print("FEHLER: keine Kataloge unter catalog/core/ gefunden")
+              sys.exit(1)
+          for pfad in dateien:
+              katalog = json.load(open(pfad))
+              for problem in sorted(pruefer.iter_errors(katalog),
+                                    key=lambda e: list(e.path)):
+                  stelle = "/".join(str(t) for t in problem.path) or "(Wurzel)"
+                  print(f"FEHLER: {pfad}: {stelle}: {problem.message}")
+                  fehler += 1
+
+          print(f"{len(dateien)} Kern-Kataloge geprueft, {fehler} Fehler")
           sys.exit(1 if fehler else 0)
           PY

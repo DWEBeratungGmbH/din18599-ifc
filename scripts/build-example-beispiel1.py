@@ -152,7 +152,7 @@ def baue_element_groups() -> list:
                 "normal_z": nz,
                 "dist_m": dist,
                 "coordinate_system": "project",
-                "tolerance": {"normal_decimals": 2, "dist_tolerance_m": 0.02},
+                "tolerance": {"angle_tolerance_deg": 1.0, "dist_tolerance_m": 0.02},
             },
             "construction_ref": konstruktion,
             "member_elements": mitglieder,

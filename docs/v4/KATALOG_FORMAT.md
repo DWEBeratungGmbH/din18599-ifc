@@ -27,15 +27,22 @@ catalog-private/                   # gitignored — geschützte Norm-Daten
 Kein eigenes Repo (Entscheidung 6.3): Schema und Katalog entwickeln sich synchron,
 ein zweites Repo verdoppelt die Release-Koordination ohne heutigen Gegenwert.
 
-**Schutz:** `.gitignore` allein reicht nicht — sie greift nur für ungetrackte Dateien,
-und `git add -f` umgeht sie lautlos. Zusätzlich erzwungen durch
-[`scripts/check-catalog-values.sh`](../../scripts/check-catalog-values.sh) als
-Pre-Commit-Hook und GitHub Action:
+**Schutz — zwei Richtungen.** `.gitignore` allein reicht nicht: sie greift nur für
+ungetrackte Dateien, und `git add -f` umgeht sie lautlos.
 
 ```bash
 ln -sf ../../scripts/check-catalog-values.sh .git/hooks/pre-commit
-bash scripts/check-catalog-values.sh --all   # CI-Modus
+bash scripts/check-catalog-values.sh --all      # sperrt die Verzeichnisse
+python3 scripts/check-catalog-structure.py      # sperrt den Rückweg
 ```
+
+Der zweite Check fängt den Fall, den der erste nicht sieht: jemand befüllt einen
+`null`-Platzhalter direkt in `catalog/core/`, weil das bequemer ist als das Overlay
+zu pflegen. Beide laufen in der GitHub Action.
+
+**Trennung erzeugen:** `python3 scripts/split-catalog-values.py` — idempotent,
+mit `--dry-run` vorab prüfbar. Welche Felder als Normwerte gelten, steht dort in
+`FELDER` und nicht in einem alten Commit-Diff.
 
 ---
 
@@ -117,6 +124,17 @@ Kein `calc_ready`. Meldung aus `values_overlay.missing_value_message`, z.B.
 ---
 
 ## Was öffentlich ist und warum
+
+> **Kurskorrektur 21.07.2026.** Entscheidung 6.6 hatte `adjacency_types` bewusst
+> inklusive Fx-Werten öffentlich gestellt. Diese Entscheidung ist **zurückgenommen**:
+> alle Normzahlenwerte liegen jetzt im privaten Overlay, unabhängig von ihrer Menge.
+> Die Struktur bleibt in jedem Fall öffentlich — der offene Standard beschreibt das
+> *Format*, nicht die Normwerte.
+>
+> Die betroffenen Werte standen zwischenzeitlich im gepushten Branch und sind damit
+> in der öffentlichen Git-Historie. Der aktuelle Stand ist bereinigt; ob eine
+> Historien-Bereinigung nötig ist, wird mit DIN Media bzw. anwaltlich geklärt —
+> dieselbe Behandlung wie bei den 605 KB norm-abgeleiteten Dateien.
 
 | Katalog | Werte public? | Begründung |
 |---|---|---|

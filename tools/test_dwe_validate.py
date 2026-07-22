@@ -150,6 +150,66 @@ def pruefe_override(basis: dict, kataloge: dict) -> bool:
     return "ROOM_OUTSIDE_ENVELOPE_IN_ZONE" not in codes
 
 
+def pruefe_fingerprint_grenzfaelle() -> list[tuple[str, bool]]:
+    """Grenzfaelle des Kollisions-Checks.
+
+    Der Check vergleicht Winkelabstaende, nicht gerundete Werte. Fall A ist
+    genau der, den die frueher vorgesehene Rundungs-Gleichheit uebersehen
+    haette: 0,4 Grad Abstand liegen innerhalb der 1-Grad-Toleranz, fallen aber
+    bei 2 Dezimalen in verschiedene Buckets.
+    """
+    import math
+
+    from dwe_validate import Ergebnis, pruefe_fingerprint_kollisionen
+
+    def gruppe(gid, grad, dist, typ="wall", winkel_tol=1.0):
+        return {
+            "id": gid, "element_type": typ,
+            "fingerprint": {
+                "normal_x": math.sin(math.radians(grad)),
+                "normal_y": math.cos(math.radians(grad)),
+                "normal_z": 0.0,
+                "dist_m": dist,
+                "tolerance": {"angle_tolerance_deg": winkel_tol,
+                              "dist_tolerance_m": 0.02},
+            },
+        }
+
+    def roh(gid, nx, ny, dist):
+        """Gruppe mit direkt gesetzter Normale (fuer den Kanonisierungsfall)."""
+        return {
+            "id": gid, "element_type": "wall",
+            "fingerprint": {
+                "normal_x": nx, "normal_y": ny, "normal_z": 0.0, "dist_m": dist,
+                "tolerance": {"angle_tolerance_deg": 1.0,
+                              "dist_tolerance_m": 0.02},
+            },
+        }
+
+    faelle = [
+        ("0,4 Grad -- Rundung haette getrennt",
+         [gruppe("W1", 0.0, 4.20), gruppe("W2", 0.4, 4.21)], True),
+        ("antiparallel, dist gespiegelt",
+         [roh("W3", 1.0, 0.0, 5.0), roh("W4", -1.0, 0.0, -5.0)], True),
+        ("1,8 Grad -- ausserhalb der Toleranz",
+         [gruppe("W5", 0.0, 4.20), gruppe("W6", 1.8, 4.20)], False),
+        ("gleiche Ebene, anderer Bauteiltyp",
+         [gruppe("W7", 0.0, 4.20), gruppe("D1", 0.0, 4.20, typ="roof")], False),
+        ("ungleiche Toleranzen -- Maximum gilt",
+         [gruppe("W8", 0.0, 4.20), gruppe("W9", 1.4, 4.20, winkel_tol=2.0)], True),
+        ("gleiche Ebene, 5 cm auseinander",
+         [gruppe("WA", 0.0, 4.20), gruppe("WB", 0.0, 4.25)], False),
+    ]
+
+    ergebnisse = []
+    for name, gruppen, erwartet_treffer in faelle:
+        erg = Ergebnis()
+        pruefe_fingerprint_kollisionen({g["id"]: g for g in gruppen}, erg)
+        getroffen = any(b.code == "FINGERPRINT_COLLISION" for b in erg.befunde)
+        ergebnisse.append((name, getroffen == erwartet_treffer))
+    return ergebnisse
+
+
 def main() -> int:
     if not BEISPIEL.exists():
         print(f"Referenz-Beispiel fehlt: {BEISPIEL}", file=sys.stderr)
@@ -196,7 +256,14 @@ def main() -> int:
     fehlgeschlagen += 0 if stufe_ok else 1
 
     print()
-    gesamt = len(faelle) + 3
+    print("Fingerprint-Kollision, Grenzfaelle:")
+    fp_faelle = pruefe_fingerprint_grenzfaelle()
+    for name, ok in fp_faelle:
+        print(f"  {name:48} {'PASS' if ok else 'FAIL'}")
+        fehlgeschlagen += 0 if ok else 1
+
+    print()
+    gesamt = len(faelle) + 3 + len(fp_faelle)
     print(f"{gesamt - fehlgeschlagen}/{gesamt} Pruefungen bestanden")
     return 1 if fehlgeschlagen else 0
 

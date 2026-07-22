@@ -63,6 +63,7 @@ tools/                  # CLI Validator (validate.py)
 - **Container-Spezifikation v4.0:** [`docs/DWE_CONTAINER.md`](docs/DWE_CONTAINER.md) — Einstieg
 - **Schema v4.0 (in Entwicklung, Greenfield):** `schema/v4.0/sidecar.schema.json` + `manifest.schema.json` + `catalog-envelope.schema.json`
 - **Kern-Kataloge:** `catalog/core/` (Struktur, öffentlich) · `catalog/values/` + `catalog-private/` (Normwerte, gitignored)
+- **Pfad-Whitelist:** `schema/v4.0/paths.json` (generiert, `readOnly`-Semantik aus dem Schema) — Konsumenten verriegeln damit ihre Dot-Path-Schreibpfade
 - **Referenz-Container:** `examples/v4.0/beispiel1/`
 - **Validator:** `tools/dwe_validate.py` (5 Stufen) · Tests `tools/test_dwe_validate.py`
 - **Schema v3.1 (produktiv eingefroren):** `schema/v3.1-complete.json`
@@ -75,9 +76,17 @@ tools/                  # CLI Validator (validate.py)
 python3 scripts/build-usage-profiles-catalog.py --edition 2018-09
 python3 scripts/build-room-types-catalog.py
 python3 scripts/build-example-beispiel1.py
+python3 scripts/build-paths.py                # Pfad-Whitelist (--check in der CI)
 python3 tools/test_dwe_validate.py            # Validator-Regeln
-bash scripts/check-catalog-values.sh --all    # Rechtsschutz-Gate
+python3 tools/test_u_value.py                 # U-Wert-Rechenkern
+bash scripts/check-catalog-values.sh --all    # Rechtsschutz: Verzeichnisse gesperrt
+python3 scripts/check-catalog-structure.py    # Rechtsschutz: keine Normwerte in core/
+python3 scripts/split-catalog-values.py --dry-run   # Werte-Trennung nachvollziehen
 ```
+
+> **Normwerte:** `catalog/core/` enthält nur Struktur mit `null`-Platzhaltern.
+> Die Zahlen liegen in `catalog/values/` (gitignored) und werden zur Laufzeit
+> gemerged. Ohne Overlay bleibt der Katalog nutzbar, aber nicht rechenbar.
 - **Datenbank-Schema:** `database/schema.sql` (v3.0 mit Helper-Funktionen)
 - **Roadmap:** `ROADMAP.md`
 - **Contributing:** `CONTRIBUTING.md`

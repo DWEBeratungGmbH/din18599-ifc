@@ -79,11 +79,77 @@ class Ergebnis:
         return self.u_value is not None and not self.fehler
 
 
-def lade_katalog(name: str) -> dict:
-    pfad = REPO / "catalog" / "core" / f"{name}.json"
+def _setze_pfad(obj: dict, pfad: str, wert) -> None:
+    """Setzt einen punktgetrennten Pfad, legt fehlende Ebenen NICHT an."""
+    teile = pfad.split(".")
+    ziel = obj
+    for teil in teile[:-1]:
+        if not isinstance(ziel, dict) or teil not in ziel:
+            return
+        ziel = ziel[teil]
+    if isinstance(ziel, dict):
+        ziel[teile[-1]] = wert
+
+
+def merge_overlay(katalog: dict) -> tuple[dict, str | None]:
+    """
+    Mischt das private Werte-Overlay in die oeffentliche Katalogstruktur.
+
+    Normzahlenwerte (Fx, Rsi/Rse, Luftschicht-Widerstaende) stehen aus
+    urheberrechtlichen Gruenden nicht im oeffentlichen Repo — nur die Struktur mit
+    null-Platzhaltern. Zur Laufzeit kommen sie aus catalog/values/, das per
+    .gitignore und scripts/check-catalog-values.sh gesperrt ist.
+
+    Liefert (Katalog, Fehlermeldung). Fehlt das Overlay, bleibt der Katalog
+    strukturell nutzbar — die Werte sind dann null und der Aufrufer meldet das.
+    """
+    overlay_konfig = katalog.get("values_overlay") or {}
+    if not overlay_konfig.get("required"):
+        return katalog, None
+
+    erwartet = overlay_konfig.get("expected_file")
+    if not erwartet:
+        return katalog, None
+    pfad = REPO / erwartet
     if not pfad.exists():
-        return {}
-    roh = json.loads(pfad.read_text(encoding="utf-8"))
+        return katalog, overlay_konfig.get(
+            "missing_value_message", f"Werte-Overlay fehlt: {erwartet}"
+        )
+
+    werte = json.loads(pfad.read_text(encoding="utf-8"))
+    nach_code = werte.get("entries", {})
+    for eintrag in katalog.get("entries", []):
+        for feld, wert in nach_code.get(eintrag.get("code"), {}).items():
+            _setze_pfad(eintrag, feld, wert)
+
+    # Anhaenge ausserhalb entries[] (z.B. unheated_attic_spaces)
+    for schluessel, block in werte.items():
+        if schluessel in ("entries", "$schema_ref", "catalog_id", "catalog_version",
+                          "dimension", "norm_ref", "_hinweis"):
+            continue
+        ziel_block = katalog.get(schluessel)
+        if not isinstance(ziel_block, dict) or not isinstance(block, dict):
+            continue
+        for liste, nach_code2 in block.items():
+            for eintrag in ziel_block.get(liste, []):
+                for feld, wert in nach_code2.get(eintrag.get("code"), {}).items():
+                    _setze_pfad(eintrag, feld, wert)
+
+    return katalog, None
+
+
+def lade_katalog_roh(name: str) -> tuple[dict, str | None]:
+    """Kompletter Katalog inkl. Overlay-Merge, plus optionale Fehlmeldung."""
+    treffer = sorted((REPO / "catalog" / "core").glob(f"{name}*.json"))
+    if not treffer:
+        return {}, None
+    roh = json.loads(treffer[0].read_text(encoding="utf-8"))
+    return merge_overlay(roh)
+
+
+def lade_katalog(name: str) -> dict:
+    """Eintraege nach code, mit aufgeloesten Werten aus dem privaten Overlay."""
+    roh, _ = lade_katalog_roh(name)
     return {e["code"]: e for e in roh.get("entries", [])}
 
 
@@ -123,11 +189,14 @@ def waehle_uebergangswiderstaende(
 
 
 def lade_luftschichten() -> dict:
-    """Tabelle 8 mit Stuetzstellen, plus die Regeln aus 6.9."""
-    pfad = REPO / "catalog" / "core" / "air_layers.json"
-    if not pfad.exists():
-        return {}
-    return json.loads(pfad.read_text(encoding="utf-8"))
+    """
+    Tabelle 8 mit Stuetzstellen, plus die Regeln aus 6.9.
+
+    Geht ueber lade_katalog_roh() und damit durch den Overlay-Merge — die
+    Widerstandswerte stehen nicht im oeffentlichen Katalog.
+    """
+    roh, _ = lade_katalog_roh("air_layers")
+    return roh
 
 
 def luftschicht_widerstand(

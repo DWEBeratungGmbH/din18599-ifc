@@ -41,6 +41,7 @@
         "boundaries":           { "type": "array", "items": { "$ref": "#/definitions/boundary" } },
         "openings_index": {
           "type": "array",
+          "readOnly": true,
           "description": "READ-ONLY Aggregat-Sicht ueber alle boundaries[].openings[]. Wird beim Export berechnet, NIE gepflegt. Der Validator prueft Konsistenz gegen die Quelle; bei Abweichung gewinnt boundaries[].openings[].",
           "items": { "$ref": "#/definitions/opening_index_entry" }
         },
@@ -404,7 +405,7 @@
 
         "fingerprint": {
           "type": "object",
-          "description": "Koplanaritaets-Fingerprint im PROJEKTSYSTEM (nicht geografisch!). Eine True-North-Drehung aendert ihn nicht — nur so bleibt die Gruppierung stabil. Gruppierungsregel: gleiche Normale (gerundet auf 2 Dezimalen, entspricht rund 1 Grad) + gleicher Ebenenabstand (Toleranz 2 cm) + gleicher Bauteiltyp.",
+          "description": "Koplanaritaets-Fingerprint im PROJEKTSYSTEM (nicht geografisch!). Eine True-North-Drehung aendert ihn nicht — nur so bleibt die Gruppierung stabil. Gruppierungsregel: ein Element gehoert zu einer bestehenden Gruppe, wenn der Winkelabstand seiner Ebenen-Normale zum Gruppen-REPRAESENTANTEN kleiner gleich angle_tolerance_deg ist (|n . n_rep| groesser gleich cos(Toleranz) — der Betrag vergleicht Ebenen, nicht Vektoren) UND |dist - dist_rep| kleiner gleich dist_tolerance_m UND der Bauteiltyp gleich ist; sonst wird es selbst Repraesentant einer neuen Gruppe. Kandidaten werden dafuer geometriestabil sortiert (Bauteiltyp, Ebenenwinkel, |dist|), nicht nach Autorensystem-IDs. WICHTIG: normal_*/dist_m sind in VOLLER Rechenpraezision zu serialisieren — jede Anzeige-Rundung ist Sache der UI und darf den Wert im Sidecar nicht ersetzen. Begruendung fuer den Winkelabstand statt gerundeter Vergleichswerte: Runden ist Quantisierung, keine Toleranz — gleich gerundete Werte trennten Waende ab rund 0,3 Grad Abstand, vereinigten aber nie zwei Waende ueber eine Rundungsgrenze hinweg, nicht-transitiv und mit Vorzeichen-Kipppunkt der Kanonisierung bei normal_x nahe 0.",
           "required": ["normal_x", "normal_y", "dist_m"],
           "properties": {
             "normal_x": { "type": "number", "minimum": -1, "maximum": 1 },
@@ -424,10 +425,11 @@
             },
             "tolerance": {
               "type": "object",
-              "description": "Verwendete Gruppierungstoleranzen — dokumentiert, womit gruppiert wurde",
+              "description": "Verwendete Gruppierungstoleranzen — dokumentiert, womit gruppiert wurde. angle_tolerance_deg ist eine echte Toleranz auf dem Winkelabstand; das frueher hier vorgesehene normal_decimals war eine Rundungs-Angabe und damit kein Toleranzmass (siehe fingerprint.description). Vergleicht ein Validator zwei Gruppen, gilt die groessere der beiden Toleranzen — sonst haengt der Befund von der Reihenfolge ab.",
+              "additionalProperties": false,
               "properties": {
-                "normal_decimals": { "type": "integer", "default": 2 },
-                "dist_tolerance_m": { "type": "number", "default": 0.02 }
+                "angle_tolerance_deg": { "type": "number", "default": 1.0, "exclusiveMinimum": 0 },
+                "dist_tolerance_m": { "type": "number", "default": 0.02, "exclusiveMinimum": 0 }
               }
             }
           }
@@ -463,6 +465,7 @@
 
         "aggregates": {
           "type": "object",
+          "readOnly": true,
           "description": "Abgeleitete Kennwerte der Gruppe. Read-only, aus boundaries[] berechnet.",
           "properties": {
             "area_total_m2":   { "type": "number", "minimum": 0 },
@@ -654,6 +657,7 @@
 
         "geg_reference_row": {
           "type": "string",
+          "readOnly": true,
           "description": "READ-ONLY: zugeordnete Zeile des GEG-Referenzgebaeudes, deterministisch aus opening_type abgeleitet (window/glazed_door -> Zeile 2, roof_window -> 3, skylight -> 4, door/garage_door -> 5). Wird berechnet, nicht gepflegt."
         }
       }

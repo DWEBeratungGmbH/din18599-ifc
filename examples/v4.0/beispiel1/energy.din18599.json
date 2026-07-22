@@ -610,7 +610,7 @@
           "dist_m": 0.0,
           "coordinate_system": "project",
           "tolerance": {
-            "normal_decimals": 2,
+            "angle_tolerance_deg": 1.0,
             "dist_tolerance_m": 0.02
           }
         },
@@ -653,7 +653,7 @@
           "dist_m": 4.2,
           "coordinate_system": "project",
           "tolerance": {
-            "normal_decimals": 2,
+            "angle_tolerance_deg": 1.0,
             "dist_tolerance_m": 0.02
           }
         },
@@ -686,7 +686,7 @@
           "dist_m": 8.6,
           "coordinate_system": "project",
           "tolerance": {
-            "normal_decimals": 2,
+            "angle_tolerance_deg": 1.0,
             "dist_tolerance_m": 0.02
           }
         },
@@ -719,7 +719,7 @@
           "dist_m": 0.0,
           "coordinate_system": "project",
           "tolerance": {
-            "normal_decimals": 2,
+            "angle_tolerance_deg": 1.0,
             "dist_tolerance_m": 0.02
           }
         },
@@ -752,7 +752,7 @@
           "dist_m": 5.2,
           "coordinate_system": "project",
           "tolerance": {
-            "normal_decimals": 2,
+            "angle_tolerance_deg": 1.0,
             "dist_tolerance_m": 0.02
           }
         },
@@ -785,7 +785,7 @@
           "dist_m": 10.4,
           "coordinate_system": "project",
           "tolerance": {
-            "normal_decimals": 2,
+            "angle_tolerance_deg": 1.0,
             "dist_tolerance_m": 0.02
           }
         },
@@ -818,7 +818,7 @@
           "dist_m": 15.6,
           "coordinate_system": "project",
           "tolerance": {
-            "normal_decimals": 2,
+            "angle_tolerance_deg": 1.0,
             "dist_tolerance_m": 0.02
           }
         },
@@ -851,7 +851,7 @@
           "dist_m": 20.8,
           "coordinate_system": "project",
           "tolerance": {
-            "normal_decimals": 2,
+            "angle_tolerance_deg": 1.0,
             "dist_tolerance_m": 0.02
           }
         },
@@ -884,7 +884,7 @@
           "dist_m": 2.6,
           "coordinate_system": "project",
           "tolerance": {
-            "normal_decimals": 2,
+            "angle_tolerance_deg": 1.0,
             "dist_tolerance_m": 0.02
           }
         },
@@ -917,7 +917,7 @@
           "dist_m": 3.8,
           "coordinate_system": "project",
           "tolerance": {
-            "normal_decimals": 2,
+            "angle_tolerance_deg": 1.0,
             "dist_tolerance_m": 0.02
           }
         },
@@ -950,7 +950,7 @@
           "dist_m": 9.3,
           "coordinate_system": "project",
           "tolerance": {
-            "normal_decimals": 2,
+            "angle_tolerance_deg": 1.0,
             "dist_tolerance_m": 0.02
           }
         },
@@ -983,7 +983,7 @@
           "dist_m": 6.9,
           "coordinate_system": "project",
           "tolerance": {
-            "normal_decimals": 2,
+            "angle_tolerance_deg": 1.0,
             "dist_tolerance_m": 0.02
           }
         },
@@ -1016,7 +1016,7 @@
           "dist_m": 14.2,
           "coordinate_system": "project",
           "tolerance": {
-            "normal_decimals": 2,
+            "angle_tolerance_deg": 1.0,
             "dist_tolerance_m": 0.02
           }
         },

@@ -37,6 +37,43 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/lang/de/).
   - `adjacency_type`-Enum mit 14 Werten (Fx und Maßbezug im Katalog, nicht im Schema),
     `opening_type`-Enum mit 9 Werten, 5 Validierungsstufen `draft` … `calc_ready`.
 
+- **`schema/v4.0/paths.json`** — generierte Pfad-Whitelist des Sidecars (615 Pfade,
+  22 davon abgeleitet). Macht aus der Präfix-Konvention „abgeleitete Pfade nicht
+  schreiben" eine prüfbare Liste. Zwei Konsumenten haben denselben Semantikbedarf —
+  DWEapps `applyDotPath` und der Python-Export — deshalb liegt das Artefakt im
+  Standard-Repo statt in einem der beiden. Erzeugt von `scripts/build-paths.py`,
+  per `--check` in der CI verriegelt. Die Semantik kommt aus dem Schema
+  (`readOnly`), nicht aus dem Generator.
+- **`readOnly: true`** (Draft-07-Standardkeyword) auf `input.openings_index`,
+  `element_groups[].aggregates` und `openings[].geg_reference_row`. Vererbt sich
+  auf den Teilbaum und ist damit die Quelle für die `readonly`-Spalte in `paths.json`.
+
+### Changed
+
+- **`fingerprint.tolerance.normal_decimals` → `angle_tolerance_deg`.** Rundungs-
+  Dezimalen sind kein Toleranzmaß: gleich gerundete Werte trennen zwei Wände schon
+  ab rund 0,3°, vereinigen aber nie zwei Wände über eine Rundungsgrenze hinweg. Die
+  Regel war nicht transitiv und hatte bei `normal_x ≈ 0` einen Vorzeichen-Kipppunkt.
+  Die Gruppierung vergleicht jetzt den Winkelabstand zum Gruppen-Repräsentanten;
+  `normal_*`/`dist_m` werden in voller Rechenpräzision serialisiert. `tolerance` ist
+  auf `additionalProperties: false` gesetzt — ein Sidecar mit `normal_decimals`
+  fällt laut durch, statt lautlos den 1°-Default zu bekommen.
+  Kein Versions-Bump: v4.0 ist unveröffentlicht, die Änderung fällt in 4.0.0.
+- **`FINGERPRINT_COLLISION`** vergleicht Ebenen über den Winkelabstand statt über
+  Gleichheit gerundeter Werte. Die Paar-Toleranz ist das Maximum beider Gruppen
+  (sonst hängt der Befund von der Listenreihenfolge ab), `|n_a · n_b|` fängt den
+  Kanonisierungs-Kipppunkt mit ab, und die Vorsortierung nach Bauteiltyp und
+  `|dist|` hält den Aufwand bei vielen Gruppen im Rahmen. Sechs Grenzfälle sind
+  in `tools/test_dwe_validate.py` abgesichert.
+- **CI (`catalog-guard.yml`)** — der Schema-Check läuft nicht mehr über zwei hart
+  verdrahtete Dateien, sondern über `schema/**/*.schema.json` plus die
+  `v*-complete.json`. Bewusst kein `**/*.json`: unter `schema/` liegen auch reine
+  Datendateien, bei denen `check_schema` vakuum „ok" sagt. Ergänzt um einen Guard
+  auf `v3.0-complete.json` (DWEapp liest sie an vier Stellen) und `v3.1-complete.json`,
+  sowie um eine Validierung von `catalog/core/*.json` gegen
+  `catalog-envelope.schema.json` — das trifft die `catalog_version`-Falle am realen
+  Objekt statt vakuum am Schema.
+
 ### Removed
 
 - **Schema v3.2 verworfen.** Es war nie in einem Release dokumentiert und hatte zwei

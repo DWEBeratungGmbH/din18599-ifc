@@ -3,88 +3,144 @@
   "catalog_id": "surface_resistances",
   "catalog_version": "1.0.0",
   "catalog_source": "core",
-  "dimension": { "type": "norm_edition", "value": "2018-03" },
-
+  "dimension": {
+    "type": "norm_edition",
+    "value": "2018-03"
+  },
   "title": "Waermeuebergangswiderstaende Rsi und Rse",
-  "description": "Randbedingungen der U-Wert-Berechnung, abhaengig von Waermestromrichtung und Anschlusssituation. Oeffentlich inklusive Zahlenwerte — sechs Einzelfakten, gleiche Begruendung wie bei den Fx-Werten (Entscheidung 6.6). Ohne sie ist keine U-Wert-Berechnung moeglich, und die darf nicht an einem Overlay haengen.",
+  "description": "Randbedingungen der U-Wert-Berechnung, abhaengig von Waermestromrichtung und Anschlusssituation. Die Zuordnungslogik (welche adjacency_type/element_type-Kombination welchen Eintrag trifft) ist DWE-eigen und oeffentlich; die Rsi/Rse-ZAHLENWERTE stammen aus DIN EN ISO 6946 Tabelle 7 und liegen im privaten Werte-Overlay.",
   "last_updated": "2026-07-21",
   "norm_ref": "DIN EN ISO 6946:2018-03, Tabelle 7. Erdreichkontakt nach DIN EN ISO 13370.",
-
-  "values_overlay": { "required": false },
+  "values_overlay": {
+    "required": true,
+    "expected_file": "catalog/values/surface_resistances.2018-03.values.json",
+    "merge_key": "code",
+    "missing_value_message": "Werte fuer 'surface_resistances' fehlen (Waermeuebergangswiderstaende aus DIN EN ISO 6946 Tabelle 7). Overlay unter catalog/values/surface_resistances.2018-03.values.json bereitstellen — aus eigener Normlizenz oder ueber DWEapp. Ohne aufgeloeste Werte kein calc_ready."
+  },
   "entry_schema_ref": "schema/v4.0/catalogs/surface_resistances.schema.json",
-
   "entries": [
     {
       "code": "exterior_horizontal",
       "name_de": "Aussenbauteil, Waermestrom horizontal",
       "heat_flow": "horizontal",
-      "rsi": 0.13,
-      "rse": 0.04,
+      "rsi": null,
+      "rse": null,
       "norm_cell": "T7-horizontal",
-      "applies_to_adjacency": ["exterior", "glass_single", "glass_double", "glass_triple"],
-      "applies_to_element_type": ["wall"]
+      "applies_to_adjacency": [
+        "exterior",
+        "glass_single",
+        "glass_double",
+        "glass_triple"
+      ],
+      "applies_to_element_type": [
+        "wall"
+      ]
     },
     {
       "code": "exterior_upward",
       "name_de": "Aussenbauteil, Waermestrom aufwaerts (Dach)",
       "heat_flow": "upward",
-      "rsi": 0.10,
-      "rse": 0.04,
+      "rsi": null,
+      "rse": null,
       "norm_cell": "T7-aufwaerts",
-      "applies_to_adjacency": ["exterior"],
-      "applies_to_element_type": ["roof", "ceiling"]
+      "applies_to_adjacency": [
+        "exterior"
+      ],
+      "applies_to_element_type": [
+        "roof",
+        "ceiling"
+      ]
     },
     {
       "code": "exterior_downward",
       "name_de": "Aussenbauteil, Waermestrom abwaerts (auskragende Decke)",
       "heat_flow": "downward",
-      "rsi": 0.17,
-      "rse": 0.04,
+      "rsi": null,
+      "rse": null,
       "norm_cell": "T7-abwaerts",
-      "applies_to_adjacency": ["exterior", "floor_suspended"],
-      "applies_to_element_type": ["floor", "slab_basement"]
+      "applies_to_adjacency": [
+        "exterior",
+        "floor_suspended"
+      ],
+      "applies_to_element_type": [
+        "floor",
+        "slab_basement"
+      ]
     },
     {
       "code": "internal_horizontal",
       "name_de": "Innenbauteil, beidseitig Innenluft",
       "heat_flow": "horizontal",
-      "rsi": 0.13,
-      "rse": 0.13,
+      "rsi": null,
+      "rse": null,
       "norm_cell": "T7-horizontal (beidseitig)",
       "note": "Rse entspricht dem Rsi der Gegenseite — bei Innenwaenden, Wohnungstrennwaenden und Bauteilen zu unbeheizten Raeumen grenzt auf beiden Seiten Innenluft an.",
-      "applies_to_adjacency": ["unheated", "low_heated", "other_zone", "same_zone", "attic_uninsulated"],
-      "applies_to_element_type": ["wall"]
+      "applies_to_adjacency": [
+        "unheated",
+        "low_heated",
+        "other_zone",
+        "same_zone",
+        "attic_uninsulated"
+      ],
+      "applies_to_element_type": [
+        "wall"
+      ]
     },
     {
       "code": "internal_upward",
       "name_de": "Innenbauteil zu unbeheizt, Waermestrom aufwaerts",
       "heat_flow": "upward",
-      "rsi": 0.10,
-      "rse": 0.10,
+      "rsi": null,
+      "rse": null,
       "norm_cell": "T7-aufwaerts (beidseitig)",
-      "applies_to_adjacency": ["unheated", "attic_uninsulated", "other_zone", "same_zone"],
-      "applies_to_element_type": ["ceiling", "roof"]
+      "applies_to_adjacency": [
+        "unheated",
+        "attic_uninsulated",
+        "other_zone",
+        "same_zone"
+      ],
+      "applies_to_element_type": [
+        "ceiling",
+        "roof"
+      ]
     },
     {
       "code": "internal_downward",
       "name_de": "Innenbauteil zu unbeheizt, Waermestrom abwaerts",
       "heat_flow": "downward",
-      "rsi": 0.17,
-      "rse": 0.17,
+      "rsi": null,
+      "rse": null,
       "norm_cell": "T7-abwaerts (beidseitig)",
-      "applies_to_adjacency": ["unheated", "low_heated", "other_zone", "same_zone", "ground_basement_unheated"],
-      "applies_to_element_type": ["floor", "slab_basement"]
+      "applies_to_adjacency": [
+        "unheated",
+        "low_heated",
+        "other_zone",
+        "same_zone",
+        "ground_basement_unheated"
+      ],
+      "applies_to_element_type": [
+        "floor",
+        "slab_basement"
+      ]
     },
     {
       "code": "ground_contact",
       "name_de": "Bauteil gegen Erdreich",
       "heat_flow": "downward",
-      "rsi": 0.17,
-      "rse": 0.00,
+      "rsi": null,
+      "rse": null,
       "norm_cell": "DIN EN ISO 13370",
       "note": "Rse = 0: gegen Erdreich gibt es keinen aeusseren Uebergangswiderstand. ACHTUNG — der so berechnete Wert ist der Bauteil-U-Wert, NICHT der aequivalente U-Wert inklusive Erdreichwiderstand nach DIN EN ISO 13370. Fuer die Bilanz kommt der Erdreicheinfluss ueber Fx dazu.",
-      "applies_to_adjacency": ["ground_slab", "ground_basement_heated"],
-      "applies_to_element_type": ["floor", "slab_ground", "slab_basement", "wall"]
+      "applies_to_adjacency": [
+        "ground_slab",
+        "ground_basement_heated"
+      ],
+      "applies_to_element_type": [
+        "floor",
+        "slab_ground",
+        "slab_basement",
+        "wall"
+      ]
     }
   ]
 }

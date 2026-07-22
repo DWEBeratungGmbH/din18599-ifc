@@ -73,13 +73,22 @@ Die Gruppe entsteht über einen **Koplanaritäts-Fingerprint**:
   "normal_x": 0.17, "normal_y": 0.98, "normal_z": 0.0,
   "dist_m": 4.20,
   "coordinate_system": "project",
-  "tolerance": { "normal_decimals": 2, "dist_tolerance_m": 0.02 }
+  "tolerance": { "angle_tolerance_deg": 1.0, "dist_tolerance_m": 0.02 }
 }
 ```
 
-Gruppiert wird bei gleicher Normale (2 Dezimalen ≈ 1°), gleichem Ebenenabstand
-(±2 cm) und gleichem Bauteiltyp. Im Testmodell: 28 Instanzen → 13 Gruppen, 12 davon
-geschossübergreifend.
+Ein Element gehört zu einer Gruppe, wenn der **Winkelabstand** seiner Normale zum
+Gruppen-Repräsentanten ≤ 1° beträgt, der Ebenenabstand ±2 cm einhält und der
+Bauteiltyp gleich ist — sonst eröffnet es selbst eine Gruppe. Im Testmodell:
+28 Instanzen → 13 Gruppen, 12 davon geschossübergreifend.
+
+> **Winkelabstand, nicht gerundete Werte.** Runden ist Quantisierung, keine
+> Toleranz: gleich gerundete Werte trennen zwei Wände schon ab ~0,3° und
+> vereinigen nie zwei Wände über eine Rundungsgrenze hinweg. Die Regel wäre
+> nicht transitiv und hätte bei `normal_x ≈ 0` einen Vorzeichen-Kipppunkt.
+> Deshalb werden `normal_*` und `dist_m` in **voller Rechenpräzision**
+> serialisiert; Anzeige-Rundung ist Sache der UI und darf den Wert im Sidecar
+> nicht ersetzen.
 
 **Der Fingerprint lebt im Projektsystem, nicht geografisch.** Eine Korrektur der
 Nordrichtung darf die Gruppierung nicht zerstören — deshalb ist
