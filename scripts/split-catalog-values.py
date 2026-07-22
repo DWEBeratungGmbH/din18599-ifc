@@ -49,6 +49,14 @@ FELDER = {
         "extra": [("unheated_attic_spaces", "entries", "r_u")],
         "grund": "Luftschicht-Widerstaende aus DIN EN ISO 6946 Tabelle 8 und 9",
     },
+    "moisture_conditions": {
+        "entries": ["theta_i", "phi_i", "theta_e", "phi_e",
+                    "duration_days", "rsi", "rse"],
+        "extra": [("diffusion", "entries", "value"),
+                  ("assessment_limits", "entries", "value")],
+        "grund": "Klimarandbedingungen aus DIN 4108-3 Tabelle A.3, "
+                 "delta_0 aus C.2.4, Grenzwerte aus 5.2.2/5.3",
+    },
     # Nachtrag 22.07.2026: Der Materialkatalog lag ausserhalb von catalog/core/
     # und ist dem Guard deshalb durchgerutscht — 48 Eintraege mit Bemessungswerten
     # aus DIN 4108-4 Tabelle 1 standen im PUBLIC-Repo. Gleicher Fall wie der

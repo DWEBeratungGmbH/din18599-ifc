@@ -31,9 +31,13 @@ GESCHUETZT = {
     "air_layers": ["r_upward", "r_horizontal", "r_downward"],
     "materials": ["lambda", "mu", "rho", "c", "wlg",
                   "r_value", "u_value", "g_value"],
+    "moisture_conditions": ["theta_i", "phi_i", "theta_e", "phi_e",
+                            "duration_days", "rsi", "rse"],
 }
 GESCHUETZT_EXTRA = {
     "air_layers": [("unheated_attic_spaces", "entries", "r_u")],
+    "moisture_conditions": [("diffusion", "entries", "value"),
+                            ("assessment_limits", "entries", "value")],
 }
 
 # Kataloge ausserhalb von catalog/core/ mit abweichender Listen-/Schluesselform.
