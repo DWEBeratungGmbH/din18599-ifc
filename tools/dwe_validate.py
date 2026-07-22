@@ -439,6 +439,19 @@ def pruefe_rechenbarkeit(sidecar: dict, kataloge: dict, erg: Ergebnis) -> None:
                                   f"Werte-Overlay fuer '{kid}' fehlt"),
                       blocks_level="calc_ready", json_pointer="/meta/catalogs")
 
+    # U-Werte gegen den Schichtaufbau gegenrechnen. Erst hier sinnvoll: ohne
+    # boundaries[] ist die Bauteilsituation und damit Rsi/Rse nicht bestimmbar.
+    try:
+        from u_value import pruefe_sidecar as _pruefe_u
+        for b in _pruefe_u(sidecar):
+            erg.melde(b["code"], b["severity"], b["message"],
+                      blocks_level="calc_ready" if b["severity"] == "warning" else None,
+                      json_pointer="/input/constructions")
+    except ImportError:
+        erg.melde("U_VALUE_MODULE_MISSING", "info",
+                  "u_value.py nicht ladbar — U-Wert-Gegenrechnung uebersprungen",
+                  json_pointer="/input/constructions")
+
     for i, zone in enumerate(eingabe.get("zones", [])):
         if zone.get("zone_type") == "thermal" and not zone.get("used_profile_values"):
             erg.melde("PROFILE_SNAPSHOT_MISSING", "info",

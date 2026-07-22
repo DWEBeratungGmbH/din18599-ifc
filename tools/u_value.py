@@ -1,0 +1,449 @@
+#!/usr/bin/env python3
+"""
+u_value.py — U-Wert-Berechnung nach DIN EN ISO 6946 auf Basis der Kataloge.
+
+Rechnet aus dem Schichtaufbau einer Konstruktion den Waermedurchgangskoeffizienten
+und loest dabei Materialkennwerte und Uebergangswiderstaende aus catalog/core/ auf.
+
+Zwei Verfahren:
+
+  homogen     Alle Schichten durchgehend. R_T = Rsi + Summe(d/lambda) + Rse.
+
+  kombiniert  Inhomogene Bauteile (Sparren, Holzstaender) ueber sequences[] mit
+              Flaechenanteilen, DIN EN ISO 6946 Abschnitt 6.7:
+                R_upper = 1 / Summe(f_j / R_Tj)          Parallelweg-Grenze
+                R_lower: schichtweise gewichtet          Reihenweg-Grenze
+                R_T     = (R_upper + R_lower) / 2
+              Die Unsicherheit e = (R_upper - R_lower) / (2 * R_T) wird
+              mitgeliefert; ab e > 0,1 ist ein genaueres Verfahren angezeigt.
+
+              R_lower setzt voraus, dass alle Abfolgen dieselbe Schichtung mit
+              denselben Dicken haben. Ist das nicht der Fall, faellt die Rechnung
+              auf R_upper zurueck und meldet das — lieber eine ehrlich benannte
+              Naeherung als ein falscher Mittelwert.
+
+WAS DIESES MODUL NICHT KANN, bewusst:
+  - Fenster. Uw kommt aus Verglasung, Rahmen und Randverbund nach
+    DIN EN ISO 10077, nicht aus Schichtwiderstaenden. Ein Fenster durch dieses
+    Modul zu rechnen liefert grob falsche Werte (Faktor 7 beim Dreifachglas).
+  - Erdreich. Geliefert wird der BAUTEIL-U-Wert; der Erdreichwiderstand nach
+    DIN EN ISO 13370 kommt in der Bilanz ueber Fx dazu.
+  - Korrekturen dU nach Anhang F (Befestigungen, Umkehrdach).
+
+Aufruf:
+    python3 tools/u_value.py --construction WALL_EXT_BRICK_WDVS_160
+    python3 tools/u_value.py --sidecar examples/v4.0/beispiel1/energy.din18599.json
+    python3 tools/u_value.py --audit-legacy-catalog
+"""
+from __future__ import annotations
+
+import argparse
+import json
+import sys
+from dataclasses import dataclass, field
+from pathlib import Path
+
+REPO = Path(__file__).resolve().parent.parent
+
+# Ab dieser Unsicherheit des kombinierten Verfahrens ist ein genaueres
+# Verfahren angezeigt (DIN EN ISO 6946, Abschnitt 6.7.3).
+UNSICHERHEIT_WARNSCHWELLE = 0.10
+
+# Ab dieser relativen Abweichung gilt ein angegebener U-Wert als nicht
+# reproduzierbar. Validator-Konstante, kein Schema-Inhalt.
+U_WERT_TOLERANZ = 0.05
+
+
+@dataclass
+class Ergebnis:
+    u_value: float | None = None
+    r_total: float | None = None
+    rsi: float | None = None
+    rse: float | None = None
+    method: str = "homogen"
+    uncertainty: float | None = None
+    resistance_source: str | None = None
+    warnungen: list[str] = field(default_factory=list)
+    fehler: list[str] = field(default_factory=list)
+
+    @property
+    def ok(self) -> bool:
+        return self.u_value is not None and not self.fehler
+
+
+def lade_katalog(name: str) -> dict:
+    pfad = REPO / "catalog" / "core" / f"{name}.json"
+    if not pfad.exists():
+        return {}
+    roh = json.loads(pfad.read_text(encoding="utf-8"))
+    return {e["code"]: e for e in roh.get("entries", [])}
+
+
+def lade_materialien() -> dict:
+    """
+    Materialkennwerte. Noch im Altformat unter catalog/materials.json —
+    die Envelope-Migration steht aus (KATALOG_FORMAT.md, offener Punkt 5).
+    """
+    pfad = REPO / "catalog" / "materials.json"
+    if not pfad.exists():
+        return {}
+    roh = json.loads(pfad.read_text(encoding="utf-8"))
+    return {m["id"]: m for m in roh.get("materials", [])}
+
+
+def waehle_uebergangswiderstaende(
+    adjacency_type: str | None,
+    element_type: str | None,
+    katalog: dict,
+) -> tuple[float, float, str] | None:
+    """
+    Sucht den passenden surface_resistances-Eintrag. Die Kombination aus
+    Angrenzungsart und Bauteiltyp bestimmt ihn eindeutig — bewusst keine freie
+    Eingabe, damit dieselbe Situation immer dieselben Randbedingungen bekommt.
+    """
+    if not katalog:
+        return None
+    treffer = [
+        e for e in katalog.values()
+        if (not adjacency_type or adjacency_type in e.get("applies_to_adjacency", []))
+        and (not element_type or element_type in e.get("applies_to_element_type", []))
+    ]
+    if not treffer:
+        return None
+    e = treffer[0]
+    return e["rsi"], e["rse"], e["code"]
+
+
+def schicht_widerstand(schicht: dict, materialien: dict) -> tuple[float | None, str | None]:
+    """
+    Waermedurchlasswiderstand einer Schicht [(m2K)/W].
+
+    Reihenfolge: expliziter r_value (Luftschichten!) vor lambda vor Katalog-Lookup.
+    Eine Luftschicht hat keine sinnvolle Waermeleitfaehigkeit — ihr Widerstand
+    steht in DIN EN ISO 6946 Tabelle 8 und gehoert als r_value in die Daten.
+    """
+    if schicht.get("r_value") is not None:
+        return float(schicht["r_value"]), None
+
+    dicke = schicht.get("thickness_m", schicht.get("thickness"))
+    if dicke is None:
+        return None, "Schicht ohne thickness_m und ohne r_value"
+
+    lam = schicht.get("lambda")
+    if lam is None:
+        ref = schicht.get("material_ref") or schicht.get("material")
+        if not ref:
+            return None, "Schicht ohne lambda und ohne material_ref"
+        material = materialien.get(ref)
+        if material is None:
+            return None, f"Material '{ref}' steht in keinem Katalog"
+        lam = material.get("lambda")
+        if lam in (None, 0):
+            return None, (f"Material '{ref}' hat kein lambda — bei Luftschichten "
+                          f"gehoert stattdessen ein r_value in die Schicht "
+                          f"(DIN EN ISO 6946 Tab. 8)")
+    if lam <= 0:
+        return None, "lambda ist nicht positiv"
+    return float(dicke) / float(lam), None
+
+
+def _sequenz_widerstand(layers: list, materialien: dict) -> tuple[float | None, list]:
+    summe = 0.0
+    fehler = []
+    for schicht in layers:
+        r, problem = schicht_widerstand(schicht, materialien)
+        if problem:
+            fehler.append(problem)
+        else:
+            summe += r
+    return (None if fehler else summe), fehler
+
+
+def berechne(
+    construction: dict,
+    materialien: dict,
+    widerstaende: dict,
+    adjacency_type: str | None = None,
+    element_type: str | None = None,
+) -> Ergebnis:
+    erg = Ergebnis()
+
+    rb = waehle_uebergangswiderstaende(adjacency_type, element_type, widerstaende)
+    if rb is None:
+        erg.fehler.append(
+            f"Keine Uebergangswiderstaende fuer adjacency_type='{adjacency_type}', "
+            f"element_type='{element_type}' im Katalog gefunden"
+        )
+        return erg
+    erg.rsi, erg.rse, erg.resistance_source = rb
+
+    sequences = construction.get("sequences")
+    if not sequences:
+        # Altformat bzw. homogener Aufbau: flaches layers[]
+        layers = construction.get("layers")
+        if not layers:
+            erg.fehler.append("Konstruktion hat weder sequences[] noch layers[]")
+            return erg
+        sequences = [{"name": "Hauptkonstruktion", "share": 1.0, "layers": layers}]
+
+    anteile = [float(s.get("share", 1.0)) for s in sequences]
+    if abs(sum(anteile) - 1.0) > 0.001:
+        erg.warnungen.append(
+            f"Summe der Flaechenanteile ist {sum(anteile):.3f}, erwartet 1,0"
+        )
+
+    # --- R_upper: Parallelweg-Grenze ---
+    kehrwerte = 0.0
+    for seq, anteil in zip(sequences, anteile):
+        r_seq, fehler = _sequenz_widerstand(seq.get("layers", []), materialien)
+        if fehler:
+            erg.fehler.extend(fehler)
+            return erg
+        r_tj = erg.rsi + r_seq + erg.rse
+        kehrwerte += anteil / r_tj
+    r_upper = 1.0 / kehrwerte
+
+    if len(sequences) == 1:
+        erg.method = "homogen"
+        erg.r_total = r_upper
+        erg.u_value = round(1.0 / r_upper, 4)
+        return erg
+
+    # --- R_lower: Reihenweg-Grenze, nur bei deckungsgleicher Schichtung ---
+    schichtzahlen = {len(s.get("layers", [])) for s in sequences}
+    gleich_geschichtet = len(schichtzahlen) == 1
+    if gleich_geschichtet:
+        r_lower = erg.rsi + erg.rse
+        for i in range(schichtzahlen.pop()):
+            kehrwert = 0.0
+            for seq, anteil in zip(sequences, anteile):
+                r, problem = schicht_widerstand(seq["layers"][i], materialien)
+                if problem:
+                    gleich_geschichtet = False
+                    break
+                kehrwert += anteil / r if r > 0 else 0.0
+            if not gleich_geschichtet or kehrwert == 0:
+                gleich_geschichtet = False
+                break
+            r_lower += 1.0 / kehrwert
+
+    if gleich_geschichtet:
+        erg.method = "kombiniert"
+        erg.r_total = (r_upper + r_lower) / 2.0
+        erg.uncertainty = round((r_upper - r_lower) / (2.0 * erg.r_total), 4)
+        if abs(erg.uncertainty) > UNSICHERHEIT_WARNSCHWELLE:
+            erg.warnungen.append(
+                f"Unsicherheit des kombinierten Verfahrens betraegt "
+                f"{abs(erg.uncertainty):.1%} — ueber {UNSICHERHEIT_WARNSCHWELLE:.0%} "
+                f"ist ein genaueres Verfahren angezeigt (DIN EN ISO 6946, 6.7.3)"
+            )
+    else:
+        erg.method = "parallelweg_naeherung"
+        erg.r_total = r_upper
+        erg.warnungen.append(
+            "Die Abfolgen haben keine deckungsgleiche Schichtung — R_lower ist "
+            "nicht bestimmbar. Gerechnet wird die obere Grenze (Parallelweg); "
+            "der echte U-Wert liegt darunter."
+        )
+
+    erg.u_value = round(1.0 / erg.r_total, 4)
+    return erg
+
+
+def pruefe_sidecar(sidecar: dict) -> list:
+    """
+    Rechnet alle Konstruktionen eines Sidecars nach und vergleicht mit dem
+    angegebenen u_value. Liefert Befunde im Validator-Format.
+    """
+    materialien = lade_materialien()
+    widerstaende = lade_katalog("surface_resistances")
+    eingabe = sidecar.get("input", {})
+    konstruktionen = {c["id"]: c for c in eingabe.get("constructions", [])}
+
+    # Bauteilsituation je Konstruktion aus den Gruppen und Angrenzungen ableiten.
+    situation: dict = {}
+    for gruppe in eingabe.get("element_groups", []):
+        ref = gruppe.get("construction_ref")
+        if not ref:
+            continue
+        arten = {
+            b.get("adjacency_type")
+            for b in eingabe.get("boundaries", [])
+            if b.get("element_group_ref") == gruppe["id"]
+        }
+        situation.setdefault(ref, []).append(
+            (gruppe.get("element_type"), sorted(a for a in arten if a))
+        )
+
+    befunde = []
+    for kid, konstruktion in konstruktionen.items():
+        eintraege = situation.get(kid)
+        if not eintraege:
+            befunde.append({
+                "code": "U_VALUE_NO_CONTEXT", "severity": "info",
+                "message": f"{kid}: keiner Bauteilgruppe zugeordnet — ohne "
+                           f"Bauteilsituation sind die Uebergangswiderstaende "
+                           f"nicht bestimmbar",
+                "construction": kid,
+            })
+            continue
+
+        element_type, arten = eintraege[0]
+        adjacency = arten[0] if arten else None
+        if adjacency is None:
+            befunde.append({
+                "code": "U_VALUE_NO_CONTEXT", "severity": "info",
+                "message": f"{kid}: keine Angrenzung bekannt (boundaries[] leer) — "
+                           f"Uebergangswiderstaende nicht bestimmbar",
+                "construction": kid,
+            })
+            continue
+
+        erg = berechne(konstruktion, materialien, widerstaende, adjacency, element_type)
+        if not erg.ok:
+            befunde.append({
+                "code": "U_VALUE_NOT_COMPUTABLE", "severity": "warning",
+                "message": f"{kid}: {'; '.join(erg.fehler)}",
+                "construction": kid,
+            })
+            continue
+
+        for w in erg.warnungen:
+            befunde.append({
+                "code": "U_VALUE_METHOD_WARNING", "severity": "info",
+                "message": f"{kid}: {w}", "construction": kid,
+            })
+
+        angegeben = konstruktion.get("u_value")
+        if angegeben:
+            abw = (erg.u_value - angegeben) / angegeben
+            if abs(abw) > U_WERT_TOLERANZ:
+                befunde.append({
+                    "code": "U_VALUE_MISMATCH", "severity": "warning",
+                    "message": f"{kid}: angegeben {angegeben} W/(m2K), aus dem "
+                               f"Schichtaufbau berechnet {erg.u_value} "
+                               f"({abw:+.1%}, Verfahren {erg.method})",
+                    "construction": kid,
+                })
+    return befunde
+
+
+def _audit_altkatalog() -> int:
+    """Rechnet den Altbestand catalog/constructions.json nach."""
+    materialien = lade_materialien()
+    widerstaende = lade_katalog("surface_resistances")
+    roh = json.loads((REPO / "catalog" / "constructions.json").read_text(encoding="utf-8"))
+
+    # Bauteilsituation aus der Kategorie des Altformats ableiten.
+    ZUORDNUNG = {
+        "wall_external":  ("exterior", "wall"),
+        "wall_internal":  ("same_zone", "wall"),
+        "wall_party":     ("other_zone", "wall"),
+        "roof_pitched":   ("exterior", "roof"),
+        "roof_flat":      ("exterior", "roof"),
+        "floor_top":      ("attic_uninsulated", "ceiling"),
+        "floor_basement": ("unheated", "floor"),
+        "floor_ground":   ("ground_slab", "floor"),
+    }
+
+    print(f"{'Konstruktion':40} {'Katalog':>8} {'berechnet':>10} {'Abw':>8}  Status")
+    print("-" * 96)
+    zaehler = {"ok": 0, "abweichung": 0, "nicht_rechenbar": 0, "falsches_verfahren": 0}
+
+    for k in roh["constructions"]:
+        kat = k.get("category", "")
+        angegeben = k.get("u_value_calculated")
+        if kat == "window":
+            zaehler["falsches_verfahren"] += 1
+            print(f"{k['id'][:40]:40} {angegeben:>8} {'—':>10} {'—':>8}  "
+                  f"Fenster: Uw nach DIN EN ISO 10077, nicht aus Schichten")
+            continue
+        if kat not in ZUORDNUNG:
+            zaehler["falsches_verfahren"] += 1
+            continue
+
+        adjacency, element_type = ZUORDNUNG[kat]
+        erg = berechne(k, materialien, widerstaende, adjacency, element_type)
+        if not erg.ok:
+            zaehler["nicht_rechenbar"] += 1
+            print(f"{k['id'][:40]:40} {angegeben:>8} {'—':>10} {'—':>8}  "
+                  f"{erg.fehler[0][:44]}")
+            continue
+
+        abw = (erg.u_value - angegeben) / angegeben if angegeben else 0
+        if abs(abw) <= U_WERT_TOLERANZ:
+            zaehler["ok"] += 1
+            status = "reproduziert"
+        else:
+            zaehler["abweichung"] += 1
+            status = "weicht ab"
+        print(f"{k['id'][:40]:40} {angegeben:>8} {erg.u_value:>10.3f} "
+              f"{abw:>+7.1%}  {status}")
+
+    print()
+    print(f"reproduziert:        {zaehler['ok']}")
+    print(f"weicht ab:           {zaehler['abweichung']}")
+    print(f"nicht rechenbar:     {zaehler['nicht_rechenbar']}")
+    print(f"falsches Verfahren:  {zaehler['falsches_verfahren']}")
+    return 0
+
+
+def main() -> int:
+    p = argparse.ArgumentParser(description="U-Wert-Berechnung nach DIN EN ISO 6946")
+    p.add_argument("--construction", help="ID aus catalog/constructions.json")
+    p.add_argument("--adjacency", default="exterior", help="adjacency_type")
+    p.add_argument("--element-type", default="wall", help="element_type")
+    p.add_argument("--sidecar", help="Sidecar nachrechnen und gegen u_value pruefen")
+    p.add_argument("--audit-legacy-catalog", action="store_true",
+                   help="Altbestand catalog/constructions.json nachrechnen")
+    args = p.parse_args()
+
+    if args.audit_legacy_catalog:
+        return _audit_altkatalog()
+
+    if args.sidecar:
+        sidecar = json.loads(Path(args.sidecar).read_text(encoding="utf-8"))
+        befunde = pruefe_sidecar(sidecar)
+        if not befunde:
+            print("Keine Befunde — alle Konstruktionen reproduzierbar.")
+            return 0
+        for b in befunde:
+            print(f"[{b['severity']:7}] {b['code']:24} {b['message']}")
+        return 1 if any(b["severity"] == "warning" for b in befunde) else 0
+
+    if args.construction:
+        roh = json.loads(
+            (REPO / "catalog" / "constructions.json").read_text(encoding="utf-8")
+        )
+        treffer = next(
+            (c for c in roh["constructions"] if c["id"] == args.construction), None
+        )
+        if treffer is None:
+            print(f"Konstruktion '{args.construction}' nicht gefunden", file=sys.stderr)
+            return 2
+        erg = berechne(treffer, lade_materialien(), lade_katalog("surface_resistances"),
+                       args.adjacency, args.element_type)
+        print(f"Konstruktion: {treffer['id']}  ({treffer.get('name_de','')})")
+        print(f"Situation:    adjacency={args.adjacency}, element_type={args.element_type}")
+        if erg.resistance_source:
+            print(f"Rsi/Rse:      {erg.rsi} / {erg.rse}  (Katalog: {erg.resistance_source})")
+        if erg.ok:
+            print(f"R_total:      {erg.r_total:.4f} (m2K)/W")
+            print(f"U-Wert:       {erg.u_value} W/(m2K)   Verfahren: {erg.method}")
+            if erg.uncertainty is not None:
+                print(f"Unsicherheit: {abs(erg.uncertainty):.2%}")
+            if treffer.get("u_value_calculated"):
+                a = treffer["u_value_calculated"]
+                print(f"im Katalog:   {a}  ({(erg.u_value - a) / a:+.1%})")
+        for w in erg.warnungen:
+            print(f"WARNUNG: {w}")
+        for f in erg.fehler:
+            print(f"FEHLER:  {f}")
+        return 0 if erg.ok else 1
+
+    p.print_help()
+    return 2
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

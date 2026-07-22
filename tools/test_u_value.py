@@ -1,0 +1,158 @@
+#!/usr/bin/env python3
+"""
+test_u_value.py — Tests fuer die U-Wert-Berechnung.
+
+Die Sollwerte sind bewusst so gewaehlt, dass sie sich auf Papier nachrechnen
+lassen. Ein Test, dessen Erwartungswert aus demselben Code stammt, den er
+prueft, testet nichts.
+
+Aufruf:
+    python3 tools/test_u_value.py
+"""
+from __future__ import annotations
+
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+from u_value import berechne, lade_katalog, lade_materialien  # noqa: E402
+
+WIDERSTAENDE = lade_katalog("surface_resistances")
+
+
+def nah(a: float, b: float, toleranz: float = 0.001) -> bool:
+    return a is not None and abs(a - b) < toleranz
+
+
+def main() -> int:
+    fehler = 0
+    materialien = lade_materialien()
+
+    def pruefe(name: str, bedingung: bool, detail: str = "") -> None:
+        nonlocal fehler
+        fehler += 0 if bedingung else 1
+        print(f"{name:52} {'PASS' if bedingung else 'FAIL'}  {detail}")
+
+    # --- 1. Homogen, von Hand nachrechenbar --------------------------------
+    # 0,20 m bei lambda 0,10 -> R = 2,000
+    # R_T = 0,13 + 2,000 + 0,04 = 2,170 -> U = 0,46083
+    k = {"id": "T1", "layers": [{"thickness_m": 0.20, "lambda": 0.10}]}
+    e = berechne(k, materialien, WIDERSTAENDE, "exterior", "wall")
+    pruefe("homogen: R_T = 2,170", nah(e.r_total, 2.170),
+           f"R_T={e.r_total:.4f}" if e.r_total else str(e.fehler))
+    pruefe("homogen: U = 0,4608", nah(e.u_value, 0.4608, 0.0002), f"U={e.u_value}")
+    pruefe("homogen: Rsi/Rse aus Katalog", (e.rsi, e.rse) == (0.13, 0.04),
+           f"{e.rsi}/{e.rse} via {e.resistance_source}")
+
+    # --- 2. Uebergangswiderstaende folgen der Bauteilsituation --------------
+    e_innen = berechne(k, materialien, WIDERSTAENDE, "same_zone", "wall")
+    pruefe("Innenwand: Rse = 0,13 statt 0,04", (e_innen.rsi, e_innen.rse) == (0.13, 0.13),
+           f"{e_innen.rsi}/{e_innen.rse}")
+    e_dach = berechne(k, materialien, WIDERSTAENDE, "exterior", "roof")
+    pruefe("Dach: Rsi = 0,10 (aufwaerts)", (e_dach.rsi, e_dach.rse) == (0.10, 0.04),
+           f"{e_dach.rsi}/{e_dach.rse}")
+    e_erd = berechne(k, materialien, WIDERSTAENDE, "ground_slab", "floor")
+    pruefe("Erdreich: Rse = 0", e_erd.rse == 0.0, f"{e_erd.rsi}/{e_erd.rse}")
+
+    # --- 3. Luftschicht ueber r_value statt lambda --------------------------
+    # 0,18 (Luft) + 0,13 + 0,04 = 0,35 -> U = 2,857142
+    k_luft = {"id": "T2", "layers": [{"r_value": 0.18}]}
+    e = berechne(k_luft, materialien, WIDERSTAENDE, "exterior", "wall")
+    pruefe("Luftschicht ueber r_value: U = 2,8571", nah(e.u_value, 2.8571, 0.0002),
+           f"U={e.u_value}")
+
+    # --- 4. Kombiniertes Verfahren, DIN EN ISO 6946 6.7 --------------------
+    # Dach, also Rsi = 0,10 und Rse = 0,04 (Waermestrom aufwaerts).
+    # Zwei Abfolgen, gleiche Schichtung, Anteile 0,9 / 0,1:
+    #   Gefach:  0,20 / 0,04 = 5,0000 -> R_T1 = 5,1400
+    #   Sparren: 0,20 / 0,13 = 1,5385 -> R_T2 = 1,6785
+    #   R_upper = 1 / (0,9/5,1400 + 0,1/1,6785)       = 4,26120
+    #   R_lower = 0,14 + 1/(0,9/5,0000 + 0,1/1,5385)  = 4,22163
+    #   R_T     = (4,26120 + 4,22163) / 2             = 4,24142
+    #   U       = 1 / 4,24142                         = 0,23577
+    k_inhom = {
+        "id": "T3",
+        "sequences": [
+            {"name": "Gefach", "share": 0.9,
+             "layers": [{"thickness_m": 0.20, "lambda": 0.04}]},
+            {"name": "Sparren", "share": 0.1,
+             "layers": [{"thickness_m": 0.20, "lambda": 0.13}]},
+        ],
+    }
+    e = berechne(k_inhom, materialien, WIDERSTAENDE, "exterior", "roof")
+    pruefe("kombiniert: Verfahren erkannt", e.method == "kombiniert", e.method)
+    pruefe("kombiniert: R_T = 4,2414", nah(e.r_total, 4.24142, 0.0005),
+           f"R_T={e.r_total:.4f}" if e.r_total else str(e.fehler))
+    pruefe("kombiniert: U = 0,2358", nah(e.u_value, 0.23577, 0.0002), f"U={e.u_value}")
+    pruefe("kombiniert: Unsicherheit e = 0,0047", nah(e.uncertainty, 0.00466, 0.0002),
+           f"e={e.uncertainty}")
+
+    # Der Sparren verschlechtert den U-Wert deutlich — genau der Effekt, den ein
+    # flaches layers[] ohne Flaechenanteile nicht abbilden kann.
+    e_ohne = berechne(
+        {"id": "T3h", "layers": [{"thickness_m": 0.20, "lambda": 0.04}]},
+        materialien, WIDERSTAENDE, "exterior", "roof")
+    pruefe("kombiniert schlechter als homogen gerechnet",
+           e.u_value > e_ohne.u_value,
+           f"{e.u_value} gegen {e_ohne.u_value} (+{(e.u_value/e_ohne.u_value-1):.0%})")
+
+    # --- 5. Rueckfall auf Parallelweg bei ungleicher Schichtung ------------
+    k_ungleich = {
+        "id": "T4",
+        "sequences": [
+            {"share": 0.9, "layers": [{"thickness_m": 0.20, "lambda": 0.04}]},
+            {"share": 0.1, "layers": [{"thickness_m": 0.10, "lambda": 0.13},
+                                      {"thickness_m": 0.10, "lambda": 0.20}]},
+        ],
+    }
+    e = berechne(k_ungleich, materialien, WIDERSTAENDE, "exterior", "roof")
+    pruefe("ungleiche Schichtung: Naeherung + Warnung",
+           e.method == "parallelweg_naeherung" and len(e.warnungen) >= 1, e.method)
+
+    # --- 6. Fehlerfaelle melden statt still rechnen ------------------------
+    e = berechne({"id": "T5", "layers": [{"thickness_m": 0.2}]},
+                 materialien, WIDERSTAENDE, "exterior", "wall")
+    pruefe("Schicht ohne lambda und ohne Referenz -> Fehler",
+           not e.ok and e.fehler != [], str(e.fehler[:1]))
+
+    e = berechne({"id": "T6", "layers": [{"thickness_m": 0.2, "material_ref": "MAT_GIBTS_NICHT"}]},
+                 materialien, WIDERSTAENDE, "exterior", "wall")
+    pruefe("unbekanntes Material -> Fehler", not e.ok, str(e.fehler[:1]))
+
+    e = berechne({"id": "T7", "layers": [{"thickness_m": 0.2, "lambda": 0.1}]},
+                 materialien, WIDERSTAENDE, "wolkenkuckucksheim", "wall")
+    pruefe("unbekannte Bauteilsituation -> Fehler", not e.ok, str(e.fehler[:1]))
+
+    # --- 7. Anteilssumme ungleich 1 wird gemeldet --------------------------
+    k_summe = {
+        "id": "T8",
+        "sequences": [
+            {"share": 0.9, "layers": [{"thickness_m": 0.2, "lambda": 0.04}]},
+            {"share": 0.2, "layers": [{"thickness_m": 0.2, "lambda": 0.13}]},
+        ],
+    }
+    e = berechne(k_summe, materialien, WIDERSTAENDE, "exterior", "roof")
+    pruefe("Anteilssumme 1,1 wird gemeldet",
+           any("Flaechenanteile" in w for w in e.warnungen), str(e.warnungen[:1]))
+
+    # --- 8. Gegen den Altkatalog: ein reproduzierbarer Fall ----------------
+    import json
+    alt = {c["id"]: c for c in json.loads(
+        (Path(__file__).resolve().parent.parent / "catalog" / "constructions.json")
+        .read_text(encoding="utf-8"))["constructions"]}
+    e = berechne(alt["ROOF_FLAT_INSULATED_200"], materialien, WIDERSTAENDE,
+                 "exterior", "roof")
+    abw = abs(e.u_value - alt["ROOF_FLAT_INSULATED_200"]["u_value_calculated"]) \
+        / alt["ROOF_FLAT_INSULATED_200"]["u_value_calculated"]
+    pruefe("Altkatalog ROOF_FLAT_INSULATED_200 reproduziert", abw < 0.05,
+           f"U={e.u_value} gegen 0.17 ({abw:+.1%})")
+
+    print()
+    gesamt = 18
+    print(f"{gesamt - fehler}/{gesamt} Pruefungen bestanden")
+    return 1 if fehler else 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

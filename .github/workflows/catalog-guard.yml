@@ -27,6 +27,7 @@ jobs:
           git diff --exit-code catalog/core examples/v4.0 \
             || (echo "Generierte Kataloge/Beispiele weichen vom Commit ab -- Generator laufen lassen und committen." && exit 1)
           python tools/test_dwe_validate.py
+          python tools/test_u_value.py
 
       - name: Sidecar- und Manifest-Schema validieren
         run: |
