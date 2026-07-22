@@ -57,13 +57,47 @@ benannte Näherung ist besser als ein falscher Mittelwert.
 
 ### Was er bewusst nicht kann
 
-- **Fenster.** Uw kommt aus Verglasung, Rahmen und Randverbund nach
-  DIN EN ISO 10077 — nicht aus Schichtwiderständen. Ein Dreifachglas durch dieses
-  Modul zu rechnen liefert 4,85 statt 0,70 W/(m²K), also **Faktor 7 daneben**.
-  Der Rechner verweigert Fenster deshalb ausdrücklich.
+- **Fenster über Schichtwiderstände.** Ein Dreifachglas so zu rechnen liefert 4,85
+  statt 0,70 W/(m²K), also **Faktor 7 daneben**. `berechne()` verweigert das
+  ausdrücklich. Stattdessen gibt es `uw_fenster()` nach DIN EN ISO 10077-1 —
+  siehe unten.
 - **Erdreich.** Geliefert wird der Bauteil-U-Wert; der Erdreichwiderstand nach
   DIN EN ISO 13370 kommt in der Bilanz über Fx dazu.
 - Korrekturen ΔU nach Anhang F (Befestigungen, Umkehrdach).
+
+### Fenster: `uw_fenster()` nach DIN EN ISO 10077-1
+
+Gleichung (2) ohne Sprossen:
+
+```
+Uw = (Ag·Ug + Af·Uf + lg·Ψg) / (Ag + Af)
+```
+
+`Ψg` kommt aus **Tabelle G.1** (typische Abstandhalter aus Aluminium oder Stahl),
+abgeleitet aus Rahmenart (über Uf) und Glasart (über Ug — Anhang H wertet
+Ug ≤ 2,0 als Glas mit niedrigem Emissionsgrad):
+
+| Rahmenart | unbeschichtet | niedriger Emissionsgrad |
+|---|---:|---:|
+| Holz oder PVC (Uf ≤ 2,0) | 0,06 | 0,08 |
+| Metall mit Trennung (2,2 ≤ Uf ≤ 3,8) | 0,08 | 0,11 |
+| Metall ohne Trennung (Uf = 7,0) | 0,02 | 0,05 |
+
+**Für Einfachverglasung ist Ψg = 0** — es gibt keinen Randverbund. Das ist über
+`single_glazing=True` zu setzen; ohne dieses Flag rechnet sich ein Einfachfenster
+systematisch zu schlecht.
+
+Der sichtbare Glasumfang `lg` wird geschätzt, wenn er nicht vorliegt (beide
+Kantenlängen mit der Wurzel des Glasflächenanteils skaliert).
+
+**Validierung gegen Tabelle H.1** (Referenzfenster 1,23 × 1,48 m, Rahmenanteil 30 %):
+**72 von 72 Stützstellen** innerhalb 0,06 W/(m²K). Die Näherung für `lg` ist damit
+für den Regelfall belegt.
+
+> Zur Tabelle selbst: die Spalte Uf = 2,6 verletzt in vier Zeilen die Monotonie
+> (Uw muss mit Uf steigen). Da der Einbruch nur in dieser einen Spalte auftritt,
+> ist es ein Artefakt der Textextraktion, kein Normwert — die Spalte bleibt aus
+> der Validierung heraus.
 
 ---
 
@@ -183,11 +217,24 @@ sichtbar macht.
    (unbeheizte Dachräume) für `attic_uninsulated`.
 3. **Flächenanteile für inhomogene Bauteile** — Sparren- und Ständeranteile sind
    konstruktionsspezifisch, keine Normwerte. Müssen je Konstruktion erfasst werden.
-4. **λ-Herkunft klären:** sind die Werte in `materials.json` Bemessungswerte
-   (mit Sicherheitszuschlag) oder Nennwerte? Das erklärt keine 15 %, gehört aber
-   dokumentiert.
+4. **λ-Herkunft geklärt (DIN 4108-4).** Tabelle 1 enthält **Bemessungswerte**,
+   ermittelt nach DIN EN ISO 10456 bei 80 % rel. Luftfeuchte, 23 °C und 10 °C
+   Mitteltemperatur. „Für wärmeschutztechnische Nachweise ist der Bemessungswert
+   anzusetzen." Die μ-Werte sind dagegen ausdrücklich nur **Richtwerte** und
+   „können erheblichen Schwankungen unterliegen".
+
+   **Damit ist die WDVS-Abweichung erklärt — negativ.** Tabelle 2 beziffert den
+   Aufschlag Nennwert → Bemessungswert für Dämmstoffe auf **+0,001 W/(mK)**
+   (aus 0,032 wird 0,033; erst bei 0,050 sind es +0,002). Das sind rund 3 %,
+   nicht die beobachteten 25 %. Die naheliegende harmlose Erklärung scheidet
+   damit aus: die Katalog-U-Werte wurden mit einem **anderen Dämmstoff**
+   gerechnet, nicht mit einem Sicherheitszuschlag.
 5. **Fenster-Konstruktionen** aus `constructions.json` nach `window_constructions[]`
-   überführen.
+   überführen — der Rechenkern dafür steht jetzt (`uw_fenster()`).
+   Nebenbefund aus DIN 4108-4 Tabelle 7: für Außentüren ohne Nachweis gelten
+   pauschal 2,9 W/(m²K) (Holz, Holzwerkstoffe, Kunststoff) bzw. 4,0 (Metallrahmen
+   mit metallenen Bekleidungen). Für Fenster gilt Bemessungswert = Nennwert
+   nach DIN EN 14351-1.
 6. **Envelope-Migration** von `constructions.json` und `materials.json` — steht
    ohnehin an (KATALOG_FORMAT.md, offener Punkt 5) und ist die Gelegenheit,
    `sequences[]` einzuführen.

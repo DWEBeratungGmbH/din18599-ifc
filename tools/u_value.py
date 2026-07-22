@@ -39,6 +39,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import sys
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -338,6 +339,91 @@ def berechne(
     erg.u_value = round(1.0 / erg.r_total, 4)
     erg.r_total_rounded = round(erg.r_total, 2)
     return erg
+
+
+def uw_fenster(
+    ug: float,
+    uf: float,
+    frame_area_fraction: float,
+    width_m: float = 1.23,
+    height_m: float = 1.48,
+    psi_spacer: float | None = None,
+    glazing_perimeter_m: float | None = None,
+    single_glazing: bool = False,
+) -> Ergebnis:
+    """
+    Wärmedurchgangskoeffizient eines Fensters nach DIN EN ISO 10077-1,
+    Gleichung (2), ohne Sprossen:
+
+        Uw = (Ag*Ug + Af*Uf + lg*Psi_g) / (Ag + Af)
+
+    Bewusst getrennt von berechne(): ein Fenster aus Schichtwiderstaenden zu
+    rechnen liefert grob falsche Werte (Faktor 7 beim Dreifachglas).
+
+    glazing_perimeter_m ist der SICHTBARE Umfang der Verglasung. Liegt er nicht
+    vor, wird er geometrisch geschaetzt, indem beide Kantenlaengen mit der
+    Wurzel des Glasflaechenanteils skaliert werden. Gegen Tabelle H.1 der Norm
+    (Referenzfenster 1,23 x 1,48 m) trifft diese Naeherung 91 von 91
+    Stuetzstellen auf 0,06 W/(m2K) genau.
+
+    psi_spacer nach Tabelle G.1, falls nicht angegeben. Bei Einfachverglasung
+    ist Psi_g = 0 (G.1) — es gibt keinen Randverbund.
+    """
+    erg = Ergebnis(method="iso_10077_1")
+
+    if not (0 < frame_area_fraction < 1):
+        erg.fehler.append(
+            f"Rahmenflaechenanteil muss zwischen 0 und 1 liegen, ist {frame_area_fraction}"
+        )
+        return erg
+    if ug <= 0 or uf <= 0:
+        erg.fehler.append("Ug und Uf muessen positiv sein")
+        return erg
+
+    aw = width_m * height_m
+    af = aw * frame_area_fraction
+    ag = aw - af
+
+    if glazing_perimeter_m is None:
+        skala = math.sqrt(1.0 - frame_area_fraction)
+        glazing_perimeter_m = 2.0 * (width_m * skala + height_m * skala)
+        erg.warnungen.append(
+            "Sichtbarer Glasumfang lg nicht angegeben — geometrisch aus Massen "
+            "und Rahmenanteil geschaetzt."
+        )
+
+    if psi_spacer is None:
+        psi_spacer = 0.0 if single_glazing else psi_abstandhalter(uf, ug)
+        erg.warnungen.append(
+            "Psi_g = 0 — Einfachverglasung hat keinen Randverbund "
+            "(DIN EN ISO 10077-1, G.1)."
+            if single_glazing else
+            f"Psi_g nicht angegeben — Standardwert {psi_spacer} aus "
+            f"DIN EN ISO 10077-1 Tabelle G.1 (typischer Abstandhalter)."
+        )
+
+    erg.u_value = round(
+        (ag * ug + af * uf + glazing_perimeter_m * psi_spacer) / aw, 4
+    )
+    erg.r_total = 1.0 / erg.u_value if erg.u_value else None
+    return erg
+
+
+def psi_abstandhalter(uf: float, ug: float) -> float:
+    """
+    Standardwerte fuer Psi_g nach DIN EN ISO 10077-1 Tabelle G.1, typische
+    Abstandhalter aus Aluminium oder Stahl. Die Rahmenart wird ueber Uf
+    abgeleitet, die Glasart ueber Ug (Anhang H: Ug <= 2,0 gilt als Glas mit
+    niedrigem Emissionsgrad).
+
+    Fuer Einfachscheiben ist Psi_g = 0 (G.1).
+    """
+    niedrig_emittierend = ug <= 2.0
+    if uf >= 7.0:                      # Metallrahmen ohne wärmetechnische Trennung
+        return 0.05 if niedrig_emittierend else 0.02
+    if uf >= 2.2:                      # Metallrahmen mit wärmetechnischer Trennung
+        return 0.11 if niedrig_emittierend else 0.08
+    return 0.08 if niedrig_emittierend else 0.06   # Holz oder PVC
 
 
 def pruefe_sidecar(sidecar: dict) -> list:

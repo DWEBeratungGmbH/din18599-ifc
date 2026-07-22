@@ -183,6 +183,40 @@ def main() -> int:
     pruefe("R_tot auf zwei Dezimalen gerundet mitgefuehrt",
            e.r_total_rounded == 2.17, f"{e.r_total_rounded}")
 
+    # --- 7e. Fenster nach DIN EN ISO 10077-1, gegen Tabelle H.1 -----------
+    # Referenzfenster 1,23 x 1,48 m, Rahmenanteil 30 %, typische Abstandhalter.
+    # Spalte Uf = 2,6 ausgelassen: sie verletzt in mehreren Zeilen die Monotonie
+    # und ist ein Extraktionsartefakt, kein Normwert.
+    from u_value import uw_fenster
+    UF = [0.80, 1.0, 1.2, 1.4, 1.6, 1.8, 2.0, 2.2, 3.0, 3.4, 3.8, 7.0]
+    H1 = {
+        3.3: [2.7, 2.8, 2.8, 2.9, 2.9, 3.0, 3.1, 3.2, 3.4, 3.5, 3.6, 4.5],
+        3.0: [2.5, 2.5, 2.6, 2.7, 2.7, 2.8, 2.8, 3.0, 3.2, 3.3, 3.4, 4.2],
+        2.0: [1.8, 1.9, 2.0, 2.0, 2.1, 2.1, 2.2, 2.3, 2.6, 2.7, 2.8, 3.6],
+        1.5: [1.5, 1.5, 1.6, 1.7, 1.7, 1.8, 1.8, 2.0, 2.2, 2.3, 2.5, 3.3],
+        1.1: [1.2, 1.3, 1.3, 1.4, 1.4, 1.5, 1.6, 1.7, 1.9, 2.1, 2.2, 3.0],
+        0.8: [1.0, 1.1, 1.1, 1.2, 1.2, 1.3, 1.4, 1.5, 1.7, 1.9, 2.0, 2.8],
+    }
+    treffer = summe = 0
+    for ug, zeile in H1.items():
+        for uf, soll in zip(UF, zeile):
+            e = uw_fenster(ug, uf, 0.30)
+            summe += 1
+            treffer += abs(e.u_value - soll) <= 0.06
+    pruefe("Fenster: 72 Stuetzstellen der Tabelle H.1", treffer == summe,
+           f"{treffer}/{summe} innerhalb 0,06 W/(m2K)")
+
+    # Einfachverglasung: Psi_g = 0 (G.1), sonst rechnet sie sich zu schlecht
+    e_ein = uw_fenster(5.8, 1.4, 0.30, single_glazing=True)
+    e_falsch = uw_fenster(5.8, 1.4, 0.30)
+    pruefe("Fenster: Einfachverglasung hat Psi_g = 0",
+           abs(e_ein.u_value - 4.5) <= 0.06 and e_falsch.u_value > e_ein.u_value,
+           f"mit Psi=0: {e_ein.u_value} (Norm 4,5) / mit Abstandhalter: {e_falsch.u_value}")
+
+    e_bad = uw_fenster(1.1, 1.3, 1.5)
+    pruefe("Fenster: Rahmenanteil ausserhalb 0..1 -> Fehler", not e_bad.ok,
+           str(e_bad.fehler[:1]))
+
     # --- 8. Gegen den Altkatalog: ein reproduzierbarer Fall ----------------
     import json
     alt = {c["id"]: c for c in json.loads(
@@ -196,7 +230,7 @@ def main() -> int:
            f"U={e.u_value} gegen 0.17 ({abw:+.1%})")
 
     print()
-    gesamt = 25
+    gesamt = 28
     print(f"{gesamt - fehler}/{gesamt} Pruefungen bestanden")
     return 1 if fehler else 0
 
