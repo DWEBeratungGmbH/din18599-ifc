@@ -61,7 +61,8 @@
 
     "output": {
       "type": "object",
-      "description": "Berechnungsergebnisse. Key 'base' = Ist-Zustand, 'scenario_<id>' = Szenarien.",
+      "description": "Berechnungsergebnisse. Key 'base' = Ist-Zustand (Pflicht-Anker), 'scenario_<id>' = Szenarien. Ein output-Block ohne 'base' ist fachlich sinnlos, da Szenarien Deltas gegen den Ist-Zustand sind; 'base' ist daher required. output selbst bleibt top-level optional (Gebaeude ohne Berechnung haben keinen output-Block).",
+      "required": ["base"],
       "properties": {
         "base": { "$ref": "#/definitions/output_snapshot" }
       },

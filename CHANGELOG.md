@@ -9,6 +9,17 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/lang/de/).
 
 ## [Unreleased] - Schema v4.0 (.dwe-Container)
 
+### Fixed
+
+- **`output.base` als `required` markiert (23.07.2026)** — die `output`-Definition
+  listete `base` explizit unter `properties` neben der `patternProperties`-Index-
+  Signatur (`[k] -> output_snapshot`). Der Codegen (json2ts) erzeugte daraus ein
+  optionales `base?` neben der Index-Signatur, was TypeScript im DWEapp-Konsumenten
+  als TS2411 ablehnt (optionale benannte Property nicht der Index-Signatur zuweisbar).
+  `base` ist der Ist-Zustands-Anker (Szenarien sind Deltas dagegen), also fachlich
+  Pflicht; `output` selbst bleibt top-level optional. Löst den Typgenerator-Konflikt
+  ohne Semantikverlust. Nötig für den DWEapp-Sidecar-v4.0-Flip (ADR-029).
+
 ### Security
 
 - **`catalog/materials.json` entwertet (22.07.2026)** — 48 der 50 Einträge trugen
