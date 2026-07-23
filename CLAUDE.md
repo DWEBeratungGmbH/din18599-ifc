@@ -7,7 +7,7 @@
 
 - **Backend/API:** Python 3.12, FastAPI, SQLAlchemy, PostgreSQL
 - **Frontend/Viewer:** React 19, TypeScript, Vite, Three.js (3D/Web-IFC)
-- **Datenformat:** JSON Schema v3.1 (Draft-07), abwärtskompatibel bis v2.0
+- **Datenformat:** JSON Schema (Draft-07). Produktiv: v3.1. In Entwicklung: v4.0 als .dwe-Container (Greenfield, kein Diff auf v3.x)
 - **Standards:** DIN 18599 (Energetische Bewertung von Gebäuden)
 
 ## Projektstruktur
@@ -33,7 +33,8 @@ docs/                   # Umfangreiche Dokumentation
 ├── LOD_GUIDE.md        # Level of Detail (100-500)
 └── PARAMETER_MATRIX.md # DIN 18599 Parameter
 
-catalogs/               # Bundesanzeiger 2020 Katalog
+catalog/                # Kern-Kataloge (Struktur, öffentlich)
+catalog-private/        # Normwerte (gitignored, DIN/Beuth-Urheberrecht)
 examples/               # LOD 100-400 Beispiel-JSON
 tools/                  # CLI Validator (validate.py)
 .plans/                 # Implementierungspläne (18 Dateien)
@@ -59,8 +60,33 @@ tools/                  # CLI Validator (validate.py)
 
 ## Wichtige Dateien
 
-- **Schema (aktuell):** `schema/v3.1-complete.json`
-- **Schema v3.0 (Gebäudeakte-Basis):** `schema/v3.0-complete.json`
+- **Container-Spezifikation v4.0:** [`docs/DWE_CONTAINER.md`](docs/DWE_CONTAINER.md) — Einstieg
+- **Schema v4.0 (in Entwicklung, Greenfield):** `schema/v4.0/sidecar.schema.json` + `manifest.schema.json` + `catalog-envelope.schema.json`
+- **Kern-Kataloge:** `catalog/core/` (Struktur, öffentlich) · `catalog/values/` + `catalog-private/` (Normwerte, gitignored)
+- **Pfad-Whitelist:** `schema/v4.0/paths.json` (generiert, `readOnly`-Semantik aus dem Schema) — Konsumenten verriegeln damit ihre Dot-Path-Schreibpfade
+- **Referenz-Container:** `examples/v4.0/beispiel1/`
+- **Validator:** `tools/dwe_validate.py` (5 Stufen) · Tests `tools/test_dwe_validate.py`
+- **Schema v3.1 (produktiv eingefroren):** `schema/v3.1-complete.json`
+- **Schema v3.0 (Basis der DWEapp-TS-Typen — nicht entfernen):** `schema/v3.0-complete.json`
+- **Altstände v2.x:** `archive/schema-legacy/` (v3.2 verworfen, siehe CHANGELOG)
+
+### Regenerieren und prüfen
+
+```bash
+python3 scripts/build-usage-profiles-catalog.py --edition 2018-09
+python3 scripts/build-room-types-catalog.py
+python3 scripts/build-example-beispiel1.py
+python3 scripts/build-paths.py                # Pfad-Whitelist (--check in der CI)
+python3 tools/test_dwe_validate.py            # Validator-Regeln
+python3 tools/test_u_value.py                 # U-Wert-Rechenkern
+bash scripts/check-catalog-values.sh --all    # Rechtsschutz: Verzeichnisse gesperrt
+python3 scripts/check-catalog-structure.py    # Rechtsschutz: keine Normwerte in core/
+python3 scripts/split-catalog-values.py --dry-run   # Werte-Trennung nachvollziehen
+```
+
+> **Normwerte:** `catalog/core/` enthält nur Struktur mit `null`-Platzhaltern.
+> Die Zahlen liegen in `catalog/values/` (gitignored) und werden zur Laufzeit
+> gemerged. Ohne Overlay bleibt der Katalog nutzbar, aber nicht rechenbar.
 - **Datenbank-Schema:** `database/schema.sql` (v3.0 mit Helper-Funktionen)
 - **Roadmap:** `ROADMAP.md`
 - **Contributing:** `CONTRIBUTING.md`

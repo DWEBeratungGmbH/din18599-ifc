@@ -33,6 +33,10 @@ catalog-private/
 *.xlsx
 din18599_katalog.*
 
+# Werte-Overlays: Normzahlenwerte aus lizenzierten Quellen.
+# NIEMALS committen. Zusätzlich per CI erzwungen: scripts/check-catalog-values.sh
+catalog/values/
+
 # DIN 18599 Quellen (urheberrechtlich geschützt - NICHT veröffentlichen!)
 sources/docx/
 sources/markdown/

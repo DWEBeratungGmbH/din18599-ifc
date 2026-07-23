@@ -1,0 +1,77 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://din18599-ifc.de/schema/v4.0/catalogs/room_types",
+  "title": "Entry-Schema: room_types",
+  "description": "Raumtypen mit Mapping in drei Normen (DIN 18599 Nutzungsprofil, DIN 277 Flaechenkategorie, GEG). Traegt zusaetzlich die DWE-eigene Vorschlagslogik und die Heizlast-Standardtemperatur.",
+  "type": "object",
+  "required": ["code", "name_de", "applicability"],
+
+  "properties": {
+    "code":    { "type": "string", "description": "Ziel von rooms[].room_type_ref" },
+    "name_de": { "type": "string" },
+    "name_en": { "type": "string" },
+
+    "applicability": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "enum": ["WG", "NWG"] }
+    },
+
+    "aliases": {
+      "type": "array",
+      "items": { "type": "string" },
+      "default": [],
+      "description": "Synonyme aus dem Raumtypen-Namensschluessel. Anders als suggestion_keywords (unscharfe Teilstring-Suche fuer die Vorschlagslogik) sind das exakte Namen, die eindeutig auf diesen Typ abbilden."
+    },
+
+    "mapping": {
+      "type": "object",
+      "description": "Das 3-Normen-Mapping. null bedeutet: noch nicht belegt, NICHT 'gibt es nicht'.",
+      "properties": {
+        "din_18599_profile": {
+          "type": ["string", "null"],
+          "description": "code aus dem usage_profiles-Katalog"
+        },
+        "din_277_category": {
+          "type": ["string", "null"],
+          "description": "Flaechenkategorie nach DIN 277 (NUF 1 bis 7, TF, VF)"
+        },
+        "geg_category": {
+          "type": ["string", "null"],
+          "description": "GEG-Zuordnung, soweit einschlaegig"
+        }
+      }
+    },
+
+    "defaults": {
+      "type": "object",
+      "description": "DWE-eigene Vorbelegungen — ausdruecklich keine Normwerte, daher oeffentlich unkritisch",
+      "properties": {
+        "heating_status": {
+          "type": "string",
+          "enum": ["heated", "unheated", "low_heated"]
+        },
+        "theta_heizlast_standard_c": {
+          "type": ["number", "null"],
+          "description": "Norm-Innentemperatur fuer die Heizlast [Grad C]. Quelle ist DIN EN 12831 bzw. das Nutzungsprofil — bis zur Klaerung null."
+        },
+        "ventilation_function": { "type": "string" },
+        "counts_as_living_area": {
+          "type": "boolean",
+          "description": "Zaehlt zur Wohnflaeche nach WoFlV? Garage und Nebenflaechen: false"
+        },
+        "outside_thermal_envelope": {
+          "type": "boolean",
+          "default": false,
+          "description": "Liegt ausserhalb der thermischen Huelle (Terrasse, Balkon, unbeheizter Wintergarten). NICHT dasselbe wie heating_status='unheated': ein unbeheizter Keller liegt im Gebaeudevolumen und wird als angrenzender Bereich bilanziert, eine Terrasse nicht. Solche Raeume gehoeren in KEINE thermische Zone."
+        }
+      }
+    },
+
+    "suggestion_keywords": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Begriffe aus Revit-Raumnamen, die auf diesen Typ hindeuten. Speist die Vorschlagslogik beim Import — DWE-eigen."
+    }
+  }
+}

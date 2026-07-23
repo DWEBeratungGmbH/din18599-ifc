@@ -1,0 +1,3224 @@
+{
+  "generated_by": "scripts/build-paths.py",
+  "schema_id": "https://din18599-ifc.de/schema/v4.0/sidecar",
+  "schema_version": "4.0.0",
+  "notation": {
+    "[]": "Array-Ebene",
+    ".*": "offene Map (additionalProperties mit Schema)",
+    ".{pattern:X}": "patternProperties, X ist der Regex"
+  },
+  "readonly_hinweis": "readonly=true kommt aus readOnly im Schema und vererbt sich auf den Teilbaum. Solche Pfade duerfen gelesen, aber nicht geschrieben werden — sie werden beim Export neu berechnet.",
+  "count": 642,
+  "paths": [
+    {
+      "path": "documents",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "documents[]",
+      "readonly": false,
+      "kind": "array_item"
+    },
+    {
+      "path": "documents[].amount_eur",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "documents[].boundary_refs",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "documents[].boundary_refs[]",
+      "readonly": false,
+      "kind": "array_item"
+    },
+    {
+      "path": "documents[].description",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "documents[].element_group_refs",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "documents[].element_group_refs[]",
+      "readonly": false,
+      "kind": "array_item"
+    },
+    {
+      "path": "documents[].id",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "documents[].mime_type",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "documents[].name",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "documents[].room_refs",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "documents[].room_refs[]",
+      "readonly": false,
+      "kind": "array_item"
+    },
+    {
+      "path": "documents[].scenario_ref",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "documents[].storage_ref",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "documents[].tags",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "documents[].tags[]",
+      "readonly": false,
+      "kind": "array_item"
+    },
+    {
+      "path": "documents[].type",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "documents[].uploaded_at",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "documents[].uploaded_by",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "documents[].valid_until",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "funding",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "funding[]",
+      "readonly": false,
+      "kind": "array_item"
+    },
+    {
+      "path": "funding[].document_ref",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "funding[].erpnext_ref",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "funding[].id",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "funding[].name",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "funding[].program_ref",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "funding[].scenario_ref",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "funding[].snapshot",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "funding[].snapshot.amount_applied_eur",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "funding[].snapshot.amount_approved_eur",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "funding[].snapshot.status",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "funding[].snapshot.synced_at",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "funding[].status_erweitert",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "funding[].step_refs",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "funding[].step_refs[]",
+      "readonly": false,
+      "kind": "array_item"
+    },
+    {
+      "path": "input",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[]",
+      "readonly": false,
+      "kind": "array_item"
+    },
+    {
+      "path": "input.boundaries[].adjacency_type",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].area_18599",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].area_heizlast",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].edges",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].edges[]",
+      "readonly": false,
+      "kind": "array_item"
+    },
+    {
+      "path": "input.boundaries[].edges[].adjacent_boundary_ref",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].edges[].id",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].edges[].junction_type",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].edges[].length_m",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].edges[].psi",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].element_group_ref",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].fx",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].fx_source",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].geometry",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].geometry.polygon",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].geometry.polygon[]",
+      "readonly": false,
+      "kind": "array_item"
+    },
+    {
+      "path": "input.boundaries[].geometry.polygon[][]",
+      "readonly": false,
+      "kind": "array_item"
+    },
+    {
+      "path": "input.boundaries[].geometry.type",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].geometry.z_from",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].geometry.z_to",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].ground",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].ground.b_prime_m",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].ground.depth_below_grade_m",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].ground.perimeter_exposed_m",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].id",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].measurement_reference",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].openings",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].openings[]",
+      "readonly": false,
+      "kind": "array_item"
+    },
+    {
+      "path": "input.boundaries[].openings[].area_m2",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].openings[].construction_ref",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].openings[].count",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].openings[].description",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].openings[].geg_reference_row",
+      "readonly": true,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].openings[].height_m",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].openings[].id",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].openings[].measurement_rule",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].openings[].opening_type",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].openings[].orientation",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].openings[].shading",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].openings[].shading.fin_deg",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].openings[].shading.fs",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].openings[].shading.horizon_deg",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].openings[].shading.note",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].openings[].shading.overhang_deg",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].openings[].shading.source",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].openings[].tilt",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].openings[].width_m",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].openings[].window_construction_ref",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].orientation",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].relevant_18599",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].relevant_heizlast",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].shading",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].shading.fin_deg",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].shading.fs",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].shading.horizon_deg",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].shading.note",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].shading.overhang_deg",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].shading.source",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].space_a",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].space_b",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.boundaries[].tilt",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.building",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.building.address",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.building.address.city",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.building.address.country",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.building.address.street",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.building.address.zip",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.building.airtightness",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.building.airtightness.n50_h",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.building.airtightness.note",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.building.airtightness.q50_m3_hm2",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.building.airtightness.source",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.building.airtightness.test_date",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.building.av_ratio",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.building.bgf_m2",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.building.construction_year",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.building.envelope_area_m2",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.building.envelope_kpis",
+      "readonly": true,
+      "kind": "property"
+    },
+    {
+      "path": "input.building.envelope_kpis.h_t_prime_w_m2k",
+      "readonly": true,
+      "kind": "property"
+    },
+    {
+      "path": "input.building.envelope_kpis.u_mean_opaque_w_m2k",
+      "readonly": true,
+      "kind": "property"
+    },
+    {
+      "path": "input.building.envelope_kpis.u_mean_window_w_m2k",
+      "readonly": true,
+      "kind": "property"
+    },
+    {
+      "path": "input.building.envelope_kpis.window_area_ratio",
+      "readonly": true,
+      "kind": "property"
+    },
+    {
+      "path": "input.building.ground_geometry",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.building.ground_geometry.b_prime_m",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.building.ground_geometry.basement_depth_m",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.building.ground_geometry.characteristic_length_m",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.building.ground_geometry.characteristic_width_m",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.building.ground_geometry.perimeter_exposed_m",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.building.ngf_m2",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.building.renovation_year",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.building.storeys_above_ground",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.building.storeys_below_ground",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.building.subtype",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.building.thermal_mass",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.building.thermal_mass.c_eff_wh_m2k",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.building.thermal_mass.class",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.building.type",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.building.ve_m3",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.climate",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.climate.altitude_m",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.climate.design_temperature_c",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.climate.heating_degree_days",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.climate.latitude",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.climate.location_name",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.climate.longitude",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.climate.try_region",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.constructions",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.constructions[]",
+      "readonly": false,
+      "kind": "array_item"
+    },
+    {
+      "path": "input.constructions[].catalog_ref",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.constructions[].catalog_source",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.constructions[].id",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.constructions[].name",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.constructions[].origin_ref",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.constructions[].sequences",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.constructions[].sequences[]",
+      "readonly": false,
+      "kind": "array_item"
+    },
+    {
+      "path": "input.constructions[].sequences[].layers",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.constructions[].sequences[].layers[]",
+      "readonly": false,
+      "kind": "array_item"
+    },
+    {
+      "path": "input.constructions[].sequences[].layers[].density",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.constructions[].sequences[].layers[].heat_capacity",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.constructions[].sequences[].layers[].is_core_layer",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.constructions[].sequences[].layers[].lambda",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.constructions[].sequences[].layers[].material",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.constructions[].sequences[].layers[].material_ref",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.constructions[].sequences[].layers[].position",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.constructions[].sequences[].layers[].thickness_m",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.constructions[].sequences[].name",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.constructions[].sequences[].share",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.constructions[].source",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.constructions[].total_thickness_m",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.constructions[].u_value",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.element_groups",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.element_groups[]",
+      "readonly": false,
+      "kind": "array_item"
+    },
+    {
+      "path": "input.element_groups[].aggregates",
+      "readonly": true,
+      "kind": "property"
+    },
+    {
+      "path": "input.element_groups[].aggregates.area_total_m2",
+      "readonly": true,
+      "kind": "property"
+    },
+    {
+      "path": "input.element_groups[].aggregates.boundary_count",
+      "readonly": true,
+      "kind": "property"
+    },
+    {
+      "path": "input.element_groups[].aggregates.by_adjacency",
+      "readonly": true,
+      "kind": "property"
+    },
+    {
+      "path": "input.element_groups[].aggregates.by_adjacency[]",
+      "readonly": true,
+      "kind": "array_item"
+    },
+    {
+      "path": "input.element_groups[].aggregates.by_adjacency[].adjacency_type",
+      "readonly": true,
+      "kind": "property"
+    },
+    {
+      "path": "input.element_groups[].aggregates.by_adjacency[].area_m2",
+      "readonly": true,
+      "kind": "property"
+    },
+    {
+      "path": "input.element_groups[].aggregates.by_adjacency[].fx",
+      "readonly": true,
+      "kind": "property"
+    },
+    {
+      "path": "input.element_groups[].aggregates.length_m",
+      "readonly": true,
+      "kind": "property"
+    },
+    {
+      "path": "input.element_groups[].aggregates.member_count",
+      "readonly": true,
+      "kind": "property"
+    },
+    {
+      "path": "input.element_groups[].catalog_ref",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.element_groups[].catalog_source",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.element_groups[].construction_ref",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.element_groups[].delta_u_wb",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.element_groups[].din_code",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.element_groups[].element_type",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.element_groups[].fingerprint",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.element_groups[].fingerprint.coordinate_system",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.element_groups[].fingerprint.dist_m",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.element_groups[].fingerprint.normal_x",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.element_groups[].fingerprint.normal_y",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.element_groups[].fingerprint.normal_z",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.element_groups[].fingerprint.tolerance",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.element_groups[].fingerprint.tolerance.angle_tolerance_deg",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.element_groups[].fingerprint.tolerance.dist_tolerance_m",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.element_groups[].id",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.element_groups[].member_elements",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.element_groups[].member_elements[]",
+      "readonly": false,
+      "kind": "array_item"
+    },
+    {
+      "path": "input.element_groups[].member_elements[].area_m2",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.element_groups[].member_elements[].source_id",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.element_groups[].member_elements[].source_kind",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.element_groups[].member_elements[].type_name",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.element_groups[].name",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.element_groups[].u_value",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.energy_certificate",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.energy_certificate.co2_kg_m2a",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.energy_certificate.document_ref",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.energy_certificate.energy_class",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.energy_certificate.final_energy_kwh_m2a",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.energy_certificate.issued_at",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.energy_certificate.primary_energy_kwh_m2a",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.energy_certificate.registration_number",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.energy_certificate.source",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.energy_certificate.type",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.energy_certificate.valid_until",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.openings_index",
+      "readonly": true,
+      "kind": "property"
+    },
+    {
+      "path": "input.openings_index[]",
+      "readonly": true,
+      "kind": "array_item"
+    },
+    {
+      "path": "input.openings_index[].area_m2",
+      "readonly": true,
+      "kind": "property"
+    },
+    {
+      "path": "input.openings_index[].boundary_ref",
+      "readonly": true,
+      "kind": "property"
+    },
+    {
+      "path": "input.openings_index[].element_group_ref",
+      "readonly": true,
+      "kind": "property"
+    },
+    {
+      "path": "input.openings_index[].geg_reference_row",
+      "readonly": true,
+      "kind": "property"
+    },
+    {
+      "path": "input.openings_index[].opening_ref",
+      "readonly": true,
+      "kind": "property"
+    },
+    {
+      "path": "input.openings_index[].opening_type",
+      "readonly": true,
+      "kind": "property"
+    },
+    {
+      "path": "input.openings_index[].orientation",
+      "readonly": true,
+      "kind": "property"
+    },
+    {
+      "path": "input.openings_index[].room_ref",
+      "readonly": true,
+      "kind": "property"
+    },
+    {
+      "path": "input.openings_index[].tilt",
+      "readonly": true,
+      "kind": "property"
+    },
+    {
+      "path": "input.primary_energy_factors",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.primary_energy_factors.catalog_ref",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.primary_energy_factors.catalog_source",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.primary_energy_factors.co2_factors",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.primary_energy_factors.co2_factors.*",
+      "readonly": false,
+      "kind": "open_map"
+    },
+    {
+      "path": "input.primary_energy_factors.factors",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.primary_energy_factors.factors.*",
+      "readonly": false,
+      "kind": "open_map"
+    },
+    {
+      "path": "input.primary_energy_factors.legal_edition",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.rooms",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.rooms[]",
+      "readonly": false,
+      "kind": "array_item"
+    },
+    {
+      "path": "input.rooms[].area_ngf_m2",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.rooms[].dwe_uid",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.rooms[].heating_status",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.rooms[].height_m",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.rooms[].id",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.rooms[].ifc_guid",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.rooms[].name",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.rooms[].number",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.rooms[].outside_thermal_envelope",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.rooms[].room_type_ref",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.rooms[].storey_ref",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.rooms[].theta_heizlast_override_c",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.rooms[].theta_heizlast_standard_c",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.rooms[].theta_override_reason",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.rooms[].ventilation_function",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.rooms[].volume_reported_m3",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.rooms[].volume_ve_m3",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.rooms[].zone_memberships",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.rooms[].zone_memberships[]",
+      "readonly": false,
+      "kind": "array_item"
+    },
+    {
+      "path": "input.rooms[].zone_memberships[].custom_type_name",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.rooms[].zone_memberships[].zone_id",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.rooms[].zone_memberships[].zone_type",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.storeys",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.storeys[]",
+      "readonly": false,
+      "kind": "array_item"
+    },
+    {
+      "path": "input.storeys[].below_ground",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.storeys[].elevation_m",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.storeys[].height_m",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.storeys[].id",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.storeys[].ifc_guid",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.storeys[].name",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.automation",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.automation.bacs_class",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.cooling",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.cooling.eer",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.cooling.nominal_power_kw",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.cooling.refrigerant",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.cooling.refrigerant_charge_kg",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.cooling.refrigerant_gwp",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.cooling.type",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.dhw",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.dhw.circulation",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.dhw.circulation.length_m",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.dhw.circulation.present",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.dhw.generation",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.dhw.generation.efficiency",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.dhw.generation.energy_carrier",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.dhw.generation.type",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.dhw.storage",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.dhw.storage.loss_kwh_d",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.dhw.storage.volume_l",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.electricity",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.electricity.chp",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.electricity.chp.electrical_power_kw",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.electricity.chp.thermal_power_kw",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.electricity.pv",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.electricity.pv[]",
+      "readonly": false,
+      "kind": "array_item"
+    },
+    {
+      "path": "input.systems.electricity.pv[].area_m2",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.electricity.pv[].boundary_ref",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.electricity.pv[].id",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.electricity.pv[].orientation",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.electricity.pv[].peak_power_kwp",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.electricity.pv[].self_consumption_share",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.electricity.pv[].storage_kwh",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.electricity.pv[].tilt",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.heating",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.heating.control",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.heating.control.efficiency_factor",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.heating.control.type",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.heating.distribution",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.heating.distribution.insulation_standard",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.heating.distribution.pipes",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.heating.distribution.pipes[]",
+      "readonly": false,
+      "kind": "array_item"
+    },
+    {
+      "path": "input.systems.heating.distribution.pipes[].id",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.heating.distribution.pipes[].in_heated_zone",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.heating.distribution.pipes[].insulation_standard",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.heating.distribution.pipes[].length_m",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.heating.distribution.pipes[].type",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.heating.distribution.type",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.heating.emission",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.heating.emission.type",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.heating.generation",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.heating.generation.efficiency",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.heating.generation.energy_carrier",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.heating.generation.installation_year",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.heating.generation.nominal_power_kw",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.heating.generation.type",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.lighting",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.lighting.control",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.lighting.daylight_control",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.lighting.installed_power_w_m2",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.lighting.type",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.ventilation",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.ventilation.air_change_rate_h",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.ventilation.heat_recovery_efficiency",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.ventilation.sfp_class",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.ventilation.type",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.ventilation.zone_refs",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.systems.ventilation.zone_refs[]",
+      "readonly": false,
+      "kind": "array_item"
+    },
+    {
+      "path": "input.targets",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.targets[]",
+      "readonly": false,
+      "kind": "array_item"
+    },
+    {
+      "path": "input.targets[].id",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.targets[].kind",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.targets[].label",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.targets[].note",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.targets[].source",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.targets[].value",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.targets[].year",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.window_constructions",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.window_constructions[]",
+      "readonly": false,
+      "kind": "array_item"
+    },
+    {
+      "path": "input.window_constructions[].catalog_ref",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.window_constructions[].catalog_source",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.window_constructions[].frame",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.window_constructions[].frame.area_fraction",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.window_constructions[].frame.material",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.window_constructions[].frame.u_value",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.window_constructions[].g_value",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.window_constructions[].glass",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.window_constructions[].glass.g_value",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.window_constructions[].glass.light_transmittance",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.window_constructions[].glass.u_value",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.window_constructions[].id",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.window_constructions[].name",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.window_constructions[].psi_spacer",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.window_constructions[].u_value",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.zones",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.zones[]",
+      "readonly": false,
+      "kind": "array_item"
+    },
+    {
+      "path": "input.zones[].area_m2",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.zones[].conditioned",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.zones[].id",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.zones[].name",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.zones[].parent_zone_ref",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.zones[].thermal_mass",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.zones[].thermal_mass.c_eff_wh_m2k",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.zones[].thermal_mass.class",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.zones[].usage_profile_norm_edition",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.zones[].usage_profile_ref",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.zones[].used_profile_values",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.zones[].used_profile_values.catalog_version",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.zones[].used_profile_values.norm_edition",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.zones[].used_profile_values.snapshot_date",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.zones[].used_profile_values.source",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.zones[].used_profile_values.values",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.zones[].used_profile_values.values.*",
+      "readonly": false,
+      "kind": "open_map"
+    },
+    {
+      "path": "input.zones[].used_profile_values.values.*.norm_cell",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.zones[].used_profile_values.values.*.unit",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.zones[].used_profile_values.values.*.value",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.zones[].volume_m3",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "input.zones[].zone_type",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "meta",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "meta.azimuth_reference",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "meta.building_uid",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "meta.catalogs",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "meta.catalogs[]",
+      "readonly": false,
+      "kind": "array_item"
+    },
+    {
+      "path": "meta.catalogs[].catalog_id",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "meta.catalogs[].catalog_source",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "meta.catalogs[].catalog_version",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "meta.catalogs[].dimension",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "meta.catalogs[].dimension.type",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "meta.catalogs[].dimension.value",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "meta.created_at",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "meta.ifc_file_ref",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "meta.norm_editions",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "meta.norm_editions.din_18599",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "meta.norm_editions.din_277",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "meta.norm_editions.din_4108",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "meta.norm_editions.din_en_iso_6946",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "meta.norm_editions.geg",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "meta.project_name",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "meta.source",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "meta.source.origin",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "meta.source.tool",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "meta.source.tool_version",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "meta.true_north_offset_deg",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "meta.updated_at",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "meta.validation",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "meta.validation.level",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "meta.validation.ruleset_version",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "meta.validation.validated_at",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "meta.ve_method",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.base",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.base.co2",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.base.co2.specific_kg_m2a",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.base.co2.total_kg_a",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.base.final_energy",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.base.final_energy.by_carrier",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.base.final_energy.by_carrier.*",
+      "readonly": false,
+      "kind": "open_map"
+    },
+    {
+      "path": "output.base.final_energy.reference_system",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.base.final_energy.total_kwh_a",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.base.geg",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.base.geg.ht_building_w_m2k",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.base.geg.ht_reference_w_m2k",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.base.geg.qp_building_kwh_m2a",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.base.geg.qp_reference_kwh_m2a",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.base.geg.reference_building_catalog_ref",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.base.geg.requirement_met",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.base.heating_load",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.base.heating_load.per_room",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.base.heating_load.per_room[]",
+      "readonly": false,
+      "kind": "array_item"
+    },
+    {
+      "path": "output.base.heating_load.per_room[].load_kw",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.base.heating_load.per_room[].room_ref",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.base.heating_load.total_kw",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.base.meta",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.base.meta.calculated_by",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.base.meta.calculation_date",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.base.meta.input_hash",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.base.meta.norm_edition",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.base.meta.software",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.base.meta.software_version",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.base.meta.valid",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.base.primary_energy",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.base.primary_energy.specific_kwh_m2a",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.base.primary_energy.total_kwh_a",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.base.useful_energy",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.base.useful_energy.per_zone",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.base.useful_energy.per_zone[]",
+      "readonly": false,
+      "kind": "array_item"
+    },
+    {
+      "path": "output.base.useful_energy.per_zone[].cooling",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.base.useful_energy.per_zone[].dhw",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.base.useful_energy.per_zone[].heating",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.base.useful_energy.per_zone[].lighting",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.base.useful_energy.per_zone[].ventilation",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.base.useful_energy.per_zone[].zone_ref",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.base.useful_energy.total",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.base.useful_energy.total.cooling",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.base.useful_energy.total.dhw",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.base.useful_energy.total.heating",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.base.useful_energy.total.lighting",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.base.useful_energy.total.ventilation",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.{pattern:^scenario_[a-z0-9_]+$}",
+      "readonly": false,
+      "kind": "pattern_map"
+    },
+    {
+      "path": "output.{pattern:^scenario_[a-z0-9_]+$}.co2",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.{pattern:^scenario_[a-z0-9_]+$}.co2.specific_kg_m2a",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.{pattern:^scenario_[a-z0-9_]+$}.co2.total_kg_a",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.{pattern:^scenario_[a-z0-9_]+$}.final_energy",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.{pattern:^scenario_[a-z0-9_]+$}.final_energy.by_carrier",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.{pattern:^scenario_[a-z0-9_]+$}.final_energy.by_carrier.*",
+      "readonly": false,
+      "kind": "open_map"
+    },
+    {
+      "path": "output.{pattern:^scenario_[a-z0-9_]+$}.final_energy.reference_system",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.{pattern:^scenario_[a-z0-9_]+$}.final_energy.total_kwh_a",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.{pattern:^scenario_[a-z0-9_]+$}.geg",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.{pattern:^scenario_[a-z0-9_]+$}.geg.ht_building_w_m2k",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.{pattern:^scenario_[a-z0-9_]+$}.geg.ht_reference_w_m2k",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.{pattern:^scenario_[a-z0-9_]+$}.geg.qp_building_kwh_m2a",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.{pattern:^scenario_[a-z0-9_]+$}.geg.qp_reference_kwh_m2a",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.{pattern:^scenario_[a-z0-9_]+$}.geg.reference_building_catalog_ref",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.{pattern:^scenario_[a-z0-9_]+$}.geg.requirement_met",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.{pattern:^scenario_[a-z0-9_]+$}.heating_load",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.{pattern:^scenario_[a-z0-9_]+$}.heating_load.per_room",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.{pattern:^scenario_[a-z0-9_]+$}.heating_load.per_room[]",
+      "readonly": false,
+      "kind": "array_item"
+    },
+    {
+      "path": "output.{pattern:^scenario_[a-z0-9_]+$}.heating_load.per_room[].load_kw",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.{pattern:^scenario_[a-z0-9_]+$}.heating_load.per_room[].room_ref",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.{pattern:^scenario_[a-z0-9_]+$}.heating_load.total_kw",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.{pattern:^scenario_[a-z0-9_]+$}.meta",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.{pattern:^scenario_[a-z0-9_]+$}.meta.calculated_by",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.{pattern:^scenario_[a-z0-9_]+$}.meta.calculation_date",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.{pattern:^scenario_[a-z0-9_]+$}.meta.input_hash",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.{pattern:^scenario_[a-z0-9_]+$}.meta.norm_edition",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.{pattern:^scenario_[a-z0-9_]+$}.meta.software",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.{pattern:^scenario_[a-z0-9_]+$}.meta.software_version",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.{pattern:^scenario_[a-z0-9_]+$}.meta.valid",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.{pattern:^scenario_[a-z0-9_]+$}.primary_energy",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.{pattern:^scenario_[a-z0-9_]+$}.primary_energy.specific_kwh_m2a",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.{pattern:^scenario_[a-z0-9_]+$}.primary_energy.total_kwh_a",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.{pattern:^scenario_[a-z0-9_]+$}.useful_energy",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.{pattern:^scenario_[a-z0-9_]+$}.useful_energy.per_zone",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.{pattern:^scenario_[a-z0-9_]+$}.useful_energy.per_zone[]",
+      "readonly": false,
+      "kind": "array_item"
+    },
+    {
+      "path": "output.{pattern:^scenario_[a-z0-9_]+$}.useful_energy.per_zone[].cooling",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.{pattern:^scenario_[a-z0-9_]+$}.useful_energy.per_zone[].dhw",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.{pattern:^scenario_[a-z0-9_]+$}.useful_energy.per_zone[].heating",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.{pattern:^scenario_[a-z0-9_]+$}.useful_energy.per_zone[].lighting",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.{pattern:^scenario_[a-z0-9_]+$}.useful_energy.per_zone[].ventilation",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.{pattern:^scenario_[a-z0-9_]+$}.useful_energy.per_zone[].zone_ref",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.{pattern:^scenario_[a-z0-9_]+$}.useful_energy.total",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.{pattern:^scenario_[a-z0-9_]+$}.useful_energy.total.cooling",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.{pattern:^scenario_[a-z0-9_]+$}.useful_energy.total.dhw",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.{pattern:^scenario_[a-z0-9_]+$}.useful_energy.total.heating",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.{pattern:^scenario_[a-z0-9_]+$}.useful_energy.total.lighting",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "output.{pattern:^scenario_[a-z0-9_]+$}.useful_energy.total.ventilation",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "roadmap",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "roadmap.steps",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "roadmap.steps[]",
+      "readonly": false,
+      "kind": "array_item"
+    },
+    {
+      "path": "roadmap.steps[].description",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "roadmap.steps[].estimated_cost_eur",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "roadmap.steps[].id",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "roadmap.steps[].name",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "roadmap.steps[].planned_year",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "roadmap.steps[].priority",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "roadmap.steps[].scenario_ref",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "roadmap.steps[].status",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[]",
+      "readonly": false,
+      "kind": "array_item"
+    },
+    {
+      "path": "scenarios[].delta",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.element_groups",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.element_groups[]",
+      "readonly": false,
+      "kind": "array_item"
+    },
+    {
+      "path": "scenarios[].delta.element_groups[].construction_ref",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.element_groups[].delta_u_wb",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.element_groups[].element_group_ref",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.element_groups[].u_value",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.openings",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.openings[]",
+      "readonly": false,
+      "kind": "array_item"
+    },
+    {
+      "path": "scenarios[].delta.openings[].opening_ref",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.openings[].shading",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.openings[].shading.fin_deg",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.openings[].shading.fs",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.openings[].shading.horizon_deg",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.openings[].shading.note",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.openings[].shading.overhang_deg",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.openings[].shading.source",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.openings[].window_construction_ref",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.cooling",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.cooling.eer",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.cooling.nominal_power_kw",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.cooling.refrigerant",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.cooling.refrigerant_charge_kg",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.cooling.refrigerant_gwp",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.cooling.type",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.dhw",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.dhw.circulation",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.dhw.circulation.length_m",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.dhw.circulation.present",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.dhw.generation",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.dhw.generation.efficiency",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.dhw.generation.energy_carrier",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.dhw.generation.type",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.dhw.storage",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.dhw.storage.loss_kwh_d",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.dhw.storage.volume_l",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.electricity",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.electricity.chp",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.electricity.chp.electrical_power_kw",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.electricity.chp.thermal_power_kw",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.electricity.pv",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.electricity.pv[]",
+      "readonly": false,
+      "kind": "array_item"
+    },
+    {
+      "path": "scenarios[].delta.systems.electricity.pv[].area_m2",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.electricity.pv[].boundary_ref",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.electricity.pv[].id",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.electricity.pv[].orientation",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.electricity.pv[].peak_power_kwp",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.electricity.pv[].self_consumption_share",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.electricity.pv[].storage_kwh",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.electricity.pv[].tilt",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.heating",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.heating.control",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.heating.control.efficiency_factor",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.heating.control.type",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.heating.distribution",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.heating.distribution.insulation_standard",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.heating.distribution.pipes",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.heating.distribution.pipes[]",
+      "readonly": false,
+      "kind": "array_item"
+    },
+    {
+      "path": "scenarios[].delta.systems.heating.distribution.pipes[].id",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.heating.distribution.pipes[].in_heated_zone",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.heating.distribution.pipes[].insulation_standard",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.heating.distribution.pipes[].length_m",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.heating.distribution.pipes[].type",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.heating.distribution.type",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.heating.emission",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.heating.emission.type",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.heating.generation",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.heating.generation.efficiency",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.heating.generation.energy_carrier",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.heating.generation.installation_year",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.heating.generation.nominal_power_kw",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.heating.generation.type",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.lighting",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.lighting.control",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.lighting.daylight_control",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.lighting.installed_power_w_m2",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.lighting.type",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.ventilation",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.ventilation.air_change_rate_h",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.ventilation.heat_recovery_efficiency",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.ventilation.sfp_class",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.ventilation.type",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.ventilation.zone_refs",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].delta.systems.ventilation.zone_refs[]",
+      "readonly": false,
+      "kind": "array_item"
+    },
+    {
+      "path": "scenarios[].description",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].id",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].name",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].planned_year",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].priority",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].steps",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].steps[]",
+      "readonly": false,
+      "kind": "array_item"
+    },
+    {
+      "path": "scenarios[].steps[].description",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].steps[].estimated_cost_eur",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].steps[].id",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].steps[].name",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].steps[].planned_year",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].steps[].sla_work_item_ref",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "scenarios[].steps[].status",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "schema_info",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "schema_info.url",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "schema_info.version",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "sla_context",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "sla_context.bgf",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "sla_context.bt",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "sla_context.gebaeudeart",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "sla_context.scenarios",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "sla_context.scenarios[]",
+      "readonly": false,
+      "kind": "array_item"
+    },
+    {
+      "path": "sla_context.scenarios[].ref",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "sla_context.scenarios[].sla_scenario_code",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "sla_context.scenarios[].status",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "sla_context.scenarios[].work_item_refs",
+      "readonly": false,
+      "kind": "property"
+    },
+    {
+      "path": "sla_context.scenarios[].work_item_refs[]",
+      "readonly": false,
+      "kind": "array_item"
+    },
+    {
+      "path": "sla_context.we",
+      "readonly": false,
+      "kind": "property"
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "$schema_ref": "https://din18599-ifc.de/schema/v4.0/catalog-envelope",
+  "catalog_id": "moisture_conditions",
+  "catalog_version": "1.0.0",
+  "catalog_source": "core",
+  "dimension": {
+    "type": "norm_edition",
+    "value": "2018-10"
+  },
+  "title": "Randbedingungen des Periodenbilanzverfahrens (Tauwassernachweis)",
+  "description": "Klimarandbedingungen der Tau- und Verdunstungsperiode, der Diffusionsleitkoeffizient von Luft und die Bewertungsgrenzwerte des Tauwassernachweises. Die Zuordnungslogik (welcher Bauteiltyp welche Periode bekommt, wann das Massenkriterium greift) ist DWE-eigen und oeffentlich; die ZAHLENWERTE stammen aus DIN 4108-3 und liegen im privaten Werte-Overlay.",
+  "last_updated": "2026-07-22",
+  "norm_ref": "DIN 4108-3:2018-10, Tabelle A.3 (Klimarandbedingungen, Rsi/Rse), Abschnitt C.2.4 (Diffusionsleitkoeffizient delta_0), Abschnitte 5.2.2 und 5.3 (Bewertungskriterien).",
+  "values_overlay": {
+    "required": true,
+    "expected_file": "catalog/values/moisture_conditions.2018-10.values.json",
+    "merge_key": "code",
+    "missing_value_message": "Werte fuer 'moisture_conditions' fehlen (Klimarandbedingungen aus DIN 4108-3 Tabelle A.3, delta_0 aus C.2.4, Grenzwerte aus 5.2.2/5.3). Overlay unter catalog/values/moisture_conditions.2018-10.values.json bereitstellen — aus eigener Normlizenz oder ueber DWEapp. Ohne aufgeloeste Werte kein Tauwassernachweis."
+  },
+  "entry_schema_ref": "schema/v4.0/catalogs/moisture_conditions.schema.json",
+  "entries": [
+    {
+      "code": "tauperiode_standard",
+      "name_de": "Tauperiode, Aussenbauteile gegen Aussenluft",
+      "period": "condensation",
+      "theta_i": null,
+      "phi_i": null,
+      "theta_e": null,
+      "phi_e": null,
+      "duration_days": null,
+      "rsi": null,
+      "rse": null,
+      "norm_cell": "T-A.3-Tauperiode",
+      "note_de": "Dezember bis Februar. Rsi weicht bewusst von DIN EN ISO 6946 Tabelle 7 ab — der Tauwassernachweis rechnet mit einem eigenen inneren Uebergangswiderstand.",
+      "applies_to_element_type": [
+        "wall",
+        "roof",
+        "ceiling"
+      ],
+      "applies_to_adjacency": [
+        "exterior",
+        "attic_uninsulated"
+      ]
+    },
+    {
+      "code": "verdunstungsperiode_standard",
+      "name_de": "Verdunstungsperiode, Aussenbauteile gegen Aussenluft",
+      "period": "evaporation",
+      "theta_i": null,
+      "phi_i": null,
+      "theta_e": null,
+      "phi_e": null,
+      "duration_days": null,
+      "rsi": null,
+      "rse": null,
+      "norm_cell": "T-A.3-Verdunstungsperiode",
+      "note_de": "Juni bis August. Innen- und Aussenklima sind gleich — im Bauteil stellt sich kein Temperaturgefaelle ein, deshalb ist der Saettigungsdruck in allen Tauebenen gleich gross (Voraussetzung von A.14 bis A.26).",
+      "applies_to_element_type": [
+        "wall",
+        "roof",
+        "ceiling"
+      ],
+      "applies_to_adjacency": [
+        "exterior",
+        "attic_uninsulated"
+      ]
+    }
+  ],
+  "diffusion": {
+    "description": "Diffusionsleitkoeffizient von ruhender Luft. Geht als Faktor in jede Massenstromdichte ein.",
+    "entries": [
+      {
+        "code": "delta_0",
+        "name_de": "Diffusionsleitkoeffizient von Luft",
+        "unit": "kg/(m*s*Pa)",
+        "value": null,
+        "norm_cell": "C.2.4"
+      }
+    ]
+  },
+  "assessment_limits": {
+    "description": "Grenzwerte der Bewertung nach 5.2.2 und 5.3. m_c_max_non_capillary gilt an Beruehrungsflaechen, an denen mindestens eine der beiden angrenzenden Schichten nicht kapillar wasseraufnahmefaehig ist; w_capillary_threshold ist der Wasseraufnahmekoeffizient, unterhalb dessen eine Schicht als nicht kapillar wasseraufnahmefaehig gilt.",
+    "entries": [
+      {
+        "code": "m_c_max_general",
+        "name_de": "Hoechstzulaessige Tauwassermasse, allgemein",
+        "unit": "kg/m2",
+        "value": null,
+        "norm_cell": "5.2.2"
+      },
+      {
+        "code": "m_c_max_non_capillary",
+        "name_de": "Hoechstzulaessige Tauwassermasse an nicht kapillar wasseraufnahmefaehigen Beruehrungsflaechen",
+        "unit": "kg/m2",
+        "value": null,
+        "norm_cell": "5.2.2"
+      },
+      {
+        "code": "w_capillary_threshold",
+        "name_de": "Grenzwert des Wasseraufnahmekoeffizienten fuer kapillare Wasseraufnahmefaehigkeit",
+        "unit": "kg/(m2*h^0.5)",
+        "value": null,
+        "norm_cell": "5.2.2"
+      }
+    ]
+  }
+}

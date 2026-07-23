@@ -1,0 +1,278 @@
+{
+  "$schema_ref": "https://din18599-ifc.de/schema/v4.0/catalog-envelope",
+  "catalog_id": "adjacency_types",
+  "catalog_version": "1.0.0",
+  "catalog_source": "core",
+  "dimension": {
+    "type": "norm_edition",
+    "value": "2018-09"
+  },
+  "title": "Angrenzungsarten mit Temperatur-Korrekturfaktoren",
+  "description": "Angrenzungsarten fuer boundaries[].adjacency_type. Traegt Massbezugsregel, Relevanz-Defaults und die Ausschlussregel low_heated gegen other_zone — alles DWE-eigene Auslegung und oeffentlich. Die Fx-ZAHLENWERTE stammen aus der Norm und liegen im privaten Werte-Overlay (Entscheidung 21.07.2026; die fruehere Entscheidung 6.6, sie oeffentlich zu fuehren, ist damit zurueckgenommen).",
+  "last_updated": "2026-07-21",
+  "norm_ref": "DIN V 18599-2:2018-09, Tabelle 5 und Tabelle 6",
+  "values_overlay": {
+    "required": true,
+    "expected_file": "catalog/values/adjacency_types.2018-09.values.json",
+    "merge_key": "code",
+    "missing_value_message": "Werte fuer 'adjacency_types' fehlen (Fx-Werte aus DIN V 18599-2 Tabelle 5/6). Overlay unter catalog/values/adjacency_types.2018-09.values.json bereitstellen — aus eigener Normlizenz oder ueber DWEapp. Ohne aufgeloeste Werte kein calc_ready."
+  },
+  "entry_schema_ref": "schema/v4.0/catalogs/adjacency_types.schema.json",
+  "entries": [
+    {
+      "code": "exterior",
+      "name_de": "Aussenluft",
+      "name_en": "Exterior air",
+      "norm_ref": "DIN V 18599-2:2018-09, Tab. 5 Zeile 1",
+      "norm_cell": "T5-Z1",
+      "fx": {
+        "method": "constant",
+        "value": null
+      },
+      "measurement_reference": "outer",
+      "measurement_note": "Aussenmass, volle Bauteilstaerke inklusive Daemmung und Putz",
+      "space_b_required": false,
+      "default_relevant_18599": true,
+      "default_relevant_heizlast": true,
+      "geg_reference_row_hint": "wall -> 1.1, roof -> 1.3"
+    },
+    {
+      "code": "attic_uninsulated",
+      "name_de": "Unbeheizter, nicht gedaemmter Dachraum",
+      "name_en": "Unheated, uninsulated attic",
+      "norm_ref": "DIN V 18599-2:2018-09, Tab. 5 Zeile 2",
+      "norm_cell": "T5-Z2",
+      "fx": {
+        "method": "constant",
+        "value": null
+      },
+      "measurement_reference": "outer",
+      "measurement_note": "Aussenmass der beheizten Zone",
+      "space_b_required": false,
+      "default_relevant_18599": true,
+      "default_relevant_heizlast": true,
+      "geg_reference_row_hint": "1.2"
+    },
+    {
+      "code": "unheated",
+      "name_de": "Unbeheizter Raum",
+      "name_en": "Unheated space",
+      "norm_ref": "DIN V 18599-2:2018-09, Tab. 5 Zeile 3",
+      "norm_cell": "T5-Z3",
+      "fx": {
+        "method": "constant",
+        "value": null
+      },
+      "measurement_reference": "outer",
+      "measurement_note": "Aussenmass der beheizten Zone",
+      "space_b_required": true,
+      "default_relevant_18599": true,
+      "default_relevant_heizlast": true,
+      "geg_reference_row_hint": "1.2"
+    },
+    {
+      "code": "low_heated",
+      "name_de": "Niedrig beheizter Raum",
+      "name_en": "Low-heated space",
+      "norm_ref": "DIN V 18599-2:2018-09, Tab. 5 Zeile 4",
+      "norm_cell": "T5-Z4",
+      "fx": {
+        "method": "constant",
+        "value": null,
+        "note": "NUR zulaessig, wenn der Nachbarbereich NICHT selbst bilanziert wird."
+      },
+      "measurement_reference": "axis",
+      "measurement_note": "Achsmass, Mitte Rohbau-Kernschicht",
+      "space_b_required": true,
+      "default_relevant_18599": true,
+      "default_relevant_heizlast": true,
+      "mutually_exclusive_with": [
+        "other_zone"
+      ],
+      "validation_note": "Gehoert der Nachbarraum mit heating_status=low_heated einer bilanzierten Zone an, MUSS other_zone gesetzt werden. Fx=0,35 ist der ERSATZ fuer eine fehlende Nachbarzonen-Bilanz, kein Zusatz dazu — sonst wird der Waermestrom doppelt guenstig gerechnet.",
+      "geg_reference_row_hint": "1.2"
+    },
+    {
+      "code": "glass_single",
+      "name_de": "Angrenzung an Glasvorbau, Einfachverglasung",
+      "name_en": "Adjacent to sunspace, single glazing",
+      "norm_ref": "DIN V 18599-2:2018-09, Tab. 5 Zeile 5",
+      "norm_cell": "T5-Z5",
+      "fx": {
+        "method": "constant",
+        "value": null
+      },
+      "measurement_reference": "outer",
+      "space_b_required": true,
+      "default_relevant_18599": true,
+      "default_relevant_heizlast": true
+    },
+    {
+      "code": "glass_double",
+      "name_de": "Angrenzung an Glasvorbau, Zweifachverglasung",
+      "name_en": "Adjacent to sunspace, double glazing",
+      "norm_ref": "DIN V 18599-2:2018-09, Tab. 5 Zeile 6",
+      "norm_cell": "T5-Z6",
+      "fx": {
+        "method": "constant",
+        "value": null
+      },
+      "measurement_reference": "outer",
+      "space_b_required": true,
+      "default_relevant_18599": true,
+      "default_relevant_heizlast": true
+    },
+    {
+      "code": "glass_triple",
+      "name_de": "Angrenzung an Glasvorbau, Dreifachverglasung",
+      "name_en": "Adjacent to sunspace, triple glazing",
+      "norm_ref": "DIN V 18599-2:2018-09, Tab. 5 Zeile 7",
+      "norm_cell": "T5-Z7",
+      "fx": {
+        "method": "constant",
+        "value": null
+      },
+      "measurement_reference": "outer",
+      "space_b_required": true,
+      "default_relevant_18599": true,
+      "default_relevant_heizlast": true
+    },
+    {
+      "code": "ground_slab",
+      "name_de": "Bodenplatte gegen Erdreich",
+      "name_en": "Ground slab",
+      "norm_ref": "DIN V 18599-2:2018-09, Tab. 6 Zeilen 1 bis 10",
+      "norm_cell": "T6-Z1..Z10",
+      "fx": {
+        "method": "table",
+        "value": null,
+        "simplified_value": null,
+        "computation": "Abhaengig vom charakteristischen Bodenplattenmass B' = Ag / (0,5 * P) und vom Waermedurchlasswiderstand Rf",
+        "note": "v1 rechnet vereinfacht mit 0,6 (Fussnote a zu Tabelle 6). Die volle B'/Rf-Matrix folgt spaeter — Geometrieregeln nach DIN V 18599-2 Abschnitt 6.1.4.4 beachten (Reihenbebauung, Teilunterkellerung)."
+      },
+      "measurement_reference": "outer",
+      "space_b_required": false,
+      "default_relevant_18599": true,
+      "default_relevant_heizlast": true,
+      "geg_reference_row_hint": "1.2"
+    },
+    {
+      "code": "ground_basement_heated",
+      "name_de": "Beheizter Keller gegen Erdreich",
+      "name_en": "Heated basement against ground",
+      "norm_ref": "DIN V 18599-2:2018-09, Tab. 6 Zeile 11",
+      "norm_cell": "T6-Z11",
+      "fx": {
+        "method": "table",
+        "value": null,
+        "simplified_value": null,
+        "computation": "Abhaengig von B' und Rf sowie von der Einbindetiefe"
+      },
+      "measurement_reference": "outer",
+      "space_b_required": false,
+      "default_relevant_18599": true,
+      "default_relevant_heizlast": true,
+      "geg_reference_row_hint": "1.2"
+    },
+    {
+      "code": "ground_basement_unheated",
+      "name_de": "Unbeheizter Keller gegen Erdreich",
+      "name_en": "Unheated basement against ground",
+      "norm_ref": "DIN V 18599-2:2018-09, Tab. 6 Zeilen 12 bis 20",
+      "norm_cell": "T6-Z12..Z20",
+      "fx": {
+        "method": "table",
+        "value": null,
+        "simplified_value": null,
+        "computation": "Abhaengig von B', Rf und dem Luftwechsel des unbeheizten Kellers"
+      },
+      "measurement_reference": "outer",
+      "space_b_required": true,
+      "default_relevant_18599": true,
+      "default_relevant_heizlast": true,
+      "geg_reference_row_hint": "1.2"
+    },
+    {
+      "code": "floor_suspended",
+      "name_de": "Decke gegen beluefteten Kriechkeller",
+      "name_en": "Suspended floor over ventilated crawl space",
+      "norm_ref": "DIN V 18599-2:2018-09, Tab. 6 Zeile 21",
+      "norm_cell": "T6-Z21",
+      "fx": {
+        "method": "constant",
+        "value": null
+      },
+      "measurement_reference": "outer",
+      "space_b_required": false,
+      "default_relevant_18599": true,
+      "default_relevant_heizlast": true,
+      "geg_reference_row_hint": "1.2"
+    },
+    {
+      "code": "other_zone",
+      "name_de": "Andere bilanzierte Zone",
+      "name_en": "Other balanced zone",
+      "norm_ref": "DIN V 18599-2:2018-09, Abschnitt 6.1.4",
+      "fx": {
+        "method": "computed",
+        "value": null,
+        "computation": "Aus der Temperaturdifferenz zwischen den beiden Zonen: (theta_zone_a - theta_zone_b) / (theta_zone_a - theta_e)",
+        "note": "Fuer die Energiebilanz nur relevant, wenn Delta-Theta groesser 4 K ist."
+      },
+      "measurement_reference": "axis",
+      "measurement_note": "Achsmass, Mitte Rohbau",
+      "space_b_required": true,
+      "default_relevant_18599": true,
+      "default_relevant_heizlast": true,
+      "mutually_exclusive_with": [
+        "low_heated"
+      ],
+      "validation_note": "Gegenstueck zur low_heated-Regel: sobald der Nachbarbereich bilanziert wird, ist other_zone die richtige Wahl."
+    },
+    {
+      "code": "same_zone",
+      "name_de": "Gleiche Zone (Raum zu Raum)",
+      "name_en": "Same zone (room to room)",
+      "fx": {
+        "method": "constant",
+        "value": null,
+        "note": "Innerhalb einer Zone gibt es fuer die Energiebilanz keinen Waermestrom nach aussen."
+      },
+      "measurement_reference": "axis",
+      "space_b_required": true,
+      "default_relevant_18599": false,
+      "default_relevant_heizlast": true,
+      "validation_note": "Einzige Angrenzungsart mit relevant_18599=false bei gleichzeitig relevant_heizlast=true — die Heizlast rechnet raumweise und beruecksichtigt die Uebertragung zwischen Raeumen derselben Zone."
+    },
+    {
+      "code": "adjacent_building",
+      "name_de": "Angrenzendes Gebaeude",
+      "name_en": "Adjacent building",
+      "fx": {
+        "method": "constant",
+        "value": null,
+        "note": "Adiabate Annahme: an der Grundstuecksgrenze wird kein Waermestrom angesetzt."
+      },
+      "measurement_reference": "axis",
+      "measurement_note": "Achsmass an der Grundstuecksgrenze",
+      "space_b_required": false,
+      "default_relevant_18599": false,
+      "default_relevant_heizlast": false
+    },
+    {
+      "code": "internal_unheated",
+      "name_de": "Zwischen zwei unbeheizten Raeumen",
+      "name_en": "Between two unheated spaces",
+      "fx": {
+        "method": "constant",
+        "value": null,
+        "note": "Nie bilanzrelevant: zwischen zwei unbeheizten Raeumen wird kein Waermestrom angesetzt. Der Eintrag dient der vollstaendigen Topologie-Dokumentation (Entscheidung 22.07.2026)."
+      },
+      "measurement_reference": "axis",
+      "measurement_note": "Achsmass — innere Grenzflaeche",
+      "space_b_required": true,
+      "default_relevant_18599": false,
+      "default_relevant_heizlast": false
+    }
+  ]
+}

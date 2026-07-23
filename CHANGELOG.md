@@ -7,6 +7,155 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/lang/de/).
 
 ---
 
+## [Unreleased] - Schema v4.0 (.dwe-Container)
+
+### Fixed
+
+- **`output.base` als `required` markiert (23.07.2026)** — die `output`-Definition
+  listete `base` explizit unter `properties` neben der `patternProperties`-Index-
+  Signatur (`[k] -> output_snapshot`). Der Codegen (json2ts) erzeugte daraus ein
+  optionales `base?` neben der Index-Signatur, was TypeScript im DWEapp-Konsumenten
+  als TS2411 ablehnt (optionale benannte Property nicht der Index-Signatur zuweisbar).
+  `base` ist der Ist-Zustands-Anker (Szenarien sind Deltas dagegen), also fachlich
+  Pflicht; `output` selbst bleibt top-level optional. Löst den Typgenerator-Konflikt
+  ohne Semantikverlust. Nötig für den DWEapp-Sidecar-v4.0-Flip (ADR-029).
+
+### Security
+
+- **`catalog/materials.json` entwertet (22.07.2026)** — 48 der 50 Einträge trugen
+  Bemessungswerte aus DIN 4108-4 Tabelle 1 ff. (λ, μ, ρ, c) und standen im
+  PUBLIC-Repo. Die frühere Einstufung als „Grenzfall, DIN 4108-4 abgeleitet"
+  in `docs/v4/KATALOG_BESTANDSANALYSE.md` war falsch: es sind die Tabellenwerte
+  selbst, referenziert als `DIN_4108-4_TAB_2` bis `TAB_8`.
+  220 Zahlen wandern per `scripts/split-catalog-values.py` nach
+  `catalog/values/materials.values.json` (gitignored). Struktur, Namen,
+  Kategorien, Einheiten und `norm_ref` bleiben öffentlich.
+- **Guard-Lücke geschlossen** — `materials.json` liegt in `catalog/` statt
+  `catalog/core/` und nennt seine Liste `materials` statt `entries`; beide
+  Prüfungen sahen die Datei deshalb nie. `check-catalog-structure.py` kennt
+  jetzt `SONDERFAELLE` für Kataloge außerhalb von `core/`,
+  `split-catalog-values.py` unterstützt abweichende Datei-, Listen- und
+  Schlüsselnamen. Regressionstest: ein wieder eingetragener λ-Wert wird
+  abgelehnt.
+- **Hinweis zur Historie:** Die Git-Historie dieses öffentlichen Repos enthält
+  die Werte weiterhin — Entfernen im HEAD genügt dafür nicht. Ob eine
+  Historien-Bereinigung nötig ist, wird mit DIN Media bzw. anwaltlich geklärt.
+  Gleiche Behandlung wie beim 605-KB-Befund.
+
+### Added
+
+- **`schema/v4.0/manifest.schema.json`** — Container-Manifest der `.dwe`-Datei (ZIP):
+  Inhaltsverzeichnis, SHA256-Checksummen, GUID-Konsistenzprüfung IFC↔Sidecar,
+  Validierungsgrad. Einzige Datei, die ein Konsument lesen muss, um zu entscheiden
+  ob er den Container verarbeiten kann.
+- **`schema/v4.0/sidecar.schema.json`** — Sidecar v4.0, Greenfield-Neuentwurf:
+  - **`input.boundaries[]`** — Angrenzungsmatrix analog IfcRelSpaceBoundary 2nd Level.
+    Wird extern berechnet und lebt im Sidecar; IFC-SpaceBoundaries sind Best-Effort
+    und nie Rechengrundlage. Splits bei Raumwechsel, Wechsel der Angrenzungsart
+    (Pflicht) und optional Materialwechsel. Geometrie als `z_range` oder `polygon`.
+  - **`input.element_groups[]`** — Bauteilgruppen als berechnete Zwischenebene mit
+    Koplanaritäts-Fingerprint im Projektsystem. DIN 18599 rechnet auf Gruppen-,
+    Heizlast auf Boundary-Ebene. Fachdaten hängen an der Gruppe, nie an der Instanz.
+  - **`rooms[].zone_memberships[]`** — Mehrfach-Zonenzugehörigkeit (thermal,
+    dwelling_unit, ventilation, fire, acoustic) statt fester Einzel-Refs.
+  - **`meta.norm_editions{}`** — Norm-Edition als projektweiter Default je Norm-Teil.
+    Referenzen bleiben ohne Editions-Suffix stabil.
+  - **`meta.catalogs[]`** + `catalog_ref`/`catalog_source` — reproduzierbare
+    Katalogstände; ergänzt durch `zone.used_profile_values`-Snapshot.
+  - **`meta.true_north_offset_deg`** + `azimuth_reference: "geographic"` — alle
+    exportierten Azimute sind bereits geo-korrigiert, der Fingerprint bleibt im
+    Projektsystem.
+  - **`meta.ve_method`** — Ermittlungsmethode des beheizten Volumens ist immer zu
+    dokumentieren; `room.volume_reported_m3` ist ausdrücklich nur Plausibilitätswert.
+  - `adjacency_type`-Enum mit 15 Werten (Fx und Maßbezug im Katalog, nicht im Schema),
+    `opening_type`-Enum mit 9 Werten, 5 Validierungsstufen `draft` … `calc_ready`.
+
+- **`schema/v4.0/paths.json`** — generierte Pfad-Whitelist des Sidecars (615 Pfade,
+  22 davon abgeleitet). Macht aus der Präfix-Konvention „abgeleitete Pfade nicht
+  schreiben" eine prüfbare Liste. Zwei Konsumenten haben denselben Semantikbedarf —
+  DWEapps `applyDotPath` und der Python-Export — deshalb liegt das Artefakt im
+  Standard-Repo statt in einem der beiden. Erzeugt von `scripts/build-paths.py`,
+  per `--check` in der CI verriegelt. Die Semantik kommt aus dem Schema
+  (`readOnly`), nicht aus dem Generator.
+- **`readOnly: true`** (Draft-07-Standardkeyword) auf `input.openings_index`,
+  `element_groups[].aggregates` und `openings[].geg_reference_row`. Vererbt sich
+  auf den Teilbaum und ist damit die Quelle für die `readonly`-Spalte in `paths.json`.
+
+- **W1 — Hüllen- und Geometrie-Kennwerte** (Entscheidungen 22.07.2026):
+  `building.airtightness` (n50/q50, Beiblatt 3 T.6.4.2), `building.thermal_mass`
+  mit Zonen-Override `zone.thermal_mass` (T.6.6), `building.ground_geometry`
+  (B'/P/Einbindetiefe, T.6.5.3/T.6.5.4) plus `boundaries[].ground` je Fläche, und
+  `building.envelope_kpis` (H'T, mittlere U-Werte, Fensterflächenanteil) als
+  `readOnly`. Der Klassen-Zahlenwert der Gebäudeschwere steht im Katalog, nicht
+  im Schema — er ist editionsabhängig.
+- **`adjacency_type: "internal_unheated"`** — Grenzfläche zwischen zwei unbeheizten
+  Räumen innerhalb der Akte. Nie bilanzrelevant, wird für die vollständige
+  Topologie-Dokumentation mitgeführt. Als **innere** Grenze mit
+  `space_b_required: true` im Katalog, damit `BOUNDARY_SPACE_B_MISSING` greift.
+- **`MEASUREMENT_CLEAR_RELEVANT`** — neue Validator-Warnung: Maßbezug
+  `clear_structural` an einer Fläche mit `relevant_18599: true` sperrt
+  `calc_ready`, weil die Hüllfläche dann zu klein gerechnet wäre.
+
+### Changed
+
+- **`measurement_reference` um `clear_structural` erweitert** — lichtes Rohbaumaß als
+  Übergangszustand für Flächen, deren Umrechnung noch aussteht. Bewusst so benannt
+  wie `opening.measurement_rule = "clear_structural"`: dieselbe Sache heißt an beiden
+  Stellen gleich. Die Feldbeschreibung sagt jetzt „im Regelfall deterministisch aus
+  `adjacency_type`" statt „deterministisch" — der neue Wert ist die dokumentierte
+  Ausnahme und wird deshalb von `MEASUREMENT_REFERENCE_MISMATCH` ausgenommen.
+- **`building.ngf_m2` / `ve_m3` / `envelope_area_m2`** — Beschreibungen geschärft.
+  Sie lasen sich wie abgeleitete Größen („Summe der boundaries[]", „aggregiert aus
+  rooms[]"), sind aber **deklarierte** Werte, die der Validator gegen die berechnete
+  Summe hält (`ENVELOPE_AREA_MISMATCH`, `NGF_MISMATCH`, `VE_MISMATCH`). Als `readOnly`
+  markiert verglichen sie sich gegen ihre eigene Quelle und die Stufe `balanced` wäre
+  wertlos — der Unterschied zu `envelope_kpis` steht jetzt an beiden Feldern.
+- **`fingerprint.tolerance.normal_decimals` → `angle_tolerance_deg`.** Rundungs-
+  Dezimalen sind kein Toleranzmaß: gleich gerundete Werte trennen zwei Wände schon
+  ab rund 0,3°, vereinigen aber nie zwei Wände über eine Rundungsgrenze hinweg. Die
+  Regel war nicht transitiv und hatte bei `normal_x ≈ 0` einen Vorzeichen-Kipppunkt.
+  Die Gruppierung vergleicht jetzt den Winkelabstand zum Gruppen-Repräsentanten;
+  `normal_*`/`dist_m` werden in voller Rechenpräzision serialisiert. `tolerance` ist
+  auf `additionalProperties: false` gesetzt — ein Sidecar mit `normal_decimals`
+  fällt laut durch, statt lautlos den 1°-Default zu bekommen.
+  Kein Versions-Bump: v4.0 ist unveröffentlicht, die Änderung fällt in 4.0.0.
+- **`FINGERPRINT_COLLISION`** vergleicht Ebenen über den Winkelabstand statt über
+  Gleichheit gerundeter Werte. Die Paar-Toleranz ist das Maximum beider Gruppen
+  (sonst hängt der Befund von der Listenreihenfolge ab), `|n_a · n_b|` fängt den
+  Kanonisierungs-Kipppunkt mit ab, und die Vorsortierung nach Bauteiltyp und
+  `|dist|` hält den Aufwand bei vielen Gruppen im Rahmen. Sechs Grenzfälle sind
+  in `tools/test_dwe_validate.py` abgesichert.
+- **CI (`catalog-guard.yml`)** — der Schema-Check läuft nicht mehr über zwei hart
+  verdrahtete Dateien, sondern über `schema/**/*.schema.json` plus die
+  `v*-complete.json`. Bewusst kein `**/*.json`: unter `schema/` liegen auch reine
+  Datendateien, bei denen `check_schema` vakuum „ok" sagt. Ergänzt um einen Guard
+  auf `v3.0-complete.json` (DWEapp liest sie an vier Stellen) und `v3.1-complete.json`,
+  sowie um eine Validierung von `catalog/core/*.json` gegen
+  `catalog-envelope.schema.json` — das trifft die `catalog_version`-Falle am realen
+  Objekt statt vakuum am Schema.
+
+### Removed
+
+- **Schema v3.2 verworfen.** Es war nie in einem Release dokumentiert und hatte zwei
+  Defekte: `schema_info.url`-const und `version`-Pattern (`^3\.1\.\d+$`) wurden nie
+  hochgezogen — das Schema lehnte seine eigene Version ab — und `step_refs[]` verwies
+  auf `scenarios[].steps[].id`, was in keiner Version existierte. Beide v3.2-Felder
+  (`funding_entry.step_refs[]`, `status_erweitert`) sind in v4.0 übernommen, `steps[]`
+  dort erstmals als echte Struktur unter `scenarios[]` definiert.
+- **v2.1 / v2.2 / v2.3** samt zugehörigen Migrations-Dokumenten nach
+  `archive/schema-legacy/` verschoben.
+
+### Notes
+
+- v3.0 und v3.1 bleiben eingefroren in Betrieb, bis DWEapp auf v4.0 umgestellt ist.
+  DWEapp generiert seine TS-Typen aus **v3.0** (`scripts/schema-check.mjs`) — diese
+  Datei darf bis dahin nicht entfernt werden.
+- v4.0 ist bewusst **kein** abwärtskompatibler Diff auf v3.x. Ein Migrationsskript ist
+  keine Release-Pflicht; die Parser-Anpassung ist ein eigenes Arbeitspaket.
+- Katalog-Format ist noch offen — siehe [docs/v4/KATALOG_BESTANDSANALYSE.md](docs/v4/KATALOG_BESTANDSANALYSE.md).
+
+---
+
 ## [3.1.0] - 2026-04-13
 
 ### Added

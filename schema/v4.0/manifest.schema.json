@@ -1,0 +1,297 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://din18599-ifc.de/schema/v4.0/manifest",
+  "title": "DWE Container Manifest v4.0",
+  "description": "Manifest einer .dwe-Datei (ZIP-Container). Beschreibt Inhaltsverzeichnis, Checksummen, GUID-Konsistenz zwischen IFC und Sidecar sowie den erreichten Validierungsgrad. Das Manifest ist die einzige Datei, die ein Konsument lesen muss, um zu entscheiden ob er den Container verarbeiten kann.",
+  "version": "4.0.0",
+  "type": "object",
+  "required": ["manifest_info", "container", "contents"],
+  "additionalProperties": false,
+
+  "properties": {
+    "manifest_info": {
+      "type": "object",
+      "description": "Selbstauskunft des Manifests. Wird als Erstes gelesen.",
+      "required": ["url", "version"],
+      "additionalProperties": false,
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "const": "https://din18599-ifc.de/schema/v4.0/manifest"
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^4\\.0\\.\\d+$",
+          "description": "Manifest-Schema-Version (SemVer, Major.Minor an das Schema gebunden)"
+        }
+      }
+    },
+
+    "container": {
+      "type": "object",
+      "description": "Identitaet und Herkunft des Containers",
+      "required": ["format", "created_at", "created_by"],
+      "additionalProperties": false,
+      "properties": {
+        "format": {
+          "type": "string",
+          "const": "dwe-container",
+          "description": "Format-Kennung. Erlaubt spaetere Geschwister-Formate ohne Manifest-Bruch."
+        },
+        "container_id": {
+          "type": "string",
+          "description": "Stabile ID dieses Containers (UUID empfohlen). Bleibt ueber Re-Exports desselben Projektstands gleich."
+        },
+        "project_name": {
+          "type": "string",
+          "description": "Anzeigename, redundant zu sidecar.meta.project_name (Manifest soll ohne Sidecar-Parse lesbar sein)"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Erstellungszeitpunkt des Containers"
+        },
+        "created_by": {
+          "type": "object",
+          "description": "Erzeugendes Tool. Pflicht fuer Fehlersuche bei Export-Defekten.",
+          "required": ["tool", "version"],
+          "properties": {
+            "tool": {
+              "type": "string",
+              "description": "z.B. 'DWE Dynamo Export', 'DWEapp', 'EVEBI-Bridge'"
+            },
+            "version": { "type": "string" },
+            "vendor": { "type": "string" },
+            "host_application": {
+              "type": "string",
+              "description": "z.B. 'Autodesk Revit 2026.2' — die Quellumgebung, nicht das Skript"
+            }
+          }
+        },
+        "supersedes": {
+          "type": "string",
+          "description": "container_id des Vorgaenger-Containers, falls dies ein Re-Export ist. Ermoeglicht Diff-Reports (siehe Handoff Paragraph 5, Befund 3)."
+        }
+      }
+    },
+
+    "contents": {
+      "type": "object",
+      "description": "Inhaltsverzeichnis. Pfade sind ZIP-relativ mit Forward-Slash, ohne fuehrenden Slash.",
+      "required": ["sidecar"],
+      "additionalProperties": false,
+      "properties": {
+        "sidecar": {
+          "type": "object",
+          "description": "Das Sidecar-JSON — SOURCE OF TRUTH fuer alle energetischen Daten. Pflicht-Bestandteil, ohne ihn ist der Container kein .dwe.",
+          "required": ["path", "schema_version", "checksum"],
+          "properties": {
+            "path": {
+              "type": "string",
+              "const": "energy.din18599.json"
+            },
+            "schema_version": {
+              "type": "string",
+              "pattern": "^\\d+\\.\\d+\\.\\d+$",
+              "description": "Sidecar-Schema-Version. Konsument prueft dies VOR dem Parsen."
+            },
+            "checksum": { "$ref": "#/definitions/checksum" },
+            "size_bytes": { "type": "integer", "minimum": 0 }
+          }
+        },
+
+        "model_ifc": {
+          "type": "object",
+          "description": "IFC4-Geometriemodell. Optional — ein Sidecar ohne Modell ist gueltig (z.B. reine Bestandserfassung). SpaceBoundaries sind Best-Effort und NIEMALS Rechengrundlage; die Angrenzungsmatrix lebt in sidecar.input.boundaries[].",
+          "required": ["path", "checksum"],
+          "properties": {
+            "path": {
+              "type": "string",
+              "const": "model.ifc"
+            },
+            "ifc_schema": {
+              "type": "string",
+              "enum": ["IFC4", "IFC4X3_ADD2", "IFC2X3"],
+              "description": "IFC4 (ADD2) ist der Zielstand. IFC2X3 nur lesend geduldet."
+            },
+            "mvd": {
+              "type": "string",
+              "description": "Model View Definition, z.B. 'ReferenceView_V1.2'"
+            },
+            "checksum": { "$ref": "#/definitions/checksum" },
+            "size_bytes": { "type": "integer", "minimum": 0 },
+            "space_boundaries": {
+              "type": "object",
+              "description": "Selbstauskunft ueber die Qualitaet der IFC-SpaceBoundaries. Dokumentiert bewusst, dass sie lueckenhaft sein duerfen.",
+              "properties": {
+                "level": {
+                  "type": "string",
+                  "enum": ["none", "1st_level", "2nd_level"],
+                  "description": "In Revit-Exporten regelmaessig 'none' — das ist erwartet, kein Fehler."
+                },
+                "count": { "type": "integer", "minimum": 0 },
+                "authoritative": {
+                  "type": "boolean",
+                  "const": false,
+                  "description": "Immer false. SpaceBoundaries sind Beigabe, die Wahrheit steht in boundaries[]."
+                }
+              }
+            },
+            "custom_psets": {
+              "type": "array",
+              "description": "Namen der Custom-Property-Sets, in denen construction_refs und DWE_UIDs transportiert werden. KEIN 'Pset_'-Prefix (reserviert fuer buildingSMART).",
+              "items": {
+                "type": "string",
+                "not": { "pattern": "^Pset_" }
+              }
+            }
+          }
+        },
+
+        "attachments": {
+          "type": "array",
+          "description": "Optionale Beilagen unter attachments/. Referenzierbar aus sidecar.documents[].storage_ref.",
+          "items": {
+            "type": "object",
+            "required": ["path", "checksum"],
+            "properties": {
+              "path": {
+                "type": "string",
+                "pattern": "^attachments/",
+                "description": "ZIP-relativer Pfad, muss unter attachments/ liegen"
+              },
+              "mime_type": { "type": "string" },
+              "role": {
+                "type": "string",
+                "enum": ["NACHWEIS", "PLAN", "FOTO", "RECHNUNG", "FOERDERUNG", "SONSTIGE"],
+                "description": "Deckungsgleich mit sidecar.documents[].type"
+              },
+              "document_ref": {
+                "type": "string",
+                "description": "id aus sidecar.documents[]. Bindet die Datei an ihre Metadaten."
+              },
+              "checksum": { "$ref": "#/definitions/checksum" },
+              "size_bytes": { "type": "integer", "minimum": 0 }
+            }
+          }
+        }
+      }
+    },
+
+    "consistency": {
+      "type": "object",
+      "description": "Ergebnis der Konsistenzpruefung IFC gegen Sidecar. Wird beim Export berechnet, beim Import nachgeprueft. Abweichung ist Warnung, kein Abbruch — der Sidecar gewinnt immer.",
+      "additionalProperties": false,
+      "properties": {
+        "checked_at": { "type": "string", "format": "date-time" },
+        "guid_link": {
+          "type": "object",
+          "description": "Abgleich der IFC-GUIDs mit den Referenzen im Sidecar",
+          "properties": {
+            "spaces_in_ifc": { "type": "integer", "minimum": 0 },
+            "rooms_in_sidecar": { "type": "integer", "minimum": 0 },
+            "matched": { "type": "integer", "minimum": 0 },
+            "unmatched_ifc_guids": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "IfcSpaces ohne Sidecar-Raum (Modell enthaelt mehr als bilanziert wird — meist ok)"
+            },
+            "unmatched_sidecar_rooms": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "Sidecar-Raeume ohne IfcSpace. Kritischer Fall: Geometrie fehlt."
+            }
+          }
+        },
+        "element_link": {
+          "type": "object",
+          "description": "Abgleich der element_groups[].member_elements[] gegen das IFC. Instanz-IDs sind instabil (Handoff Paragraph 5, Befund 3) — deshalb nur Zaehlung, keine harte Bindung.",
+          "properties": {
+            "groups_in_sidecar": { "type": "integer", "minimum": 0 },
+            "members_total": { "type": "integer", "minimum": 0 },
+            "members_resolved_in_ifc": { "type": "integer", "minimum": 0 }
+          }
+        }
+      }
+    },
+
+    "validation": {
+      "type": "object",
+      "description": "Erreichter Validierungsgrad zum Zeitpunkt der Container-Erstellung. Der Konsument darf sich darauf verlassen, MUSS aber bei calc_ready selbst nachpruefen.",
+      "required": ["level"],
+      "additionalProperties": false,
+      "properties": {
+        "level": {
+          "$ref": "#/definitions/validation_level"
+        },
+        "validated_at": { "type": "string", "format": "date-time" },
+        "validator": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "version": { "type": "string" },
+            "ruleset_version": {
+              "type": "string",
+              "description": "Version des Regelsatzes. Toleranzen sind Validator-Konstanten, NICHT Schema-Inhalt (Handoff E9)."
+            }
+          }
+        },
+        "findings": {
+          "type": "array",
+          "description": "Offene Befunde. In der Beta-Phase sind alle Level-Checks Warnungen, spaeter Blocker.",
+          "items": {
+            "type": "object",
+            "required": ["code", "severity", "message"],
+            "properties": {
+              "code": {
+                "type": "string",
+                "description": "Stabiler Regel-Code, z.B. 'GEOM_TOPOSOLID_ROOMBOUNDING'"
+              },
+              "severity": {
+                "type": "string",
+                "enum": ["info", "warning", "error"]
+              },
+              "message": { "type": "string" },
+              "blocks_level": {
+                "$ref": "#/definitions/validation_level",
+                "description": "Ab welchem Level dieser Befund blockiert (sobald der Check scharf geschaltet ist)"
+              },
+              "json_pointer": {
+                "type": "string",
+                "description": "Fundstelle im Sidecar, z.B. '/input/boundaries/17'"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+
+  "definitions": {
+    "checksum": {
+      "type": "object",
+      "description": "Pruefsumme einer Container-Datei. Wird ueber den unkomprimierten Byte-Strom gebildet.",
+      "required": ["algorithm", "value"],
+      "additionalProperties": false,
+      "properties": {
+        "algorithm": {
+          "type": "string",
+          "enum": ["sha256"],
+          "description": "Bewusst nur ein Verfahren — Wahlfreiheit erzeugt nur Interop-Luecken."
+        },
+        "value": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$",
+          "description": "Hex, lowercase"
+        }
+      }
+    },
+
+    "validation_level": {
+      "type": "string",
+      "enum": ["draft", "enriched", "geometry_ok", "balanced", "calc_ready"],
+      "description": "Aufsteigende Validierungsstufen (Handoff E9). draft = strukturell gueltig. enriched = Fachdaten (construction_ref, room_type, Zonen) vollstaendig. geometry_ok = Flaechen/Volumina plausibel, Polygone geschlossen. balanced = Huellflaechenabgleich und Ve/NGF innerhalb Toleranz. calc_ready = alle Katalogwerte aufgeloest, rechenbar."
+    }
+  }
+}

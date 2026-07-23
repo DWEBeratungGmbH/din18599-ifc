@@ -1,0 +1,124 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://din18599-ifc.de/schema/v4.0/catalog-envelope",
+  "title": "DWE Katalog-Envelope v4.0",
+  "description": "Generischer Rahmen fuer ALLE Kataloge (Entscheidung 6.2). Der Rahmen ist der Teil, der fuer jeden Katalog gleich sein muss: Identitaet, Versionierung, Overlay-Merge, Herkunft. Die Eintraege selbst sind fachlich zu verschieden fuer ein gemeinsames Schema und werden je Katalog ueber entry_schema_ref validiert.",
+  "version": "4.0.0",
+  "type": "object",
+  "required": ["catalog_id", "catalog_version", "catalog_source", "entries"],
+
+  "properties": {
+    "$schema_ref": {
+      "type": "string",
+      "format": "uri",
+      "const": "https://din18599-ifc.de/schema/v4.0/catalog-envelope",
+      "description": "Selbstauskunft. Bewusst nicht '$schema', damit generische JSON-Schema-Tooling-Ketten hier nicht versehentlich aufloesen."
+    },
+
+    "catalog_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*$",
+      "description": "Stabile Kennung, z.B. 'adjacency_types'. Wird aus dem Sidecar ueber meta.catalogs[].catalog_id referenziert."
+    },
+    "catalog_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "SemVer des Katalog-INHALTS, unabhaengig von der Norm-Edition. Neue Eintraege = Minor, korrigierte Werte = Patch, entfernte oder umbenannte Codes = Major."
+    },
+    "catalog_source": {
+      "type": "string",
+      "enum": ["core", "dweapp", "local"],
+      "description": "core = offenes Repo (Struktur, ggf. unkritische Werte). dweapp = privater Erweiterungs-Katalog. local = Nutzer-Overlay aus eigener Normlizenz."
+    },
+
+    "dimension": {
+      "type": "object",
+      "description": "Versionierungsachse. Die drei Katalog-Klassen fallen hier zusammen: norm-dimensioniert (mehrere Editionen parallel), recht-dimensioniert (datumsgebunden) und rein kuratiert (keine Achse).",
+      "required": ["type"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["norm_edition", "legal_edition", "none"]
+        },
+        "value": {
+          "type": "string",
+          "description": "z.B. '2018-09' oder '2024'. Entfaellt bei type='none'."
+        },
+        "valid_from": { "type": "string", "format": "date" },
+        "valid_to":   { "type": "string", "format": "date" }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "type": { "enum": ["norm_edition", "legal_edition"] } }, "required": ["type"] },
+          "then": { "required": ["value"] }
+        }
+      ]
+    },
+
+    "title":        { "type": "string" },
+    "description":  { "type": "string" },
+    "last_updated": { "type": "string", "format": "date" },
+
+    "norm_ref": {
+      "type": "string",
+      "description": "Menschenlesbare Quellenangabe, z.B. 'DIN V 18599-2:2018-09, Tabelle 5 und 6'"
+    },
+
+    "values_overlay": {
+      "type": "object",
+      "description": "Steuert den Werte-Merge (Entscheidung 6.1). Struktur liegt oeffentlich, geschuetzte Zahlenwerte kommen zur Laufzeit aus einem Overlay. Ein Overlay je Katalog UND je Edition — die Lizenzlage kann pro Norm unterschiedlich ausgehen, und wer eine Teil-Lizenz hat, soll genau das befuellen koennen, was er darf.",
+      "required": ["required"],
+      "properties": {
+        "required": {
+          "type": "boolean",
+          "description": "true = ohne aufgeloeste Werte ist keine Berechnung moeglich, der Validator verweigert calc_ready."
+        },
+        "expected_file": {
+          "type": "string",
+          "description": "Konventioneller Dateiname, z.B. 'catalog/values/usage_profiles.2018-09.values.json'"
+        },
+        "merge_key": {
+          "type": "string",
+          "default": "code",
+          "description": "Feld, ueber das Overlay-Eintraege den Struktur-Eintraegen zugeordnet werden"
+        },
+        "missing_value_message": {
+          "type": "string",
+          "description": "Meldung des Validators, wenn das Overlay fehlt"
+        }
+      }
+    },
+
+    "entry_schema_ref": {
+      "type": "string",
+      "description": "Pfad zum katalogspezifischen Entry-Schema, z.B. 'schema/v4.0/catalogs/adjacency_types.schema.json'. Der Loader validiert entries[] dagegen."
+    },
+
+    "entries": {
+      "type": "array",
+      "description": "Die Katalog-Eintraege. Struktur je Katalog verschieden — hier nur die gemeinsamen Mindestanforderungen.",
+      "items": {
+        "type": "object",
+        "required": ["code"],
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "Eindeutig innerhalb des Katalogs. Ziel aller *_ref-Felder im Sidecar."
+          },
+          "name_de": { "type": "string" },
+          "name_en": { "type": "string" },
+          "norm_cell": {
+            "type": ["string", "null"],
+            "description": "Herkunftszelle in der Norm, Konvention 'T<Tabelle>-Z<Zeile>[-S<Spalte>]', z.B. 'T7-Z1-S19'. Macht den Overlay-Merge PRUEFBAR: der Validator kann melden, welche Zelle fehlt, statt nur 'irgendwo ist null'. null bedeutet, dass der Eintrag KEINE Normherkunft hat — also eine DWE-eigene Definition ist oder die Groesse fuer diesen Eintrag nicht existiert (z.B. Auslegungstemperatur eines unbeheizten Raums)."
+          },
+          "deprecated": {
+            "type": "boolean",
+            "default": false,
+            "description": "Eintrag nicht mehr verwenden, aber fuer Altbestaende aufloesbar halten"
+          },
+          "replaced_by": { "type": "string" }
+        }
+      }
+    }
+  }
+}

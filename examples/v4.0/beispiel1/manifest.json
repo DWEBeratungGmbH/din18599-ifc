@@ -1,0 +1,54 @@
+{
+  "manifest_info": {
+    "url": "https://din18599-ifc.de/schema/v4.0/manifest",
+    "version": "4.0.0"
+  },
+  "container": {
+    "format": "dwe-container",
+    "container_id": "bsp1-container-0001",
+    "project_name": "Beispiel1",
+    "created_at": "2026-07-21T10:00:00Z",
+    "created_by": {
+      "tool": "DWE Dynamo Export",
+      "version": "0.1.0-stufe1",
+      "vendor": "DWE Beratung GmbH",
+      "host_application": "Autodesk Revit 2026"
+    }
+  },
+  "contents": {
+    "sidecar": {
+      "path": "energy.din18599.json",
+      "schema_version": "4.0.0",
+      "checksum": {
+        "algorithm": "sha256",
+        "value": "03a1a59bb55a952398a6fcdf63ce136bbfbea9579407e7cc5d781a037444b93c"
+      },
+      "size_bytes": 27679
+    }
+  },
+  "validation": {
+    "level": "enriched",
+    "validated_at": "2026-07-21T10:00:00Z",
+    "validator": {
+      "name": "dwe-validate",
+      "version": "0.1.0",
+      "ruleset_version": "0.1.0"
+    },
+    "findings": [
+      {
+        "code": "BOUNDARIES_EMPTY",
+        "severity": "warning",
+        "message": "input.boundaries[] ist leer — ohne Angrenzungsmatrix keine Huellflaeche und keine Energiebilanz. Revit-Pipeline Stufe 2d ausstehend.",
+        "blocks_level": "geometry_ok",
+        "json_pointer": "/input/boundaries"
+      },
+      {
+        "code": "ROOM_WITHOUT_ZONE",
+        "severity": "info",
+        "message": "R-GAR-01 (Garage) hat keine zone_memberships. Bei einer unbeheizten Nebenflaeche ist das zulaessig.",
+        "blocks_level": "enriched",
+        "json_pointer": "/input/rooms/22"
+      }
+    ]
+  }
+}

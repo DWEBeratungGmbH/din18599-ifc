@@ -1,0 +1,91 @@
+{
+  "$schema_ref": "https://din18599-ifc.de/schema/v4.0/catalog-envelope",
+  "catalog_id": "thermal_corrections",
+  "catalog_version": "1.0.0",
+  "catalog_source": "core",
+  "dimension": {
+    "type": "norm_edition",
+    "value": "2018-03"
+  },
+  "title": "Korrekturen des Waermedurchgangskoeffizienten (Anhang F)",
+  "description": "Zuschlaege delta_U fuer Luftspalte in Daemmschichten, mechanische Befestigungselemente und Umkehrdaecher, sowie die Bagatellgrenze aus 6.7.3. Die Einstufungslogik und die Anwendungsgrenzen sind DWE-eigen und oeffentlich; die ZAHLENWERTE stammen aus DIN EN ISO 6946 Anhang F und liegen im privaten Werte-Overlay.",
+  "last_updated": "2026-07-22",
+  "norm_ref": "DIN EN ISO 6946:2018-03, Abschnitt 6.7.3 und Anhang F (F.1 bis F.4, Tabelle F.1).",
+  "values_overlay": {
+    "required": true,
+    "expected_file": "catalog/values/thermal_corrections.2018-03.values.json",
+    "merge_key": "code",
+    "missing_value_message": "Werte fuer 'thermal_corrections' fehlen (delta_U'' aus DIN EN ISO 6946 Tabelle F.1, alpha aus F.3.2, f*x aus F.4, Bagatellgrenze aus 6.7.3). Overlay unter catalog/values/thermal_corrections.2018-03.values.json bereitstellen — aus eigener Normlizenz oder ueber DWEapp. Ohne aufgeloeste Werte keine Korrektur."
+  },
+  "entry_schema_ref": "schema/v4.0/catalogs/thermal_corrections.schema.json",
+  "entries": [
+    {
+      "code": "air_void_level_0",
+      "level": 0,
+      "name_de": "Keine oder nur kleine Luftspalte ohne wesentliche Wirkung auf den Waermedurchgangskoeffizienten",
+      "delta_u_double_prime": null,
+      "unit": "W/(m2*K)",
+      "norm_cell": "T-F.1-Stufe0"
+    },
+    {
+      "code": "air_void_level_1",
+      "level": 1,
+      "name_de": "Zwischenraeume, die die warme und die kalte Seite der Daemmung verbinden, aber keine Luftzirkulation verursachen",
+      "delta_u_double_prime": null,
+      "unit": "W/(m2*K)",
+      "norm_cell": "T-F.1-Stufe1"
+    },
+    {
+      "code": "air_void_level_2",
+      "level": 2,
+      "name_de": "Zwischenraeume, die die warme und die kalte Seite der Daemmung verbinden und zusammen mit Hohlraeumen zu freier Luftzirkulation fuehren",
+      "delta_u_double_prime": null,
+      "unit": "W/(m2*K)",
+      "norm_cell": "T-F.1-Stufe2"
+    }
+  ],
+  "fastener_factors": {
+    "description": "Beiwert alpha der Gleichung F.5. Bei einem Element, das die Daemmschicht vollstaendig durchdringt, gilt der Grundwert; bei einem in eine Aussparung eingebauten Element wird er mit d_1/d_0 skaliert.",
+    "entries": [
+      {
+        "code": "alpha_full_penetration",
+        "name_de": "Beiwert alpha, Element durchdringt die Daemmschicht vollstaendig",
+        "value": null,
+        "unit": "-",
+        "norm_cell": "F.3.2"
+      }
+    ]
+  },
+  "inverted_roof_factors": {
+    "description": "Groessen der Gleichung F.6. f ist der Entwaesserungsfaktor, x der Faktor fuer den gestiegenen Waermeverlust; der hinterlegte Wert fuer f*x gilt fuer einlagige Daemmschichten mit Stumpfstoessen und offener Abdeckung (zum Beispiel Kiesschuettung). p ist die mittlere Niederschlagsmenge waehrend der Heizperiode — der hinterlegte Wert ist die informative Standardauswahl aus Tabelle B.7 und darf national abweichend festgelegt werden; deshalb ist p am Aufruf ueberschreibbar.",
+    "entries": [
+      {
+        "code": "f_times_x_single_layer_open_cover",
+        "name_de": "f*x fuer einlagige Daemmschicht mit Stumpfstoessen und offener Abdeckung",
+        "value": null,
+        "unit": "(W*Tag)/(m2*K*mm)",
+        "norm_cell": "F.4"
+      },
+      {
+        "code": "p_default_heating_season",
+        "name_de": "Durchschnittliche Niederschlagsmenge waehrend der Heizperiode, Standardauswahl",
+        "value": null,
+        "unit": "mm/Tag",
+        "norm_cell": "T-B.7",
+        "note_de": "Informativ (Anhang B). National abweichend festlegbar — am Aufruf ueberschreibbar."
+      }
+    ]
+  },
+  "application_rules": {
+    "description": "Anwendungsregeln, die Zahlenwerte tragen. Die Regeln SELBST (nur XPS beim Umkehrdach, nur Heizfall, keine Korrektur bei versetzten Fugen) stehen im Code, weil sie Rechenwege sperren und nicht bloss Zahlen liefern.",
+    "entries": [
+      {
+        "code": "negligibility_threshold",
+        "name_de": "Bagatellgrenze: Anteil von U, unterhalb dessen keine Korrektur vorgenommen werden muss",
+        "value": null,
+        "unit": "-",
+        "norm_cell": "6.7.3"
+      }
+    ]
+  }
+}

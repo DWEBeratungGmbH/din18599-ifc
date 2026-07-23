@@ -1,0 +1,192 @@
+{
+  "$schema_ref": "https://din18599-ifc.de/schema/v4.0/catalog-envelope",
+  "catalog_id": "air_layers",
+  "catalog_version": "1.0.0",
+  "catalog_source": "core",
+  "dimension": {
+    "type": "norm_edition",
+    "value": "2018-03"
+  },
+  "title": "Waermedurchlasswiderstand von Luftschichten",
+  "description": "Ruhende Luftschichten nach DIN EN ISO 6946 Tabelle 8 sowie die Regeln fuer schwach und stark belueftete Luftschichten. Struktur, Stuetzstellen-Dicken und die Regeltexte sind oeffentlich; die Widerstands-ZAHLENWERTE liegen im privaten Werte-Overlay.",
+  "last_updated": "2026-07-21",
+  "norm_ref": "DIN EN ISO 6946:2018-03, Abschnitt 6.9 und Tabelle 8",
+  "values_overlay": {
+    "required": true,
+    "expected_file": "catalog/values/air_layers.2018-03.values.json",
+    "merge_key": "code",
+    "missing_value_message": "Werte fuer 'air_layers' fehlen (Luftschicht-Widerstaende aus DIN EN ISO 6946 Tabelle 8 und 9). Overlay unter catalog/values/air_layers.2018-03.values.json bereitstellen — aus eigener Normlizenz oder ueber DWEapp. Ohne aufgeloeste Werte kein calc_ready."
+  },
+  "entry_schema_ref": "schema/v4.0/catalogs/air_layers.schema.json",
+  "rules": {
+    "unventilated": {
+      "norm_ref": "6.9.2",
+      "description": "Ruhend, wenn kein Luftstrom vorgesehen ist. Auch mit kleinen Oeffnungen zur Aussenumgebung, solange diese 500 mm2 je Meter Laenge (vertikale Luftschicht) bzw. je Quadratmeter Oberflaeche (horizontale Luftschicht) nicht ueberschreiten und kein Durchstroemen moeglich ist.",
+      "note": "Entwaesserungsoeffnungen als offene Stossfugen in der Aussenschale zweischaligen Mauerwerks erfuellen diese Kriterien in der Regel und gelten NICHT als Lueftungsoeffnungen.",
+      "criterion_ref": "threshold_unventilated_mm2"
+    },
+    "slightly_ventilated": {
+      "norm_ref": "6.9.3",
+      "formula": "R_tot = (1500 - A_ve)/1000 * R_tot_nve + (A_ve - 500)/1000 * R_tot_ve",
+      "description": "Lineare Ueberblendung zwischen dem Aufbau mit ruhender und dem mit stark beluefteter Luftschicht, gesteuert ueber die Oeffnungsflaeche A_ve in mm2.",
+      "criterion_ref_min": "threshold_unventilated_mm2",
+      "criterion_ref_max": "threshold_well_ventilated_mm2"
+    },
+    "well_ventilated": {
+      "norm_ref": "6.9.4",
+      "description": "Der Waermedurchlasswiderstand der Luftschicht UND aller Schichten zwischen ihr und der Aussenumgebung wird vernachlaessigt. Als aeusserer Uebergangswiderstand wird der Wert fuer ruhende Luft angesetzt — vereinfacht darf der Rsi-Wert aus Tabelle 7 verwendet werden.",
+      "criterion_ref": "threshold_well_ventilated_mm2"
+    }
+  },
+  "interpolation": "linear",
+  "entries": [
+    {
+      "code": "d_0",
+      "thickness_mm": 0,
+      "r_upward": null,
+      "r_horizontal": null,
+      "r_downward": null,
+      "norm_cell": "T8-Z1"
+    },
+    {
+      "code": "d_5",
+      "thickness_mm": 5,
+      "r_upward": null,
+      "r_horizontal": null,
+      "r_downward": null,
+      "norm_cell": "T8-Z2"
+    },
+    {
+      "code": "d_7",
+      "thickness_mm": 7,
+      "r_upward": null,
+      "r_horizontal": null,
+      "r_downward": null,
+      "norm_cell": "T8-Z3"
+    },
+    {
+      "code": "d_10",
+      "thickness_mm": 10,
+      "r_upward": null,
+      "r_horizontal": null,
+      "r_downward": null,
+      "norm_cell": "T8-Z4"
+    },
+    {
+      "code": "d_15",
+      "thickness_mm": 15,
+      "r_upward": null,
+      "r_horizontal": null,
+      "r_downward": null,
+      "norm_cell": "T8-Z5"
+    },
+    {
+      "code": "d_25",
+      "thickness_mm": 25,
+      "r_upward": null,
+      "r_horizontal": null,
+      "r_downward": null,
+      "norm_cell": "T8-Z6"
+    },
+    {
+      "code": "d_50",
+      "thickness_mm": 50,
+      "r_upward": null,
+      "r_horizontal": null,
+      "r_downward": null,
+      "norm_cell": "T8-Z7"
+    },
+    {
+      "code": "d_100",
+      "thickness_mm": 100,
+      "r_upward": null,
+      "r_horizontal": null,
+      "r_downward": null,
+      "norm_cell": "T8-Z8"
+    },
+    {
+      "code": "d_300",
+      "thickness_mm": 300,
+      "r_upward": null,
+      "r_horizontal": null,
+      "r_downward": null,
+      "norm_cell": "T8-Z9"
+    }
+  ],
+  "unheated_attic_spaces": {
+    "norm_ref": "DIN EN ISO 6946:2018-03, Abschnitt 6.10.2, Tabelle 9",
+    "description": "Vereinfachung fuer Dachkonstruktionen mit ebener gedaemmter Decke und Schraegdach: der unbeheizte Dachraum darf als thermisch homogene Schicht mit diesem Widerstand behandelt werden. Gilt bei natuerlicher Belueftung ueber beheizten Gebaeuden; bei Zwangsbelueftung ist ISO 13789 anzuwenden.",
+    "note": "Diese Werte enthalten den Widerstand des beluefteten Raums UND der Schraegdachkonstruktion, aber NICHT den aeusseren Uebergangswiderstand Rse.",
+    "entries": [
+      {
+        "code": "attic_tiles_bare",
+        "r_u": null,
+        "name_de": "Ziegeldach ohne Pappe, Schalung oder Aehnliches",
+        "norm_cell": "T9-Z1"
+      },
+      {
+        "code": "attic_tiles_sarking",
+        "r_u": null,
+        "name_de": "Plattendach oder Ziegeldach mit Pappe, Schalung oder Aehnlichem unter den Ziegeln",
+        "norm_cell": "T9-Z2"
+      },
+      {
+        "code": "attic_low_emissivity",
+        "r_u": null,
+        "name_de": "wie Zeile 2, jedoch mit Aluminiumverkleidung oder anderer Oberflaeche mit geringem Emissionsgrad an der Dachunterseite",
+        "norm_cell": "T9-Z3"
+      },
+      {
+        "code": "attic_boarded_felted",
+        "r_u": null,
+        "name_de": "Dach mit Schalung und Pappe",
+        "norm_cell": "T9-Z4"
+      }
+    ]
+  },
+  "ventilation": {
+    "description": "Schwellen und Divisor der Einstufung nach 6.9. Bezug: je Meter Laenge in horizontaler Richtung bei VERTIKALEN Luftschichten, je Quadratmeter Oberflaeche bei HORIZONTALEN Luftschichten. Die Zahlenwerte stammen aus dem Normtext und liegen im privaten Werte-Overlay.",
+    "entries": [
+      {
+        "code": "threshold_unventilated_mm2",
+        "name_de": "Obergrenze der Oeffnungsflaeche fuer eine ruhende Luftschicht",
+        "value": null,
+        "unit": "mm2",
+        "norm_cell": "6.9.2"
+      },
+      {
+        "code": "threshold_well_ventilated_mm2",
+        "name_de": "Untergrenze der Oeffnungsflaeche fuer eine stark belueftete Luftschicht",
+        "value": null,
+        "unit": "mm2",
+        "norm_cell": "6.9.4"
+      },
+      {
+        "code": "interpolation_divisor",
+        "name_de": "Divisor der Interpolationsgleichung (11)",
+        "value": null,
+        "unit": "mm2",
+        "norm_cell": "6.9.3"
+      }
+    ]
+  },
+  "standard_selection": {
+    "description": "Informative Standardauswahl aus Tabelle B.6. Anhang A (Tabelle A.6) ist eine leere Vorlage fuer nationale Festlegungen — eine abweichende nationale Festlegung geht diesen Flags vor. Als Flag gehalten, damit die Umschaltung ohne Code-Aenderung moeglich ist.",
+    "entries": [
+      {
+        "code": "approximation_6_9_3_permitted",
+        "name_de": "Naeherung fuer schwach belueftete Luftschichten nach 6.9.3 zulaessig",
+        "value": null,
+        "unit": "-",
+        "norm_cell": "T-B.6-6.9"
+      },
+      {
+        "code": "simplified_unheated_spaces_permitted",
+        "name_de": "Vereinfachte Behandlung unbeheizter Raeume nach 6.10.2/6.10.3 zulaessig",
+        "value": null,
+        "unit": "-",
+        "norm_cell": "T-B.6-6.10"
+      }
+    ]
+  }
+}

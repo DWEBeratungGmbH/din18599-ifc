@@ -1,0 +1,1394 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://din18599-ifc.de/schema/v4.0/sidecar",
+  "title": "DIN 18599 Sidecar Schema v4.0",
+  "description": "Sidecar-JSON des .dwe-Containers — Source of Truth fuer alle energetischen Daten. Greenfield-Neuentwurf gegenueber v3.x: Raum-Topologie ueber boundaries[] (Angrenzungsmatrix), element_groups[] als berechnete Bauteil-Zwischenebene mit stabilem Ebenen-Fingerprint, zone_memberships[] statt fester Zonen-Refs. Norm- und Katalogstaende werden explizit mitgefuehrt.",
+  "version": "4.0.0",
+  "type": "object",
+  "required": ["schema_info", "meta", "input"],
+
+  "properties": {
+    "schema_info": {
+      "type": "object",
+      "description": "Schema-Selbstauskunft. url und version MUESSEN mit diesem Schema uebereinstimmen — in v3.2 war genau das auseinandergelaufen.",
+      "required": ["url", "version"],
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "const": "https://din18599-ifc.de/schema/v4.0/sidecar"
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^4\\.0\\.\\d+$",
+          "description": "Sidecar-Schema-Version (aktuell: 4.0.0)"
+        }
+      }
+    },
+
+    "meta": { "$ref": "#/definitions/meta" },
+
+    "input": {
+      "type": "object",
+      "description": "Eingabedaten — die Definition des Gebaeudes. Alles hier ist Source of Truth; output[] ist abgeleitet und darf jederzeit verworfen werden.",
+      "required": ["building"],
+      "properties": {
+        "building":             { "$ref": "#/definitions/building" },
+        "storeys":              { "type": "array", "items": { "$ref": "#/definitions/storey" } },
+        "rooms":                { "type": "array", "items": { "$ref": "#/definitions/room" } },
+        "zones":                { "type": "array", "items": { "$ref": "#/definitions/zone" } },
+        "element_groups":       { "type": "array", "items": { "$ref": "#/definitions/element_group" } },
+        "boundaries":           { "type": "array", "items": { "$ref": "#/definitions/boundary" } },
+        "openings_index": {
+          "type": "array",
+          "readOnly": true,
+          "description": "READ-ONLY Aggregat-Sicht ueber alle boundaries[].openings[]. Wird beim Export berechnet, NIE gepflegt. Der Validator prueft Konsistenz gegen die Quelle; bei Abweichung gewinnt boundaries[].openings[].",
+          "items": { "$ref": "#/definitions/opening_index_entry" }
+        },
+        "constructions":        { "type": "array", "items": { "$ref": "#/definitions/construction" } },
+        "window_constructions": { "type": "array", "items": { "$ref": "#/definitions/window_construction" } },
+        "systems":              { "$ref": "#/definitions/systems" },
+        "climate":              { "$ref": "#/definitions/climate" },
+        "primary_energy_factors": { "$ref": "#/definitions/primary_energy_factors" },
+        "energy_certificate":   { "$ref": "#/definitions/energy_certificate" },
+        "targets": {
+          "type": "array",
+          "description": "Freie Zielwerte fuer den Fall, dass keine Messwerte vorliegen",
+          "items": { "$ref": "#/definitions/target_entry" }
+        }
+      }
+    },
+
+    "output": {
+      "type": "object",
+      "description": "Berechnungsergebnisse. Key 'base' = Ist-Zustand (Pflicht-Anker), 'scenario_<id>' = Szenarien. Ein output-Block ohne 'base' ist fachlich sinnlos, da Szenarien Deltas gegen den Ist-Zustand sind; 'base' ist daher required. output selbst bleibt top-level optional (Gebaeude ohne Berechnung haben keinen output-Block).",
+      "required": ["base"],
+      "properties": {
+        "base": { "$ref": "#/definitions/output_snapshot" }
+      },
+      "patternProperties": {
+        "^scenario_[a-z0-9_]+$": { "$ref": "#/definitions/output_snapshot" }
+      }
+    },
+
+    "scenarios": { "type": "array", "items": { "$ref": "#/definitions/scenario" } },
+    "documents": { "type": "array", "items": { "$ref": "#/definitions/document" } },
+    "funding":   { "type": "array", "items": { "$ref": "#/definitions/funding_entry" } },
+    "roadmap":   { "$ref": "#/definitions/roadmap" },
+    "sla_context": { "$ref": "#/definitions/sla_context" }
+  },
+
+  "definitions": {
+
+    "meta": {
+      "type": "object",
+      "description": "Projekt-Metadaten, Norm- und Katalogstaende, Geo-Referenz, Validierungsgrad",
+      "required": ["project_name", "norm_editions"],
+      "properties": {
+        "project_name": { "type": "string" },
+        "building_uid": {
+          "type": "string",
+          "description": "Stabile Gebaeude-ID ueber Systemgrenzen (DWEapp buildings_v2.id). Ueberlebt Re-Exports."
+        },
+        "created_at": { "type": "string", "format": "date-time" },
+        "updated_at": { "type": "string", "format": "date-time" },
+        "ifc_file_ref": {
+          "type": "string",
+          "description": "Container-relativer Pfad zum IFC (normalerweise 'model.ifc')"
+        },
+
+        "norm_editions": {
+          "type": "object",
+          "description": "Projektweiter Default je Norm-Teil (Handoff E3). Refs bleiben stabil — KEIN '@2018-09'-Suffix an den Referenzen. Override nur ausnahmsweise am einzelnen Kennwert. GEG bindet datiert DIN V 18599:2018-09 — das ist die Nachweis-Edition.",
+          "required": ["din_18599"],
+          "properties": {
+            "din_18599": {
+              "type": "string",
+              "enum": ["2018-09", "2025-10"],
+              "default": "2018-09",
+              "description": "2018-09 = GEG-Nachweis-Edition (verbindlich). 2025-10 (DIN/TS) ist vorbereitet, aber erst mit GEG-Novelle scharf."
+            },
+            "din_277":  { "type": "string", "description": "z.B. '2021-08'" },
+            "geg":      { "type": "string", "description": "GEG-Fassung, z.B. '2024'" },
+            "din_4108": { "type": "string" },
+            "din_en_iso_6946": { "type": "string" }
+          }
+        },
+
+        "catalogs": {
+          "type": "array",
+          "description": "Verwendete Katalogstaende — macht eine Berechnung reproduzierbar. Ergaenzt (ersetzt nicht) den used_profile_values-Snapshot an der Zone: dies ist die Referenz, jener die Kopie.",
+          "items": {
+            "type": "object",
+            "required": ["catalog_id", "catalog_version", "catalog_source"],
+            "properties": {
+              "catalog_id": {
+                "type": "string",
+                "description": "z.B. 'usage_profiles', 'adjacency_types', 'room_types', 'geg_reference_building'"
+              },
+              "catalog_version": { "type": "string" },
+              "catalog_source": {
+                "type": "string",
+                "enum": ["core", "dweapp", "local"],
+                "description": "core = offenes Repo (Struktur). dweapp = privater Erweiterungs-Katalog. local = Nutzer-Overlay aus eigener Normlizenz."
+              },
+              "dimension": {
+                "type": "object",
+                "description": "Versionierungsachse. Nicht jeder Katalog braucht eine.",
+                "properties": {
+                  "type": { "type": "string", "enum": ["norm_edition", "legal_edition", "none"] },
+                  "value": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+
+        "true_north_offset_deg": {
+          "type": "number",
+          "minimum": -360,
+          "maximum": 360,
+          "description": "Drehung des Projektsystems gegen geografisch Nord. Positiv = gegen den Uhrzeigersinn (empirisch bestaetigt, Revit 2026). Nur zur Dokumentation — die exportierten Azimute sind BEREITS korrigiert: azimuth_geo = (azimuth_projekt + offset) mod 360."
+        },
+        "azimuth_reference": {
+          "type": "string",
+          "const": "geographic",
+          "description": "Alle orientation-Werte im Sidecar sind geografische Azimute. Bewusst konstant — eine Wahlmoeglichkeit hier wuerde stillschweigend falsche Solareintraege erzeugen."
+        },
+
+        "ve_method": {
+          "type": "string",
+          "enum": ["solid", "approximation"],
+          "description": "Ermittlung des beheizten Volumens. 'solid' = Boolean-Union der Raum-Solids. 'approximation' = aus Flaeche x Hoehe. Methode IMMER dokumentieren — Revit-Raumvolumina sind NIE Rechenquelle (Toposolid mit Raumbegrenzung verfaelscht sie still)."
+        },
+
+        "validation": {
+          "type": "object",
+          "description": "Validierungsgrad. Redundant zum Manifest, damit ein herausgeloestes Sidecar selbstauskunftsfaehig bleibt.",
+          "properties": {
+            "level": {
+              "type": "string",
+              "enum": ["draft", "enriched", "geometry_ok", "balanced", "calc_ready"]
+            },
+            "validated_at": { "type": "string", "format": "date-time" },
+            "ruleset_version": {
+              "type": "string",
+              "description": "Toleranzen (3 Prozent Huellflaeche / 10 Prozent Ve / 15 Prozent NGF) sind Validator-Konstanten, NICHT Schema-Inhalt (Handoff E9)."
+            }
+          }
+        },
+
+        "source": {
+          "type": "object",
+          "description": "Herkunft der Daten. Wichtig fuer Lossy-Consumer-Faelle (EVEBI-Re-Import).",
+          "properties": {
+            "origin": {
+              "type": "string",
+              "enum": ["REVIT_DYNAMO", "IFC_PARSER", "EVEBI", "MANUAL", "DWEAPP"],
+              "description": "Primaere Herkunft dieses Sidecar-Stands"
+            },
+            "tool": { "type": "string" },
+            "tool_version": { "type": "string" }
+          }
+        }
+      }
+    },
+
+    "building": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "address": {
+          "type": "object",
+          "properties": {
+            "street":  { "type": "string" },
+            "zip":     { "type": "string" },
+            "city":    { "type": "string" },
+            "country": { "type": "string", "default": "DE" }
+          }
+        },
+        "construction_year": { "type": "integer", "minimum": 1800, "maximum": 2100 },
+        "renovation_year":   { "type": "integer", "minimum": 1800, "maximum": 2100 },
+        "type": {
+          "type": "string",
+          "enum": ["residential", "non_residential", "mixed"]
+        },
+        "subtype": { "type": "string" },
+        "ngf_m2": {
+          "type": "number", "minimum": 0,
+          "description": "Nettogrundflaeche nach DIN 277 [m2]. DEKLARIERTER Wert, bewusst NICHT read-only: der Validator haelt ihn gegen die Summe aus rooms[].area_ngf_m2 (NGF_MISMATCH). Waere er abgeleitet, verglichen er sich gegen seine eigene Quelle und die Stufe 'balanced' waere wertlos."
+        },
+        "bgf_m2": { "type": "number", "minimum": 0, "description": "Bruttogrundflaeche [m2]" },
+        "ve_m3": {
+          "type": "number", "minimum": 0,
+          "description": "Beheiztes Gebaeudevolumen [m3]. Ermittlungsmethode steht in meta.ve_method. Deklariert und gegen die Summe aus rooms[].volume_ve_m3 geprueft (VE_MISMATCH) — siehe ngf_m2."
+        },
+        "envelope_area_m2": {
+          "type": "number", "minimum": 0,
+          "description": "Huellflaeche A [m2]. Deklariert und gegen die Summe der boundaries[] mit relevant_18599=true geprueft (ENVELOPE_AREA_MISMATCH) — siehe ngf_m2."
+        },
+        "av_ratio": { "type": "number", "minimum": 0, "description": "A/Ve [1/m]" },
+        "storeys_above_ground": { "type": "integer", "minimum": 0 },
+        "storeys_below_ground": { "type": "integer", "minimum": 0 },
+
+        "airtightness": {
+          "type": "object",
+          "description": "Luftdichtheit der Gebaeudehuelle (W1, Beiblatt 3 T.6.4.2). Gemeinsame Eingangsgroesse fuer DIN V 18599-2 (Infiltration), DIN EN 12831-1 (Heizlast) und DIN 1946-6 (Lueftungskonzept).",
+          "properties": {
+            "n50_h":      { "type": "number", "minimum": 0, "description": "Luftwechsel bei 50 Pa Druckdifferenz [1/h]" },
+            "q50_m3_hm2": { "type": "number", "minimum": 0, "description": "Luftdurchlaessigkeit bei 50 Pa, huellflaechenbezogen [m3/(h*m2)]" },
+            "source":     { "type": "string", "enum": ["measured", "planned", "default"], "description": "measured = Blower-Door-Messung, planned = Planungswert, default = Norm-Standardwert (Herkunft im Katalog, editionsabhaengig)" },
+            "test_date":  { "type": "string", "format": "date" },
+            "note":       { "type": "string" }
+          }
+        },
+
+        "thermal_mass": {
+          "type": "object",
+          "description": "Gebaeudeschwere (W1, Beiblatt 3 T.6.6, DIN V 18599-2). Klasse ODER expliziter Wert; der Klassen-Zahlenwert (Wh/(m2*K)) steht im Katalog, NICHT im Schema (editionsabhaengig). Zonen koennen per zone.thermal_mass abweichen.",
+          "properties": {
+            "class":        { "type": "string", "enum": ["light", "medium", "heavy"], "description": "leicht/mittel/schwer nach DIN V 18599-2" },
+            "c_eff_wh_m2k": { "type": "number", "minimum": 0, "description": "Wirksame Speicherkapazitaet [Wh/(m2*K)], falls explizit ermittelt — gewinnt gegenueber class" }
+          }
+        },
+
+        "ground_geometry": {
+          "type": "object",
+          "description": "Erdreich-Kennmasse des Gebaeudes (W1, Beiblatt 3 T.6.5.3/T.6.5.4). Grundlage fuer Fx-Erdreich (B'/Rf) und die Erdreich-Ansaetze der 12831. VORRANG: liegen Werte an den Flaechen (boundaries[].ground), gewinnen DIESE — hier stehen die gebaeudebezogenen Aggregatwerte, die auch dann tragen, wenn boundaries[] noch leer ist. Bewusst nicht read-only: in fruehen Stufen ist dies die einzige Quelle.",
+          "properties": {
+            "b_prime_m":               { "type": "number", "minimum": 0, "description": "Bodenplattenmass B' = A_G / (0,5 * P) [m] nach DIN EN ISO 13370 — A_G Bodenplattenflaeche, P freier Umfang" },
+            "perimeter_exposed_m":     { "type": "number", "minimum": 0, "description": "Freier (nach aussen exponierter) Umfang P der Bodenplatte [m]" },
+            "characteristic_length_m": { "type": "number", "minimum": 0 },
+            "characteristic_width_m":  { "type": "number", "minimum": 0 },
+            "basement_depth_m":        { "type": "number", "minimum": 0, "description": "Mittlere Einbindetiefe des Kellers unter Gelaende [m]" }
+          }
+        },
+
+        "envelope_kpis": {
+          "type": "object",
+          "readOnly": true,
+          "description": "ABGELEITETE Huellen-Kennzahlen (W1, Beiblatt 3 T.6.2.1/T.6.5.1). READ-ONLY: wird beim Export/Import aus boundaries[] und element_groups[] berechnet, nie gepflegt — bei Abweichung gewinnt die Quelle. Unterschied zu envelope_area_m2/ngf_m2/ve_m3: fuer die gibt es einen Abgleich gegen eine unabhaengige Deklaration, hier nicht.",
+          "properties": {
+            "h_t_prime_w_m2k":     { "type": "number", "minimum": 0, "description": "Spezifischer Transmissionswaermeverlust H'T [W/(m2*K)]" },
+            "u_mean_opaque_w_m2k": { "type": "number", "minimum": 0 },
+            "u_mean_window_w_m2k": { "type": "number", "minimum": 0 },
+            "window_area_ratio":   { "type": "number", "minimum": 0, "maximum": 1, "description": "Fensterflaechenanteil f [-] nach DIN V 18599-1" }
+          }
+        }
+      }
+    },
+
+    "storey": {
+      "type": "object",
+      "required": ["id", "name"],
+      "properties": {
+        "id":        { "type": "string", "description": "Stabile Geschoss-ID" },
+        "ifc_guid":  { "type": "string" },
+        "name":      { "type": "string" },
+        "elevation_m": {
+          "type": "number",
+          "description": "Hoehenlage OK Rohdecke ueber Projektbasis [m]"
+        },
+        "height_m":  { "type": "number", "minimum": 0, "description": "Lichte Geschosshoehe [m]" },
+        "below_ground": { "type": "boolean" }
+      }
+    },
+
+    "room": {
+      "type": "object",
+      "description": "Raum (IfcSpace). Fachlicher Anker ist dwe_uid (Shared Parameter), NICHT die Revit-ID — die ist auch als UniqueID instabil (Copy/Monitor, Workset-Binding, Loeschen+Neuzeichnen).",
+      "required": ["id", "heating_status"],
+      "properties": {
+        "id":       { "type": "string" },
+        "dwe_uid": {
+          "type": "string",
+          "description": "Stabiler Fachdaten-Anker aus dem Revit-Shared-Parameter. Ueberlebt Loeschen+Neuzeichnen, wenn der Bearbeiter ihn mitfuehrt."
+        },
+        "ifc_guid": { "type": "string" },
+        "name":     { "type": "string" },
+        "number":   { "type": "string", "description": "Raumnummer" },
+        "storey_ref": { "type": "string", "description": "storeys[].id" },
+
+        "room_type_ref": {
+          "type": "string",
+          "description": "Referenz in den room_types-Katalog (~55 Typen mit 3-Normen-Mapping). Aufloesung ueber meta.catalogs[]."
+        },
+
+        "zone_memberships": {
+          "type": "array",
+          "description": "Mehrfach-Zonenzugehoerigkeit (Handoff E2, ersetzt feste Refs). 'thermal' ist Pflicht bei konditionierten Raeumen, 'dwelling_unit' ist Pflicht.",
+          "items": {
+            "type": "object",
+            "required": ["zone_type", "zone_id"],
+            "properties": {
+              "zone_type": {
+                "type": "string",
+                "enum": ["thermal", "dwelling_unit", "ventilation", "fire", "acoustic", "custom"]
+              },
+              "zone_id": { "type": "string", "description": "zones[].id" },
+              "custom_type_name": {
+                "type": "string",
+                "description": "Nur bei zone_type='custom' — freie Bezeichnung der Zonenart"
+              }
+            }
+          }
+        },
+
+        "heating_status": {
+          "type": "string",
+          "enum": ["heated", "unheated", "low_heated"],
+          "description": "Konditionierungsgrad. Steuert, ob der Raum bilanziert wird und welche adjacency_types an seinen Grenzen zulaessig sind."
+        },
+        "outside_thermal_envelope": {
+          "type": "boolean",
+          "default": false,
+          "description": "Der Raum liegt AUSSERHALB der thermischen Huelle (Terrasse, Balkon, Loggia, unbeheizter Wintergarten). Bewusst getrennt von heating_status: ein unbeheizter Keller ist 'unheated' und liegt trotzdem im Gebaeudevolumen — er wird als angrenzender unbeheizter Bereich bilanziert. Ein Aussenbereich wird gar nicht bilanziert. Solche Raeume duerfen KEINER thermischen Zone angehoeren; Vorbelegung kommt aus dem room_types-Katalog."
+        },
+        "ventilation_function": {
+          "type": "string",
+          "description": "Lueftungstechnische Funktion des Raums (z.B. Zuluft, Abluft, Ueberstroem). Katalog-Kandidat."
+        },
+
+        "theta_heizlast_standard_c": {
+          "type": "number",
+          "description": "Norm-Innentemperatur fuer die Heizlast [Grad C] aus dem Raumtyp-Katalog"
+        },
+        "theta_heizlast_override_c": {
+          "type": "number",
+          "description": "Manuell abweichende Auslegungstemperatur [Grad C]. BEIDE Werte werden mitgefuehrt; der Validator warnt bei Abweichung groesser 3 K."
+        },
+        "theta_override_reason": {
+          "type": "string",
+          "description": "Begruendung des Overrides. Pflicht in der Review, nicht im Schema erzwungen."
+        },
+
+        "area_ngf_m2": { "type": "number", "minimum": 0, "description": "Nettogrundflaeche [m2]" },
+        "height_m":    { "type": "number", "minimum": 0, "description": "Lichte Raumhoehe [m]" },
+        "volume_ve_m3": {
+          "type": "number", "minimum": 0,
+          "description": "Beheiztes Volumen-Anteil dieses Raums [m3], ermittelt nach meta.ve_method"
+        },
+        "volume_reported_m3": {
+          "type": "number", "minimum": 0,
+          "description": "Vom Autorensystem gemeldetes Raumvolumen [m3]. NUR Plausibilitaetsvergleich, NIEMALS Rechenquelle — ein raumbegrenzendes Toposolid verfaelscht diesen Wert still (im Testmodell -2,9 Prozent ueber 12 Raeume)."
+        }
+      }
+    },
+
+    "zone": {
+      "type": "object",
+      "description": "Zone beliebiger Art. Welche Raeume dazugehoeren, steht an den Raeumen (zone_memberships[]), nicht hier — eine Richtung, damit es keine widerspruechlichen Doppelpflege gibt.",
+      "required": ["id", "zone_type"],
+      "properties": {
+        "id":   { "type": "string" },
+        "name": { "type": "string" },
+        "zone_type": {
+          "type": "string",
+          "enum": ["thermal", "dwelling_unit", "ventilation", "fire", "acoustic", "custom"]
+        },
+        "parent_zone_ref": {
+          "type": "string",
+          "description": "Uebergeordnete Zone. Untergeordnete NWG-Profile (16/18/19/20/41) erben die Betriebszeiten der Eltern-Zone (Handoff E2)."
+        },
+
+        "usage_profile_ref": {
+          "type": "string",
+          "description": "DIN 18599-10 Nutzungsprofil. Referenz OHNE Editions-Suffix — die Edition steht in meta.norm_editions.din_18599 bzw. im Override unten."
+        },
+        "usage_profile_norm_edition": {
+          "type": "string",
+          "enum": ["2018-09", "2025-10"],
+          "description": "Ausnahme-Override gegen meta.norm_editions.din_18599. Nur setzen, wenn diese Zone bewusst gegen eine andere Edition gerechnet wird."
+        },
+
+        "conditioned": { "type": "boolean" },
+        "area_m2":     { "type": "number", "minimum": 0, "description": "Aggregiert aus zugeordneten Raeumen [m2]" },
+        "volume_m3":   { "type": "number", "minimum": 0 },
+
+        "thermal_mass": {
+          "type": "object",
+          "description": "Zonen-Override der Gebaeudeschwere (W1, Beiblatt 3 T.6.6 fuehrt sie zonenweise). Fehlt das Objekt, gilt building.thermal_mass. Wie dort gewinnt c_eff_wh_m2k gegenueber class.",
+          "properties": {
+            "class":        { "type": "string", "enum": ["light", "medium", "heavy"] },
+            "c_eff_wh_m2k": { "type": "number", "minimum": 0 }
+          }
+        },
+
+        "used_profile_values": {
+          "type": "object",
+          "description": "Snapshot der tatsaechlich verwendeten Profilwerte zum Zeitpunkt der Berechnung (Handoff E5, bitemporales Muster). Macht das Sidecar auch dann nachvollziehbar, wenn der Katalogstand nicht mehr beschaffbar ist. Die Zahlenwerte stammen aus dem lizenzierten Werte-Katalog und werden nur in nicht-oeffentlichen Sidecars gefuellt.",
+          "properties": {
+            "snapshot_date":   { "type": "string", "format": "date-time" },
+            "source":          { "type": "string", "enum": ["core", "dweapp", "local", "manual"] },
+            "norm_edition":    { "type": "string" },
+            "catalog_version": { "type": "string" },
+            "values": {
+              "type": "object",
+              "description": "Symbol -> Wert, Symbolnamen nach DIN-Notation (theta_i_h_soll, q_I, n_nutz, ...)",
+              "additionalProperties": {
+                "type": "object",
+                "properties": {
+                  "value": { "type": ["number", "string"] },
+                  "unit":  { "type": "string" },
+                  "norm_cell": {
+                    "type": "string",
+                    "description": "Herkunftszelle, z.B. 'T6-Z1-S19'. Macht den Overlay-Merge pruefbar."
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "element_group": {
+      "type": "object",
+      "description": "KERN-INNOVATION (Handoff E8): das DIN-18599-Bauteil als berechnete Zwischenebene. DIN 18599 rechnet auf Gruppen-, Heizlast auf Boundary-Ebene. DWE-Fachdaten haengen IMMER an der Gruppe, NIE an der Instanz — Instanz-IDs sind nachweislich instabil, der Ebenen-Fingerprint ueberlebt Loeschen+Neuzeichnen.",
+      "required": ["id", "element_type", "fingerprint"],
+      "properties": {
+        "id":   { "type": "string", "description": "z.B. 'W01'" },
+        "name": { "type": "string", "description": "z.B. 'Aussenwand Sued'" },
+        "element_type": {
+          "type": "string",
+          "enum": ["wall", "roof", "floor", "ceiling", "slab_ground", "slab_basement", "column", "beam", "other"]
+        },
+        "din_code": {
+          "type": "string",
+          "description": "DIN-Bauteilcode (WA, DA, BO, ...). Katalog-gestuetzt statt Enum, weil editionsabhaengig."
+        },
+
+        "fingerprint": {
+          "type": "object",
+          "description": "Koplanaritaets-Fingerprint im PROJEKTSYSTEM (nicht geografisch!). Eine True-North-Drehung aendert ihn nicht — nur so bleibt die Gruppierung stabil. Gruppierungsregel: ein Element gehoert zu einer bestehenden Gruppe, wenn der Winkelabstand seiner Ebenen-Normale zum Gruppen-REPRAESENTANTEN kleiner gleich angle_tolerance_deg ist (|n . n_rep| groesser gleich cos(Toleranz) — der Betrag vergleicht Ebenen, nicht Vektoren) UND |dist - dist_rep| kleiner gleich dist_tolerance_m UND der Bauteiltyp gleich ist; sonst wird es selbst Repraesentant einer neuen Gruppe. Kandidaten werden dafuer geometriestabil sortiert (Bauteiltyp, Ebenenwinkel, |dist|), nicht nach Autorensystem-IDs. WICHTIG: normal_*/dist_m sind in VOLLER Rechenpraezision zu serialisieren — jede Anzeige-Rundung ist Sache der UI und darf den Wert im Sidecar nicht ersetzen. Begruendung fuer den Winkelabstand statt gerundeter Vergleichswerte: Runden ist Quantisierung, keine Toleranz — gleich gerundete Werte trennten Waende ab rund 0,3 Grad Abstand, vereinigten aber nie zwei Waende ueber eine Rundungsgrenze hinweg, nicht-transitiv und mit Vorzeichen-Kipppunkt der Kanonisierung bei normal_x nahe 0.",
+          "required": ["normal_x", "normal_y", "dist_m"],
+          "properties": {
+            "normal_x": { "type": "number", "minimum": -1, "maximum": 1 },
+            "normal_y": { "type": "number", "minimum": -1, "maximum": 1 },
+            "normal_z": {
+              "type": "number", "minimum": -1, "maximum": 1, "default": 0,
+              "description": "ERGAENZUNG gegenueber Handoff E8: bei Waenden immer 0, aber fuer geneigte Daecher zwingend — ohne z-Komponente sind zwei Dachflaechen gleicher Grundrissrichtung mit unterschiedlicher Neigung nicht unterscheidbar, und die Richtung (aufwaerts/abwaerts) waere mehrdeutig."
+            },
+            "dist_m": {
+              "type": "number",
+              "description": "Abstand der Ebene vom Projektursprung entlang der Normalen [m]"
+            },
+            "coordinate_system": {
+              "type": "string",
+              "const": "project",
+              "description": "Bewusst konstant. Ein geografischer Fingerprint waere bei jeder Nordrichtungs-Korrektur ungueltig."
+            },
+            "tolerance": {
+              "type": "object",
+              "description": "Verwendete Gruppierungstoleranzen — dokumentiert, womit gruppiert wurde. angle_tolerance_deg ist eine echte Toleranz auf dem Winkelabstand; das frueher hier vorgesehene normal_decimals war eine Rundungs-Angabe und damit kein Toleranzmass (siehe fingerprint.description). Vergleicht ein Validator zwei Gruppen, gilt die groessere der beiden Toleranzen — sonst haengt der Befund von der Reihenfolge ab.",
+              "additionalProperties": false,
+              "properties": {
+                "angle_tolerance_deg": { "type": "number", "default": 1.0, "exclusiveMinimum": 0 },
+                "dist_tolerance_m": { "type": "number", "default": 0.02, "exclusiveMinimum": 0 }
+              }
+            }
+          }
+        },
+
+        "construction_ref":  { "type": "string", "description": "constructions[].id" },
+        "catalog_ref":       { "type": "string", "description": "Optionale Referenz in einen Bauteil-Katalog" },
+        "catalog_source":    { "type": "string", "enum": ["core", "dweapp", "local"] },
+
+        "u_value": {
+          "type": "number", "minimum": 0,
+          "description": "U-Wert der Gruppe [W/(m2K)]. Regelfall: aus construction_ref berechnet."
+        },
+        "delta_u_wb": {
+          "type": "number", "minimum": 0,
+          "description": "Pauschaler Waermebrueckenzuschlag [W/(m2K)]. v1-Ansatz, bis edges[] mit Psi-Werten gefuellt wird."
+        },
+
+        "member_elements": {
+          "type": "array",
+          "description": "Instanzen aus dem Autorensystem. Wird bei JEDEM Lauf neu berechnet und ist ausdruecklich fluechtig — Aenderungen hier sind kein Datenverlust, solange der Fingerprint stabil bleibt.",
+          "items": {
+            "type": "object",
+            "required": ["source_id"],
+            "properties": {
+              "source_id":   { "type": "string", "description": "Revit-ElementId oder IFC-GUID" },
+              "source_kind": { "type": "string", "enum": ["revit_element_id", "revit_unique_id", "ifc_guid"] },
+              "type_name":   { "type": "string", "description": "Wandtyp/Familienname aus dem Autorensystem" },
+              "area_m2":     { "type": "number", "minimum": 0 }
+            }
+          }
+        },
+
+        "aggregates": {
+          "type": "object",
+          "readOnly": true,
+          "description": "Abgeleitete Kennwerte der Gruppe. Read-only, aus boundaries[] berechnet.",
+          "properties": {
+            "area_total_m2":   { "type": "number", "minimum": 0 },
+            "length_m":        { "type": "number", "minimum": 0 },
+            "boundary_count":  { "type": "integer", "minimum": 0 },
+            "member_count":    { "type": "integer", "minimum": 0 },
+            "by_adjacency": {
+              "type": "array",
+              "description": "Flaechenaufteilung nach Angrenzungsart — das ist die Groesse, mit der DIN 18599 rechnet",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "adjacency_type": { "$ref": "#/definitions/adjacency_type" },
+                  "area_m2": { "type": "number", "minimum": 0 },
+                  "fx": { "type": "number" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "boundary": {
+      "type": "object",
+      "description": "Angrenzung: die Beziehung zwischen einem Raum und einem Bauteil, analog IfcRelSpaceBoundary 2nd Level (Handoff E1). Wird in Dynamo berechnet und lebt HIER — IFC-SpaceBoundaries sind Best-Effort-Beigabe und niemals Rechengrundlage. Splits erfolgen bei Raumwechsel auf der Gegenseite, bei Wechsel der Angrenzungsart (PFLICHT — Hanglage, teilueberdeckendes Nachbargebaeude) und optional bei Materialwechsel.",
+      "required": ["id", "element_group_ref", "space_a", "adjacency_type"],
+      "properties": {
+        "id": { "type": "string" },
+        "element_group_ref": {
+          "type": "string",
+          "description": "element_groups[].id — die Boundary ist das Kind, die Gruppe der Elternteil"
+        },
+
+        "space_a": {
+          "type": "string",
+          "description": "KONVENTION: der innere bzw. waermere Raum (rooms[].id). Diese Richtung ist verbindlich, sonst kippen Vorzeichen und Fx-Zuordnung."
+        },
+        "space_b": {
+          "type": ["string", "null"],
+          "description": "Aussen bzw. Nachbar (rooms[].id). null bei exterior/ground/adjacent_building — dort gibt es keinen modellierten Gegenraum."
+        },
+
+        "adjacency_type": { "$ref": "#/definitions/adjacency_type" },
+        "fx": {
+          "type": ["number", "null"],
+          "minimum": 0, "maximum": 1,
+          "description": "Temperatur-Korrekturfaktor [-]. null = noch nicht aus dem Katalog aufgeloest (blockiert calc_ready)."
+        },
+        "fx_source": {
+          "type": "string",
+          "enum": ["catalog", "computed", "manual"],
+          "description": "'computed' z.B. bei other_zone (aus Delta-Theta) oder Erdreich (aus B'/Rf)"
+        },
+        "measurement_reference": {
+          "type": "string",
+          "enum": ["outer", "axis", "clear_structural"],
+          "description": "Massbezug nach DIN 18599-1 Abschnitt 8. Im Regelfall folgt er deterministisch aus adjacency_type (Aussenmass bei exterior/unheated/attic/glass/ground, Achsmass bei low_heated/other_zone/same_zone/adjacent_building/internal_unheated) und wird zur Nachvollziehbarkeit mitgefuehrt. AUSNAHME 'clear_structural' = lichtes Rohbaumass: ein UEBERGANGSZUSTAND fuer Flaechen, deren Aussenmass-Umrechnung noch aussteht (z.B. horizontale Flaechen vor der Dach-Etappe). Er ist bewusst NICHT aus adjacency_type ableitbar, sondern dokumentiert eine offene Umrechnung. Bilanzrelevante Flaechen (relevant_18599=true) muessen fuer calc_ready 'outer' bzw. 'axis' tragen; der Validator meldet MEASUREMENT_CLEAR_RELEVANT. Benannt wie opening.measurement_rule='clear_structural' — dieselbe Sache heisst an beiden Stellen gleich."
+        },
+
+        "area_18599": {
+          "type": "number", "minimum": 0,
+          "description": "Flaeche fuer die Energiebilanz [m2], nach Massbezugsregel und abzueglich der Oeffnungen"
+        },
+        "area_heizlast": {
+          "type": "number", "minimum": 0,
+          "description": "Flaeche fuer die Heizlast [m2]. Weicht von area_18599 ab, weil die Heizlast raumweise und mit anderem Massbezug rechnet (same_zone zaehlt hier mit)."
+        },
+
+        "orientation": {
+          "type": "number", "minimum": 0, "exclusiveMaximum": 360,
+          "description": "GEOGRAFISCHER Azimut [Grad], 0 = Nord, im Uhrzeigersinn. Bereits um meta.true_north_offset_deg korrigiert."
+        },
+        "tilt": {
+          "type": "number", "minimum": 0, "maximum": 180,
+          "description": "Neigung [Grad] gegen die Horizontale. 90 = senkrechte Wand, 0 = Dach horizontal nach oben, 180 = Bodenplatte."
+        },
+
+        "geometry": { "$ref": "#/definitions/boundary_geometry" },
+
+        "ground": {
+          "type": "object",
+          "description": "Erdreich-Kennmasse DIESER Flaeche (W1) — nur bei adjacency_type ground_slab / ground_basement_*. Das Gebaeude-Aggregat steht in building.ground_geometry; bei Widerspruch gewinnen die Werte HIER, weil sie die feinere Aufloesung tragen (Teilunterkellerung, Hanglage).",
+          "properties": {
+            "b_prime_m":           { "type": "number", "minimum": 0, "description": "Bodenplattenmass B' dieser Teilflaeche [m] nach DIN EN ISO 13370" },
+            "perimeter_exposed_m": { "type": "number", "minimum": 0 },
+            "depth_below_grade_m": { "type": "number", "minimum": 0, "description": "Mittlere Tiefe der Flaeche unter Gelaende [m] (bei Kellerwaenden: Wandmitte)" }
+          }
+        },
+
+        "openings": {
+          "type": "array",
+          "description": "Fenster und Tueren in dieser Angrenzung. Sie werden von der opaken Flaeche abgezogen UND zaehlen als eigene Huellflaeche (Handoff E4).",
+          "items": { "$ref": "#/definitions/opening" }
+        },
+
+        "shading": { "$ref": "#/definitions/shading" },
+
+        "edges": {
+          "type": "array",
+          "description": "HOOK fuer den spaeteren Waermebrueckennachweis (Psi-Werte je Kante). In v4.0 darf das Array leer bleiben; v1 rechnet pauschal mit element_group.delta_u_wb.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string" },
+              "length_m": { "type": "number", "minimum": 0 },
+              "psi": { "type": "number", "description": "Laengenbezogener Waermedurchgangskoeffizient [W/(mK)]" },
+              "junction_type": { "type": "string", "description": "Anschlussart, Katalog-Kandidat" },
+              "adjacent_boundary_ref": { "type": "string" }
+            }
+          }
+        },
+
+        "relevant_18599": {
+          "type": "boolean",
+          "description": "Geht in die Energiebilanz ein. Bei same_zone immer false; bei other_zone nur, wenn Delta-Theta groesser 4 K."
+        },
+        "relevant_heizlast": {
+          "type": "boolean",
+          "description": "Geht in die Heizlast ein. Bei same_zone true (Raum-zu-Raum-Uebertragung)."
+        }
+      }
+    },
+
+    "boundary_geometry": {
+      "type": "object",
+      "description": "Geometrie der Angrenzungsflaeche in 2D-Koordinaten der Bauteilebene. 'z_range' fuer den Regelfall (rechteckiger Ausschnitt), 'polygon' fuer Giebel- und Schraeggrenzen. Die Flaeche ergibt sich aus der Polygonflaeche.",
+      "required": ["type"],
+      "properties": {
+        "type": { "type": "string", "enum": ["z_range", "polygon"] },
+        "z_from": { "type": "number", "description": "Untere Begrenzung [m], nur bei type='z_range'" },
+        "z_to":   { "type": "number", "description": "Obere Begrenzung [m], nur bei type='z_range'" },
+        "polygon": {
+          "type": "array",
+          "description": "Geschlossener Ringzug, nur bei type='polygon'. Erster Punkt wird NICHT wiederholt. Mindestens 3 Punkte.",
+          "minItems": 3,
+          "items": {
+            "type": "array",
+            "minItems": 2, "maxItems": 2,
+            "items": { "type": "number" }
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "type": { "const": "z_range" } }, "required": ["type"] },
+          "then": { "required": ["z_from", "z_to"] }
+        },
+        {
+          "if": { "properties": { "type": { "const": "polygon" } }, "required": ["type"] },
+          "then": { "required": ["polygon"] }
+        }
+      ]
+    },
+
+    "opening": {
+      "type": "object",
+      "required": ["id", "opening_type"],
+      "properties": {
+        "id": { "type": "string" },
+        "opening_type": {
+          "type": "string",
+          "enum": [
+            "window", "roof_window", "skylight", "fixed_glazing",
+            "curtain_wall", "door", "glazed_door", "garage_door", "special"
+          ],
+          "description": "roof_window wird nach Blendrahmen-Aussenmass gemessen (abweichend!). glazed_door wird thermisch wie ein Fenster behandelt. Bei 'special' ist description faktisch Pflicht."
+        },
+        "description": {
+          "type": "string",
+          "description": "Pflicht bei opening_type='special' — der Validator erzwingt es, das Schema laesst es zu, um Teilstaende nicht zu blockieren."
+        },
+        "window_construction_ref": { "type": "string", "description": "window_constructions[].id" },
+        "construction_ref": { "type": "string", "description": "Nur bei opaken Oeffnungen (door, garage_door): constructions[].id" },
+
+        "count":    { "type": "integer", "minimum": 1, "default": 1, "description": "Anzahl gleicher Oeffnungen in dieser Boundary" },
+        "width_m":  { "type": "number", "minimum": 0 },
+        "height_m": { "type": "number", "minimum": 0 },
+        "area_m2": {
+          "type": "number", "minimum": 0,
+          "description": "Gesamte Oeffnungsflaeche [m2] (count beruecksichtigt). Massgeblich, wenn width/height fehlen."
+        },
+        "measurement_rule": {
+          "type": "string",
+          "enum": ["clear_structural", "frame_outer"],
+          "description": "clear_structural = lichtes Rohbaumass (Regelfall). frame_outer = Blendrahmen-Aussenmass (PFLICHT bei roof_window)."
+        },
+
+        "orientation": {
+          "type": "number", "minimum": 0, "exclusiveMaximum": 360,
+          "description": "Nur setzen, wenn sie von der Boundary abweicht (z.B. Erker). Sonst erbt die Oeffnung von der Boundary."
+        },
+        "tilt": {
+          "type": "number", "minimum": 0, "maximum": 180,
+          "description": "Nur setzen, wenn abweichend von der Boundary"
+        },
+
+        "shading": { "$ref": "#/definitions/shading" },
+
+        "geg_reference_row": {
+          "type": "string",
+          "readOnly": true,
+          "description": "READ-ONLY: zugeordnete Zeile des GEG-Referenzgebaeudes, deterministisch aus opening_type abgeleitet (window/glazed_door -> Zeile 2, roof_window -> 3, skylight -> 4, door/garage_door -> 5). Wird berechnet, nicht gepflegt."
+        }
+      }
+    },
+
+    "opening_index_entry": {
+      "type": "object",
+      "description": "Eintrag der read-only Aggregat-Sicht ueber alle Oeffnungen",
+      "required": ["opening_ref", "boundary_ref"],
+      "properties": {
+        "opening_ref":  { "type": "string" },
+        "boundary_ref": { "type": "string" },
+        "element_group_ref": { "type": "string" },
+        "room_ref":     { "type": "string" },
+        "opening_type": { "type": "string" },
+        "area_m2":      { "type": "number", "minimum": 0 },
+        "orientation":  { "type": "number", "minimum": 0, "exclusiveMaximum": 360 },
+        "tilt":         { "type": "number", "minimum": 0, "maximum": 180 },
+        "geg_reference_row": { "type": "string" }
+      }
+    },
+
+    "shading": {
+      "type": "object",
+      "description": "Verschattung. v1 arbeitet mit dem Default Fs = 0,9; 'computed' ist fuer die spaetere Verschattungsberechnung vorgesehen.",
+      "properties": {
+        "source": { "type": "string", "enum": ["default", "manual", "computed"] },
+        "fs": {
+          "type": "number", "minimum": 0, "maximum": 1, "default": 0.9,
+          "description": "Abminderungsfaktor Verschattung [-]"
+        },
+        "horizon_deg":   { "type": "number", "description": "Horizontueberhoehung [Grad]" },
+        "overhang_deg":  { "type": "number", "description": "Ueberstand/Auskragung [Grad]" },
+        "fin_deg":       { "type": "number", "description": "Seitliche Verschattung [Grad]" },
+        "note": { "type": "string" }
+      }
+    },
+
+    "adjacency_type": {
+      "type": "string",
+      "description": "Angrenzungsart nach DIN V 18599-2:2018-09 Tabelle 5/6. Fx-Werte und Massbezugsregel stehen im adjacency_types-Katalog, NICHT im Schema — sie sind editionsabhaengig. VALIDIERUNGSREGEL: low_heated und other_zone schliessen sich aus. Gehoert der Nachbarraum mit heating_status=low_heated einer bilanzierten Zone an, MUSS other_zone gesetzt werden — Fx=0,35 ist der ERSATZ fuer eine fehlende Nachbarzonen-Bilanz, kein Zusatz dazu. internal_unheated = Grenzflaeche zwischen ZWEI unbeheizten Raeumen innerhalb der Akte: nie bilanzrelevant (relevant_18599=false, Fx=0), wird aber fuer die vollstaendige Topologie-Dokumentation mitgefuehrt (Entscheidung 22.07.2026). Sie ist eine INNERE Grenze — space_b ist damit Pflicht, anders als bei exterior/ground/adjacent_building.",
+      "enum": [
+        "exterior",
+        "attic_uninsulated",
+        "unheated",
+        "low_heated",
+        "glass_single",
+        "glass_double",
+        "glass_triple",
+        "ground_slab",
+        "ground_basement_heated",
+        "ground_basement_unheated",
+        "floor_suspended",
+        "other_zone",
+        "same_zone",
+        "adjacent_building",
+        "internal_unheated"
+      ]
+    },
+
+    "construction": {
+      "type": "object",
+      "description": "Schichtaufbau, VOLL AUSGESCHRIEBEN — der Container ist damit offline rechenbar, auch ohne Katalogzugriff. catalog_ref dokumentiert nur die Herkunft.",
+      "required": ["id"],
+      "properties": {
+        "id":   { "type": "string" },
+        "name": { "type": "string" },
+        "source": { "type": "string", "enum": ["EVEBI", "IFC", "CATALOG", "MANUAL"] },
+        "origin_ref": {
+          "type": "string",
+          "description": "Herkunfts-ID im Quellsystem (EVEBI-GUID, IFC-MaterialLayerSet, Katalog-ID). Dedup-Konvention: gleiche origin_ref = derselbe Aufbau, wird nur einmal gefuehrt."
+        },
+        "catalog_ref":    { "type": "string" },
+        "catalog_source": { "type": "string", "enum": ["core", "dweapp", "local"] },
+        "u_value": { "type": "number", "minimum": 0, "description": "U-Wert [W/(m2K)]" },
+        "total_thickness_m": { "type": "number", "minimum": 0 },
+        "sequences": {
+          "type": "array",
+          "description": "Abfolgen mit Flaechenanteilen (z.B. 85 Prozent Daemmung + 15 Prozent Holzstaender). Summe der shares = 1,0.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name":  { "type": "string" },
+              "share": { "type": "number", "minimum": 0, "maximum": 1 },
+              "layers": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "position":  { "type": "integer", "minimum": 0, "description": "Position von aussen (0 = aussen)" },
+                    "material":  { "type": "string" },
+                    "material_ref": { "type": "string", "description": "Referenz in den Material-Katalog" },
+                    "thickness_m": { "type": "number", "minimum": 0 },
+                    "lambda":    { "type": "number", "minimum": 0, "description": "Waermeleitfaehigkeit [W/(mK)]" },
+                    "density":   { "type": "number", "minimum": 0, "description": "Rohdichte [kg/m3]" },
+                    "heat_capacity": { "type": "number", "minimum": 0, "description": "c [J/(kgK)]" },
+                    "is_core_layer": {
+                      "type": "boolean",
+                      "description": "Kernschicht laut CompoundStructure. Bestimmt die Achsmass-Ebene bei measurement_reference='axis'."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "window_construction": {
+      "type": "object",
+      "required": ["id"],
+      "properties": {
+        "id":   { "type": "string" },
+        "name": { "type": "string" },
+        "catalog_ref":    { "type": "string" },
+        "catalog_source": { "type": "string", "enum": ["core", "dweapp", "local"] },
+        "u_value": { "type": "number", "minimum": 0, "description": "Uw gesamt [W/(m2K)]" },
+        "g_value": { "type": "number", "minimum": 0, "maximum": 1, "description": "g-Wert [-]" },
+        "glass": {
+          "type": "object",
+          "properties": {
+            "u_value": { "type": "number", "minimum": 0, "description": "Ug [W/(m2K)]" },
+            "g_value": { "type": "number", "minimum": 0, "maximum": 1 },
+            "light_transmittance": { "type": "number", "minimum": 0, "maximum": 1, "description": "tau_v [-]" }
+          }
+        },
+        "frame": {
+          "type": "object",
+          "properties": {
+            "u_value":       { "type": "number", "minimum": 0, "description": "Uf [W/(m2K)]" },
+            "area_fraction": { "type": "number", "minimum": 0, "maximum": 1, "description": "Rahmenanteil [-]" },
+            "material":      { "type": "string" }
+          }
+        },
+        "psi_spacer": { "type": "number", "description": "Randverbund-Psi [W/(mK)]" }
+      }
+    },
+
+    "systems": {
+      "type": "object",
+      "description": "Anlagentechnik. Struktur aus v3.1 uebernommen — sie hat sich bewaehrt und ist nicht Gegenstand des v4.0-Neuentwurfs.",
+      "properties": {
+        "heating":     { "$ref": "#/definitions/heating_system" },
+        "ventilation": { "$ref": "#/definitions/ventilation_system" },
+        "cooling":     { "$ref": "#/definitions/cooling_system" },
+        "dhw":         { "$ref": "#/definitions/dhw_system" },
+        "lighting":    { "$ref": "#/definitions/lighting_system" },
+        "electricity": { "$ref": "#/definitions/electricity" },
+        "automation":  { "$ref": "#/definitions/automation" }
+      }
+    },
+
+    "heating_system": {
+      "type": "object",
+      "properties": {
+        "generation": {
+          "type": "object",
+          "properties": {
+            "type":              { "type": "string" },
+            "installation_year": { "type": "integer" },
+            "nominal_power_kw":  { "type": "number", "minimum": 0 },
+            "efficiency":        { "type": "number", "minimum": 0 },
+            "energy_carrier":    { "type": "string" }
+          }
+        },
+        "distribution": {
+          "type": "object",
+          "properties": {
+            "type":                { "type": "string" },
+            "insulation_standard": { "type": "string" },
+            "pipes": {
+              "type": "array",
+              "description": "Leitungen mit Laenge und Daemmstandard",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id":       { "type": "string" },
+                  "type":     { "type": "string" },
+                  "length_m": { "type": "number", "minimum": 0 },
+                  "insulation_standard": { "type": "string" },
+                  "in_heated_zone": { "type": "boolean" }
+                }
+              }
+            }
+          }
+        },
+        "emission": { "type": "object", "properties": { "type": { "type": "string" } } },
+        "control": {
+          "type": "object",
+          "properties": {
+            "type":              { "type": "string" },
+            "efficiency_factor": { "type": "number", "minimum": 0, "maximum": 1 }
+          }
+        }
+      }
+    },
+
+    "ventilation_system": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["natural", "mechanical_exhaust", "mechanical_supply_exhaust", "hybrid", "demand_controlled"]
+        },
+        "heat_recovery_efficiency": { "type": "number", "minimum": 0, "maximum": 1 },
+        "air_change_rate_h":        { "type": "number", "minimum": 0 },
+        "sfp_class":                { "type": "string" },
+        "zone_refs": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Versorgte Lueftungszonen (zones[].id mit zone_type='ventilation')"
+        }
+      }
+    },
+
+    "cooling_system": {
+      "type": "object",
+      "properties": {
+        "type":             { "type": "string" },
+        "nominal_power_kw": { "type": "number", "minimum": 0 },
+        "eer":              { "type": "number", "minimum": 0 },
+        "refrigerant":      { "type": "string", "description": "Kaeltemittel-Bezeichnung, z.B. 'R32'" },
+        "refrigerant_gwp":  { "type": "number", "minimum": 0, "description": "GWP [-] — QNG-relevant" },
+        "refrigerant_charge_kg": { "type": "number", "minimum": 0 }
+      }
+    },
+
+    "dhw_system": {
+      "type": "object",
+      "properties": {
+        "generation": {
+          "type": "object",
+          "properties": {
+            "type":            { "type": "string" },
+            "efficiency":      { "type": "number", "minimum": 0 },
+            "energy_carrier":  { "type": "string" }
+          }
+        },
+        "storage": {
+          "type": "object",
+          "properties": {
+            "volume_l":     { "type": "number", "minimum": 0 },
+            "loss_kwh_d":   { "type": "number", "minimum": 0 }
+          }
+        },
+        "circulation": {
+          "type": "object",
+          "properties": {
+            "present":   { "type": "boolean" },
+            "length_m":  { "type": "number", "minimum": 0 }
+          }
+        }
+      }
+    },
+
+    "lighting_system": {
+      "type": "object",
+      "properties": {
+        "type":              { "type": "string" },
+        "installed_power_w_m2": { "type": "number", "minimum": 0 },
+        "control":           { "type": "string" },
+        "daylight_control":  { "type": "boolean" }
+      }
+    },
+
+    "electricity": {
+      "type": "object",
+      "properties": {
+        "pv": {
+          "type": "array",
+          "description": "Photovoltaik-Anlagen. Mehrere Teilfelder mit unterschiedlicher Ausrichtung sind der Regelfall.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id":              { "type": "string" },
+              "peak_power_kwp":  { "type": "number", "minimum": 0 },
+              "area_m2":         { "type": "number", "minimum": 0 },
+              "orientation":     { "type": "number", "minimum": 0, "exclusiveMaximum": 360, "description": "Geografischer Azimut [Grad]" },
+              "tilt":            { "type": "number", "minimum": 0, "maximum": 90 },
+              "boundary_ref":    { "type": "string", "description": "Traegerflaeche, falls modelliert" },
+              "self_consumption_share": { "type": "number", "minimum": 0, "maximum": 1 },
+              "storage_kwh":     { "type": "number", "minimum": 0 }
+            }
+          }
+        },
+        "chp": {
+          "type": "object",
+          "description": "Kraft-Waerme-Kopplung",
+          "properties": {
+            "electrical_power_kw": { "type": "number", "minimum": 0 },
+            "thermal_power_kw":    { "type": "number", "minimum": 0 }
+          }
+        }
+      }
+    },
+
+    "automation": {
+      "type": "object",
+      "properties": {
+        "bacs_class": { "type": "string", "enum": ["A", "B", "C", "D"], "description": "Gebaeudeautomationsklasse nach DIN 18599-11" }
+      }
+    },
+
+    "climate": {
+      "type": "object",
+      "properties": {
+        "try_region":           { "type": "string", "description": "TRY-Region (Testreferenzjahr)" },
+        "location_name":        { "type": "string" },
+        "latitude":             { "type": "number", "minimum": -90, "maximum": 90 },
+        "longitude":            { "type": "number", "minimum": -180, "maximum": 180 },
+        "altitude_m":           { "type": "number" },
+        "heating_degree_days":  { "type": "number", "minimum": 0 },
+        "design_temperature_c": { "type": "number", "description": "Norm-Aussentemperatur fuer die Heizlast [Grad C]" }
+      }
+    },
+
+    "primary_energy_factors": {
+      "type": "object",
+      "description": "f_P- und CO2-Faktoren. Der Katalog ist rechtlich datiert — deshalb catalog_ref statt fester Enum-Werte.",
+      "properties": {
+        "catalog_ref":    { "type": "string", "description": "z.B. 'geg_2024'" },
+        "catalog_source": { "type": "string", "enum": ["core", "dweapp", "local"] },
+        "legal_edition":  { "type": "string", "description": "z.B. 'GEG 2024'" },
+        "factors": {
+          "type": "object",
+          "additionalProperties": { "type": "number", "minimum": 0 },
+          "description": "Energietraeger -> f_P [-]"
+        },
+        "co2_factors": {
+          "type": "object",
+          "additionalProperties": { "type": "number", "minimum": 0 },
+          "description": "Energietraeger -> CO2-Aequivalent [g/kWh]"
+        }
+      }
+    },
+
+    "energy_certificate": {
+      "type": "object",
+      "description": "Energieausweis-Daten. Quelle ist meist ein PDF, aus dem der Berater abtippt.",
+      "properties": {
+        "type":        { "type": "string", "enum": ["VERBRAUCH", "BEDARF"] },
+        "source":      { "type": "string", "enum": ["MANUAL_ENTRY", "PDF_UPLOAD", "CLOUD_LINK"] },
+        "document_ref": { "type": "string", "description": "documents[].id" },
+        "issued_at":   { "type": "string", "format": "date" },
+        "valid_until": { "type": "string", "format": "date" },
+        "registration_number": { "type": "string" },
+        "energy_class": { "type": "string", "enum": ["A+", "A", "B", "C", "D", "E", "F", "G", "H"] },
+        "final_energy_kwh_m2a":   { "type": "number", "minimum": 0 },
+        "primary_energy_kwh_m2a": { "type": "number", "minimum": 0 },
+        "co2_kg_m2a":             { "type": "number", "minimum": 0 }
+      }
+    },
+
+    "target_entry": {
+      "type": "object",
+      "required": ["id", "kind", "value"],
+      "additionalProperties": false,
+      "properties": {
+        "id":    { "type": "string" },
+        "kind":  { "type": "string", "enum": ["FINAL_ENERGY_KWH_M2A", "PRIMARY_ENERGY_KWH_M2A", "CO2_KG_M2A", "HEATING_ENERGY_KWH_M2A", "OTHER"] },
+        "label": { "type": "string" },
+        "value": { "type": "number" },
+        "year":  { "type": "integer", "minimum": 2000, "maximum": 2100 },
+        "source": { "type": "string", "enum": ["EXPERT_ESTIMATE", "BENCHMARK", "LEGAL_MINIMUM", "CUSTOM"] },
+        "note":  { "type": "string" }
+      }
+    },
+
+    "output_snapshot": {
+      "type": "object",
+      "description": "Berechnungsergebnisse einer externen Rechen-Engine (EVEBI, Hottgenroth). Abgeleitet — bei Widerspruch gewinnt immer input.",
+      "properties": {
+        "meta": {
+          "type": "object",
+          "required": ["calculation_date", "input_hash"],
+          "properties": {
+            "calculated_by":     { "type": "string" },
+            "calculation_date":  { "type": "string", "format": "date-time" },
+            "software":          { "type": "string" },
+            "software_version":  { "type": "string" },
+            "input_hash":        { "type": "string", "description": "SHA256 des input-Objekts — erkennt veraltete Ergebnisse" },
+            "norm_edition":      { "type": "string", "description": "Edition, gegen die gerechnet wurde" },
+            "valid":             { "type": "boolean" }
+          }
+        },
+        "useful_energy": { "$ref": "#/definitions/energy_breakdown" },
+        "final_energy": {
+          "type": "object",
+          "properties": {
+            "reference_system": { "type": "string", "enum": ["gross_calorific_value", "net_calorific_value"] },
+            "by_carrier":       { "type": "object", "additionalProperties": { "type": "number" } },
+            "total_kwh_a":      { "type": "number", "minimum": 0 }
+          }
+        },
+        "primary_energy": {
+          "type": "object",
+          "properties": {
+            "total_kwh_a":     { "type": "number", "minimum": 0 },
+            "specific_kwh_m2a": { "type": "number", "minimum": 0 }
+          }
+        },
+        "co2": {
+          "type": "object",
+          "properties": {
+            "total_kg_a":      { "type": "number", "minimum": 0 },
+            "specific_kg_m2a": { "type": "number", "minimum": 0 }
+          }
+        },
+        "heating_load": {
+          "type": "object",
+          "description": "Heizlast nach DIN EN 12831 — raum- bzw. boundary-basiert",
+          "properties": {
+            "total_kw": { "type": "number", "minimum": 0 },
+            "per_room": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "room_ref": { "type": "string" },
+                  "load_kw":  { "type": "number", "minimum": 0 }
+                }
+              }
+            }
+          }
+        },
+        "geg": {
+          "type": "object",
+          "description": "GEG-Nachweisgroessen gegen das Referenzgebaeude",
+          "properties": {
+            "reference_building_catalog_ref": { "type": "string" },
+            "qp_building_kwh_m2a":   { "type": "number", "minimum": 0 },
+            "qp_reference_kwh_m2a":  { "type": "number", "minimum": 0 },
+            "ht_building_w_m2k":     { "type": "number", "minimum": 0 },
+            "ht_reference_w_m2k":    { "type": "number", "minimum": 0 },
+            "requirement_met":       { "type": "boolean" }
+          }
+        }
+      }
+    },
+
+    "energy_breakdown": {
+      "type": "object",
+      "description": "Energiemengen [kWh/a], je Zone und gesamt",
+      "properties": {
+        "per_zone": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "zone_ref":    { "type": "string" },
+              "heating":     { "type": "number", "minimum": 0 },
+              "cooling":     { "type": "number", "minimum": 0 },
+              "dhw":         { "type": "number", "minimum": 0 },
+              "lighting":    { "type": "number", "minimum": 0 },
+              "ventilation": { "type": "number", "minimum": 0 }
+            }
+          }
+        },
+        "total": {
+          "type": "object",
+          "properties": {
+            "heating":     { "type": "number", "minimum": 0 },
+            "cooling":     { "type": "number", "minimum": 0 },
+            "dhw":         { "type": "number", "minimum": 0 },
+            "lighting":    { "type": "number", "minimum": 0 },
+            "ventilation": { "type": "number", "minimum": 0 }
+          }
+        }
+      }
+    },
+
+    "scenario": {
+      "type": "object",
+      "description": "Sanierungsvariante (iSFP-Workflow). Delta gegenueber dem Ist-Zustand — Aenderungen setzen jetzt an element_groups[] an, nicht mehr an Einzelelementen.",
+      "required": ["id", "name"],
+      "properties": {
+        "id":   { "type": "string", "pattern": "^[a-z0-9_]+$" },
+        "name": { "type": "string", "description": "z.B. 'Fassadendaemmung WDVS 16 cm'" },
+        "description": { "type": "string" },
+        "priority": { "type": "integer", "minimum": 1, "description": "1 = hoechste" },
+        "planned_year": { "type": "integer", "minimum": 2020, "maximum": 2060 },
+
+        "steps": {
+          "type": "array",
+          "description": "Umsetzungsschritte innerhalb dieser Variante. Ziel von funding[].step_refs[] — in v3.2 wurde darauf verwiesen, ohne dass es die Struktur gab.",
+          "items": {
+            "type": "object",
+            "required": ["id", "name"],
+            "properties": {
+              "id":   { "type": "string" },
+              "name": { "type": "string" },
+              "description": { "type": "string" },
+              "sla_work_item_ref": {
+                "type": "string",
+                "description": "UUID des SLA-Katalog-Arbeitsschritts. UUID ist die einzige Referenz, Codes sind nur Anzeige."
+              },
+              "estimated_cost_eur": { "type": "number", "minimum": 0 },
+              "planned_year": { "type": "integer", "minimum": 2020, "maximum": 2060 },
+              "status": { "type": "string", "enum": ["GEPLANT", "IN_UMSETZUNG", "ABGESCHLOSSEN", "ABGEBROCHEN"] }
+            }
+          }
+        },
+
+        "delta": {
+          "type": "object",
+          "description": "Aenderungen gegenueber dem Ist-Zustand",
+          "properties": {
+            "element_groups": {
+              "type": "array",
+              "description": "Geaenderte Bauteilgruppen. Das ist die richtige Ebene — eine Massnahme betrifft 'die Aussenwand Sued', nicht 14 Revit-Instanzen.",
+              "items": {
+                "type": "object",
+                "required": ["element_group_ref"],
+                "properties": {
+                  "element_group_ref": { "type": "string" },
+                  "construction_ref":  { "type": "string", "description": "Neue Konstruktion" },
+                  "u_value":           { "type": "number", "minimum": 0, "description": "Neuer U-Wert [W/(m2K)]" },
+                  "delta_u_wb":        { "type": "number", "minimum": 0 }
+                }
+              }
+            },
+            "openings": {
+              "type": "array",
+              "description": "Geaenderte Oeffnungen (Fenstertausch)",
+              "items": {
+                "type": "object",
+                "required": ["opening_ref"],
+                "properties": {
+                  "opening_ref":             { "type": "string" },
+                  "window_construction_ref": { "type": "string" },
+                  "shading":                 { "$ref": "#/definitions/shading" }
+                }
+              }
+            },
+            "systems": {
+              "type": "object",
+              "description": "Geaenderte Anlagentechnik. Teilobjekt derselben Struktur wie input.systems.",
+              "properties": {
+                "heating":     { "$ref": "#/definitions/heating_system" },
+                "ventilation": { "$ref": "#/definitions/ventilation_system" },
+                "cooling":     { "$ref": "#/definitions/cooling_system" },
+                "dhw":         { "$ref": "#/definitions/dhw_system" },
+                "lighting":    { "$ref": "#/definitions/lighting_system" },
+                "electricity": { "$ref": "#/definitions/electricity" }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "document": {
+      "type": "object",
+      "description": "Dokument-Metadaten mit Link zum Speicherort. Liegt die Datei im Container, zeigt storage_ref auf attachments/.",
+      "required": ["id", "type", "name", "storage_ref"],
+      "properties": {
+        "id":   { "type": "string" },
+        "type": { "type": "string", "enum": ["NACHWEIS", "PLAN", "FOTO", "RECHNUNG", "FOERDERUNG", "SONSTIGE"] },
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "storage_ref": {
+          "type": "string",
+          "description": "Container-relativ ('attachments/...') oder logischer Cloud-Pfad, den ein Storage-Resolver aufloest"
+        },
+        "mime_type":   { "type": "string" },
+        "boundary_refs":      { "type": "array", "items": { "type": "string" }, "description": "z.B. Foto einer bestimmten Angrenzung" },
+        "element_group_refs": { "type": "array", "items": { "type": "string" } },
+        "room_refs":          { "type": "array", "items": { "type": "string" } },
+        "scenario_ref": { "type": "string" },
+        "uploaded_at":  { "type": "string", "format": "date-time" },
+        "uploaded_by":  { "type": "string" },
+        "valid_until":  { "type": "string", "format": "date-time" },
+        "amount_eur":   { "type": "number", "minimum": 0, "description": "Nur bei RECHNUNG" },
+        "tags":         { "type": "array", "items": { "type": "string" } }
+      }
+    },
+
+    "funding_entry": {
+      "type": "object",
+      "description": "Foerderung. Sidecar haelt einen Snapshot, ERPNext ist Master fuer den Finanzstatus.",
+      "required": ["id"],
+      "properties": {
+        "id": { "type": "string" },
+        "program_ref": {
+          "type": "string",
+          "description": "Referenz in den Foerderprogramm-Katalog (BEG_EM, KFW_261, ...). Katalog statt Enum, weil Programme sich haeufiger aendern als das Schema."
+        },
+        "name": { "type": "string" },
+        "step_refs": {
+          "type": "array",
+          "items": { "type": "string" },
+          "default": [],
+          "description": "Zugeordnete Umsetzungsschritte (scenarios[].steps[].id). n:m. Die Gegenrichtung wird NICHT gepflegt — eine Kante, eine Richtung."
+        },
+        "scenario_ref": { "type": "string", "description": "Zuordnung auf Szenario-Ebene, wenn es schrittgenau nicht noetig ist" },
+        "document_ref": { "type": "string" },
+        "erpnext_ref":  { "type": "string", "description": "Source of Truth fuer Finanzen" },
+        "status_erweitert": {
+          "type": "string",
+          "enum": ["TEILBEWILLIGT", "WIDERSPRUCH", "NACHFORDERUNG", "KORRIGIERT", "ZURUECKGEZOGEN", "VERFALLEN"],
+          "description": "DWEapp-native Zwischenstatus, ergaenzt snapshot.status (ERPNext-Sync)"
+        },
+        "snapshot": {
+          "type": "object",
+          "description": "Letzter bekannter Sync-Stand",
+          "properties": {
+            "status": { "type": "string", "enum": ["GEPLANT", "BEANTRAGT", "BEWILLIGT", "ABGELEHNT", "AUSGEZAHLT"] },
+            "amount_applied_eur":  { "type": "number", "minimum": 0 },
+            "amount_approved_eur": { "type": "number", "minimum": 0 },
+            "synced_at": { "type": "string", "format": "date-time" }
+          }
+        }
+      }
+    },
+
+    "roadmap": {
+      "type": "object",
+      "description": "Sanierungsfahrplan. Grobe Zeitachse ueber Szenarien hinweg — die feingliedrigen Schritte leben in scenarios[].steps[].",
+      "properties": {
+        "steps": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "name"],
+            "properties": {
+              "id":   { "type": "string" },
+              "name": { "type": "string" },
+              "description": { "type": "string" },
+              "scenario_ref":  { "type": "string" },
+              "planned_year":  { "type": "integer", "minimum": 2020, "maximum": 2060 },
+              "status":        { "type": "string", "enum": ["GEPLANT", "IN_UMSETZUNG", "ABGESCHLOSSEN", "ABGEBROCHEN"] },
+              "priority":      { "type": "integer", "minimum": 1 },
+              "estimated_cost_eur": { "type": "number", "minimum": 0 }
+            }
+          }
+        }
+      }
+    },
+
+    "sla_context": {
+      "type": "object",
+      "description": "Bruecke zur SLA-Kalkulation — abgeleitete Parameter, keine eigene Wahrheit",
+      "properties": {
+        "gebaeudeart": { "type": "string", "enum": ["WG", "NWG", "MISCH"] },
+        "bgf": { "type": "number", "minimum": 0, "description": "Bruttogrundflaeche [m2]" },
+        "we":  { "type": "integer", "minimum": 0, "description": "Anzahl Wohneinheiten (zones[] mit zone_type='dwelling_unit')" },
+        "bt":  { "type": "integer", "minimum": 0, "description": "Anzahl Bauteile — jetzt Anzahl element_groups[], nicht mehr Einzelelemente" },
+        "scenarios": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["ref"],
+            "properties": {
+              "ref": { "type": "string", "description": "scenarios[].id" },
+              "sla_scenario_code": { "type": "string" },
+              "work_item_refs": {
+                "type": "array",
+                "items": { "type": "string" },
+                "description": "SLA-Arbeitsschritt-UUIDs"
+              },
+              "status": { "type": "string", "enum": ["GEPLANT", "AKTIV", "ABGESCHLOSSEN"] }
+            }
+          }
+        }
+      }
+    }
+  }
+}

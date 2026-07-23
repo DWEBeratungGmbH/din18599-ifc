@@ -254,7 +254,7 @@
 - [din18599_usage_profiles.json](../catalog/din18599_usage_profiles.json) - 45 Profile
 
 ### **Schema:**
-- [v2.1-catalog-extensions.json](../schema/v2.1-catalog-extensions.json)
+- [v2.1-catalog-extensions.json](../archive/schema-legacy/v2.1-catalog-extensions.json)
 - [usage_profile_enum.json](../schema/usage_profile_enum.json)
 
 ### **Demo:**

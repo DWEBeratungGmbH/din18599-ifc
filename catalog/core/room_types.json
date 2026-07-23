@@ -1,0 +1,1704 @@
+{
+  "$schema_ref": "https://din18599-ifc.de/schema/v4.0/catalog-envelope",
+  "catalog_id": "room_types",
+  "catalog_version": "0.3.0",
+  "catalog_source": "core",
+  "dimension": {
+    "type": "none"
+  },
+  "title": "Raumtypen (flach, mit applicability)",
+  "description": "Raumtypen fuer rooms[].room_type_ref. Flache Liste mit applicability statt getrennter WG-/NWG-Listen (Entscheidung 6.5). NWG-Eintraege sind 1:1 aus den Nutzungsprofilen abgeleitet, WG-Eintraege sind DWE-eigene Definitionen aus der Baupraxis.",
+  "last_updated": "2026-07-21",
+  "norm_ref": "DIN V 18599-10:2018-09 (Profilbezug), DIN 277-1 (Flaechenkategorien, noch offen)",
+  "values_overlay": {
+    "required": false,
+    "missing_value_message": "Raumtypen sind ohne Overlay nutzbar. Die Normgroessen din_277_category und theta_heizlast_standard_c sind jedoch noch unbelegt und blockieren die Heizlastrechnung."
+  },
+  "entry_schema_ref": "schema/v4.0/catalogs/room_types.schema.json",
+  "entries": [
+    {
+      "code": "WOHNRAUM",
+      "name_de": "Wohnraum",
+      "applicability": [
+        "WG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": null,
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": 20,
+        "counts_as_living_area": true,
+        "ventilation_function": "supply"
+      },
+      "suggestion_keywords": [
+        "wohn",
+        "wohnzimmer",
+        "living"
+      ],
+      "value_source": "norm_table",
+      "norm_cell": "DIN EN 12831-1/NA",
+      "note": "theta_heizlast_standard_c nach DIN EN 12831-1/NA. heating_status, ventilation_function und counts_as_living_area sind DWE-Vorbelegungen aus der praxisvalidierten Revit-Pipeline."
+    },
+    {
+      "code": "SCHLAFZIMMER",
+      "name_de": "Schlafzimmer",
+      "applicability": [
+        "WG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": null,
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": 20,
+        "counts_as_living_area": true,
+        "ventilation_function": "supply"
+      },
+      "suggestion_keywords": [
+        "schlaf",
+        "bedroom"
+      ],
+      "value_source": "norm_table",
+      "norm_cell": "DIN EN 12831-1/NA",
+      "note": "theta_heizlast_standard_c nach DIN EN 12831-1/NA. heating_status, ventilation_function und counts_as_living_area sind DWE-Vorbelegungen aus der praxisvalidierten Revit-Pipeline."
+    },
+    {
+      "code": "KINDERZIMMER",
+      "name_de": "Kinderzimmer",
+      "applicability": [
+        "WG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": null,
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": 20,
+        "counts_as_living_area": true,
+        "ventilation_function": "supply"
+      },
+      "suggestion_keywords": [
+        "kinder",
+        "kinderzimmer"
+      ],
+      "value_source": "norm_table",
+      "norm_cell": "DIN EN 12831-1/NA",
+      "note": "theta_heizlast_standard_c nach DIN EN 12831-1/NA. heating_status, ventilation_function und counts_as_living_area sind DWE-Vorbelegungen aus der praxisvalidierten Revit-Pipeline."
+    },
+    {
+      "code": "GAESTEZIMMER",
+      "name_de": "Gaestezimmer",
+      "applicability": [
+        "WG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": null,
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": 20,
+        "counts_as_living_area": true,
+        "ventilation_function": "supply"
+      },
+      "suggestion_keywords": [
+        "gaeste",
+        "gäste",
+        "guest"
+      ],
+      "value_source": "norm_table",
+      "norm_cell": "DIN EN 12831-1/NA",
+      "note": "theta_heizlast_standard_c nach DIN EN 12831-1/NA. heating_status, ventilation_function und counts_as_living_area sind DWE-Vorbelegungen aus der praxisvalidierten Revit-Pipeline."
+    },
+    {
+      "code": "ARBEITSZIMMER",
+      "name_de": "Arbeitszimmer",
+      "applicability": [
+        "WG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": null,
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": 20,
+        "counts_as_living_area": true,
+        "ventilation_function": "supply"
+      },
+      "suggestion_keywords": [
+        "arbeit",
+        "arbeitszimmer",
+        "study"
+      ],
+      "value_source": "norm_table",
+      "norm_cell": "DIN EN 12831-1/NA",
+      "note": "theta_heizlast_standard_c nach DIN EN 12831-1/NA. heating_status, ventilation_function und counts_as_living_area sind DWE-Vorbelegungen aus der praxisvalidierten Revit-Pipeline."
+    },
+    {
+      "code": "HOBBYRAUM",
+      "name_de": "Hobbyraum",
+      "applicability": [
+        "WG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": null,
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": 20,
+        "counts_as_living_area": true,
+        "ventilation_function": "supply"
+      },
+      "suggestion_keywords": [
+        "hobby",
+        "hobbyraum"
+      ],
+      "value_source": "norm_table",
+      "norm_cell": "DIN EN 12831-1/NA",
+      "note": "theta_heizlast_standard_c nach DIN EN 12831-1/NA. heating_status, ventilation_function und counts_as_living_area sind DWE-Vorbelegungen aus der praxisvalidierten Revit-Pipeline."
+    },
+    {
+      "code": "BUERO",
+      "name_de": "Buero",
+      "applicability": [
+        "WG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": null,
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": 20,
+        "counts_as_living_area": true,
+        "ventilation_function": "supply"
+      },
+      "suggestion_keywords": [
+        "buero",
+        "büro",
+        "office"
+      ],
+      "value_source": "norm_table",
+      "norm_cell": "DIN EN 12831-1/NA",
+      "note": "theta_heizlast_standard_c nach DIN EN 12831-1/NA. heating_status, ventilation_function und counts_as_living_area sind DWE-Vorbelegungen aus der praxisvalidierten Revit-Pipeline."
+    },
+    {
+      "code": "KUECHE",
+      "name_de": "Kueche",
+      "applicability": [
+        "WG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": null,
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": 20,
+        "counts_as_living_area": true,
+        "ventilation_function": "exhaust"
+      },
+      "suggestion_keywords": [
+        "kueche",
+        "küche",
+        "kitchen"
+      ],
+      "value_source": "norm_table",
+      "norm_cell": "DIN EN 12831-1/NA",
+      "note": "theta_heizlast_standard_c nach DIN EN 12831-1/NA. heating_status, ventilation_function und counts_as_living_area sind DWE-Vorbelegungen aus der praxisvalidierten Revit-Pipeline."
+    },
+    {
+      "code": "BAD",
+      "name_de": "Bad",
+      "applicability": [
+        "WG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": null,
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": 24,
+        "counts_as_living_area": true,
+        "ventilation_function": "exhaust"
+      },
+      "suggestion_keywords": [
+        "bad",
+        "bath",
+        "duschbad"
+      ],
+      "value_source": "norm_table",
+      "norm_cell": "DIN EN 12831-1/NA",
+      "note": "theta_heizlast_standard_c nach DIN EN 12831-1/NA. heating_status, ventilation_function und counts_as_living_area sind DWE-Vorbelegungen aus der praxisvalidierten Revit-Pipeline."
+    },
+    {
+      "code": "WC",
+      "name_de": "WC",
+      "applicability": [
+        "WG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": null,
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": 20,
+        "counts_as_living_area": true,
+        "ventilation_function": "exhaust"
+      },
+      "suggestion_keywords": [
+        "wc",
+        "gaeste-wc",
+        "toilette"
+      ],
+      "value_source": "norm_table",
+      "norm_cell": "DIN EN 12831-1/NA",
+      "note": "theta_heizlast_standard_c nach DIN EN 12831-1/NA. heating_status, ventilation_function und counts_as_living_area sind DWE-Vorbelegungen aus der praxisvalidierten Revit-Pipeline."
+    },
+    {
+      "code": "HWR",
+      "name_de": "Hauswirtschaftsraum",
+      "applicability": [
+        "WG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": null,
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": 20,
+        "counts_as_living_area": true,
+        "ventilation_function": "exhaust"
+      },
+      "suggestion_keywords": [
+        "hwr",
+        "hauswirtschaft",
+        "waschkueche"
+      ],
+      "value_source": "norm_table",
+      "norm_cell": "DIN EN 12831-1/NA",
+      "note": "theta_heizlast_standard_c nach DIN EN 12831-1/NA. heating_status, ventilation_function und counts_as_living_area sind DWE-Vorbelegungen aus der praxisvalidierten Revit-Pipeline."
+    },
+    {
+      "code": "SAUNA",
+      "name_de": "Sauna",
+      "applicability": [
+        "WG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": null,
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": 24,
+        "counts_as_living_area": true,
+        "ventilation_function": "exhaust"
+      },
+      "suggestion_keywords": [
+        "sauna"
+      ],
+      "value_source": "norm_table",
+      "norm_cell": "DIN EN 12831-1/NA",
+      "note": "theta_heizlast_standard_c nach DIN EN 12831-1/NA. heating_status, ventilation_function und counts_as_living_area sind DWE-Vorbelegungen aus der praxisvalidierten Revit-Pipeline."
+    },
+    {
+      "code": "FLUR",
+      "name_de": "Flur / Diele",
+      "applicability": [
+        "WG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": null,
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": 20,
+        "counts_as_living_area": true,
+        "ventilation_function": "transfer"
+      },
+      "suggestion_keywords": [
+        "flur",
+        "diele",
+        "gang",
+        "corridor"
+      ],
+      "value_source": "norm_table",
+      "norm_cell": "DIN EN 12831-1/NA",
+      "note": "theta_heizlast_standard_c nach DIN EN 12831-1/NA. heating_status, ventilation_function und counts_as_living_area sind DWE-Vorbelegungen aus der praxisvalidierten Revit-Pipeline."
+    },
+    {
+      "code": "ABSTELLRAUM",
+      "name_de": "Abstellraum",
+      "applicability": [
+        "WG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": null,
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": 20,
+        "counts_as_living_area": true,
+        "ventilation_function": "transfer"
+      },
+      "suggestion_keywords": [
+        "abstell",
+        "storage",
+        "speis"
+      ],
+      "value_source": "norm_table",
+      "norm_cell": "DIN EN 12831-1/NA",
+      "note": "theta_heizlast_standard_c nach DIN EN 12831-1/NA. heating_status, ventilation_function und counts_as_living_area sind DWE-Vorbelegungen aus der praxisvalidierten Revit-Pipeline."
+    },
+    {
+      "code": "TREPPENHAUS",
+      "name_de": "Treppenhaus",
+      "applicability": [
+        "WG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": null,
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "low_heated",
+        "theta_heizlast_standard_c": 15,
+        "counts_as_living_area": false
+      },
+      "suggestion_keywords": [
+        "treppe",
+        "treppenhaus",
+        "stair"
+      ],
+      "value_source": "norm_table",
+      "norm_cell": "DIN EN 12831-1/NA",
+      "note": "theta_heizlast_standard_c nach DIN EN 12831-1/NA. heating_status, ventilation_function und counts_as_living_area sind DWE-Vorbelegungen aus der praxisvalidierten Revit-Pipeline."
+    },
+    {
+      "code": "TECHNIKRAUM",
+      "name_de": "Technikraum",
+      "applicability": [
+        "WG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": null,
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "low_heated",
+        "theta_heizlast_standard_c": 15,
+        "counts_as_living_area": false
+      },
+      "suggestion_keywords": [
+        "technik",
+        "heizung",
+        "hausanschluss"
+      ],
+      "value_source": "norm_table",
+      "norm_cell": "DIN EN 12831-1/NA",
+      "note": "theta_heizlast_standard_c nach DIN EN 12831-1/NA. heating_status, ventilation_function und counts_as_living_area sind DWE-Vorbelegungen aus der praxisvalidierten Revit-Pipeline."
+    },
+    {
+      "code": "KELLER",
+      "name_de": "Keller",
+      "applicability": [
+        "WG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": null,
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "unheated",
+        "theta_heizlast_standard_c": null,
+        "counts_as_living_area": false
+      },
+      "suggestion_keywords": [
+        "keller",
+        "basement"
+      ],
+      "value_source": "dwe_definition",
+      "norm_cell": null,
+      "note": "theta_heizlast_standard_c nach DIN EN 12831-1/NA. heating_status, ventilation_function und counts_as_living_area sind DWE-Vorbelegungen aus der praxisvalidierten Revit-Pipeline."
+    },
+    {
+      "code": "GARAGE",
+      "name_de": "Garage / Carport",
+      "applicability": [
+        "WG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": null,
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "unheated",
+        "theta_heizlast_standard_c": null,
+        "counts_as_living_area": false
+      },
+      "suggestion_keywords": [
+        "garage",
+        "carport",
+        "stellplatz"
+      ],
+      "value_source": "dwe_definition",
+      "norm_cell": null,
+      "note": "theta_heizlast_standard_c nach DIN EN 12831-1/NA. heating_status, ventilation_function und counts_as_living_area sind DWE-Vorbelegungen aus der praxisvalidierten Revit-Pipeline."
+    },
+    {
+      "code": "DACHBODEN",
+      "name_de": "Dachboden / Spitzboden",
+      "applicability": [
+        "WG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": null,
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "unheated",
+        "theta_heizlast_standard_c": null,
+        "counts_as_living_area": false
+      },
+      "suggestion_keywords": [
+        "dachboden",
+        "spitzboden",
+        "attic"
+      ],
+      "value_source": "dwe_definition",
+      "norm_cell": null,
+      "note": "theta_heizlast_standard_c nach DIN EN 12831-1/NA. heating_status, ventilation_function und counts_as_living_area sind DWE-Vorbelegungen aus der praxisvalidierten Revit-Pipeline."
+    },
+    {
+      "code": "AUFENTHALTSRAUM",
+      "name_de": "Aufenthaltsraum",
+      "applicability": [
+        "WG",
+        "NWG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": null,
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": 20,
+        "counts_as_living_area": false,
+        "ventilation_function": "supply"
+      },
+      "suggestion_keywords": [
+        "aufenthalt",
+        "aufenthaltsraum"
+      ],
+      "value_source": "norm_table",
+      "norm_cell": "DIN EN 12831-1/NA",
+      "note": "theta_heizlast_standard_c nach DIN EN 12831-1/NA. heating_status, ventilation_function und counts_as_living_area sind DWE-Vorbelegungen aus der praxisvalidierten Revit-Pipeline."
+    },
+    {
+      "code": "BEHANDLUNGSRAUM",
+      "name_de": "Behandlungsraum",
+      "applicability": [
+        "WG",
+        "NWG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": null,
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": 24,
+        "counts_as_living_area": false,
+        "ventilation_function": "supply"
+      },
+      "suggestion_keywords": [
+        "behandlung",
+        "behandlungsraum",
+        "praxis"
+      ],
+      "value_source": "norm_table",
+      "norm_cell": "DIN EN 12831-1/NA",
+      "note": "theta_heizlast_standard_c nach DIN EN 12831-1/NA. heating_status, ventilation_function und counts_as_living_area sind DWE-Vorbelegungen aus der praxisvalidierten Revit-Pipeline."
+    },
+    {
+      "code": "SCHWIMMBAD",
+      "name_de": "Schwimmbad",
+      "applicability": [
+        "WG",
+        "NWG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": null,
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": 28,
+        "counts_as_living_area": false,
+        "ventilation_function": "exhaust"
+      },
+      "suggestion_keywords": [
+        "schwimmbad",
+        "pool",
+        "schwimmhalle"
+      ],
+      "value_source": "norm_table",
+      "norm_cell": "DIN EN 12831-1/NA",
+      "note": "theta_heizlast_standard_c nach DIN EN 12831-1/NA. heating_status, ventilation_function und counts_as_living_area sind DWE-Vorbelegungen aus der praxisvalidierten Revit-Pipeline."
+    },
+    {
+      "code": "AUSSENBEREICH",
+      "name_de": "Aussenbereich",
+      "applicability": [
+        "WG",
+        "NWG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": null,
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "unheated",
+        "theta_heizlast_standard_c": null,
+        "counts_as_living_area": false,
+        "outside_thermal_envelope": true
+      },
+      "suggestion_keywords": [
+        "terrasse",
+        "balkon",
+        "loggia",
+        "aussenbereich"
+      ],
+      "value_source": "dwe_definition",
+      "norm_cell": null,
+      "note": "theta_heizlast_standard_c nach DIN EN 12831-1/NA. heating_status, ventilation_function und counts_as_living_area sind DWE-Vorbelegungen aus der praxisvalidierten Revit-Pipeline."
+    },
+    {
+      "code": "WINTERGARTEN",
+      "name_de": "Wintergarten",
+      "applicability": [
+        "WG",
+        "NWG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": null,
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "unheated",
+        "theta_heizlast_standard_c": null,
+        "counts_as_living_area": false,
+        "outside_thermal_envelope": true
+      },
+      "suggestion_keywords": [
+        "wintergarten",
+        "glasvorbau"
+      ],
+      "value_source": "dwe_definition",
+      "norm_cell": null,
+      "note": "theta_heizlast_standard_c nach DIN EN 12831-1/NA. heating_status, ventilation_function und counts_as_living_area sind DWE-Vorbelegungen aus der praxisvalidierten Revit-Pipeline."
+    },
+    {
+      "code": "NWG_01",
+      "name_de": "Einzelbüro",
+      "name_en": "Single office",
+      "applicability": [
+        "NWG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": "NWG_01",
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": null,
+        "counts_as_living_area": false
+      },
+      "suggestion_keywords": [
+        "einzelbüro"
+      ],
+      "value_source": "derived",
+      "derived_from": "catalog/core/usage_profiles.2018-09.json"
+    },
+    {
+      "code": "NWG_02",
+      "name_de": "Gruppenbüro",
+      "name_en": "Group office",
+      "applicability": [
+        "NWG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": "NWG_02",
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": null,
+        "counts_as_living_area": false
+      },
+      "suggestion_keywords": [
+        "gruppenbüro"
+      ],
+      "value_source": "derived",
+      "derived_from": "catalog/core/usage_profiles.2018-09.json"
+    },
+    {
+      "code": "NWG_03",
+      "name_de": "Großraumbüro",
+      "name_en": "Open-plan office",
+      "applicability": [
+        "NWG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": "NWG_03",
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": null,
+        "counts_as_living_area": false
+      },
+      "suggestion_keywords": [
+        "großraumbüro"
+      ],
+      "value_source": "derived",
+      "derived_from": "catalog/core/usage_profiles.2018-09.json"
+    },
+    {
+      "code": "NWG_04",
+      "name_de": "Besprechung, Sitzung, Seminar",
+      "name_en": "Meeting, conference, seminar",
+      "applicability": [
+        "NWG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": "NWG_04",
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": null,
+        "counts_as_living_area": false
+      },
+      "suggestion_keywords": [
+        "besprechung, sitzung, seminar"
+      ],
+      "value_source": "derived",
+      "derived_from": "catalog/core/usage_profiles.2018-09.json"
+    },
+    {
+      "code": "NWG_05",
+      "name_de": "Schalterhalle",
+      "name_en": "Counter hall",
+      "applicability": [
+        "NWG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": "NWG_05",
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": null,
+        "counts_as_living_area": false
+      },
+      "suggestion_keywords": [
+        "schalterhalle"
+      ],
+      "value_source": "derived",
+      "derived_from": "catalog/core/usage_profiles.2018-09.json"
+    },
+    {
+      "code": "NWG_06",
+      "name_de": "Klassenzimmer",
+      "name_en": "Classroom",
+      "applicability": [
+        "NWG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": "NWG_06",
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": null,
+        "counts_as_living_area": false
+      },
+      "suggestion_keywords": [
+        "klassenzimmer"
+      ],
+      "value_source": "derived",
+      "derived_from": "catalog/core/usage_profiles.2018-09.json"
+    },
+    {
+      "code": "NWG_07",
+      "name_de": "Hörsaal, Auditorium",
+      "name_en": "Lecture hall, auditorium",
+      "applicability": [
+        "NWG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": "NWG_07",
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": null,
+        "counts_as_living_area": false
+      },
+      "suggestion_keywords": [
+        "hörsaal, auditorium"
+      ],
+      "value_source": "derived",
+      "derived_from": "catalog/core/usage_profiles.2018-09.json"
+    },
+    {
+      "code": "NWG_08",
+      "name_de": "Bettenzimmer",
+      "name_en": "Patient room",
+      "applicability": [
+        "NWG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": "NWG_08",
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": null,
+        "counts_as_living_area": false
+      },
+      "suggestion_keywords": [
+        "bettenzimmer"
+      ],
+      "value_source": "derived",
+      "derived_from": "catalog/core/usage_profiles.2018-09.json"
+    },
+    {
+      "code": "NWG_09",
+      "name_de": "Hotelzimmer",
+      "name_en": "Hotel room",
+      "applicability": [
+        "NWG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": "NWG_09",
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": null,
+        "counts_as_living_area": false
+      },
+      "suggestion_keywords": [
+        "hotelzimmer"
+      ],
+      "value_source": "derived",
+      "derived_from": "catalog/core/usage_profiles.2018-09.json"
+    },
+    {
+      "code": "NWG_10",
+      "name_de": "Kantine, Cafeteria",
+      "name_en": "Canteen, cafeteria",
+      "applicability": [
+        "NWG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": "NWG_10",
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": null,
+        "counts_as_living_area": false
+      },
+      "suggestion_keywords": [
+        "kantine, cafeteria"
+      ],
+      "value_source": "derived",
+      "derived_from": "catalog/core/usage_profiles.2018-09.json"
+    },
+    {
+      "code": "NWG_11",
+      "name_de": "Restaurant",
+      "name_en": "Restaurant",
+      "applicability": [
+        "NWG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": "NWG_11",
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": null,
+        "counts_as_living_area": false
+      },
+      "suggestion_keywords": [
+        "restaurant"
+      ],
+      "value_source": "derived",
+      "derived_from": "catalog/core/usage_profiles.2018-09.json"
+    },
+    {
+      "code": "NWG_12",
+      "name_de": "Küche - Zubereitung warm",
+      "name_en": "Kitchen - hot food preparation",
+      "applicability": [
+        "NWG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": "NWG_12",
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": null,
+        "counts_as_living_area": false
+      },
+      "suggestion_keywords": [
+        "küche - zubereitung warm"
+      ],
+      "value_source": "derived",
+      "derived_from": "catalog/core/usage_profiles.2018-09.json"
+    },
+    {
+      "code": "NWG_13",
+      "name_de": "Küche - Zubereitung kalt",
+      "name_en": "Kitchen - cold food preparation",
+      "applicability": [
+        "NWG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": "NWG_13",
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": null,
+        "counts_as_living_area": false
+      },
+      "suggestion_keywords": [
+        "küche - zubereitung kalt"
+      ],
+      "value_source": "derived",
+      "derived_from": "catalog/core/usage_profiles.2018-09.json"
+    },
+    {
+      "code": "NWG_14",
+      "name_de": "WC und Sanitärräume in Nichtwohngebäuden",
+      "name_en": "Restrooms and sanitary facilities in non-residential buildings",
+      "applicability": [
+        "NWG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": "NWG_14",
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": null,
+        "counts_as_living_area": false
+      },
+      "suggestion_keywords": [
+        "wc und sanitärräume in nichtwohngebäuden"
+      ],
+      "value_source": "derived",
+      "derived_from": "catalog/core/usage_profiles.2018-09.json"
+    },
+    {
+      "code": "NWG_15",
+      "name_de": "Sonstige Aufenthaltsräume",
+      "name_en": "Other common rooms",
+      "applicability": [
+        "NWG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": "NWG_15",
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": null,
+        "counts_as_living_area": false
+      },
+      "suggestion_keywords": [
+        "sonstige aufenthaltsräume"
+      ],
+      "value_source": "derived",
+      "derived_from": "catalog/core/usage_profiles.2018-09.json"
+    },
+    {
+      "code": "NWG_16",
+      "name_de": "Nebenflächen ohne Aufenthaltsräume",
+      "name_en": "Ancillary areas without common rooms",
+      "applicability": [
+        "NWG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": "NWG_16",
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": null,
+        "counts_as_living_area": false
+      },
+      "suggestion_keywords": [
+        "nebenflächen ohne aufenthaltsräume"
+      ],
+      "value_source": "derived",
+      "derived_from": "catalog/core/usage_profiles.2018-09.json"
+    },
+    {
+      "code": "NWG_17",
+      "name_de": "Verkehrsflächen",
+      "name_en": "Circulation areas",
+      "applicability": [
+        "NWG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": "NWG_17",
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": null,
+        "counts_as_living_area": false
+      },
+      "suggestion_keywords": [
+        "verkehrsflächen"
+      ],
+      "value_source": "derived",
+      "derived_from": "catalog/core/usage_profiles.2018-09.json"
+    },
+    {
+      "code": "NWG_18",
+      "name_de": "Lager, Logistik, Verteilung",
+      "name_en": "Storage, logistics, distribution",
+      "applicability": [
+        "NWG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": "NWG_18",
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": null,
+        "counts_as_living_area": false
+      },
+      "suggestion_keywords": [
+        "lager, logistik, verteilung"
+      ],
+      "value_source": "derived",
+      "derived_from": "catalog/core/usage_profiles.2018-09.json"
+    },
+    {
+      "code": "NWG_19",
+      "name_de": "Verkauf",
+      "name_en": "Retail",
+      "applicability": [
+        "NWG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": "NWG_19",
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": null,
+        "counts_as_living_area": false
+      },
+      "suggestion_keywords": [
+        "verkauf"
+      ],
+      "value_source": "derived",
+      "derived_from": "catalog/core/usage_profiles.2018-09.json"
+    },
+    {
+      "code": "NWG_20",
+      "name_de": "Ausstellungsraum",
+      "name_en": "Exhibition room",
+      "applicability": [
+        "NWG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": "NWG_20",
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": null,
+        "counts_as_living_area": false
+      },
+      "suggestion_keywords": [
+        "ausstellungsraum"
+      ],
+      "value_source": "derived",
+      "derived_from": "catalog/core/usage_profiles.2018-09.json"
+    },
+    {
+      "code": "NWG_21",
+      "name_de": "Sporthalle",
+      "name_en": "Sports hall",
+      "applicability": [
+        "NWG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": "NWG_21",
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": null,
+        "counts_as_living_area": false
+      },
+      "suggestion_keywords": [
+        "sporthalle"
+      ],
+      "value_source": "derived",
+      "derived_from": "catalog/core/usage_profiles.2018-09.json"
+    },
+    {
+      "code": "NWG_22",
+      "name_de": "Schwimmbad",
+      "name_en": "Swimming pool",
+      "applicability": [
+        "NWG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": "NWG_22",
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": null,
+        "counts_as_living_area": false
+      },
+      "suggestion_keywords": [
+        "schwimmbad"
+      ],
+      "value_source": "derived",
+      "derived_from": "catalog/core/usage_profiles.2018-09.json"
+    },
+    {
+      "code": "NWG_23",
+      "name_de": "Theater, Kino",
+      "name_en": "Theatre, cinema",
+      "applicability": [
+        "NWG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": "NWG_23",
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": null,
+        "counts_as_living_area": false
+      },
+      "suggestion_keywords": [
+        "theater, kino"
+      ],
+      "value_source": "derived",
+      "derived_from": "catalog/core/usage_profiles.2018-09.json"
+    },
+    {
+      "code": "NWG_24",
+      "name_de": "Museum",
+      "name_en": "Museum",
+      "applicability": [
+        "NWG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": "NWG_24",
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": null,
+        "counts_as_living_area": false
+      },
+      "suggestion_keywords": [
+        "museum"
+      ],
+      "value_source": "derived",
+      "derived_from": "catalog/core/usage_profiles.2018-09.json"
+    },
+    {
+      "code": "NWG_25",
+      "name_de": "Bibliothek - Lesesaal",
+      "name_en": "Library - reading room",
+      "applicability": [
+        "NWG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": "NWG_25",
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": null,
+        "counts_as_living_area": false
+      },
+      "suggestion_keywords": [
+        "bibliothek - lesesaal"
+      ],
+      "value_source": "derived",
+      "derived_from": "catalog/core/usage_profiles.2018-09.json"
+    },
+    {
+      "code": "NWG_26",
+      "name_de": "Bibliothek - Freihandbereich",
+      "name_en": "Library - open access area",
+      "applicability": [
+        "NWG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": "NWG_26",
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": null,
+        "counts_as_living_area": false
+      },
+      "suggestion_keywords": [
+        "bibliothek - freihandbereich"
+      ],
+      "value_source": "derived",
+      "derived_from": "catalog/core/usage_profiles.2018-09.json"
+    },
+    {
+      "code": "NWG_27",
+      "name_de": "Bibliothek - Magazin",
+      "name_en": "Library - stacks",
+      "applicability": [
+        "NWG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": "NWG_27",
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": null,
+        "counts_as_living_area": false
+      },
+      "suggestion_keywords": [
+        "bibliothek - magazin"
+      ],
+      "value_source": "derived",
+      "derived_from": "catalog/core/usage_profiles.2018-09.json"
+    },
+    {
+      "code": "NWG_28",
+      "name_de": "Rechenzentrum",
+      "name_en": "Data center",
+      "applicability": [
+        "NWG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": "NWG_28",
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": null,
+        "counts_as_living_area": false
+      },
+      "suggestion_keywords": [
+        "rechenzentrum"
+      ],
+      "value_source": "derived",
+      "derived_from": "catalog/core/usage_profiles.2018-09.json"
+    },
+    {
+      "code": "NWG_29",
+      "name_de": "Gewerbliche und industrielle Hallen - leichte Arbeit",
+      "name_en": "Commercial and industrial halls - light work",
+      "applicability": [
+        "NWG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": "NWG_29",
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": null,
+        "counts_as_living_area": false
+      },
+      "suggestion_keywords": [
+        "gewerbliche und industrielle hallen - leichte arbeit"
+      ],
+      "value_source": "derived",
+      "derived_from": "catalog/core/usage_profiles.2018-09.json"
+    },
+    {
+      "code": "NWG_30",
+      "name_de": "Gewerbliche und industrielle Hallen - mittelschwere Arbeit",
+      "name_en": "Commercial and industrial halls - medium work",
+      "applicability": [
+        "NWG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": "NWG_30",
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": null,
+        "counts_as_living_area": false
+      },
+      "suggestion_keywords": [
+        "gewerbliche und industrielle hallen - mittelschwere arbeit"
+      ],
+      "value_source": "derived",
+      "derived_from": "catalog/core/usage_profiles.2018-09.json"
+    },
+    {
+      "code": "NWG_31",
+      "name_de": "Gewerbliche und industrielle Hallen - schwere Arbeit",
+      "name_en": "Commercial and industrial halls - heavy work",
+      "applicability": [
+        "NWG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": "NWG_31",
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": null,
+        "counts_as_living_area": false
+      },
+      "suggestion_keywords": [
+        "gewerbliche und industrielle hallen - schwere arbeit"
+      ],
+      "value_source": "derived",
+      "derived_from": "catalog/core/usage_profiles.2018-09.json"
+    },
+    {
+      "code": "NWG_32",
+      "name_de": "Parkhaus",
+      "name_en": "Parking garage",
+      "applicability": [
+        "NWG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": "NWG_32",
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": null,
+        "counts_as_living_area": false
+      },
+      "suggestion_keywords": [
+        "parkhaus"
+      ],
+      "value_source": "derived",
+      "derived_from": "catalog/core/usage_profiles.2018-09.json"
+    },
+    {
+      "code": "NWG_33",
+      "name_de": "Laboratorien",
+      "name_en": "Laboratories",
+      "applicability": [
+        "NWG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": "NWG_33",
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": null,
+        "counts_as_living_area": false
+      },
+      "suggestion_keywords": [
+        "laboratorien"
+      ],
+      "value_source": "derived",
+      "derived_from": "catalog/core/usage_profiles.2018-09.json"
+    },
+    {
+      "code": "NWG_34",
+      "name_de": "Werkstätten",
+      "name_en": "Workshops",
+      "applicability": [
+        "NWG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": "NWG_34",
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": null,
+        "counts_as_living_area": false
+      },
+      "suggestion_keywords": [
+        "werkstätten"
+      ],
+      "value_source": "derived",
+      "derived_from": "catalog/core/usage_profiles.2018-09.json"
+    },
+    {
+      "code": "NWG_35",
+      "name_de": "Bühnenbereiche",
+      "name_en": "Stage areas",
+      "applicability": [
+        "NWG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": "NWG_35",
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": null,
+        "counts_as_living_area": false
+      },
+      "suggestion_keywords": [
+        "bühnenbereiche"
+      ],
+      "value_source": "derived",
+      "derived_from": "catalog/core/usage_profiles.2018-09.json"
+    },
+    {
+      "code": "NWG_36",
+      "name_de": "Foyers",
+      "name_en": "Foyers",
+      "applicability": [
+        "NWG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": "NWG_36",
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": null,
+        "counts_as_living_area": false
+      },
+      "suggestion_keywords": [
+        "foyers"
+      ],
+      "value_source": "derived",
+      "derived_from": "catalog/core/usage_profiles.2018-09.json"
+    },
+    {
+      "code": "NWG_37",
+      "name_de": "Saunen",
+      "name_en": "Saunas",
+      "applicability": [
+        "NWG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": "NWG_37",
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": null,
+        "counts_as_living_area": false
+      },
+      "suggestion_keywords": [
+        "saunen"
+      ],
+      "value_source": "derived",
+      "derived_from": "catalog/core/usage_profiles.2018-09.json"
+    },
+    {
+      "code": "NWG_38",
+      "name_de": "Umkleideräume",
+      "name_en": "Changing rooms",
+      "applicability": [
+        "NWG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": "NWG_38",
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": null,
+        "counts_as_living_area": false
+      },
+      "suggestion_keywords": [
+        "umkleideräume"
+      ],
+      "value_source": "derived",
+      "derived_from": "catalog/core/usage_profiles.2018-09.json"
+    },
+    {
+      "code": "NWG_39",
+      "name_de": "Fitnessstudio",
+      "name_en": "Fitness center",
+      "applicability": [
+        "NWG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": "NWG_39",
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": null,
+        "counts_as_living_area": false
+      },
+      "suggestion_keywords": [
+        "fitnessstudio"
+      ],
+      "value_source": "derived",
+      "derived_from": "catalog/core/usage_profiles.2018-09.json"
+    },
+    {
+      "code": "NWG_40",
+      "name_de": "Arztpraxis",
+      "name_en": "Medical practice",
+      "applicability": [
+        "NWG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": "NWG_40",
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": null,
+        "counts_as_living_area": false
+      },
+      "suggestion_keywords": [
+        "arztpraxis"
+      ],
+      "value_source": "derived",
+      "derived_from": "catalog/core/usage_profiles.2018-09.json"
+    },
+    {
+      "code": "NWG_41",
+      "name_de": "OP-Bereich",
+      "name_en": "Operating room area",
+      "applicability": [
+        "NWG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": "NWG_41",
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": null,
+        "counts_as_living_area": false
+      },
+      "suggestion_keywords": [
+        "op-bereich"
+      ],
+      "value_source": "derived",
+      "derived_from": "catalog/core/usage_profiles.2018-09.json"
+    },
+    {
+      "code": "NWG_42",
+      "name_de": "Intensivstation",
+      "name_en": "Intensive care unit",
+      "applicability": [
+        "NWG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": "NWG_42",
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": null,
+        "counts_as_living_area": false
+      },
+      "suggestion_keywords": [
+        "intensivstation"
+      ],
+      "value_source": "derived",
+      "derived_from": "catalog/core/usage_profiles.2018-09.json"
+    },
+    {
+      "code": "NWG_43",
+      "name_de": "Tiefkühlhaus",
+      "name_en": "Cold storage",
+      "applicability": [
+        "NWG"
+      ],
+      "aliases": [],
+      "mapping": {
+        "din_18599_profile": "NWG_43",
+        "din_277_category": null,
+        "geg_category": null
+      },
+      "defaults": {
+        "heating_status": "heated",
+        "theta_heizlast_standard_c": null,
+        "counts_as_living_area": false
+      },
+      "suggestion_keywords": [
+        "tiefkühlhaus"
+      ],
+      "value_source": "derived",
+      "derived_from": "catalog/core/usage_profiles.2018-09.json"
+    }
+  ],
+  "open_points": [
+    "catalog_version 0.2.0: WG-Typen stammen aus der praxisvalidierten RAUMTYPEN-Tabelle der Revit-Pipeline (Freigabe 21.07.2026). NWG-Typen sind weiterhin ein aus den Nutzungsprofilen abgeleiteter Seed.",
+    "din_277_category fuer alle Eintraege offen — Sebi liefert nach Normpruefung nach.",
+    "theta_heizlast_standard_c fuer die 43 NWG-Typen offen (DIN EN 12831-1/NA). Fuer die WG-Typen belegt.",
+    "geg_category nur fuer NWG relevant, haengt an der GEG-Anlage-2-Zonierung.",
+    "aliases[] ist ueberall leer — Hook fuer den 142er-Namens-Synonymschluessel, der nach Review nachgereicht wird. Befuellbar ohne Schema-Aenderung.",
+    "ESSEN wurde entfernt: der Schluessel mappt 'Essen'/'Essbereich' auf WOHNRAUM. DACHBODEN ist zurueckgeholt (Gegenstueck zu adjacency_type=attic_uninsulated).",
+    "Die fuenf Ergaenzungen vom 21.07. stehen auf applicability [WG, NWG], obwohl sie aus dem NWG-Teil des Schluessels stammen — Wintergarten und Aussenbereich sind im Wohnbau der Regelfall. Bei Widerspruch korrigieren.",
+    "Namenskollision: SCHWIMMBAD steht neben dem abgeleiteten NWG_22 (Nutzungsprofil 22, Schwimmbad). Ob beide bleiben oder der Schluessel-Typ auf NWG_22 mappt, ist offen."
+  ]
+}
