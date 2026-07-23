@@ -333,6 +333,18 @@ def berechne(
         )
         return erg
     erg.rsi, erg.rse, erg.resistance_source = rb
+    # Ohne Werte-Overlay (catalog/values/surface_resistances) tragen die
+    # core-Eintraege null-Platzhalter. Frueher lief das ungeprueft in
+    # `erg.rsi + r_seq + erg.rse` und warf dort einen TypeError (None + float).
+    # Defensiv abfangen: fehlende Uebergangswiderstaende sind ein Datenzustand
+    # ("nicht rechenbar ohne Overlay"), kein Programmierfehler.
+    if erg.rsi is None or erg.rse is None:
+        erg.fehler.append(
+            f"Uebergangswiderstaende fuer '{erg.resistance_source}' nicht "
+            f"aufgeloest — Werte-Overlay (catalog/values/surface_resistances) "
+            f"fehlt. Ohne Overlay kein U-Wert."
+        )
+        return erg
     heat_flow = widerstaende[erg.resistance_source].get("heat_flow", "horizontal")
     luftschichten = lade_luftschichten()
 

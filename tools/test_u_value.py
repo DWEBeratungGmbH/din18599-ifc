@@ -25,7 +25,28 @@ def nah(a: float, b: float, toleranz: float = 0.001) -> bool:
     return a is not None and abs(a - b) < toleranz
 
 
+def overlay_aufgeloest() -> bool:
+    """
+    True, wenn das Werte-Overlay (catalog/values/) die Uebergangswiderstaende
+    tatsaechlich befuellt hat. Ohne Overlay — z.B. in der oeffentlichen CI ohne
+    catalog/values — tragen die surface_resistances-Eintraege null-Platzhalter.
+    Der U-Wert-Rechenkern ist dann nicht pruefbar; das ist Absicht (Rechtsschutz:
+    die Zahlen sind DIN/Beuth-Quelle), kein Testfehler. Vgl. CLAUDE.md:
+    "Ohne Overlay bleibt der Katalog nutzbar, aber nicht rechenbar."
+    """
+    return any(e.get("rsi") is not None for e in WIDERSTAENDE.values())
+
+
 def main() -> int:
+    if not overlay_aufgeloest():
+        # Kein Overlay (CI ohne catalog/values): der value-abhaengige
+        # Rechenkern kann hier nicht geprueft werden. Sauber ueberspringen,
+        # statt in None+float zu laufen. Wo das Overlay vorliegt (lokal,
+        # DWEapp), laeuft der volle Test unveraendert durch.
+        print("SKIP: surface_resistances-Overlay fehlt (catalog/values/ nicht "
+              "vorhanden) — U-Wert-Rechenkern nicht geprueft.")
+        return 0
+
     fehler = 0
     materialien = lade_materialien()
 
