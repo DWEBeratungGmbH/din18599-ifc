@@ -20,14 +20,23 @@ try:
 except ImportError:
     QNG_AVAILABLE = False
 
-# Datenbank-Integration (optional — funktioniert auch ohne PostgreSQL)
+# Datenbank-Integration (optional — funktioniert auch ohne PostgreSQL).
+# Der /db/*-Router ist ein bewusst optionaler Zweig: schlaegt der Import fehl,
+# laeuft die API ohne DB-Endpoints weiter (die DWEapp nutzt sie nicht, sie
+# importiert Sidecars ueber ihre eigene Prisma-Schicht).
 import sys
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
+DB_IMPORT_ERROR = None
 try:
     from database.python.api_routes import create_db_router
     DB_AVAILABLE = True
-except ImportError:
+except ImportError as e:
+    # Grund festhalten, statt ihn pauschal psycopg2 anzulasten. Im api-only
+    # Container-Mount (nur api/ -> /app) liegt das database/-Paket nicht im
+    # Python-Pfad -> "No module named 'database'"; psycopg2 selbst ist optional
+    # und in db.py zusaetzlich per try/except abgesichert.
     DB_AVAILABLE = False
+    DB_IMPORT_ERROR = e
 
 app = FastAPI(
     title="DIN 18599 Sidecar API",
@@ -41,7 +50,7 @@ if DB_AVAILABLE:
     app.include_router(db_router, prefix="/db")
     print("✅ Datenbank-Endpoints verfügbar unter /db/*")
 else:
-    print("ℹ️  Datenbank-Endpoints nicht verfügbar (psycopg2 fehlt)")
+    print(f"Datenbank-Endpoints nicht verfuegbar (optional). Grund: {DB_IMPORT_ERROR}")
 
 # CORS für Viewer
 app.add_middleware(

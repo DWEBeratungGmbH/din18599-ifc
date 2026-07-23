@@ -11,6 +11,36 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/lang/de/).
 
 ### Fixed
 
+- **`api/parsers/ifc_parser.py` wiederhergestellt (23.07.2026)** — `api/main.py`
+  importiert `from parsers.ifc_parser import parse_ifc, ifc_geometry_to_dict`, aber
+  das Modul fehlte auf `master`: bei der v3-Ablösung (`e1df13d`) wurde `main.py` nie
+  auf die neue Parser-Struktur migriert, die Datei blieb nur unter
+  `archive/roundtrip_development/ifc_parser.py` erhalten. Der `din18599-api`-Container
+  (uvicorn `--reload`, Bind-Mount `api/`) lief dadurch in eine Crash-Loop
+  (`ModuleNotFoundError: No module named 'parsers.ifc_parser'`). Wiederhergestellt
+  **verbatim** aus dem Archiv (sha256 identisch) — reiner Restore-of-Service.
+  Die saubere v3-Migration von `main.py` ist ein **separates Ticket**, weil sie die
+  `/parse-ifc`- und `/process`-Contracts anfasst, die die DWEapp konsumiert.
+
+- **Irreführende „psycopg2 fehlt"-Meldung korrigiert (`api/main.py`, 23.07.2026)** —
+  der optionale `/db/*`-Router-Import scheiterte nicht an psycopg2 (steht in
+  `api/requirements.txt` **und** ist im Image installiert, in `db.py` zusätzlich per
+  `try/except` abgesichert), sondern an `No module named 'database'`: der api-only
+  Container-Mount (`api/ -> /app`) hat das `database/`-Paket nicht im Python-Pfad.
+  Die `except`-Branch hält jetzt den echten `ImportError` fest und meldet ihn, statt
+  ihn pauschal psycopg2 anzulasten. **Kein** erzwungenes requirements-Update — der
+  DB-Zweig ist bewusst optional (die DWEapp nutzt ihn nicht).
+
+- **BEKANNT/ESKALATION: `/validate` an totem Schema-Pfad (`api/main.py:56`)** —
+  `SCHEMA_PATH` zeigt auf `../gebaeude.din18599.schema.json`; diese Datei existiert
+  nicht mehr (liegt archiviert unter `archive/old-versions/`, Vor-Versionierungs-Name).
+  `/validate` liefert daher 503. **Nicht** stillschweigend umgebogen: welche
+  Schema-Version der Endpoint durchsetzen soll (v3.0 = DWEapp-Baseline, v3.1 =
+  eingefroren, v4.0 = Greenfield) ist eine **Contract-Entscheidung** für den Master.
+  Empfehlung: `schema/v3.1-complete.json`, da die 2.1.0-Pipeline v3.x-Sidecars
+  erzeugt und v4.0 (`.dwe`) noch Greenfield ist. Die DWEapp validiert lokal und ist
+  davon nicht betroffen.
+
 - **`output.base` als `required` markiert (23.07.2026)** — die `output`-Definition
   listete `base` explizit unter `properties` neben der `patternProperties`-Index-
   Signatur (`[k] -> output_snapshot`). Der Codegen (json2ts) erzeugte daraus ein
