@@ -1,0 +1,4282 @@
+{
+  "schema_info": {
+    "url": "https://din18599-ifc.de/schema/v4.0/sidecar",
+    "version": "4.0.0"
+  },
+  "meta": {
+    "project_name": "Ehlke-SOLL",
+    "norm_editions": {
+      "din_18599": "2018-09"
+    },
+    "ifc_file_ref": "DIN18599TestIFCv4.ifc",
+    "created_at": "2026-07-24T18:52:25+00:00",
+    "updated_at": "2026-07-24T18:52:25+00:00",
+    "validation": {
+      "level": "draft",
+      "validated_at": "2026-07-24T18:52:25+00:00",
+      "ruleset_version": "0.1.0"
+    },
+    "source": {
+      "origin": "IFC_PARSER",
+      "tool": "din18599-ifc IFC v4 Skelett-Parser",
+      "tool_version": "0.1.0"
+    },
+    "true_north_offset_deg": 0.0
+  },
+  "input": {
+    "building": {
+      "type": "non_residential",
+      "ngf_m2": 468.543,
+      "storeys_above_ground": 3,
+      "storeys_below_ground": 2
+    },
+    "storeys": [
+      {
+        "id": "S1",
+        "ifc_guid": "2IkkTYtsn7tfRhANeYKozZ",
+        "name": "Kellergeschoss",
+        "elevation_m": -2.8,
+        "below_ground": true
+      },
+      {
+        "id": "S2",
+        "ifc_guid": "1IEcBcNsH1Dv9kXV34D0AS",
+        "name": "Erdgeschoss",
+        "elevation_m": -0.2,
+        "below_ground": true
+      },
+      {
+        "id": "S3",
+        "ifc_guid": "1q9TUfDqLEAxI4cag48L2D",
+        "name": "Obergeschoss",
+        "elevation_m": 3.61,
+        "below_ground": false
+      },
+      {
+        "id": "S4",
+        "ifc_guid": "2coCV7o8vASgQlcchNGhZi",
+        "name": "Dachgeschoss",
+        "elevation_m": 6.79,
+        "below_ground": false
+      },
+      {
+        "id": "S5",
+        "ifc_guid": "3s32ZJ3yz6t9s0FCa9wCzt",
+        "name": "Spitzdach",
+        "elevation_m": 9.51,
+        "below_ground": false
+      }
+    ],
+    "rooms": [
+      {
+        "id": "R1",
+        "ifc_guid": "00Y7z9rAT5Yhkq5rwb2vl2",
+        "heating_status": "heated",
+        "name": "Schlafen",
+        "number": "Schlafen",
+        "storey_ref": "S3",
+        "area_ngf_m2": 15.825,
+        "height_m": 1.43028e+21
+      },
+      {
+        "id": "R2",
+        "ifc_guid": "0GcTSmzqH818qIn08zVzQc",
+        "heating_status": "heated",
+        "name": "Flur",
+        "number": "Flur",
+        "storey_ref": "S2",
+        "area_ngf_m2": 8.433,
+        "height_m": 3.41
+      },
+      {
+        "id": "R3",
+        "ifc_guid": "0LYczu6ST7qAPfB8rCLAbw",
+        "heating_status": "heated",
+        "name": "Flur",
+        "number": "Flur",
+        "storey_ref": "S4",
+        "area_ngf_m2": 2.97,
+        "height_m": 2.42
+      },
+      {
+        "id": "R4",
+        "ifc_guid": "0Rum830ebEkgO56WNl1iIj",
+        "heating_status": "heated",
+        "name": "Luftraum",
+        "number": "Luftraum",
+        "storey_ref": "S3",
+        "area_ngf_m2": 18.511,
+        "height_m": 1.43617e+21
+      },
+      {
+        "id": "R5",
+        "ifc_guid": "0Tw2r7DiDBRvXLLYffGps2",
+        "heating_status": "heated",
+        "name": "Kochen",
+        "number": "Kochen",
+        "storey_ref": "S2",
+        "area_ngf_m2": 8.458,
+        "height_m": 3.41
+      },
+      {
+        "id": "R6",
+        "ifc_guid": "0apB4Xnw10hON8F0VkKeY6",
+        "heating_status": "heated",
+        "name": "Bad",
+        "number": "Bad",
+        "storey_ref": "S2",
+        "area_ngf_m2": 6.622,
+        "height_m": 3.41
+      },
+      {
+        "id": "R7",
+        "ifc_guid": "0f6Xl1GTXESAh_d2oM9Ak2",
+        "heating_status": "heated",
+        "name": "Keller",
+        "number": "Keller",
+        "storey_ref": "S1",
+        "area_ngf_m2": 15.921,
+        "height_m": 2.3
+      },
+      {
+        "id": "R8",
+        "ifc_guid": "0gJstcLMH3mwvR$9YJckc4",
+        "heating_status": "heated",
+        "name": "Luftraum",
+        "number": "Luftraum",
+        "storey_ref": "S3",
+        "area_ngf_m2": 19.267,
+        "height_m": 1.43591e+21
+      },
+      {
+        "id": "R9",
+        "ifc_guid": "0oZTbO1ufFbgokxTtRBLp1",
+        "heating_status": "heated",
+        "name": "Keller",
+        "number": "Keller",
+        "storey_ref": "S1",
+        "area_ngf_m2": 22.042,
+        "height_m": 2.3
+      },
+      {
+        "id": "R10",
+        "ifc_guid": "0u_1TixYTD4e4OpwN2EiZy",
+        "heating_status": "heated",
+        "name": "Wohnen",
+        "number": "Wohnen",
+        "storey_ref": "S2",
+        "area_ngf_m2": 40.415,
+        "height_m": 3.41
+      },
+      {
+        "id": "R11",
+        "ifc_guid": "0wTL6YxGf2aBDkq3dc7okT",
+        "heating_status": "heated",
+        "name": "Abstell",
+        "number": "Abstell",
+        "storey_ref": "S2",
+        "area_ngf_m2": 17.482,
+        "height_m": 1.43159e+21
+      },
+      {
+        "id": "R12",
+        "ifc_guid": "1DdGtmjx11RQfrj8sVGOpI",
+        "heating_status": "heated",
+        "name": "Abstell",
+        "number": "Abstell",
+        "storey_ref": "S2",
+        "area_ngf_m2": 17.432,
+        "height_m": 1.4339e+21
+      },
+      {
+        "id": "R13",
+        "ifc_guid": "1OTUcW49fDF9_nPJzCUY_p",
+        "heating_status": "heated",
+        "name": "Gadarobe",
+        "number": "Gadarobe",
+        "storey_ref": "S2",
+        "area_ngf_m2": 6.405,
+        "height_m": 3.41
+      },
+      {
+        "id": "R14",
+        "ifc_guid": "1_wx5nYKT7KgsUG3bP1Azk",
+        "heating_status": "heated",
+        "name": "Luftraum",
+        "number": "Luftraum",
+        "storey_ref": "S3",
+        "area_ngf_m2": 14.469,
+        "height_m": 1.43551e+21
+      },
+      {
+        "id": "R15",
+        "ifc_guid": "1lb5beWLX1rugd6BmWI7Xt",
+        "heating_status": "heated",
+        "name": "Spitzdach",
+        "number": "Spitzdach",
+        "storey_ref": "S5",
+        "area_ngf_m2": 69.305,
+        "height_m": 1.43022e+21
+      },
+      {
+        "id": "R16",
+        "ifc_guid": "1nCG1xOQfDvwQlM6_z2zt9",
+        "heating_status": "heated",
+        "name": "Küche",
+        "number": "Küche",
+        "storey_ref": "S3",
+        "area_ngf_m2": 18.637,
+        "height_m": 2.88
+      },
+      {
+        "id": "R17",
+        "ifc_guid": "1s7d_kd6vD_903JSg5s5ao",
+        "heating_status": "heated",
+        "name": "Bad",
+        "number": "Bad",
+        "storey_ref": "S4",
+        "area_ngf_m2": 9.383,
+        "height_m": 1.42868e+21
+      },
+      {
+        "id": "R18",
+        "ifc_guid": "2$rvdT8Cz4be5OsgFZJuiE",
+        "heating_status": "heated",
+        "name": "Schrank",
+        "number": "Schrank",
+        "storey_ref": "S4",
+        "area_ngf_m2": 2.827,
+        "height_m": 1.42916e+21
+      },
+      {
+        "id": "R19",
+        "ifc_guid": "2BbslXSz1Cd85950hy2ZVf",
+        "heating_status": "heated",
+        "name": "Galarie",
+        "number": "Galarie",
+        "storey_ref": "S2",
+        "area_ngf_m2": 9.568,
+        "height_m": 3.41
+      },
+      {
+        "id": "R20",
+        "ifc_guid": "2GiA4suq1BRuF6vfIAXwbX",
+        "heating_status": "heated",
+        "name": "Eingang",
+        "number": "Eingang",
+        "storey_ref": "S2",
+        "area_ngf_m2": 8.977,
+        "height_m": 3.41
+      },
+      {
+        "id": "R21",
+        "ifc_guid": "2HRVGFFkf88eb9M3AaOxm5",
+        "heating_status": "heated",
+        "name": "Zimmer",
+        "number": "Zimmer",
+        "storey_ref": "S3",
+        "area_ngf_m2": 7.3,
+        "height_m": 2.88
+      },
+      {
+        "id": "R22",
+        "ifc_guid": "2UnG6pTX9B3AFgpORbk_lV",
+        "heating_status": "heated",
+        "name": "Keller",
+        "number": "Keller",
+        "storey_ref": "S1",
+        "area_ngf_m2": 21.066,
+        "height_m": 2.3
+      },
+      {
+        "id": "R23",
+        "ifc_guid": "2frGM6Daf4YRCqMG7EM6ru",
+        "heating_status": "heated",
+        "name": "Flur",
+        "number": "Flur",
+        "storey_ref": "S4",
+        "area_ngf_m2": 2.015,
+        "height_m": 2.42
+      },
+      {
+        "id": "R24",
+        "ifc_guid": "2g1yKBquv1xQYP4tlObHny",
+        "heating_status": "heated",
+        "name": "Eltern",
+        "number": "Eltern",
+        "storey_ref": "S4",
+        "area_ngf_m2": 13.405,
+        "height_m": 1.43003e+21
+      },
+      {
+        "id": "R25",
+        "ifc_guid": "2iXrLAvrvEeQ_bbB$F7Tv_",
+        "heating_status": "heated",
+        "name": "Schlafen",
+        "number": "Schlafen",
+        "storey_ref": "S3",
+        "area_ngf_m2": 11.427,
+        "height_m": 2.88
+      },
+      {
+        "id": "R26",
+        "ifc_guid": "2u1PDhNNT9RRuIgwJGQehd",
+        "heating_status": "heated",
+        "name": "Kind",
+        "number": "Kind",
+        "storey_ref": "S4",
+        "area_ngf_m2": 13.84,
+        "height_m": 1.42858e+21
+      },
+      {
+        "id": "R27",
+        "ifc_guid": "2xDeTtskH0yBbjWPEH0Ox3",
+        "heating_status": "heated",
+        "name": "Treppenhaus",
+        "number": "Treppenhaus",
+        "storey_ref": "S4",
+        "area_ngf_m2": 7.622,
+        "height_m": 1.43575e+21
+      },
+      {
+        "id": "R28",
+        "ifc_guid": "3YScUq8CP1vBY5KUFsYvTm",
+        "heating_status": "heated",
+        "name": "Flur",
+        "number": "Flur",
+        "storey_ref": "S3",
+        "area_ngf_m2": 6.72,
+        "height_m": 2.88
+      },
+      {
+        "id": "R29",
+        "ifc_guid": "3oGFWWO1PEK93PeF4XLeax",
+        "heating_status": "heated",
+        "name": "Gäste",
+        "number": "Gäste",
+        "storey_ref": "S4",
+        "area_ngf_m2": 8.739,
+        "height_m": 1.43732e+21
+      },
+      {
+        "id": "R30",
+        "ifc_guid": "3q3wrjCYjBRwZuDOs8oqOg",
+        "heating_status": "heated",
+        "name": "Luftraum",
+        "number": "Luftraum",
+        "storey_ref": "S3",
+        "area_ngf_m2": 9.178,
+        "height_m": 1.4366e+21
+      },
+      {
+        "id": "R31",
+        "ifc_guid": "3qokO2_mb8$f1BoTQJE99L",
+        "heating_status": "heated",
+        "name": "Arbeit",
+        "number": "Arbeit",
+        "storey_ref": "S4",
+        "area_ngf_m2": 4.808,
+        "height_m": 1.43757e+21
+      },
+      {
+        "id": "R32",
+        "ifc_guid": "3uP2f3pI90ruuWqeqRM2Qi",
+        "heating_status": "heated",
+        "name": "Wohnen",
+        "number": "Wohnen",
+        "storey_ref": "S3",
+        "area_ngf_m2": 17.514,
+        "height_m": 2.88
+      },
+      {
+        "id": "R33",
+        "ifc_guid": "3z0e04JJHE6PnfNgFRuqnO",
+        "heating_status": "heated",
+        "name": "Garage",
+        "number": "Garage",
+        "storey_ref": "S2",
+        "area_ngf_m2": 11.96,
+        "height_m": 3.41
+      }
+    ],
+    "element_groups": [
+      {
+        "id": "W-0001",
+        "name": "Wand - 049",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 0.9999999999999968,
+          "normal_y": -8.01134390594319e-08,
+          "normal_z": 0.0,
+          "dist_m": -0.4015698614785892,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "0$aXxc9J19tRIjaKea2c76",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 049",
+            "area_m2": 22.542
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 22.542
+        }
+      },
+      {
+        "id": "W-0002",
+        "name": "Wand - 002",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 1.044770000062495e-08,
+          "normal_y": -1.0,
+          "normal_z": 5.288918787981341e-19,
+          "dist_m": -0.9483084596637874,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "0$u7Ru_JfClRWrKoFk5Mxw",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 002",
+            "area_m2": 33.527
+          },
+          {
+            "source_id": "2KbTzyne99IhpiLLA1Fl$w",
+            "source_kind": "ifc_guid",
+            "type_name": "Fenster - 001",
+            "role": "hosted_opening",
+            "opening_type": "window",
+            "area_m2": 5.614,
+            "host_element_group_ref": "W-0002",
+            "host_ifc_guid": "0$u7Ru_JfClRWrKoFk5Mxw"
+          },
+          {
+            "source_id": "3K5OZHo1f5XP9Gk2evjeNd",
+            "source_kind": "ifc_guid",
+            "type_name": "Fenster - 002",
+            "role": "hosted_opening",
+            "opening_type": "window",
+            "area_m2": 5.614,
+            "host_element_group_ref": "W-0002",
+            "host_ifc_guid": "0$u7Ru_JfClRWrKoFk5Mxw"
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 33.527
+        }
+      },
+      {
+        "id": "W-0003",
+        "name": "Wand - 060",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 8.193080002144258e-08,
+          "normal_y": 0.9999999999999967,
+          "normal_z": 0.0,
+          "dist_m": 0.5459743734758149,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "00Pob8NC9AigA3lAFcp8zT",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 060",
+            "area_m2": 3.779
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 3.779
+        }
+      },
+      {
+        "id": "R-0001",
+        "name": "R-0001",
+        "element_type": "roof",
+        "fingerprint": {
+          "normal_x": 0.0,
+          "normal_y": 0.1736479631199549,
+          "normal_z": -0.9848077908426043,
+          "dist_m": -5.031418578498413,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "05Fm_mutb2yQF7G8A3t2sa",
+            "source_kind": "ifc_guid",
+            "area_m2": 14.089
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 14.089
+        }
+      },
+      {
+        "id": "W-0004",
+        "name": "Wand - 011",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 1.0,
+          "normal_y": -9.634459575858792e-25,
+          "normal_z": -3.2516301068523424e-24,
+          "dist_m": -7.939760083333333,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "09sI9HhJ98oQDiitGyELek",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 011",
+            "area_m2": 28.046
+          },
+          {
+            "source_id": "0rFJ3mWD98_92SFefg5c6N",
+            "source_kind": "ifc_guid",
+            "type_name": "Tür - 003",
+            "role": "hosted_opening",
+            "opening_type": "door",
+            "area_m2": 2.132,
+            "host_element_group_ref": "W-0004",
+            "host_ifc_guid": "09sI9HhJ98oQDiitGyELek"
+          },
+          {
+            "source_id": "1WS0aIepX1MA8esUGptKuC",
+            "source_kind": "ifc_guid",
+            "type_name": "Tür - 004",
+            "role": "hosted_opening",
+            "opening_type": "door",
+            "area_m2": 2.132,
+            "host_element_group_ref": "W-0004",
+            "host_ifc_guid": "09sI9HhJ98oQDiitGyELek"
+          },
+          {
+            "source_id": "2HFneExGv3uPKlZhph3DlU",
+            "source_kind": "ifc_guid",
+            "type_name": "Tür - 005",
+            "role": "hosted_opening",
+            "opening_type": "door",
+            "area_m2": 2.132,
+            "host_element_group_ref": "W-0004",
+            "host_ifc_guid": "09sI9HhJ98oQDiitGyELek"
+          },
+          {
+            "source_id": "34UDJDMvb8mBKYak4HRrZW",
+            "source_kind": "ifc_guid",
+            "type_name": "Fenster - 003",
+            "role": "hosted_opening",
+            "opening_type": "window",
+            "area_m2": 1.658,
+            "host_element_group_ref": "W-0004",
+            "host_ifc_guid": "09sI9HhJ98oQDiitGyELek"
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 28.046
+        }
+      },
+      {
+        "id": "R-0002",
+        "name": "R-0002",
+        "element_type": "roof",
+        "fingerprint": {
+          "normal_x": 0.6156610606296884,
+          "normal_y": 0.0,
+          "normal_z": 0.7880110776025468,
+          "dist_m": -2.421642712405606,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "0AYKicfUn2KxMkHYBIMVhA",
+            "source_kind": "ifc_guid",
+            "area_m2": 35.794
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 35.794
+        }
+      },
+      {
+        "id": "W-0005",
+        "name": "Wand - 050",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 0.9999999999999954,
+          "normal_y": -9.488079577823141e-08,
+          "normal_z": 7.380187253024278e-25,
+          "dist_m": 2.2984301244372523,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "0EY2oJMHD988GomH1gaoNi",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 050",
+            "area_m2": 17.933
+          },
+          {
+            "source_id": "2EEIeuDD9A0g9YUhbMWCKk",
+            "source_kind": "ifc_guid",
+            "type_name": "Tür - 015",
+            "role": "hosted_opening",
+            "opening_type": "door",
+            "area_m2": 2.189,
+            "host_element_group_ref": "W-0005",
+            "host_ifc_guid": "0EY2oJMHD988GomH1gaoNi"
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 17.933
+        }
+      },
+      {
+        "id": "W-0006",
+        "name": "Wand - 003",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 0.9999999999999971,
+          "normal_y": -7.736080000419328e-08,
+          "normal_z": -1.3670500292740828e-24,
+          "dist_m": -0.40156951375152444,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "0PI2lzlzv54x7Q4vGFXtRr",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 003",
+            "area_m2": 31.254
+          },
+          {
+            "source_id": "1emGNkOMX8SufHvFI6QSbQ",
+            "source_kind": "ifc_guid",
+            "type_name": "Tür - 001",
+            "role": "hosted_opening",
+            "opening_type": "door",
+            "area_m2": 2.504,
+            "host_element_group_ref": "W-0006",
+            "host_ifc_guid": "0PI2lzlzv54x7Q4vGFXtRr"
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 31.254
+        }
+      },
+      {
+        "id": "W-0007",
+        "name": "Wand - 023",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 0.9999999999999997,
+          "normal_y": 2.5256199987634916e-08,
+          "normal_z": 0.0,
+          "dist_m": -0.4115690365969914,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "0aAA3JDb9CXOQkJCoxJCxF",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 023",
+            "area_m2": 12.179
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 12.179
+        }
+      },
+      {
+        "id": "W-0008",
+        "name": "Wand - 028",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 1.0,
+          "normal_y": 0.0,
+          "normal_z": 0.0,
+          "dist_m": 4.48343,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "0cVkSgP9PCqwYPLfq95qH$",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 028",
+            "area_m2": 15.689
+          },
+          {
+            "source_id": "2x_QggA7L88fQ9HTAnMkBQ",
+            "source_kind": "ifc_guid",
+            "type_name": "Tür - 007",
+            "role": "hosted_opening",
+            "opening_type": "door",
+            "area_m2": 1.082,
+            "host_element_group_ref": "W-0008",
+            "host_ifc_guid": "0cVkSgP9PCqwYPLfq95qH$"
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 15.689
+        }
+      },
+      {
+        "id": "W-0009",
+        "name": "Wand - 035",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 1.0,
+          "normal_y": 0.0,
+          "normal_z": 0.0,
+          "dist_m": 9.20343,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "0eXrgBKSb3c9w6Oczdvg8y",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 035",
+            "area_m2": 2.772
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 2.772
+        }
+      },
+      {
+        "id": "W-0010",
+        "name": "Wand - 019",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 9.928939996019769e-08,
+          "normal_y": 0.9999999999999951,
+          "normal_z": -2.38904615501101e-24,
+          "dist_m": 6.640979960128423,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "0tmHK3$nH9S9_yAhSorWIC",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 019",
+            "area_m2": 27.139
+          },
+          {
+            "source_id": "0vJWw07$99k8DJwh1iTKqr",
+            "source_kind": "ifc_guid",
+            "type_name": "Fenster - 010",
+            "role": "hosted_opening",
+            "opening_type": "window",
+            "area_m2": 2.746,
+            "host_element_group_ref": "W-0010",
+            "host_ifc_guid": "0tmHK3$nH9S9_yAhSorWIC"
+          },
+          {
+            "source_id": "0wgeWuqhv9bgD95fjDPKII",
+            "source_kind": "ifc_guid",
+            "type_name": "Fenster - 008",
+            "role": "hosted_opening",
+            "opening_type": "window",
+            "area_m2": 3.035,
+            "host_element_group_ref": "W-0010",
+            "host_ifc_guid": "0tmHK3$nH9S9_yAhSorWIC"
+          },
+          {
+            "source_id": "2OX8xg$hnDBQWFoRed4tr4",
+            "source_kind": "ifc_guid",
+            "type_name": "Fenster - 011",
+            "role": "hosted_opening",
+            "opening_type": "window",
+            "area_m2": 2.746,
+            "host_element_group_ref": "W-0010",
+            "host_ifc_guid": "0tmHK3$nH9S9_yAhSorWIC"
+          },
+          {
+            "source_id": "32qWzZf1XDXABmAqXf7irG",
+            "source_kind": "ifc_guid",
+            "type_name": "Fenster - 009",
+            "role": "hosted_opening",
+            "opening_type": "window",
+            "area_m2": 2.746,
+            "host_element_group_ref": "W-0010",
+            "host_ifc_guid": "0tmHK3$nH9S9_yAhSorWIC"
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 27.139
+        }
+      },
+      {
+        "id": "W-0011",
+        "name": "Wand - 027",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 1.0,
+          "normal_y": 0.0,
+          "normal_z": 0.0,
+          "dist_m": 9.19843,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "0vvE10fVj0_guFHI1gI$Ps",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 027",
+            "area_m2": 15.454
+          },
+          {
+            "source_id": "0hkXIhpH55WwAhOPZ7Q8Xv",
+            "source_kind": "ifc_guid",
+            "type_name": "Fenster - 022",
+            "role": "hosted_opening",
+            "opening_type": "window",
+            "area_m2": 1.618,
+            "host_element_group_ref": "W-0011",
+            "host_ifc_guid": "0vvE10fVj0_guFHI1gI$Ps"
+          },
+          {
+            "source_id": "23PyKIwvX3dv0kdRD8UqzU",
+            "source_kind": "ifc_guid",
+            "type_name": "Fenster - 021",
+            "role": "hosted_opening",
+            "opening_type": "window",
+            "area_m2": 0.251,
+            "host_element_group_ref": "W-0011",
+            "host_ifc_guid": "0vvE10fVj0_guFHI1gI$Ps"
+          },
+          {
+            "source_id": "2IVFuatN93SgeiHAEMQzyI",
+            "source_kind": "ifc_guid",
+            "type_name": "Fenster - 024",
+            "role": "hosted_opening",
+            "opening_type": "window",
+            "area_m2": 0.251,
+            "host_element_group_ref": "W-0011",
+            "host_ifc_guid": "0vvE10fVj0_guFHI1gI$Ps"
+          },
+          {
+            "source_id": "2NvP1CJUb8YQNpfccb4Ea3",
+            "source_kind": "ifc_guid",
+            "type_name": "Fenster - 023",
+            "role": "hosted_opening",
+            "opening_type": "window",
+            "area_m2": 1.609,
+            "host_element_group_ref": "W-0011",
+            "host_ifc_guid": "0vvE10fVj0_guFHI1gI$Ps"
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 15.454
+        }
+      },
+      {
+        "id": "W-0012",
+        "name": "Wand - 020",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 2.1246438141462246e-07,
+          "normal_y": 0.9999999999999775,
+          "normal_z": 6.894190300979826e-23,
+          "dist_m": 6.610970620355158,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "0xVd0qCg53NgLSqnCOUkgb",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 020",
+            "area_m2": 21.002
+          },
+          {
+            "source_id": "1QNM9utLL7qhUgPZlnPKy_",
+            "source_kind": "ifc_guid",
+            "type_name": "Fenster - 015",
+            "role": "hosted_opening",
+            "opening_type": "window",
+            "area_m2": 1.993,
+            "host_element_group_ref": "W-0012",
+            "host_ifc_guid": "0xVd0qCg53NgLSqnCOUkgb"
+          },
+          {
+            "source_id": "2lSckZZ_DDxAaXw8A$bP2V",
+            "source_kind": "ifc_guid",
+            "type_name": "Fenster - 013",
+            "role": "hosted_opening",
+            "opening_type": "window",
+            "area_m2": 1.975,
+            "host_element_group_ref": "W-0012",
+            "host_ifc_guid": "0xVd0qCg53NgLSqnCOUkgb"
+          },
+          {
+            "source_id": "3$MD0Fwzn9$8reOASTr$EK",
+            "source_kind": "ifc_guid",
+            "type_name": "Fenster - 014",
+            "role": "hosted_opening",
+            "opening_type": "window",
+            "area_m2": 1.993,
+            "host_element_group_ref": "W-0012",
+            "host_ifc_guid": "0xVd0qCg53NgLSqnCOUkgb"
+          },
+          {
+            "source_id": "3IFwPVk5DCAQ5RrSnb189b",
+            "source_kind": "ifc_guid",
+            "type_name": "Fenster - 012",
+            "role": "hosted_opening",
+            "opening_type": "window",
+            "area_m2": 1.975,
+            "host_element_group_ref": "W-0012",
+            "host_ifc_guid": "0xVd0qCg53NgLSqnCOUkgb"
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 21.002
+        }
+      },
+      {
+        "id": "W-0013",
+        "name": "Wand - 043",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 0.0,
+          "normal_y": 1.0,
+          "normal_z": 0.0,
+          "dist_m": -1.44903,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "10VQph$4z0LvqZ8lD5JwLi",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 043",
+            "area_m2": 7.459
+          },
+          {
+            "source_id": "3EJKm69Jb8yPcqzgmUQbMV",
+            "source_kind": "ifc_guid",
+            "type_name": "Fenster - 025",
+            "role": "hosted_opening",
+            "opening_type": "window",
+            "area_m2": 1.907,
+            "host_element_group_ref": "W-0013",
+            "host_ifc_guid": "10VQph$4z0LvqZ8lD5JwLi"
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 7.459
+        }
+      },
+      {
+        "id": "W-0014",
+        "name": "Wand - 042",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 0.999999999999998,
+          "normal_y": 5.4265679874514956e-08,
+          "normal_z": 3.110623728266512e-08,
+          "dist_m": 2.035930078416775,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "14TZBwszr7kRoe58B1Rxvj",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 042",
+            "area_m2": 5.746
+          },
+          {
+            "source_id": "3G5ItGwPTBEAyYBA35mGrn",
+            "source_kind": "ifc_guid",
+            "type_name": "Tür - 014",
+            "role": "hosted_opening",
+            "opening_type": "door",
+            "area_m2": 1.082,
+            "host_element_group_ref": "W-0014",
+            "host_ifc_guid": "14TZBwszr7kRoe58B1Rxvj"
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 5.746
+        }
+      },
+      {
+        "id": "W-0015",
+        "name": "Wand - 025",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 0.9999999999999163,
+          "normal_y": 8.029962882317219e-08,
+          "normal_z": 4.0114192781388067e-07,
+          "dist_m": -0.4015649615366749,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "17ZP4JC0H2BxfqNiCtBvow",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 025",
+            "area_m2": 15.955
+          },
+          {
+            "source_id": "0ZcpPNUv13YRvukv61yM$U",
+            "source_kind": "ifc_guid",
+            "type_name": "Fenster - 019",
+            "role": "hosted_opening",
+            "opening_type": "window",
+            "area_m2": 1.568,
+            "host_element_group_ref": "W-0015",
+            "host_ifc_guid": "17ZP4JC0H2BxfqNiCtBvow"
+          },
+          {
+            "source_id": "1ItB0dh6vCdRV2PuZ1U_2r",
+            "source_kind": "ifc_guid",
+            "type_name": "Fenster - 020",
+            "role": "hosted_opening",
+            "opening_type": "window",
+            "area_m2": 1.585,
+            "host_element_group_ref": "W-0015",
+            "host_ifc_guid": "17ZP4JC0H2BxfqNiCtBvow"
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 15.955
+        }
+      },
+      {
+        "id": "F-0001",
+        "name": "Deckenplatte - 002",
+        "element_type": "floor",
+        "fingerprint": {
+          "normal_x": 5.073596216873748e-08,
+          "normal_y": 1.3293116298744472e-07,
+          "normal_z": 0.9999999999999899,
+          "dist_m": 3.4744350552748795,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "1IEcBdNsH1Dv9kXV34D0AS",
+            "source_kind": "ifc_guid",
+            "type_name": "Deckenplatte - 002",
+            "area_m2": 173.514
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 173.514
+        }
+      },
+      {
+        "id": "R-0004",
+        "name": "R-0004",
+        "element_type": "roof",
+        "fingerprint": {
+          "normal_x": 0.0,
+          "normal_y": 0.1736479631199549,
+          "normal_z": -0.9848077908426043,
+          "dist_m": -5.056418396916388,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "1Lxm8q7tD3Kvn8EEIvURPK",
+            "source_kind": "ifc_guid",
+            "area_m2": 14.089
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 14.089
+        }
+      },
+      {
+        "id": "W-0016",
+        "name": "Wand - 030",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 2.4284400000144644e-08,
+          "normal_y": -0.9999999999999998,
+          "normal_z": 1.961657473297267e-24,
+          "dist_m": -2.055970015889768,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "1SpbPzk7PD6Onu93Vk8$Bu",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 030",
+            "area_m2": 26.987
+          },
+          {
+            "source_id": "3iZ$f9zqjExeDRYaqISrm_",
+            "source_kind": "ifc_guid",
+            "type_name": "Tür - 009",
+            "role": "hosted_opening",
+            "opening_type": "door",
+            "area_m2": 2.106,
+            "host_element_group_ref": "W-0016",
+            "host_ifc_guid": "1SpbPzk7PD6Onu93Vk8$Bu"
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 26.987
+        }
+      },
+      {
+        "id": "W-0018",
+        "name": "Wand - 033",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 0.999999999999941,
+          "normal_y": -5.054299998305729e-08,
+          "normal_z": 3.397647378286365e-07,
+          "dist_m": -0.40156460449237064,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "1WoaG_S6DCqBxgWX0v322s",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 033",
+            "area_m2": 2.772
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 2.772
+        }
+      },
+      {
+        "id": "W-0019",
+        "name": "Wand - 059",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 0.0,
+          "normal_y": 1.0,
+          "normal_z": 0.0,
+          "dist_m": 2.15597,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "1aL5_W_$5EZgKcX$mR9Nm7",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 059",
+            "area_m2": 5.842
+          },
+          {
+            "source_id": "1VRR5NqB58rgY315os4qUq",
+            "source_kind": "ifc_guid",
+            "type_name": "Tür - 019",
+            "role": "hosted_opening",
+            "opening_type": "door",
+            "area_m2": 2.246,
+            "host_element_group_ref": "W-0019",
+            "host_ifc_guid": "1aL5_W_$5EZgKcX$mR9Nm7"
+          },
+          {
+            "source_id": "2qz_cudlLAe8akGDDdYCy$",
+            "source_kind": "ifc_guid",
+            "type_name": "Tür - 018",
+            "role": "hosted_opening",
+            "opening_type": "door",
+            "area_m2": 2.247,
+            "host_element_group_ref": "W-0019",
+            "host_ifc_guid": "1aL5_W_$5EZgKcX$mR9Nm7"
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 5.842
+        }
+      },
+      {
+        "id": "W-0020",
+        "name": "Wand - 031",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 1.0,
+          "normal_y": 0.0,
+          "normal_z": 0.0,
+          "dist_m": 2.29843,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "1e6ZgOAfP7tPEuRkPvYmHF",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 031",
+            "area_m2": 8.476
+          },
+          {
+            "source_id": "0E7m_i5KzEi9YzrIrYvU70",
+            "source_kind": "ifc_guid",
+            "type_name": "Tür - 010",
+            "role": "hosted_opening",
+            "opening_type": "door",
+            "area_m2": 2.504,
+            "host_element_group_ref": "W-0020",
+            "host_ifc_guid": "1e6ZgOAfP7tPEuRkPvYmHF"
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 8.476
+        }
+      },
+      {
+        "id": "W-0021",
+        "name": "Wand - 046",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 9.63158895694871e-08,
+          "normal_y": 0.9999999999999953,
+          "normal_z": 0.0,
+          "dist_m": 6.640979932528566,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "1jZhvllpzAbeaqVZOdRnZZ",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 046",
+            "area_m2": 26.468
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 26.468
+        }
+      },
+      {
+        "id": "F-0002",
+        "name": "Deckenplatte - 003",
+        "element_type": "floor",
+        "fingerprint": {
+          "normal_x": 0.0,
+          "normal_y": 0.0,
+          "normal_z": 1.0,
+          "dist_m": 6.665,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "1q9TUgDqLEAxI4cag48L2D",
+            "source_kind": "ifc_guid",
+            "type_name": "Deckenplatte - 003",
+            "area_m2": 88.261
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 88.261
+        }
+      },
+      {
+        "id": "W-0023",
+        "name": "Wand - 063",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 1.0,
+          "normal_y": 0.0,
+          "normal_z": 0.0,
+          "dist_m": 6.01343,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "1t6$kVJcX3lvOwBlDYjz8d",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 063",
+            "area_m2": 1.474
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 1.474
+        }
+      },
+      {
+        "id": "W-0024",
+        "name": "Wand - 040",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 1.0,
+          "normal_y": -1.4802974648533733e-16,
+          "normal_z": 0.0,
+          "dist_m": 0.7384319999999996,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "23HDAl9t18u8Gku4SyeOu9",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 040",
+            "area_m2": 1.852
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 1.852
+        }
+      },
+      {
+        "id": "W-0025",
+        "name": "Wand - 058",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 1.0764569326060915e-07,
+          "normal_y": 0.9999999999999942,
+          "normal_z": 1.730936938204966e-24,
+          "dist_m": 3.2113802300880634,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "27Z2gsTJP7x9lj$aGe9_7M",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 058",
+            "area_m2": 5.814
+          },
+          {
+            "source_id": "3udpiHAZXAfetPZcpet2Yt",
+            "source_kind": "ifc_guid",
+            "type_name": "Tür - 017",
+            "role": "hosted_opening",
+            "opening_type": "door",
+            "area_m2": 2.254,
+            "host_element_group_ref": "W-0025",
+            "host_ifc_guid": "27Z2gsTJP7x9lj$aGe9_7M"
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 5.814
+        }
+      },
+      {
+        "id": "W-0026",
+        "name": "Wand - 008",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 0.0,
+          "normal_y": 1.0,
+          "normal_z": 0.0,
+          "dist_m": 4.200980250000001,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "28$EMEv1993wcSsTpdkwuT",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 008",
+            "area_m2": 8.296
+          },
+          {
+            "source_id": "0Dcmdu$tn27xAHg$RMpSmH",
+            "source_kind": "ifc_guid",
+            "type_name": "Tür - 002",
+            "role": "hosted_opening",
+            "opening_type": "door",
+            "area_m2": 2.32,
+            "host_element_group_ref": "W-0026",
+            "host_ifc_guid": "28$EMEv1993wcSsTpdkwuT"
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 8.296
+        }
+      },
+      {
+        "id": "F-0003",
+        "name": "Deckenplatte - 005",
+        "element_type": "floor",
+        "fingerprint": {
+          "normal_x": 0.0,
+          "normal_y": 0.0,
+          "normal_z": 1.0,
+          "dist_m": -0.325,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "2IkkTZtsn7tfRhANeYKozZ",
+            "source_kind": "ifc_guid",
+            "type_name": "Deckenplatte - 005",
+            "area_m2": 88.261
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 88.261
+        }
+      },
+      {
+        "id": "W-0027",
+        "name": "Wand - 007",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 1.383441990311686e-07,
+          "normal_y": -0.9999999999999903,
+          "normal_z": 0.0,
+          "dist_m": -3.8209803636991246,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "2NXKs2ryPAvuRYaix17gaa",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 007",
+            "area_m2": 32.766
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 32.766
+        }
+      },
+      {
+        "id": "W-0028",
+        "name": "Wand - 016",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 0.9999999999999968,
+          "normal_y": -7.906249999621039e-08,
+          "normal_z": 0.0,
+          "dist_m": -0.35656952267981445,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "2NtO5sYQn9Bf920$9$cqpH",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 016",
+            "area_m2": 15.402
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 15.402
+        }
+      },
+      {
+        "id": "W-0029",
+        "name": "Wand - 064",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 1.564409811488885e-08,
+          "normal_y": 0.9999999999999994,
+          "normal_z": -2.86685388368517e-08,
+          "dist_m": 5.77096966471492,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "2PVH6cfrfA6OWa63i3dgmv",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 064",
+            "area_m2": 6.737
+          },
+          {
+            "source_id": "278COZAoPEEAROmnUN_J36",
+            "source_kind": "ifc_guid",
+            "type_name": "Tür - 021",
+            "role": "hosted_opening",
+            "opening_type": "door",
+            "area_m2": 1.197,
+            "host_element_group_ref": "W-0029",
+            "host_ifc_guid": "2PVH6cfrfA6OWa63i3dgmv"
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 6.737
+        }
+      },
+      {
+        "id": "W-0030",
+        "name": "Wand - 052",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 0.0,
+          "normal_y": 1.0,
+          "normal_z": 0.0,
+          "dist_m": 1.003377748688329,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "2SvULV6UT1cfpb8w$Jjp5E",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 052",
+            "area_m2": 1.629
+          },
+          {
+            "source_id": "3hMPeiRZbA7fx6nwkbUtzY",
+            "source_kind": "ifc_guid",
+            "type_name": "Fenster - 026",
+            "role": "hosted_opening",
+            "opening_type": "window",
+            "area_m2": 3.725,
+            "host_element_group_ref": "W-0030",
+            "host_ifc_guid": "2SvULV6UT1cfpb8w$Jjp5E"
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 1.629
+        }
+      },
+      {
+        "id": "R-0005",
+        "name": "R-0005",
+        "element_type": "roof",
+        "fingerprint": {
+          "normal_x": 0.6156610606296867,
+          "normal_y": 4.781272991985866e-08,
+          "normal_z": -0.7880110776025468,
+          "dist_m": -10.866255820324547,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "2Xra7kRtL1Nwc8Py_FXnft",
+            "source_kind": "ifc_guid",
+            "area_m2": 41.837
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 41.837
+        }
+      },
+      {
+        "id": "W-0031",
+        "name": "Wand - 029",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 1.0,
+          "normal_y": 0.0,
+          "normal_z": 0.0,
+          "dist_m": 2.28343,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "2Z17wml2jAUgbP7fwukgj9",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 029",
+            "area_m2": 13.077
+          },
+          {
+            "source_id": "0qKn4J2SD1mBOGL9_bI$aJ",
+            "source_kind": "ifc_guid",
+            "type_name": "Tür - 008",
+            "role": "hosted_opening",
+            "opening_type": "door",
+            "area_m2": 4.437,
+            "host_element_group_ref": "W-0031",
+            "host_ifc_guid": "2Z17wml2jAUgbP7fwukgj9"
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 13.077
+        }
+      },
+      {
+        "id": "W-0032",
+        "name": "Wand - 055",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 2.1141531424260648e-16,
+          "normal_y": 1.0,
+          "normal_z": 2.6562017209894197e-16,
+          "dist_m": -8.223041379818262,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "2cN0N_EmzAZRj4tdtmAKdD",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 055",
+            "area_m2": 3.578
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 3.578
+        }
+      },
+      {
+        "id": "W-0033",
+        "name": "Wand - 004",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 0.0,
+          "normal_y": 1.0,
+          "normal_z": 0.0,
+          "dist_m": -8.21903,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "2cV3$x3dn0fAw4s71j7A3X",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 004",
+            "area_m2": 16.921
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 16.921
+        }
+      },
+      {
+        "id": "F-0004",
+        "name": "Deckenplatte - 001",
+        "element_type": "floor",
+        "fingerprint": {
+          "normal_x": -8.72473995896557e-17,
+          "normal_y": -2.015325264069252e-16,
+          "normal_z": 1.0,
+          "dist_m": 9.358986193385181,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "2coCV8o8vASgQlcchNGhZi",
+            "source_kind": "ifc_guid",
+            "type_name": "Deckenplatte - 001",
+            "area_m2": 46.617
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 46.617
+        }
+      },
+      {
+        "id": "R-0006",
+        "name": "R-0006",
+        "element_type": "roof",
+        "fingerprint": {
+          "normal_x": 5.768233319986624e-08,
+          "normal_y": 0.615661060629686,
+          "normal_z": 0.7880110776025466,
+          "dist_m": 10.306498127758521,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "2gQlLcNUH7AOSVr7c$s548",
+            "source_kind": "ifc_guid",
+            "area_m2": 60.475
+          },
+          {
+            "source_id": "2gXKeC9WLDZu5kbWvjFss3",
+            "source_kind": "ifc_guid",
+            "type_name": "Dachflächenfenster - 001",
+            "role": "hosted_opening",
+            "opening_type": "window",
+            "area_m2": 0.243,
+            "host_element_group_ref": "R-0006",
+            "host_ifc_guid": "2gQlLcNUH7AOSVr7c$s548"
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 60.475
+        }
+      },
+      {
+        "id": "W-0034",
+        "name": "Wand - 010",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 5.869759992407672e-08,
+          "normal_y": 0.9999999999999983,
+          "normal_z": -1.1591244013447752e-18,
+          "dist_m": -3.5190307044651097,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "2geoy5vLf2b9RmoJI5qH88",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 010",
+            "area_m2": 14.65
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 14.65
+        }
+      },
+      {
+        "id": "W-0035",
+        "name": "Wand - 017",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 2.4848199992370377e-08,
+          "normal_y": -0.9999999999999998,
+          "normal_z": -1.4738332874470385e-24,
+          "dist_m": 1.4490299900217083,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "2oGWTrywD2Ghw_j9nPGP33",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 017",
+            "area_m2": 37.007
+          },
+          {
+            "source_id": "13YjHJRVb4JfVKFu0fNSv_",
+            "source_kind": "ifc_guid",
+            "type_name": "Tür - 006",
+            "role": "hosted_opening",
+            "opening_type": "door",
+            "area_m2": 2.504,
+            "host_element_group_ref": "W-0035",
+            "host_ifc_guid": "2oGWTrywD2Ghw_j9nPGP33"
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 37.007
+        }
+      },
+      {
+        "id": "W-0036",
+        "name": "Wand - 041",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 0.0,
+          "normal_y": 1.0,
+          "normal_z": 0.0,
+          "dist_m": 2.13097,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "2r66UeGDTDbvjYLuzLP$3x",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 041",
+            "area_m2": 2.328
+          },
+          {
+            "source_id": "0GuHpsykLD29yTjWkBEjcH",
+            "source_kind": "ifc_guid",
+            "type_name": "Tür - 013",
+            "role": "hosted_opening",
+            "opening_type": "door",
+            "area_m2": 1.241,
+            "host_element_group_ref": "W-0036",
+            "host_ifc_guid": "2r66UeGDTDbvjYLuzLP$3x"
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 2.328
+        }
+      },
+      {
+        "id": "R-0007",
+        "name": "R-0007",
+        "element_type": "roof",
+        "fingerprint": {
+          "normal_x": 7.210314490738191e-09,
+          "normal_y": 0.6156610606296885,
+          "normal_z": -0.7880110776025466,
+          "dist_m": -7.120759427022316,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "2t92bbH0bDkfqMcNPg7$FU",
+            "source_kind": "ifc_guid",
+            "area_m2": 58.651
+          },
+          {
+            "source_id": "13vktezxXEW8JugrljACUi",
+            "source_kind": "ifc_guid",
+            "type_name": "Dachflächenfenster - 002",
+            "role": "hosted_opening",
+            "opening_type": "window",
+            "area_m2": 0.378,
+            "host_element_group_ref": "R-0007",
+            "host_ifc_guid": "2t92bbH0bDkfqMcNPg7$FU"
+          },
+          {
+            "source_id": "2dG_YYt1H1qwOChWv7dg5p",
+            "source_kind": "ifc_guid",
+            "type_name": "Dachflächenfenster - 004",
+            "role": "hosted_opening",
+            "opening_type": "window",
+            "area_m2": 0.378,
+            "host_element_group_ref": "R-0007",
+            "host_ifc_guid": "2t92bbH0bDkfqMcNPg7$FU"
+          },
+          {
+            "source_id": "3cbnhj2bn9buQlGtttSbxs",
+            "source_kind": "ifc_guid",
+            "type_name": "Dachflächenfenster - 003",
+            "role": "hosted_opening",
+            "opening_type": "window",
+            "area_m2": 0.243,
+            "host_element_group_ref": "R-0007",
+            "host_ifc_guid": "2t92bbH0bDkfqMcNPg7$FU"
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 58.651
+        }
+      },
+      {
+        "id": "W-0037",
+        "name": "Wand - 013",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 1.0,
+          "normal_y": 0.0,
+          "normal_z": 0.0,
+          "dist_m": -3.608938274736842,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "2wnM3Dwbf5LP9JRg1FZR6e",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 013",
+            "area_m2": 5.653
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 5.653
+        }
+      },
+      {
+        "id": "W-0038",
+        "name": "Wand - 001",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 0.9999999999999969,
+          "normal_y": 7.862109995890995e-08,
+          "normal_z": 0.0,
+          "dist_m": -12.151600646189141,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "2yRkuNijD6RQtOuF$hcI9k",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 001",
+            "area_m2": 46.787
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 46.787
+        }
+      },
+      {
+        "id": "W-0039",
+        "name": "Wand - 005",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 0.0,
+          "normal_y": 1.0,
+          "normal_z": 0.0,
+          "dist_m": 6.78098,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "30$KnQkg9EwwZoddPznSAX",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 005",
+            "area_m2": 13.678
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 13.678
+        }
+      },
+      {
+        "id": "W-0040",
+        "name": "Wand - 048",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 2.4091106262669193e-08,
+          "normal_y": -0.9999999999999997,
+          "normal_z": 0.0,
+          "dist_m": 1.449030228806332,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "31$HAokwb0r8ameHcTWdXz",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 048",
+            "area_m2": 26.468
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 26.468
+        }
+      },
+      {
+        "id": "W-0041",
+        "name": "Wand - 014",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 1.5418028278881273e-07,
+          "normal_y": -0.9999999999999881,
+          "normal_z": 1.2613015827501696e-08,
+          "dist_m": -3.8066099933623936,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "33lLEQMQr31wfJdx29i3NY",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 014",
+            "area_m2": 13.051
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 13.051
+        }
+      },
+      {
+        "id": "W-0042",
+        "name": "Wand - 053",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 1.0,
+          "normal_y": 0.0,
+          "normal_z": 0.0,
+          "dist_m": -3.69657,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "3798v5z7bAWBZV9zLPj3bT",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 053",
+            "area_m2": 3.62
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 3.62
+        }
+      },
+      {
+        "id": "W-0043",
+        "name": "Wand - 051",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 0.9999999999999996,
+          "normal_y": 2.4848199943958923e-08,
+          "normal_z": 1.4760374504374287e-24,
+          "dist_m": 5.81343015781017,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "37BtwKrX16gRqpNRRipu2S",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 051",
+            "area_m2": 17.933
+          },
+          {
+            "source_id": "39m2I2aKb4Rvyh5lB7H0hO",
+            "source_kind": "ifc_guid",
+            "type_name": "Tür - 016",
+            "role": "hosted_opening",
+            "opening_type": "door",
+            "area_m2": 2.189,
+            "host_element_group_ref": "W-0043",
+            "host_ifc_guid": "37BtwKrX16gRqpNRRipu2S"
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 17.933
+        }
+      },
+      {
+        "id": "W-0044",
+        "name": "Wand - 021",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 1.0,
+          "normal_y": 0.0,
+          "normal_z": 0.0,
+          "dist_m": 9.15343,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "3M2s$eS9z13gJhuHSFH$ea",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 021",
+            "area_m2": 27.571
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 27.571
+        }
+      },
+      {
+        "id": "W-0045",
+        "name": "Wand - 006",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 1.0,
+          "normal_y": 0.0,
+          "normal_z": 0.0,
+          "dist_m": -3.61156985,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "3O$PfgfwzEP8h5$v9crjfb",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 006",
+            "area_m2": 11.506
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 11.506
+        }
+      },
+      {
+        "id": "W-0046",
+        "name": "Wand - 056",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": -5.188581302924767e-17,
+          "normal_y": 1.0,
+          "normal_z": 6.516583106918867e-17,
+          "dist_m": -3.581529999999999,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "3OaHSV$cj1DxRRyOfh20Fo",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 056",
+            "area_m2": 3.578
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 3.578
+        }
+      },
+      {
+        "id": "W-0047",
+        "name": "Wand - 015",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 0.6156616815905609,
+          "normal_y": 4.781267527622327e-08,
+          "normal_z": -0.7880105924548735,
+          "dist_m": -10.798047784093205,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "3QrmdfX2v6qex6Pv9hqMU_",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 015",
+            "area_m2": 0.372
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 0.372
+        }
+      },
+      {
+        "id": "W-0048",
+        "name": "Wand - 009",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 1.0,
+          "normal_y": 0.0,
+          "normal_z": 0.0,
+          "dist_m": -7.30157005,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "3SytrCiEHElhnmUiF5_yEn",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 009",
+            "area_m2": 9.458
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 9.458
+        }
+      },
+      {
+        "id": "R-0009",
+        "name": "R-0009",
+        "element_type": "roof",
+        "fingerprint": {
+          "normal_x": 1.9506309527478078e-07,
+          "normal_y": 0.6156610606296576,
+          "normal_z": 0.7880110776025467,
+          "dist_m": 7.799863090047447,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "3UT780niL3yvqbfjW30PB5",
+            "source_kind": "ifc_guid",
+            "area_m2": 8.445
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 8.445
+        }
+      },
+      {
+        "id": "W-0049",
+        "name": "Wand - 026",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 1.2417600004977044e-08,
+          "normal_y": 1.0,
+          "normal_z": 0.0,
+          "dist_m": -1.5090300049865109,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "3VSFD8XOPFvw27KcmmzoxH",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 026",
+            "area_m2": 10.562
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 10.562
+        }
+      },
+      {
+        "id": "W-0050",
+        "name": "Wand - 022",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 1.2208700000923057e-07,
+          "normal_y": 0.9999999999999926,
+          "normal_z": -4.4804149710768704e-24,
+          "dist_m": -1.4190288824851809,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "3Ye3F$ByHAoByMf6WGNISg",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 022",
+            "area_m2": 16.573
+          },
+          {
+            "source_id": "1szGBtpnH77QKBgN2vD3pq",
+            "source_kind": "ifc_guid",
+            "type_name": "Fenster - 017",
+            "role": "hosted_opening",
+            "opening_type": "window",
+            "area_m2": 2.208,
+            "host_element_group_ref": "W-0050",
+            "host_ifc_guid": "3Ye3F$ByHAoByMf6WGNISg"
+          },
+          {
+            "source_id": "2aufYNukz8nhz4cvVcEUvF",
+            "source_kind": "ifc_guid",
+            "type_name": "Fenster - 016",
+            "role": "hosted_opening",
+            "opening_type": "window",
+            "area_m2": 2.228,
+            "host_element_group_ref": "W-0050",
+            "host_ifc_guid": "3Ye3F$ByHAoByMf6WGNISg"
+          },
+          {
+            "source_id": "3SFDBtBDv0FuLdEfoZ98vg",
+            "source_kind": "ifc_guid",
+            "type_name": "Fenster - 018",
+            "role": "hosted_opening",
+            "opening_type": "window",
+            "area_m2": 2.189,
+            "host_element_group_ref": "W-0050",
+            "host_ifc_guid": "3Ye3F$ByHAoByMf6WGNISg"
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 16.573
+        }
+      },
+      {
+        "id": "W-0051",
+        "name": "Wand - 062",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 0.0011939403429631272,
+          "normal_y": -0.9999992872529746,
+          "normal_z": 0.0,
+          "dist_m": -2.7453320091757485,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "3atTqS4Qn1RfrnB9kaHmK8",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 062",
+            "area_m2": 7.335
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 7.335
+        }
+      },
+      {
+        "id": "W-0052",
+        "name": "Wand - 037",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 1.0,
+          "normal_y": 0.0,
+          "normal_z": 0.0,
+          "dist_m": 4.53343025,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "3c7NUfK_PErP9Yq8gCi2ki",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 037",
+            "area_m2": 10.53
+          },
+          {
+            "source_id": "3QT7iQggLBHRTPE5IgZEUZ",
+            "source_kind": "ifc_guid",
+            "type_name": "Tür - 011",
+            "role": "hosted_opening",
+            "opening_type": "door",
+            "area_m2": 1.107,
+            "host_element_group_ref": "W-0052",
+            "host_ifc_guid": "3c7NUfK_PErP9Yq8gCi2ki"
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 10.53
+        }
+      },
+      {
+        "id": "W-0053",
+        "name": "Wand - 038",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 1.0,
+          "normal_y": 0.0,
+          "normal_z": 0.0,
+          "dist_m": 6.37343,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "3ebpN26sD4TfNHDlCkt1MV",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 038",
+            "area_m2": 8.476
+          },
+          {
+            "source_id": "1TlhLDn2H8s8TelYk$z480",
+            "source_kind": "ifc_guid",
+            "type_name": "Tür - 012",
+            "role": "hosted_opening",
+            "opening_type": "door",
+            "area_m2": 2.132,
+            "host_element_group_ref": "W-0053",
+            "host_ifc_guid": "3ebpN26sD4TfNHDlCkt1MV"
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 8.476
+        }
+      },
+      {
+        "id": "W-0054",
+        "name": "Wand - 024",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 9.93411000211608e-08,
+          "normal_y": 0.999999999999995,
+          "normal_z": 0.0,
+          "dist_m": 6.700970913782121,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "3f0UHXoaPEvvL6kMdmDwGR",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 024",
+            "area_m2": 10.439
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 10.439
+        }
+      },
+      {
+        "id": "R-0011",
+        "name": "R-0011",
+        "element_type": "roof",
+        "fingerprint": {
+          "normal_x": 3.870451349425143e-09,
+          "normal_y": -0.5000001748438415,
+          "normal_z": 0.8660253028382762,
+          "dist_m": 2.6352111067250448,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "3hkWkegFrEvvR1phE1a3mN",
+            "source_kind": "ifc_guid",
+            "area_m2": 25.745
+          },
+          {
+            "source_id": "05lhz5XAjBY9q8FfzYdU_V",
+            "source_kind": "ifc_guid",
+            "type_name": "Dachflächenfenster - 006",
+            "role": "hosted_opening",
+            "opening_type": "window",
+            "area_m2": 0.135,
+            "host_element_group_ref": "R-0011",
+            "host_ifc_guid": "3hkWkegFrEvvR1phE1a3mN"
+          },
+          {
+            "source_id": "33cXqy7AvEf8dJ_Nchu9cI",
+            "source_kind": "ifc_guid",
+            "type_name": "Dachflächenfenster - 005",
+            "role": "hosted_opening",
+            "opening_type": "window",
+            "area_m2": 0.135,
+            "host_element_group_ref": "R-0011",
+            "host_ifc_guid": "3hkWkegFrEvvR1phE1a3mN"
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 25.745
+        }
+      },
+      {
+        "id": "W-0055",
+        "name": "Wand - 045",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 0.9999999999999979,
+          "normal_y": 6.076566344864179e-08,
+          "normal_z": 2.4485944770697693e-08,
+          "dist_m": 2.1404205553223594,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "3hlPEkFx53u9feHd$4zS_R",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 045",
+            "area_m2": 9.863
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 9.863
+        }
+      },
+      {
+        "id": "W-0056",
+        "name": "Wand - 061",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 1.0,
+          "normal_y": 0.0,
+          "normal_z": 1.2681804597825765e-23,
+          "dist_m": 6.0134301,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "3jOvsvJ_b3MActqxm_4_Hx",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 061",
+            "area_m2": 2.458
+          },
+          {
+            "source_id": "0wHLhbT1b8TgiFALh62Y1S",
+            "source_kind": "ifc_guid",
+            "type_name": "Tür - 020",
+            "role": "hosted_opening",
+            "opening_type": "door",
+            "area_m2": 2.26,
+            "host_element_group_ref": "W-0056",
+            "host_ifc_guid": "3jOvsvJ_b3MActqxm_4_Hx"
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 2.458
+        }
+      },
+      {
+        "id": "W-0057",
+        "name": "Wand - 047",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 0.9999999999999936,
+          "normal_y": 1.1365727697002191e-07,
+          "normal_z": 0.0,
+          "dist_m": 9.198430788980575,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "3jjn$vDvbFIujhShBsQOrA",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 047",
+            "area_m2": 22.542
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 22.542
+        }
+      },
+      {
+        "id": "W-0058",
+        "name": "Wand - 032",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 9.431119953132364e-09,
+          "normal_y": -1.0,
+          "normal_z": -1.547630239076015e-16,
+          "dist_m": -0.9971289599444326,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "3o9gambET8TP1cuXUq_7vz",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 032",
+            "area_m2": 4.669
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 4.669
+        }
+      },
+      {
+        "id": "W-0060",
+        "name": "Wand - 044",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 1.0,
+          "normal_y": 0.0,
+          "normal_z": 0.0,
+          "dist_m": -7.23907,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "3qkdw554L92fQnLgXK9mTs",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 044",
+            "area_m2": 1.981
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 1.981
+        }
+      },
+      {
+        "id": "W-0061",
+        "name": "Wand - 018",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 0.9999999999999931,
+          "normal_y": 1.178829999456911e-07,
+          "normal_z": -1.158408444976652e-23,
+          "dist_m": 9.198429829183931,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "3rP8Nn8sD6guuaLffCgoTk",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 018",
+            "area_m2": 24.774
+          },
+          {
+            "source_id": "0s5MAlH3v6H8QkC23SJ8hD",
+            "source_kind": "ifc_guid",
+            "type_name": "Fenster - 005",
+            "role": "hosted_opening",
+            "opening_type": "window",
+            "area_m2": 2.2,
+            "host_element_group_ref": "W-0061",
+            "host_ifc_guid": "3rP8Nn8sD6guuaLffCgoTk"
+          },
+          {
+            "source_id": "2$oKpDdo9FcfTCCx$6RPFV",
+            "source_kind": "ifc_guid",
+            "type_name": "Fenster - 006",
+            "role": "hosted_opening",
+            "opening_type": "window",
+            "area_m2": 2.2,
+            "host_element_group_ref": "W-0061",
+            "host_ifc_guid": "3rP8Nn8sD6guuaLffCgoTk"
+          },
+          {
+            "source_id": "2iqn0Ec1bDv8IXkTpCbMZS",
+            "source_kind": "ifc_guid",
+            "type_name": "Fenster - 004",
+            "role": "hosted_opening",
+            "opening_type": "window",
+            "area_m2": 2.2,
+            "host_element_group_ref": "W-0061",
+            "host_ifc_guid": "3rP8Nn8sD6guuaLffCgoTk"
+          },
+          {
+            "source_id": "3WYJLV8cz5X9LoAc8lvE8c",
+            "source_kind": "ifc_guid",
+            "type_name": "Fenster - 007",
+            "role": "hosted_opening",
+            "opening_type": "window",
+            "area_m2": 2.2,
+            "host_element_group_ref": "W-0061",
+            "host_ifc_guid": "3rP8Nn8sD6guuaLffCgoTk"
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 24.774
+        }
+      },
+      {
+        "id": "W-0062",
+        "name": "Wand - 039",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 2.0642300009762115e-07,
+          "normal_y": -0.9999999999999787,
+          "normal_z": 0.0,
+          "dist_m": -2.880970085989568,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "3tdYZkQLrCROnSawqRGdsC",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 039",
+            "area_m2": 2.976
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 2.976
+        }
+      },
+      {
+        "id": "W-0063",
+        "name": "Wand - 012",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 0.0,
+          "normal_y": 1.0,
+          "normal_z": 0.0,
+          "dist_m": 6.78098,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "3vBEym92b0FuzPvBkt_o1a",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 012",
+            "area_m2": 2.919
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 2.919
+        }
+      },
+      {
+        "id": "W-0064",
+        "name": "Wand - 057",
+        "element_type": "wall",
+        "fingerprint": {
+          "normal_x": 0.999999999999996,
+          "normal_y": -8.854356036607038e-08,
+          "normal_z": 0.0,
+          "dist_m": 2.0534297090122062,
+          "coordinate_system": "project",
+          "tolerance": {
+            "angle_tolerance_deg": 1.0,
+            "dist_tolerance_m": 0.02
+          }
+        },
+        "member_elements": [
+          {
+            "source_id": "3yQCNMbCr0p9R$5uURf2lB",
+            "source_kind": "ifc_guid",
+            "type_name": "Wand - 057",
+            "area_m2": 11.063
+          }
+        ],
+        "aggregates": {
+          "member_count": 1,
+          "boundary_count": 0,
+          "area_total_m2": 11.063
+        }
+      }
+    ],
+    "constructions": [
+      {
+        "id": "CON-001",
+        "name": "Wand - 049",
+        "source": "IFC",
+        "origin_ref": "Wand - 049",
+        "total_thickness_m": 0.58,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Tragende Schicht",
+                "thickness_m": 0.58
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-002",
+        "name": "Wand - 002",
+        "source": "IFC",
+        "origin_ref": "Wand - 002",
+        "total_thickness_m": 0.34,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Tragende Schicht",
+                "thickness_m": 0.34
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-003",
+        "name": "Wand - 060",
+        "source": "IFC",
+        "origin_ref": "Wand - 060",
+        "total_thickness_m": 0.15,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Gipskarton",
+                "thickness_m": 0.015
+              },
+              {
+                "position": 2,
+                "material": "Dämmung",
+                "thickness_m": 0.12
+              },
+              {
+                "position": 3,
+                "material": "Gipskarton",
+                "thickness_m": 0.015
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-004",
+        "name": "Wand - 011",
+        "source": "IFC",
+        "origin_ref": "Wand - 011",
+        "total_thickness_m": 0.2,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Tragende Schicht",
+                "thickness_m": 0.2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-005",
+        "name": "Wand - 050",
+        "source": "IFC",
+        "origin_ref": "Wand - 050",
+        "total_thickness_m": 0.24,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Beton",
+                "thickness_m": 0.24
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-006",
+        "name": "Wand - 003",
+        "source": "IFC",
+        "origin_ref": "Wand - 003",
+        "total_thickness_m": 0.58,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Tragende Schicht",
+                "thickness_m": 0.58
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-007",
+        "name": "Wand - 023",
+        "source": "IFC",
+        "origin_ref": "Wand - 023",
+        "total_thickness_m": 0.56,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Tragende Schicht",
+                "thickness_m": 0.56
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-008",
+        "name": "Wand - 028",
+        "source": "IFC",
+        "origin_ref": "Wand - 028",
+        "total_thickness_m": 0.15,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Tragende Schicht",
+                "thickness_m": 0.15
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-009",
+        "name": "Wand - 035",
+        "source": "IFC",
+        "origin_ref": "Wand - 035",
+        "total_thickness_m": 0.57,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Tragende Schicht",
+                "thickness_m": 0.57
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-010",
+        "name": "Wand - 019",
+        "source": "IFC",
+        "origin_ref": "Wand - 019",
+        "total_thickness_m": 0.58,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Tragende Schicht",
+                "thickness_m": 0.58
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-011",
+        "name": "Wand - 027",
+        "source": "IFC",
+        "origin_ref": "Wand - 027",
+        "total_thickness_m": 0.58,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Tragende Schicht",
+                "thickness_m": 0.58
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-012",
+        "name": "Wand - 020",
+        "source": "IFC",
+        "origin_ref": "Wand - 020",
+        "total_thickness_m": 0.64,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Tragende Schicht",
+                "thickness_m": 0.64
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-013",
+        "name": "Wand - 043",
+        "source": "IFC",
+        "origin_ref": "Wand - 043",
+        "total_thickness_m": 0.58,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Tragende Schicht",
+                "thickness_m": 0.58
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-014",
+        "name": "Wand - 042",
+        "source": "IFC",
+        "origin_ref": "Wand - 042",
+        "total_thickness_m": 0.115,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Tragende Schicht",
+                "thickness_m": 0.115
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-015",
+        "name": "Wand - 025",
+        "source": "IFC",
+        "origin_ref": "Wand - 025",
+        "total_thickness_m": 0.58,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Tragende Schicht",
+                "thickness_m": 0.58
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-016",
+        "name": "Wand - 030",
+        "source": "IFC",
+        "origin_ref": "Wand - 030",
+        "total_thickness_m": 0.15,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Tragende Schicht",
+                "thickness_m": 0.15
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-017",
+        "name": "Wand - 034",
+        "source": "IFC",
+        "origin_ref": "Wand - 034",
+        "total_thickness_m": 0.58,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Tragende Schicht",
+                "thickness_m": 0.58
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-018",
+        "name": "Wand - 033",
+        "source": "IFC",
+        "origin_ref": "Wand - 033",
+        "total_thickness_m": 0.58,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Tragende Schicht",
+                "thickness_m": 0.58
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-019",
+        "name": "Wand - 059",
+        "source": "IFC",
+        "origin_ref": "Wand - 059",
+        "total_thickness_m": 0.15,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Gipskarton",
+                "thickness_m": 0.015
+              },
+              {
+                "position": 2,
+                "material": "Dämmung",
+                "thickness_m": 0.12
+              },
+              {
+                "position": 3,
+                "material": "Gipskarton",
+                "thickness_m": 0.015
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-020",
+        "name": "Wand - 031",
+        "source": "IFC",
+        "origin_ref": "Wand - 031",
+        "total_thickness_m": 0.58,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Tragende Schicht",
+                "thickness_m": 0.58
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-021",
+        "name": "Wand - 046",
+        "source": "IFC",
+        "origin_ref": "Wand - 046",
+        "total_thickness_m": 0.58,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Tragende Schicht",
+                "thickness_m": 0.58
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-022",
+        "name": "Wand - 054",
+        "source": "IFC",
+        "origin_ref": "Wand - 054",
+        "total_thickness_m": 0.18,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Tragende Schicht",
+                "thickness_m": 0.18
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-023",
+        "name": "Wand - 063",
+        "source": "IFC",
+        "origin_ref": "Wand - 063",
+        "total_thickness_m": 0.15,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Gipskarton",
+                "thickness_m": 0.015
+              },
+              {
+                "position": 2,
+                "material": "Dämmung",
+                "thickness_m": 0.12
+              },
+              {
+                "position": 3,
+                "material": "Gipskarton",
+                "thickness_m": 0.015
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-024",
+        "name": "Wand - 040",
+        "source": "IFC",
+        "origin_ref": "Wand - 040",
+        "total_thickness_m": 0.24,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Beton",
+                "thickness_m": 0.24
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-025",
+        "name": "Wand - 058",
+        "source": "IFC",
+        "origin_ref": "Wand - 058",
+        "total_thickness_m": 0.15,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Gipskarton",
+                "thickness_m": 0.015
+              },
+              {
+                "position": 2,
+                "material": "Dämmung",
+                "thickness_m": 0.12
+              },
+              {
+                "position": 3,
+                "material": "Gipskarton",
+                "thickness_m": 0.015
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-026",
+        "name": "Wand - 008",
+        "source": "IFC",
+        "origin_ref": "Wand - 008",
+        "total_thickness_m": 0.18,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Tragende Schicht",
+                "thickness_m": 0.18
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-027",
+        "name": "Wand - 007",
+        "source": "IFC",
+        "origin_ref": "Wand - 007",
+        "total_thickness_m": 0.24,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Beton",
+                "thickness_m": 0.24
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-028",
+        "name": "Wand - 016",
+        "source": "IFC",
+        "origin_ref": "Wand - 016",
+        "total_thickness_m": 0.67,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Tragende Schicht",
+                "thickness_m": 0.67
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-029",
+        "name": "Wand - 064",
+        "source": "IFC",
+        "origin_ref": "Wand - 064",
+        "total_thickness_m": 0.1,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Gipskarton",
+                "thickness_m": 0.015
+              },
+              {
+                "position": 2,
+                "material": "Dämmung",
+                "thickness_m": 0.07
+              },
+              {
+                "position": 3,
+                "material": "Gipskarton",
+                "thickness_m": 0.015
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-030",
+        "name": "Wand - 052",
+        "source": "IFC",
+        "origin_ref": "Wand - 052",
+        "total_thickness_m": 0.15,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Tragende Schicht",
+                "thickness_m": 0.15
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-031",
+        "name": "Wand - 029",
+        "source": "IFC",
+        "origin_ref": "Wand - 029",
+        "total_thickness_m": 0.61,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Tragende Schicht",
+                "thickness_m": 0.61
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-032",
+        "name": "Wand - 055",
+        "source": "IFC",
+        "origin_ref": "Wand - 055",
+        "total_thickness_m": 0.24,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Beton",
+                "thickness_m": 0.24
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-033",
+        "name": "Wand - 004",
+        "source": "IFC",
+        "origin_ref": "Wand - 004",
+        "total_thickness_m": 0.3,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Tragende Schicht",
+                "thickness_m": 0.3
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-034",
+        "name": "Wand - 010",
+        "source": "IFC",
+        "origin_ref": "Wand - 010",
+        "total_thickness_m": 0.3,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Tragende Schicht",
+                "thickness_m": 0.3
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-035",
+        "name": "Wand - 017",
+        "source": "IFC",
+        "origin_ref": "Wand - 017",
+        "total_thickness_m": 0.58,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Tragende Schicht",
+                "thickness_m": 0.58
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-036",
+        "name": "Wand - 041",
+        "source": "IFC",
+        "origin_ref": "Wand - 041",
+        "total_thickness_m": 0.24,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Beton",
+                "thickness_m": 0.24
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-037",
+        "name": "Wand - 013",
+        "source": "IFC",
+        "origin_ref": "Wand - 013",
+        "total_thickness_m": 0.18,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Tragende Schicht",
+                "thickness_m": 0.18
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-038",
+        "name": "Wand - 001",
+        "source": "IFC",
+        "origin_ref": "Wand - 001",
+        "total_thickness_m": 0.3,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Tragende Schicht",
+                "thickness_m": 0.3
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-039",
+        "name": "Wand - 005",
+        "source": "IFC",
+        "origin_ref": "Wand - 005",
+        "total_thickness_m": 0.3,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Tragende Schicht",
+                "thickness_m": 0.3
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-040",
+        "name": "Wand - 048",
+        "source": "IFC",
+        "origin_ref": "Wand - 048",
+        "total_thickness_m": 0.58,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Tragende Schicht",
+                "thickness_m": 0.58
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-041",
+        "name": "Wand - 014",
+        "source": "IFC",
+        "origin_ref": "Wand - 014",
+        "total_thickness_m": 0.18,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Tragende Schicht",
+                "thickness_m": 0.18
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-042",
+        "name": "Wand - 053",
+        "source": "IFC",
+        "origin_ref": "Wand - 053",
+        "total_thickness_m": 0.15,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Tragende Schicht",
+                "thickness_m": 0.15
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-043",
+        "name": "Wand - 051",
+        "source": "IFC",
+        "origin_ref": "Wand - 051",
+        "total_thickness_m": 0.58,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Tragende Schicht",
+                "thickness_m": 0.58
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-044",
+        "name": "Wand - 021",
+        "source": "IFC",
+        "origin_ref": "Wand - 021",
+        "total_thickness_m": 0.67,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Tragende Schicht",
+                "thickness_m": 0.67
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-045",
+        "name": "Wand - 006",
+        "source": "IFC",
+        "origin_ref": "Wand - 006",
+        "total_thickness_m": 0.18,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Tragende Schicht",
+                "thickness_m": 0.18
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-046",
+        "name": "Wand - 056",
+        "source": "IFC",
+        "origin_ref": "Wand - 056",
+        "total_thickness_m": 0.24,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Beton",
+                "thickness_m": 0.24
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-047",
+        "name": "Wand - 015",
+        "source": "IFC",
+        "origin_ref": "Wand - 015",
+        "total_thickness_m": 0.3,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Tragende Schicht",
+                "thickness_m": 0.3
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-048",
+        "name": "Wand - 009",
+        "source": "IFC",
+        "origin_ref": "Wand - 009",
+        "total_thickness_m": 0.2,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Tragende Schicht",
+                "thickness_m": 0.2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-049",
+        "name": "Wand - 026",
+        "source": "IFC",
+        "origin_ref": "Wand - 026",
+        "total_thickness_m": 0.46,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Tragende Schicht",
+                "thickness_m": 0.46
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-050",
+        "name": "Wand - 022",
+        "source": "IFC",
+        "origin_ref": "Wand - 022",
+        "total_thickness_m": 0.24,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Beton",
+                "thickness_m": 0.24
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-051",
+        "name": "Wand - 062",
+        "source": "IFC",
+        "origin_ref": "Wand - 062",
+        "total_thickness_m": 0.15,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Gipskarton",
+                "thickness_m": 0.015
+              },
+              {
+                "position": 2,
+                "material": "Dämmung",
+                "thickness_m": 0.12
+              },
+              {
+                "position": 3,
+                "material": "Gipskarton",
+                "thickness_m": 0.015
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-052",
+        "name": "Wand - 037",
+        "source": "IFC",
+        "origin_ref": "Wand - 037",
+        "total_thickness_m": 0.15,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Tragende Schicht",
+                "thickness_m": 0.15
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-053",
+        "name": "Wand - 038",
+        "source": "IFC",
+        "origin_ref": "Wand - 038",
+        "total_thickness_m": 0.15,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Tragende Schicht",
+                "thickness_m": 0.15
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-054",
+        "name": "Wand - 024",
+        "source": "IFC",
+        "origin_ref": "Wand - 024",
+        "total_thickness_m": 0.46,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Tragende Schicht",
+                "thickness_m": 0.46
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-055",
+        "name": "Wand - 045",
+        "source": "IFC",
+        "origin_ref": "Wand - 045",
+        "total_thickness_m": 0.115,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Tragende Schicht",
+                "thickness_m": 0.115
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-056",
+        "name": "Wand - 061",
+        "source": "IFC",
+        "origin_ref": "Wand - 061",
+        "total_thickness_m": 0.15,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Gipskarton",
+                "thickness_m": 0.015
+              },
+              {
+                "position": 2,
+                "material": "Dämmung",
+                "thickness_m": 0.12
+              },
+              {
+                "position": 3,
+                "material": "Gipskarton",
+                "thickness_m": 0.015
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-057",
+        "name": "Wand - 047",
+        "source": "IFC",
+        "origin_ref": "Wand - 047",
+        "total_thickness_m": 0.58,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Tragende Schicht",
+                "thickness_m": 0.58
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-058",
+        "name": "Wand - 032",
+        "source": "IFC",
+        "origin_ref": "Wand - 032",
+        "total_thickness_m": 0.24,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Beton",
+                "thickness_m": 0.24
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-059",
+        "name": "Wand - 036",
+        "source": "IFC",
+        "origin_ref": "Wand - 036",
+        "total_thickness_m": 0.58,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Tragende Schicht",
+                "thickness_m": 0.58
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-060",
+        "name": "Wand - 044",
+        "source": "IFC",
+        "origin_ref": "Wand - 044",
+        "total_thickness_m": 0.175,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Tragende Schicht",
+                "thickness_m": 0.175
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-061",
+        "name": "Wand - 018",
+        "source": "IFC",
+        "origin_ref": "Wand - 018",
+        "total_thickness_m": 0.24,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Beton",
+                "thickness_m": 0.24
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-062",
+        "name": "Wand - 039",
+        "source": "IFC",
+        "origin_ref": "Wand - 039",
+        "total_thickness_m": 0.24,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Beton",
+                "thickness_m": 0.24
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-063",
+        "name": "Wand - 012",
+        "source": "IFC",
+        "origin_ref": "Wand - 012",
+        "total_thickness_m": 0.3,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Tragende Schicht",
+                "thickness_m": 0.3
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CON-064",
+        "name": "Wand - 057",
+        "source": "IFC",
+        "origin_ref": "Wand - 057",
+        "total_thickness_m": 0.15,
+        "sequences": [
+          {
+            "layers": [
+              {
+                "position": 1,
+                "material": "Gipskarton",
+                "thickness_m": 0.015
+              },
+              {
+                "position": 2,
+                "material": "Dämmung",
+                "thickness_m": 0.12
+              },
+              {
+                "position": 3,
+                "material": "Gipskarton",
+                "thickness_m": 0.015
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "climate": {
+      "latitude": 51.266389,
+      "longitude": 8.883056
+    }
+  }
+}

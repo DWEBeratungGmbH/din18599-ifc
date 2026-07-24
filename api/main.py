@@ -11,6 +11,7 @@ from jsonschema import validate, ValidationError
 # Neue Imports für Sidecar Generator v2
 from parsers.evebi_parser import parse_evea, evebi_data_to_dict
 from parsers.ifc_parser import parse_ifc, ifc_geometry_to_dict
+from parsers.ifc_v4_parser import parse_ifc_to_sidecar_v4
 from generators.sidecar_generator import SidecarGenerator
 
 # QNG EVEBI Parser-Modul (Phase 3.9 Welle 3)
@@ -140,6 +141,41 @@ async def parse_ifc_file(ifc_file: UploadFile = File(...)):
                 "doors": len(ifc_geometry.doors),
                 "total_elements": len(ifc_geometry.all_elements)
             }
+        except Exception as e:
+            raise HTTPException(status_code=500, detail=f"Fehler beim Parsen: {str(e)}")
+
+
+@app.post("/parse-ifc-v4")
+async def parse_ifc_v4_endpoint(ifc_file: UploadFile = File(...)):
+    """
+    Erzeugt aus einer NACKTEN IFC-Datei (ohne mitgelieferten Sidecar) ein
+    strukturell gueltiges v4.0-Sidecar auf Level ``draft`` — Eingangs-Kanal 2
+    "IFC-Upload" der Gebaeudeakte.
+
+    Nimmt bewusst NUR ``ifc_file`` (kein ``evebi_file`` wie /generate-sidecar):
+    das ist der IFC-only-Bootstrap, den der Alt-Endpunkt nicht bedienen konnte.
+    Der Berater zieht das zurueckgelieferte Skelett danach mensch-gefuehrt hoch.
+
+    Vertrag: ``docs/v4/SPEC-ifc-skelett-parser-v4.md`` §9.1 (rein geometrisch,
+    ADR-033). Erwartete Validator-Warnungen auf ``draft``: BOUNDARIES_EMPTY und
+    HEATING_STATUS_UNCONFIRMED — beide blockieren erst ``geometry_ok``.
+    """
+    if not ifc_file.filename.endswith('.ifc'):
+        raise HTTPException(status_code=400, detail="IFC-Datei muss .ifc Extension haben")
+
+    with tempfile.TemporaryDirectory() as temp_dir:
+        temp_path = Path(temp_dir)
+        ifc_path = temp_path / ifc_file.filename
+
+        with open(ifc_path, 'wb') as f:
+            shutil.copyfileobj(ifc_file.file, f)
+
+        try:
+            sidecar = parse_ifc_to_sidecar_v4(
+                str(ifc_path),
+                ifc_file_ref=ifc_file.filename,
+            )
+            return JSONResponse(content=sidecar)
         except Exception as e:
             raise HTTPException(status_code=500, detail=f"Fehler beim Parsen: {str(e)}")
 
