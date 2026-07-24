@@ -286,6 +286,27 @@ Nicht geraten — das Schema lässt diese Punkte offen bzw. der Auftrag widerspr
 
 ---
 
+## 9.1 Master-Review — Gelockte Entscheidungen (2026-07-24, Sebi)
+
+Die 10 OFFEN-Punkte aus §9 sind entschieden. Diese Sektion ist ab jetzt bindend für die Umsetzung.
+
+| # | Entscheidung | Begründung |
+|---|---|---|
+| OFFEN-1 | **RESOLVED** — ADR-033 existiert (`weclapp-manager` `docs/00-meta/DECISIONS/ADR-033-anreicherungsregel-quelle.md`, auf `main`). Der „fehlt"-Befund war ein Sicht-Artefakt (Repo stand auf fremdem Branch). | — |
+| OFFEN-2 | **RESOLVED** — Kein Level `grouped`. Die tolerante Gruppierung passiert im Übergang `draft → enriched` in der geteilten Core-Engine; der Parser bleibt auf `draft` mit 1:1-Gruppen. | Schema-Enum hat nur `draft/enriched/geometry_ok/balanced/calc_ready`. |
+| OFFEN-3 | **RESOLVED** — Per-Feld-Herkunft DB-seitig (`building_versions_v2`-Audit in DWEapp). Der Sidecar trägt nur `meta.source.origin` gebäudeweit. | Schema sieht keine Per-Feld-Provenienz vor; Sidecar bleibt schlank. |
+| **OFFEN-4** | **LOCKED: Variante B jetzt / C später.** Der Parser setzt `room.heating_status` auf den Platzhalter `heated` + eine laute Validator-Warnung `HEATING_STATUS_UNCONFIRMED` (blockiert `geometry_ok`). Kein Schema-Eingriff jetzt. | B entsperrt den Parser ohne Schema-Minor. Der Platzhalter ist ungefährlich, **weil** ein `draft` mit `HEATING_STATUS_UNCONFIRMED` nicht auf `geometry_ok` klettern darf — der Assistent muss bestätigen, bevor gerechnet wird. C (Schema-Feld optional, abwärtskompatibel) fällt in den ohnehin fälligen DWEapp-v3.0→v4.0-Typ-Cutover. |
+| OFFEN-5 | **LOCKED** — `building.type`: der Stammdaten-Wizard (Kanal 1) ist Quelle, der Parser **merged** nur und überschreibt `type` nicht. | Wizard läuft vor dem IFC-Upload; `type` ist nicht geometrisch. |
+| OFFEN-6 | **LOCKED** — Output = nacktes Sidecar-JSON (in `buildings_v2.sidecar`). Der `.dwe`-Container ist die Revit-Export-Form, nicht die des IFC-Bootstrap. | — |
+| OFFEN-7 | **LOCKED** — Slab: nur `IfcSlab.PredefinedType`-Direktabbildung im Parser; Rest `floor`/`other`; `floor/ceiling/slab_ground/slab_basement`-Feinklassifikation im Assistenten. | Feinklassifikation ist Anreicherung. |
+| OFFEN-8 | **LOCKED** — Openings ohne Boundaries: akzeptiert (Fenster/Türen kommen mit den Boundaries im Assistenten). Parent-Child-Relation (`IfcWindow`→Wand) im Parser mitführen (z.B. in `member_elements`-Metadaten), damit der Assistent sie zuordnen kann. | Kein Boundary auf `draft` → kein Ort für Openings. |
+| OFFEN-9 | **RESOLVED** — Referenz-IFCs liegen im Repo: primär `sources/IFC_EVBI/DIN18599TestIFCv4.ifc`. **Golden-Vergleich:** `/opt/dwe-revit/tests/fixtures/model.ifc` ist die IFC von **Beispiel1** — dafür existiert der Revit-authored v4.0-Sidecar; der Parser-Output muss geometrisch (Element-Zahlen, Flächen ±Toleranz) dazu passen. | Konvergenz-Nachweis IFC-Weg ↔ Revit-Weg. |
+| OFFEN-10 | **LOCKED** — Single-Home in `din18599-ifc`, kein TS-Zweitbau in DWEapp. Der Parser bleibt Service-Endpoint. | Vermeidet die EVEBI-Parser-Doppelung. |
+
+**Nächster Schritt:** Bau durch die Rolle `din18599` gegen diese gelockte Spec, auf eigenem Branch (Worktree-isoliert vom Energiekatalog-WIP).
+
+---
+
 ## 10. Anhang — geprüfte Belege
 
 - `schema/v4.0/sidecar.schema.json` (1394 Z.): Top-`required` Z. 8 · `input.required` Z. 34 · `meta` Z. 83-195 (`validation.level` 165-172, `source.origin` 181-192) · `building.required` 199 · `room.required` 300, `heating_status` 337 · `element_group.required` 448, `fingerprint` 461-491, `member_elements` 506-519, `aggregates` (readOnly) 521-543 · `boundary.required` 550 · `construction` 786-833 · `adjacency_type` 764-784.
