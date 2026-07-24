@@ -325,6 +325,22 @@ def pruefe_geometrie(sidecar: dict, kataloge: dict, erg: Ergebnis) -> None:
                   "Huellflaeche und keine Energiebilanz",
                   blocks_level="geometry_ok", json_pointer="/input/boundaries")
 
+    # Der IFC-Skelett-Parser kann die Konditionierung nicht aus der Geometrie
+    # ableiten und setzt heating_status als Platzhalter 'heated' (OFFEN-4
+    # Variante B, SPEC-ifc-skelett-parser-v4 §9.1). Herkunft IFC_PARSER heisst
+    # daher per Konstruktion: die Raum-Konditionierung ist unbestaetigt. Das
+    # blockiert geometry_ok, bis der Anreicherungs-Assistent sie bestaetigt —
+    # ohne bestaetigte Konditionierung darf nicht gerechnet werden.
+    herkunft = sidecar.get("meta", {}).get("source", {}).get("origin")
+    if herkunft == "IFC_PARSER":
+        with_status = [r for r in eingabe.get("rooms", []) if r.get("heating_status")]
+        if with_status:
+            erg.melde("HEATING_STATUS_UNCONFIRMED", "warning",
+                      f"{len(with_status)} Raeume tragen einen unbestaetigten "
+                      f"heating_status-Platzhalter (Herkunft IFC_PARSER) — die "
+                      f"Konditionierung ist vom Assistenten zu bestaetigen",
+                      blocks_level="geometry_ok", json_pointer="/input/rooms")
+
     for i, grenze in enumerate(grenzen):
         zeiger = f"/input/boundaries/{i}"
 
