@@ -11,7 +11,7 @@ export function applyScenario(
   scenario: Scenario
 ): DIN18599Data {
   // 1. Deep-Clone der Basis-Daten
-  const result = structuredClone(baseData)
+  let result = structuredClone(baseData)
 
   // 2. Delta-Merge: Input-Daten
   if (scenario.delta?.input) {
@@ -20,7 +20,13 @@ export function applyScenario(
 
   // 3. BuildingElements anwenden (falls vorhanden)
   if (scenario.building_elements && scenario.building_elements.length > 0) {
-    return applyBuildingElements(result, scenario.building_elements)
+    // applyBuildingElements arbeitet auf `result` in place und liefert
+    // dasselbe Objekt zurueck. Frueher gab es hier einen fruehen Return,
+    // der den Output-Override (Schritt 4) uebersprang — ein Szenario mit
+    // building_elements UND eigenem output zeigte nie sein output.
+    // Plan Phase 2.6: Merge-Reihenfolge explizit — erst Anreicherung,
+    // danach Output, kein vorzeitiger Return.
+    result = applyBuildingElements(result, scenario.building_elements)
   }
 
   // 4. Output überschreiben (falls vorhanden)
@@ -121,11 +127,23 @@ export function calculateSavings(
   const baseCO2 = baseOutput.energy_balance.co2_emissions_kg_a || 0
   const scenarioCO2 = scenarioOutput.energy_balance.co2_emissions_kg_a || 0
 
+  // Division durch null/negative Baseline fachlich absichern: eine
+  // Basisenergie von 0 (z.B. ungeheiztes Gebaeude) oder NaN wuerde sonst
+  // Infinity/NaN in die Prozentanzeige schreiben. In dem Fall ist der
+  // Prozentsatz nicht aussagekraeftig — 0 ist ehrlicher als Infinity.
+  // Plan Phase 2.6.
+  const finalPercent = baseFinal > 0
+    ? ((baseFinal - scenarioFinal) / baseFinal) * 100
+    : 0
+  const primaryPercent = basePrimary > 0
+    ? ((basePrimary - scenarioPrimary) / basePrimary) * 100
+    : 0
+
   return {
     final_energy_kwh_a: baseFinal - scenarioFinal,
-    final_energy_percent: ((baseFinal - scenarioFinal) / baseFinal) * 100,
+    final_energy_percent: finalPercent,
     primary_energy_kwh_a: basePrimary - scenarioPrimary,
-    primary_energy_percent: ((basePrimary - scenarioPrimary) / basePrimary) * 100,
+    primary_energy_percent: primaryPercent,
     co2_kg_a: baseCO2 - scenarioCO2,
     co2_percent: baseCO2 > 0 ? ((baseCO2 - scenarioCO2) / baseCO2) * 100 : 0,
     cost_annual_eur: 0 // TODO: Berechnung aus Energiepreisen

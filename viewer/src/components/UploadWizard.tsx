@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Upload, FileText, CheckCircle2, AlertCircle, Loader2, ArrowRight, ArrowLeft } from 'lucide-react'
+import { apiUrl, ENDPOINTS } from '../api'
 
 interface UploadWizardProps {
   onSidecarGenerated: (sidecar: any) => void
@@ -94,7 +95,7 @@ export function UploadWizard({ onSidecarGenerated, onClose }: UploadWizardProps)
       
       console.log('🚀 Sende Request...')
 
-      const response = await fetch('http://localhost:8001/parse-ifc', {
+      const response = await fetch(apiUrl(ENDPOINTS.parseIfc), {
         method: 'POST',
         body: formData,
       })
@@ -155,7 +156,7 @@ export function UploadWizard({ onSidecarGenerated, onClose }: UploadWizardProps)
         console.log('📤 FormData nur mit EVEBI erstellt')
       }
 
-      const response = await fetch('http://localhost:8001/parse-evebi', {
+      const response = await fetch(apiUrl(ENDPOINTS.parseEvebi), {
         method: 'POST',
         body: formData,
       })
@@ -188,7 +189,7 @@ export function UploadWizard({ onSidecarGenerated, onClose }: UploadWizardProps)
       formData.append('ifc_file', ifcFile)
       formData.append('evebi_file', evebiFile)
 
-      const response = await fetch('http://localhost:8001/generate-sidecar', {
+      const response = await fetch(apiUrl(ENDPOINTS.generateSidecar), {
         method: 'POST',
         body: formData,
       })

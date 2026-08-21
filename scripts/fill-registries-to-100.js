@@ -149,8 +149,17 @@ if (missingSymbols > 0) {
   const newSymbols = generateMissingSymbols(missingSymbols);
   symbolRegistry.symbols.push(...newSymbols);
   symbolRegistry.statistics.current_count = symbolRegistry.symbols.length;
-  symbolRegistry.statistics.completion_percentage = 100;
-  console.log(`   ✅ ${newSymbols.length} Symbole hinzugefügt`);
+  // WICHTIG (Plan Phase 5.21): Automatisch erzeugte Platzhalter sind KEINE
+  // normative Vollstaendigkeit. 100% completion wuerde sie als rechenfertig
+  // ausgeben — das ist Datenverfaelschung. Stattdessen wird der reale
+  // Stand (verifizierte Eintraege) ehrlich gemeldet, getrennt von den
+  // generierten Platzhaltern, die ein Review brauchen.
+  symbolRegistry.statistics.generated_placeholder_count = newSymbols.length;
+  symbolRegistry.statistics.review_required = true;
+  symbolRegistry.statistics.completion_percentage =
+    Math.round((symbolRegistry.statistics.current_count - newSymbols.length) / targetSymbols * 100);
+  console.log(`   ✅ ${newSymbols.length} Symbole als Platzhalter hinzugefügt`);
+  console.log(`   ⚠️  Reale Vollstaendigkeit: ${symbolRegistry.statistics.completion_percentage}% (Platzhalter ausgenommen)`);
 }
 
 if (missingIndices > 0) {
@@ -158,8 +167,13 @@ if (missingIndices > 0) {
   const newIndices = generateMissingIndices(missingIndices);
   indexRegistry.indices.push(...newIndices);
   indexRegistry.statistics.current_count = indexRegistry.indices.length;
-  indexRegistry.statistics.completion_percentage = 100;
-  console.log(`   ✅ ${newIndices.length} Indizes hinzugefügt`);
+  // Siehe Symbole: generierte Platzhalter != normative Vollstaendigkeit.
+  indexRegistry.statistics.generated_placeholder_count = newIndices.length;
+  indexRegistry.statistics.review_required = true;
+  indexRegistry.statistics.completion_percentage =
+    Math.round((indexRegistry.statistics.current_count - newIndices.length) / targetIndices * 100);
+  console.log(`   ✅ ${newIndices.length} Indizes als Platzhalter hinzugefügt`);
+  console.log(`   ⚠️  Reale Vollstaendigkeit: ${indexRegistry.statistics.completion_percentage}% (Platzhalter ausgenommen)`);
 }
 
 // Speichern
@@ -178,9 +192,12 @@ fs.writeFileSync(
   JSON.stringify(indexRegistry, null, 2)
 );
 
-console.log(`\n✅ Alle Registries auf 100% vervollständigt!`);
-console.log(`\n📊 Finale Stände:`);
-console.log(`   Glossar: ${glossary.terms.length}/${targetTerms} (100%)`);
-console.log(`   Symbole: ${symbolRegistry.symbols.length}/${targetSymbols} (100%)`);
-console.log(`   Indizes: ${indexRegistry.indices.length}/${targetIndices} (100%)`);
-console.log(`\n⚠️  Hinweis: Generierte Einträge sind mit 'note' markiert und sollten manuell ergänzt werden.`);
+console.log(`\n✅ Registries mit Platzhaltern ergänzt (KEINE normative Vollstaendigkeit).`);
+console.log(`\n📊 Finale Stände (Platzhalter ausgenommen):`);
+const realeSymbole = symbolRegistry.statistics.current_count - (symbolRegistry.statistics.generated_placeholder_count || 0);
+const realeIndizes = indexRegistry.statistics.current_count - (indexRegistry.statistics.generated_placeholder_count || 0);
+console.log(`   Glossar: ${glossary.terms.length}/${targetTerms}`);
+console.log(`   Symbole: ${realeSymbole}/${targetSymbols} (${symbolRegistry.statistics.completion_percentage}%)`);
+console.log(`   Indizes: ${realeIndizes}/${targetIndices} (${indexRegistry.statistics.completion_percentage}%)`);
+console.log(`\n⚠️  Platzhalter brauchen Review. review_required=true wurde in die Statistik geschrieben.`);
+console.log(`   Diese Dateien duerfen NICHT als rechenfertig normativ behandelt werden.`);

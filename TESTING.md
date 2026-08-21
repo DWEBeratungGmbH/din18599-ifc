@@ -9,15 +9,24 @@
 
 ### **Backend (FastAPI)**
 ```
-URL: http://localhost:8000
+URL: http://localhost:8000 (uvicorn-Default)
 Status: ✅ Läuft im Python venv
 ```
 
+Die Health-Antwort meldet die tatsächliche API-Version, geladene Schemata
+(v3.1, v4.0) und ob DB/QNG verfügbar sind — nicht mehr pauschal `1.0.0`.
+Siehe `api/main.py` `/health`.
+
 ### **Frontend (React/Vite)**
 ```
-URL: http://localhost:5173
+URL: http://localhost:3001 (siehe viewer/vite.config.ts — Port wurde
+von 5173 auf 3001 korrigiert, das war veraltet Dokumentation)
 Status: ⏸️ Muss gestartet werden (siehe unten)
 ```
+
+Das Frontend spricht das Backend in der Entwicklung über den Vite-Proxy an
+(siehe `viewer/vite.config.ts`) — keine hardcodierten localhost-Ports mehr
+im React-Code. Der zentrale API-Client liegt in `viewer/src/api.ts`.
 
 ---
 
@@ -30,7 +39,14 @@ curl http://localhost:8000/health
 
 **Erwartete Ausgabe:**
 ```json
-{"status": "ok"}
+{
+  "status": "healthy",
+  "version": "2.1.0",
+  "schema": "loaded",
+  "schemas": ["v3.1", "v4.0"],
+  "qng_available": true,
+  "db_available": false
+}
 ```
 
 ---

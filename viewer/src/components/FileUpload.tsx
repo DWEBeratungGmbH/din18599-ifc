@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Upload, FileText, AlertCircle, CheckCircle2, Loader2 } from 'lucide-react'
+import { apiUrl, ENDPOINTS } from '../api'
 
 interface FileUploadProps {
   onSidecarGenerated: (sidecar: any) => void
@@ -52,7 +53,7 @@ export function FileUpload({ onSidecarGenerated }: FileUploadProps) {
       formData.append('ifc_file', ifcFile)
       formData.append('evebi_file', evebiFile)
 
-      const response = await fetch('http://localhost:8000/process', {
+      const response = await fetch(apiUrl(ENDPOINTS.generateSidecar), {
         method: 'POST',
         body: formData,
       })

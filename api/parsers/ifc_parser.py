@@ -143,16 +143,18 @@ def parse_ifc(ifc_file_path: str) -> IFCGeometry:
     print(f"\n🔍 Extrahiere Material-Schichtaufbauten...")
     layer_structures_map = {}  # GUID → LayerStructure
     
+    # GUID-Index einmal aufbauen, statt fuer jedes Element erneut fuenf
+    # IFC-Typlisten linear zu durchsuchen. Vorher war das O(N*M); bei einem
+    # Gebaeude mit 500 Elementen und 500 IFC-Entities waren das 250.000
+    # Vergleiche allein fuer den Material-Layer-Block. Jetzt O(M) einmalig.
+    # Plan Phase 3.9.
+    guid_zu_entity = {}
+    for elem_type in ['IfcWall', 'IfcRoof', 'IfcSlab', 'IfcWindow', 'IfcDoor']:
+        for elem in ifc_file.by_type(elem_type):
+            guid_zu_entity[elem.GlobalId] = elem
+    
     for ifc_element in geometry.all_elements:
-        # Finde IFC-Element anhand GUID
-        ifc_elem = None
-        for elem_type in ['IfcWall', 'IfcRoof', 'IfcSlab', 'IfcWindow', 'IfcDoor']:
-            for elem in ifc_file.by_type(elem_type):
-                if elem.GlobalId == ifc_element.guid:
-                    ifc_elem = elem
-                    break
-            if ifc_elem:
-                break
+        ifc_elem = guid_zu_entity.get(ifc_element.guid)
         
         if not ifc_elem:
             continue

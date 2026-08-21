@@ -150,11 +150,12 @@ function addComponentToEnvelope(
         parent_element_type: 'WALL_EXT',
         orientation: 180,
         area: component.area,
-        u_value_glass: component.u_value || 1.3,
-        u_value_frame: 1.5,
-        g_value: 0.5,
-        frame_fraction: 0.4,
-        psi_spacer: 0.06,
+        // Tueren haben einen Gesamt-U-Wert, kein Glas/Rahmen-System wie
+        // Fenster. u_value_glass/u_value_frame/g_value/psi_spacer/frame_
+        // fraction sind Fensterfelder und duerfen fuer Tueren NICHT gesetzt
+        // werden — frueher standen sie hier und verfälschten jede
+        // tuerspezifische Auswertung. Plan Phase 2.7.
+        u_value: component.u_value || 1.3,
         shading_factor_fs: 1.0
       })
       break
