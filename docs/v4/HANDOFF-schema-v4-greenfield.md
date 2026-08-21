@@ -14,7 +14,7 @@
 
 ## 1. Kontext in drei Sätzen
 
-INDICAMUS baut eine Pipeline **Revit 2026 → Dynamo (Anreicherung + Export) → .dwe-Datei (IFC4 + Sidecar JSON) → DWEapp-Gebäudeakte → EVEBI**. Das bestehende Sidecar-Schema v3.1 (`schema/v3.1-complete.json`) kann die neue Raum-Topologie (Angrenzungsmatrix, Bauteilgruppen, Mehrfach-Zonen) nicht abbilden. Alle Design-Entscheidungen sind in einem Workshop gefallen und die kritischen Revit-Annahmen wurden empirisch validiert — dieses Dokument ist die verbindliche Spec-Grundlage.
+INDICAMUS baut eine Pipeline **Revit 2026 → Dynamo (Anreicherung + Export) → .dwe-Datei (IFC4 + Sidecar JSON) → DWEapp-Gebäudeakte**. Externe Berechnungs- und Importadapter können anschließend angebunden werden; sie sind kein Bestandteil des neutralen Sidecar-Vertrags. Das bestehende Sidecar-Schema v3.1 (`schema/v3.1-complete.json`) kann die neue Raum-Topologie (Angrenzungsmatrix, Bauteilgruppen, Mehrfach-Zonen) nicht abbilden. Alle Design-Entscheidungen sind in einem Workshop gefallen und die kritischen Revit-Annahmen wurden empirisch validiert — dieses Dokument ist die verbindliche Spec-Grundlage.
 
 **Wichtig:** v3.1 bleibt unangetastet in Betrieb (Parser IFC/EVEBI laufen weiter dagegen). v4.0 wird parallel entworfen; Parser-Anpassung ist ein SPÄTERES Arbeitspaket. Kein Migrationsscript als Release-Pflicht.
 

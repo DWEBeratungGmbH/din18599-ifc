@@ -8,23 +8,27 @@
 
 ## 🎯 Überblick
 
-Das Parser-System konvertiert **IFC-Dateien** (Geometrie) und **EVEBI-Archive** (Energetische Daten) in ein standardisiertes **DIN18599 Sidecar JSON**.
+Der API-Kern verarbeitet IFC-Geometrie und neutrale Sidecar-Daten. Produktspezifische Formate werden über explizite Adapter in das neutrale Importmodell normalisiert.
 
 ### Workflow
 
 ```
-IFC-Datei (.ifc) + EVEBI-Archiv (.evea)
+IFC-Datei (.ifc) oder Importadapter
             ↓
-    Parser-System (Python)
+  Neutraler Importkern (Python)
             ↓
-DIN18599 Sidecar JSON (v2.1)
+DIN18599 Sidecar JSON
 ```
 
 ---
 
 ## 📦 Komponenten
 
-### 1. EVEBI Parser (`parsers/evebi_parser.py`)
+### 1. Neutraler IFC-v4-Pfad (`parsers/ifc_v4_parser.py`)
+
+Der IFC-v4-Parser erzeugt aus einer IFC-Datei ein neutrales Sidecar-Skelett auf Level `draft`. Er benötigt keinen Produktadapter.
+
+### 2. EVEBI-Adapter (`adapters/evebi/`)
 
 **Funktion:** Parst EVEBI `.evea` Archiv-Dateien
 
@@ -38,16 +42,18 @@ DIN18599 Sidecar JSON (v2.1)
 
 **Beispiel:**
 ```python
-from parsers import parse_evea
+from adapters.evebi import normalize_evebi, parse_evea
 
 evebi_data = parse_evea('building.evea')
+import_bundle = normalize_evebi(evebi_data, source_ref='building.evea')
 
 print(f"Projekt: {evebi_data.project_name}")
-print(f"Materialien: {len(evebi_data.materials)}")
-print(f"Bauteile: {len(evebi_data.elements)}")
+print(f"Bauteile: {len(import_bundle.elements)}")
 ```
 
-### 2. IFC Parser (`parsers/ifc_parser.py`)
+Der Adapter ist optional und darf nicht als Voraussetzung des neutralen IFC- oder Sidecar-Vertrags behandelt werden.
+
+### 3. IFC Parser (`parsers/ifc_parser.py`)
 
 **Funktion:** Parst IFC-Dateien und extrahiert Geometrie
 
@@ -70,7 +76,7 @@ print(f"Wände: {len(ifc_geometry.walls)}")
 print(f"Dächer: {len(ifc_geometry.roofs)}")
 ```
 
-### 3. Mapping Engine (`parsers/mapper.py`)
+### 4. Mapping Engine (`parsers/mapper.py`)
 
 **Funktion:** Verknüpft IFC-Geometrie mit EVEBI-Daten
 
@@ -102,7 +108,7 @@ print(f"Match-Rate: {mapping_result.stats['match_rate']:.1%}")
 print(f"Unmatched IFC: {len(mapping_result.unmatched_ifc)}")
 ```
 
-### 4. Sidecar Generator (`parsers/sidecar_generator.py`)
+### 5. Sidecar Generator (`parsers/sidecar_generator.py`)
 
 **Funktion:** Generiert DIN18599 Sidecar JSON v2.1
 
@@ -171,9 +177,27 @@ ifcopenshell==0.7.0
 
 ## 🔧 API Endpoints
 
+### POST /parse-ifc-neutral
+
+**Beschreibung:** Verarbeitet eine IFC-Datei über den neutralen IFC-Adapter und den v4.0-Sidecar-Builder. Kein Produktimport ist erforderlich.
+
+**Request:**
+```http
+POST /parse-ifc-neutral?building_type=residential
+Content-Type: multipart/form-data
+
+ifc_file: building.ifc
+```
+
+**Response:** Ein v4.0-Sidecar auf Level `draft`.
+
+Der allgemeine externe Import-Endpunkt `/qng/parse` liefert zusätzlich die
+neutralen Felder `adapter` und `source_format`. Das ältere Feld `kanal` bleibt
+für bestehende Konsumenten erhalten.
+
 ### POST /process
 
-**Beschreibung:** Verarbeitet IFC + EVEBI Dateien und generiert Sidecar JSON
+**Beschreibung:** Legacy-Kompatibilitätsroute für einen produktspezifischen IFC- und Energieimport.
 
 **Request:**
 ```http

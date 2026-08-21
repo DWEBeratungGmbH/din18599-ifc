@@ -15,7 +15,9 @@
 ```
 api/                    # FastAPI Backend
 ├── main.py             # Endpunkte: /process, /health, /parse-ifc
-├── parsers/            # IFC, EVEBI Parser
+├── core/               # Neutraler Importkern und v4-Builder
+├── adapters/           # Format-/Produktadapter, optional EVEBI
+├── parsers/            # Geometrie- und Legacy-Parser
 └── generators/         # Sidecar JSON Generator
 
 viewer/                 # React/Vite Frontend

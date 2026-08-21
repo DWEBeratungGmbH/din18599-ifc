@@ -94,7 +94,7 @@ Ein Energieberatungsprojekt besteht künftig aus mindestens zwei Dateien:
 👉 **[Vollständige Roadmap ansehen](ROADMAP.md)**
 
 **Highlights:**
-- **Q2 2026 (abgeschlossen):** Schema v2.1 → v3.1, Parser-System (IFC + EVEBI), DB v3.0 mit Helper-Funktionen
+- **Q2 2026 (abgeschlossen):** Schema v2.1 → v3.1, Importadapter (IFC und optional EVEBI), DB v3.0 mit Helper-Funktionen
 - **Mai 2026:** MVP-Präsentation in Berlin
 - **Q3 2026:** IFC.js-Integration, Editor-Prototyp, weitere Parser
 - **Q4 2026:** Community-Aufbau, externe Norm-Review
@@ -269,8 +269,10 @@ din18599-ifc/
 ├── viewer/                          # React/Vite Viewer
 └── api/                             # FastAPI Parser-System
     ├── main.py                      # Endpunkte: /process, /health
-    ├── parsers/                     # IFC + EVEBI Parser
-    └── generators/                  # Sidecar-Generator
+    ├── core/                        # Neutraler Importkern und v4-Builder
+    ├── adapters/                    # Format-/Produktadapter, optional EVEBI
+    ├── parsers/                     # Legacy- und Geometrieparser
+    └── generators/                  # Legacy-Sidecar-Generatoren
 ```
 
 ### Projekt-Dateistruktur (Anwendung)

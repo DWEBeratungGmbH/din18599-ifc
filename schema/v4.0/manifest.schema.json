@@ -59,7 +59,7 @@
           "properties": {
             "tool": {
               "type": "string",
-              "description": "z.B. 'DWE Dynamo Export', 'DWEapp', 'EVEBI-Bridge'"
+              "description": "Name des erzeugenden Tools oder Adapters, z.B. 'DWE Dynamo Export', 'DWEapp' oder 'External Import Adapter'"
             },
             "version": { "type": "string" },
             "vendor": { "type": "string" },
