@@ -264,12 +264,29 @@ def main() -> int:
     fehlgeschlagen += 0 if override_ok else 1
 
     # Das Referenz-Beispiel muss die dokumentierte Stufe erreichen.
+    # Seit Stufe 2d-Platzhalter (synthetische boundaries[]) mindestens
+    # 'balanced' — calc_ready blockiert am gitignored Normwerte-Overlay.
     erg = validiere(basis, kataloge)
-    erwartete_stufe = "enriched"
+    erwartete_stufe = "balanced"
     stufe_ok = erg.erreichte_stufe == erwartete_stufe
     print(f"Referenz-Beispiel erreicht '{erg.erreichte_stufe}' "
           f"(erwartet '{erwartete_stufe}'): {'PASS' if stufe_ok else 'FAIL'}")
     fehlgeschlagen += 0 if stufe_ok else 1
+
+    # Regressionsschutz fuer die synthetische boundaries-Anreicherung:
+    # 'BOUNDARIES_EMPTY' darf im sauberen Beispiel NICHT mehr auftreten,
+    # und 'OPENINGS_INDEX_INCONSISTENT' ebenfalls nicht — sonst waere der
+    # readOnly-Index inkonsistent mit boundaries[].openings[].
+    regressions_codes = {"BOUNDARIES_EMPTY", "OPENINGS_INDEX_INCONSISTENT",
+                         "BOUNDARY_GROUP_UNRESOLVED", "BOUNDARY_SPACE_A_UNRESOLVED",
+                         "BOUNDARY_SPACE_B_UNRESOLVED", "ADJACENCY_UNRESOLVED",
+                         "VE_METHOD_MISSING"}
+    getroffen = sorted(c for c in regressions_codes if c in sauber)
+    regression_ok = not getroffen
+    print(f"Regressionsschutz (synth. boundaries): "
+          f"{'PASS' if regression_ok else 'FAIL'}"
+          + (f" — {', '.join(getroffen)}" if getroffen else ""))
+    fehlgeschlagen += 0 if regression_ok else 1
 
     print()
     print("Fingerprint-Kollision, Grenzfaelle:")
@@ -279,7 +296,7 @@ def main() -> int:
         fehlgeschlagen += 0 if ok else 1
 
     print()
-    gesamt = len(faelle) + 3 + len(fp_faelle)
+    gesamt = len(faelle) + 4 + len(fp_faelle)
     print(f"{gesamt - fehlgeschlagen}/{gesamt} Pruefungen bestanden")
     return 1 if fehlgeschlagen else 0
 

@@ -191,8 +191,12 @@ python3 tools/dwe_validate.py examples/v4.0/beispiel1/energy.din18599.json \
 ```
 
 Referenz-Container: [`examples/v4.0/beispiel1/`](../examples/v4.0/beispiel1/).
-Er steht auf `enriched` — `boundaries[]` ist noch leer, weil die Revit-Pipeline
-(Stufe 2d) daran arbeitet. Ein Zwischenstand, kein Fehler.
+Er steht auf `balanced` — `boundaries[]` ist synthetisch gefüllt (Skript
+[`scripts/build-example-beispiel1.py`](../scripts/build-example-beispiel1.py)),
+bis die Revit-Pipeline (Stufe 2d) die echte Angrenzungsmatrix liefert.
+`calc_ready` blockiert am gitignored Normwerte-Overlay
+(`catalog/values/adjacency_types.2018-09.values.json` u. a. — aus eigener
+Normlizenz bereitzustellen). Ein Zwischenstand, kein Fehler.
 
 ---
 

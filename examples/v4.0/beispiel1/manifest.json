@@ -21,13 +21,13 @@
       "schema_version": "4.0.0",
       "checksum": {
         "algorithm": "sha256",
-        "value": "03a1a59bb55a952398a6fcdf63ce136bbfbea9579407e7cc5d781a037444b93c"
+        "value": "5772efe351fa5034ce2db11c8528cc05b6ed5088fd6a0826efac6e4f6b3594cc"
       },
-      "size_bytes": 27679
+      "size_bytes": 37696
     }
   },
   "validation": {
-    "level": "enriched",
+    "level": "balanced",
     "validated_at": "2026-07-21T10:00:00Z",
     "validator": {
       "name": "dwe-validate",
@@ -36,11 +36,11 @@
     },
     "findings": [
       {
-        "code": "BOUNDARIES_EMPTY",
+        "code": "VALUES_OVERLAY_MISSING",
         "severity": "warning",
-        "message": "input.boundaries[] ist leer — ohne Angrenzungsmatrix keine Huellflaeche und keine Energiebilanz. Revit-Pipeline Stufe 2d ausstehend.",
-        "blocks_level": "geometry_ok",
-        "json_pointer": "/input/boundaries"
+        "message": "Fx-Werte aus DIN V 18599-2 Tabelle 5/6 fehlen — Overlay unter catalog/values/adjacency_types.2018-09.values.json aus eigener Normlizenz bereitstellen. calc_ready blockiert.",
+        "blocks_level": "calc_ready",
+        "json_pointer": "/meta/catalogs"
       },
       {
         "code": "ROOM_WITHOUT_ZONE",
