@@ -10,21 +10,20 @@ import { ScenarioSwitcher } from './components/ScenarioSwitcher'
 import { BuildingDataModal } from './components/BuildingDataModal/BuildingDataModal'
 import { UploadWizard } from './components/UploadWizard'
 import { Download } from 'lucide-react'
+import { calculateNetArea } from './utils/buildingElements'
 
 function App() {
   const { project, loadProject, selectedId, selectElement, openBuildingDataModal } = useViewerStore()
   const [showUpload, setShowUpload] = useState(!project)
 
-  // Berechne Netto-Wandflächen (Brutto - Fenster)
+  // Berechne Netto-Wandflächen (Brutto - Öffnungen)
+  // Die kanonische Quelle fuer Oeffnungen ist envelope.openings (v2.1),
+  // nicht das Legacy-Feld envelope.windows, das es im Typ gar nicht gibt.
+  // Plan Phase 2.7: openings[] als einzige Oeffnungsquelle.
   const getNetWallArea = (wall: any) => {
-    if (!project?.input.envelope?.windows) return wall.area
-    
-    // Summiere alle Fensterflächen in gleicher Orientierung
-    const windowAreaInWall = project.input.envelope.windows
-      .filter((w: any) => w.orientation === wall.orientation)
-      .reduce((sum: number, w: any) => sum + w.area, 0)
-    
-    return Math.max(0, wall.area - windowAreaInWall)
+    const openings = project?.input?.envelope?.openings
+    if (!openings) return wall.area
+    return calculateNetArea(wall, openings)
   }
 
   const handleLoadDemo = async () => {
@@ -256,8 +255,11 @@ function App() {
                       </div>
                       {project.input.envelope.walls_external.map((wall: any) => {
                         const netArea = getNetWallArea(wall)
-                        const windowsInWall = project.input.envelope.windows?.filter(
-                          (w: any) => w.orientation === wall.orientation
+                        // Oeffnungen fuer diese Wand ueber die kanonische
+                        // parent_element_id-Beziehung, nicht ueber Orientierung.
+                        // Plan Phase 2.7.
+                        const wallOpenings = project.input.envelope?.openings?.filter(
+                          (o: any) => o.parent_element_id === wall.id
                         ) || []
                         
                         return (
@@ -282,28 +284,28 @@ function App() {
                             </div>
                             
                             {/* Fenster/Türen als Kinder */}
-                            {windowsInWall.length > 0 && (
+                            {wallOpenings.length > 0 && (
                               <div style={{ marginLeft: '16px', marginTop: '2px' }}>
-                                {windowsInWall.map((window: any) => (
+                                {wallOpenings.map((opening: any) => (
                                   <div 
-                                    key={window.id}
+                                    key={opening.id}
                                     style={{ 
                                       padding: '4px 8px', 
-                                      background: selectedId === window.id ? '#dbeafe' : 'white',
+                                      background: selectedId === opening.id ? '#dbeafe' : 'white',
                                       borderRadius: '4px', 
                                       marginBottom: '2px',
                                       cursor: 'pointer',
                                       fontSize: '11px',
-                                      borderLeft: selectedId === window.id ? '2px solid #3b82f6' : '2px solid #e5e7eb',
+                                      borderLeft: selectedId === opening.id ? '2px solid #3b82f6' : '2px solid #e5e7eb',
                                       display: 'flex',
                                       alignItems: 'center',
                                       gap: '4px'
                                     }}
-                                    onClick={() => selectElement(window.id)}
+                                    onClick={() => selectElement(opening.id)}
                                   >
                                     <span>└─</span>
-                                    <span>{window.name}</span>
-                                    <span style={{ color: '#64748b' }}>({window.area.toFixed(1)} m²)</span>
+                                    <span>{opening.name}</span>
+                                    <span style={{ color: '#64748b' }}>({opening.area.toFixed(1)} m²)</span>
                                   </div>
                                 ))}
                               </div>
@@ -334,25 +336,35 @@ function App() {
                     </div>
                   )}
 
-                  {project.input.envelope.windows && project.input.envelope.windows.length > 0 && (
+                  {(() => {
+                    // Alle Oeffnungen, die keinem Bauteil als Kind zugeordnet
+                    // sind (z.B. Dachfenster), eigenstaendig listen.
+                    // Plan Phase 2.7: openings[] als kanonische Quelle.
+                    const standaloneOpenings = project.input.envelope?.openings?.filter(
+                      (o: any) => !o.parent_element_id
+                    ) || []
+                    if (standaloneOpenings.length === 0) return null
+                    return (
                     <div>
                       <div style={{ fontSize: '12px', color: '#64748b', marginBottom: '4px' }}>
-                        Fenster ({project.input.envelope.windows.length})
+                        Öffnungen ({standaloneOpenings.length})
                       </div>
-                      {project.input.envelope.windows.map((window: any) => (
-                        <div key={window.id} style={{ 
+                      {standaloneOpenings.map((opening: any) => (
+                        <div key={opening.id} style={{ 
                           padding: '6px 8px', 
                           background: 'white',
                           borderRadius: '4px', 
                           marginBottom: '2px',
                           cursor: 'pointer',
                           fontSize: '12px'
-                        }}>
-                          {window.name}
+                        }}
+                        onClick={() => selectElement(opening.id)}>
+                          {opening.name}
                         </div>
                       ))}
                     </div>
-                  )}
+                    )
+                  })()}
                 </div>
               )}
             </div>
@@ -416,8 +428,10 @@ function App() {
               />
             ))}
 
-            {/* Fenster */}
-            {project?.input.envelope?.windows?.map((window: any) => (
+            {/* Fenster (aus kanonischen openings[], Typ WINDOW) */}
+            {project?.input.envelope?.openings
+              ?.filter((o: any) => o.type === 'WINDOW')
+              .map((window: any) => (
               <Window
                 key={window.id}
                 id={window.id}
@@ -461,13 +475,15 @@ function App() {
               const selectedWall = project?.input.envelope?.walls_external?.find((w: any) => w.id === selectedId)
               const selectedRoof = project?.input.envelope?.roofs?.find((r: any) => r.id === selectedId)
               const selectedFloor = project?.input.envelope?.floors?.find((f: any) => f.id === selectedId)
-              const selectedWindow = project?.input.envelope?.windows?.find((w: any) => w.id === selectedId)
+              const selectedOpening = project?.input.envelope?.openings?.find((o: any) => o.id === selectedId)
               
-              const selectedElement = selectedWall || selectedRoof || selectedFloor || selectedWindow
+              const selectedElement: any = selectedWall || selectedRoof || selectedFloor || selectedOpening
               if (!selectedElement) return <div style={{ fontSize: '14px', color: '#64748b' }}>Bauteil nicht gefunden</div>
               
-              const uEff = selectedWindow 
-                ? selectedWindow.u_value_glass 
+              // Oeffnungen haben je nach Typ unterschiedliche U-Wert-Felder:
+              // Fenster: u_value_glass, Tueren: u_value. Plan Phase 2.7.
+              const uEff = selectedOpening 
+                ? (selectedOpening.u_value ?? selectedOpening.u_value_glass ?? 0)
                 : selectedElement.u_value_undisturbed + (selectedElement.thermal_bridge_delta_u || 0)
               const orientationName = selectedElement.orientation !== undefined 
                 ? ['Nord', 'Ost', 'Süd', 'West'][Math.round(selectedElement.orientation / 90) % 4]
@@ -523,38 +539,50 @@ function App() {
                       </div>
                     )}
 
-                    {selectedWindow ? (
+                    {selectedOpening ? (
                       <>
-                        <div>
-                          <div style={{ fontSize: '12px', color: '#64748b', marginBottom: '4px' }}>U-Wert Glas (Ug)</div>
-                          <div style={{ 
-                            fontWeight: 600,
-                            color: selectedWindow.u_value_glass > 2.0 ? '#ef4444' : selectedWindow.u_value_glass > 1.3 ? '#f59e0b' : '#22c55e'
-                          }}>
-                            {selectedWindow.u_value_glass.toFixed(2)} W/(m²K)
-                          </div>
-                        </div>
+                        {selectedOpening.type === 'WINDOW' && (
+                          <>
+                            <div>
+                              <div style={{ fontSize: '12px', color: '#64748b', marginBottom: '4px' }}>U-Wert Glas (Ug)</div>
+                              <div style={{ 
+                                fontWeight: 600,
+                                color: (selectedOpening.u_value_glass ?? 0) > 2.0 ? '#ef4444' : (selectedOpening.u_value_glass ?? 0) > 1.3 ? '#f59e0b' : '#22c55e'
+                              }}>
+                                {(selectedOpening.u_value_glass ?? 0).toFixed(2)} W/(m²K)
+                              </div>
+                            </div>
 
-                        <div>
-                          <div style={{ fontSize: '12px', color: '#64748b', marginBottom: '4px' }}>U-Wert Rahmen (Uf)</div>
-                          <div style={{ fontWeight: 600 }}>
-                            {selectedWindow.u_value_frame.toFixed(2)} W/(m²K)
-                          </div>
-                        </div>
+                            <div>
+                              <div style={{ fontSize: '12px', color: '#64748b', marginBottom: '4px' }}>U-Wert Rahmen (Uf)</div>
+                              <div style={{ fontWeight: 600 }}>
+                                {(selectedOpening.u_value_frame ?? 0).toFixed(2)} W/(m²K)
+                              </div>
+                            </div>
 
-                        <div>
-                          <div style={{ fontSize: '12px', color: '#64748b', marginBottom: '4px' }}>g-Wert (Energiedurchlass)</div>
-                          <div style={{ fontWeight: 600 }}>
-                            {selectedWindow.g_value.toFixed(2)}
-                          </div>
-                        </div>
+                            <div>
+                              <div style={{ fontSize: '12px', color: '#64748b', marginBottom: '4px' }}>g-Wert (Energiedurchlass)</div>
+                              <div style={{ fontWeight: 600 }}>
+                                {(selectedOpening.g_value ?? 0).toFixed(2)}
+                              </div>
+                            </div>
 
-                        <div>
-                          <div style={{ fontSize: '12px', color: '#64748b', marginBottom: '4px' }}>Rahmenanteil</div>
-                          <div style={{ fontWeight: 600 }}>
-                            {(selectedWindow.frame_fraction * 100).toFixed(0)}%
+                            <div>
+                              <div style={{ fontSize: '12px', color: '#64748b', marginBottom: '4px' }}>Rahmenanteil</div>
+                              <div style={{ fontWeight: 600 }}>
+                                {((selectedOpening.frame_fraction ?? 0) * 100).toFixed(0)}%
+                              </div>
+                            </div>
+                          </>
+                        )}
+                        {selectedOpening.type !== 'WINDOW' && (
+                          <div>
+                            <div style={{ fontSize: '12px', color: '#64748b', marginBottom: '4px' }}>U-Wert (gesamt)</div>
+                            <div style={{ fontWeight: 600 }}>
+                              {(selectedOpening.u_value ?? 0).toFixed(2)} W/(m²K)
+                            </div>
                           </div>
-                        </div>
+                        )}
                       </>
                     ) : (
                       <>

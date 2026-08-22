@@ -6,17 +6,17 @@
   "dimension": { "type": "legal_edition", "value": "2024", "valid_from": "2024-01-01" },
 
   "title": "GEG-Referenzgebaeude — Zeilenstruktur und Bauteil-Mapping",
-  "description": "Zeilen des GEG-Referenzgebaeudes und das deterministische Mapping von Sidecar-Bauteilen darauf. Das Mapping (Handoff, Abschnitt GEG-Referenzgebaeude) ist DWE-eigene Auslegung und braucht KEINE Pflichtfelder am Objekt: opening_type und die Kombination element_type/adjacency_type bestimmen die Zeile eindeutig.",
-  "last_updated": "2026-07-21",
-  "norm_ref": "GEG 2024, Anlage 1 (Wohngebaeude) bzw. Anlage 2 (Nichtwohngebaeude)",
+  "description": "Zeilen des GEG-Referenzgebaeudes und das deterministische Mapping von Sidecar-Bauteilen darauf. Das Mapping (Handoff, Abschnitt GEG-Referenzgebaeude) ist DWE-eigene Auslegung und braucht KEINE Pflichtfelder am Objekt: opening_type und die Kombination element_type/adjacency_type bestimmen die Zeile eindeutig. Die Zahlenwerte stammen aus GEG 2024 Anlage 1 (Wohngebaeude), Fundstelle BGBl. I 2020, 1767-1768; sie sind als amtliches Werk nach Paragraph 5 UrhG gemeinfrei und werden hier belegt aus dem Gesetzestext (gesetze-im-internet.de/geg/anlage_1.html) gefuehrt.",
+  "last_updated": "2026-08-22",
+  "norm_ref": "GEG 2024, Anlage 1 (Wohngebaeude, zu § 15 Absatz 1)",
 
-  "legal_note": "Das GEG ist ein Gesetz und damit ein amtliches Werk nach Paragraph 5 UrhG — gemeinfrei. Die Referenzwerte duerfen im Gegensatz zu DIN-Tabellenwerten oeffentlich gefuehrt werden. Sie sind hier dennoch NICHT eingetragen, weil sie aus dem amtlichen Text belegt uebernommen werden muessen statt aus zweiter Hand. Siehe offene Punkte unten.",
+  "legal_note": "Das GEG ist ein Gesetz und damit ein amtliches Werk nach Paragraph 5 UrhG — gemeinfrei. Die Referenzwerte wurden aus der amtlichen Fassung Anlage 1 (BGBl. I 2020, 1767-1768; https://www.gesetze-im-internet.de/geg/anlage_1.html) belegt uebernommen. Anlage 2 (Nichtwohngebaeude) ist zonenweise definiert und in einem eigenen Katalog vorzuhalten.",
 
   "values_overlay": {
-    "required": true,
-    "expected_file": "catalog/values/geg_reference_building.2024.values.json",
+    "required": false,
     "merge_key": "code",
-    "missing_value_message": "GEG-Referenzwerte fehlen — ohne sie ist kein GEG-Nachweis rechenbar (kein calc_ready). Werte aus GEG 2024 Anlage 1/2 nachtragen; sie sind gemeinfrei und duerfen langfristig direkt in catalog/core/ wandern."
+    "missing_value_message": "GEG-Referenzwerte fehlen — ohne sie ist kein GEG-Nachweis rechenbar (kein calc_ready). Werte aus GEG 2024 Anlage 1/2 nachtragen; sie sind gemeinfrei und duerfen langfristig direkt in catalog/core/ wandern.",
+    "note": "Overlay-Pflicht wurde aufgehoben, weil die Wohngebaeude-Werte aus Anlage 1 inzwischen direkt im Eintrag stehen (value_pending=false). Ein Overlay bleibt nur fuer Anlage 2 (Nichtwohngebaeude) relevant."
   },
 
   "entry_schema_ref": "schema/v4.0/catalogs/geg_reference_building.schema.json",
@@ -24,105 +24,143 @@
   "mapping_rules": {
     "description": "Deterministische Zuordnung Sidecar-Bauteil zu Referenzgebaeude-Zeile. Wird beim Export als opening.geg_reference_row bzw. element_group-Attribut berechnet, nicht gepflegt.",
     "by_opening_type": {
-      "window": "2",
-      "glazed_door": "2",
-      "roof_window": "3",
-      "skylight": "4",
-      "door": "5",
-      "garage_door": "5",
-      "fixed_glazing": "2",
-      "curtain_wall": "2",
+      "window": "1.4",
+      "glazed_door": "1.4",
+      "roof_window": "1.5",
+      "skylight": "1.6",
+      "door": "1.7",
+      "garage_door": "1.7",
+      "fixed_glazing": "1.4",
+      "curtain_wall": "1.4",
       "special": null
     },
     "by_element_and_adjacency": [
       { "element_type": "wall", "adjacency_type": ["exterior"], "row": "1.1" },
       { "element_type": "wall", "adjacency_type": ["ground_slab", "ground_basement_heated", "ground_basement_unheated", "unheated", "attic_uninsulated", "low_heated"], "row": "1.2" },
       { "element_type": "roof", "adjacency_type": ["exterior"], "row": "1.3" },
-      { "element_type": "ceiling", "adjacency_type": ["exterior"], "row": "1.3" },
+      { "element_type": "ceiling", "adjacency_type": ["exterior"], "row": "1.1", "_note": "Geschossdecke gegen Aussenluft (z.B. auskragende Decke, Loggia-Decke) — Anlage 1 Zeile 1.1, NICHT 1.3. 1.3 gilt nur fuer Dach / oberste Geschossdecke gegen unbeheizten Dachraum." },
+      { "element_type": "ceiling", "adjacency_type": ["attic_uninsulated", "unheated"], "row": "1.3", "_note": "Oberste Geschossdecke gegen unbeheizten Dachraum / Abseiten — Anlage 1 Zeile 1.3." },
+      { "element_type": "floor", "adjacency_type": ["exterior"], "row": "1.1", "_note": "Geschossdecke/Boden gegen Aussenluft — Anlage 1 Zeile 1.1." },
+      { "element_type": "floor", "adjacency_type": ["unheated", "ground_slab", "ground_basement_heated", "ground_basement_unheated", "attic_uninsulated", "low_heated"], "row": "1.2" },
       { "element_type": "slab_ground", "adjacency_type": ["ground_slab", "floor_suspended"], "row": "1.2" },
       { "element_type": "slab_basement", "adjacency_type": ["ground_basement_heated", "ground_basement_unheated", "unheated"], "row": "1.2" }
     ],
-    "unmapped_behaviour": "Bauteile ohne Zeilentreffer (z.B. opening_type=special, adjacent_building) gehen nicht in den Referenzvergleich ein. Der Validator meldet sie als Information, nicht als Fehler."
+    "unmapped_behaviour": "Bauteile ohne Zeilentreffer gehen nicht in den Referenzvergleich ein. Das sind: (1) opening_type=special, (2) adjacency_type=adjacent_building (adiabat an der Grundstuecksgrenze), (3) innere Bauteile zwischen konditionierten Raeumen derselben oder gleich temperierter Zonen (same_zone, other_zone, internal_unheated) — sie sind keine Huellflaeche, (4) Stuetzen/Traeger/sonstige (column, beam, other) — nicht in Anlage 1 abgebildet. Der Validator meldet sie als Information, nicht als Fehler."
   },
 
   "entries": [
     {
       "code": "1.1",
-      "name_de": "Aussenwand gegen Aussenluft",
+      "name_de": "Aussenwand (einschliesslich Einbauten, wie Rollladenkaesten), Geschossdecke gegen Aussenluft",
       "component_group": "opaque",
       "quantity": "u_value",
       "unit": "W/(m²K)",
       "value_source": "legal_table",
       "norm_cell": "GEG2024-A1-Z1.1",
-      "value_pending": true
+      "value_pending": false,
+      "u_value": 0.28
     },
     {
       "code": "1.2",
-      "name_de": "Aussenwand bzw. Bodenplatte gegen Erdreich oder unbeheizt",
+      "name_de": "Aussenwand gegen Erdreich, Bodenplatte, Waende und Decken zu unbeheizten Raeumen",
       "component_group": "opaque",
       "quantity": "u_value",
       "unit": "W/(m²K)",
       "value_source": "legal_table",
       "norm_cell": "GEG2024-A1-Z1.2",
-      "value_pending": true
+      "value_pending": false,
+      "u_value": 0.35
     },
     {
       "code": "1.3",
-      "name_de": "Dach bzw. oberste Geschossdecke gegen Aussenluft",
+      "name_de": "Dach, oberste Geschossdecke, Waende zu Abseiten",
       "component_group": "opaque",
       "quantity": "u_value",
       "unit": "W/(m²K)",
       "value_source": "legal_table",
       "norm_cell": "GEG2024-A1-Z1.3",
-      "value_pending": true
+      "value_pending": false,
+      "u_value": 0.20
     },
     {
-      "code": "2",
-      "name_de": "Fenster, Fenstertueren, verglaste Tueren",
+      "code": "1.4",
+      "name_de": "Fenster, Fenstertueren",
       "component_group": "transparent",
       "quantity": "u_value_and_g_value",
       "unit": "W/(m²K) bzw. [-]",
       "value_source": "legal_table",
-      "norm_cell": "GEG2024-A1-Z2",
-      "value_pending": true,
-      "note": "Traegt zwei Groessen: Uw und g-Wert des Referenzgebaeudes."
+      "norm_cell": "GEG2024-A1-Z1.4",
+      "value_pending": false,
+      "u_value": 1.3,
+      "g_value": 0.60,
+      "note": "Gesamtenergiedurchlassgrad g nach DIN V 18599-2:2018-09: g=0,60 (nach DIN V 4108-6:2003-06: g_perp=0,60)."
     },
     {
-      "code": "3",
-      "name_de": "Dachflaechenfenster",
+      "code": "1.5",
+      "name_de": "Dachflaechenfenster, Glasdaecher und Lichtbaender",
       "component_group": "transparent",
       "quantity": "u_value_and_g_value",
       "unit": "W/(m²K) bzw. [-]",
       "value_source": "legal_table",
-      "norm_cell": "GEG2024-A1-Z3",
-      "value_pending": true,
-      "note": "Messregel am Objekt abweichend: Blendrahmen-Aussenmass (opening.measurement_rule=frame_outer)."
+      "norm_cell": "GEG2024-A1-Z1.5",
+      "value_pending": false,
+      "u_value": 1.4,
+      "g_value": 0.60,
+      "note": "Messregel am Objekt abweichend: Blendrahmen-Aussenmass (opening.measurement_rule=frame_outer). g nach DIN V 18599-2:2018-09: g=0,60."
     },
     {
-      "code": "4",
+      "code": "1.6",
       "name_de": "Lichtkuppeln",
       "component_group": "transparent",
       "quantity": "u_value_and_g_value",
       "unit": "W/(m²K) bzw. [-]",
       "value_source": "legal_table",
-      "norm_cell": "GEG2024-A1-Z4",
-      "value_pending": true
+      "norm_cell": "GEG2024-A1-Z1.6",
+      "value_pending": false,
+      "u_value": 2.7,
+      "g_value": 0.64,
+      "note": "g nach DIN V 18599-2:2018-09: g=0,64 (nach DIN V 4108-6:2003-06: g_perp=0,64)."
     },
     {
-      "code": "5",
-      "name_de": "Aussentueren",
+      "code": "1.7",
+      "name_de": "Aussentueren; Tueren gegen unbeheizte Raeume",
       "component_group": "opaque",
       "quantity": "u_value",
       "unit": "W/(m²K)",
       "value_source": "legal_table",
-      "norm_cell": "GEG2024-A1-Z5",
-      "value_pending": true
+      "norm_cell": "GEG2024-A1-Z1.7",
+      "value_pending": false,
+      "u_value": 1.8
+    },
+    {
+      "code": "2",
+      "name_de": "Bauteile nach den Nummern 1.1 bis 1.7 — Waermebrueckenzuschlag",
+      "component_group": "global",
+      "quantity": "delta_u_wb",
+      "unit": "W/(m²K)",
+      "value_source": "legal_table",
+      "norm_cell": "GEG2024-A1-Z2",
+      "value_pending": false,
+      "delta_u_wb": 0.05,
+      "note": "Pauschaler Waermebrueckenzuschlag des Referenzgebaeudes, auf die Flaechensumme der Bauteile nach 1.1 bis 1.7 anzurechnen."
+    },
+    {
+      "code": "4",
+      "name_de": "Luftdichtheit der Gebaeudehuelle — Bemessungswert n50",
+      "component_group": "global",
+      "quantity": "airtightness",
+      "unit": "1/h",
+      "value_source": "legal_table",
+      "norm_cell": "GEG2024-A1-Z4",
+      "value_pending": true,
+      "n50_h": null,
+      "note": "Anlage 1 verweist auf DIN V 18599-2:2018-09 Kategorie I (mit Dichtheitspruefung) bzw. DIN V 4108-6:2003-06 (mit Dichtheitspruefung) statt einen Zahlenwert zu nennen. Der zugehoerige n50-Wert stammt aus der DIN und liegt im Werte-Overlay (urheberrechtsgeschuetzt). value_pending=true, bis der DIN-Wert belegt ist."
     }
   ],
 
   "open_points": [
-    "Zahlenwerte aus GEG 2024 Anlage 1 (WG) belegt nachtragen. Rechtlich zulaessig (amtliches Werk), aber aus dem Gesetzestext zu uebernehmen, nicht aus Sekundaerquellen.",
     "Anlage 2 (Nichtwohngebaeude) fehlt vollstaendig — dort ist das Referenzgebaeude zonenweise definiert, die Zeilenstruktur ist eine andere. Eigener Katalog geg_reference_building_nwg.2024.json oder zusaetzliche applicability-Dimension.",
-    "Waermebrueckenzuschlag und Luftdichtheit des Referenzgebaeudes sind hier noch nicht abgebildet."
+    "n50-Wert (Anlage 1 Zeile 4) verweist auf DIN V 18599-2:2018-09 Kategorie I, ohne selbst eine Zahl zu nennen. Der zugehoerige n50-Wert stammt aus der DIN und bleibt urheberrechtsgeschuetzt im Werte-Overlay. Eintrag 4 traegt deshalb value_pending=true mit n50_h=null.",
+    "Anlage 1 Zeile 3 (solare Waermegewinne ueber opake Bauteile: 'wie das zu errichtende Gebaeude'), Zeile 5 (Sonnenschutzvorrichtung: 'keine'), Zeile 6 (Heizungsanlage), Zeile 7 (Warmwasserbereitung), Zeile 8 (Kuehlung), Zeile 9 (Lueftung) und Zeile 10 (Gebaeudeautomation) sind nicht als Eintraege abgebildet, weil sie keine Bauteil-Kennwerte sind, sondern Anlagen-/Nutzungsdefinitionen. Fuer einen vollstaendigen GEG-Nachweis sind sie spaeter als zusaetzliche quantity-Typen oder in einem separaten 'geg_reference_systems'-Katalog aufzunehmen."
   ]
 }

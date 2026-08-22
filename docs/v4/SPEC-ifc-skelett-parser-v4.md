@@ -84,7 +84,7 @@ Belege:
 
 Belege:
 - `meta.source.origin`, Enum enthält **`"IFC_PARSER"`** (`schema/v4.0/sidecar.schema.json:181-192`) — plus `tool`, `tool_version`. Das ist **eine** Herkunft für den **ganzen** Sidecar-Stand, nicht pro Feld.
-- Es gibt **keinen** universellen Per-Feld-Provenienz-Mechanismus. `source` existiert nur objekt-lokal an einzelnen Sub-Entitäten mit je **anderer** Enum: `construction.source ∈ {EVEBI, IFC, CATALOG, MANUAL}` (Z. 793), `airtightness.source` (Z. 240), `zone.used_profile_values.source` (Z. 422), `shading.source` (Z. 752), `energy_certificate.source` (Z. 1068), `target_entry.source` (Z. 1090). Keiner davon deckt „wer hat dieses Geometriefeld geschrieben" ab.
+- Es gibt **keinen** universellen Per-Feld-Provenienz-Mechanismus. `source` existiert nur objekt-lokal an einzelnen Sub-Entitäten mit je **anderer** Enum, etwa bei `construction.source`, `airtightness.source`, `zone.used_profile_values.source`, `shading.source`, `energy_certificate.source` und `target_entry.source`. Keiner davon deckt „wer hat dieses Geometriefeld geschrieben" ab.
 - `readOnly` markiert **abgeleitete** Felder (`aggregates` Z. 523, `envelope_kpis` Z. 269, `openings_index` Z. 44, `opening.geg_reference_row` Z. 725) — „aus der Quelle berechnet, nie gepflegt". Das ist Ableitungs-Semantik, **nicht** Autorenschaft.
 
 **Konsequenz:** Der Parser kann `IFC_PARSER` nur global stempeln. Die Unterscheidung „authored vs. assistiert **pro Feld**" trägt das Schema heute **nicht**. Wenn der Anreicherungs-Assistent das braucht, ist das eine Schema-Erweiterung (Major-relevant) oder ein DWEapp-DB-seitiges Audit (Eingangs-Kanal-Doku führt bereits ein Schreib-Audit über `building_versions_v2`). → **OFFEN-3**.

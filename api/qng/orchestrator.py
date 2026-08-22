@@ -1,5 +1,4 @@
-"""
-EVEBI Orchestrator — automatische Dateityp-Erkennung + Parser-Dispatch
+"""External import orchestrator — automatic format detection and dispatch.
 
 Reihenfolge der Erkennungsregeln (load-bearing — deterministisch zuerst):
   1. BEG-GEG XML:          Inhalt enthält b'LCAQs_Gebaeude'
@@ -26,6 +25,22 @@ class ParseResult:
     bauteilkatalog: list[dict[str, Any]] | None = None
     # True wenn Werte direkt in Sidecar übernommen werden können (Confidence = 1.0)
     direkt_freigabe: bool = False
+
+    @property
+    def adapter(self) -> str:
+        """Neutral adapter identity; ``kanal`` remains a legacy detail."""
+        if self.kanal.startswith("evebi_"):
+            return "adapter:evebi"
+        if self.kanal == "ifc":
+            return "adapter:ifc"
+        return "adapter:external-import"
+
+    @property
+    def source_format(self) -> str:
+        """Stable neutral format identity for API consumers."""
+        if self.kanal.startswith("evebi_"):
+            return self.kanal.removeprefix("evebi_")
+        return self.kanal
 
 
 def _is_xml(content: bytes) -> bool:

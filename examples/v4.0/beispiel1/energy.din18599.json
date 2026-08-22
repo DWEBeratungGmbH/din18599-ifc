@@ -43,8 +43,9 @@
     ],
     "true_north_offset_deg": 35.0,
     "azimuth_reference": "geographic",
+    "ve_method": "approximation",
     "validation": {
-      "level": "enriched",
+      "level": "balanced",
       "validated_at": "2026-07-21T10:00:00Z",
       "ruleset_version": "0.1.0"
     },
@@ -59,8 +60,22 @@
       "type": "residential",
       "subtype": "Doppelhaus, zwei Maisonette-Wohnungen",
       "ngf_m2": 258.96,
+      "ve_m3": 602.4,
+      "envelope_area_m2": 78.97,
+      "av_ratio": 0.131,
       "storeys_above_ground": 2,
-      "storeys_below_ground": 0
+      "storeys_below_ground": 0,
+      "airtightness": {
+        "n50_h": 1.5,
+        "source": "planned",
+        "note": "illustrativer Planungswert — Beispiel1"
+      },
+      "thermal_mass": {
+        "class": "medium"
+      },
+      "envelope_kpis": {
+        "window_area_ratio": 0.0447
+      }
     },
     "storeys": [
       {
@@ -1039,7 +1054,346 @@
         }
       }
     ],
-    "boundaries": [],
+    "boundaries": [
+      {
+        "id": "B-AW-NO-01",
+        "element_group_ref": "AW-NO-01",
+        "space_a": "R-WE1-02",
+        "space_b": null,
+        "adjacency_type": "exterior",
+        "fx": null,
+        "fx_source": "catalog",
+        "measurement_reference": "outer",
+        "area_18599": 10.7,
+        "area_heizlast": 12.5,
+        "orientation": 45.0,
+        "tilt": 90.0,
+        "geometry": {
+          "type": "z_range",
+          "z_from": 0.0,
+          "z_to": 2.5
+        },
+        "relevant_18599": true,
+        "relevant_heizlast": true,
+        "openings": [
+          {
+            "id": "O-AW-NO-01-W1",
+            "opening_type": "window",
+            "window_construction_ref": "WC-STD-2K",
+            "count": 1,
+            "width_m": 1.2,
+            "height_m": 1.5,
+            "area_m2": 1.7999999999999998,
+            "measurement_rule": "clear_structural",
+            "orientation": 45.0,
+            "tilt": 90.0,
+            "geg_reference_row": "1.4"
+          }
+        ]
+      },
+      {
+        "id": "B-AW-NO-02",
+        "element_group_ref": "AW-NO-02",
+        "space_a": "R-WE1-03",
+        "space_b": null,
+        "adjacency_type": "exterior",
+        "fx": null,
+        "fx_source": "catalog",
+        "measurement_reference": "outer",
+        "area_18599": 7.5,
+        "area_heizlast": 7.5,
+        "orientation": 45.0,
+        "tilt": 90.0,
+        "geometry": {
+          "type": "z_range",
+          "z_from": 0.0,
+          "z_to": 2.5
+        },
+        "relevant_18599": true,
+        "relevant_heizlast": true,
+        "openings": []
+      },
+      {
+        "id": "B-AW-NO-03",
+        "element_group_ref": "AW-NO-03",
+        "space_a": "R-WE2-02",
+        "space_b": null,
+        "adjacency_type": "exterior",
+        "fx": null,
+        "fx_source": "catalog",
+        "measurement_reference": "outer",
+        "area_18599": 12.5,
+        "area_heizlast": 12.5,
+        "orientation": 45.0,
+        "tilt": 90.0,
+        "geometry": {
+          "type": "z_range",
+          "z_from": 0.0,
+          "z_to": 2.5
+        },
+        "relevant_18599": true,
+        "relevant_heizlast": true,
+        "openings": []
+      },
+      {
+        "id": "B-AW-SO-01",
+        "element_group_ref": "AW-SO-01",
+        "space_a": "R-WE1-02",
+        "space_b": null,
+        "adjacency_type": "exterior",
+        "fx": null,
+        "fx_source": "catalog",
+        "measurement_reference": "outer",
+        "area_18599": 8.27,
+        "area_heizlast": 10.0,
+        "orientation": 135.0,
+        "tilt": 90.0,
+        "geometry": {
+          "type": "z_range",
+          "z_from": 0.0,
+          "z_to": 2.5
+        },
+        "relevant_18599": true,
+        "relevant_heizlast": true,
+        "openings": [
+          {
+            "id": "O-AW-SO-01-W1",
+            "opening_type": "window",
+            "window_construction_ref": "WC-STD-2K",
+            "count": 1,
+            "width_m": 1.44,
+            "height_m": 1.2,
+            "area_m2": 1.728,
+            "measurement_rule": "clear_structural",
+            "orientation": 135.0,
+            "tilt": 90.0,
+            "geg_reference_row": "1.4"
+          }
+        ]
+      },
+      {
+        "id": "B-AW-SO-02",
+        "element_group_ref": "AW-SO-02",
+        "space_a": "R-WE1-07",
+        "space_b": null,
+        "adjacency_type": "exterior",
+        "fx": null,
+        "fx_source": "catalog",
+        "measurement_reference": "outer",
+        "area_18599": 10.0,
+        "area_heizlast": 10.0,
+        "orientation": 135.0,
+        "tilt": 90.0,
+        "geometry": {
+          "type": "z_range",
+          "z_from": 0.0,
+          "z_to": 2.5
+        },
+        "relevant_18599": true,
+        "relevant_heizlast": true,
+        "openings": []
+      },
+      {
+        "id": "B-AW-SO-03",
+        "element_group_ref": "AW-SO-03",
+        "space_a": "R-WE1-08",
+        "space_b": null,
+        "adjacency_type": "exterior",
+        "fx": null,
+        "fx_source": "catalog",
+        "measurement_reference": "outer",
+        "area_18599": 10.0,
+        "area_heizlast": 10.0,
+        "orientation": 135.0,
+        "tilt": 90.0,
+        "geometry": {
+          "type": "z_range",
+          "z_from": 0.0,
+          "z_to": 2.5
+        },
+        "relevant_18599": true,
+        "relevant_heizlast": true,
+        "openings": []
+      },
+      {
+        "id": "B-AW-SO-04",
+        "element_group_ref": "AW-SO-04",
+        "space_a": "R-WE2-07",
+        "space_b": null,
+        "adjacency_type": "exterior",
+        "fx": null,
+        "fx_source": "catalog",
+        "measurement_reference": "outer",
+        "area_18599": 10.0,
+        "area_heizlast": 10.0,
+        "orientation": 135.0,
+        "tilt": 90.0,
+        "geometry": {
+          "type": "z_range",
+          "z_from": 0.0,
+          "z_to": 2.5
+        },
+        "relevant_18599": true,
+        "relevant_heizlast": true,
+        "openings": []
+      },
+      {
+        "id": "B-AW-SO-05",
+        "element_group_ref": "AW-SO-05",
+        "space_a": "R-WE2-08",
+        "space_b": null,
+        "adjacency_type": "exterior",
+        "fx": null,
+        "fx_source": "catalog",
+        "measurement_reference": "outer",
+        "area_18599": 10.0,
+        "area_heizlast": 10.0,
+        "orientation": 135.0,
+        "tilt": 90.0,
+        "geometry": {
+          "type": "z_range",
+          "z_from": 0.0,
+          "z_to": 2.5
+        },
+        "relevant_18599": true,
+        "relevant_heizlast": true,
+        "openings": []
+      },
+      {
+        "id": "B-IW-WE1-01",
+        "element_group_ref": "IW-WE1-01",
+        "space_a": "R-WE1-02",
+        "space_b": "R-WE1-07",
+        "adjacency_type": "same_zone",
+        "fx": null,
+        "fx_source": "catalog",
+        "measurement_reference": "axis",
+        "area_18599": 10.0,
+        "area_heizlast": 10.0,
+        "orientation": 45.0,
+        "tilt": 90.0,
+        "geometry": {
+          "type": "z_range",
+          "z_from": 0.0,
+          "z_to": 2.5
+        },
+        "relevant_18599": false,
+        "relevant_heizlast": true,
+        "openings": []
+      },
+      {
+        "id": "B-IW-WE1-02",
+        "element_group_ref": "IW-WE1-02",
+        "space_a": "R-WE1-02",
+        "space_b": "R-WE1-07",
+        "adjacency_type": "same_zone",
+        "fx": null,
+        "fx_source": "catalog",
+        "measurement_reference": "axis",
+        "area_18599": 7.5,
+        "area_heizlast": 7.5,
+        "orientation": 135.0,
+        "tilt": 90.0,
+        "geometry": {
+          "type": "z_range",
+          "z_from": 0.0,
+          "z_to": 2.5
+        },
+        "relevant_18599": false,
+        "relevant_heizlast": true,
+        "openings": []
+      },
+      {
+        "id": "B-IW-WE1-WE2-01",
+        "element_group_ref": "IW-WE1-WE2-01",
+        "space_a": "R-WE1-02",
+        "space_b": "R-WE2-02",
+        "adjacency_type": "other_zone",
+        "fx": null,
+        "fx_source": "computed",
+        "measurement_reference": "axis",
+        "area_18599": 20.0,
+        "area_heizlast": 20.0,
+        "orientation": 135.0,
+        "tilt": 90.0,
+        "geometry": {
+          "type": "z_range",
+          "z_from": 0.0,
+          "z_to": 2.5
+        },
+        "relevant_18599": false,
+        "relevant_heizlast": true,
+        "openings": []
+      },
+      {
+        "id": "B-IW-WE2-01",
+        "element_group_ref": "IW-WE2-01",
+        "space_a": "R-WE2-02",
+        "space_b": "R-WE2-08",
+        "adjacency_type": "same_zone",
+        "fx": null,
+        "fx_source": "catalog",
+        "measurement_reference": "axis",
+        "area_18599": 10.0,
+        "area_heizlast": 10.0,
+        "orientation": 45.0,
+        "tilt": 90.0,
+        "geometry": {
+          "type": "z_range",
+          "z_from": 0.0,
+          "z_to": 2.5
+        },
+        "relevant_18599": false,
+        "relevant_heizlast": true,
+        "openings": []
+      },
+      {
+        "id": "B-IW-WE2-02",
+        "element_group_ref": "IW-WE2-02",
+        "space_a": "R-WE2-02",
+        "space_b": "R-WE2-08",
+        "adjacency_type": "same_zone",
+        "fx": null,
+        "fx_source": "catalog",
+        "measurement_reference": "axis",
+        "area_18599": 7.5,
+        "area_heizlast": 7.5,
+        "orientation": 135.0,
+        "tilt": 90.0,
+        "geometry": {
+          "type": "z_range",
+          "z_from": 0.0,
+          "z_to": 2.5
+        },
+        "relevant_18599": false,
+        "relevant_heizlast": true,
+        "openings": []
+      }
+    ],
+    "openings_index": [
+      {
+        "opening_ref": "O-AW-NO-01-W1",
+        "boundary_ref": "B-AW-NO-01",
+        "element_group_ref": "AW-NO-01",
+        "room_ref": "R-WE1-02",
+        "opening_type": "window",
+        "area_m2": 1.7999999999999998,
+        "orientation": 45.0,
+        "tilt": 90.0,
+        "geg_reference_row": "1.4"
+      },
+      {
+        "opening_ref": "O-AW-SO-01-W1",
+        "boundary_ref": "B-AW-SO-01",
+        "element_group_ref": "AW-SO-01",
+        "room_ref": "R-WE1-02",
+        "opening_type": "window",
+        "area_m2": 1.728,
+        "orientation": 135.0,
+        "tilt": 90.0,
+        "geg_reference_row": "1.4"
+      }
+    ],
     "constructions": [
       {
         "id": "C-AW-01",
@@ -1058,6 +1412,25 @@
         "name": "Innenwand 17,5 nicht tragend",
         "source": "IFC",
         "origin_ref": "Innenwand 17,5"
+      }
+    ],
+    "window_constructions": [
+      {
+        "id": "WC-STD-2K",
+        "name": "Standard 2-Scheiben-Waermeschutzverglasung (illustrativ)",
+        "u_value": 1.2,
+        "g_value": 0.6,
+        "glass": {
+          "u_value": 1.1,
+          "g_value": 0.6,
+          "light_transmittance": 0.78
+        },
+        "frame": {
+          "u_value": 1.5,
+          "area_fraction": 0.2,
+          "material": "Kunststoff"
+        },
+        "psi_spacer": 0.06
       }
     ],
     "climate": {

@@ -191,8 +191,12 @@ python3 tools/dwe_validate.py examples/v4.0/beispiel1/energy.din18599.json \
 ```
 
 Referenz-Container: [`examples/v4.0/beispiel1/`](../examples/v4.0/beispiel1/).
-Er steht auf `enriched` — `boundaries[]` ist noch leer, weil die Revit-Pipeline
-(Stufe 2d) daran arbeitet. Ein Zwischenstand, kein Fehler.
+Er steht auf `balanced` — `boundaries[]` ist synthetisch gefüllt (Skript
+[`scripts/build-example-beispiel1.py`](../scripts/build-example-beispiel1.py)),
+bis die Revit-Pipeline (Stufe 2d) die echte Angrenzungsmatrix liefert.
+`calc_ready` blockiert am gitignored Normwerte-Overlay
+(`catalog/values/adjacency_types.2018-09.values.json` u. a. — aus eigener
+Normlizenz bereitzustellen). Ein Zwischenstand, kein Fehler.
 
 ---
 
@@ -201,28 +205,30 @@ Er steht auf `enriched` — `boundaries[]` ist noch leer, weil die Revit-Pipelin
 Nicht jedes Zielsystem kann alles abbilden, was im Container steht. Das ist
 eingeplant — aber es gibt Regeln, damit ein Roundtrip nichts zerstört.
 
-### EVEBI
+### Externe, verlustbehaftete Consumer
 
-EVEBI kennt keine Raumtopologie. Es bekommt beim Export die **Gruppen-Aggregation**:
-je `element_group` eine Bauteilzeile mit Fläche, U-Wert und Orientierung, aufgeteilt
-nach Angrenzungsart (`aggregates.by_adjacency[]`).
+Ein Consumer, der die vollständige Raumtopologie nicht abbilden kann, bekommt eine
+**Gruppen-Aggregation**: je `element_group` eine Bauteilzeile mit Fläche, U-Wert und
+Orientierung, aufgeteilt nach Angrenzungsart (`aggregates.by_adjacency[]`). Ein
+produktspezifischer Adapter definiert die konkrete Abbildung.
 
 **Was den Roundtrip nicht überlebt:**
 
 | Struktur | Grund |
 |---|---|
-| `boundaries[]` | EVEBI hat kein Gegenstück zur Raum-Bauteil-Beziehung |
+| `boundaries[]` | Das Zielsystem hat kein Gegenstück zur Raum-Bauteil-Beziehung |
 | `rooms[]` mit `zone_memberships[]` | Zonen ja, Räume darunter nein |
 | `geometry.polygon` | Nur Flächensummen, keine Umrisse |
 | `element_groups[].member_elements[]` | Kein Bezug ins Autorensystem |
 
 > ### Die eine harte Regel
 >
-> **Ein EVEBI-Re-Import überschreibt NIEMALS `boundaries[]` oder `element_groups[]`.**
+> **Ein verlustbehafteter Re-Import überschreibt NIEMALS `boundaries[]` oder `element_groups[]`.**
 >
 > Er darf U-Werte, Konstruktionen, Anlagentechnik und `output` aktualisieren. Die
-> Topologie stammt aus der Revit-Pipeline und ist dort billig neu zu erzeugen — aus
-> EVEBI heraus ist sie **nicht rekonstruierbar**. Wer sie überschreibt, zerstört
+> Topologie stammt aus dem autoritativen Geometrie-/Anreicherungsprozess und ist dort
+> neu zu erzeugen — aus einem verlustbehafteten Consumer ist sie **nicht
+> rekonstruierbar**. Wer sie überschreibt, zerstört
 > Daten, die niemand zurückholen kann.
 
 Praktisch: ein Re-Import ist ein **Merge auf Feldebene**, kein Ersetzen des `input`-Astes.

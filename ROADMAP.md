@@ -21,6 +21,15 @@
 > er dokumentiert den Zustand vom 1.4., als das Parser-System fertig war. Für den
 > aktuellen Stand siehe diesen Abschnitt und den [CHANGELOG](CHANGELOG.md).
 
+### Aktueller Architekturstand (21. August 2026)
+
+- **Neutraler v4-Kern:** `api/core/` mit `ImportBundle`, Sidecar-Builder und
+   v4-Bridge; IFC-only ist der primäre Importpfad.
+- **Adaptergrenze:** `api/adapters/ifc/` und `api/adapters/evebi/`; EVEBI bleibt
+   optional und ist kein Bestandteil der neutralen Schnittstellenbeschreibung.
+- **Migration:** `/parse-ifc-neutral` ist der neue neutrale API-Pfad;
+   `/parse-evebi` und `/generate-sidecar` bleiben als deprecated Legacy-Routen.
+
 ### 🟢 Seit dem 1. April erreicht
 
 - **Schema v2.2, v2.3, v3.0, v3.1** ausgeliefert — siehe [CHANGELOG.md](CHANGELOG.md)

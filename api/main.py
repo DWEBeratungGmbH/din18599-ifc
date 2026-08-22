@@ -1,20 +1,24 @@
 from fastapi import FastAPI, UploadFile, File, HTTPException
-from fastapi.responses import JSONResponse, FileResponse
+from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 import json
 import os
 import tempfile
-import shutil
 from pathlib import Path
 from jsonschema import validate, ValidationError
 
 # Neue Imports für Sidecar Generator v2
-from parsers.evebi_parser import parse_evea, evebi_data_to_dict
+from adapters.evebi import normalize_evebi, parse_evea, evebi_data_to_dict
 from parsers.ifc_parser import parse_ifc, ifc_geometry_to_dict
 from parsers.ifc_v4_parser import parse_ifc_to_sidecar_v4
 from generators.sidecar_generator import SidecarGenerator
 
-# QNG EVEBI Parser-Modul (Phase 3.9 Welle 3)
+# Zentrale, sichere Upload-Verarbeitung (siehe upload_utils.py).
+# Vorher duplizierte jeder Endpunkt die Pruefung uneinheitlich; dieser Helfer
+# ist die einzige Stelle fuer Endungs-, Groessen- und Pfad-Sicherheit.
+from upload_utils import UploadError, verarbeite_upload, lese_upload, pruefe_dateiname
+
+# QNG/external-import module (Phase 3.9 Welle 3)
 try:
     from qng.orchestrator import orchestrate as qng_orchestrate
     QNG_AVAILABLE = True
@@ -41,9 +45,15 @@ except ImportError as e:
 
 app = FastAPI(
     title="DIN 18599 Sidecar API",
-    description="API für IFC + EVEBI Upload, Parsing, Sidecar-Generierung und Datenbank",
-    version="2.1.0"
+    description="API fuer IFC-Import, Sidecar-Erzeugung, Validierung und Datenbank. Produktspezifische Importadapter sind separat gekennzeichnet.",
+    version="2.1.0",
 )
+
+# API-Version als Single Source of Truth fuer /health. Bewusst getrennt vom
+# FastAPI-Titel: /health ist der Vertrag gegenueber dem Viewer/DWEapp, und
+# der soll nicht stillschweigend wandern, wenn jemand die FastAPI-Version
+# hochsetzt. Siehe Plan Phase 1.2 (Schema- und Versionstransparenz).
+API_VERSION = "2.1.0"
 
 # Datenbank-Router einbinden (wenn verfügbar)
 if DB_AVAILABLE:
@@ -63,41 +73,73 @@ app.add_middleware(
 )
 
 # Load schema on startup
-SCHEMA_PATH = os.path.join(os.path.dirname(__file__), "../gebaeude.din18599.schema.json")
-try:
-    with open(SCHEMA_PATH, "r") as f:
-        SCHEMA = json.load(f)
-except Exception as e:
-    print(f"KRITISCH: Schema konnte nicht geladen werden von {SCHEMA_PATH}: {e}")
-    SCHEMA = None
+# Load supported schemas on startup. v3.1 remains the legacy default; v4.0 is
+# selected from the submitted sidecar's schema_info URL/version.
+SCHEMA_PATHS = {
+    "v3.1": os.path.join(os.path.dirname(__file__), "../schema/v3.1-complete.json"),
+    "v4.0": os.path.join(os.path.dirname(__file__), "../schema/v4.0/sidecar.schema.json"),
+}
+SCHEMAS = {}
+for schema_key, schema_path in SCHEMA_PATHS.items():
+    try:
+        with open(schema_path, "r") as schema_file:
+            SCHEMAS[schema_key] = json.load(schema_file)
+    except Exception as error:
+        print(f"Schema {schema_key} konnte nicht geladen werden von {schema_path}: {error}")
+
+SCHEMA = SCHEMAS.get("v3.1")
 
 @app.get("/health")
 def health_check():
-    # Schema ist optional - Backend funktioniert auch ohne
-    schema_status = "loaded" if SCHEMA is not None else "not_loaded"
-    return {"status": "healthy", "version": "1.0.0", "schema": schema_status}
+    # /health ist der Vertrag gegenueber Viewer/DWEapp. Es meldet die
+    # tatsaechlich geladenen Schemata und die API-Version — nicht "1.0.0",
+    # die es nie gab, und nicht ein pauschales "loaded/not_loaded", das
+    # den Unterschied zwischen v3.1 und v4.0 verschluckt.
+    return {
+        "status": "healthy",
+        "version": API_VERSION,
+        "schema": "loaded" if SCHEMA is not None else "not_loaded",
+        "schemas": sorted(SCHEMAS),
+        "qng_available": QNG_AVAILABLE,
+        "db_available": DB_AVAILABLE,
+    }
 
 @app.post("/validate")
 async def validate_json(file: UploadFile):
+    # Sichere Endung (case-insensitiv) und Groessenlimit zentral geprueft.
+    try:
+        pruefe_dateiname(file.filename, [".json"])
+        content = await file.read()
+        lese_upload(content)
+    except UploadError as e:
+        raise HTTPException(status_code=e.status_code, detail=e.detail)
+
     if SCHEMA is None:
         raise HTTPException(status_code=503, detail="Validator-Service nicht verfügbar (Schema fehlt)")
-    
-    if not file.filename.endswith(".json"):
-        raise HTTPException(status_code=400, detail="Datei muss eine JSON-Datei sein")
 
     try:
-        content = await file.read()
         data = json.loads(content)
     except json.JSONDecodeError:
         raise HTTPException(status_code=400, detail="Ungültiges JSON-Format")
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Fehler beim Lesen der Datei: {str(e)}")
 
+    schema_key = "v3.1"
+    schema_info = data.get("schema_info", {}) if isinstance(data, dict) else {}
+    schema_url = schema_info.get("url", "")
+    schema_version = schema_info.get("version", "")
+    if "/v4.0/" in schema_url or str(schema_version).startswith("4.0."):
+        schema_key = "v4.0"
+    schema = SCHEMAS.get(schema_key)
+    if schema is None:
+        raise HTTPException(status_code=503, detail=f"Schema {schema_key} nicht verfügbar")
+
     try:
-        validate(instance=data, schema=SCHEMA)
+        validate(instance=data, schema=schema)
         return {
             "valid": True,
             "filename": file.filename,
+            "schema": schema_key,
             "message": "Datei ist valide gegenüber dem DIN 18599 Sidecar Schema."
         }
     except ValidationError as e:
@@ -106,6 +148,7 @@ async def validate_json(file: UploadFile):
             content={
                 "valid": False,
                 "filename": file.filename,
+                "schema": schema_key,
                 "error": e.message,
                 "path": list(e.path),
                 "schema_path": list(e.schema_path)
@@ -118,16 +161,20 @@ async def parse_ifc_file(ifc_file: UploadFile = File(...)):
     """
     Parst IFC-Datei und gibt Vorschau zurück (Step 1)
     """
-    if not ifc_file.filename.endswith('.ifc'):
-        raise HTTPException(status_code=400, detail="IFC-Datei muss .ifc Extension haben")
-    
     with tempfile.TemporaryDirectory() as temp_dir:
         temp_path = Path(temp_dir)
-        ifc_path = temp_path / ifc_file.filename
-        
-        with open(ifc_path, 'wb') as f:
-            shutil.copyfileobj(ifc_file.file, f)
-        
+        try:
+            inhalt = await ifc_file.read()
+            ifc_path, _ = verarbeite_upload(
+                filename=ifc_file.filename,
+                inhalt=inhalt,
+                erlaubt=[".ifc"],
+                ziel_verzeichnis=temp_path,
+                prefix="ifc",
+            )
+        except UploadError as e:
+            raise HTTPException(status_code=e.status_code, detail=e.detail)
+
         try:
             ifc_geometry = parse_ifc(str(ifc_path))
             
@@ -160,27 +207,86 @@ async def parse_ifc_v4_endpoint(ifc_file: UploadFile = File(...)):
     ADR-033). Erwartete Validator-Warnungen auf ``draft``: BOUNDARIES_EMPTY und
     HEATING_STATUS_UNCONFIRMED — beide blockieren erst ``geometry_ok``.
     """
-    if not ifc_file.filename.endswith('.ifc'):
-        raise HTTPException(status_code=400, detail="IFC-Datei muss .ifc Extension haben")
-
     with tempfile.TemporaryDirectory() as temp_dir:
         temp_path = Path(temp_dir)
-        ifc_path = temp_path / ifc_file.filename
-
-        with open(ifc_path, 'wb') as f:
-            shutil.copyfileobj(ifc_file.file, f)
+        try:
+            inhalt = await ifc_file.read()
+            ifc_path, original_name = verarbeite_upload(
+                filename=ifc_file.filename,
+                inhalt=inhalt,
+                erlaubt=[".ifc"],
+                ziel_verzeichnis=temp_path,
+                prefix="ifc_v4",
+            )
+        except UploadError as e:
+            raise HTTPException(status_code=e.status_code, detail=e.detail)
 
         try:
             sidecar = parse_ifc_to_sidecar_v4(
                 str(ifc_path),
-                ifc_file_ref=ifc_file.filename,
+                ifc_file_ref=original_name,
             )
             return JSONResponse(content=sidecar)
         except Exception as e:
             raise HTTPException(status_code=500, detail=f"Fehler beim Parsen: {str(e)}")
 
 
-@app.post("/parse-evebi")
+@app.post(
+    "/parse-ifc-neutral",
+    tags=["neutral"],
+    summary="Build a neutral v4 sidecar from IFC",
+)
+async def parse_ifc_neutral_endpoint(
+    ifc_file: UploadFile = File(...),
+    building_type: str = "non_residential",
+):
+    """Parse IFC through the neutral adapter and sidecar builder.
+
+    This endpoint deliberately sits beside ``/parse-ifc-v4`` during the
+    migration. The established endpoint remains byte-shape compatible while
+    this route makes the new adapter/core boundary observable.
+    """
+    with tempfile.TemporaryDirectory() as temp_dir:
+        temp_path = Path(temp_dir)
+        try:
+            inhalt = await ifc_file.read()
+            ifc_path, original_name = verarbeite_upload(
+                filename=ifc_file.filename,
+                inhalt=inhalt,
+                erlaubt=[".ifc"],
+                ziel_verzeichnis=temp_path,
+                prefix="ifc_neutral",
+            )
+        except UploadError as e:
+            raise HTTPException(status_code=e.status_code, detail=e.detail)
+
+        try:
+            from adapters.ifc import parse_ifc_to_bundle
+            from core.sidecar_builder import build_draft_sidecar
+
+            bundle = parse_ifc_to_bundle(
+                str(ifc_path),
+                ifc_file_ref=original_name,
+                building_type=building_type,
+            )
+            project_name = bundle.metadata.get("project_name") or original_name
+            sidecar = build_draft_sidecar(
+                bundle,
+                project_name=project_name,
+                building_type=building_type,
+                ifc_file_ref=original_name,
+            )
+            return JSONResponse(content=sidecar)
+        except Exception as e:
+            raise HTTPException(status_code=500, detail=f"Fehler beim neutralen IFC-Parsing: {str(e)}")
+
+
+@app.post(
+    "/parse-evebi",
+    tags=["adapter:evebi"],
+    deprecated=True,
+    summary="Legacy EVEBI adapter import",
+)
 async def parse_evebi_endpoint(
     evebi_file: UploadFile = File(...),
     ifc_file: UploadFile = File(None)
@@ -189,21 +295,27 @@ async def parse_evebi_endpoint(
     Parst EVEBI-Datei und gibt strukturierte Daten zurück
     """
     # Validierung
-    if not (evebi_file.filename.endswith('.evea') or evebi_file.filename.endswith('.evex')):
-        raise HTTPException(status_code=400, detail="EVEBI-Datei muss .evea oder .evex Extension haben")
-    
-    # Temporäre Dateien erstellen
     with tempfile.TemporaryDirectory() as temp_dir:
         temp_path = Path(temp_dir)
-        
-        # EVEBI speichern
-        evebi_path = temp_path / evebi_file.filename
-        with open(evebi_path, 'wb') as f:
-            shutil.copyfileobj(evebi_file.file, f)
-        
+        try:
+            evebi_inhalt = await evebi_file.read()
+            evebi_path, evebi_original = verarbeite_upload(
+                filename=evebi_file.filename,
+                inhalt=evebi_inhalt,
+                erlaubt=[".evea", ".evex"],
+                ziel_verzeichnis=temp_path,
+                prefix="evebi",
+            )
+        except UploadError as e:
+            raise HTTPException(status_code=e.status_code, detail=e.detail)
+
         try:
             # EVEBI parsen
             evebi_data = parse_evea(str(evebi_path))
+            normalized = normalize_evebi(
+                evebi_data,
+                source_ref=evebi_original,
+            )
             
             # Frontend erwartet nur Anzahlen, nicht vollständige Daten
             return {
@@ -214,6 +326,14 @@ async def parse_evebi_endpoint(
                     "constructions": len(evebi_data.constructions),
                     "elements": len(evebi_data.elements),
                     "zones": len(evebi_data.zones)
+                },
+                "normalized_import": {
+                    "origin": normalized.provenance.origin if normalized.provenance else None,
+                    "elements": len(normalized.elements),
+                    "constructions": len(normalized.constructions),
+                    "rooms": len(normalized.rooms),
+                    "zones": len(normalized.zones),
+                    "systems": len(normalized.systems),
                 }
             }
             
@@ -223,7 +343,12 @@ async def parse_evebi_endpoint(
             raise HTTPException(status_code=500, detail=f"Fehler beim Parsen: {str(e)}")
 
 
-@app.post("/generate-sidecar")
+@app.post(
+    "/generate-sidecar",
+    tags=["adapter:evebi"],
+    deprecated=True,
+    summary="Legacy IFC plus EVEBI sidecar generation",
+)
 async def generate_sidecar_json(
     ifc_file: UploadFile = File(...),
     evebi_file: UploadFile = File(...)
@@ -233,26 +358,28 @@ async def generate_sidecar_json(
     """
     print("\n=== Sidecar Generator v2 ===")
     
-    # Validierung
-    if not ifc_file.filename.endswith('.ifc'):
-        raise HTTPException(status_code=400, detail="IFC-Datei muss .ifc Extension haben")
-    
-    if not (evebi_file.filename.endswith('.evea') or evebi_file.filename.endswith('.evex')):
-        raise HTTPException(status_code=400, detail="EVEBI-Datei muss .evea oder .evex Extension haben")
-    
     with tempfile.TemporaryDirectory() as temp_dir:
         temp_path = Path(temp_dir)
-        
-        # IFC speichern
-        ifc_path = temp_path / ifc_file.filename
-        with open(ifc_path, 'wb') as f:
-            shutil.copyfileobj(ifc_file.file, f)
+        try:
+            ifc_inhalt = await ifc_file.read()
+            ifc_path, ifc_original = verarbeite_upload(
+                filename=ifc_file.filename,
+                inhalt=ifc_inhalt,
+                erlaubt=[".ifc"],
+                ziel_verzeichnis=temp_path,
+                prefix="ifc",
+            )
+            evebi_inhalt = await evebi_file.read()
+            evebi_path, evebi_original = verarbeite_upload(
+                filename=evebi_file.filename,
+                inhalt=evebi_inhalt,
+                erlaubt=[".evea", ".evex"],
+                ziel_verzeichnis=temp_path,
+                prefix="evebi",
+            )
+        except UploadError as e:
+            raise HTTPException(status_code=e.status_code, detail=e.detail)
         print(f"📂 IFC gespeichert: {ifc_path}")
-        
-        # EVEBI speichern
-        evebi_path = temp_path / evebi_file.filename
-        with open(evebi_path, 'wb') as f:
-            shutil.copyfileobj(evebi_file.file, f)
         print(f"📂 EVEBI gespeichert: {evebi_path}")
         
         try:
@@ -288,7 +415,7 @@ async def generate_sidecar_json(
                 ifc_data=ifc_dict,
                 evebi_data=evebi_dict,
                 project_name=evebi_dict['project_name'],
-                ifc_file_ref=ifc_file.filename
+                ifc_file_ref=ifc_original
             )
             
             print(f"✅ Sidecar generiert!")
@@ -339,13 +466,13 @@ async def generate_sidecar_json(
 
 
 # ─────────────────────────────────────────────────────────────────────────────
-# QNG EVEBI Parser — Phase 3.9 Welle 3
+# QNG/external-import endpoint — Phase 3.9 Welle 3
 # ─────────────────────────────────────────────────────────────────────────────
 
 @app.post("/qng/parse")
 async def qng_parse(file: UploadFile = File(...)):
     """
-    Erkennt EVEBI-Dateityp automatisch und extrahiert QNG-relevante Werte.
+    Erkennt externe Importformate automatisch und extrahiert QNG-relevante Werte.
 
     Unterstützte Formate:
     - BEG-GEG-Nachweis-Import.xml  → deterministisch, Confidence 1.0
@@ -369,8 +496,15 @@ async def qng_parse(file: UploadFile = File(...)):
             detail="QNG-Parser nicht verfügbar (Import-Fehler beim Start).",
         )
 
-    content = await file.read()
-    filename = file.filename or "unbekannt"
+    # Groesse/Leere zentral pruefen; Endung bewusst offen, da der Orchestrator
+    # das Format selbst erkennt. Filename wird als reiner Name (kein Pfad)
+    # weitergereicht, damit der Orchestrator keinen Traversal-Pfad sieht.
+    try:
+        content = await file.read()
+        lese_upload(content)
+    except UploadError as e:
+        raise HTTPException(status_code=e.status_code, detail=e.detail)
+    filename = Path(file.filename or "unbekannt").name or "unbekannt"
 
     try:
         result = qng_orchestrate(content, filename)
@@ -383,6 +517,8 @@ async def qng_parse(file: UploadFile = File(...)):
         raise HTTPException(status_code=500, detail=f"Parser-Fehler: {str(e)}")
 
     return {
+        "adapter":         result.adapter,
+        "source_format":   result.source_format,
         "kanal":           result.kanal,
         "ki_extrahiert":   result.ki_extrahiert,
         "ki_confidence":   result.ki_confidence,

@@ -180,12 +180,11 @@
 
         "source": {
           "type": "object",
-          "description": "Herkunft der Daten. Wichtig fuer Lossy-Consumer-Faelle (EVEBI-Re-Import).",
+          "description": "Herkunft der Daten. Wichtig fuer verlustbehaftete externe Consumer und Re-Importe.",
           "properties": {
             "origin": {
               "type": "string",
-              "enum": ["REVIT_DYNAMO", "IFC_PARSER", "EVEBI", "MANUAL", "DWEAPP"],
-              "description": "Primaere Herkunft dieses Sidecar-Stands"
+              "description": "Primaere Herkunft dieses Sidecar-Stands, als namespaced System- oder Adapterkennung."
             },
             "tool": { "type": "string" },
             "tool_version": { "type": "string" }
@@ -790,10 +789,10 @@
       "properties": {
         "id":   { "type": "string" },
         "name": { "type": "string" },
-        "source": { "type": "string", "enum": ["EVEBI", "IFC", "CATALOG", "MANUAL"] },
+        "source": { "type": "string", "enum": ["IFC", "CATALOG", "MANUAL", "IMPORT_ADAPTER", "DERIVED"] },
         "origin_ref": {
           "type": "string",
-          "description": "Herkunfts-ID im Quellsystem (EVEBI-GUID, IFC-MaterialLayerSet, Katalog-ID). Dedup-Konvention: gleiche origin_ref = derselbe Aufbau, wird nur einmal gefuehrt."
+          "description": "Herkunfts-ID im Quellsystem (z.B. IFC-MaterialLayerSet, Katalog-ID oder Adapter-Referenz). Dedup-Konvention: gleiche origin_ref = derselbe Aufbau, wird nur einmal gefuehrt."
         },
         "catalog_ref":    { "type": "string" },
         "catalog_source": { "type": "string", "enum": ["core", "dweapp", "local"] },
@@ -1094,7 +1093,7 @@
 
     "output_snapshot": {
       "type": "object",
-      "description": "Berechnungsergebnisse einer externen Rechen-Engine (EVEBI, Hottgenroth). Abgeleitet — bei Widerspruch gewinnt immer input.",
+      "description": "Berechnungsergebnisse einer externen Rechen-Engine. Abgeleitet — bei Widerspruch gewinnt immer input.",
       "properties": {
         "meta": {
           "type": "object",

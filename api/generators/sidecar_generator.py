@@ -365,17 +365,40 @@ class SidecarGenerator:
                     best_score = score
                     best_match = evebi_elem
             
-            # Niedrigere Schwelle für bessere Match-Rate
-            if best_match and best_score > 0.35:
-                matches.append({
-                    "ifc": ifc_elem,
-                    "evebi": best_match,
-                    "score": best_score,
-                    "method": "fuzzy"
-                })
+        # Niedrigere Schwelle für bessere Match-Rate. Aber: nur uebernehmen,
+        # wenn kein similarly guter Konkurrent existiert — sonst ist das Match
+        # mehrdeutig und ein falsches Pairing waere schlimmer als kein Match.
+        # Plan Phase 3.11: Ambiguitaetspruefung vor Fuzzy-Akzeptanz.
+        ZWEIT_PLATZ_ABSTAND = 0.05  # Konfidenzabstand, unter dem wir unsicher sind
+        zweit_bester_score = 0.0
+        for evebi_elem in evebi_elements:
+            if evebi_elem.guid in matched_evebi_guids:
+                continue
+            if evebi_elem is best_match:
+                continue
+            score = self._calculate_match_score(ifc_elem, evebi_elem)
+            if score > zweit_bester_score:
+                zweit_bester_score = score
+        
+        if best_match and best_score > 0.35:
+            mehrdeutig = (best_score - zweit_bester_score) < ZWEIT_PLATZ_ABSTAND
+            matches.append({
+                "ifc": ifc_elem,
+                "evebi": best_match,
+                "score": best_score,
+                "method": "fuzzy_ambiguous" if mehrdeutig else "fuzzy",
+                "ambiguous": mehrdeutig,
+            })
+            if not mehrdeutig:
                 matched_evebi_guids.add(best_match.guid)
             else:
+                # Mehrdeutige Matches belegen den EVEBI-Kandidaten NICHT
+                # exklusiv — ein spaeterer, eindeutigerer Pass darf ihn noch
+                # holen. Das ist konservativer als das alte Verhalten.
                 still_unmatched.append(ifc_elem)
+        else:
+            # Weder Schwellwert erreicht noch gueltiger Match: ungematcht.
+            still_unmatched.append(ifc_elem)
         
         # Ungematchte IFC-Elemente auch hinzufügen (wichtig für Fenster!)
         for ifc_elem in still_unmatched:
@@ -389,9 +412,12 @@ class SidecarGenerator:
         print(f"\n📊 Matching-Statistik:")
         print(f"   - Pass 1 (PosNo): {len([m for m in matches if m.get('method') == 'posno'])} Matches")
         print(f"   - Pass 2 (Fuzzy): {len([m for m in matches if m.get('method') == 'fuzzy'])} Matches")
+        print(f"   - Pass 2 (Fuzzy, mehrdeutig): {len([m for m in matches if m.get('method') == 'fuzzy_ambiguous'])} Elemente")
         print(f"   - IFC-Only (unmatched): {len([m for m in matches if m.get('method') == 'ifc_only'])} Elemente")
         print(f"   - Total Elemente: {len(matches)}")
-        print(f"   - Match-Rate: {len([m for m in matches if m['evebi']]) / len(ifc_elements) * 100:.1f}%")
+        # Division durch null bei leerer IFC-Liste absichern. Plan Phase 3.10.
+        match_rate = (len([m for m in matches if m['evebi']]) / len(ifc_elements) * 100) if ifc_elements else 0.0
+        print(f"   - Match-Rate: {match_rate:.1f}%")
         
         return matches
     

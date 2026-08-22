@@ -667,6 +667,27 @@ def berechne(
                           "moisture_conditions")
         return erg
 
+    # Vollstaendigkeit der Randbedingungen pruefen, BEVOR sie in baue_feld()
+    # verwendet werden. p_i/p_e/dauer_s sind @property, die None * float
+    # wuerfen (TypeError), wenn theta_i/phi_i/duration_days fehlen — das gilt
+    # auch fuer benutzerdefinierte Randbedingungen, die der Caller uebergibt.
+    # Plan Phase 4.15.
+    for name, rb in (("Tauperiode", rb_tau), ("Verdunstungsperiode", rb_verdunstung)):
+        if not rb.vollstaendig:
+            fehlend = [f for f, v in (
+                ("theta_i", rb.theta_i), ("phi_i", rb.phi_i),
+                ("theta_e", rb.theta_e), ("phi_e", rb.phi_e),
+                ("duration_days", rb.duration_days),
+                ("rsi", rb.rsi), ("rse", rb.rse),
+            ) if v is None]
+            erg.fehler.append(
+                f"{name}: Randbedingungen unvollstaendig (fehlen: "
+                f"{', '.join(fehlend)}). p_i, p_e und dauer_s koennen nicht "
+                f"berechnet werden — Werte-Overlay fehlen oder Caller hat "
+                f"unvollstaendige Randbedingungen uebergeben."
+            )
+            return erg
+
     luftschichten = lade_luftschichten()
     feld_tau, fehler = baue_feld(layers, materialien, rb_tau, luftschichten)
     if fehler:

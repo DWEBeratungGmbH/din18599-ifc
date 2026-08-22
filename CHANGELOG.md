@@ -9,7 +9,21 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/lang/de/).
 
 ## [Unreleased] - Schema v4.0 (.dwe-Container)
 
+### Changed
+
+- **Neutraler Importkern und Adaptergrenzen** — v4.0 beschreibt keine
+  produktspezifischen Importformate mehr. IFC-only ist der neutrale Primärpfad;
+  EVEBI bleibt als expliziter Legacy-/Produktadapter unter `api/adapters/evebi/`
+  verfügbar. `construction.source` verwendet dafür `IMPORT_ADAPTER` statt einer
+  produktspezifischen Quelle. Der neue `/parse-ifc-neutral`-Endpunkt baut ein
+  v4-Draft-Sidecar über `ImportBundle` und den neutralen Builder.
+
 ### Fixed
+
+- **Versionsbewusste `/validate`-Schemaauswahl** — der Endpoint lädt jetzt die
+  im Repository vorhandenen v3.1- und v4.0-Schemata, statt auf die entfernte
+  Datei `gebaeude.din18599.schema.json` zu zeigen. v4.0 wird anhand von
+  `schema_info` gewählt; v3.1 bleibt der Legacy-Default.
 
 - **`api/parsers/ifc_parser.py` wiederhergestellt (23.07.2026)** — `api/main.py`
   importiert `from parsers.ifc_parser import parse_ifc, ifc_geometry_to_dict`, aber

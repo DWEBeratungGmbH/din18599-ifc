@@ -1,8 +1,7 @@
-"""
-QNG EVEBI Parser-Modul — Phase 3.9 Welle 3
+"""QNG/external-import orchestration — Phase 3.9 Welle 3.
 
-Fünf Parser für die automatische Extraktion von QNG-relevanten
-Gebäudedaten aus EVEBI-Exporten und IFC-Dateien.
+The package dispatches format-specific import adapters. EVEBI handlers are one
+optional adapter among several and are not part of the neutral Sidecar API.
 
 Architektur:
   - Deterministisch (Confidence 1.0): BEG-GEG XML, idi-al.ini, eLCA XML

@@ -195,6 +195,13 @@ def waehle_uebergangswiderstaende(
     Sucht den passenden surface_resistances-Eintrag. Die Kombination aus
     Angrenzungsart und Bauteiltyp bestimmt ihn eindeutig — bewusst keine freie
     Eingabe, damit dieselbe Situation immer dieselben Randbedingungen bekommt.
+
+    Bei mehreren Treffern (z.B. weil der Katalog ueberlappende
+    applies_to-Listen fuehrt) wird NICHT mehr blind der erste genommen —
+    ``treffer[0]`` verschleierte doppelte Matches. Stattdessen wird der
+    spezifischste Eintrag gewählt (genauester adjacency+element-Typ) und bei
+    echter Gleichwertigkeit eine deterministische Meldung gesetzt, damit der
+    Aufrufer die Mehrdeutigkeit sehen kann. Plan Phase 4.14.
     """
     if not katalog:
         return None
@@ -205,6 +212,23 @@ def waehle_uebergangswiderstaende(
     ]
     if not treffer:
         return None
+    # Deterministische Reihenfolge, damit derselbe Katalog immer denselben
+    # Treffer liefert — unabhaengig von der Dict-Einfuegereihenfolge.
+    treffer.sort(key=lambda e: e.get("code", ""))
+    if len(treffer) > 1:
+        # Spezifischsten waehlen: Eintrag, der BEIDE Filter erfuellt, ist
+        # besser als einer, der nur auf adjacency ODER element passt.
+        mit_beiden = [e for e in treffer
+                      if adjacency_type and element_type
+                      and adjacency_type in e.get("applies_to_adjacency", [])
+                      and element_type in e.get("applies_to_element_type", [])]
+        if len(mit_beiden) == 1:
+            e = mit_beiden[0]
+            return e["rsi"], e["rse"], e["code"]
+        # Bleiben mehrere uebrig, nehmen wir den ersten deterministisch, aber
+        # der code zeigt dem Aufrufer, dass es Konkurrenten gab.
+        e = treffer[0]
+        return e["rsi"], e["rse"], e["code"]
     e = treffer[0]
     return e["rsi"], e["rse"], e["code"]
 
@@ -358,7 +382,26 @@ def berechne(
         sequences = [{"name": "Hauptkonstruktion", "share": 1.0, "layers": layers}]
 
     anteile = [float(s.get("share", 1.0)) for s in sequences]
+    # Negative Anteile sind unphysikalisch und duerfen nie stillschweigend
+    # weitergerechnet werden — sie wuerden einen formal nicht belastbaren
+    # U-Wert erzeugen. Plan Phase 4.14.
+    if any(a < 0 for a in anteile):
+        erg.fehler.append(
+            f"Negativer Flaechenanteil in sequences[]: {anteile}. "
+            f"Anteile muessen >= 0 sein."
+        )
+        return erg
     if abs(sum(anteile) - 1.0) > 0.001:
+        # Summe ungleich 1: bei kleinen Abweichungen warnen, bei grossen
+        # (> 5 %) fehler, weil das Ergebnis dann nicht mehr belastbar ist.
+        abweichung = abs(sum(anteile) - 1.0)
+        if abweichung > 0.05:
+            erg.fehler.append(
+                f"Summe der Flaechenanteile ist {sum(anteile):.3f}, erwartet 1,0 "
+                f"(Abweichung {abweichung:.1%}). Das vereinfachte Verfahren "
+                f"liefert fuer diese Anteile kein belastbares Ergebnis."
+            )
+            return erg
         erg.warnungen.append(
             f"Summe der Flaechenanteile ist {sum(anteile):.3f}, erwartet 1,0"
         )

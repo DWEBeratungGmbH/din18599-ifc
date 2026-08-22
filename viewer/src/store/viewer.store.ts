@@ -1,4 +1,5 @@
 import { create } from 'zustand'
+import { applyScenario } from '../utils/scenarioMerge'
 
 // ============================================================================
 // DIN 18599 JSON Schema v2.1 - TypeScript Types
@@ -456,10 +457,19 @@ export const useViewerStore = create<ViewerState>((set, get) => ({
     
     // Szenario anwenden
     const scenario = state.project.scenarios?.find(s => s.id === state.activeScenario)
-    if (!scenario) return state.project
+    if (!scenario) {
+      // Unbekannte Szenario-ID: deterministisch auf Base zurueckfallen,
+      // statt die Basis als "angewendet" auszugeben. Frueher wurde hier
+      // stillschweigend state.project zurueckgegeben, obwohl das Szenario
+      // gar nicht existierte — die UI zeigte Basisdaten als Szenariodaten.
+      // Plan Phase 2.5.
+      return state.project
+    }
     
-    // Delta-Merge wird später mit applyScenario() implementiert
-    // Für jetzt: Base-Daten zurückgeben
-    return state.project
+    // Delta-Merge jetzt tatsaechlich ausfuehren. Vorher stand hier ein
+    // TODO-Stub, der fuer jedes Nicht-Base-Szenario die Basisdaten
+    // zurueckgab — Szenarien wurden in der UI also nie sichtbar.
+    // Plan Phase 2.5.
+    return applyScenario(state.project, scenario)
   },
 }))
