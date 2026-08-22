@@ -128,11 +128,36 @@
       "norm_cell": "GEG2024-A1-Z1.7",
       "value_pending": false,
       "u_value": 1.8
+    },
+    {
+      "code": "2",
+      "name_de": "Bauteile nach den Nummern 1.1 bis 1.7 — Waermebrueckenzuschlag",
+      "component_group": "global",
+      "quantity": "delta_u_wb",
+      "unit": "W/(m²K)",
+      "value_source": "legal_table",
+      "norm_cell": "GEG2024-A1-Z2",
+      "value_pending": false,
+      "delta_u_wb": 0.05,
+      "note": "Pauschaler Waermebrueckenzuschlag des Referenzgebaeudes, auf die Flaechensumme der Bauteile nach 1.1 bis 1.7 anzurechnen."
+    },
+    {
+      "code": "4",
+      "name_de": "Luftdichtheit der Gebaeudehuelle — Bemessungswert n50",
+      "component_group": "global",
+      "quantity": "airtightness",
+      "unit": "1/h",
+      "value_source": "legal_table",
+      "norm_cell": "GEG2024-A1-Z4",
+      "value_pending": true,
+      "n50_h": null,
+      "note": "Anlage 1 verweist auf DIN V 18599-2:2018-09 Kategorie I (mit Dichtheitspruefung) bzw. DIN V 4108-6:2003-06 (mit Dichtheitspruefung) statt einen Zahlenwert zu nennen. Der zugehoerige n50-Wert stammt aus der DIN und liegt im Werte-Overlay (urheberrechtsgeschuetzt). value_pending=true, bis der DIN-Wert belegt ist."
     }
   ],
 
   "open_points": [
     "Anlage 2 (Nichtwohngebaeude) fehlt vollstaendig — dort ist das Referenzgebaeude zonenweise definiert, die Zeilenstruktur ist eine andere. Eigener Katalog geg_reference_building_nwg.2024.json oder zusaetzliche applicability-Dimension.",
-    "Waermebrueckenzuschlag des Referenzgebaeudes (Anlage 1 Zeile 2: delta_U_WB = 0,05 W/(m2K)) und Luftdichtheit n50 (Anlage 1 Zeile 4: Kategorie I nach DIN V 18599-2:2018-09) sind noch nicht als Eintraege abgebildet, weil sie keine Bauteil-Zeilen sind. Fuer den GEG-Nachweis rechnerisch relevant — spaeter als zusaetzliche Eintraege mit quantity='delta_u_wb' bzw. 'airtightness' aufnehmen."
+    "n50-Wert (Anlage 1 Zeile 4) verweist auf DIN V 18599-2:2018-09 Kategorie I, ohne selbst eine Zahl zu nennen. Der zugehoerige n50-Wert stammt aus der DIN und bleibt urheberrechtsgeschuetzt im Werte-Overlay. Eintrag 4 traegt deshalb value_pending=true mit n50_h=null.",
+    "Anlage 1 Zeile 3 (solare Waermegewinne ueber opake Bauteile: 'wie das zu errichtende Gebaeude'), Zeile 5 (Sonnenschutzvorrichtung: 'keine'), Zeile 6 (Heizungsanlage), Zeile 7 (Warmwasserbereitung), Zeile 8 (Kuehlung), Zeile 9 (Lueftung) und Zeile 10 (Gebaeudeautomation) sind nicht als Eintraege abgebildet, weil sie keine Bauteil-Kennwerte sind, sondern Anlagen-/Nutzungsdefinitionen. Fuer einen vollstaendigen GEG-Nachweis sind sie spaeter als zusaetzliche quantity-Typen oder in einem separaten 'geg_reference_systems'-Katalog aufzunehmen."
   ]
 }

@@ -17,14 +17,14 @@
 
     "component_group": {
       "type": "string",
-      "enum": ["opaque", "transparent"],
-      "description": "Opake Bauteile tragen nur einen U-Wert, transparente zusaetzlich einen g-Wert."
+      "enum": ["opaque", "transparent", "global"],
+      "description": "Opake Bauteile tragen nur einen U-Wert, transparente zusaetzlich einen g-Wert. 'global' fuer gebaeudeweite Kennwerte ohne Bauteilbezug (delta_u_wb, n50)."
     },
 
     "quantity": {
       "type": "string",
-      "enum": ["u_value", "u_value_and_g_value"],
-      "description": "Welche Groessen diese Zeile vorgibt"
+      "enum": ["u_value", "u_value_and_g_value", "delta_u_wb", "airtightness"],
+      "description": "Welche Groessen diese Zeile vorgibt. u_value/u_value_and_g_value fuer Bauteil-Zeilen (1.1-1.7), delta_u_wb fuer pauschalen Waermebrueckenzuschlag (Anlage 1 Zeile 2), airtightness fuer n50 (Anlage 1 Zeile 4)."
     },
     "unit": { "type": "string" },
 
@@ -45,13 +45,23 @@
     "u_value": {
       "type": ["number", "null"],
       "minimum": 0,
-      "description": "U-Wert des Referenzbauteils [W/(m2K)]. null solange value_pending."
+      "description": "U-Wert des Referenzbauteils [W/(m2K)]. null solange value_pending. Pflicht bei quantity='u_value' oder 'u_value_and_g_value'."
     },
     "g_value": {
       "type": ["number", "null"],
       "minimum": 0,
       "maximum": 1,
       "description": "g-Wert, nur bei component_group='transparent'"
+    },
+    "delta_u_wb": {
+      "type": ["number", "null"],
+      "minimum": 0,
+      "description": "Pauschaler Waermebrueckenzuschlag [W/(m2K)]. Pflicht bei quantity='delta_u_wb'."
+    },
+    "n50_h": {
+      "type": ["number", "null"],
+      "minimum": 0,
+      "description": "Luftwechsel bei 50 Pa [1/h]. Pflicht bei quantity='airtightness'. Eintrag traegt entweder den Zahlenwert oder (wie Anlage 1 Zeile 4) einen Verweis auf eine DIN-Kategorie im 'note'-Feld."
     },
 
     "note": { "type": "string" }
@@ -60,12 +70,54 @@
   "allOf": [
     {
       "if": {
-        "properties": { "value_pending": { "const": false } },
-        "required": ["value_pending"]
+        "properties": {
+          "value_pending": { "const": false },
+          "quantity": { "const": "u_value" }
+        },
+        "required": ["value_pending", "quantity"]
       },
       "then": {
         "required": ["u_value"],
         "description": "Sobald der Eintrag als befuellt gilt, muss mindestens der U-Wert dastehen."
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "value_pending": { "const": false },
+          "quantity": { "const": "u_value_and_g_value" }
+        },
+        "required": ["value_pending", "quantity"]
+      },
+      "then": {
+        "required": ["u_value"],
+        "description": "Transparente Bauteile brauchen mindestens den U-Wert; g-Wert ist zusaetzlich."
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "value_pending": { "const": false },
+          "quantity": { "const": "delta_u_wb" }
+        },
+        "required": ["value_pending", "quantity"]
+      },
+      "then": {
+        "required": ["delta_u_wb"],
+        "description": "Waermebrueckenzuschlag-Eintrag muss delta_u_wb tragen."
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "value_pending": { "const": false },
+          "quantity": { "const": "airtightness" }
+        },
+        "required": ["value_pending", "quantity"]
+      },
+      "then": {
+        "required": ["n50_h"],
+        "description": "Luftdichtheits-Eintrag muss n50_h tragen (oder note verweist auf DIN-Kategorie, dann n50_h=null mit value_pending=true)."
       }
     }
   ]
