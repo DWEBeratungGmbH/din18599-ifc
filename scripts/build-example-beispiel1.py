@@ -109,8 +109,8 @@ TEST_OEFFNUNGEN = [
 ]
 
 GEG_ZEILE_NACH_TYP = {
-    "window": "2", "glazed_door": "2", "roof_window": "3",
-    "skylight": "4", "door": "5", "garage_door": "5",
+    "window": "1.4", "glazed_door": "1.4", "roof_window": "1.5",
+    "skylight": "1.6", "door": "1.7", "garage_door": "1.7",
 }
 
 

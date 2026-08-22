@@ -21,9 +21,9 @@
       "schema_version": "4.0.0",
       "checksum": {
         "algorithm": "sha256",
-        "value": "5772efe351fa5034ce2db11c8528cc05b6ed5088fd6a0826efac6e4f6b3594cc"
+        "value": "4504f7bf9ef8d925a0dd1558dcc798fc6a33c25c87523d0e70fa9d48456f1fe3"
       },
-      "size_bytes": 37696
+      "size_bytes": 37704
     }
   },
   "validation": {
